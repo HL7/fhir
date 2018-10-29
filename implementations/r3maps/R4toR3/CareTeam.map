@@ -1,33 +1,27 @@
 ﻿map "http://hl7.org/fhir/StructureMap/CareTeam4to3" = "R4 to R3 Conversion for CareTeam"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/CareTeam" alias CareTeam as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CareTeam" alias CareTeamR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group CareTeam extends DomainResource
-  input src : CareTeam as source
-  input tgt : CareTeamR3 as target
-
-  "CareTeam.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "CareTeam.status" : for src.status as vs make tgt.status as vt
-  "CareTeam.category" : for src.category as vs make tgt.category as vt
-  "CareTeam.name" : for src.name as vs make tgt.name as vt
-  "CareTeam.subject" : for src.subject as vs make tgt.subject as vt
-  "CareTeam.context" : for src.context as vs make tgt.context as vt
-  "CareTeam.period" : for src.period as vs make tgt.period as vt
-  "CareTeam.participant" : for src.participant as vs0 make tgt.participant as vt0 then {
-    "CareTeam.participant.role" : for vs0.role as vs make vt0.role as vt
-    "CareTeam.participant.member" : for vs0.member as vs make vt0.member as vt
-    "CareTeam.participant.onBehalfOf" : for vs0.onBehalfOf as vs make vt0.onBehalfOf as vt
-    "CareTeam.participant.period" : for vs0.period as vs make vt0.period as vt
-  }
-  "CareTeam.reasonCode" : for src.reasonCode as vs make tgt.reasonCode as vt
-  "CareTeam.reasonReference" : for src.reasonReference as vs make tgt.reasonReference as vt
-  "CareTeam.managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt
-  "CareTeam.note" : for src.note as vs make tgt.note as vt
-endgroup
+group CareTeam(source src : CareTeam, target tgt : CareTeamR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.name -> tgt.name;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.period -> tgt.period;
+  src.participant as vs0 -> tgt.participant as vt0 then {
+    vs0.role -> vt0.role;
+    vs0.member -> vt0.member;
+    vs0.onBehalfOf -> vt0.onBehalfOf;
+    vs0.period -> vt0.period;
+  };
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.note -> tgt.note;
+}
 

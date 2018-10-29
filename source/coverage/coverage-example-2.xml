@@ -51,8 +51,10 @@
 
 	<class>
 		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
-			<code value="group"/>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
+				<code value="group"/>
+			</coding>
 		</type>
 		<value value="WESTAIR"/>
 		<name value="Western Airlines"/>
@@ -60,8 +62,10 @@
 
 	<class>
 		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
-			<code value="plan"/>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
+				<code value="plan"/>
+			</coding>
 		</type>
 		<value value="BG4352"/>
 		<name value="Full Coverage: Medical, Dental, Pharmacy, Vision, EHC"/>
@@ -69,8 +73,10 @@
 
 	<class>
 		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
-			<code value="subplan"/>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
+				<code value="subplan"/>
+			</coding>
 		</type>
 		<value value="D15C9"/>
 		<name value="Platinum"/>
@@ -79,6 +85,31 @@
 	<order value="2"/> <!-- Second after the national medical coverage -->
 
 	<network value="5"/>
+
+	<costToBeneficiary>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/coverage-copay-type"/>
+				<code value="gpvisit"/> <!-- normally $40.00 -->
+			</coding>
+		</type>
+		<valueMoney>
+			<value value="20.00"/>
+			<currency value="USD"/>
+		</valueMoney>
+		<exception>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/ex-coverage-financial-exception"/>
+					<code value="retired"/>
+				</coding>
+			</type>
+			<period>
+				<start value="2018-01-01"/>
+				<end value="2018-12-31"/>
+			</period>
+		</exception>
+	</costToBeneficiary>
 
 	<contract>
 		<reference value="Contract/INS-101"/>

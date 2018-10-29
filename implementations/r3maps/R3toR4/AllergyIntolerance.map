@@ -1,42 +1,36 @@
 ﻿map "http://hl7.org/fhir/StructureMap/AllergyIntolerance3to4" = "R3 to R4 Conversions for AllergyIntolerance"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/AllergyIntolerance" alias AllergyIntoleranceR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntolerance as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group AllergyIntolerance extends DomainResource
-  input src : AllergyIntoleranceR3 as source
-  input tgt : AllergyIntolerance as target
-
-  "AllergyIntolerance.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "AllergyIntolerance.clinicalStatus" : for src.clinicalStatus as vs make tgt.clinicalStatus as vt
-  "AllergyIntolerance.verificationStatus" : for src.verificationStatus as vs make tgt.verificationStatus as vt
-  "AllergyIntolerance.type" : for src.type as vs make tgt.type as vt
-  "AllergyIntolerance.criticality" : for src.criticality as vs make tgt.criticality as vt
-  "AllergyIntolerance.code" : for src.code as vs make tgt.code as vt
-  "AllergyIntolerance.patient" : for src.patient as vs make tgt.patient as vt
-  "AllergyIntolerance.onset-dateTime" : for src.onset  : dateTime as vs make tgt.onset = create("dateTime") as vt then dateTime(vs,vt)
-  "AllergyIntolerance.onset-Age" : for src.onset  : Age as vs make tgt.onset = create("Age") as vt then Age(vs,vt)
-  "AllergyIntolerance.onset-Period" : for src.onset  : Period as vs make tgt.onset = create("Period") as vt then Period(vs,vt)
-  "AllergyIntolerance.onset-Range" : for src.onset  : Range as vs make tgt.onset = create("Range") as vt then Range(vs,vt)
-  "AllergyIntolerance.onset-string" : for src.onset  : string as vs make tgt.onset = create("string") as vt then string(vs,vt)
-  "AllergyIntolerance.recordedDate" : for src.assertedDate as vs make tgt.recordedDate as vt
-  "AllergyIntolerance.recorder" : for src.recorder as vs make tgt.recorder as vt
-  "AllergyIntolerance.asserter" : for src.asserter as vs make tgt.asserter as vt
-  "AllergyIntolerance.lastOccurrence" : for src.lastOccurrence as vs make tgt.lastOccurrence as vt
-  "AllergyIntolerance.note" : for src.note as vs make tgt.note as vt
-  "AllergyIntolerance.reaction" : for src.reaction as vs0 make tgt.reaction as vt0 then {
-    "AllergyIntolerance.reaction.substance" : for vs0.substance as vs make vt0.substance as vt
-    "AllergyIntolerance.reaction.manifestation" : for vs0.manifestation as vs make vt0.manifestation as vt
-    "AllergyIntolerance.reaction.description" : for vs0.description as vs make vt0.description as vt
-    "AllergyIntolerance.reaction.onset" : for vs0.onset as vs make vt0.onset as vt
-    "AllergyIntolerance.reaction.severity" : for vs0.severity as vs make vt0.severity as vt
-    "AllergyIntolerance.reaction.exposureRoute" : for vs0.exposureRoute as vs make vt0.exposureRoute as vt
-    "AllergyIntolerance.reaction.note" : for vs0.note as vs make vt0.note as vt
-  }
-endgroup
+group AllergyIntolerance(source src : AllergyIntoleranceR3, target tgt : AllergyIntolerance) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.clinicalStatus -> tgt.clinicalStatus;
+  src.verificationStatus -> tgt.verificationStatus;
+  src.type -> tgt.type;
+  src.criticality -> tgt.criticality;
+  src.code -> tgt.code;
+  src.patient -> tgt.patient;
+  src.onset : dateTime as vs -> tgt.onset = create("dateTime") as vt then dateTime(vs, vt);
+  src.onset : Age as vs -> tgt.onset = create("Age") as vt then Age(vs, vt);
+  src.onset : Period as vs -> tgt.onset = create("Period") as vt then Period(vs, vt);
+  src.onset : Range as vs -> tgt.onset = create("Range") as vt then Range(vs, vt);
+  src.onset : string as vs -> tgt.onset = create("string") as vt then string(vs, vt);
+  src.assertedDate -> tgt.recordedDate "recordedDate";
+  src.recorder -> tgt.recorder;
+  src.asserter -> tgt.asserter;
+  src.lastOccurrence -> tgt.lastOccurrence;
+  src.note -> tgt.note;
+  src.reaction as vs0 -> tgt.reaction as vt0 then {
+    vs0.substance -> vt0.substance;
+    vs0.manifestation -> vt0.manifestation;
+    vs0.description -> vt0.description;
+    vs0.onset -> vt0.onset;
+    vs0.severity -> vt0.severity;
+    vs0.exposureRoute -> vt0.exposureRoute;
+    vs0.note -> vt0.note;
+  };
+}
 

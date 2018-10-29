@@ -1,46 +1,40 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Condition3to4" = "R3 to R4 Conversions for Condition"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Condition" alias ConditionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group Condition extends DomainResource
-  input src : ConditionR3 as source
-  input tgt : Condition as target
-
-  "Condition.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Condition.clinicalStatus" : for src.clinicalStatus as vs make tgt.clinicalStatus as vt
-  "Condition.verificationStatus" : for src.verificationStatus as vs make tgt.verificationStatus as vt
-  "Condition.category" : for src.category as vs make tgt.category as vt
-  "Condition.severity" : for src.severity as vs make tgt.severity as vt
-  "Condition.code" : for src.code as vs make tgt.code as vt
-  "Condition.bodySite" : for src.bodySite as vs make tgt.bodySite as vt
-  "Condition.subject" : for src.subject as vs make tgt.subject as vt
-  "Condition.context" : for src.context as vs make tgt.context as vt
-  "Condition.onset-dateTime" : for src.onset  : dateTime as vs make tgt.onset = create("dateTime") as vt then dateTime(vs,vt)
-  "Condition.onset-Age" : for src.onset  : Age as vs make tgt.onset = create("Age") as vt then Age(vs,vt)
-  "Condition.onset-Period" : for src.onset  : Period as vs make tgt.onset = create("Period") as vt then Period(vs,vt)
-  "Condition.onset-Range" : for src.onset  : Range as vs make tgt.onset = create("Range") as vt then Range(vs,vt)
-  "Condition.onset-string" : for src.onset  : string as vs make tgt.onset = create("string") as vt then string(vs,vt)
-  "Condition.abatement-dateTime" : for src.abatement  : dateTime as vs make tgt.abatement = create("dateTime") as vt then dateTime(vs,vt)
-  "Condition.abatement-Age" : for src.abatement  : Age as vs make tgt.abatement = create("Age") as vt then Age(vs,vt)
-  "Condition.abatement-Period" : for src.abatement  : Period as vs make tgt.abatement = create("Period") as vt then Period(vs,vt)
-  "Condition.abatement-Range" : for src.abatement  : Range as vs make tgt.abatement = create("Range") as vt then Range(vs,vt)
-  "Condition.abatement-string" : for src.abatement  : string as vs make tgt.abatement = create("string") as vt then string(vs,vt)
-  "Condition.recordedDate" : for src.assertedDate as vs make tgt.recordedDate as vt
-  "Condition.asserter" : for src.asserter as vs make tgt.asserter as vt
-  "Condition.stage" : for src.stage as vs0 make tgt.stage as vt0 then {
-    "Condition.stage.summary" : for vs0.summary as vs make vt0.summary as vt
-    "Condition.stage.assessment" : for vs0.assessment as vs make vt0.assessment as vt
-  }
-  "Condition.evidence" : for src.evidence as vs0 make tgt.evidence as vt0 then {
-    "Condition.evidence.code" : for vs0.code as vs make vt0.code as vt
-    "Condition.evidence.detail" : for vs0.detail as vs make vt0.detail as vt
-  }
-  "Condition.note" : for src.note as vs make tgt.note as vt
-endgroup
+group Condition(source src : ConditionR3, target tgt : Condition) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.clinicalStatus -> tgt.clinicalStatus;
+  src.verificationStatus -> tgt.verificationStatus;
+  src.category -> tgt.category;
+  src.severity -> tgt.severity;
+  src.code -> tgt.code;
+  src.bodySite -> tgt.bodySite;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.onset : dateTime as vs -> tgt.onset = create("dateTime") as vt then dateTime(vs, vt);
+  src.onset : Age as vs -> tgt.onset = create("Age") as vt then Age(vs, vt);
+  src.onset : Period as vs -> tgt.onset = create("Period") as vt then Period(vs, vt);
+  src.onset : Range as vs -> tgt.onset = create("Range") as vt then Range(vs, vt);
+  src.onset : string as vs -> tgt.onset = create("string") as vt then string(vs, vt);
+  src.abatement : dateTime as vs -> tgt.abatement = create("dateTime") as vt then dateTime(vs, vt);
+  src.abatement : Age as vs -> tgt.abatement = create("Age") as vt then Age(vs, vt);
+  src.abatement : Period as vs -> tgt.abatement = create("Period") as vt then Period(vs, vt);
+  src.abatement : Range as vs -> tgt.abatement = create("Range") as vt then Range(vs, vt);
+  src.abatement : string as vs -> tgt.abatement = create("string") as vt then string(vs, vt);
+  src.assertedDate -> tgt.recordedDate "recordedDate";
+  src.asserter -> tgt.asserter;
+  src.stage as vs0 -> tgt.stage as vt0 then {
+    vs0.summary -> vt0.summary;
+    vs0.assessment -> vt0.assessment;
+  };
+  src.evidence as vs0 -> tgt.evidence as vt0 then {
+    vs0.code -> vt0.code;
+    vs0.detail -> vt0.detail;
+  };
+  src.note -> tgt.note;
+}
 

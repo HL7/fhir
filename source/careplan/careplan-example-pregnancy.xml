@@ -91,7 +91,7 @@
   <contained>
     <Goal>
       <id value="goal"/>
-      <status value="in-progress"/>
+      <lifecycleStatus value="active" />
       <description>
         <text value="Maintain patient's health throughout pregnancy and ensure a healthy child"/>
       </description>

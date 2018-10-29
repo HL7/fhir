@@ -1,24 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/BodyStructure3to4" = "R3 to R4 Conversions for BodyStructure"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/BodyStructure" alias BodyStructureR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/BodyStructure" alias BodyStructure as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group BodyStructure extends DomainResource
-  input src : BodyStructureR3 as source
-  input tgt : BodyStructure as target
-
-  "BodyStructure.identifier": for src.identifier make tgt.identifier
-  "BodyStructure.active": for src.active make tgt.active
-  "BodyStructure.morphology": for src.morphology make tgt.morphology
-  "BodyStructure.location": for src.location make tgt.location
-  "BodyStructure.locationQualifier": for src.locationQualifier make tgt.locationQualifier
-  "BodyStructure.description": for src.description make tgt.description
-  "BodyStructure.image": for src.image make tgt.image
-  "BodyStructure.patient": for src.patient make tgt.patient
-endgroup
+group BodyStructure(source src : BodyStructureR3, target tgt : BodyStructure) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.morphology -> tgt.morphology;
+  src.location -> tgt.location;
+  src.locationQualifier -> tgt.locationQualifier;
+  src.description -> tgt.description;
+  src.image -> tgt.image;
+  src.patient -> tgt.patient;
+}
 

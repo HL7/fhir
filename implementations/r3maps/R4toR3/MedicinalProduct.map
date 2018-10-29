@@ -1,85 +1,65 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicinalProduct4to3" = "R4 to R3 Conversion for MedicinalProduct"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/MedicinalProduct" alias MedicinalProduct as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProduct" alias MedicinalProductR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group MedicinalProduct(source src : MedicinalProductR3, target tgt : MedicinalProduct) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.domain -> tgt.domain;
+  src.combinedPharmaceuticalDoseForm -> tgt.combinedPharmaceuticalDoseForm;
+  src.additionalMonitoringIndicator -> tgt.additionalMonitoringIndicator;
+  src.specialMeasures -> tgt.specialMeasures;
+  src.paediatricUseIndicator -> tgt.paediatricUseIndicator;
+  src.productClassification -> tgt.productClassification;
+  src.marketingAuthorization -> tgt.marketingAuthorization;
+  src.packagedMedicinalProduct -> tgt.packagedMedicinalProduct;
+  src.pharmaceuticalProduct -> tgt.pharmaceuticalProduct;
+  src.clinicalParticulars -> tgt.clinicalParticulars;
+  src.attachedDocument -> tgt.attachedDocument;
+  src.masterFile -> tgt.masterFile;
+  src.contact -> tgt.contact;
+  src.clinicalTrial -> tgt.clinicalTrial;
+  src.name as s -> tgt.name as t then MedicinalProductName(s, t);
+  src.crossReference -> tgt.crossReference;
+  src.manufacturingBusinessOperation as s -> tgt.manufacturingBusinessOperation as t then MedicinalProductManufacturingBusinessOperation(s, t);
+  src.orphanDesignation as s -> tgt.orphanDesignation as t then MedicinalProductOrphanDesignation(s, t);
+}
 
+group MedicinalProductName(source src : MedicinalProductR3, target tgt : MedicinalProduct) extends BackboneElement <<type+>> {
+  src.fullName -> tgt.fullName;
+  src.namePart as s -> tgt.namePart as t then MedicinalProductNameNamePart(s, t);
+  src.countryLanguage as s -> tgt.countryLanguage as t then MedicinalProductNameCountryLanguage(s, t);
+}
 
-group MedicinalProduct extends DomainResource
-  input src : MedicinalProductR3 as source
-  input tgt : MedicinalProduct as target
+group MedicinalProductNameNamePart(source src : MedicinalProductR3, target tgt : MedicinalProduct) extends BackboneElement <<type+>> {
+  src.part -> tgt.part;
+  src.type -> tgt.type;
+}
 
-  "MedicinalProduct.identifier": for src.identifier make tgt.identifier
-  "MedicinalProduct.type": for src.type make tgt.type
-  "MedicinalProduct.domain": for src.domain make tgt.domain
-  "MedicinalProduct.combinedPharmaceuticalDoseForm": for src.combinedPharmaceuticalDoseForm make tgt.combinedPharmaceuticalDoseForm
-  "MedicinalProduct.additionalMonitoringIndicator": for src.additionalMonitoringIndicator make tgt.additionalMonitoringIndicator
-  "MedicinalProduct.specialMeasures": for src.specialMeasures make tgt.specialMeasures
-  "MedicinalProduct.paediatricUseIndicator": for src.paediatricUseIndicator make tgt.paediatricUseIndicator
-  "MedicinalProduct.productClassification": for src.productClassification make tgt.productClassification
-  "MedicinalProduct.marketingAuthorization": for src.marketingAuthorization make tgt.marketingAuthorization
-  "MedicinalProduct.packagedMedicinalProduct": for src.packagedMedicinalProduct make tgt.packagedMedicinalProduct
-  "MedicinalProduct.pharmaceuticalProduct": for src.pharmaceuticalProduct make tgt.pharmaceuticalProduct
-  "MedicinalProduct.clinicalParticulars": for src.clinicalParticulars make tgt.clinicalParticulars
-  "MedicinalProduct.attachedDocument": for src.attachedDocument make tgt.attachedDocument
-  "MedicinalProduct.masterFile": for src.masterFile make tgt.masterFile
-  "MedicinalProduct.contact": for src.contact make tgt.contact
-  "MedicinalProduct.clinicalTrial": for src.clinicalTrial make tgt.clinicalTrial
-  "MedicinalProduct.name": for src.name as s make tgt.name as t then MedicinalProductName(s,t)
-  "MedicinalProduct.crossReference": for src.crossReference make tgt.crossReference
-  "MedicinalProduct.manufacturingBusinessOperation": for src.manufacturingBusinessOperation as s make tgt.manufacturingBusinessOperation as t then MedicinalProductManufacturingBusinessOperation(s,t)
-  "MedicinalProduct.orphanDesignation": for src.orphanDesignation as s make tgt.orphanDesignation as t then MedicinalProductOrphanDesignation(s,t)
-endgroup
+group MedicinalProductNameCountryLanguage(source src : MedicinalProductR3, target tgt : MedicinalProduct) extends BackboneElement <<type+>> {
+  src.country -> tgt.country;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.language -> tgt.language;
+}
 
-group MedicinalProductName extends BackboneElement
-  input src : MedicinalProductR3 as source
-  input tgt : MedicinalProduct as target
+group MedicinalProductManufacturingBusinessOperation(source src : MedicinalProductR3, target tgt : MedicinalProduct) extends BackboneElement <<type+>> {
+  src.operationType -> tgt.operationType;
+  src.authorisationReferenceNumber -> tgt.authorisationReferenceNumber;
+  src.effectiveDate -> tgt.effectiveDate;
+  src.confidentialityIndicator -> tgt.confidentialityIndicator;
+  src.manufacturer -> tgt.manufacturer;
+  src.regulator -> tgt.regulator;
+}
 
-  "MedicinalProduct.name.fullName": for src.fullName make tgt.fullName
-  "MedicinalProduct.name.namePart": for src.namePart as s make tgt.namePart as t then MedicinalProductNameNamePart(s,t)
-  "MedicinalProduct.name.countryLanguage": for src.countryLanguage as s make tgt.countryLanguage as t then MedicinalProductNameCountryLanguage(s,t)
-endgroup
+group MedicinalProductOrphanDesignation(source src : MedicinalProductR3, target tgt : MedicinalProduct) extends BackboneElement <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.intendedUse -> tgt.intendedUse;
+  src.indication -> tgt.indication;
+  src.status -> tgt.status;
+  src.date -> tgt.date;
+  src.species -> tgt.species;
+}
 
-group MedicinalProductNameNamePart extends BackboneElement
-  input src : MedicinalProductR3 as source
-  input tgt : MedicinalProduct as target
-
-  "MedicinalProduct.name.namePart.part": for src.part make tgt.part
-  "MedicinalProduct.name.namePart.type": for src.type make tgt.type
-endgroup
-
-group MedicinalProductNameCountryLanguage extends BackboneElement
-  input src : MedicinalProductR3 as source
-  input tgt : MedicinalProduct as target
-
-  "MedicinalProduct.name.countryLanguage.country": for src.country make tgt.country
-  "MedicinalProduct.name.countryLanguage.jurisdiction": for src.jurisdiction make tgt.jurisdiction
-  "MedicinalProduct.name.countryLanguage.language": for src.language make tgt.language
-endgroup
-
-group MedicinalProductManufacturingBusinessOperation extends BackboneElement
-  input src : MedicinalProductR3 as source
-  input tgt : MedicinalProduct as target
-
-  "MedicinalProduct.manufacturingBusinessOperation.operationType": for src.operationType make tgt.operationType
-  "MedicinalProduct.manufacturingBusinessOperation.authorisationReferenceNumber": for src.authorisationReferenceNumber make tgt.authorisationReferenceNumber
-  "MedicinalProduct.manufacturingBusinessOperation.effectiveDate": for src.effectiveDate make tgt.effectiveDate
-  "MedicinalProduct.manufacturingBusinessOperation.confidentialityIndicator": for src.confidentialityIndicator make tgt.confidentialityIndicator
-  "MedicinalProduct.manufacturingBusinessOperation.manufacturer": for src.manufacturer make tgt.manufacturer
-  "MedicinalProduct.manufacturingBusinessOperation.regulator": for src.regulator make tgt.regulator
-endgroup
-
-group MedicinalProductOrphanDesignation extends BackboneElement
-  input src : MedicinalProductR3 as source
-  input tgt : MedicinalProduct as target
-
-  "MedicinalProduct.orphanDesignation.identifier": for src.identifier make tgt.identifier
-  "MedicinalProduct.orphanDesignation.intendedUse": for src.intendedUse make tgt.intendedUse
-  "MedicinalProduct.orphanDesignation.indication": for src.indication make tgt.indication
-  "MedicinalProduct.orphanDesignation.status": for src.status make tgt.status
-  "MedicinalProduct.orphanDesignation.date": for src.date make tgt.date
-  "MedicinalProduct.orphanDesignation.species": for src.species make tgt.species
-endgroup

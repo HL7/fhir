@@ -1,23 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EnrollmentResponse4to3" = "R4 to R3 Conversion for EnrollmentResponse"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/EnrollmentResponse" alias EnrollmentResponse as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EnrollmentResponse" alias EnrollmentResponseR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group EnrollmentResponse(source src : EnrollmentResponseR3, target tgt : EnrollmentResponse) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.request -> tgt.request;
+  src.outcome -> tgt.outcome;
+  src.disposition -> tgt.disposition;
+  src.created -> tgt.created;
+  src.organization -> tgt.organization;
+  src.requestProvider -> tgt.requestProvider;
+}
 
-
-group EnrollmentResponse extends DomainResource
-  input src : EnrollmentResponseR3 as source
-  input tgt : EnrollmentResponse as target
-
-  "EnrollmentResponse.identifier": for src.identifier make tgt.identifier
-  "EnrollmentResponse.status": for src.status make tgt.status
-  "EnrollmentResponse.request": for src.request make tgt.request
-  "EnrollmentResponse.outcome": for src.outcome make tgt.outcome
-  "EnrollmentResponse.disposition": for src.disposition make tgt.disposition
-  "EnrollmentResponse.created": for src.created make tgt.created
-  "EnrollmentResponse.organization": for src.organization make tgt.organization
-  "EnrollmentResponse.requestProvider": for src.requestProvider make tgt.requestProvider
-endgroup

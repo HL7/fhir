@@ -49,6 +49,7 @@ import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Timing.EventTiming;
 import org.hl7.fhir.dstu3.model.UsageContext;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities;
 
 public class VersionConvertor_14_30 {
 
@@ -7235,6 +7236,10 @@ public class VersionConvertor_14_30 {
 /*    if (src instanceof org.hl7.fhir.dstu3.model.VisionPrescription)
       return convertVisionPrescription((org.hl7.fhir.dstu3.model.VisionPrescription) src);*/
     throw new FHIRException("Unknown resource "+src.fhirType());
+  }
+
+  public static boolean convertsResource(String rt) {
+    return Utilities.existsInList(rt, "Parameters", "Bundle", "CodeSystem", "CompartmentDefinition", "ConceptMap", "CapabilityStatement", "DataElement", "ImplementationGuide", "NamingSystem", "OperationDefinition", "OperationOutcome", "Questionnaire", "QuestionnaireResponse", "SearchParameter", "StructureDefinition", "TestScript", "ValueSet");
   }
 
 

@@ -18,7 +18,7 @@
                <display value="Salicyclic Acid (substance)"/>
             </coding>
          </itemCodeableConcept>
-         <amount>
+         <strength>
             <numerator>
                <value value="5"/>
                <system value="http://unitsofmeasure.org"/>
@@ -29,7 +29,7 @@
                <system value="http://unitsofmeasure.org"/>
                <code value="g"/>
             </denominator>
-         </amount>
+         </strength>
       </ingredient>
       <ingredient>
          <itemCodeableConcept>
@@ -39,7 +39,7 @@
                <display value="Hydrocortisone (substance)"/>
             </coding>
          </itemCodeableConcept>
-         <amount>
+         <strength>
             <numerator>
                <value value="1"/>
                <system value="http://unitsofmeasure.org"/>
@@ -50,7 +50,7 @@
                <system value="http://unitsofmeasure.org"/>
                <code value="g"/>
             </denominator>
-         </amount>
+         </strength>
       </ingredient>
       <ingredient>
          <itemCodeableConcept>
@@ -60,7 +60,7 @@
                <display value="White Petrolatum (substance)"/>
             </coding>
          </itemCodeableConcept>
-         <amount>
+         <strength>
             <numerator>
                <value value="94"/>
                <system value="http://unitsofmeasure.org"/>
@@ -71,7 +71,7 @@
                <system value="http://unitsofmeasure.org"/>
                <code value="g"/>
             </denominator>
-         </amount>
+         </strength>
       </ingredient>
    
 </Medication>

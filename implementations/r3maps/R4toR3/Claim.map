@@ -14,28 +14,23 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Claim" alias ClaimR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group Claim extends DomainResource
-  input src : Claim as source
-  input tgt : ClaimR3 as target
-
-  "Claim.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Claim.status" : for src.status as vs make tgt.status as vt
-  "Claim.type" : for src.type as vs make tgt.type as vt
-  "Claim.subType" : for src.subType as vs make tgt.subType as vt
-  "Claim.use" : for src.use as v make tgt.use = translate(v, "#Use", "code")
-  "Claim.patient" : for src.patient as vs make tgt.patient as vt
-  "Claim.billablePeriod" : for src.billablePeriod as vs make tgt.billablePeriod as vt
-  "Claim.created" : for src.created as vs make tgt.created as vt
-  "Claim.enterer" : for src.enterer as vs make tgt.enterer as vt
-  "Claim.insurer" : for src.insurer as vs make tgt.insurer as vt
-  "Claim.provider" : for src.provider as vs make tgt.provider as vt
-  "Claim.fundsReserve" : for src.fundsReserve as vs make tgt.fundsReserve as vt
-  "Claim.prescription" : for src.prescription as vs make tgt.prescription as vt
-  "Claim.originalPrescription" : for src.originalPrescription as vs make tgt.originalPrescription as vt
-  "Claim.referral" : for src.referral as vs make tgt.referral as vt
-  "Claim.facility" : for src.facility as vs make tgt.facility as vt
-  "Claim.total" : for src.total as vs make tgt.total as vt
-endgroup
+group Claim(source src : Claim, target tgt : ClaimR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.subType -> tgt.subType;
+  src.use as v -> tgt.use = translate(v, "#Use", "code");
+  src.patient -> tgt.patient;
+  src.billablePeriod -> tgt.billablePeriod;
+  src.created -> tgt.created;
+  src.enterer -> tgt.enterer;
+  src.insurer -> tgt.insurer;
+  src.provider -> tgt.provider;
+  src.fundsReserve -> tgt.fundsReserve;
+  src.prescription -> tgt.prescription;
+  src.originalPrescription -> tgt.originalPrescription;
+  src.referral -> tgt.referral;
+  src.facility -> tgt.facility;
+  src.total -> tgt.total;
+}
 

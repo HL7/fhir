@@ -1,70 +1,74 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Observation4to3" = "R4 to R3 Conversion for Observation"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Observation" alias Observation as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Observation" alias ObservationR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group Observation(source src : Observation, target tgt : ObservationR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.context;
+  src.effective : dateTime as vs -> tgt.effective = create("dateTime") as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create("Period") as vt then Period(vs, vt);
+  src.issued -> tgt.issued;
+  src.performer -> tgt.performer;
+  src.value : Quantity as vs -> tgt.value = create("Quantity") as vt then Quantity(vs, vt);
+  src.value : CodeableConcept as vs -> tgt.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+  src.value : string as vs -> tgt.value = create("string") as vt then string(vs, vt);
+  src.value : boolean as vs -> tgt.value = create("boolean") as vt then boolean(vs, vt);
+  src.value : Range as vs -> tgt.value = create("Range") as vt then Range(vs, vt);
+  src.value : Ratio as vs -> tgt.value = create("Ratio") as vt then Ratio(vs, vt);
+  src.value : SampledData as vs -> tgt.value = create("SampledData") as vt then SampledData(vs, vt);
+  src.value : time as vs -> tgt.value = create("time") as vt then time(vs, vt);
+  src.value : dateTime as vs -> tgt.value = create("dateTime") as vt then dateTime(vs, vt);
+  src.value : Period as vs -> tgt.value = create("Period") as vt then Period(vs, vt);
+  src.dataAbsentReason -> tgt.dataAbsentReason;
+  src.interpretation -> tgt.interpretation;
+  src.note first as vs0 -> tgt.comment as vt0 then Annotation2string(vs0, vt0);
+  src.bodySite -> tgt.bodySite;
+  src.method -> tgt.method;
+  src.specimen -> tgt.specimen;
+  src.device -> tgt.device;
+  src.referenceRange as vs0 -> tgt.referenceRange as vt0 then referenceRange(vs0, vt0);
+  src.hasMember as vs0 -> tgt.related as vt0, vt0.type = 'has-member', vt0.target as vt2 then Reference(vs0, vt2);
+  src.derivedFrom as vs0 -> tgt.related as vt0, vt0.type = 'derived-from', vt0.target as vt2 then Reference(vs0, vt2);
+  src.extension as vs0 where url = 'http://hl7.org/fhir/StructureDefinition/X34-obs-sequelTo' -> tgt.related as rel, rel.type = 'sequel-to', rel.target as vt0 then relatedExt(vs0, vt0) "related3";
+  src.extension as vs0 where url = 'http://hl7.org/fhir/StructureDefinition/X34-obs-replaces' -> tgt.related as rel, rel.type = 'replaces', rel.target as vt0 then relatedExt(vs0, vt0) "related4";
+  src.extension as vs0 where url = 'http://hl7.org/fhir/StructureDefinition/X34-obs-qualifiedBy' -> tgt.related as rel, rel.type = 'qualifiedBy', rel.target as vt0 then relatedExt(vs0, vt0) "related5";
+  src.extension as vs0 where url = 'http://hl7.org/fhir/StructureDefinition/X34-obs-interferedBy' -> tgt.related as rel, rel.type = 'interfered-by', rel.target as vt0 then relatedExt(vs0, vt0) "related6";
+  src.component as vs0 -> tgt.component as vt0 then component(vs0, vt0);
+}
 
+group relatedExt(source src, target tgt) {
+  src.value : Reference as vs0 then Reference(vs0, tgt);
+}
 
-group Observation extends DomainResource
-  input src : Observation as source
-  input tgt : ObservationR3 as target
+group referenceRange(source src, target tgt) extends BackboneElement {
+  src.low -> tgt.low;
+  src.high -> tgt.high;
+  src.type -> tgt.type;
+  src.appliesTo -> tgt.appliesTo;
+  src.age -> tgt.age;
+  src.text -> tgt.text;
+}
 
-  "Observation.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Observation.basedOn" : for src.basedOn as vs make tgt.basedOn as vt
-  "Observation.status" : for src.status as vs make tgt.status as vt
-  "Observation.category" : for src.category as vs make tgt.category as vt
-  "Observation.code" : for src.code as vs make tgt.code as vt
-  "Observation.subject" : for src.subject as vs make tgt.subject as vt
-  "Observation.context" : for src.context as vs make tgt.context as vt
-  "Observation.effective-dateTime" : for src.effective  : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
-  "Observation.effective-Period" : for src.effective  : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
-  "Observation.issued" : for src.issued as vs make tgt.issued as vt
-  "Observation.performer" : for src.performer as vs make tgt.performer as vt
-  "Observation.value-Quantity" : for src.value  : Quantity as vs make tgt.value = create("Quantity") as vt then Quantity(vs,vt)
-  "Observation.value-CodeableConcept" : for src.value  : CodeableConcept as vs make tgt.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "Observation.value-string" : for src.value  : string as vs make tgt.value = create("string") as vt then string(vs,vt)
-  "Observation.value-boolean" : for src.value  : boolean as vs make tgt.value = create("boolean") as vt then boolean(vs,vt)
-  "Observation.value-Range" : for src.value  : Range as vs make tgt.value = create("Range") as vt then Range(vs,vt)
-  "Observation.value-Ratio" : for src.value  : Ratio as vs make tgt.value = create("Ratio") as vt then Ratio(vs,vt)
-  "Observation.value-SampledData" : for src.value  : SampledData as vs make tgt.value = create("SampledData") as vt then SampledData(vs,vt)
-  "Observation.value-time" : for src.value  : time as vs make tgt.value = create("time") as vt then time(vs,vt)
-  "Observation.value-dateTime" : for src.value  : dateTime as vs make tgt.value = create("dateTime") as vt then dateTime(vs,vt)
-  "Observation.value-Period" : for src.value  : Period as vs make tgt.value = create("Period") as vt then Period(vs,vt)
-  "Observation.dataAbsentReason" : for src.dataAbsentReason as vs make tgt.dataAbsentReason as vt
-  "Observation.interpretation" : for src.interpretation as vs make tgt.interpretation as vt
-  "Observation.comment" : for src.comment as vs make tgt.comment as vt
-  "Observation.bodySite" : for src.bodySite as vs make tgt.bodySite as vt
-  "Observation.method" : for src.method as vs make tgt.method as vt
-  "Observation.specimen" : for src.specimen as vs make tgt.specimen as vt
-  "Observation.device" : for src.device as vs make tgt.device as vt
-  "Observation.referenceRange" : for src.referenceRange as vs0 make tgt.referenceRange as vt0 then {
-    "Observation.referenceRange.low" : for vs0.low as vs make vt0.low as vt
-    "Observation.referenceRange.high" : for vs0.high as vs make vt0.high as vt
-    "Observation.referenceRange.type" : for vs0.type as vs make vt0.type as vt
-    "Observation.referenceRange.appliesTo" : for vs0.appliesTo as vs make vt0.appliesTo as vt
-    "Observation.referenceRange.age" : for vs0.age as vs make vt0.age as vt
-    "Observation.referenceRange.text" : for vs0.text as vs make vt0.text as vt
-  }
-  "Observation.related" : for src.hasMember as vs0 make tgt.related as vt0 then {
-  }
-  "Observation.related" : for src.derivedFrom as vs0 make tgt.related as vt0 then {
-  }
-  "Observation.component" : for src.component as vs0 make tgt.component as vt0 then {
-    "Observation.component.code" : for vs0.code as vs make vt0.code as vt
-    "Observation.component.value-Quantity" : for vs0.value  : Quantity as vs make vt0.value = create("Quantity") as vt then Quantity(vs,vt)
-    "Observation.component.value-CodeableConcept" : for vs0.value  : CodeableConcept as vs make vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "Observation.component.value-string" : for vs0.value  : string as vs make vt0.value = create("string") as vt then string(vs,vt)
-    "Observation.component.value-Range" : for vs0.value  : Range as vs make vt0.value = create("Range") as vt then Range(vs,vt)
-    "Observation.component.value-Ratio" : for vs0.value  : Ratio as vs make vt0.value = create("Ratio") as vt then Ratio(vs,vt)
-    "Observation.component.value-SampledData" : for vs0.value  : SampledData as vs make vt0.value = create("SampledData") as vt then SampledData(vs,vt)
-    "Observation.component.value-time" : for vs0.value  : time as vs make vt0.value = create("time") as vt then time(vs,vt)
-    "Observation.component.value-dateTime" : for vs0.value  : dateTime as vs make vt0.value = create("dateTime") as vt then dateTime(vs,vt)
-    "Observation.component.value-Period" : for vs0.value  : Period as vs make vt0.value = create("Period") as vt then Period(vs,vt)
-    "Observation.component.dataAbsentReason" : for vs0.dataAbsentReason as vs make vt0.dataAbsentReason as vt
-    "Observation.component.interpretation" : for vs0.interpretation as vs make vt0.interpretation as vt
-  }
-endgroup
-
+group component(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.value : Quantity as vs -> tgt.value = create("Quantity") as vt then Quantity(vs, vt);
+  src.value : CodeableConcept as vs -> tgt.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+  src.value : string as vs -> tgt.value = create("string") as vt then string(vs, vt);
+  src.value : Range as vs -> tgt.value = create("Range") as vt then Range(vs, vt);
+  src.value : Ratio as vs -> tgt.value = create("Ratio") as vt then Ratio(vs, vt);
+  src.value : SampledData as vs -> tgt.value = create("SampledData") as vt then SampledData(vs, vt);
+  src.value : time as vs -> tgt.value = create("time") as vt then time(vs, vt);
+  src.value : dateTime as vs -> tgt.value = create("dateTime") as vt then dateTime(vs, vt);
+  src.value : Period as vs -> tgt.value = create("Period") as vt then Period(vs, vt);
+  src.dataAbsentReason -> tgt.dataAbsentReason;
+  src.interpretation -> tgt.interpretation;
+  src.referenceRange as vs0 -> tgt.referenceRange as vt0 then referenceRange(vs0, vt0);
+}

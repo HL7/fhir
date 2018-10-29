@@ -296,13 +296,13 @@ public class Element extends Base {
 	
   @Override
   public Base setProperty(int hash, String name, Base value) throws FHIRException {
-    if (isPrimitive() && (hash == "value".hashCode())) {
-      this.value = castToString(value).asStringValue();
-      return this;
-    }
     if ("xhtml".equals(getType()) && (hash == "value".hashCode())) {
       this.xhtml = castToXhtml(value);
       this.value =  castToXhtmlString(value);
+      return this;
+    }
+    if (isPrimitive() && (hash == "value".hashCode())) {
+      this.value = castToString(value).asStringValue();
       return this;
     }
     

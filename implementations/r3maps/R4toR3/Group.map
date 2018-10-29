@@ -1,37 +1,31 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Group4to3" = "R4 to R3 Conversion for Group"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Group" alias Group as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Group" alias GroupR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group Group extends DomainResource
-  input src : Group as source
-  input tgt : GroupR3 as target
-
-  "Group.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Group.active" : for src.active as vs make tgt.active as vt
-  "Group.type" : for src.type as vs make tgt.type as vt
-  "Group.actual" : for src.actual as vs make tgt.actual as vt
-  "Group.code" : for src.code as vs make tgt.code as vt
-  "Group.name" : for src.name as vs make tgt.name as vt
-  "Group.quantity" : for src.quantity as vs make tgt.quantity as vt
-  "Group.characteristic" : for src.characteristic as vs0 make tgt.characteristic as vt0 then {
-    "Group.characteristic.code" : for vs0.code as vs make vt0.code as vt
-    "Group.characteristic.value-CodeableConcept" : for vs0.value  : CodeableConcept as vs make vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "Group.characteristic.value-boolean" : for vs0.value  : boolean as vs make vt0.value = create("boolean") as vt then boolean(vs,vt)
-    "Group.characteristic.value-Quantity" : for vs0.value  : Quantity as vs make vt0.value = create("Quantity") as vt then Quantity(vs,vt)
-    "Group.characteristic.value-Range" : for vs0.value  : Range as vs make vt0.value = create("Range") as vt then Range(vs,vt)
-    "Group.characteristic.exclude" : for vs0.exclude as vs make vt0.exclude as vt
-    "Group.characteristic.period" : for vs0.period as vs make vt0.period as vt
-  }
-  "Group.member" : for src.member as vs0 make tgt.member as vt0 then {
-    "Group.member.entity" : for vs0.entity as vs make vt0.entity as vt
-    "Group.member.period" : for vs0.period as vs make vt0.period as vt
-    "Group.member.inactive" : for vs0.inactive as vs make vt0.inactive as vt
-  }
-endgroup
+group Group(source src : Group, target tgt : GroupR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.type -> tgt.type;
+  src.actual -> tgt.actual;
+  src.code -> tgt.code;
+  src.name -> tgt.name;
+  src.quantity -> tgt.quantity;
+  src.characteristic as vs0 -> tgt.characteristic as vt0 then {
+    vs0.code -> vt0.code;
+    vs0.value : CodeableConcept as vs -> vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+    vs0.value : boolean as vs -> vt0.value = create("boolean") as vt then boolean(vs, vt);
+    vs0.value : Quantity as vs -> vt0.value = create("Quantity") as vt then Quantity(vs, vt);
+    vs0.value : Range as vs -> vt0.value = create("Range") as vt then Range(vs, vt);
+    vs0.exclude -> vt0.exclude;
+    vs0.period -> vt0.period;
+  };
+  src.member as vs0 -> tgt.member as vt0 then {
+    vs0.entity -> vt0.entity;
+    vs0.period -> vt0.period;
+    vs0.inactive -> vt0.inactive;
+  };
+}
 

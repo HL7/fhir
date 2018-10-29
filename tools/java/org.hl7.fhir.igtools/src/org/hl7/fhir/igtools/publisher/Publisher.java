@@ -929,7 +929,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   public void initialize() throws Exception {
-    pcm = new PackageCacheManager(mode == null || mode == IGBuildMode.MANUAL || mode == IGBuildMode.PUBLICATION);
+    pcm = new PackageCacheManager(mode == null || mode == IGBuildMode.MANUAL || mode == IGBuildMode.PUBLICATION, ToolsVersion.TOOLS_VERSION);
     if (mode == IGBuildMode.PUBLICATION)
       log("Build Formal Publication package, intended for "+getTargetOutput());
     
@@ -1359,7 +1359,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       Utilities.createDirectory(adHocTmpDir);
     Utilities.clearDirectory(adHocTmpDir);
 
-    PackageCacheManager pcm = new PackageCacheManager(true);
+    PackageCacheManager pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
     
     NpmPackage npm = null; 
     if (pcm.hasPackage("hl7.fhir.core", Constants.VERSION))
@@ -1460,7 +1460,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private InputStream fetchFromSource(String id, String source) throws IOException {
     log("Fetch "+id+" package from "+source);
-    URL url = new URL(source);
+    URL url = new URL(source+"?nocache=" + System.currentTimeMillis());
     URLConnection c = url.openConnection();
     return c.getInputStream();
   }
@@ -1601,7 +1601,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private JsonObject fetchJson(String source) throws IOException {
-    URL url = new URL(source);
+    URL url = new URL(source+"?nocache=" + System.currentTimeMillis());
     URLConnection c = url.openConnection();
     return (JsonObject) new com.google.gson.JsonParser().parse(TextFile.streamToString(c.getInputStream()));
   }
@@ -1649,7 +1649,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (!source.endsWith("validator.pack"))
       source = Utilities.pathURL(source, "validator.pack");
     try {
-      URL url = new URL(source);
+      URL url = new URL(source+"?nocache=" + System.currentTimeMillis());
       URLConnection c = url.openConnection();
       byte[] cnt = IOUtils.toByteArray(c.getInputStream());
       TextFile.bytesToFile(cnt, filename);

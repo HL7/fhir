@@ -1,40 +1,30 @@
 ﻿map "http://hl7.org/fhir/StructureMap/List3to4" = "R3 to R4 Conversions for List"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/List" alias ListR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/List" alias List as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group List(source src : ListR3, target tgt : List) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.mode -> tgt.mode;
+  src.title -> tgt.title;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.date -> tgt.date;
+  src.source -> tgt.source;
+  src.orderedBy -> tgt.orderedBy;
+  src.note -> tgt.note;
+  src.entry as s -> tgt.entry as t then ListEntry(s, t);
+  src.emptyReason -> tgt.emptyReason;
+}
 
-
-group List extends DomainResource
-  input src : ListR3 as source
-  input tgt : List as target
-
-  "List.identifier": for src.identifier make tgt.identifier
-  "List.status": for src.status make tgt.status
-  "List.mode": for src.mode make tgt.mode
-  "List.title": for src.title make tgt.title
-  "List.code": for src.code make tgt.code
-  "List.subject": for src.subject make tgt.subject
-  "List.encounter": for src.encounter make tgt.encounter
-  "List.date": for src.date make tgt.date
-  "List.source": for src.source make tgt.source
-  "List.orderedBy": for src.orderedBy make tgt.orderedBy
-  "List.note": for src.note make tgt.note
-  "List.entry": for src.entry as s make tgt.entry as t then ListEntry(s,t)
-  "List.emptyReason": for src.emptyReason make tgt.emptyReason
-endgroup
-
-
-group ListEntry extends BackboneElement
-  input src : ListR3 as source
-  input tgt : List as target
-
-  "List.entry.flag": for src.flag make tgt.flag
-  "List.entry.deleted": for src.deleted make tgt.deleted
-  "List.entry.date": for src.date make tgt.date
-  "List.entry.item": for src.item make tgt.item
-endgroup
+group ListEntry(source src : ListR3, target tgt : List) extends BackboneElement <<type+>> {
+  src.flag -> tgt.flag;
+  src.deleted -> tgt.deleted;
+  src.date -> tgt.date;
+  src.item -> tgt.item;
+}
 

@@ -1,35 +1,29 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Location4to3" = "R4 to R3 Conversion for Location"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Location" alias Location as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Location" alias LocationR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group Location extends DomainResource
-  input src : Location as source
-  input tgt : LocationR3 as target
-
-  "Location.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Location.status" : for src.status as vs make tgt.status as vt
-  "Location.operationalStatus" : for src.operationalStatus as vs make tgt.operationalStatus as vt
-  "Location.name" : for src.name as vs make tgt.name as vt
-  "Location.alias" : for src.alias as vs make tgt.alias as vt
-  "Location.description" : for src.description as vs make tgt.description as vt
-  "Location.mode" : for src.mode as vs make tgt.mode as vt
-  "Location.type" : for src.typeFirstRep as vs make tgt.type as vt
-  "Location.telecom" : for src.telecom as vs make tgt.telecom as vt
-  "Location.address" : for src.address as vs make tgt.address as vt
-  "Location.physicalType" : for src.physicalType as vs make tgt.physicalType as vt
-  "Location.position" : for src.position as vs0 make tgt.position as vt0 then {
-    "Location.position.longitude" : for vs0.longitude as vs make vt0.longitude as vt
-    "Location.position.latitude" : for vs0.latitude as vs make vt0.latitude as vt
-    "Location.position.altitude" : for vs0.altitude as vs make vt0.altitude as vt
-  }
-  "Location.managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt
-  "Location.partOf" : for src.partOf as vs make tgt.partOf as vt
-  "Location.endpoint" : for src.endpoint as vs make tgt.endpoint as vt
-endgroup
+group Location(source src : Location, target tgt : LocationR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.operationalStatus -> tgt.operationalStatus;
+  src.name -> tgt.name;
+  src.alias -> tgt.alias;
+  src.description -> tgt.description;
+  src.mode -> tgt.mode;
+  src.typeFirstRep -> tgt.type "type";
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+  src.physicalType -> tgt.physicalType;
+  src.position as vs0 -> tgt.position as vt0 then {
+    vs0.longitude -> vt0.longitude;
+    vs0.latitude -> vt0.latitude;
+    vs0.altitude -> vt0.altitude;
+  };
+  src.managingOrganization -> tgt.managingOrganization;
+  src.partOf -> tgt.partOf;
+  src.endpoint -> tgt.endpoint;
+}
 

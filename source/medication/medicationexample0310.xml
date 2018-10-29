@@ -31,7 +31,7 @@
       <itemReference>
         <reference value="#sub03"/>
       </itemReference>
-      <amount>
+      <strength>
         <numerator>
           <value value="5"/>
           <system value="http://unitsofmeasure.org"/>
@@ -42,7 +42,7 @@
           <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
           <code value="TAB"/>
         </denominator>
-      </amount>
+      </strength>
     </ingredient>
   
 </Medication>

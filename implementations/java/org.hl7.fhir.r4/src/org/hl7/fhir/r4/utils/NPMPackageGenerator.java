@@ -102,7 +102,7 @@ public class NPMPackageGenerator {
     JsonObject dep = new JsonObject();
     npm.add("dependencies", dep);
     for (Enumeration<FHIRVersion> v : ig.getFhirVersion()) { // TODO: fix for multiple versions
-      dep.addProperty("hl7.fhir.core", v.toString());
+      dep.addProperty("hl7.fhir.core", v.asStringValue());
     }
     for (ImplementationGuideDependsOnComponent d : ig.getDependsOn()) {
       dep.addProperty(d.getPackageId(), d.getVersion());

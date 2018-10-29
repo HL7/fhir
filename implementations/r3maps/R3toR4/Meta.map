@@ -1,20 +1,15 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Meta3to4" = "R3 to R4 Conversions for Meta"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Meta" alias MetaR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Meta" alias Meta as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Meta extends Element
-  input src : MetaR3 as source
-  input tgt : Meta as target
-
-  "Meta.versionId" : for src.versionId as vs make tgt.versionId as vt
-  "Meta.lastUpdated" : for src.lastUpdated as vs make tgt.lastUpdated as vt
-  "Meta.security" : for src.security as vs make tgt.security as vt
-  "Meta.tag" : for src.tag as vs make tgt.tag as vt
-endgroup
+group Meta(source src : MetaR3, target tgt : Meta) extends Element <<type+>> {
+  src.versionId -> tgt.versionId;
+  src.lastUpdated -> tgt.lastUpdated;
+  src.security -> tgt.security;
+  src.profile -> tgt.profile;
+  src.tag -> tgt.tag;
+}
 

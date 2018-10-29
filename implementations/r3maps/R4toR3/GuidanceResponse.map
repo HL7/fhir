@@ -1,30 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/GuidanceResponse4to3" = "R4 to R3 Conversion for GuidanceResponse"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceResponse as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/GuidanceResponse" alias GuidanceResponseR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group GuidanceResponse(source src : GuidanceResponseR3, target tgt : GuidanceResponse) extends DomainResource <<type+>> {
+  src.requestId -> tgt.requestId;
+  src.identifier -> tgt.identifier;
+  src.module -> tgt.module;
+  src.status -> tgt.status;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.occurrenceDateTime -> tgt.occurrenceDateTime;
+  src.performer -> tgt.performer;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.note -> tgt.note;
+  src.evaluationMessage -> tgt.evaluationMessage;
+  src.outputParameters -> tgt.outputParameters;
+  src.result -> tgt.result;
+  src.dataRequirement -> tgt.dataRequirement;
+}
 
-
-group GuidanceResponse extends DomainResource
-  input src : GuidanceResponseR3 as source
-  input tgt : GuidanceResponse as target
-
-  "GuidanceResponse.requestId": for src.requestId make tgt.requestId
-  "GuidanceResponse.identifier": for src.identifier make tgt.identifier
-  "GuidanceResponse.module": for src.module make tgt.module
-  "GuidanceResponse.status": for src.status make tgt.status
-  "GuidanceResponse.subject": for src.subject make tgt.subject
-  "GuidanceResponse.context": for src.context make tgt.context
-  "GuidanceResponse.occurrenceDateTime": for src.occurrenceDateTime make tgt.occurrenceDateTime
-  "GuidanceResponse.performer": for src.performer make tgt.performer
-  "GuidanceResponse.reasonCode": for src.reasonCode make tgt.reasonCode
-  "GuidanceResponse.reasonReference": for src.reasonReference make tgt.reasonReference
-  "GuidanceResponse.note": for src.note make tgt.note
-  "GuidanceResponse.evaluationMessage": for src.evaluationMessage make tgt.evaluationMessage
-  "GuidanceResponse.outputParameters": for src.outputParameters make tgt.outputParameters
-  "GuidanceResponse.result": for src.result make tgt.result
-  "GuidanceResponse.dataRequirement": for src.dataRequirement make tgt.dataRequirement
-endgroup

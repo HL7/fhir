@@ -207,7 +207,28 @@ public class TestingUtilities {
       return builder.parse(fn);
   }
 
-	public static String checkJsonIsSame(String f1, String f2) throws JsonSyntaxException, FileNotFoundException, IOException {
+  public static String checkJsonSrcIsSame(String s1, String s2) throws JsonSyntaxException, FileNotFoundException, IOException {
+    return checkJsonSrcIsSame(s1,s2,true);
+  }
+  public static String checkJsonSrcIsSame(String s1, String s2, boolean showDiff) throws JsonSyntaxException, FileNotFoundException, IOException {
+    String result = compareJsonSrc(s1, s2);
+    if (result != null && SHOW_DIFF && showDiff) {
+      String diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge", "WinMergeU.exe");
+      List<String> command = new ArrayList<String>();
+      String f1 = Utilities.path("[tmp]", "input.json");
+      String f2 = Utilities.path("[tmp]", "output.json");
+      TextFile.stringToFile(s1, f1);
+      TextFile.stringToFile(s2, f2);
+      command.add("\"" + diff + "\" \"" + f1 + "\" \"" + f2 + "\"");
+
+      ProcessBuilder builder = new ProcessBuilder(command);
+      builder.directory(new CSFile("c:\\temp"));
+      builder.start();
+      
+    }
+    return result;
+  }
+  public static String checkJsonIsSame(String f1, String f2) throws JsonSyntaxException, FileNotFoundException, IOException {
 		String result = compareJson(f1, f2);
 		if (result != null && SHOW_DIFF) {
 	    String diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge", "WinMergeU.exe");
@@ -222,11 +243,17 @@ public class TestingUtilities {
 		return result;
 	}
 
-	private static String compareJson(String f1, String f2) throws JsonSyntaxException, FileNotFoundException, IOException {
-		JsonObject o1 = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(f1));
-		JsonObject o2 = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(f2));
-		return compareObjects("", o1, o2);
-	}
+  private static String compareJsonSrc(String f1, String f2) throws JsonSyntaxException, FileNotFoundException, IOException {
+    JsonObject o1 = (JsonObject) new com.google.gson.JsonParser().parse(f1);
+    JsonObject o2 = (JsonObject) new com.google.gson.JsonParser().parse(f2);
+    return compareObjects("", o1, o2);
+  }
+
+  private static String compareJson(String f1, String f2) throws JsonSyntaxException, FileNotFoundException, IOException {
+    JsonObject o1 = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(f1));
+    JsonObject o2 = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(f2));
+    return compareObjects("", o1, o2);
+  }
 
 	private static String compareObjects(String path, JsonObject o1, JsonObject o2) {
 	  for (Map.Entry<String, JsonElement> en : o1.entrySet()) {

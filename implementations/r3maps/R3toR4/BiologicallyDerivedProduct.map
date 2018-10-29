@@ -1,68 +1,46 @@
 ﻿map "http://hl7.org/fhir/StructureMap/BiologicallyDerivedProduct3to4" = "R3 to R4 Conversions for BiologicallyDerivedProduct"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/BiologicallyDerivedProduct" alias BiologicallyDerivedProductR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct" alias BiologicallyDerivedProduct as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group BiologicallyDerivedProduct(source src : BiologicallyDerivedProductR3, target tgt : BiologicallyDerivedProduct) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.productCategory -> tgt.productCategory;
+  src.productCode -> tgt.productCode;
+  src.status -> tgt.status;
+  src.request -> tgt.request;
+  src.quantity -> tgt.quantity;
+  src.parent -> tgt.parent;
+  src.collection as s -> tgt.collection as t then BiologicallyDerivedProductCollection(s, t);
+  src.processing as s -> tgt.processing as t then BiologicallyDerivedProductProcessing(s, t);
+  src.manipulation as s -> tgt.manipulation as t then BiologicallyDerivedProductManipulation(s, t);
+  src.storage as s -> tgt.storage as t then BiologicallyDerivedProductStorage(s, t);
+}
 
+group BiologicallyDerivedProductCollection(source src : BiologicallyDerivedProductR3, target tgt : BiologicallyDerivedProduct) extends BackboneElement <<type+>> {
+  src.collector -> tgt.collector;
+  src.source -> tgt.source;
+  src.collected -> tgt.collected;
+}
 
-group BiologicallyDerivedProduct extends DomainResource
-  input src : BiologicallyDerivedProductR3 as source
-  input tgt : BiologicallyDerivedProduct as target
+group BiologicallyDerivedProductProcessing(source src : BiologicallyDerivedProductR3, target tgt : BiologicallyDerivedProduct) extends BackboneElement <<type+>> {
+  src.description -> tgt.description;
+  src.procedure -> tgt.procedure;
+  src.additive -> tgt.additive;
+  src.time -> tgt.time;
+}
 
-  "BiologicallyDerivedProduct.identifier": for src.identifier make tgt.identifier
-  "BiologicallyDerivedProduct.productCategory": for src.productCategory make tgt.productCategory
-  "BiologicallyDerivedProduct.productCode": for src.productCode make tgt.productCode
-  "BiologicallyDerivedProduct.status": for src.status make tgt.status
-  "BiologicallyDerivedProduct.request": for src.request make tgt.request
-  "BiologicallyDerivedProduct.quantity": for src.quantity make tgt.quantity
-  "BiologicallyDerivedProduct.parent": for src.parent make tgt.parent
-  "BiologicallyDerivedProduct.collection": for src.collection as s make tgt.collection as t then BiologicallyDerivedProductCollection(s,t)
-  "BiologicallyDerivedProduct.processing": for src.processing as s make tgt.processing as t then BiologicallyDerivedProductProcessing(s,t)
-  "BiologicallyDerivedProduct.manipulation": for src.manipulation as s make tgt.manipulation as t then BiologicallyDerivedProductManipulation(s,t)
-  "BiologicallyDerivedProduct.storage": for src.storage as s make tgt.storage as t then BiologicallyDerivedProductStorage(s,t)
-endgroup
+group BiologicallyDerivedProductManipulation(source src : BiologicallyDerivedProductR3, target tgt : BiologicallyDerivedProduct) extends BackboneElement <<type+>> {
+  src.description -> tgt.description;
+  src.time -> tgt.time;
+}
 
-
-group BiologicallyDerivedProductCollection extends BackboneElement
-  input src : BiologicallyDerivedProductR3 as source
-  input tgt : BiologicallyDerivedProduct as target
-
-  "BiologicallyDerivedProduct.collection.collector": for src.collector make tgt.collector
-  "BiologicallyDerivedProduct.collection.source": for src.source make tgt.source
-  "BiologicallyDerivedProduct.collection.collected": for src.collected make tgt.collected
-endgroup
-
-
-group BiologicallyDerivedProductProcessing extends BackboneElement
-  input src : BiologicallyDerivedProductR3 as source
-  input tgt : BiologicallyDerivedProduct as target
-
-  "BiologicallyDerivedProduct.processing.description": for src.description make tgt.description
-  "BiologicallyDerivedProduct.processing.procedure": for src.procedure make tgt.procedure
-  "BiologicallyDerivedProduct.processing.additive": for src.additive make tgt.additive
-  "BiologicallyDerivedProduct.processing.time": for src.time make tgt.time
-endgroup
-
-
-group BiologicallyDerivedProductManipulation extends BackboneElement
-  input src : BiologicallyDerivedProductR3 as source
-  input tgt : BiologicallyDerivedProduct as target
-
-  "BiologicallyDerivedProduct.manipulation.description": for src.description make tgt.description
-  "BiologicallyDerivedProduct.manipulation.time": for src.time make tgt.time
-endgroup
-
-
-group BiologicallyDerivedProductStorage extends BackboneElement
-  input src : BiologicallyDerivedProductR3 as source
-  input tgt : BiologicallyDerivedProduct as target
-
-  "BiologicallyDerivedProduct.storage.description": for src.description make tgt.description
-  "BiologicallyDerivedProduct.storage.temperature": for src.temperature make tgt.temperature
-  "BiologicallyDerivedProduct.storage.scale": for src.scale make tgt.scale
-  "BiologicallyDerivedProduct.storage.duration": for src.duration make tgt.duration
-endgroup
+group BiologicallyDerivedProductStorage(source src : BiologicallyDerivedProductR3, target tgt : BiologicallyDerivedProduct) extends BackboneElement <<type+>> {
+  src.description -> tgt.description;
+  src.temperature -> tgt.temperature;
+  src.scale -> tgt.scale;
+  src.duration -> tgt.duration;
+}
 

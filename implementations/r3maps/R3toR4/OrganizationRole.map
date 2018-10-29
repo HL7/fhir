@@ -1,51 +1,37 @@
 ﻿map "http://hl7.org/fhir/StructureMap/OrganizationRole3to4" = "R3 to R4 Conversions for OrganizationRole"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/OrganizationRole" alias OrganizationRoleR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/OrganizationRole" alias OrganizationRole as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group OrganizationRole(source src : OrganizationRoleR3, target tgt : OrganizationRole) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.period -> tgt.period;
+  src.organization -> tgt.organization;
+  src.participatingOrganization -> tgt.participatingOrganization;
+  src.network -> tgt.network;
+  src.code -> tgt.code;
+  src.specialty -> tgt.specialty;
+  src.location -> tgt.location;
+  src.healthcareService -> tgt.healthcareService;
+  src.telecom -> tgt.telecom;
+  src.availableTime as s -> tgt.availableTime as t then OrganizationRoleAvailableTime(s, t);
+  src.notAvailable as s -> tgt.notAvailable as t then OrganizationRoleNotAvailable(s, t);
+  src.availabilityExceptions -> tgt.availabilityExceptions;
+  src.endpoint -> tgt.endpoint;
+}
 
+group OrganizationRoleAvailableTime(source src : OrganizationRoleR3, target tgt : OrganizationRole) extends BackboneElement <<type+>> {
+  src.daysOfWeek -> tgt.daysOfWeek;
+  src.allDay -> tgt.allDay;
+  src.availableStartTime -> tgt.availableStartTime;
+  src.availableEndTime -> tgt.availableEndTime;
+}
 
-group OrganizationRole extends DomainResource
-  input src : OrganizationRoleR3 as source
-  input tgt : OrganizationRole as target
-
-  "OrganizationRole.identifier": for src.identifier make tgt.identifier
-  "OrganizationRole.active": for src.active make tgt.active
-  "OrganizationRole.period": for src.period make tgt.period
-  "OrganizationRole.organization": for src.organization make tgt.organization
-  "OrganizationRole.participatingOrganization": for src.participatingOrganization make tgt.participatingOrganization
-  "OrganizationRole.network": for src.network make tgt.network
-  "OrganizationRole.code": for src.code make tgt.code
-  "OrganizationRole.specialty": for src.specialty make tgt.specialty
-  "OrganizationRole.location": for src.location make tgt.location
-  "OrganizationRole.healthcareService": for src.healthcareService make tgt.healthcareService
-  "OrganizationRole.telecom": for src.telecom make tgt.telecom
-  "OrganizationRole.availableTime": for src.availableTime as s make tgt.availableTime as t then OrganizationRoleAvailableTime(s,t)
-  "OrganizationRole.notAvailable": for src.notAvailable as s make tgt.notAvailable as t then OrganizationRoleNotAvailable(s,t)
-  "OrganizationRole.availabilityExceptions": for src.availabilityExceptions make tgt.availabilityExceptions
-  "OrganizationRole.endpoint": for src.endpoint make tgt.endpoint
-endgroup
-
-
-group OrganizationRoleAvailableTime extends BackboneElement
-  input src : OrganizationRoleR3 as source
-  input tgt : OrganizationRole as target
-
-  "OrganizationRole.availableTime.daysOfWeek": for src.daysOfWeek make tgt.daysOfWeek
-  "OrganizationRole.availableTime.allDay": for src.allDay make tgt.allDay
-  "OrganizationRole.availableTime.availableStartTime": for src.availableStartTime make tgt.availableStartTime
-  "OrganizationRole.availableTime.availableEndTime": for src.availableEndTime make tgt.availableEndTime
-endgroup
-
-
-group OrganizationRoleNotAvailable extends BackboneElement
-  input src : OrganizationRoleR3 as source
-  input tgt : OrganizationRole as target
-
-  "OrganizationRole.notAvailable.description": for src.description make tgt.description
-  "OrganizationRole.notAvailable.during": for src.during make tgt.during
-endgroup
+group OrganizationRoleNotAvailable(source src : OrganizationRoleR3, target tgt : OrganizationRole) extends BackboneElement <<type+>> {
+  src.description -> tgt.description;
+  src.during -> tgt.during;
+}
 

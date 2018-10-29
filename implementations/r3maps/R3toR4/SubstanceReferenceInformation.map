@@ -1,83 +1,57 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SubstanceReferenceInformation3to4" = "R3 to R4 Conversions for SubstanceReferenceInformation"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SubstanceReferenceInformation" alias SubstanceReferenceInformationR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation" alias SubstanceReferenceInformation as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group SubstanceReferenceInformation(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends DomainResource <<type+>> {
+  src.comment -> tgt.comment;
+  src.gene as s -> tgt.gene as t then SubstanceReferenceInformationGene(s, t);
+  src.geneElement as s -> tgt.geneElement as t then SubstanceReferenceInformationGeneElement(s, t);
+  src.classification as s -> tgt.classification as t then SubstanceReferenceInformationClassification(s, t);
+  src.relationship as s -> tgt.relationship as t then SubstanceReferenceInformationRelationship(s, t);
+  src.target as s -> tgt.target as t then SubstanceReferenceInformationTarget(s, t);
+}
 
+group SubstanceReferenceInformationGene(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends BackboneElement <<type+>> {
+  src.geneSequenceOrigin -> tgt.geneSequenceOrigin;
+  src.gene -> tgt.gene;
+  src.source -> tgt.source;
+}
 
-group SubstanceReferenceInformation extends DomainResource
-  input src : SubstanceReferenceInformationR3 as source
-  input tgt : SubstanceReferenceInformation as target
+group SubstanceReferenceInformationGeneElement(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.element -> tgt.element;
+  src.source -> tgt.source;
+}
 
-  "SubstanceReferenceInformation.comment": for src.comment make tgt.comment
-  "SubstanceReferenceInformation.gene": for src.gene as s make tgt.gene as t then SubstanceReferenceInformationGene(s,t)
-  "SubstanceReferenceInformation.geneElement": for src.geneElement as s make tgt.geneElement as t then SubstanceReferenceInformationGeneElement(s,t)
-  "SubstanceReferenceInformation.classification": for src.classification as s make tgt.classification as t then SubstanceReferenceInformationClassification(s,t)
-  "SubstanceReferenceInformation.relationship": for src.relationship as s make tgt.relationship as t then SubstanceReferenceInformationRelationship(s,t)
-  "SubstanceReferenceInformation.target": for src.target as s make tgt.target as t then SubstanceReferenceInformationTarget(s,t)
-endgroup
+group SubstanceReferenceInformationClassification(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends BackboneElement <<type+>> {
+  src.domain -> tgt.domain;
+  src.classification -> tgt.classification;
+  src.subtype -> tgt.subtype;
+  src.source -> tgt.source;
+}
 
+group SubstanceReferenceInformationRelationship(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends BackboneElement <<type+>> {
+  src.substance -> tgt.substance;
+  src.relationship -> tgt.relationship;
+  src.interaction -> tgt.interaction;
+  src.isDefining -> tgt.isDefining;
+  src.amount -> tgt.amount;
+  src.amountType -> tgt.amountType;
+  src.amountText -> tgt.amountText;
+  src.source -> tgt.source;
+}
 
-group SubstanceReferenceInformationGene extends BackboneElement
-  input src : SubstanceReferenceInformationR3 as source
-  input tgt : SubstanceReferenceInformation as target
-
-  "SubstanceReferenceInformation.gene.geneSequenceOrigin": for src.geneSequenceOrigin make tgt.geneSequenceOrigin
-  "SubstanceReferenceInformation.gene.gene": for src.gene make tgt.gene
-  "SubstanceReferenceInformation.gene.source": for src.source make tgt.source
-endgroup
-
-
-group SubstanceReferenceInformationGeneElement extends BackboneElement
-  input src : SubstanceReferenceInformationR3 as source
-  input tgt : SubstanceReferenceInformation as target
-
-  "SubstanceReferenceInformation.geneElement.type": for src.type make tgt.type
-  "SubstanceReferenceInformation.geneElement.element": for src.element make tgt.element
-  "SubstanceReferenceInformation.geneElement.source": for src.source make tgt.source
-endgroup
-
-
-group SubstanceReferenceInformationClassification extends BackboneElement
-  input src : SubstanceReferenceInformationR3 as source
-  input tgt : SubstanceReferenceInformation as target
-
-  "SubstanceReferenceInformation.classification.domain": for src.domain make tgt.domain
-  "SubstanceReferenceInformation.classification.classification": for src.classification make tgt.classification
-  "SubstanceReferenceInformation.classification.subtype": for src.subtype make tgt.subtype
-  "SubstanceReferenceInformation.classification.source": for src.source make tgt.source
-endgroup
-
-
-group SubstanceReferenceInformationRelationship extends BackboneElement
-  input src : SubstanceReferenceInformationR3 as source
-  input tgt : SubstanceReferenceInformation as target
-
-  "SubstanceReferenceInformation.relationship.substance": for src.substance make tgt.substance
-  "SubstanceReferenceInformation.relationship.relationship": for src.relationship make tgt.relationship
-  "SubstanceReferenceInformation.relationship.interaction": for src.interaction make tgt.interaction
-  "SubstanceReferenceInformation.relationship.isDefining": for src.isDefining make tgt.isDefining
-  "SubstanceReferenceInformation.relationship.amount": for src.amount make tgt.amount
-  "SubstanceReferenceInformation.relationship.amountType": for src.amountType make tgt.amountType
-  "SubstanceReferenceInformation.relationship.amountText": for src.amountText make tgt.amountText
-  "SubstanceReferenceInformation.relationship.source": for src.source make tgt.source
-endgroup
-
-
-group SubstanceReferenceInformationTarget extends BackboneElement
-  input src : SubstanceReferenceInformationR3 as source
-  input tgt : SubstanceReferenceInformation as target
-
-  "SubstanceReferenceInformation.target.target": for src.target make tgt.target
-  "SubstanceReferenceInformation.target.type": for src.type make tgt.type
-  "SubstanceReferenceInformation.target.interaction": for src.interaction make tgt.interaction
-  "SubstanceReferenceInformation.target.organism": for src.organism make tgt.organism
-  "SubstanceReferenceInformation.target.organismType": for src.organismType make tgt.organismType
-  "SubstanceReferenceInformation.target.source": for src.source make tgt.source
-  "SubstanceReferenceInformation.target.amount": for src.amount make tgt.amount
-  "SubstanceReferenceInformation.target.amountType": for src.amountType make tgt.amountType
-endgroup
+group SubstanceReferenceInformationTarget(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends BackboneElement <<type+>> {
+  src.target -> tgt.target;
+  src.type -> tgt.type;
+  src.interaction -> tgt.interaction;
+  src.organism -> tgt.organism;
+  src.organismType -> tgt.organismType;
+  src.source -> tgt.source;
+  src.amount -> tgt.amount;
+  src.amountType -> tgt.amountType;
+}
 

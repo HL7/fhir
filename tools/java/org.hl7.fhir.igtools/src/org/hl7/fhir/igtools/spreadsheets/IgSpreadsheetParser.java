@@ -729,6 +729,9 @@ public class IgSpreadsheetParser {
     e.setSliceName(profileName);
     if (!Utilities.noString(discriminator)) {
       e.getSlicing().setRules(SlicingRules.OPEN);
+      if (discriminator.contains("|")) {
+        throw new Error("We don't yet support ordered or non-open slicing when defining profiles with spreadsheets: " + discriminator);
+      }
       for (String d : discriminator.split("\\,"))
         if (!Utilities.noString(d))
           e.getSlicing().addDiscriminator(ProfileUtilities.interpretR2Discriminator(d.trim(), false));
@@ -1106,6 +1109,10 @@ public class IgSpreadsheetParser {
     ElementDefinition exu = ex.getDifferential().addElement();
     exu.setPath("Extension.url");
     exu.setFixed(new UriType(ex.getUrl()));
+    TypeRefComponent tc = new TypeRefComponent(new UriType("uri"));
+    List<TypeRefComponent> tcList = new ArrayList<TypeRefComponent>();
+    tcList.add(tc);
+    exu.setType(tcList);
 
     if (invariants != null) {
       for (ElementDefinitionConstraintComponent inv : invariants.values()) {

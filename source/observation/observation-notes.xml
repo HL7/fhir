@@ -58,8 +58,8 @@
 	</a>
   <h3> Using codes in Observation </h3>
 	<p>When a result value is a represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values.</p>
-	<a name="Multiple Codings"></a>
-  <h4></h4>
+	<a name="mult-codes"></a>
+  <h4>Multiple Codings</h4>
 	<p>Results may be coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as <a href="datatypes.html#CodeableConcept">additional codings</a> directly in the element as shown in the example below.</p>
 	<p>For example the LOINC 43304-5 <em>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</em> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' with a standard code translation, <code>valueCodeableConcept</code> would be:</p>
 	<pre class="json">
@@ -228,48 +228,48 @@
 		<p>e.g.:</p>
 		<pre class="json">
 {
-	"resourceType": "Observation",
-	... snip ...
-	"code": {
-		"coding": [
-			{
-				"system": "http://loinc.org",
-				"code": "6689-4",
-				"display": "Glucose [Mass/​volume] in Blood --2 hours post meal"
-			}
-		]
-	},
-	... snip ...
+"resourceType": "Observation",
+... snip ...
+"code": {
+	"coding": [
+		{
+			"system": "http://loinc.org",
+			"code": "6689-4",
+			"display": "Glucose [Mass/​volume] in Blood --2 hours post meal"
+		}
+	]
+},
+... snip ...
 }
 		</pre>
 		</li>
 		<li>
-		<p>Alternatively, use additional codes in Observation.code as described <a href="#translations">above</a>.</p>
+		<p>Alternatively, use additional codes in Observation.code as described <a href="#mult-codes">above</a>.</p>
 		<p>e.g.: Observation.code = coding-1: 59408-5 Oxygen saturation in Arterial blood by Pulse oximetry, coding-2: 20564-1 Oxygen saturation in Blood</p>
 		<pre class="json">
 {
-	"resourceType": "Observation",
-	... snip ...
-	"code": {
-		"coding": [
-			{
-				"system": "http://loinc.org",
-				"code": "59408-5",
-				"display": "Oxygen saturation in Arterial blood by Pulse oximetry"
-			},
-			{
-				"system": "http://loinc.org",
-				"code": "20564-1",
-				"display": "Oxygen saturation in Blood"
-			}
-		]
-	},
-	... snip ...
+"resourceType": "Observation",
+... snip ...
+"code": {
+	"coding": [
+		{
+			"system": "http://loinc.org",
+			"code": "59408-5",
+			"display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+		},
+		{
+			"system": "http://loinc.org",
+			"code": "20564-1",
+			"display": "Oxygen saturation in Blood"
+		}
+	]
+},
+... snip ...
 }
 		</pre>
 		</li>
 		<li>
-		<p>As described <a href="#obsgrouping">above</a> observations are typically grouped together
+		<p>As described <a href="#obsgrouping">above</a>, observations are typically grouped together
 		 to provide additional information needed for correctly understanding and interpreting the observation.
 		  As an alternative to grouping observations, extensions may be used to provide references to other
 			 observations needed for understanding and interpreting an observation.</p>

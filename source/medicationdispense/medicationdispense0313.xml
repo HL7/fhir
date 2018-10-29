@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0313"/>
     <contained>
@@ -22,7 +22,7 @@
                             <display value="Potassium Chloride"/>
                         </coding>
                     </itemCodeableConcept>
-                    <amount>
+                    <strength>
                         <numerator>
                             <value value="2"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -33,7 +33,7 @@
                             <system value="http://unitsofmeasure.org"/>
                             <code value="mL"/>
                         </denominator>
-                    </amount>
+                    </strength>
                 </ingredient>
                 <ingredient>
                     <itemCodeableConcept>
@@ -43,7 +43,7 @@
                             <display value="Sodium Chloride 0.9% injectable solution"/>
                         </coding>
                     </itemCodeableConcept>
-                    <amount>
+                    <strength>
                         <numerator>
                             <value value="0.9"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -54,7 +54,7 @@
                             <system value="http://unitsofmeasure.org"/>
                             <code value="mL"/>
                         </denominator>
-                    </amount>
+                    </strength>
                 </ingredient>
             
         </Medication>

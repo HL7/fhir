@@ -9,9 +9,9 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>  
-  <context>
+  <encounter>
     <reference value="Encounter/example"/>
-  </context>
+  </encounter>
   <effectivePeriod>
       <start value="2014-12-06T20:00:00+11:00"/>
       <end value="2014-12-06T22:33:00+11:00"/>

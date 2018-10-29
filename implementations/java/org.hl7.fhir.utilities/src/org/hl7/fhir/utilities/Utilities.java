@@ -513,6 +513,8 @@ public class Utilities {
       else if (!s.toString().endsWith(File.separator))
         s.append(File.separator);
       String a = arg;
+      if ("[tmp]".equals(a))
+        a = System.getProperty("java.io.tmpdir");
       a = a.replace("\\", File.separator);
       a = a.replace("/", File.separator);
       if (s.length() > 0 && a.startsWith(File.separator))

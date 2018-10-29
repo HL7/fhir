@@ -1,36 +1,30 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Immunization3to4" = "R3 to R4 Conversions for Immunization"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Immunization" alias ImmunizationR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Immunization" alias Immunization as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group Immunization extends DomainResource
-  input src : ImmunizationR3 as source
-  input tgt : Immunization as target
-
-  "Immunization.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Immunization.status" : for src.status as vs make tgt.status as vt
-  "Immunization.vaccineCode" : for src.vaccineCode as vs make tgt.vaccineCode as vt
-  "Immunization.patient" : for src.patient as vs make tgt.patient as vt
-  "Immunization.encounter" : for src.encounter as vs make tgt.encounter as vt
-  "Immunization.primarySource" : for src.primarySource as vs make tgt.primarySource as vt
-  "Immunization.reportOrigin" : for src.reportOrigin as vs make tgt.reportOrigin as vt
-  "Immunization.location" : for src.location as vs make tgt.location as vt
-  "Immunization.manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt
-  "Immunization.lotNumber" : for src.lotNumber as vs make tgt.lotNumber as vt
-  "Immunization.expirationDate" : for src.expirationDate as vs make tgt.expirationDate as vt
-  "Immunization.site" : for src.site as vs make tgt.site as vt
-  "Immunization.route" : for src.route as vs make tgt.route as vt
-  "Immunization.doseQuantity" : for src.doseQuantity as vs make tgt.doseQuantity as vt
-  "Immunization.performer" : for src.practitioner as vs0 make tgt.performer as vt0 then {
-    "Immunization.performer.function" : for vs0.role as vs make vt0.function as vt
-    "Immunization.performer.actor" : for vs0.actor as vs make vt0.actor as vt
-  }
-  "Immunization.note" : for src.note as vs make tgt.note as vt
-  "Immunization.reasonCode" : for src.reason as vs make tgt.reasonCode as vt
-endgroup
+group Immunization(source src : ImmunizationR3, target tgt : Immunization) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.vaccineCode -> tgt.vaccineCode;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.primarySource -> tgt.primarySource;
+  src.reportOrigin -> tgt.reportOrigin;
+  src.location -> tgt.location;
+  src.manufacturer -> tgt.manufacturer;
+  src.lotNumber -> tgt.lotNumber;
+  src.expirationDate -> tgt.expirationDate;
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.doseQuantity -> tgt.doseQuantity;
+  src.practitioner as vs0 -> tgt.performer as vt0 then {
+    vs0.role -> vt0.function "function";
+    vs0.actor -> vt0.actor;
+  } "performer";
+  src.note -> tgt.note;
+  src.reason -> tgt.reasonCode "reasonCode";
+}
 

@@ -1,58 +1,44 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductPackaged4to3" = "R4 to R3 Conversion for MedicinalProductPackaged"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductPackaged" alias MedicinalProductPackaged as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductPackaged" alias MedicinalProductPackagedR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group MedicinalProductPackaged(source src : MedicinalProductPackagedR3, target tgt : MedicinalProductPackaged) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.description -> tgt.description;
+  src.marketingStatus -> tgt.marketingStatus;
+  src.batchIdentifier as s -> tgt.batchIdentifier as t then MedicinalProductPackagedBatchIdentifier(s, t);
+  src.packageItem as s -> tgt.packageItem as t then MedicinalProductPackagedPackageItem(s, t);
+}
 
+group MedicinalProductPackagedBatchIdentifier(source src : MedicinalProductPackagedR3, target tgt : MedicinalProductPackaged) extends BackboneElement <<type+>> {
+  src.outerPackaging -> tgt.outerPackaging;
+  src.immediatePackaging -> tgt.immediatePackaging;
+}
 
-group MedicinalProductPackaged extends DomainResource
-  input src : MedicinalProductPackagedR3 as source
-  input tgt : MedicinalProductPackaged as target
+group MedicinalProductPackagedPackageItem(source src : MedicinalProductPackagedR3, target tgt : MedicinalProductPackaged) extends BackboneElement <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.quantity -> tgt.quantity;
+  src.material -> tgt.material;
+  src.alternateMaterial -> tgt.alternateMaterial;
+  src.manufacturer -> tgt.manufacturer;
+  src.device -> tgt.device;
+  src.manufacturedItem as s -> tgt.manufacturedItem as t then MedicinalProductPackagedPackageItemManufacturedItem(s, t);
+  src.otherCharacteristics -> tgt.otherCharacteristics;
+  src.packageItem -> tgt.packageItem;
+  src.physicalCharacteristics -> tgt.physicalCharacteristics;
+  src.shelfLifeStorage -> tgt.shelfLifeStorage;
+}
 
-  "MedicinalProductPackaged.identifier": for src.identifier make tgt.identifier
-  "MedicinalProductPackaged.description": for src.description make tgt.description
-  "MedicinalProductPackaged.marketingStatus": for src.marketingStatus make tgt.marketingStatus
-  "MedicinalProductPackaged.batchIdentifier": for src.batchIdentifier as s make tgt.batchIdentifier as t then MedicinalProductPackagedBatchIdentifier(s,t)
-  "MedicinalProductPackaged.packageItem": for src.packageItem as s make tgt.packageItem as t then MedicinalProductPackagedPackageItem(s,t)
-endgroup
+group MedicinalProductPackagedPackageItemManufacturedItem(source src : MedicinalProductPackagedR3, target tgt : MedicinalProductPackaged) extends BackboneElement <<type+>> {
+  src.manufacturedDoseForm -> tgt.manufacturedDoseForm;
+  src.unitOfPresentation -> tgt.unitOfPresentation;
+  src.quantity -> tgt.quantity;
+  src.xManufacturer -> tgt.xManufacturer;
+  src.ingredient -> tgt.ingredient;
+  src.physicalCharacteristics -> tgt.physicalCharacteristics;
+}
 
-group MedicinalProductPackagedBatchIdentifier extends BackboneElement
-  input src : MedicinalProductPackagedR3 as source
-  input tgt : MedicinalProductPackaged as target
-
-  "MedicinalProductPackaged.batchIdentifier.outerPackaging": for src.outerPackaging make tgt.outerPackaging
-  "MedicinalProductPackaged.batchIdentifier.immediatePackaging": for src.immediatePackaging make tgt.immediatePackaging
-endgroup
-
-group MedicinalProductPackagedPackageItem extends BackboneElement
-  input src : MedicinalProductPackagedR3 as source
-  input tgt : MedicinalProductPackaged as target
-
-  "MedicinalProductPackaged.packageItem.identifier": for src.identifier make tgt.identifier
-  "MedicinalProductPackaged.packageItem.type": for src.type make tgt.type
-  "MedicinalProductPackaged.packageItem.quantity": for src.quantity make tgt.quantity
-  "MedicinalProductPackaged.packageItem.material": for src.material make tgt.material
-  "MedicinalProductPackaged.packageItem.alternateMaterial": for src.alternateMaterial make tgt.alternateMaterial
-  "MedicinalProductPackaged.packageItem.manufacturer": for src.manufacturer make tgt.manufacturer
-  "MedicinalProductPackaged.packageItem.device": for src.device make tgt.device
-  "MedicinalProductPackaged.packageItem.manufacturedItem": for src.manufacturedItem as s make tgt.manufacturedItem as t then MedicinalProductPackagedPackageItemManufacturedItem(s,t)
-  "MedicinalProductPackaged.packageItem.otherCharacteristics": for src.otherCharacteristics make tgt.otherCharacteristics
-  "MedicinalProductPackaged.packageItem.packageItem": for src.packageItem make tgt.packageItem
-  "MedicinalProductPackaged.packageItem.physicalCharacteristics": for src.physicalCharacteristics make tgt.physicalCharacteristics
-  "MedicinalProductPackaged.packageItem.shelfLifeStorage": for src.shelfLifeStorage make tgt.shelfLifeStorage
-endgroup
-
-group MedicinalProductPackagedPackageItemManufacturedItem extends BackboneElement
-  input src : MedicinalProductPackagedR3 as source
-  input tgt : MedicinalProductPackaged as target
-
-  "MedicinalProductPackaged.packageItem.manufacturedItem.manufacturedDoseForm": for src.manufacturedDoseForm make tgt.manufacturedDoseForm
-  "MedicinalProductPackaged.packageItem.manufacturedItem.unitOfPresentation": for src.unitOfPresentation make tgt.unitOfPresentation
-  "MedicinalProductPackaged.packageItem.manufacturedItem.quantity": for src.quantity make tgt.quantity
-  "MedicinalProductPackaged.packageItem.manufacturedItem.xManufacturer": for src.xManufacturer make tgt.xManufacturer
-  "MedicinalProductPackaged.packageItem.manufacturedItem.ingredient": for src.ingredient make tgt.ingredient
-  "MedicinalProductPackaged.packageItem.manufacturedItem.physicalCharacteristics": for src.physicalCharacteristics make tgt.physicalCharacteristics
-endgroup

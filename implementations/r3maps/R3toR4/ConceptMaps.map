@@ -1,0 +1,10 @@
+﻿map "http://hl7.org/fhir/StructureMap/ConceptMaps3to4" = "R3 to R4 Concept Map Library"
+
+conceptmap "ResourceTypeMap" {
+  prefix s = "http://hl7.org/fhir/request-resource-types"
+  prefix t = "http://hl7.org/fhir/request-resource-types"
+
+  unmapped for s = provided
+  s:ProcedureRequest = t:ServiceRequest
+}
+

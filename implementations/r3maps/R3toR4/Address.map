@@ -1,26 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Address3to4" = "R3 to R4 Conversions for Address"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Address" alias AddressR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Address" alias Address as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group Address extends Element
-  input src : AddressR3 as source
-  input tgt : Address as target
-
-  "Address.use" : for src.use as vs make tgt.use as vt
-  "Address.type" : for src.type as vs make tgt.type as vt
-  "Address.text" : for src.text as vs make tgt.text as vt
-  "Address.line" : for src.line as vs make tgt.line as vt
-  "Address.city" : for src.city as vs make tgt.city as vt
-  "Address.district" : for src.district as vs make tgt.district as vt
-  "Address.state" : for src.state as vs make tgt.state as vt
-  "Address.postalCode" : for src.postalCode as vs make tgt.postalCode as vt
-  "Address.country" : for src.country as vs make tgt.country as vt
-  "Address.period" : for src.period as vs make tgt.period as vt
-endgroup
+group Address(source src : AddressR3, target tgt : Address) extends Element <<type+>> {
+  src.use -> tgt.use;
+  src.type -> tgt.type;
+  src.text -> tgt.text;
+  src.line -> tgt.line;
+  src.city -> tgt.city;
+  src.district -> tgt.district;
+  src.state -> tgt.state;
+  src.postalCode -> tgt.postalCode;
+  src.country -> tgt.country;
+  src.period -> tgt.period;
+}
 

@@ -43,143 +43,119 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/xhtml" alias xhtmlR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/Element4to3"
 
-group for type+types base64Binary extends Element
-  input src : base64Binary as source
-  input tgt : base64BinaryR3 as target
+group base64Binary(source src : base64Binary, target tgt : base64BinaryR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "base64Binary-value";
+}
 
-  "base64Binary-value" : for src.value as v make tgt.value = v
-endgroup
+group boolean(source src : boolean, target tgt : booleanR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "boolean-value";
+}
 
-group for type+types boolean extends Element
-  input src : boolean as source
-  input tgt : booleanR3 as target
+group canonical(source src : canonical, target tgt : canonicalR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "canonical-value";
+}
 
-  "boolean-value" : for src.value as v make tgt.value = v
-endgroup
+group code(source src : code, target tgt : codeR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "code-value";
+}
 
-group for type+types canonical extends Element
-  input src : canonical as source
-  input tgt : canonicalR3 as target
+group date(source src : date, target tgt : dateR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "date-value";
+}
 
-  "canonical-value" : for src.value as v make tgt.value = v
-endgroup
+group dateTime(source src : dateTime, target tgt : dateTimeR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "dateTime-value";
+}
 
-group for type+types code extends Element
-  input src : code as source
-  input tgt : codeR3 as target
+group decimal(source src : decimal, target tgt : decimalR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "decimal-value";
+}
 
-  "code-value" : for src.value as v make tgt.value = v
-endgroup
+group id(source src : id, target tgt : idR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "id-value";
+}
 
-group for type+types date extends Element
-  input src : date as source
-  input tgt : dateR3 as target
+group instant(source src : instant, target tgt : instantR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "instant-value";
+}
 
-  "date-value" : for src.value as v make tgt.value = v
-endgroup
+group integer(source src : integer, target tgt : integerR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "integer-value";
+}
 
-group for type+types dateTime extends Element
-  input src : dateTime as source
-  input tgt : dateTimeR3 as target
+group markdown(source src : markdown, target tgt : markdownR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "markdown-value";
+}
 
-  "dateTime-value" : for src.value as v make tgt.value = v
-endgroup
+group oid(source src : oid, target tgt : oidR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "oid-value";
+}
 
-group for type+types decimal extends Element
-  input src : decimal as source
-  input tgt : decimalR3 as target
+group positiveInt(source src : positiveInt, target tgt : positiveIntR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "positiveInt-value";
+}
 
-  "decimal-value" : for src.value as v make tgt.value = v
-endgroup
+group string(source src : string, target tgt : stringR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "string-value";
+}
 
-group for type+types id extends Element
-  input src : id as source
-  input tgt : idR3 as target
+group time(source src : time, target tgt : timeR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "time-value";
+}
 
-  "id-value" : for src.value as v make tgt.value = v
-endgroup
+group unsignedInt(source src : unsignedInt, target tgt : unsignedIntR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "unsignedInt-value";
+}
 
-group for type+types instant extends Element
-  input src : instant as source
-  input tgt : instantR3 as target
+group uri(source src : uri, target tgt : uriR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "uri-value";
+}
 
-  "instant-value" : for src.value as v make tgt.value = v
-endgroup
+group url(source src : url, target tgt : urlR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "url-value";
+}
 
-group for type+types integer extends Element
-  input src : integer as source
-  input tgt : integerR3 as target
+group uuid(source src : uuid, target tgt : uuidR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "uuid-value";
+}
 
-  "integer-value" : for src.value as v make tgt.value = v
-endgroup
+group xhtml(source src : xhtml, target tgt : xhtmlR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "xhtml-value";
+}
 
-group for type+types markdown extends Element
-  input src : markdown as source
-  input tgt : markdownR3 as target
+group markdownToString(source src : markdown, target tgt : stringR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "markdownToString-value";
+}
 
-  "markdown-value" : for src.value as v make tgt.value = v
-endgroup
+group code2id(source src : code, target tgt : idR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2id-value";
+}
 
-group for type+types oid extends Element
-  input src : oid as source
-  input tgt : oidR3 as target
+group uri2code(source src : uriR3, target tgt : code) extends Element <<types>> {
+  src.value as v -> tgt.value = v "uri2code-value";
+}
 
-  "oid-value" : for src.value as v make tgt.value = v
-endgroup
+group string2code(source src : stringR3, target tgt : code) extends Element <<types>> {
+  src.value as v -> tgt.value = v "uri2code-value";
+}
 
-group for type+types positiveInt extends Element
-  input src : positiveInt as source
-  input tgt : positiveIntR3 as target
+group code2string(source src : codeR3, target tgt : string) extends Element <<types>> {
+  src.value as v -> tgt.value = v "uri2code-value";
+}
 
-  "positiveInt-value" : for src.value as v make tgt.value = v
-endgroup
+group canonical2Uri(source src : canonicalR3, target tgt : uri) extends Element <<types>> {
+  src.value as v -> tgt.value = v "canonical2uri-value";
+}
 
-group for type+types string extends Element
-  input src : string as source
-  input tgt : stringR3 as target
+group url2uri(source src : url, target tgt : uriR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2uri-value";
+}
 
-  "string-value" : for src.value as v make tgt.value = v
-endgroup
+group string2id(source src : stringR3, target tgt : id) extends Element <<types>> {
+  src.value as v -> tgt.value = v "uri2code-value";
+}
 
-group for type+types time extends Element
-  input src : time as source
-  input tgt : timeR3 as target
-
-  "time-value" : for src.value as v make tgt.value = v
-endgroup
-
-group for type+types unsignedInt extends Element
-  input src : unsignedInt as source
-  input tgt : unsignedIntR3 as target
-
-  "unsignedInt-value" : for src.value as v make tgt.value = v
-endgroup
-
-group for type+types uri extends Element
-  input src : uri as source
-  input tgt : uriR3 as target
-
-  "uri-value" : for src.value as v make tgt.value = v
-endgroup
-
-group for type+types url extends Element
-  input src : url as source
-  input tgt : urlR3 as target
-
-  "url-value" : for src.value as v make tgt.value = v
-endgroup
-
-group for type+types uuid extends Element
-  input src : uuid as source
-  input tgt : uuidR3 as target
-
-  "uuid-value" : for src.value as v make tgt.value = v
-endgroup
-
-group for type+types xhtml extends Element
-  input src : xhtml as source
-  input tgt : xhtmlR3 as target
-
-  "xhtml-value" : for src.value as v make tgt.value = v
-endgroup
+group string2uri(source src : string, target tgt : uriR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2uri-value";
+}
 

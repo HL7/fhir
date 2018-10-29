@@ -1,33 +1,27 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SupplyDelivery3to4" = "R3 to R4 Conversions for SupplyDelivery"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SupplyDelivery" alias SupplyDeliveryR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/SupplyDelivery" alias SupplyDelivery as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group SupplyDelivery extends DomainResource
-  input src : SupplyDeliveryR3 as source
-  input tgt : SupplyDelivery as target
-
-  "SupplyDelivery.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "SupplyDelivery.basedOn" : for src.basedOn as vs make tgt.basedOn as vt
-  "SupplyDelivery.partOf" : for src.partOf as vs make tgt.partOf as vt
-  "SupplyDelivery.status" : for src.status as vs make tgt.status as vt
-  "SupplyDelivery.patient" : for src.patient as vs make tgt.patient as vt
-  "SupplyDelivery.type" : for src.type as vs make tgt.type as vt
-  "SupplyDelivery.suppliedItem" : for src.suppliedItem as vs0 make tgt.suppliedItem as vt0 then {
-    "SupplyDelivery.suppliedItem.quantity" : for vs0.quantity as vs make vt0.quantity as vt
-    "SupplyDelivery.suppliedItem.item-CodeableConcept" : for vs0.item  : CodeableConcept as vs make vt0.item = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "SupplyDelivery.suppliedItem.item-Reference" : for vs0.item  : Reference as vs make vt0.item = create("Reference") as vt then Reference(vs,vt)
-  }
-  "SupplyDelivery.occurrence-dateTime" : for src.occurrence  : dateTime as vs make tgt.occurrence = create("dateTime") as vt then dateTime(vs,vt)
-  "SupplyDelivery.occurrence-Period" : for src.occurrence  : Period as vs make tgt.occurrence = create("Period") as vt then Period(vs,vt)
-  "SupplyDelivery.occurrence-Timing" : for src.occurrence  : Timing as vs make tgt.occurrence = create("Timing") as vt then Timing(vs,vt)
-  "SupplyDelivery.supplier" : for src.supplier as vs make tgt.supplier as vt
-  "SupplyDelivery.destination" : for src.destination as vs make tgt.destination as vt
-  "SupplyDelivery.receiver" : for src.receiver as vs make tgt.receiver as vt
-endgroup
+group SupplyDelivery(source src : SupplyDeliveryR3, target tgt : SupplyDelivery) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.patient -> tgt.patient;
+  src.type -> tgt.type;
+  src.suppliedItem as vs0 -> tgt.suppliedItem as vt0 then {
+    vs0.quantity -> vt0.quantity;
+    vs0.item : CodeableConcept as vs -> vt0.item = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+    vs0.item : Reference as vs -> vt0.item = create("Reference") as vt then Reference(vs, vt);
+  };
+  src.occurrence : dateTime as vs -> tgt.occurrence = create("dateTime") as vt then dateTime(vs, vt);
+  src.occurrence : Period as vs -> tgt.occurrence = create("Period") as vt then Period(vs, vt);
+  src.occurrence : Timing as vs -> tgt.occurrence = create("Timing") as vt then Timing(vs, vt);
+  src.supplier -> tgt.supplier;
+  src.destination -> tgt.destination;
+  src.receiver -> tgt.receiver;
+}
 

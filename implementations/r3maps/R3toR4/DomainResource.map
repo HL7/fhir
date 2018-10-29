@@ -1,20 +1,14 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DomainResource3to4" = "R3 to R4 Conversions for DomainResource"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DomainResource" alias DomainResourceR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/DomainResource" alias DomainResource as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types DomainResource extends Resource 
-  input src : DomainResourceR3 as source
-  input tgt : DomainResource as target
-
-  "DomainResource.text": for src.text make tgt.text
-  "DomainResource.contained": for src.contained make tgt.contained
-  "DomainResource.extension": for src.extension make tgt.extension
-  "DomainResource.modifierExtension": for src.modifierExtension make tgt.modifierExtension
-endgroup
+group DomainResource(source src : DomainResourceR3, target tgt : DomainResource) extends Resource <<type+>> {
+  src.text -> tgt.text;
+  src.contained -> tgt.contained;
+  src.extension -> tgt.extension;
+  src.modifierExtension -> tgt.modifierExtension;
+}
 

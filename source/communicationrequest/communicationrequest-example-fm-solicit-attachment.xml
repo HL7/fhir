@@ -69,9 +69,9 @@
     <text value="written"/>
   </medium>
   
-  <context>
+  <encounter>
     <reference value="Encounter/example"/>
-  </context>
+  </encounter>
   <payload>
     <contentString value="Please provide the accident report and any associated pictures to support your Claim# DEF5647."/>
   </payload>

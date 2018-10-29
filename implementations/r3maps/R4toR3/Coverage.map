@@ -1,48 +1,37 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Coverage4to3" = "R4 to R3 Conversion for Coverage"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Coverage" alias Coverage as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Coverage" alias CoverageR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group Coverage(source src : CoverageR3, target tgt : Coverage) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.policyHolder -> tgt.policyHolder;
+  src.subscriber -> tgt.subscriber;
+  src.subscriberId -> tgt.subscriberId;
+  src.beneficiary -> tgt.beneficiary;
+  src.dependent -> tgt.dependent;
+  src.relationship -> tgt.relationship;
+  src.period -> tgt.period;
+  src.payor -> tgt.payor;
+  src.class as s -> tgt.class as t then CoverageClass(s, t);
+  src.order -> tgt.order;
+  src.network -> tgt.network;
+  src.copay as s -> tgt.copay as t then CoverageCopay(s, t);
+  src.contract -> tgt.contract;
+}
 
+group CoverageClass(source src : CoverageR3, target tgt : Coverage) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.value -> tgt.value;
+  src.name -> tgt.name;
+}
 
-group Coverage extends DomainResource
-  input src : CoverageR3 as source
-  input tgt : Coverage as target
+group CoverageCopay(source src : CoverageR3, target tgt : Coverage) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.value -> tgt.value;
+}
 
-  "Coverage.identifier": for src.identifier make tgt.identifier
-  "Coverage.status": for src.status make tgt.status
-  "Coverage.type": for src.type make tgt.type
-  "Coverage.policyHolder": for src.policyHolder make tgt.policyHolder
-  "Coverage.subscriber": for src.subscriber make tgt.subscriber
-  "Coverage.subscriberId": for src.subscriberId make tgt.subscriberId
-  "Coverage.beneficiary": for src.beneficiary make tgt.beneficiary
-  "Coverage.dependent": for src.dependent make tgt.dependent
-  "Coverage.relationship": for src.relationship make tgt.relationship
-  "Coverage.period": for src.period make tgt.period
-  "Coverage.payor": for src.payor make tgt.payor
-  "Coverage.class": for src.class as s make tgt.class as t then CoverageClass(s,t)
-  "Coverage.order": for src.order make tgt.order
-  "Coverage.network": for src.network make tgt.network
-  "Coverage.copay": for src.copay as s make tgt.copay as t then CoverageCopay(s,t)
-  "Coverage.contract": for src.contract make tgt.contract
-endgroup
-
-group CoverageClass extends BackboneElement
-  input src : CoverageR3 as source
-  input tgt : Coverage as target
-
-  "Coverage.class.type": for src.type make tgt.type
-  "Coverage.class.value": for src.value make tgt.value
-  "Coverage.class.name": for src.name make tgt.name
-endgroup
-
-group CoverageCopay extends BackboneElement
-  input src : CoverageR3 as source
-  input tgt : Coverage as target
-
-  "Coverage.copay.type": for src.type make tgt.type
-  "Coverage.copay.value": for src.value make tgt.value
-endgroup

@@ -1,134 +1,92 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ExampleScenario3to4" = "R3 to R4 Conversions for ExampleScenario"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ExampleScenario" alias ExampleScenarioR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ExampleScenario" alias ExampleScenario as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group ExampleScenario(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.copyright -> tgt.copyright;
+  src.purpose -> tgt.purpose;
+  src.actor as s -> tgt.actor as t then ExampleScenarioActor(s, t);
+  src.instance as s -> tgt.instance as t then ExampleScenarioInstance(s, t);
+  src.process as s -> tgt.process as t then ExampleScenarioProcess(s, t);
+  src.workflow -> tgt.workflow;
+}
 
+group ExampleScenarioActor(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+  src.actorId -> tgt.actorId;
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+}
 
-group ExampleScenario extends DomainResource
-  input src : ExampleScenarioR3 as source
-  input tgt : ExampleScenario as target
+group ExampleScenarioInstance(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+  src.resourceId -> tgt.resourceId;
+  src.resourceType -> tgt.resourceType;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.version as s -> tgt.version as t then ExampleScenarioInstanceVersion(s, t);
+  src.containedInstance as s -> tgt.containedInstance as t then ExampleScenarioInstanceContainedInstance(s, t);
+}
 
-  "ExampleScenario.url": for src.url make tgt.url
-  "ExampleScenario.identifier": for src.identifier make tgt.identifier
-  "ExampleScenario.version": for src.version make tgt.version
-  "ExampleScenario.name": for src.name make tgt.name
-  "ExampleScenario.status": for src.status make tgt.status
-  "ExampleScenario.experimental": for src.experimental make tgt.experimental
-  "ExampleScenario.date": for src.date make tgt.date
-  "ExampleScenario.publisher": for src.publisher make tgt.publisher
-  "ExampleScenario.contact": for src.contact make tgt.contact
-  "ExampleScenario.useContext": for src.useContext make tgt.useContext
-  "ExampleScenario.jurisdiction": for src.jurisdiction make tgt.jurisdiction
-  "ExampleScenario.copyright": for src.copyright make tgt.copyright
-  "ExampleScenario.purpose": for src.purpose make tgt.purpose
-  "ExampleScenario.actor": for src.actor as s make tgt.actor as t then ExampleScenarioActor(s,t)
-  "ExampleScenario.instance": for src.instance as s make tgt.instance as t then ExampleScenarioInstance(s,t)
-  "ExampleScenario.process": for src.process as s make tgt.process as t then ExampleScenarioProcess(s,t)
-  "ExampleScenario.workflow": for src.workflow make tgt.workflow
-endgroup
+group ExampleScenarioInstanceVersion(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+  src.versionId -> tgt.versionId;
+  src.description -> tgt.description;
+}
 
+group ExampleScenarioInstanceContainedInstance(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+  src.resourceId -> tgt.resourceId;
+  src.versionId -> tgt.versionId;
+}
 
-group ExampleScenarioActor extends BackboneElement
-  input src : ExampleScenarioR3 as source
-  input tgt : ExampleScenario as target
+group ExampleScenarioProcess(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.preConditions -> tgt.preConditions;
+  src.postConditions -> tgt.postConditions;
+  src.step as s -> tgt.step as t then ExampleScenarioProcessStep(s, t);
+}
 
-  "ExampleScenario.actor.actorId": for src.actorId make tgt.actorId
-  "ExampleScenario.actor.type": for src.type make tgt.type
-  "ExampleScenario.actor.name": for src.name make tgt.name
-  "ExampleScenario.actor.description": for src.description make tgt.description
-endgroup
+group ExampleScenarioProcessStep(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+  src.process -> tgt.process;
+  src.pause -> tgt.pause;
+  src.operation as s -> tgt.operation as t then ExampleScenarioProcessStepOperation(s, t);
+  src.alternative as s -> tgt.alternative as t then ExampleScenarioProcessStepAlternative(s, t);
+}
 
+group ExampleScenarioProcessStepOperation(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+  src.number -> tgt.number;
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.initiator -> tgt.initiator;
+  src.receiver -> tgt.receiver;
+  src.description -> tgt.description;
+  src.initiatorActive -> tgt.initiatorActive;
+  src.receiverActive -> tgt.receiverActive;
+  src.request -> tgt.request;
+  src.response -> tgt.response;
+}
 
-group ExampleScenarioInstance extends BackboneElement
-  input src : ExampleScenarioR3 as source
-  input tgt : ExampleScenario as target
+group ExampleScenarioProcessStepAlternative(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+  src.name -> tgt.name;
+  src.option as s -> tgt.option as t then ExampleScenarioProcessStepAlternativeOption(s, t);
+}
 
-  "ExampleScenario.instance.resourceId": for src.resourceId make tgt.resourceId
-  "ExampleScenario.instance.resourceType": for src.resourceType make tgt.resourceType
-  "ExampleScenario.instance.name": for src.name make tgt.name
-  "ExampleScenario.instance.description": for src.description make tgt.description
-  "ExampleScenario.instance.version": for src.version as s make tgt.version as t then ExampleScenarioInstanceVersion(s,t)
-  "ExampleScenario.instance.containedInstance": for src.containedInstance as s make tgt.containedInstance as t then ExampleScenarioInstanceContainedInstance(s,t)
-endgroup
-
-
-group ExampleScenarioInstanceVersion extends BackboneElement
-  input src : ExampleScenarioR3 as source
-  input tgt : ExampleScenario as target
-
-  "ExampleScenario.instance.version.versionId": for src.versionId make tgt.versionId
-  "ExampleScenario.instance.version.description": for src.description make tgt.description
-endgroup
-
-
-group ExampleScenarioInstanceContainedInstance extends BackboneElement
-  input src : ExampleScenarioR3 as source
-  input tgt : ExampleScenario as target
-
-  "ExampleScenario.instance.containedInstance.resourceId": for src.resourceId make tgt.resourceId
-  "ExampleScenario.instance.containedInstance.versionId": for src.versionId make tgt.versionId
-endgroup
-
-
-group ExampleScenarioProcess extends BackboneElement
-  input src : ExampleScenarioR3 as source
-  input tgt : ExampleScenario as target
-
-  "ExampleScenario.process.title": for src.title make tgt.title
-  "ExampleScenario.process.description": for src.description make tgt.description
-  "ExampleScenario.process.preConditions": for src.preConditions make tgt.preConditions
-  "ExampleScenario.process.postConditions": for src.postConditions make tgt.postConditions
-  "ExampleScenario.process.step": for src.step as s make tgt.step as t then ExampleScenarioProcessStep(s,t)
-endgroup
-
-
-group ExampleScenarioProcessStep extends BackboneElement
-  input src : ExampleScenarioR3 as source
-  input tgt : ExampleScenario as target
-
-  "ExampleScenario.process.step.process": for src.process make tgt.process
-  "ExampleScenario.process.step.pause": for src.pause make tgt.pause
-  "ExampleScenario.process.step.operation": for src.operation as s make tgt.operation as t then ExampleScenarioProcessStepOperation(s,t)
-  "ExampleScenario.process.step.alternative": for src.alternative as s make tgt.alternative as t then ExampleScenarioProcessStepAlternative(s,t)
-endgroup
-
-
-group ExampleScenarioProcessStepOperation extends BackboneElement
-  input src : ExampleScenarioR3 as source
-  input tgt : ExampleScenario as target
-
-  "ExampleScenario.process.step.operation.number": for src.number make tgt.number
-  "ExampleScenario.process.step.operation.type": for src.type make tgt.type
-  "ExampleScenario.process.step.operation.name": for src.name make tgt.name
-  "ExampleScenario.process.step.operation.initiator": for src.initiator make tgt.initiator
-  "ExampleScenario.process.step.operation.receiver": for src.receiver make tgt.receiver
-  "ExampleScenario.process.step.operation.description": for src.description make tgt.description
-  "ExampleScenario.process.step.operation.initiatorActive": for src.initiatorActive make tgt.initiatorActive
-  "ExampleScenario.process.step.operation.receiverActive": for src.receiverActive make tgt.receiverActive
-  "ExampleScenario.process.step.operation.request": for src.request make tgt.request
-  "ExampleScenario.process.step.operation.response": for src.response make tgt.response
-endgroup
-
-
-group ExampleScenarioProcessStepAlternative extends BackboneElement
-  input src : ExampleScenarioR3 as source
-  input tgt : ExampleScenario as target
-
-  "ExampleScenario.process.step.alternative.name": for src.name make tgt.name
-  "ExampleScenario.process.step.alternative.option": for src.option as s make tgt.option as t then ExampleScenarioProcessStepAlternativeOption(s,t)
-endgroup
-
-
-group ExampleScenarioProcessStepAlternativeOption extends BackboneElement
-  input src : ExampleScenarioR3 as source
-  input tgt : ExampleScenario as target
-
-  "ExampleScenario.process.step.alternative.option.description": for src.description make tgt.description
-  "ExampleScenario.process.step.alternative.option.step": for src.step make tgt.step
-  "ExampleScenario.process.step.alternative.option.pause": for src.pause make tgt.pause
-endgroup
+group ExampleScenarioProcessStepAlternativeOption(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+  src.description -> tgt.description;
+  src.step -> tgt.step;
+  src.pause -> tgt.pause;
+}
 

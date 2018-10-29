@@ -1,43 +1,58 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DocumentReference4to3" = "R4 to R3 Conversion for DocumentReference"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" alias DocumentReference as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DocumentReference" alias DocumentReferenceR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group DocumentReference(source src : DocumentReference, target tgt : DocumentReferenceR3) extends DomainResource <<type+>> {
+  src.masterIdentifier -> tgt.masterIdentifier;
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.docStatus -> tgt.docStatus;
+  src.type -> tgt.type;
+  src.category -> tgt.class;
+  src.subject -> tgt.subject;
+  src.date -> tgt.indexed;
+  src.extension as ext where url = 'http://hl7.org/fhir/StructureDefinition/X34-dr-created' then {
+    ext.value as vs0 -> tgt.created = vs0 "created2";
+  } "created";
+  src.agent as s where type.coding.where(system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code = 'AUT').exists() -> tgt.author as t then agent(s, t);
+  src.authenticator -> tgt.authenticator;
+  src.custodian -> tgt.custodian;
+  src.relatesTo as vs0 -> tgt.relatesTo as vt0 then relatesTo(vs0, vt0);
+  src.description -> tgt.description;
+  src.securityLabel -> tgt.securityLabel;
+  src.content as vs0 -> tgt.content as vt0 then content(vs0, vt0);
+  src.context as vs0 -> tgt.context as vt0 then context(vs0, vt0);
+}
 
+group agent(source src, target tgt) extends Element {
+  src.who as vs0 then Reference(vs0, tgt);
+}
 
-group DocumentReference extends DomainResource
-  input src : DocumentReference as source
-  input tgt : DocumentReferenceR3 as target
+group relatesTo(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.target -> tgt.target;
+}
 
-  "DocumentReference.masterIdentifier" : for src.masterIdentifier as vs make tgt.masterIdentifier as vt
-  "DocumentReference.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "DocumentReference.status" : for src.status as vs make tgt.status as vt
-  "DocumentReference.docStatus" : for src.docStatus as vs make tgt.docStatus as vt
-  "DocumentReference.type" : for src.type as vs make tgt.type as vt
-  "DocumentReference.class" : for src.class as vs make tgt.class as vt
-  "DocumentReference.subject" : for src.subject as vs make tgt.subject as vt
-  "DocumentReference.created" : for src.created as vs make tgt.created as vt
-  "DocumentReference.custodian" : for src.custodian as vs make tgt.custodian as vt
-  "DocumentReference.relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo as vt0 then {
-    "DocumentReference.relatesTo.code" : for vs0.code as vs make vt0.code as vt
-    "DocumentReference.relatesTo.target" : for vs0.target as vs make vt0.target as vt
-  }
-  "DocumentReference.description" : for src.description as vs make tgt.description as vt
-  "DocumentReference.securityLabel" : for src.securityLabel as vs make tgt.securityLabel as vt
-  "DocumentReference.content" : for src.content as vs0 make tgt.content as vt0 then {
-    "DocumentReference.content.attachment" : for vs0.attachment as vs make vt0.attachment as vt
-    "DocumentReference.content.format" : for vs0.format as vs make vt0.format as vt
-  }
-  "DocumentReference.context" : for src.context as vs0 make tgt.context as vt0 then {
-    "DocumentReference.context.encounter" : for vs0.encounter as vs make vt0.encounter as vt
-    "DocumentReference.context.event" : for vs0.event as vs make vt0.event as vt
-    "DocumentReference.context.period" : for vs0.period as vs make vt0.period as vt
-    "DocumentReference.context.facilityType" : for vs0.facilityType as vs make vt0.facilityType as vt
-    "DocumentReference.context.practiceSetting" : for vs0.practiceSetting as vs make vt0.practiceSetting as vt
-    "DocumentReference.context.sourcePatientInfo" : for vs0.sourcePatientInfo as vs make vt0.sourcePatientInfo as vt
-  }
-endgroup
+group content(source src, target tgt) extends BackboneElement {
+  src.attachment -> tgt.attachment;
+  src.format -> tgt.format;
+}
+
+group context(source src, target tgt) extends BackboneElement {
+  src.encounter -> tgt.encounter;
+  src.event -> tgt.event;
+  src.period -> tgt.period;
+  src.facilityType -> tgt.facilityType;
+  src.practiceSetting -> tgt.practiceSetting;
+  src.sourcePatientInfo -> tgt.sourcePatientInfo;
+  src.related as vs0 -> tgt.related as vt0 then related(vs0, vt0);
+}
+
+group related(source src, target tgt) {
+  src where reference.exists() -> tgt.ref as vt0 then ReferenceNoIdentifier(src, vt0);
+  src where identifier.exists() -> tgt.identifier as vt0 then Reference2Identifier(src, vt0);
+}
 

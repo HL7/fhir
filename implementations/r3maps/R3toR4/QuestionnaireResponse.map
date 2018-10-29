@@ -1,31 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/QuestionnaireResponse3to4" = "R3 to R4 Conversions for QuestionnaireResponse"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group QuestionnaireResponse extends DomainResource
-  input src : QuestionnaireResponseR3 as source
-  input tgt : QuestionnaireResponse as target
-
-  "QuestionnaireResponse.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "QuestionnaireResponse.basedOn" : for src.basedOn as vs make tgt.basedOn as vt
-  "QuestionnaireResponse.partOf" : for src.parent as vs make tgt.partOf as vt
-  "QuestionnaireResponse.status" : for src.status as vs make tgt.status as vt
-  "QuestionnaireResponse.subject" : for src.subject as vs make tgt.subject as vt
-  "QuestionnaireResponse.context" : for src.context as vs make tgt.context as vt
-  "QuestionnaireResponse.authored" : for src.authored as vs make tgt.authored as vt
-  "QuestionnaireResponse.author" : for src.author as vs make tgt.author as vt
-  "QuestionnaireResponse.source" : for src.source as vs make tgt.source as vt
-  "QuestionnaireResponse.item" : for src.item as vs0 make tgt.item as vt0 then {
-    "QuestionnaireResponse.item.linkId" : for vs0.linkId as vs make vt0.linkId as vt
-    "QuestionnaireResponse.item.definition" : for vs0.definition as vs make vt0.definition as vt
-    "QuestionnaireResponse.item.text" : for vs0.text as vs make vt0.text as vt
-    "QuestionnaireResponse.item.subject" : for vs0.subject as vs make vt0.subject as vt
-  }
-endgroup
+group QuestionnaireResponse(source src : QuestionnaireResponseR3, target tgt : QuestionnaireResponse) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.parent -> tgt.partOf "partOf";
+  src.status -> tgt.status;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.authored -> tgt.authored;
+  src.author -> tgt.author;
+  src.source -> tgt.source;
+  src.item as vs0 -> tgt.item as vt0 then {
+    vs0.linkId -> vt0.linkId;
+    vs0.definition -> vt0.definition;
+    vs0.text -> vt0.text;
+    vs0.subject -> vt0.subject;
+  };
+}
 

@@ -207,7 +207,13 @@
         </performer>
     </dispenseRequest>   
     <substitution>
-        <allowed value="true"></allowed>
+        <allowedCodeableConcept>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ActSubstanceAdminSubstitutionCode"/>
+                <code value="TB"/>
+                <display value="Therapeutic Brand"/>
+            </coding>
+        </allowedCodeableConcept>
         <reason>
             <coding>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>

@@ -1,76 +1,50 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MeasureReport3to4" = "R3 to R4 Conversions for MeasureReport"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MeasureReport" alias MeasureReportR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/MeasureReport" alias MeasureReport as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group MeasureReport(source src : MeasureReportR3, target tgt : MeasureReport) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.measure -> tgt.measure;
+  src.subject -> tgt.subject;
+  src.date -> tgt.date;
+  src.reporter -> tgt.reporter;
+  src.period -> tgt.period;
+  src.group as s -> tgt.group as t then MeasureReportGroup(s, t);
+  src.evaluatedResources -> tgt.evaluatedResources;
+}
 
+group MeasureReportgroup(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.population as s -> tgt.population as t then MeasureReportGroupPopulation(s, t);
+  src.measureScore -> tgt.measureScore;
+  src.stratifier as s -> tgt.stratifier as t then MeasureReportGroupStratifier(s, t);
+}
 
-group MeasureReport extends DomainResource
-  input src : MeasureReportR3 as source
-  input tgt : MeasureReport as target
+group MeasureReportGroupPopulation(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.count -> tgt.count;
+  src.subjects -> tgt.subjects;
+}
 
-  "MeasureReport.identifier": for src.identifier make tgt.identifier
-  "MeasureReport.status": for src.status make tgt.status
-  "MeasureReport.type": for src.type make tgt.type
-  "MeasureReport.measure": for src.measure make tgt.measure
-  "MeasureReport.subject": for src.subject make tgt.subject
-  "MeasureReport.date": for src.date make tgt.date
-  "MeasureReport.reporter": for src.reporter make tgt.reporter
-  "MeasureReport.period": for src.period make tgt.period
-  "MeasureReport.group": for src.group as s make tgt.group as t then MeasureReportGroup(s,t)
-  "MeasureReport.evaluatedResources": for src.evaluatedResources make tgt.evaluatedResources
-endgroup
+group MeasureReportGroupStratifier(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.stratum as s -> tgt.stratum as t then MeasureReportGroupStratifierStratum(s, t);
+}
 
+group MeasureReportGroupStratifierStratum(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+  src.value -> tgt.value;
+  src.population as s -> tgt.population as t then MeasureReportGroupStratifierStratumPopulation(s, t);
+  src.measureScore -> tgt.measureScore;
+}
 
-group MeasureReportGroup extends BackboneElement
-  input src : MeasureReportR3 as source
-  input tgt : MeasureReport as target
-
-  "MeasureReport.group.code": for src.code make tgt.code
-  "MeasureReport.group.population": for src.population as s make tgt.population as t then MeasureReportGroupPopulation(s,t)
-  "MeasureReport.group.measureScore": for src.measureScore make tgt.measureScore
-  "MeasureReport.group.stratifier": for src.stratifier as s make tgt.stratifier as t then MeasureReportGroupStratifier(s,t)
-endgroup
-
-
-group MeasureReportGroupPopulation extends BackboneElement
-  input src : MeasureReportR3 as source
-  input tgt : MeasureReport as target
-
-  "MeasureReport.group.population.code": for src.code make tgt.code
-  "MeasureReport.group.population.count": for src.count make tgt.count
-  "MeasureReport.group.population.subjects": for src.subjects make tgt.subjects
-endgroup
-
-
-group MeasureReportGroupStratifier extends BackboneElement
-  input src : MeasureReportR3 as source
-  input tgt : MeasureReport as target
-
-  "MeasureReport.group.stratifier.code": for src.code make tgt.code
-  "MeasureReport.group.stratifier.stratum": for src.stratum as s make tgt.stratum as t then MeasureReportGroupStratifierStratum(s,t)
-endgroup
-
-
-group MeasureReportGroupStratifierStratum extends BackboneElement
-  input src : MeasureReportR3 as source
-  input tgt : MeasureReport as target
-
-  "MeasureReport.group.stratifier.stratum.value": for src.value make tgt.value
-  "MeasureReport.group.stratifier.stratum.population": for src.population as s make tgt.population as t then MeasureReportGroupStratifierStratumPopulation(s,t)
-  "MeasureReport.group.stratifier.stratum.measureScore": for src.measureScore make tgt.measureScore
-endgroup
-
-
-group MeasureReportGroupStratifierStratumPopulation extends BackboneElement
-  input src : MeasureReportR3 as source
-  input tgt : MeasureReport as target
-
-  "MeasureReport.group.stratifier.stratum.population.code": for src.code make tgt.code
-  "MeasureReport.group.stratifier.stratum.population.count": for src.count make tgt.count
-  "MeasureReport.group.stratifier.stratum.population.subjects": for src.subjects make tgt.subjects
-endgroup
+group MeasureReportGroupStratifierStratumPopulation(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.count -> tgt.count;
+  src.subjects -> tgt.subjects;
+}
 

@@ -1,81 +1,59 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EligibilityResponse3to4" = "R3 to R4 Conversions for EligibilityResponse"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EligibilityResponse" alias EligibilityResponseR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/EligibilityResponse" alias EligibilityResponse as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group EligibilityResponse(source src : EligibilityResponseR3, target tgt : EligibilityResponse) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.use -> tgt.use;
+  src.patient -> tgt.patient;
+  src.serviced -> tgt.serviced;
+  src.created -> tgt.created;
+  src.requestProvider -> tgt.requestProvider;
+  src.request -> tgt.request;
+  src.outcome -> tgt.outcome;
+  src.disposition -> tgt.disposition;
+  src.insurer -> tgt.insurer;
+  src.insurance as s -> tgt.insurance as t then EligibilityResponseInsurance(s, t);
+  src.preAuthRef -> tgt.preAuthRef;
+  src.form -> tgt.form;
+  src.error as s -> tgt.error as t then EligibilityResponseError(s, t);
+}
 
+group EligibilityResponseInsurance(source src : EligibilityResponseR3, target tgt : EligibilityResponse) extends BackboneElement <<type+>> {
+  src.coverage -> tgt.coverage;
+  src.contract -> tgt.contract;
+  src.inforce -> tgt.inforce;
+  src.detail as s -> tgt.detail as t then EligibilityResponseInsuranceDetail(s, t);
+}
 
-group EligibilityResponse extends DomainResource
-  input src : EligibilityResponseR3 as source
-  input tgt : EligibilityResponse as target
+group EligibilityResponseInsuranceDetail(source src : EligibilityResponseR3, target tgt : EligibilityResponse) extends BackboneElement <<type+>> {
+  src.category -> tgt.category;
+  src.service -> tgt.service;
+  src.modifier -> tgt.modifier;
+  src.provider -> tgt.provider;
+  src.excluded -> tgt.excluded;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.network -> tgt.network;
+  src.unit -> tgt.unit;
+  src.term -> tgt.term;
+  src.benefit as s -> tgt.benefit as t then EligibilityResponseInsuranceDetailBenefit(s, t);
+  src.authorizationRequired -> tgt.authorizationRequired;
+  src.authorizationSupporting -> tgt.authorizationSupporting;
+  src.authorizationUrl -> tgt.authorizationUrl;
+}
 
-  "EligibilityResponse.identifier": for src.identifier make tgt.identifier
-  "EligibilityResponse.status": for src.status make tgt.status
-  "EligibilityResponse.use": for src.use make tgt.use
-  "EligibilityResponse.patient": for src.patient make tgt.patient
-  "EligibilityResponse.serviced": for src.serviced make tgt.serviced
-  "EligibilityResponse.created": for src.created make tgt.created
-  "EligibilityResponse.requestProvider": for src.requestProvider make tgt.requestProvider
-  "EligibilityResponse.request": for src.request make tgt.request
-  "EligibilityResponse.outcome": for src.outcome make tgt.outcome
-  "EligibilityResponse.disposition": for src.disposition make tgt.disposition
-  "EligibilityResponse.insurer": for src.insurer make tgt.insurer
-  "EligibilityResponse.insurance": for src.insurance as s make tgt.insurance as t then EligibilityResponseInsurance(s,t)
-  "EligibilityResponse.preAuthRef": for src.preAuthRef make tgt.preAuthRef
-  "EligibilityResponse.form": for src.form make tgt.form
-  "EligibilityResponse.error": for src.error as s make tgt.error as t then EligibilityResponseError(s,t)
-endgroup
+group EligibilityResponseInsuranceDetailBenefit(source src : EligibilityResponseR3, target tgt : EligibilityResponse) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.allowed -> tgt.allowed;
+  src.used -> tgt.used;
+}
 
-
-group EligibilityResponseInsurance extends BackboneElement
-  input src : EligibilityResponseR3 as source
-  input tgt : EligibilityResponse as target
-
-  "EligibilityResponse.insurance.coverage": for src.coverage make tgt.coverage
-  "EligibilityResponse.insurance.contract": for src.contract make tgt.contract
-  "EligibilityResponse.insurance.inforce": for src.inforce make tgt.inforce
-  "EligibilityResponse.insurance.detail": for src.detail as s make tgt.detail as t then EligibilityResponseInsuranceDetail(s,t)
-endgroup
-
-
-group EligibilityResponseInsuranceDetail extends BackboneElement
-  input src : EligibilityResponseR3 as source
-  input tgt : EligibilityResponse as target
-
-  "EligibilityResponse.insurance.detail.category": for src.category make tgt.category
-  "EligibilityResponse.insurance.detail.service": for src.service make tgt.service
-  "EligibilityResponse.insurance.detail.modifier": for src.modifier make tgt.modifier
-  "EligibilityResponse.insurance.detail.provider": for src.provider make tgt.provider
-  "EligibilityResponse.insurance.detail.excluded": for src.excluded make tgt.excluded
-  "EligibilityResponse.insurance.detail.name": for src.name make tgt.name
-  "EligibilityResponse.insurance.detail.description": for src.description make tgt.description
-  "EligibilityResponse.insurance.detail.network": for src.network make tgt.network
-  "EligibilityResponse.insurance.detail.unit": for src.unit make tgt.unit
-  "EligibilityResponse.insurance.detail.term": for src.term make tgt.term
-  "EligibilityResponse.insurance.detail.benefit": for src.benefit as s make tgt.benefit as t then EligibilityResponseInsuranceDetailBenefit(s,t)
-  "EligibilityResponse.insurance.detail.authorizationRequired": for src.authorizationRequired make tgt.authorizationRequired
-  "EligibilityResponse.insurance.detail.authorizationSupporting": for src.authorizationSupporting make tgt.authorizationSupporting
-  "EligibilityResponse.insurance.detail.authorizationUrl": for src.authorizationUrl make tgt.authorizationUrl
-endgroup
-
-
-group EligibilityResponseInsuranceDetailBenefit extends BackboneElement
-  input src : EligibilityResponseR3 as source
-  input tgt : EligibilityResponse as target
-
-  "EligibilityResponse.insurance.detail.benefit.type": for src.type make tgt.type
-  "EligibilityResponse.insurance.detail.benefit.allowed": for src.allowed make tgt.allowed
-  "EligibilityResponse.insurance.detail.benefit.used": for src.used make tgt.used
-endgroup
-
-
-group EligibilityResponseError extends BackboneElement
-  input src : EligibilityResponseR3 as source
-  input tgt : EligibilityResponse as target
-
-  "EligibilityResponse.error.code": for src.code make tgt.code
-endgroup
+group EligibilityResponseError(source src : EligibilityResponseR3, target tgt : EligibilityResponse) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+}
 

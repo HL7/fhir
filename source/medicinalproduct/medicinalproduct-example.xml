@@ -11,15 +11,6 @@
 			<code value="WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02"/>
 		</coding>
 	</productClassification>
-	<marketingAuthorization>
-		<reference value="MedicinalProductAuthorization/example"/>
-	</marketingAuthorization>
-	<packagedMedicinalProduct>
-		<reference value="MedicinalProductPackaged/example"/>
-	</packagedMedicinalProduct>
-	<pharmaceuticalProduct>
-		<reference value="MedicinalProductPharmaceutical/example"/>
-	</pharmaceuticalProduct>
 	<attachedDocument>
 		<reference value="DocumentReference/example"/>
 	</attachedDocument>
@@ -47,7 +38,6 @@
 			</type>
 		</namePart>
 		<countryLanguage>
-			<!-- ISO name: /MedicinalProduct/MedicinalProductName/Country-Language/Country -->
 			<country>
 				<coding>
 					<system value="http://ema.europa.eu/example/countryCode"/>

@@ -1,28 +1,23 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ImmunizationEvaluation4to3" = "R4 to R3 Conversion for ImmunizationEvaluation"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation" alias ImmunizationEvaluation as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ImmunizationEvaluation" alias ImmunizationEvaluationR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group ImmunizationEvaluation(source src : ImmunizationEvaluationR3, target tgt : ImmunizationEvaluation) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.patient -> tgt.patient;
+  src.date -> tgt.date;
+  src.authority -> tgt.authority;
+  src.targetDisease -> tgt.targetDisease;
+  src.immunizationEvent -> tgt.immunizationEvent;
+  src.doseStatus -> tgt.doseStatus;
+  src.doseStatusReason -> tgt.doseStatusReason;
+  src.description -> tgt.description;
+  src.series -> tgt.series;
+  src.doseNumber -> tgt.doseNumber;
+  src.seriesDoses -> tgt.seriesDoses;
+}
 
-
-group ImmunizationEvaluation extends DomainResource
-  input src : ImmunizationEvaluationR3 as source
-  input tgt : ImmunizationEvaluation as target
-
-  "ImmunizationEvaluation.identifier": for src.identifier make tgt.identifier
-  "ImmunizationEvaluation.status": for src.status make tgt.status
-  "ImmunizationEvaluation.patient": for src.patient make tgt.patient
-  "ImmunizationEvaluation.date": for src.date make tgt.date
-  "ImmunizationEvaluation.authority": for src.authority make tgt.authority
-  "ImmunizationEvaluation.targetDisease": for src.targetDisease make tgt.targetDisease
-  "ImmunizationEvaluation.immunizationEvent": for src.immunizationEvent make tgt.immunizationEvent
-  "ImmunizationEvaluation.doseStatus": for src.doseStatus make tgt.doseStatus
-  "ImmunizationEvaluation.doseStatusReason": for src.doseStatusReason make tgt.doseStatusReason
-  "ImmunizationEvaluation.description": for src.description make tgt.description
-  "ImmunizationEvaluation.series": for src.series make tgt.series
-  "ImmunizationEvaluation.doseNumber": for src.doseNumber make tgt.doseNumber
-  "ImmunizationEvaluation.seriesDoses": for src.seriesDoses make tgt.seriesDoses
-endgroup

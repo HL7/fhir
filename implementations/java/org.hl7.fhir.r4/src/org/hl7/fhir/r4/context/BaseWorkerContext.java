@@ -721,6 +721,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           return (T) guides.get(uri);
         } else if (class_ == StructureDefinition.class) {
           return (T) structures.get(uri);
+        } else if (class_ == StructureMap.class) {
+          return (T) transforms.get(uri);
         } else if (class_ == ValueSet.class) {
           return (T) valueSets.get(uri);
         } else if (class_ == CodeSystem.class) {

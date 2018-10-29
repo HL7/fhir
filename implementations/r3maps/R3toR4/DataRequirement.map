@@ -1,30 +1,24 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DataRequirement3to4" = "R3 to R4 Conversions for DataRequirement"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DataRequirement" alias DataRequirementR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/DataRequirement" alias DataRequirement as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group DataRequirement extends Element
-  input src : DataRequirementR3 as source
-  input tgt : DataRequirement as target
-
-  "DataRequirement.type" : for src.type as vs make tgt.type as vt
-  "DataRequirement.mustSupport" : for src.mustSupport as vs make tgt.mustSupport as vt
-  "DataRequirement.codeFilter" : for src.codeFilter as vs0 make tgt.codeFilter as vt0 then {
-    "DataRequirement.codeFilter.path" : for vs0.path as vs make vt0.path as vt
-    "DataRequirement.codeFilter.code" : for vs0.valueCode as vs make vt0.code as vt
-    "DataRequirement.codeFilter.code" : for vs0.valueCoding as vs make vt0.code as vt
-    "DataRequirement.codeFilter.code" : for vs0.valueCodeableConcept as vs make vt0.code as vt
-  }
-  "DataRequirement.dateFilter" : for src.dateFilter as vs0 make tgt.dateFilter as vt0 then {
-    "DataRequirement.dateFilter.path" : for vs0.path as vs make vt0.path as vt
-    "DataRequirement.dateFilter.value-dateTime" : for vs0.value  : dateTime as vs make vt0.value = create("dateTime") as vt then dateTime(vs,vt)
-    "DataRequirement.dateFilter.value-Period" : for vs0.value  : Period as vs make vt0.value = create("Period") as vt then Period(vs,vt)
-    "DataRequirement.dateFilter.value-Duration" : for vs0.value  : Duration as vs make vt0.value = create("Duration") as vt then Duration(vs,vt)
-  }
-endgroup
+group DataRequirement(source src : DataRequirementR3, target tgt : DataRequirement) extends Element <<type+>> {
+  src.type -> tgt.type;
+  src.mustSupport -> tgt.mustSupport;
+  src.codeFilter as vs0 -> tgt.codeFilter as vt0 then {
+    vs0.path -> vt0.path;
+    vs0.valueCode -> vt0.code "code";
+    vs0.valueCoding -> vt0.code "code";
+    vs0.valueCodeableConcept -> vt0.code "code";
+  };
+  src.dateFilter as vs0 -> tgt.dateFilter as vt0 then {
+    vs0.path -> vt0.path;
+    vs0.value : dateTime as vs -> vt0.value = create("dateTime") as vt then dateTime(vs, vt);
+    vs0.value : Period as vs -> vt0.value = create("Period") as vt then Period(vs, vt);
+    vs0.value : Duration as vs -> vt0.value = create("Duration") as vt then Duration(vs, vt);
+  };
+}
 

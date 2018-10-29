@@ -1,37 +1,32 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Media4to3" = "R4 to R3 Conversion for Media"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Media" alias Media as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Media" alias MediaR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group Media(source src : MediaR3, target tgt : Media) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.modality -> tgt.modality;
+  src.view -> tgt.view;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.created -> tgt.created;
+  src.issued -> tgt.issued;
+  src.operator -> tgt.operator;
+  src.reasonCode -> tgt.reasonCode;
+  src.bodySite -> tgt.bodySite;
+  src.deviceName -> tgt.deviceName;
+  src.device -> tgt.device;
+  src.height -> tgt.height;
+  src.width -> tgt.width;
+  src.frames -> tgt.frames;
+  src.duration -> tgt.duration;
+  src.content -> tgt.content;
+  src.note -> tgt.note;
+}
 
-
-group Media extends DomainResource
-  input src : MediaR3 as source
-  input tgt : Media as target
-
-  "Media.identifier": for src.identifier make tgt.identifier
-  "Media.basedOn": for src.basedOn make tgt.basedOn
-  "Media.partOf": for src.partOf make tgt.partOf
-  "Media.status": for src.status make tgt.status
-  "Media.type": for src.type make tgt.type
-  "Media.modality": for src.modality make tgt.modality
-  "Media.view": for src.view make tgt.view
-  "Media.subject": for src.subject make tgt.subject
-  "Media.context": for src.context make tgt.context
-  "Media.created": for src.created make tgt.created
-  "Media.issued": for src.issued make tgt.issued
-  "Media.operator": for src.operator make tgt.operator
-  "Media.reasonCode": for src.reasonCode make tgt.reasonCode
-  "Media.bodySite": for src.bodySite make tgt.bodySite
-  "Media.deviceName": for src.deviceName make tgt.deviceName
-  "Media.device": for src.device make tgt.device
-  "Media.height": for src.height make tgt.height
-  "Media.width": for src.width make tgt.width
-  "Media.frames": for src.frames make tgt.frames
-  "Media.duration": for src.duration make tgt.duration
-  "Media.content": for src.content make tgt.content
-  "Media.note": for src.note make tgt.note
-endgroup

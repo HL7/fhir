@@ -20,6 +20,7 @@ import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
@@ -32,6 +33,7 @@ import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
@@ -120,6 +122,8 @@ public class SpecDifferenceEvaluator {
     loadSD(self.revision.resources, "C:\\work\\org.hl7.fhir\\build\\publish\\profiles-resources.xml");
     loadVS3(self.original.expansions, "C:\\work\\org.hl7.fhir\\build\\source\\release3\\expansions.xml");
     loadVS(self.revision.expansions, "C:\\work\\org.hl7.fhir\\build\\publish\\expansions.xml");
+    loadVS3(self.original.valuesets, "C:\\work\\org.hl7.fhir\\build\\source\\release3\\valuesets.xml");
+    loadVS(self.revision.valuesets, "C:\\work\\org.hl7.fhir\\build\\publish\\valuesets.xml");
     StringBuilder b = new StringBuilder();
     b.append("<html>\r\n");
     b.append("<head>\r\n");
@@ -345,7 +349,7 @@ public class SpecDifferenceEvaluator {
       StructureDefinition orig = original.types.get(s);
       StructureDefinition rev = revision.types.get(s);
       if (orig == null) {
-        markNew(rev.getName(), true, false);
+        markNew(rev.getName(), true, false, false);
       } else if (rev.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
         markNoChanges(rev.getName(), true);
       } else if (rev.hasDerivation() && orig.hasDerivation() && rev.getDerivation() != orig.getDerivation()) {
@@ -366,7 +370,7 @@ public class SpecDifferenceEvaluator {
       StructureDefinition orig = original.resources.get(checkRename(s));
       StructureDefinition rev = revision.resources.get(s);
       if (orig == null) {
-        markNew(rev.getName(), true, true);
+        markNew(rev.getName(), true, true, false);
       } else {
         compare(orig, rev);
       }
@@ -413,7 +417,7 @@ public class SpecDifferenceEvaluator {
       left.addTag("a").setAttribute("href", link).addText(name);
     else
       left.addText(name);
-    right.ul().li().addText("No Changes");
+    right.span("opacity: 0.5", null).addText("(No Changes)");
   }
   
   private void markChanged(String name, String change, boolean item) {
@@ -436,7 +440,7 @@ public class SpecDifferenceEvaluator {
     right.ul().li().addText("deleted");
   }
   
-  private void markNew(String name, boolean item, boolean res) {
+  private void markNew(String name, boolean item, boolean res, boolean mand) {
     XhtmlNode tr = tbl.addTag("tr").setAttribute("class", item ? "diff-new-item" : "diff-new");
     XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
     XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
@@ -445,7 +449,10 @@ public class SpecDifferenceEvaluator {
       left.addTag("a").setAttribute("href", link).addText(name);
     else
       left.addText(name);
-    right.ul().li().addText(res ? "Added Resource" :name.contains(".") ? "Added Element" : "Added Type");    
+    if (!res && mand)
+      right.ul().li().b().addText("Added Mandatory Element");    
+    else
+      right.ul().li().addText(res ? "Added Resource" : !name.contains(".") ? "Added Type" : mand ? "Added Mandatory Element " : "Added Element" );    
   }
 
   private void compare(StructureDefinition orig, StructureDefinition rev) {
@@ -477,7 +484,7 @@ public class SpecDifferenceEvaluator {
       ElementDefinition oed = (ElementDefinition) ed.getUserData("match");
       if (oed == null) {
         changed = true;
-        markNew(ed.getPath(), false, false);        
+        markNew(ed.getPath(), false, false, ed.getMin() > 0);        
       } else 
         changed = compareElement(ed, oed) || changed;
     }
@@ -499,7 +506,7 @@ public class SpecDifferenceEvaluator {
     }
 
     if (!changed)
-      tr.ul().li().addText("No Changes");
+      right.ul().li().addText("No Changes");
     
     for (ElementDefinition ed : rev.getDifferential().getElement()) 
       ed.clearUserData("match");
@@ -544,13 +551,21 @@ public class SpecDifferenceEvaluator {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder("\r\n");
     String rn = tail(rev.getPath());
     String on = tail(orig.getPath());
-    
-    if (!rn.equals(on) && rev.getPath().contains("."))
-      b.append("Renamed from "+on+" to " +rn);
+    String rp = head(rev.getPath());
+    String op = head(orig.getPath());
+    boolean renamed = false;
+    if (!rn.equals(on) && rev.getPath().contains(".")) {
+      if (rp.equals(op))
+        b.append("Renamed from "+on+" to " +rn);
+      else
+        b.append("Moved from "+orig.getPath()+" to " +rn);
+      renamed = true;
+    }
     else if (!rev.getPath().equals(orig.getPath())) {
       if (!moveAlreadyNoted(rev.getPath(), orig.getPath())) {
         noteMove(rev.getPath(), orig.getPath());
         b.append("Moved from "+head(orig.getPath())+" to " +head(rev.getPath()));
+        renamed = true;
       }
     }
     
@@ -560,9 +575,7 @@ public class SpecDifferenceEvaluator {
     if (!rev.getMax().equals(orig.getMax()))
       b.append("Max Cardinality changed from "+orig.getMax()+" to " +rev.getMax());
     
-    String types = analyseTypes(rev, orig);
-    if (!Utilities.noString(types))
-      b.append(types);
+    analyseTypes(b, rev, orig);
   
     if (hasBindingToNote(rev) ||  hasBindingToNote(orig)) {
       String s = compareBindings(rev, orig);
@@ -592,7 +605,7 @@ public class SpecDifferenceEvaluator {
     }
 
     if (b.length() > 0) {
-      XhtmlNode tr = tbl.addTag("tr").setAttribute("class", "diff-entry");
+      XhtmlNode tr = tbl.addTag("tr").setAttribute("class", renamed ? "diff-changed-item" : "diff-entry");
       XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
       left.addText(rev.getPath());
       XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
@@ -601,7 +614,20 @@ public class SpecDifferenceEvaluator {
         if (!Utilities.noString(s)) {
           if (ul == null) 
             ul = right.addTag("ul");
-          ul.addTag("li").addText(s);
+          XhtmlNode li = ul.addTag("li").notPretty();
+          if (s.contains("`")) {
+            String[] p = s.split("\\`");
+            boolean code = true;
+            li.addText(p[0]);
+            for (int i = 1; i < p.length; i++) {
+              if (code) 
+                li.addTag("code").addText(p[i]);
+              else
+                li.addText(p[i]);
+              code = !code;
+            }
+          } else
+            li.addText(s);
         }
       }
     }
@@ -644,6 +670,8 @@ public class SpecDifferenceEvaluator {
       b.append("Change binding strength from "+orig.getStrength().toCode()+" to "+rev.getStrength().toCode());
     if (!Base.compareDeep(rev.getValueSet(), orig.getValueSet(), false))
       b.append("Change value set from "+describeReference(orig.getValueSet())+" to "+describeReference(rev.getValueSet()));
+    if (!maxValueSetsMatch(rev, orig))
+      b.append("Change max value set from "+describeMax(orig)+" to "+describeMax(rev));
     if (rev.getStrength() == BindingStrength.REQUIRED && orig.getStrength() == BindingStrength.REQUIRED) {
       ValueSet vrev = getValueSet(rev.getValueSet(), revision.expansions); 
       ValueSet vorig = getValueSet(rev.getValueSet(), original.expansions);
@@ -655,29 +683,58 @@ public class SpecDifferenceEvaluator {
         for (ValueSetExpansionContainsComponent cc : vorig.getExpansion().getContains()) {
           if (!hasCode(vrev, cc)) {
             io++;
-            bo.append(Utilities.escapeXml(cc.getCode()));
+            bo.append("`"+Utilities.escapeXml(cc.getCode())+"`");
           }
         }
         for (ValueSetExpansionContainsComponent cc : vrev.getExpansion().getContains()) {
           if (!hasCode(vorig, cc)) {
             ir++;
-            br.append(Utilities.escapeXml(cc.getCode()));
+            br.append("`"+Utilities.escapeXml(cc.getCode())+"`");
           }
         }
       }
       if (io > 0) 
         b.append("Remove "+Utilities.pluralize("Code", io)+" "+bo);
       if (ir > 0) 
-        b.append("Add "+Utilities.pluralize("Code", ir)+" "+br);
+        b.append("Add "+Utilities.pluralize("Code", ir)+"  "+br);
       
     }
+    if (rev.getStrength() == BindingStrength.EXTENSIBLE && orig.getStrength() == BindingStrength.EXTENSIBLE) {
+      ValueSet vrev = getValueSet(rev.getValueSet(), revision.valuesets); 
+      ValueSet vorig = getValueSet(orig.getValueSet(), original.valuesets);
+      if (vrev != null && vrev.hasCompose() && vrev.getCompose().getInclude().size() == 1 && vrev.getCompose().getIncludeFirstRep().hasSystem() &&
+          vorig != null && vorig.hasCompose() && vorig.getCompose().getInclude().size() == 1 && vorig.getCompose().getIncludeFirstRep().hasSystem()) {
+        if (!vorig.getCompose().getIncludeFirstRep().getSystem().equals(vrev.getCompose().getIncludeFirstRep().getSystem())) {
+          b.append("Change code system for extensibly bound codes from \""+vorig.getCompose().getIncludeFirstRep().getSystem()+"\" to \""+vrev.getCompose().getIncludeFirstRep().getSystem()+"\"");
+        }
+      }
+    }
+    
     return b.toString();
   }
+  
+  private String describeMax(ElementDefinitionBindingComponent orig) {
+    if (!orig.hasExtension(ToolingExtensions.EXT_MAX_VALUESET))
+      return "n/a";
+    return "`"+ToolingExtensions.readStringExtension(orig, ToolingExtensions.EXT_MAX_VALUESET)+"`";
+  }
+
+  private boolean maxValueSetsMatch(ElementDefinitionBindingComponent rev, ElementDefinitionBindingComponent orig) {
+    if (!rev.hasExtension(ToolingExtensions.EXT_MAX_VALUESET) && !orig.hasExtension(ToolingExtensions.EXT_MAX_VALUESET))
+      return true;
+    if (rev.hasExtension(ToolingExtensions.EXT_MAX_VALUESET) != orig.hasExtension(ToolingExtensions.EXT_MAX_VALUESET))
+      return false;
+    return ToolingExtensions.readStringExtension(rev, ToolingExtensions.EXT_MAX_VALUESET).equals(ToolingExtensions.readStringExtension(orig, ToolingExtensions.EXT_MAX_VALUESET));
+  }
+
 //  "Remove code "+
 //  "add code "+
 
   private String describeBinding(ElementDefinition orig) {
-    return describeReference(orig.getBinding().getValueSet())+" ("+orig.getBinding().getStrength().toCode()+")";
+    if (orig.getBinding().hasExtension(ToolingExtensions.EXT_MAX_VALUESET))
+      return "`"+orig.getBinding().getValueSet()+"` ("+orig.getBinding().getStrength().toCode()+"), max =`"+ ToolingExtensions.readStringExtension(orig.getBinding(), ToolingExtensions.EXT_MAX_VALUESET)+"`";
+    else
+      return "`"+orig.getBinding().getValueSet()+"` ("+orig.getBinding().getStrength().toCode()+")";
   }
 
   private void describeBinding(JsonObject element, String name, ElementDefinition orig) {
@@ -685,6 +742,8 @@ public class SpecDifferenceEvaluator {
     element.add(name,  binding);
     binding.addProperty("reference", describeReference(orig.getBinding().getValueSet()));
     binding.addProperty("strength", orig.getBinding().getStrength().toCode());
+    if (orig.getBinding().hasExtension(ToolingExtensions.EXT_MAX_VALUESET))
+      binding.addProperty("max", ToolingExtensions.readStringExtension(orig.getBinding(), ToolingExtensions.EXT_MAX_VALUESET));
   }
 
   private void describeBinding(Document doc, Element element, String name, ElementDefinition orig) {
@@ -692,6 +751,8 @@ public class SpecDifferenceEvaluator {
     element.appendChild(binding);
     binding.setAttribute("reference", describeReference(orig.getBinding().getValueSet()));
     binding.setAttribute("strength", orig.getBinding().getStrength().toCode());
+    if (orig.getBinding().hasExtension(ToolingExtensions.EXT_MAX_VALUESET))
+      binding.setAttribute("max", ToolingExtensions.readStringExtension(orig.getBinding(), ToolingExtensions.EXT_MAX_VALUESET));
   }
 
   private String describeReference(String ref) {
@@ -729,7 +790,7 @@ public class SpecDifferenceEvaluator {
 
   private boolean hasBindingToNote(ElementDefinition ed) {
     return ed.hasBinding() &&
-        (ed.getBinding().getStrength() == BindingStrength.EXTENSIBLE || ed.getBinding().getStrength() == BindingStrength.REQUIRED) && 
+        (ed.getBinding().getStrength() == BindingStrength.EXTENSIBLE || ed.getBinding().getStrength() == BindingStrength.REQUIRED || ed.getBinding().hasExtension(ToolingExtensions.EXT_MAX_VALUESET)) && 
         ed.getBinding().hasValueSet();
   }
 
@@ -741,7 +802,7 @@ public class SpecDifferenceEvaluator {
     return path.contains(".") ? path.substring(0, path.lastIndexOf(".")) : path;
   }
   
-  private String analyseTypes(ElementDefinition rev, ElementDefinition orig) {
+  private void analyseTypes(CommaSeparatedStringBuilder bp, ElementDefinition rev, ElementDefinition orig) {
     if (rev.getType().size() == 1 && orig.getType().size() == 1) {
       String r = describeType(rev.getType().get(0));
       if (Utilities.noString(r) && Utilities.existsInList(rev.getId(), "Element.id"))
@@ -749,24 +810,81 @@ public class SpecDifferenceEvaluator {
       if (Utilities.noString(r) && Utilities.existsInList(rev.getId(), "Extension.url"))
         r = "uri";        
       String o = describeType(orig.getType().get(0));
-      if ((r == null && o == null) || r.equals(o))
-        return null;
-      else
-        return "Type changed from "+o+" to "+r; 
+      if (r == null && o == null)
+        System.out.println("null @ "+rev.getPath());
+      if (r.contains("(") && o.contains("(") && r.startsWith(o.substring(0, o.indexOf("(")+1))) {
+        compareParameters(bp, rev.getType().get(0), orig.getType().get(0));
+      } else if (!r.equals(o))
+        bp.append("Type changed from "+o+" to "+r); 
     } else {
-      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      CommaSeparatedStringBuilder removed = new CommaSeparatedStringBuilder();
+      CommaSeparatedStringBuilder added = new CommaSeparatedStringBuilder();
+      CommaSeparatedStringBuilder retargetted = new CommaSeparatedStringBuilder();
       for (TypeRefComponent tr : orig.getType()) {
         if (!hasType(rev.getType(), tr))
-          b.append("Remove "+describeType(tr));
+          removed.append(describeType(tr));
       }
       for (TypeRefComponent tr : rev.getType()) {
         if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getCode()))
-          b.append("Add "+describeType(tr));
+          added.append(describeType(tr));
       }
-      return b.toString();
+      for (TypeRefComponent tr : rev.getType()) {
+        TypeRefComponent tm = getType(rev.getType(), tr);
+        if (tm != null) {
+          compareParameters(bp, tr, tm);
+        }
+      }
+      if (added.length() > 0)
+        bp.append("Add "+Utilities.pluralize("Type", added.count())+" "+added.toString());
+      if (removed.length() > 0)
+        bp.append("Remove "+Utilities.pluralize("Type", removed.count())+" "+removed.toString());
+      if (retargetted.length() > 0)
+        bp.append(retargetted.toString());
     }
   }
   
+  private void compareParameters(CommaSeparatedStringBuilder bp, TypeRefComponent tr, TypeRefComponent tm) {
+    List<String> added = new ArrayList<>();
+    List<String> removed = new ArrayList<>();
+    
+    for (CanonicalType p : tr.getTargetProfile()) {
+      if (!hasParam(tm, p.asStringValue())) {
+        added.add(trimNS(p.asStringValue()));
+      }
+    }
+    
+    for (CanonicalType p : tm.getTargetProfile()) {
+      if (!hasParam(tr, p.asStringValue())) {
+        removed.add(trimNS(p.asStringValue()));
+      }
+    }
+    
+    if (!added.isEmpty())
+      bp.append("Type " +tr.getCode()+": Added Target "+Utilities.pluralize("Type", added.size())+" "+csv(added));
+    if (!removed.isEmpty())
+      bp.append("Type " +tr.getCode()+": Removed Target "+Utilities.pluralize("Type", removed.size())+" "+csv(removed));
+  }
+
+  private String trimNS(String v) {
+    if (v.startsWith("http://hl7.org/fhir/StructureDefinition/"))
+      return v.substring(40);
+    return v;
+  }
+
+  private String csv(List<String> list) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (String s : list)
+      b.append(s);
+    return b.toString();
+  }
+
+  private boolean hasParam(TypeRefComponent tm, String s) {
+    for (CanonicalType t : tm.getTargetProfile())
+      if (s.equals(t.asStringValue()))
+        return true;
+    return false;
+  }
+
   private boolean isAbstractType(String code) {
     return Utilities.existsInList(code, "Element", "BackboneElement");
   }
@@ -774,26 +892,34 @@ public class SpecDifferenceEvaluator {
   private boolean hasType(List<TypeRefComponent> types, TypeRefComponent tr) {
     for (TypeRefComponent t : types) {
       if (t.getCode().equals(tr.getCode())) {
-        if (((!t.hasProfile() && !tr.hasProfile()) || (t.getProfile().equals(tr.getProfile()))) &&
-            ((!t.hasTargetProfile() && !tr.hasTargetProfile()) || (t.getTargetProfile().equals(tr.getTargetProfile()))))
+        if (((!t.hasProfile() && !tr.hasProfile()) || (t.getProfile().equals(tr.getProfile()))))
           return true;
       }
     }
     return false;
   }
   
+  private TypeRefComponent getType(List<TypeRefComponent> types, TypeRefComponent tr) {
+    for (TypeRefComponent t : types) {
+      if (t.getCode().equals(tr.getCode())) {
+        return t;
+      }
+    }
+    return null;
+  }
+  
   private String describeType(TypeRefComponent tr) {
     if (!tr.hasProfile() && !tr.hasTargetProfile()) 
       return tr.getCode();
-    else if (tr.getCode().equals("Reference")) {
-      StringBuilder b = new StringBuilder("Reference");
+    else if (Utilities.existsInList(tr.getCode(), "Reference", "canonical")) {
+      StringBuilder b = new StringBuilder(tr.getCode());
       b.append("(");
       boolean first = true;
       for (UriType u : tr.getTargetProfile()) {
         if (first)
           first = false;
         else 
-          b.append("|");
+          b.append(" | ");
         if (u.getValue().startsWith("http://hl7.org/fhir/StructureDefinition/"))
           b.append(u.getValue().substring(40));
         else
@@ -802,7 +928,7 @@ public class SpecDifferenceEvaluator {
       b.append(")");
       return b.toString();
     } else {
-      StringBuilder b = new StringBuilder("canonical");
+      StringBuilder b = new StringBuilder(tr.getCode());
       if (tr.getProfile().size() > 0) {
         b.append("(");
         boolean first = true;
@@ -810,7 +936,7 @@ public class SpecDifferenceEvaluator {
           if (first)
             first = false;
           else 
-            b.append("|");
+            b.append(" | ");
           b.append(u.getValue());
         }
         b.append(")");
@@ -1089,6 +1215,7 @@ public class SpecDifferenceEvaluator {
   private void analyseTypes(JsonObject element, ElementDefinition rev, ElementDefinition orig) {
     JsonArray oa = new JsonArray();
     JsonArray ra = new JsonArray();
+
     if (rev.getType().size() == 1 && orig.getType().size() == 1) {
       String r = describeType(rev.getType().get(0));
       if (Utilities.noString(r) && Utilities.existsInList(rev.getId(), "Element.id", "Extension.url"))
@@ -1107,11 +1234,40 @@ public class SpecDifferenceEvaluator {
         if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getCode()))
           ra.add(new JsonPrimitive(describeType(tr)));
       }
+      for (TypeRefComponent tr : rev.getType()) {
+        TypeRefComponent tm = getType(rev.getType(), tr);
+        if (tm != null) {
+          compareParameters(element, tr, tm);
+        }
+      }
+
     }
     if (oa.size() > 0)
       element.add("removed-types", oa);
     if (ra.size() > 0)
       element.add("added-types", ra);
+  }
+  
+  private void compareParameters(JsonObject element, TypeRefComponent tr, TypeRefComponent tm) {
+    JsonArray added = new JsonArray();
+    JsonArray removed = new JsonArray();
+    
+    for (CanonicalType p : tr.getTargetProfile()) {
+      if (!hasParam(tm, p.asStringValue())) {
+        added.add(new JsonPrimitive(p.asStringValue()));
+      }
+    }
+    
+    for (CanonicalType p : tm.getTargetProfile()) {
+      if (!hasParam(tr, p.asStringValue())) {
+        removed.add(new JsonPrimitive(p.asStringValue()));
+      }
+    }
+    
+    if (added.size() > 0)
+      element.add(tr.getCode()+"-target-added", added);
+    if (removed.size() > 0)
+      element.add(tr.getCode()+"-target-removed", removed);
   }
   
   private void analyseTypes(Document doc, Element element, ElementDefinition rev, ElementDefinition orig) {
@@ -1133,9 +1289,29 @@ public class SpecDifferenceEvaluator {
         if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getCode()))
           element.appendChild(makeElementWithAttribute(doc, "added-type", "name", describeType(tr)));
       }
+      for (TypeRefComponent tr : rev.getType()) {
+        TypeRefComponent tm = getType(rev.getType(), tr);
+        if (tm != null) {
+          compareParameters(doc, element, tr, tm);
+        }
+      }
     }
   }
   
+  private void compareParameters(Document doc, Element element, TypeRefComponent tr, TypeRefComponent tm) {
+   
+    for (CanonicalType p : tr.getTargetProfile()) {
+      if (!hasParam(tm, p.asStringValue())) {
+        element.appendChild(makeElementWithAttribute(doc, tr.getCode()+"-target-added", "name", p.asStringValue()));
+      }
+    }
+    
+    for (CanonicalType p : tm.getTargetProfile()) {
+      if (!hasParam(tr, p.asStringValue())) {
+        element.appendChild(makeElementWithAttribute(doc, tr.getCode()+"-target-removed", "name", p.asStringValue()));
+      }
+    }    
+  }
   
   private Node makeElementWithAttribute(Document doc, String name, String aname, String content) {
     Element e = doc.createElement(name);
@@ -1167,6 +1343,11 @@ public class SpecDifferenceEvaluator {
       element.addProperty("binding-valueset-changed", true);
       res = true;
     }
+    if (!maxValueSetsMatch(rev, orig)) {
+      element.addProperty("max-valueset-changed", true);
+      res = true;
+    }
+
     if (rev.getStrength() == BindingStrength.REQUIRED && orig.getStrength() == BindingStrength.REQUIRED) {
       JsonArray oa = new JsonArray();
       JsonArray ra = new JsonArray();
@@ -1224,6 +1405,10 @@ public class SpecDifferenceEvaluator {
     }
     if (!Base.compareDeep(rev.getValueSet(), orig.getValueSet(), false)) {
       element.setAttribute("binding-valueset-changed", "true");
+      res = true;
+    }
+    if (!maxValueSetsMatch(rev, orig)){
+      element.setAttribute("max-valueset-changed", "true");
       res = true;
     }
     if (rev.getStrength() == BindingStrength.REQUIRED && orig.getStrength() == BindingStrength.REQUIRED) {

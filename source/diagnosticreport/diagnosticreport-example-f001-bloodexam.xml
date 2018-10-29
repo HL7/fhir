@@ -92,9 +92,9 @@
 					<reference value="Patient/f001"/>
 					<display value="P. van den Heuvel"/>
 				</subject>
-				<context>
+				<encounter>
 					<reference value="Encounter/f001"/>
-				</context>
+				</encounter>
 				<requester>
 						<reference value="Practitioner/f001"/>
 						<display value="E.van den Broek"/>

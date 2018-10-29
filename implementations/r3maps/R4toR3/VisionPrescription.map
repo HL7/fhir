@@ -1,51 +1,40 @@
 ﻿map "http://hl7.org/fhir/StructureMap/VisionPrescription4to3" = "R4 to R3 Conversion for VisionPrescription"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" alias VisionPrescription as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/VisionPrescription" alias VisionPrescriptionR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group VisionPrescription(source src : VisionPrescriptionR3, target tgt : VisionPrescription) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.dateWritten -> tgt.dateWritten;
+  src.prescriber -> tgt.prescriber;
+  src.reason -> tgt.reason;
+  src.dispense as s -> tgt.dispense as t then VisionPrescriptionDispense(s, t);
+}
 
+group VisionPrescriptionDispense(source src : VisionPrescriptionR3, target tgt : VisionPrescription) extends BackboneElement <<type+>> {
+  src.product -> tgt.product;
+  src.eye -> tgt.eye;
+  src.sphere -> tgt.sphere;
+  src.cylinder -> tgt.cylinder;
+  src.axis -> tgt.axis;
+  src.prism as s -> tgt.prism as t then VisionPrescriptionDispensePrism(s, t);
+  src.add -> tgt.add;
+  src.power -> tgt.power;
+  src.backCurve -> tgt.backCurve;
+  src.diameter -> tgt.diameter;
+  src.duration -> tgt.duration;
+  src.color -> tgt.color;
+  src.brand -> tgt.brand;
+  src.note -> tgt.note;
+}
 
-group VisionPrescription extends DomainResource
-  input src : VisionPrescriptionR3 as source
-  input tgt : VisionPrescription as target
+group VisionPrescriptionDispensePrism(source src : VisionPrescriptionR3, target tgt : VisionPrescription) extends BackboneElement <<type+>> {
+  src.amount -> tgt.amount;
+  src.base -> tgt.base;
+}
 
-  "VisionPrescription.identifier": for src.identifier make tgt.identifier
-  "VisionPrescription.status": for src.status make tgt.status
-  "VisionPrescription.patient": for src.patient make tgt.patient
-  "VisionPrescription.encounter": for src.encounter make tgt.encounter
-  "VisionPrescription.dateWritten": for src.dateWritten make tgt.dateWritten
-  "VisionPrescription.prescriber": for src.prescriber make tgt.prescriber
-  "VisionPrescription.reason": for src.reason make tgt.reason
-  "VisionPrescription.dispense": for src.dispense as s make tgt.dispense as t then VisionPrescriptionDispense(s,t)
-endgroup
-
-group VisionPrescriptionDispense extends BackboneElement
-  input src : VisionPrescriptionR3 as source
-  input tgt : VisionPrescription as target
-
-  "VisionPrescription.dispense.product": for src.product make tgt.product
-  "VisionPrescription.dispense.eye": for src.eye make tgt.eye
-  "VisionPrescription.dispense.sphere": for src.sphere make tgt.sphere
-  "VisionPrescription.dispense.cylinder": for src.cylinder make tgt.cylinder
-  "VisionPrescription.dispense.axis": for src.axis make tgt.axis
-  "VisionPrescription.dispense.prism": for src.prism as s make tgt.prism as t then VisionPrescriptionDispensePrism(s,t)
-  "VisionPrescription.dispense.add": for src.add make tgt.add
-  "VisionPrescription.dispense.power": for src.power make tgt.power
-  "VisionPrescription.dispense.backCurve": for src.backCurve make tgt.backCurve
-  "VisionPrescription.dispense.diameter": for src.diameter make tgt.diameter
-  "VisionPrescription.dispense.duration": for src.duration make tgt.duration
-  "VisionPrescription.dispense.color": for src.color make tgt.color
-  "VisionPrescription.dispense.brand": for src.brand make tgt.brand
-  "VisionPrescription.dispense.note": for src.note make tgt.note
-endgroup
-
-group VisionPrescriptionDispensePrism extends BackboneElement
-  input src : VisionPrescriptionR3 as source
-  input tgt : VisionPrescription as target
-
-  "VisionPrescription.dispense.prism.amount": for src.amount make tgt.amount
-  "VisionPrescription.dispense.prism.base": for src.base make tgt.base
-endgroup

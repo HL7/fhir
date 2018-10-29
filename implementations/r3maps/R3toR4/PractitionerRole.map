@@ -1,37 +1,31 @@
 ﻿map "http://hl7.org/fhir/StructureMap/PractitionerRole3to4" = "R3 to R4 Conversions for PractitionerRole"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/PractitionerRole" alias PractitionerRoleR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/PractitionerRole" alias PractitionerRole as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group PractitionerRole extends DomainResource
-  input src : PractitionerRoleR3 as source
-  input tgt : PractitionerRole as target
-
-  "PractitionerRole.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "PractitionerRole.active" : for src.active as vs make tgt.active as vt
-  "PractitionerRole.period" : for src.period as vs make tgt.period as vt
-  "PractitionerRole.practitioner" : for src.practitioner as vs make tgt.practitioner as vt
-  "PractitionerRole.organization" : for src.organization as vs make tgt.organization as vt
-  "PractitionerRole.code" : for src.code as vs make tgt.code as vt
-  "PractitionerRole.specialty" : for src.specialty as vs make tgt.specialty as vt
-  "PractitionerRole.location" : for src.location as vs make tgt.location as vt
-  "PractitionerRole.healthcareService" : for src.healthcareService as vs make tgt.healthcareService as vt
-  "PractitionerRole.telecom" : for src.telecom as vs make tgt.telecom as vt
-  "PractitionerRole.availableTime" : for src.availableTime as vs0 make tgt.availableTime as vt0 then {
-    "PractitionerRole.availableTime.allDay" : for vs0.allDay as vs make vt0.allDay as vt
-    "PractitionerRole.availableTime.availableStartTime" : for vs0.availableStartTime as vs make vt0.availableStartTime as vt
-    "PractitionerRole.availableTime.availableEndTime" : for vs0.availableEndTime as vs make vt0.availableEndTime as vt
-  }
-  "PractitionerRole.notAvailable" : for src.notAvailable as vs0 make tgt.notAvailable as vt0 then {
-    "PractitionerRole.notAvailable.description" : for vs0.description as vs make vt0.description as vt
-    "PractitionerRole.notAvailable.during" : for vs0.during as vs make vt0.during as vt
-  }
-  "PractitionerRole.availabilityExceptions" : for src.availabilityExceptions as vs make tgt.availabilityExceptions as vt
-  "PractitionerRole.endpoint" : for src.endpoint as vs make tgt.endpoint as vt
-endgroup
+group PractitionerRole(source src : PractitionerRoleR3, target tgt : PractitionerRole) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.period -> tgt.period;
+  src.practitioner -> tgt.practitioner;
+  src.organization -> tgt.organization;
+  src.code -> tgt.code;
+  src.specialty -> tgt.specialty;
+  src.location -> tgt.location;
+  src.healthcareService -> tgt.healthcareService;
+  src.telecom -> tgt.telecom;
+  src.availableTime as vs0 -> tgt.availableTime as vt0 then {
+    vs0.allDay -> vt0.allDay;
+    vs0.availableStartTime -> vt0.availableStartTime;
+    vs0.availableEndTime -> vt0.availableEndTime;
+  };
+  src.notAvailable as vs0 -> tgt.notAvailable as vt0 then {
+    vs0.description -> vt0.description;
+    vs0.during -> vt0.during;
+  };
+  src.availabilityExceptions -> tgt.availabilityExceptions;
+  src.endpoint -> tgt.endpoint;
+}
 

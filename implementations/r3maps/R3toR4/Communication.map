@@ -1,47 +1,37 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Communication3to4" = "R3 to R4 Conversions for Communication"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Communication" alias CommunicationR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Communication" alias Communication as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group Communication(source src : CommunicationR3, target tgt : Communication) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.inResponseTo -> tgt.inResponseTo;
+  src.status -> tgt.status;
+  src.statusReason -> tgt.statusReason;
+  src.category -> tgt.category;
+  src.priority -> tgt.priority;
+  src.medium -> tgt.medium;
+  src.subject -> tgt.subject;
+  src.topic -> tgt.topic;
+  src.about -> tgt.about;
+  src.context -> tgt.context;
+  src.sent -> tgt.sent;
+  src.received -> tgt.received;
+  src.recipient -> tgt.recipient;
+  src.sender -> tgt.sender;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.payload as s -> tgt.payload as t then CommunicationPayload(s, t);
+  src.note -> tgt.note;
+}
 
-
-group Communication extends DomainResource
-  input src : CommunicationR3 as source
-  input tgt : Communication as target
-
-  "Communication.identifier": for src.identifier make tgt.identifier
-  "Communication.instantiatesCanonical": for src.instantiatesCanonical make tgt.instantiatesCanonical
-  "Communication.instantiatesUri": for src.instantiatesUri make tgt.instantiatesUri
-  "Communication.basedOn": for src.basedOn make tgt.basedOn
-  "Communication.partOf": for src.partOf make tgt.partOf
-  "Communication.inResponseTo": for src.inResponseTo make tgt.inResponseTo
-  "Communication.status": for src.status make tgt.status
-  "Communication.statusReason": for src.statusReason make tgt.statusReason
-  "Communication.category": for src.category make tgt.category
-  "Communication.priority": for src.priority make tgt.priority
-  "Communication.medium": for src.medium make tgt.medium
-  "Communication.subject": for src.subject make tgt.subject
-  "Communication.topic": for src.topic make tgt.topic
-  "Communication.about": for src.about make tgt.about
-  "Communication.context": for src.context make tgt.context
-  "Communication.sent": for src.sent make tgt.sent
-  "Communication.received": for src.received make tgt.received
-  "Communication.recipient": for src.recipient make tgt.recipient
-  "Communication.sender": for src.sender make tgt.sender
-  "Communication.reasonCode": for src.reasonCode make tgt.reasonCode
-  "Communication.reasonReference": for src.reasonReference make tgt.reasonReference
-  "Communication.payload": for src.payload as s make tgt.payload as t then CommunicationPayload(s,t)
-  "Communication.note": for src.note make tgt.note
-endgroup
-
-
-group CommunicationPayload extends BackboneElement
-  input src : CommunicationR3 as source
-  input tgt : Communication as target
-
-  "Communication.payload.content": for src.content make tgt.content
-endgroup
+group CommunicationPayload(source src : CommunicationR3, target tgt : Communication) extends BackboneElement <<type+>> {
+  src.content -> tgt.content;
+}
 

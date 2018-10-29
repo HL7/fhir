@@ -33,7 +33,7 @@
           <display value="Insulin Aspart (substance)"/>
         </coding>
       </itemCodeableConcept>
-      <amount>
+      <strength>
         <numerator>
           <value value="100"/>
           <system value="http://unitsofmeasure.org"/>
@@ -44,7 +44,7 @@
           <system value="http://unitsofmeasure.org"/>
           <code value="mL"/>
         </denominator>
-      </amount>
+      </strength>
     </ingredient>
   <batch>
     <lotNumber value="12345"/>

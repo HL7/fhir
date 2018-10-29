@@ -1,69 +1,51 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ChargeItemDefinition3to4" = "R3 to R4 Conversions for ChargeItemDefinition"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ChargeItemDefinition" alias ChargeItemDefinitionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition" alias ChargeItemDefinition as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group ChargeItemDefinition(source src : ChargeItemDefinitionR3, target tgt : ChargeItemDefinition) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.title -> tgt.title;
+  src.derivedFromUri -> tgt.derivedFromUri;
+  src.partOf -> tgt.partOf;
+  src.replaces -> tgt.replaces;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.copyright -> tgt.copyright;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.code -> tgt.code;
+  src.instance -> tgt.instance;
+  src.applicability as s -> tgt.applicability as t then ChargeItemDefinitionApplicability(s, t);
+  src.propertygroup as s -> tgt.propertygroup as t then ChargeItemDefinitionPropertyGroup(s, t) "propertyGroup";
+}
 
+group ChargeItemDefinitionApplicability(source src : ChargeItemDefinitionR3, target tgt : ChargeItemDefinition) extends BackboneElement <<type+>> {
+  src.description -> tgt.description;
+  src.language -> tgt.language;
+  src.expression -> tgt.expression;
+}
 
-group ChargeItemDefinition extends DomainResource
-  input src : ChargeItemDefinitionR3 as source
-  input tgt : ChargeItemDefinition as target
+group ChargeItemDefinitionPropertygroup(source src : ChargeItemDefinitionR3, target tgt : ChargeItemDefinition) extends BackboneElement <<type+>> {
+  src.applicability -> tgt.applicability;
+  src.priceComponent as s -> tgt.priceComponent as t then ChargeItemDefinitionPropertyGroupPriceComponent(s, t);
+}
 
-  "ChargeItemDefinition.url": for src.url make tgt.url
-  "ChargeItemDefinition.identifier": for src.identifier make tgt.identifier
-  "ChargeItemDefinition.version": for src.version make tgt.version
-  "ChargeItemDefinition.title": for src.title make tgt.title
-  "ChargeItemDefinition.derivedFromUri": for src.derivedFromUri make tgt.derivedFromUri
-  "ChargeItemDefinition.partOf": for src.partOf make tgt.partOf
-  "ChargeItemDefinition.replaces": for src.replaces make tgt.replaces
-  "ChargeItemDefinition.status": for src.status make tgt.status
-  "ChargeItemDefinition.experimental": for src.experimental make tgt.experimental
-  "ChargeItemDefinition.date": for src.date make tgt.date
-  "ChargeItemDefinition.publisher": for src.publisher make tgt.publisher
-  "ChargeItemDefinition.contact": for src.contact make tgt.contact
-  "ChargeItemDefinition.description": for src.description make tgt.description
-  "ChargeItemDefinition.useContext": for src.useContext make tgt.useContext
-  "ChargeItemDefinition.jurisdiction": for src.jurisdiction make tgt.jurisdiction
-  "ChargeItemDefinition.copyright": for src.copyright make tgt.copyright
-  "ChargeItemDefinition.approvalDate": for src.approvalDate make tgt.approvalDate
-  "ChargeItemDefinition.lastReviewDate": for src.lastReviewDate make tgt.lastReviewDate
-  "ChargeItemDefinition.effectivePeriod": for src.effectivePeriod make tgt.effectivePeriod
-  "ChargeItemDefinition.code": for src.code make tgt.code
-  "ChargeItemDefinition.instance": for src.instance make tgt.instance
-  "ChargeItemDefinition.applicability": for src.applicability as s make tgt.applicability as t then ChargeItemDefinitionApplicability(s,t)
-  "ChargeItemDefinition.propertyGroup": for src.propertyGroup as s make tgt.propertyGroup as t then ChargeItemDefinitionPropertyGroup(s,t)
-endgroup
-
-
-group ChargeItemDefinitionApplicability extends BackboneElement
-  input src : ChargeItemDefinitionR3 as source
-  input tgt : ChargeItemDefinition as target
-
-  "ChargeItemDefinition.applicability.description": for src.description make tgt.description
-  "ChargeItemDefinition.applicability.language": for src.language make tgt.language
-  "ChargeItemDefinition.applicability.expression": for src.expression make tgt.expression
-endgroup
-
-
-group ChargeItemDefinitionPropertyGroup extends BackboneElement
-  input src : ChargeItemDefinitionR3 as source
-  input tgt : ChargeItemDefinition as target
-
-  "ChargeItemDefinition.propertyGroup.applicability": for src.applicability make tgt.applicability
-  "ChargeItemDefinition.propertyGroup.priceComponent": for src.priceComponent as s make tgt.priceComponent as t then ChargeItemDefinitionPropertyGroupPriceComponent(s,t)
-endgroup
-
-
-group ChargeItemDefinitionPropertyGroupPriceComponent extends BackboneElement
-  input src : ChargeItemDefinitionR3 as source
-  input tgt : ChargeItemDefinition as target
-
-  "ChargeItemDefinition.propertyGroup.priceComponent.type": for src.type make tgt.type
-  "ChargeItemDefinition.propertyGroup.priceComponent.code": for src.code make tgt.code
-  "ChargeItemDefinition.propertyGroup.priceComponent.factor": for src.factor make tgt.factor
-  "ChargeItemDefinition.propertyGroup.priceComponent.amount": for src.amount make tgt.amount
-endgroup
+group ChargeItemDefinitionPropertyGroupPriceComponent(source src : ChargeItemDefinitionR3, target tgt : ChargeItemDefinition) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.code -> tgt.code;
+  src.factor -> tgt.factor;
+  src.amount -> tgt.amount;
+}
 

@@ -1,5 +1,5 @@
 package org.hl7.fhir.igtools.publisher;
-
+ 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -70,7 +70,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     defaultConfig = igs.getAsJsonObject("defaults");
     resourceConfig = igs.getAsJsonObject("resources");
     if (resourceConfig == null)
-      context.getLogger().logDebugMessage(LogCategory.PROGRESS, "No resources found in json file");
+      throw new Exception("No \"resources\" entry found in json file (see http://wiki.hl7.org/index.php?title=IG_Publisher_Documentation#Control_file)");
     else
       for (Entry<String, JsonElement> pp : resourceConfig.entrySet()) {
       if (pp.getKey().equals("*")) {

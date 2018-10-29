@@ -1,36 +1,49 @@
 ﻿map "http://hl7.org/fhir/StructureMap/GraphDefinition3to4" = "R3 to R4 Conversions for GraphDefinition"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/GraphDefinition" alias GraphDefinitionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/GraphDefinition" alias GraphDefinition as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group GraphDefinition(source src : GraphDefinitionR3, target tgt : GraphDefinition) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.start -> tgt.start;
+  src.profile -> tgt.profile;
+  src.link as vs0 -> tgt.link as vt0 then link(vs0, vt0);
+}
 
+group link(source src, target tgt) extends BackboneElement {
+  src.path -> tgt.path;
+  src.sliceName -> tgt.sliceName;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.description -> tgt.description;
+  src.target as vs0 -> tgt.target as vt0 then target(vs0, vt0);
+}
 
-group GraphDefinition extends DomainResource
-  input src : GraphDefinitionR3 as source
-  input tgt : GraphDefinition as target
+group target(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.profile -> tgt.profile;
+  src.compartment as vs0 -> tgt.compartment as vt0 then compartment(vs0, vt0);
+  src.link as vs0 -> tgt.link as vt0 then link(vs0, vt0);
+}
 
-  "GraphDefinition.url" : for src.url as vs make tgt.url as vt
-  "GraphDefinition.version" : for src.version as vs make tgt.version as vt
-  "GraphDefinition.name" : for src.name as vs make tgt.name as vt
-  "GraphDefinition.status" : for src.status as vs make tgt.status as vt
-  "GraphDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "GraphDefinition.date" : for src.date as vs make tgt.date as vt
-  "GraphDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "GraphDefinition.contact" : for src.contact as vs make tgt.contact as vt
-  "GraphDefinition.description" : for src.description as vs make tgt.description as vt
-  "GraphDefinition.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "GraphDefinition.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "GraphDefinition.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "GraphDefinition.start" : for src.start as vs make tgt.start as vt
-  "GraphDefinition.link" : for src.link as vs0 make tgt.link as vt0 then {
-    "GraphDefinition.link.path" : for vs0.path as vs make vt0.path as vt
-    "GraphDefinition.link.sliceName" : for vs0.sliceName as vs make vt0.sliceName as vt
-    "GraphDefinition.link.min" : for vs0.min as vs make vt0.min as vt
-    "GraphDefinition.link.max" : for vs0.max as vs make vt0.max as vt
-    "GraphDefinition.link.description" : for vs0.description as vs make vt0.description as vt
-  }
-endgroup
+group compartment(source src, target tgt) extends BackboneElement {
+  src -> tgt.use = "requirement" "use";
+  src.code -> tgt.code;
+  src.rule -> tgt.rule;
+  src.expression -> tgt.expression;
+  src.description -> tgt.description;
+}
 

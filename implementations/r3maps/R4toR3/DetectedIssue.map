@@ -1,31 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DetectedIssue4to3" = "R4 to R3 Conversion for DetectedIssue"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias DetectedIssue as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DetectedIssue" alias DetectedIssueR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group DetectedIssue extends DomainResource
-  input src : DetectedIssue as source
-  input tgt : DetectedIssueR3 as target
-
-  "DetectedIssue.identifier" : for src.identifierFirstRep as vs make tgt.identifier as vt
-  "DetectedIssue.status" : for src.status as vs make tgt.status as vt
-  "DetectedIssue.category" : for src.category as vs make tgt.category as vt
-  "DetectedIssue.severity" : for src.severity as vs make tgt.severity as vt
-  "DetectedIssue.patient" : for src.patient as vs make tgt.patient as vt
-  "DetectedIssue.date" : for src.date as vs make tgt.date as vt
-  "DetectedIssue.author" : for src.author as vs make tgt.author as vt
-  "DetectedIssue.implicated" : for src.implicated as vs make tgt.implicated as vt
-  "DetectedIssue.detail" : for src.detail as vs make tgt.detail as vt
-  "DetectedIssue.reference" : for src.reference as vs make tgt.reference as vt
-  "DetectedIssue.mitigation" : for src.mitigation as vs0 make tgt.mitigation as vt0 then {
-    "DetectedIssue.mitigation.action" : for vs0.action as vs make vt0.action as vt
-    "DetectedIssue.mitigation.date" : for vs0.date as vs make vt0.date as vt
-    "DetectedIssue.mitigation.author" : for vs0.author as vs make vt0.author as vt
-  }
-endgroup
+group DetectedIssue(source src : DetectedIssue, target tgt : DetectedIssueR3) extends DomainResource <<type+>> {
+  src.identifierFirstRep -> tgt.identifier "identifier";
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.severity -> tgt.severity;
+  src.patient -> tgt.patient;
+  src.date -> tgt.date;
+  src.author -> tgt.author;
+  src.implicated -> tgt.implicated;
+  src.detail -> tgt.detail;
+  src.reference -> tgt.reference;
+  src.mitigation as vs0 -> tgt.mitigation as vt0 then {
+    vs0.action -> vt0.action;
+    vs0.date -> vt0.date;
+    vs0.author -> vt0.author;
+  };
+}
 

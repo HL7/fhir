@@ -1,32 +1,44 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Provenance4to3" = "R4 to R3 Conversion for Provenance"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Provenance" alias Provenance as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Provenance" alias ProvenanceR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group Provenance(source src : Provenance, target tgt : ProvenanceR3) extends DomainResource <<type+>> {
+  src.target -> tgt.target;
+  src.occurred : Period as vs0 -> tgt.period as vt0 then Period(vs0, vt0) "period";
+  src.occurred : dateTime as vs0 ->  tgt.period as vt0,  vt0.start = vs0,  vt0.end = vs0 "period";
+  src.recorded -> tgt.recorded;
+  src.policy -> tgt.policy;
+  src.location -> tgt.location;
+  src.reason -> tgt.reason;
+  src.activity -> tgt.activity;
+  src.agent as vs0 -> tgt.agent as vt0 then agent(vs0, vt0);
+  src.entity as vs0 -> tgt.entity as vt0 then entity(vs0, vt0);
+  src.signature -> tgt.signature;
+}
 
+group agent(source src : ProvenanceR3, target tgt : Provenance) extends BackboneElement {
+  src.role -> tgt.role;
+  src.who as vs0 where extension('http://hl7.org/fhir/StructureDefinition/X34-basetype').empty() -> tgt.who = create("Reference") as vt0 then Reference(vs0, vt0);
+  src.who as vs0 where extension('http://hl7.org/fhir/StructureDefinition/X34-basetype').exists() -> tgt.who = create("uri") as vt0 then {
+    vs0.reference as vs1 then uri(vs1, vt0);
+  };
+  src.onBehalfOf as vs0 where extension('http://hl7.org/fhir/StructureDefinition/X34-basetype').empty() -> tgt.onBehalfOf = create("Reference") as vt0 then Reference(vs0, vt0);
+  src.onBehalfOf as vs0 where extension('http://hl7.org/fhir/StructureDefinition/X34-basetype').exists() -> tgt.onBehalfOf = create("uri") as vt0 then {
+    vs0.reference as vs1 then uri(vs1, vt0);
+  };
+  src.type -> tgt.relatedAgentType;
+}
 
-group Provenance extends DomainResource
-  input src : Provenance as source
-  input tgt : ProvenanceR3 as target
-
-  "Provenance.target" : for src.target as vs make tgt.target as vt
-  "Provenance.period" : for src.occurredPeriod as vs make tgt.period as vt
-  "Provenance.recorded" : for src.recorded as vs make tgt.recorded as vt
-  "Provenance.policy" : for src.policy as vs make tgt.policy as vt
-  "Provenance.location" : for src.location as vs make tgt.location as vt
-  "Provenance.activity" : for src.activity as vs make tgt.activity as vt
-  "Provenance.agent" : for src.agent as vs0 make tgt.agent as vt0 then {
-    "Provenance.agent.role" : for vs0.role as vs make vt0.role as vt
-    "Provenance.agent.who-Reference" : for vs0.who  : Reference as vs make vt0.who = create("Reference") as vt then Reference(vs,vt)
-    "Provenance.agent.onBehalfOf-Reference" : for vs0.onBehalfOf  : Reference as vs make vt0.onBehalfOf = create("Reference") as vt then Reference(vs,vt)
-  }
-  "Provenance.entity" : for src.entity as vs0 make tgt.entity as vt0 then {
-    "Provenance.entity.role" : for vs0.role as vs make vt0.role as vt
-    "Provenance.entity.what-Reference" : for vs0.what  : Reference as vs make vt0.what = create("Reference") as vt then Reference(vs,vt)
-  }
-  "Provenance.signature" : for src.signature as vs make tgt.signature as vt
-endgroup
+group entity(source src : ProvenanceR3, target tgt : Provenance) extends BackboneElement {
+  src.role -> tgt.role;
+  src.what as vs0 where extension('http://hl7.org/fhir/StructureDefinition/X34-basetype').empty() and identifier.empty() -> tgt.what = create("Reference") as vt0 then Reference(vs0, vt0);
+  src.what as vs0 where extension('http://hl7.org/fhir/StructureDefinition/X34-basetype').exists() -> tgt.what = create("uri") as vt0 then {
+    vs0.reference as vs1 then uri(vs1, vt0);
+  };
+  src.what as vs0 where identifier.exists() -> tgt.what = create("Identifier") as vt0 then Reference2Identifier(vs0, vt0);
+  src.agent as vs0 -> tgt.agent as vt0 then agent(vs0, vt0);
+}
 

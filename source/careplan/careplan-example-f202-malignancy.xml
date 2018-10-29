@@ -82,7 +82,7 @@
   <contained>
     <Goal>
       <id value="goal"/>
-      <status value="in-progress"/>
+      <lifecycleStatus value="active" />
       <description>
         <text value="Elimination of the spenoid bone tumor"/>
       </description>

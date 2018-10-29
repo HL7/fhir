@@ -86,12 +86,16 @@
     </coding>
   </serviceProvisionCode>
 	<eligibility>
-		<coding>
-			<display value="DVA Required"/>
-		</coding>
+		<code>
+			<coding>
+				<display value="DVA Required"/>
+			</coding>
+		</code>
+		<comment value="Evidence of application for DVA status may be sufficient for commencing assessment"/>
 	</eligibility>
-	<eligibilityNote value="Evidence of application for DVA status may be sufficient for commencing assessment"/>
-	<programName value="PTSD outreach"/>
+	<program>
+		<text value="PTSD outreach"/>
+	</program>
 	<characteristic>
 		<coding>
 			<display value="Wheelchair access"/>

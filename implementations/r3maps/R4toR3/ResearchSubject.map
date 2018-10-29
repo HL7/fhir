@@ -1,23 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ResearchSubject4to3" = "R4 to R3 Conversion for ResearchSubject"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ResearchSubject" alias ResearchSubject as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchSubject" alias ResearchSubjectR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group ResearchSubject(source src : ResearchSubjectR3, target tgt : ResearchSubject) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.period -> tgt.period;
+  src.study -> tgt.study;
+  src.individual -> tgt.individual;
+  src.assignedArm -> tgt.assignedArm;
+  src.actualArm -> tgt.actualArm;
+  src.consent -> tgt.consent;
+}
 
-
-group ResearchSubject extends DomainResource
-  input src : ResearchSubjectR3 as source
-  input tgt : ResearchSubject as target
-
-  "ResearchSubject.identifier": for src.identifier make tgt.identifier
-  "ResearchSubject.status": for src.status make tgt.status
-  "ResearchSubject.period": for src.period make tgt.period
-  "ResearchSubject.study": for src.study make tgt.study
-  "ResearchSubject.individual": for src.individual make tgt.individual
-  "ResearchSubject.assignedArm": for src.assignedArm make tgt.assignedArm
-  "ResearchSubject.actualArm": for src.actualArm make tgt.actualArm
-  "ResearchSubject.consent": for src.consent make tgt.consent
-endgroup

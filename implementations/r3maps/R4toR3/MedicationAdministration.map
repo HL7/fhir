@@ -1,54 +1,43 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicationAdministration4to3" = "R4 to R3 Conversion for MedicationAdministration"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" alias MedicationAdministration as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationAdministration" alias MedicationAdministrationR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group MedicationAdministration(source src : MedicationAdministrationR3, target tgt : MedicationAdministration) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiates -> tgt.instantiates;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.medication -> tgt.medication;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.effective -> tgt.effective;
+  src.performer as s -> tgt.performer as t then MedicationAdministrationPerformer(s, t);
+  src.statusReason -> tgt.statusReason;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.request -> tgt.request;
+  src.device -> tgt.device;
+  src.note -> tgt.note;
+  src.dosage as s -> tgt.dosage as t then MedicationAdministrationDosage(s, t);
+  src.eventHistory -> tgt.eventHistory;
+}
 
+group MedicationAdministrationPerformer(source src : MedicationAdministrationR3, target tgt : MedicationAdministration) extends BackboneElement <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
 
-group MedicationAdministration extends DomainResource
-  input src : MedicationAdministrationR3 as source
-  input tgt : MedicationAdministration as target
+group MedicationAdministrationDosage(source src : MedicationAdministrationR3, target tgt : MedicationAdministration) extends BackboneElement <<type+>> {
+  src.text -> tgt.text;
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.method -> tgt.method;
+  src.dose -> tgt.dose;
+  src.rate -> tgt.rate;
+}
 
-  "MedicationAdministration.identifier": for src.identifier make tgt.identifier
-  "MedicationAdministration.instantiates": for src.instantiates make tgt.instantiates
-  "MedicationAdministration.partOf": for src.partOf make tgt.partOf
-  "MedicationAdministration.status": for src.status make tgt.status
-  "MedicationAdministration.category": for src.category make tgt.category
-  "MedicationAdministration.medication": for src.medication make tgt.medication
-  "MedicationAdministration.subject": for src.subject make tgt.subject
-  "MedicationAdministration.context": for src.context make tgt.context
-  "MedicationAdministration.supportingInformation": for src.supportingInformation make tgt.supportingInformation
-  "MedicationAdministration.effective": for src.effective make tgt.effective
-  "MedicationAdministration.performer": for src.performer as s make tgt.performer as t then MedicationAdministrationPerformer(s,t)
-  "MedicationAdministration.statusReason": for src.statusReason make tgt.statusReason
-  "MedicationAdministration.reasonCode": for src.reasonCode make tgt.reasonCode
-  "MedicationAdministration.reasonReference": for src.reasonReference make tgt.reasonReference
-  "MedicationAdministration.request": for src.request make tgt.request
-  "MedicationAdministration.device": for src.device make tgt.device
-  "MedicationAdministration.note": for src.note make tgt.note
-  "MedicationAdministration.dosage": for src.dosage as s make tgt.dosage as t then MedicationAdministrationDosage(s,t)
-  "MedicationAdministration.eventHistory": for src.eventHistory make tgt.eventHistory
-endgroup
-
-group MedicationAdministrationPerformer extends BackboneElement
-  input src : MedicationAdministrationR3 as source
-  input tgt : MedicationAdministration as target
-
-  "MedicationAdministration.performer.function": for src.function make tgt.function
-  "MedicationAdministration.performer.actor": for src.actor make tgt.actor
-endgroup
-
-group MedicationAdministrationDosage extends BackboneElement
-  input src : MedicationAdministrationR3 as source
-  input tgt : MedicationAdministration as target
-
-  "MedicationAdministration.dosage.text": for src.text make tgt.text
-  "MedicationAdministration.dosage.site": for src.site make tgt.site
-  "MedicationAdministration.dosage.route": for src.route make tgt.route
-  "MedicationAdministration.dosage.method": for src.method make tgt.method
-  "MedicationAdministration.dosage.dose": for src.dose make tgt.dose
-  "MedicationAdministration.dosage.rate": for src.rate make tgt.rate
-endgroup

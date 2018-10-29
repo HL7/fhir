@@ -1971,21 +1971,25 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
-  private void updateDiffEngineDefinitions() {
+  public void updateDiffEngineDefinitions() {
     for (BundleEntryComponent be : typeBundle.getEntry()) {
       if (be.getResource() instanceof StructureDefinition) {
         StructureDefinition sd = (StructureDefinition) be.getResource();
-        diffEngine.getRevision().getTypes().put(sd.getName(), sd);
+        if (!diffEngine.getRevision().getTypes().containsKey(sd.getName()))
+          diffEngine.getRevision().getTypes().put(sd.getName(), sd);
       }
     }
     for (BundleEntryComponent be : resourceBundle.getEntry()) {
       if (be.getResource() instanceof StructureDefinition) {
         StructureDefinition sd = (StructureDefinition) be.getResource();
-        diffEngine.getRevision().getResources().put(sd.getName(), sd);
+        if (!diffEngine.getRevision().getResources().containsKey(sd.getName()))
+          diffEngine.getRevision().getResources().put(sd.getName(), sd);
       }
     }
 
     for (ValueSet vs : getValueSets().values()) {
+      if (!diffEngine.getRevision().getValuesets().containsKey(vs.getUrl()))
+        diffEngine.getRevision().getValuesets().put(vs.getUrl(), vs);
       if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
         ValueSet evs = null;
         if (vs.hasUserData("expansion"))
@@ -1997,7 +2001,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             vs.setUserData("expansion", evs);
           }
         }
-        if (evs != null) {
+        if (evs != null && !diffEngine.getRevision().getExpansions().containsKey(evs.getUrl())) {
           diffEngine.getRevision().getExpansions().put(evs.getUrl(), evs);
         }
       }
@@ -4054,7 +4058,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append(makeHeaderTab("Detailed Descriptions", "datatypes-definitions.html", mode==null || "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", "datatypes-mappings.html", mode==null || "mappings".equals(mode)));
     b.append(makeHeaderTab("Profiles and Extensions", "datatypes-extras.html", mode==null || "extras".equals(mode)));
-    b.append(makeHeaderTab("R2 Conversions", "datatypes-version-maps.html", mode==null || "conversions".equals(mode)));
+    b.append(makeHeaderTab("R3 Conversions", "datatypes-version-maps.html", mode==null || "conversions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -10591,7 +10595,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
         JsonObject el = (JsonObject) e.getValue();
         rs.testCount++;
         JsonPrimitive p = el.getAsJsonPrimitive("execution");
-        if (!p.isBoolean())
+        if (p!= null && !p.isBoolean())
           rs.executeFailCount++;
         if (el.has("r4.errors")) {
           rs.r4ValidationFailCount++;
@@ -10679,6 +10683,8 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
       if (!first) {
         b.append("</table>\r\n");        
       }
+      if (first)
+        b.append("<p>No validation errors - all conversions are clean</p>\r\n");
     } else
       b.append("<p>n/a</p>\r\n");
     return b.toString();

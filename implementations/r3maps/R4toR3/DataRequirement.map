@@ -1,28 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DataRequirement4to3" = "R4 to R3 Conversion for DataRequirement"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/DataRequirement" alias DataRequirement as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DataRequirement" alias DataRequirementR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group DataRequirement extends Element
-  input src : DataRequirement as source
-  input tgt : DataRequirementR3 as target
-
-  "DataRequirement.type" : for src.type as vs make tgt.type as vt
-  "DataRequirement.mustSupport" : for src.mustSupport as vs make tgt.mustSupport as vt
-  "DataRequirement.codeFilter" : for src.codeFilter as vs0 make tgt.codeFilter as vt0 then {
-    "DataRequirement.codeFilter.path" : for vs0.path as vs make vt0.path as vt
-    "DataRequirement.codeFilter.valueCoding" : for vs0.code as vs make vt0.valueCoding as vt
-  }
-  "DataRequirement.dateFilter" : for src.dateFilter as vs0 make tgt.dateFilter as vt0 then {
-    "DataRequirement.dateFilter.path" : for vs0.path as vs make vt0.path as vt
-    "DataRequirement.dateFilter.value-dateTime" : for vs0.value  : dateTime as vs make vt0.value = create("dateTime") as vt then dateTime(vs,vt)
-    "DataRequirement.dateFilter.value-Period" : for vs0.value  : Period as vs make vt0.value = create("Period") as vt then Period(vs,vt)
-    "DataRequirement.dateFilter.value-Duration" : for vs0.value  : Duration as vs make vt0.value = create("Duration") as vt then Duration(vs,vt)
-  }
-endgroup
+group DataRequirement(source src : DataRequirement, target tgt : DataRequirementR3) extends Element <<type+>> {
+  src.type -> tgt.type;
+  src.mustSupport -> tgt.mustSupport;
+  src.codeFilter as vs0 -> tgt.codeFilter as vt0 then {
+    vs0.path -> vt0.path;
+    vs0.code -> vt0.valueCoding "valueCoding";
+  };
+  src.dateFilter as vs0 -> tgt.dateFilter as vt0 then {
+    vs0.path -> vt0.path;
+    vs0.value : dateTime as vs -> vt0.value = create("dateTime") as vt then dateTime(vs, vt);
+    vs0.value : Period as vs -> vt0.value = create("Period") as vt then Period(vs, vt);
+    vs0.value : Duration as vs -> vt0.value = create("Duration") as vt then Duration(vs, vt);
+  };
+}
 

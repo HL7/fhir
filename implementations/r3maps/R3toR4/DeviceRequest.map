@@ -1,48 +1,38 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceRequest3to4" = "R3 to R4 Conversions for DeviceRequest"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceRequest" alias DeviceRequestR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias DeviceRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group DeviceRequest(source src : DeviceRequestR3, target tgt : DeviceRequest) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiates -> tgt.instantiates;
+  src.basedOn -> tgt.basedOn;
+  src.priorRequest -> tgt.priorRequest;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.priority -> tgt.priority;
+  src.code -> tgt.code;
+  src.parameter as s -> tgt.parameter as t then DeviceRequestParameter(s, t);
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.occurrence -> tgt.occurrence;
+  src.authoredOn -> tgt.authoredOn;
+  src.requester -> tgt.requester;
+  src.performerType -> tgt.performerType;
+  src.performer -> tgt.performer;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.insurance -> tgt.insurance;
+  src.supportingInfo -> tgt.supportingInfo;
+  src.note -> tgt.note;
+  src.relevantHistory -> tgt.relevantHistory;
+}
 
-
-group DeviceRequest extends DomainResource
-  input src : DeviceRequestR3 as source
-  input tgt : DeviceRequest as target
-
-  "DeviceRequest.identifier": for src.identifier make tgt.identifier
-  "DeviceRequest.instantiates": for src.instantiates make tgt.instantiates
-  "DeviceRequest.basedOn": for src.basedOn make tgt.basedOn
-  "DeviceRequest.priorRequest": for src.priorRequest make tgt.priorRequest
-  "DeviceRequest.groupIdentifier": for src.groupIdentifier make tgt.groupIdentifier
-  "DeviceRequest.status": for src.status make tgt.status
-  "DeviceRequest.intent": for src.intent make tgt.intent
-  "DeviceRequest.priority": for src.priority make tgt.priority
-  "DeviceRequest.code": for src.code make tgt.code
-  "DeviceRequest.parameter": for src.parameter as s make tgt.parameter as t then DeviceRequestParameter(s,t)
-  "DeviceRequest.subject": for src.subject make tgt.subject
-  "DeviceRequest.context": for src.context make tgt.context
-  "DeviceRequest.occurrence": for src.occurrence make tgt.occurrence
-  "DeviceRequest.authoredOn": for src.authoredOn make tgt.authoredOn
-  "DeviceRequest.requester": for src.requester make tgt.requester
-  "DeviceRequest.performerType": for src.performerType make tgt.performerType
-  "DeviceRequest.performer": for src.performer make tgt.performer
-  "DeviceRequest.reasonCode": for src.reasonCode make tgt.reasonCode
-  "DeviceRequest.reasonReference": for src.reasonReference make tgt.reasonReference
-  "DeviceRequest.insurance": for src.insurance make tgt.insurance
-  "DeviceRequest.supportingInfo": for src.supportingInfo make tgt.supportingInfo
-  "DeviceRequest.note": for src.note make tgt.note
-  "DeviceRequest.relevantHistory": for src.relevantHistory make tgt.relevantHistory
-endgroup
-
-
-group DeviceRequestParameter extends BackboneElement
-  input src : DeviceRequestR3 as source
-  input tgt : DeviceRequest as target
-
-  "DeviceRequest.parameter.code": for src.code make tgt.code
-  "DeviceRequest.parameter.value": for src.value make tgt.value
-endgroup
+group DeviceRequestParameter(source src : DeviceRequestR3, target tgt : DeviceRequest) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.value -> tgt.value;
+}
 

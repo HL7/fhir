@@ -57,6 +57,13 @@
         <value value="12345689"/>
     </identifier>
     <status value="completed"/>
+    <statusReason>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/med-request-status-reason"/>
+            <code value="altchoice"/>
+            <display value="Try another treatment first"/>
+        </coding>
+    </statusReason>
     <intent value="order"/>
     <category>
         <coding>
@@ -102,13 +109,6 @@
             <display value="Rib Pain (finding)"/>
         </coding>
     </reasonCode>
-    <statusReason>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/med-request-status-reason"/>
-            <code value="altchoice"/>
-            <display value="Try another treatment first"/>
-        </coding>
-    </statusReason>
     <insurance>
         <reference value="Coverage/9876B1"/>
     </insurance>
@@ -203,7 +203,7 @@
         </performer>
     </dispenseRequest>   
     <substitution>
-        <allowed value="true"></allowed>
+        <allowedBoolean value="true"></allowedBoolean>
         <reason>
             <coding>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>

@@ -1,0 +1,249 @@
+map "http://hl7.org/fhir/cda/mapping/ClinicalDocumentToFHIR" = "CDA Document to FHIR"
+
+uses "http://hl7.org/fhir/cda/StructureDefinition/ClinicalDocument" alias ClinicalDocument as source
+
+uses "http://hl7.org/fhir/cda/StructureDefinition/AssignedAuthor" alias AssignedAuthor as queried
+uses "http://hl7.org/fhir/cda/StructureDefinition/AssignedEntity" alias AssignedEntity as queried
+uses "http://hl7.org/fhir/cda/StructureDefinition/CustodianOrganization" alias CustodianOrganization as queried
+uses "http://hl7.org/fhir/cda/StructureDefinition/Section" alias Section as queried
+uses "http://hl7.org/fhir/cda/StructureDefinition/PatientRole" alias PatientRole as queried
+
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as target
+uses "http://hl7.org/fhir/StructureDefinition/Composition" alias Composition as produced
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as produced
+uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner as produced
+uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization as produced
+
+imports "http://hl7.org/fhir/cda/mapping/cdaToFhirTypes"
+imports "http://hl7.org/fhir/cda/mapping/ccdaDocumentToFhir"
+
+group ClinicalDocumentBundle
+	input source : ClinicalDocument as source
+	input target : Bundle as target
+	
+	id: for source.id make target.identifier
+	type: for source make target.type = "document"
+
+	composition: for source make target.entry as e first, e.resource = create("Composition") as composition then ClinicalDocumentComposition(source, composition, target)
+
+endgroup
+
+group ClinicalDocumentComposition
+	input source : ClinicalDocument as source
+	input target: Composition as target
+	input bundle: Bundle as target
+
+	templateID: for source.templateId as template then TemplateID(template, target)
+	languageCode: for source.languageCode make target.language
+
+	setID: for source.setId make target.identifier
+	status: for source make target.status = "final"
+	code: for source.code make target.type
+	
+	recordTarget: for source.recordTarget as recordTarget make bundle.entry as e, e.resource = create("Patient") as patientResource then {
+		subject: for recordTarget.patientRole as patient make target.subject = reference(patientResource) then ClinicalDocumentPatientRole(patient, patientResource, bundle)
+		
+		component: for source.component as component then {
+			body: for component.structuredBody as body then {
+				bodyComponent: for body.component as component then CCDASections(source, component, patientResource, target, bundle)
+			}
+		}		
+	} 
+
+	encompassingEncounter: for source.componentOf as comp make bundle.entry as e, e.resource = create("Encounter") as encounter then {
+		srcEncounter: for comp.encompassingEncounter as srcEnc make target.encounter = reference(encounter) then ClinicalDocumentEncounter(srcEnc, bundle, encounter)
+	}
+	effectiveTime: for source.effectiveTime make target.date
+
+	author: for source.author as srcAuthor make bundle.entry as e, e.resource = create("Practitioner") as practitioner then {
+		author: for srcAuthor.assignedAuthor as assignedAuthor make target.author = reference(practitioner) then ClinicalDocumentAuthorPractitioner(assignedAuthor, practitioner)
+		//authorTime: for srcAuthor.time ...
+	}
+	
+	title: for source.title as t make target.title
+	confidentialityCode: for source.confidentialityCode make target.confidentiality
+
+	legalAuthenticator: for source.legalAuthenticator as legalAuth make bundle.entry as e, e.resource = create("Practitioner") as practitioner then {
+		attester: for legalAuth make target.attester as attester then {
+			mode: for legalAuth make attester.mode = "legal"
+			time: for legalAuth.time make attester.time
+			entity: for legalAuth.assignedEntity as entity make attester.party = reference(practitioner) then ClinicalDocumentEntityPractitioner(entity, practitioner)
+		}
+	}
+
+	authenticator: for source.authenticator as auth make bundle.entry as e, e.resource = create("Practitioner") as practitioner then {
+		attester: for auth make target.attester as attester then {
+			mode: for auth make attester.mode = "official"
+			time: for auth.time make attester.time
+			entity: for auth.assignedEntity as entity make attester.party = reference(practitioner) then ClinicalDocumentEntityPractitioner(entity, practitioner)
+		}
+	}
+
+	custodian: for source.custodian as custodian make bundle.entry as e then {
+		custodian: for custodian.assignedCustodian as assignedCustodian make e.resource = create("Organization") as organization then {
+			assignedCustodian: for assignedCustodian.representedCustodianOrganization as srcOrg make target.custodian = reference(organization) then ClinicalDocumentOrganization(srcOrg, organization)
+		}
+	}
+
+	documentationOf: for source.documentationOf as docOf then {
+		serviceEvent: for docOf.serviceEvent as serviceEvent make target.event as event then {
+			eventCode: for serviceEvent.code make event.code
+			eventTime: for serviceEvent.effectiveTime make event.period
+			//performerType: for source.performer.typeCode ...
+			//performerFunction: for source.performer.functionCode ...
+			//performerEntity: for source.performer.assignedEntity ...
+		}
+	}
+
+	relatedDocument: for source.relatedDocument as relatedDoc make target.relatesTo as relates then {
+		typeCode: for relatedDoc.typeCode make relates.code
+		parentDoc: for relatedDoc.parentDocument as parentDoc then {
+			setId: for parentDoc.setId make relates.targetIdentifier
+		}
+	}
+
+	//"rule_realmCode": for source.realmCode ...
+	//"rule_typeID": for source.typeID ...
+	//"rule_versionNumber": for source.versionNumber ...
+	//"rule_dataEnterer": for source.dataEnterer.assignedEntity ...
+	//"rule_informant_assigned": for source.informant.assignedEntity ...
+	//"rule_informant_related": for source.informant.relatedEntity ...
+	//"rule_informationRecipient": for source.informationRecipient.intendedRecipient ...
+	//"rule_participant_time": for source.participant.time ...
+	//"rule_participant_entity": for source.participant.associatedEntity ...
+	//"rule_inFulfillmentOf": for source.inFulfillmentOf.order ...
+	//"rule_consent": for source.authorization.consent ...
+	
+endgroup
+
+
+group ClinicalDocumentSection
+	input source: Section as source
+	input patient: Patient as source
+	input target as target
+
+	templateID: for source.templateId as template then TemplateID(template, target)
+	title: for source.title make target.title
+	code: for source.code make target.code
+	text: for source.text as cdaText make target.text as fhirText then {
+		narrativestatus: for cdaText make fhirText.status = 'generated'
+		narrativeText: for cdaText as t make fhirText.div = t
+	}
+	section: for source.section as srcSection make target.section as tgtSection then ClinicalDocumentSection(srcSection, patient, tgtSection)	
+endgroup
+
+
+group ClinicalDocumentAuthorPractitioner
+	input source: AssignedAuthor as source
+	input target: Practitioner as target
+	
+	id: for source.id make target.identifier
+	addr: for source.addr make target.address
+	telecom: for source.telecom make target.telecom
+	
+	assignedPerson: for source.assignedPerson as person then {
+		name: for person.name make target.name
+	}
+	
+endgroup
+
+group ClinicalDocumentEntityPractitioner
+	input source: AssignedEntity as source
+	input target: Practitioner as target
+	
+	id: for source.id make target.identifier
+	addr: for source.addr make target.address
+	telecom: for source.telecom make target.telecom
+	
+	assignedPerson: for source.assignedPerson as person then {
+		name: for person.name make target.name
+	}
+	
+endgroup
+
+group ClinicalDocumentOrganization
+	input source: CustodianOrganization as source
+	input target: Organization as target
+	
+	id: for source.id make target.identifier
+	name: for source.name make target.name
+	telecom: for source.telecom make target.telecom
+	addr: for source.addr make target.address
+	
+endgroup
+
+group ClinicalDocumentPatientRole
+	input source: PatientRole as source
+	input target: Patient as target
+	input bundle: Bundle as target
+	
+	id: for source.id make target.identifier
+	addr: for source.addr make target.address
+	telecom: for source.telecom make target.telecom
+	
+	patient: for source.patient as patient then {
+		name: for patient.name make target.name
+		//gender: for patient.administrativeGenderCode make target.gender
+		birthDate: for patient.birthTime make target.birthDate
+		deceasedBL: for patient.deceasedInd as indicator where patient.deceasedTime.empty() make target.deceased = create("boolean") as bool then boolean(indicator, bool)
+		deceasedTime: for patient.deceasedTime make target.deceased
+		maritalStatus: for patient.maritalStatusCode make target.maritalStatus
+		language: for patient.languageCommunication as language make target.communication as communication then {
+			communication: for language.languageCode make communication.language
+			//preference: for language.preferenceInd make communication.preferred
+		}
+	}
+	
+	organization: for source.providerOrganization as org make bundle.entry as e, e.resource = create("Organization") as organization then {
+		reference: for org make target.managingOrganization = reference(organization)
+		id: for org.id make organization.identifier
+		name: for org.name make organization.name
+		telecom: for org.telecom make organization.telecom
+		addr: for org.addr make organization.address
+	}
+endgroup
+
+group ClinicalDocumentEncounter
+	input source: EncompassingEncounter as source
+	input bundle: Bundle as target
+	input target: Encounter as target
+
+	id: for source.id make target.identifier
+	code: for source.code make target.type
+	effectiveTime: for source.effectiveTime make target.period
+	
+	hospitalization: for source where admissionReferralSourceCode.exists() or dischargeDispositionCode.exists() make target.hospitalization as hosp then {
+		adminReferral: for source.admissionReferralSourceCode make hosp.admitSource
+		discDisposition: for source.dischargeDispositionCode make hosp.dischargeDisposition
+	}
+	participant: for source.encounterParticipant as srcPart make target.participant as tgtPart then {
+		typeCode: for srcPart.typeCode as code make tgtPart.type = cc('http://terminology.hl7.org/CodeSystem/v3-ParticipationType', code)
+		time: for srcPart.time make tgtPart.period
+		entity: for srcPart.assignedEntity as entity make bundle.entry as e, e.resource = create("Practitioner") as practitioner then {
+			entry: for entity make tgtPart.individual = reference(practitioner) then ClinicalDocumentEntityPractitioner(entity, practitioner)
+		}
+	}
+
+	location: for source.location as srcLocation then {
+		facility: for srcLocation.healthCareFacility as facility make bundle.entry as e, e.resource = create("Location") as location then {
+			facLocation: for facility make target.location as tgtLocation, tgtLocation.location = reference(location) then ClinicalDocumentLocation(facility, bundle, location)			
+		}
+	}
+endgroup
+
+group ClinicalDocumentLocation
+	input source: HealthCareFacility as source
+	input bundle: Bundle as target
+	input target: Location as target
+
+	id: for source.id make target.identifier
+	code: for source.code make target.type
+	location: for source.location as location then {
+		// place names are usually stored with no parts
+		name: for location.name as srcName make target.name = cast(srcName, "string")
+		addr: for location.addr make target.address
+		org: for location.serviceProviderOrganization as srcOrg make bundle.entry as e, e.resource = create("Organization") as organization then {
+			organization: for srcOrg make target.managingOrganization = reference(organization) then ClinicalDocumentOrganization(srcOrg, organization)
+		}
+	}
+endgroup

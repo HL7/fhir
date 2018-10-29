@@ -1,60 +1,43 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductPharmaceutical4to3" = "R4 to R3 Conversion for MedicinalProductPharmaceutical"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductPharmaceutical" alias MedicinalProductPharmaceutical as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductPharmaceutical" alias MedicinalProductPharmaceuticalR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group MedicinalProductPharmaceutical(source src : MedicinalProductPharmaceuticalR3, target tgt : MedicinalProductPharmaceutical) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.administrableDoseForm -> tgt.administrableDoseForm;
+  src.unitOfPresentation -> tgt.unitOfPresentation;
+  src.ingredient -> tgt.ingredient;
+  src.device -> tgt.device;
+  src.characteristics as s -> tgt.characteristics as t then MedicinalProductPharmaceuticalCharacteristics(s, t);
+  src.routeOfAdministration as s -> tgt.routeOfAdministration as t then MedicinalProductPharmaceuticalRouteOfAdministration(s, t);
+}
 
+group MedicinalProductPharmaceuticalCharacteristics(source src : MedicinalProductPharmaceuticalR3, target tgt : MedicinalProductPharmaceutical) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.status -> tgt.status;
+}
 
-group MedicinalProductPharmaceutical extends DomainResource
-  input src : MedicinalProductPharmaceuticalR3 as source
-  input tgt : MedicinalProductPharmaceutical as target
+group MedicinalProductPharmaceuticalRouteOfAdministration(source src : MedicinalProductPharmaceuticalR3, target tgt : MedicinalProductPharmaceutical) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.firstDose -> tgt.firstDose;
+  src.maxSingleDose -> tgt.maxSingleDose;
+  src.maxDosePerDay -> tgt.maxDosePerDay;
+  src.maxDosePerTreatmentPeriod -> tgt.maxDosePerTreatmentPeriod;
+  src.maxTreatmentPeriod -> tgt.maxTreatmentPeriod;
+  src.targetSpecies as s -> tgt.targetSpecies as t then MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(s, t);
+}
 
-  "MedicinalProductPharmaceutical.identifier": for src.identifier make tgt.identifier
-  "MedicinalProductPharmaceutical.administrableDoseForm": for src.administrableDoseForm make tgt.administrableDoseForm
-  "MedicinalProductPharmaceutical.unitOfPresentation": for src.unitOfPresentation make tgt.unitOfPresentation
-  "MedicinalProductPharmaceutical.ingredient": for src.ingredient make tgt.ingredient
-  "MedicinalProductPharmaceutical.device": for src.device make tgt.device
-  "MedicinalProductPharmaceutical.characteristics": for src.characteristics as s make tgt.characteristics as t then MedicinalProductPharmaceuticalCharacteristics(s,t)
-  "MedicinalProductPharmaceutical.routeOfAdministration": for src.routeOfAdministration as s make tgt.routeOfAdministration as t then MedicinalProductPharmaceuticalRouteOfAdministration(s,t)
-endgroup
+group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(source src : MedicinalProductPharmaceuticalR3, target tgt : MedicinalProductPharmaceutical) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.withdrawalPeriod as s -> tgt.withdrawalPeriod as t then MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod(s, t);
+}
 
-group MedicinalProductPharmaceuticalCharacteristics extends BackboneElement
-  input src : MedicinalProductPharmaceuticalR3 as source
-  input tgt : MedicinalProductPharmaceutical as target
+group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod(source src : MedicinalProductPharmaceuticalR3, target tgt : MedicinalProductPharmaceutical) extends BackboneElement <<type+>> {
+  src.tissue -> tgt.tissue;
+  src.value -> tgt.value;
+  src.supportingInformation -> tgt.supportingInformation;
+}
 
-  "MedicinalProductPharmaceutical.characteristics.code": for src.code make tgt.code
-  "MedicinalProductPharmaceutical.characteristics.status": for src.status make tgt.status
-endgroup
-
-group MedicinalProductPharmaceuticalRouteOfAdministration extends BackboneElement
-  input src : MedicinalProductPharmaceuticalR3 as source
-  input tgt : MedicinalProductPharmaceutical as target
-
-  "MedicinalProductPharmaceutical.routeOfAdministration.code": for src.code make tgt.code
-  "MedicinalProductPharmaceutical.routeOfAdministration.firstDose": for src.firstDose make tgt.firstDose
-  "MedicinalProductPharmaceutical.routeOfAdministration.maxSingleDose": for src.maxSingleDose make tgt.maxSingleDose
-  "MedicinalProductPharmaceutical.routeOfAdministration.maxDosePerDay": for src.maxDosePerDay make tgt.maxDosePerDay
-  "MedicinalProductPharmaceutical.routeOfAdministration.maxDosePerTreatmentPeriod": for src.maxDosePerTreatmentPeriod make tgt.maxDosePerTreatmentPeriod
-  "MedicinalProductPharmaceutical.routeOfAdministration.maxTreatmentPeriod": for src.maxTreatmentPeriod make tgt.maxTreatmentPeriod
-  "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies": for src.targetSpecies as s make tgt.targetSpecies as t then MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(s,t)
-endgroup
-
-group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies extends BackboneElement
-  input src : MedicinalProductPharmaceuticalR3 as source
-  input tgt : MedicinalProductPharmaceutical as target
-
-  "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.code": for src.code make tgt.code
-  "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod": for src.withdrawalPeriod as s make tgt.withdrawalPeriod as t then MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod(s,t)
-endgroup
-
-group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod extends BackboneElement
-  input src : MedicinalProductPharmaceuticalR3 as source
-  input tgt : MedicinalProductPharmaceutical as target
-
-  "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue": for src.tissue make tgt.tissue
-  "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod.value": for src.value make tgt.value
-  "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod.supportingInformation": for src.supportingInformation make tgt.supportingInformation
-endgroup

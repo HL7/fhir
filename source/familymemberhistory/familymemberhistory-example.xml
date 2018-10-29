@@ -24,13 +24,13 @@
       <display value="father"/>
     </coding>
   </relationship>
-  <gender>
+  <sex>
 	<coding>
       <system value="http://hl7.org/fhir/administrative-gender"/>
       <code value="male"/>
       <display value="Male"/>
     </coding>
-  </gender>
+  </sex>
   <condition>
     <code>
     <coding>
@@ -41,7 +41,7 @@
     <text value='Heart Attack'/>
     </code>
  
-
+	<contributedToDeath value = "true"/>
     <onsetAge>
       <value value="74" />
       <unit value="yr" />

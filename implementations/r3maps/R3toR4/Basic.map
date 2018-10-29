@@ -1,21 +1,15 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Basic3to4" = "R3 to R4 Conversions for Basic"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Basic" alias BasicR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Basic" alias Basic as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group Basic extends DomainResource
-  input src : BasicR3 as source
-  input tgt : Basic as target
-
-  "Basic.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Basic.code" : for src.code as vs make tgt.code as vt
-  "Basic.subject" : for src.subject as vs make tgt.subject as vt
-  "Basic.created" : for src.created as vs make tgt.created as vt
-  "Basic.author" : for src.author as vs make tgt.author as vt
-endgroup
+group Basic(source src : BasicR3, target tgt : Basic) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.created -> tgt.created;
+  src.author -> tgt.author;
+}
 

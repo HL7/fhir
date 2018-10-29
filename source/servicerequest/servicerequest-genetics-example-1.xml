@@ -14,9 +14,9 @@
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
-	<context>
+	<encounter>
 		<reference value="Encounter/example"/>
-	</context>
+	</encounter>
 	<occurrenceDateTime value="2014-05-12T16:16:00-07:00"/>
 	<requester>
 			<reference value="Practitioner/example"/>

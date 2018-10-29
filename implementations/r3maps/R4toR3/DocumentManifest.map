@@ -1,43 +1,40 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DocumentManifest4to3" = "R4 to R3 Conversion for DocumentManifest"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/DocumentManifest" alias DocumentManifest as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DocumentManifest" alias DocumentManifestR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group DocumentManifest(source src : DocumentManifestR3, target tgt : DocumentManifest) extends DomainResource <<type+>> {
+  src.masterIdentifier -> tgt.masterIdentifier;
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.subject -> tgt.subject;
+  src.created -> tgt.created;
+  src.agent as s where type.coding.where(system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code = 'AUT').exists() -> tgt.author as t then DocumentManifestAgent(s, t);
+  src.recipient -> tgt.recipient;
+  src.source -> tgt.source;
+  src.description -> tgt.description;
+  src.content as s -> tgt.content as t then content(s,t);
+  src.related as s -> tgt.related as t then DocumentManifestRelated(s, t);
+}
 
+group DocumentManifestAgent(source src, target tgt) extends BackboneElement {
+  src.who as vs0 then Reference(vs0, tgt);
+}
 
-group DocumentManifest extends DomainResource
-  input src : DocumentManifestR3 as source
-  input tgt : DocumentManifest as target
+group content(source src, target tgt) extends Element {
+  src.extension as s where url = 'http://hl7.org/fhir/StructureDefinition/X34-dm-attachment' then contentAttachment(s, tgt);
+  src where extension.where(url = 'http://hl7.org/fhir/StructureDefinition/X34-dm-attachment').empty() -> tgt.p = create('Reference') as p then Reference(src, p);
+}
 
-  "DocumentManifest.masterIdentifier": for src.masterIdentifier make tgt.masterIdentifier
-  "DocumentManifest.identifier": for src.identifier make tgt.identifier
-  "DocumentManifest.status": for src.status make tgt.status
-  "DocumentManifest.type": for src.type make tgt.type
-  "DocumentManifest.subject": for src.subject make tgt.subject
-  "DocumentManifest.created": for src.created make tgt.created
-  "DocumentManifest.agent": for src.agent as s make tgt.agent as t then DocumentManifestAgent(s,t)
-  "DocumentManifest.recipient": for src.recipient make tgt.recipient
-  "DocumentManifest.source": for src.source make tgt.source
-  "DocumentManifest.description": for src.description make tgt.description
-  "DocumentManifest.content": for src.content make tgt.content
-  "DocumentManifest.related": for src.related as s make tgt.related as t then DocumentManifestRelated(s,t)
-endgroup
+group contentAttachment(source src, target tgt) extends Element {
+  src.value : Attachment as s -> tgt.p = create('Attachment') as t then Attachment(s, t);
+}
 
-group DocumentManifestAgent extends BackboneElement
-  input src : DocumentManifestR3 as source
-  input tgt : DocumentManifest as target
+group DocumentManifestRelated(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.ref -> tgt.ref;
+}
 
-  "DocumentManifest.agent.type": for src.type make tgt.type
-  "DocumentManifest.agent.who": for src.who make tgt.who
-endgroup
-
-group DocumentManifestRelated extends BackboneElement
-  input src : DocumentManifestR3 as source
-  input tgt : DocumentManifest as target
-
-  "DocumentManifest.related.identifier": for src.identifier make tgt.identifier
-  "DocumentManifest.related.ref": for src.ref make tgt.ref
-endgroup

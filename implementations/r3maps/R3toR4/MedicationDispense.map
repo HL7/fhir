@@ -1,46 +1,40 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicationDispense3to4" = "R3 to R4 Conversions for MedicationDispense"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationDispense" alias MedicationDispenseR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/MedicationDispense" alias MedicationDispense as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group MedicationDispense extends DomainResource
-  input src : MedicationDispenseR3 as source
-  input tgt : MedicationDispense as target
-
-  "MedicationDispense.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "MedicationDispense.partOf" : for src.partOf as vs make tgt.partOf as vt
-  "MedicationDispense.status" : for src.status as vs make tgt.status as vt
-  "MedicationDispense.category" : for src.category as vs make tgt.category as vt
-  "MedicationDispense.medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "MedicationDispense.medication-Reference" : for src.medication  : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
-  "MedicationDispense.subject" : for src.subject as vs make tgt.subject as vt
-  "MedicationDispense.context" : for src.context as vs make tgt.context as vt
-  "MedicationDispense.supportingInformation" : for src.supportingInformation as vs make tgt.supportingInformation as vt
-  "MedicationDispense.performer" : for src.performer as vs0 make tgt.performer as vt0 then {
-    "MedicationDispense.performer.actor" : for vs0.actor as vs make vt0.actor as vt
-  }
-  "MedicationDispense.authorizingPrescription" : for src.authorizingPrescription as vs make tgt.authorizingPrescription as vt
-  "MedicationDispense.type" : for src.type as vs make tgt.type as vt
-  "MedicationDispense.quantity" : for src.quantity as vs make tgt.quantity as vt
-  "MedicationDispense.daysSupply" : for src.daysSupply as vs make tgt.daysSupply as vt
-  "MedicationDispense.whenPrepared" : for src.whenPrepared as vs make tgt.whenPrepared as vt
-  "MedicationDispense.whenHandedOver" : for src.whenHandedOver as vs make tgt.whenHandedOver as vt
-  "MedicationDispense.destination" : for src.destination as vs make tgt.destination as vt
-  "MedicationDispense.receiver" : for src.receiver as vs make tgt.receiver as vt
-  "MedicationDispense.note" : for src.note as vs make tgt.note as vt
-  "MedicationDispense.dosageInstruction" : for src.dosageInstruction as vs make tgt.dosageInstruction as vt
-  "MedicationDispense.substitution" : for src.substitution as vs0 make tgt.substitution as vt0 then {
-    "MedicationDispense.substitution.wasSubstituted" : for vs0.wasSubstituted as vs make vt0.wasSubstituted as vt
-    "MedicationDispense.substitution.type" : for vs0.type as vs make vt0.type as vt
-    "MedicationDispense.substitution.reason" : for vs0.reason as vs make vt0.reason as vt
-    "MedicationDispense.substitution.responsibleParty" : for vs0.responsibleParty as vs make vt0.responsibleParty as vt
-  }
-  "MedicationDispense.detectedIssue" : for src.detectedIssue as vs make tgt.detectedIssue as vt
-  "MedicationDispense.eventHistory" : for src.eventHistory as vs make tgt.eventHistory as vt
-endgroup
+group MedicationDispense(source src : MedicationDispenseR3, target tgt : MedicationDispense) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.medication : CodeableConcept as vs -> tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create("Reference") as vt then Reference(vs, vt);
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.performer as vs0 -> tgt.performer as vt0 then {
+    vs0.actor -> vt0.actor;
+  };
+  src.authorizingPrescription -> tgt.authorizingPrescription;
+  src.type -> tgt.type;
+  src.quantity -> tgt.quantity;
+  src.daysSupply -> tgt.daysSupply;
+  src.whenPrepared -> tgt.whenPrepared;
+  src.whenHandedOver -> tgt.whenHandedOver;
+  src.destination -> tgt.destination;
+  src.receiver -> tgt.receiver;
+  src.note -> tgt.note;
+  src.dosageInstruction -> tgt.dosageInstruction;
+  src.substitution as vs0 -> tgt.substitution as vt0 then {
+    vs0.wasSubstituted -> vt0.wasSubstituted;
+    vs0.type -> vt0.type;
+    vs0.reason -> vt0.reason;
+    vs0.responsibleParty -> vt0.responsibleParty;
+  };
+  src.detectedIssue -> tgt.detectedIssue;
+  src.eventHistory -> tgt.eventHistory;
+}
 

@@ -1,35 +1,27 @@
 ﻿map "http://hl7.org/fhir/StructureMap/CompartmentDefinition4to3" = "R4 to R3 Conversion for CompartmentDefinition"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/CompartmentDefinition" alias CompartmentDefinition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CompartmentDefinition" alias CompartmentDefinitionR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group CompartmentDefinition extends DomainResource
-  input src : CompartmentDefinition as source
-  input tgt : CompartmentDefinitionR3 as target
-
-  "CompartmentDefinition.url" : for src.url as vs make tgt.url as vt
-  "CompartmentDefinition.name" : for src.name as vs make tgt.name as vt
-  "CompartmentDefinition.title" : for src.title as vs make tgt.title as vt
-  "CompartmentDefinition.status" : for src.status as vs make tgt.status as vt
-  "CompartmentDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "CompartmentDefinition.date" : for src.date as vs make tgt.date as vt
-  "CompartmentDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "CompartmentDefinition.contact" : for src.contact as vs make tgt.contact as vt
-  "CompartmentDefinition.description" : for src.description as vs make tgt.description as vt
-  "CompartmentDefinition.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "CompartmentDefinition.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "CompartmentDefinition.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "CompartmentDefinition.code" : for src.code as vs make tgt.code as vt
-  "CompartmentDefinition.search" : for src.search as vs make tgt.search as vt
-  "CompartmentDefinition.resource" : for src.resource as vs0 make tgt.resource as vt0 then {
-    "CompartmentDefinition.resource.code" : for vs0.code as vs make vt0.code as vt
-    "CompartmentDefinition.resource.param" : for vs0.param as vs make vt0.param as vt
-    "CompartmentDefinition.resource.documentation" : for vs0.documentation as vs make vt0.documentation as vt
-  }
-endgroup
+group CompartmentDefinition(source src : CompartmentDefinition, target tgt : CompartmentDefinitionR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.purpose -> tgt.purpose;
+  src.useContext -> tgt.useContext;
+  src.code -> tgt.code;
+  src.search -> tgt.search;
+  src.resource as vs0 -> tgt.resource as vt0 then {
+    vs0.code -> vt0.code;
+    vs0.param -> vt0.param;
+    vs0.documentation -> vt0.documentation;
+  };
+}
 

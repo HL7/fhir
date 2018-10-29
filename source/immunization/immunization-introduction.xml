@@ -6,7 +6,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines in all care settings and all regions. This includes immunization of both humans and animals but does not include the administration of non-vaccine agents, even those that may have or claim to have immunological effects.  
+The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines in all care settings and all regions. This includes immunization of both humans and animals but does not include the administration of non-vaccine agents, even those that may have or claim to have immunological effects.  While the terms "immunization" and "vaccination" are not clinically identical, for the purposes of the FHIR resources, the terms are used synonymously.
 </p>
 <p>
 Additionally, the Immunization resource is expected to cover key concepts related to the creation, revision and querying of a patient's immunization history. This resource - through consultation with the Public Health work group - is believed to meet key use cases and information requirements as defined in the existing <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> immunization implementation guide, <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> POIZ domain and Immunization Domain Analysis Model.
@@ -29,7 +29,9 @@ This resource references the following resources:
 <p>
 Administration of vaccines is intended to be handled using the <b>Immunization</b> resource.  <a href="medicationadministration.html">MedicationAdministration</a> is intended for tracking the administration of non-vaccine medications.  Some systems treat immunizations in the same way as any other medication administration.  Such systems SHOULD use an immunization resource to represent these.  If systems need to use a <a href="medicationadministration.html">MedicationAdministration</a> resource to capture vaccinations for workflow or other reasons, they SHOULD also expose an equivalent <b>Immunization</b> instance.
 </p>
-    
+<p>
+The preferred way to convey an adverse reaction to an immunization event is with a standalone AdverseEvent resource, which uses AdverseEvent.suspectEntity.instance to reference the immunization event resource.  For those systems that capture the reaction as part of the immunization record, itself, a contained AdverseEvent in the Immunization resource may also be used.  
+</p>
 </div>
 
 </div>

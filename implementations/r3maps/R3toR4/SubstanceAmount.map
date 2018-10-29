@@ -1,29 +1,19 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SubstanceAmount3to4" = "R3 to R4 Conversions for SubstanceAmount"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SubstanceAmount" alias SubstanceAmountR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/SubstanceAmount" alias SubstanceAmount as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group SubstanceAmount(source src : SubstanceAmountR3, target tgt : SubstanceAmount) extends BackboneElement <<type+>> {
+  src.amount -> tgt.amount;
+  src.amountType -> tgt.amountType;
+  src.amountText -> tgt.amountText;
+  src.referenceRange as s -> tgt.referenceRange as t then SubstanceAmountReferenceRange(s, t);
+}
 
-
-group SubstanceAmount extends BackboneElement
-  input src : SubstanceAmountR3 as source
-  input tgt : SubstanceAmount as target
-
-  "SubstanceAmount.amount": for src.amount make tgt.amount
-  "SubstanceAmount.amountType": for src.amountType make tgt.amountType
-  "SubstanceAmount.amountText": for src.amountText make tgt.amountText
-  "SubstanceAmount.referenceRange": for src.referenceRange as s make tgt.referenceRange as t then SubstanceAmountReferenceRange(s,t)
-endgroup
-
-
-group SubstanceAmountReferenceRange extends Element
-  input src : SubstanceAmountR3 as source
-  input tgt : SubstanceAmount as target
-
-  "SubstanceAmount.referenceRange.lowLimit": for src.lowLimit make tgt.lowLimit
-  "SubstanceAmount.referenceRange.highLimit": for src.highLimit make tgt.highLimit
-endgroup
+group SubstanceAmountReferenceRange(source src : SubstanceAmountR3, target tgt : SubstanceAmount) extends Element <<type+>> {
+  src.lowLimit -> tgt.lowLimit;
+  src.highLimit -> tgt.highLimit;
+}
 

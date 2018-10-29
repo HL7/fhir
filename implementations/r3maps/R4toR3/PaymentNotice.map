@@ -1,24 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/PaymentNotice4to3" = "R4 to R3 Conversion for PaymentNotice"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/PaymentNotice" alias PaymentNotice as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/PaymentNotice" alias PaymentNoticeR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group PaymentNotice extends DomainResource
-  input src : PaymentNotice as source
-  input tgt : PaymentNoticeR3 as target
-
-  "PaymentNotice.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "PaymentNotice.status" : for src.status as vs make tgt.status as vt
-  "PaymentNotice.request" : for src.request as vs make tgt.request as vt
-  "PaymentNotice.response" : for src.response as vs make tgt.response as vt
-  "PaymentNotice.statusDate" : for src.statusDate as vs make tgt.statusDate as vt
-  "PaymentNotice.created" : for src.created as vs make tgt.created as vt
-  "PaymentNotice.target" : for src.target as vs make tgt.target as vt
-  "PaymentNotice.provider" : for src.provider as vs make tgt.provider as vt
-endgroup
+group PaymentNotice(source src : PaymentNotice, target tgt : PaymentNoticeR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.request -> tgt.request;
+  src.response -> tgt.response;
+  src.statusDate -> tgt.statusDate;
+  src.created -> tgt.created;
+  src.target -> tgt.target;
+  src.provider -> tgt.provider;
+}
 

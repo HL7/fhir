@@ -1,68 +1,51 @@
 ﻿map "http://hl7.org/fhir/StructureMap/OccupationalData4to3" = "R4 to R3 Conversion for OccupationalData"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/OccupationalData" alias OccupationalData as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/OccupationalData" alias OccupationalDataR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group OccupationalData(source src : OccupationalDataR3, target tgt : OccupationalData) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.subject -> tgt.subject;
+  src.date -> tgt.date;
+  src.recorder -> tgt.recorder;
+  src.informant -> tgt.informant;
+  src.employmentStatus as s -> tgt.employmentStatus as t then OccupationalDataEmploymentStatus(s, t);
+  src.retirementDate -> tgt.retirementDate;
+  src.combatZonePeriod -> tgt.combatZonePeriod;
+  src.usualWork as s -> tgt.usualWork as t then OccupationalDataUsualWork(s, t);
+  src.pastOrPresentJob as s -> tgt.pastOrPresentJob as t then OccupationalDataPastOrPresentJob(s, t);
+}
 
+group OccupationalDataEmploymentStatus(source src : OccupationalDataR3, target tgt : OccupationalData) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.effective -> tgt.effective;
+}
 
-group OccupationalData extends DomainResource
-  input src : OccupationalDataR3 as source
-  input tgt : OccupationalData as target
+group OccupationalDataUsualWork(source src : OccupationalDataR3, target tgt : OccupationalData) extends BackboneElement <<type+>> {
+  src.occupation -> tgt.occupation;
+  src.industry -> tgt.industry;
+  src.start -> tgt.start;
+  src.duration -> tgt.duration;
+}
 
-  "OccupationalData.identifier": for src.identifier make tgt.identifier
-  "OccupationalData.status": for src.status make tgt.status
-  "OccupationalData.subject": for src.subject make tgt.subject
-  "OccupationalData.date": for src.date make tgt.date
-  "OccupationalData.recorder": for src.recorder make tgt.recorder
-  "OccupationalData.informant": for src.informant make tgt.informant
-  "OccupationalData.employmentStatus": for src.employmentStatus as s make tgt.employmentStatus as t then OccupationalDataEmploymentStatus(s,t)
-  "OccupationalData.retirementDate": for src.retirementDate make tgt.retirementDate
-  "OccupationalData.combatZonePeriod": for src.combatZonePeriod make tgt.combatZonePeriod
-  "OccupationalData.usualWork": for src.usualWork as s make tgt.usualWork as t then OccupationalDataUsualWork(s,t)
-  "OccupationalData.pastOrPresentJob": for src.pastOrPresentJob as s make tgt.pastOrPresentJob as t then OccupationalDataPastOrPresentJob(s,t)
-endgroup
+group OccupationalDataPastOrPresentJob(source src : OccupationalDataR3, target tgt : OccupationalData) extends BackboneElement <<type+>> {
+  src.occupation -> tgt.occupation;
+  src.industry -> tgt.industry;
+  src.effective -> tgt.effective;
+  src.employer -> tgt.employer;
+  src.workClassification -> tgt.workClassification;
+  src.supervisoryLevel -> tgt.supervisoryLevel;
+  src.jobDuty -> tgt.jobDuty;
+  src.occupationalHazard -> tgt.occupationalHazard;
+  src.workSchedule as s -> tgt.workSchedule as t then OccupationalDataPastOrPresentJobWorkSchedule(s, t);
+}
 
-group OccupationalDataEmploymentStatus extends BackboneElement
-  input src : OccupationalDataR3 as source
-  input tgt : OccupationalData as target
+group OccupationalDataPastOrPresentJobWorkSchedule(source src : OccupationalDataR3, target tgt : OccupationalData) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.weeklyWorkDays -> tgt.weeklyWorkDays;
+  src.dailyWorkHours -> tgt.dailyWorkHours;
+}
 
-  "OccupationalData.employmentStatus.code": for src.code make tgt.code
-  "OccupationalData.employmentStatus.effective": for src.effective make tgt.effective
-endgroup
-
-group OccupationalDataUsualWork extends BackboneElement
-  input src : OccupationalDataR3 as source
-  input tgt : OccupationalData as target
-
-  "OccupationalData.usualWork.occupation": for src.occupation make tgt.occupation
-  "OccupationalData.usualWork.industry": for src.industry make tgt.industry
-  "OccupationalData.usualWork.start": for src.start make tgt.start
-  "OccupationalData.usualWork.duration": for src.duration make tgt.duration
-endgroup
-
-group OccupationalDataPastOrPresentJob extends BackboneElement
-  input src : OccupationalDataR3 as source
-  input tgt : OccupationalData as target
-
-  "OccupationalData.pastOrPresentJob.occupation": for src.occupation make tgt.occupation
-  "OccupationalData.pastOrPresentJob.industry": for src.industry make tgt.industry
-  "OccupationalData.pastOrPresentJob.effective": for src.effective make tgt.effective
-  "OccupationalData.pastOrPresentJob.employer": for src.employer make tgt.employer
-  "OccupationalData.pastOrPresentJob.workClassification": for src.workClassification make tgt.workClassification
-  "OccupationalData.pastOrPresentJob.supervisoryLevel": for src.supervisoryLevel make tgt.supervisoryLevel
-  "OccupationalData.pastOrPresentJob.jobDuty": for src.jobDuty make tgt.jobDuty
-  "OccupationalData.pastOrPresentJob.occupationalHazard": for src.occupationalHazard make tgt.occupationalHazard
-  "OccupationalData.pastOrPresentJob.workSchedule": for src.workSchedule as s make tgt.workSchedule as t then OccupationalDataPastOrPresentJobWorkSchedule(s,t)
-endgroup
-
-group OccupationalDataPastOrPresentJobWorkSchedule extends BackboneElement
-  input src : OccupationalDataR3 as source
-  input tgt : OccupationalData as target
-
-  "OccupationalData.pastOrPresentJob.workSchedule.code": for src.code make tgt.code
-  "OccupationalData.pastOrPresentJob.workSchedule.weeklyWorkDays": for src.weeklyWorkDays make tgt.weeklyWorkDays
-  "OccupationalData.pastOrPresentJob.workSchedule.dailyWorkHours": for src.dailyWorkHours make tgt.dailyWorkHours
-endgroup

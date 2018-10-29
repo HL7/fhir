@@ -1,35 +1,29 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Timing3to4" = "R3 to R4 Conversions for Timing"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Timing" alias TimingR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Timing" alias Timing as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group Timing extends BackboneElement
-  input src : TimingR3 as source
-  input tgt : Timing as target
-
-  "Timing.event" : for src.event as vs make tgt.event as vt
-  "Timing.repeat" : for src.repeat as vs0 make tgt.repeat as vt0 then {
-    "Timing.repeat.bounds-Duration" : for vs0.bounds  : Duration as vs make vt0.bounds = create("Duration") as vt then Duration(vs,vt)
-    "Timing.repeat.bounds-Range" : for vs0.bounds  : Range as vs make vt0.bounds = create("Range") as vt then Range(vs,vt)
-    "Timing.repeat.bounds-Period" : for vs0.bounds  : Period as vs make vt0.bounds = create("Period") as vt then Period(vs,vt)
-    "Timing.repeat.count" : for vs0.count as vs make vt0.count as vt
-    "Timing.repeat.countMax" : for vs0.countMax as vs make vt0.countMax as vt
-    "Timing.repeat.duration" : for vs0.duration as vs make vt0.duration as vt
-    "Timing.repeat.durationMax" : for vs0.durationMax as vs make vt0.durationMax as vt
-    "Timing.repeat.durationUnit" : for vs0.durationUnit as vs make vt0.durationUnit as vt
-    "Timing.repeat.frequency" : for vs0.frequency as vs make vt0.frequency as vt
-    "Timing.repeat.frequencyMax" : for vs0.frequencyMax as vs make vt0.frequencyMax as vt
-    "Timing.repeat.period" : for vs0.period as vs make vt0.period as vt
-    "Timing.repeat.periodMax" : for vs0.periodMax as vs make vt0.periodMax as vt
-    "Timing.repeat.periodUnit" : for vs0.periodUnit as vs make vt0.periodUnit as vt
-    "Timing.repeat.timeOfDay" : for vs0.timeOfDay as vs make vt0.timeOfDay as vt
-    "Timing.repeat.offset" : for vs0.offset as vs make vt0.offset as vt
-  }
-  "Timing.code" : for src.code as vs make tgt.code as vt
-endgroup
+group Timing(source src : TimingR3, target tgt : Timing) extends BackboneElement <<type+>> {
+  src.event -> tgt.event;
+  src.repeat as vs0 -> tgt.repeat as vt0 then {
+    vs0.bounds : Duration as vs -> vt0.bounds = create("Duration") as vt then Duration(vs, vt);
+    vs0.bounds : Range as vs -> vt0.bounds = create("Range") as vt then Range(vs, vt);
+    vs0.bounds : Period as vs -> vt0.bounds = create("Period") as vt then Period(vs, vt);
+    vs0.count -> vt0.count;
+    vs0.countMax -> vt0.countMax;
+    vs0.duration -> vt0.duration;
+    vs0.durationMax -> vt0.durationMax;
+    vs0.durationUnit -> vt0.durationUnit;
+    vs0.frequency -> vt0.frequency;
+    vs0.frequencyMax -> vt0.frequencyMax;
+    vs0.period -> vt0.period;
+    vs0.periodMax -> vt0.periodMax;
+    vs0.periodUnit -> vt0.periodUnit;
+    vs0.timeOfDay -> vt0.timeOfDay;
+    vs0.offset -> vt0.offset;
+  };
+  src.code -> tgt.code;
+}
 

@@ -1,31 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Substance3to4" = "R3 to R4 Conversions for Substance"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Substance" alias SubstanceR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Substance" alias Substance as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group Substance extends DomainResource
-  input src : SubstanceR3 as source
-  input tgt : Substance as target
-
-  "Substance.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Substance.status" : for src.status as vs make tgt.status as vt
-  "Substance.category" : for src.category as vs make tgt.category as vt
-  "Substance.code" : for src.code as vs make tgt.code as vt
-  "Substance.description" : for src.description as vs make tgt.description as vt
-  "Substance.instance" : for src.instance as vs0 make tgt.instance as vt0 then {
-    "Substance.instance.identifier" : for vs0.identifier as vs make vt0.identifier as vt
-    "Substance.instance.expiry" : for vs0.expiry as vs make vt0.expiry as vt
-    "Substance.instance.quantity" : for vs0.quantity as vs make vt0.quantity as vt
-  }
-  "Substance.ingredient" : for src.ingredient as vs0 make tgt.ingredient as vt0 then {
-    "Substance.ingredient.quantity" : for vs0.quantity as vs make vt0.quantity as vt
-    "Substance.ingredient.substance-CodeableConcept" : for vs0.substance  : CodeableConcept as vs make vt0.substance = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "Substance.ingredient.substance-Reference" : for vs0.substance  : Reference as vs make vt0.substance = create("Reference") as vt then Reference(vs,vt)
-  }
-endgroup
+group Substance(source src : SubstanceR3, target tgt : Substance) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.instance as vs0 -> tgt.instance as vt0 then {
+    vs0.identifier -> vt0.identifier;
+    vs0.expiry -> vt0.expiry;
+    vs0.quantity -> vt0.quantity;
+  };
+  src.ingredient as vs0 -> tgt.ingredient as vt0 then {
+    vs0.quantity -> vt0.quantity;
+    vs0.substance : CodeableConcept as vs -> vt0.substance = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+    vs0.substance : Reference as vs -> vt0.substance = create("Reference") as vt then Reference(vs, vt);
+  };
+}
 

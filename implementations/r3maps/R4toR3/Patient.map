@@ -1,39 +1,60 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Patient4to3" = "R4 to R3 Conversion for Patient"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Patient" alias PatientR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group Patient(source src : Patient, target tgt : PatientR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.gender -> tgt.gender;
+  src.birthDate -> tgt.birthDate;
+  src.deceased : boolean as vs -> tgt.deceased = create("boolean") as vt then boolean(vs, vt);
+  src.deceased : dateTime as vs -> tgt.deceased = create("dateTime") as vt then dateTime(vs, vt);
+  src.address -> tgt.address;
+  src.maritalStatus -> tgt.maritalStatus;
+  src.multipleBirth : boolean as vs -> tgt.multipleBirth = create("boolean") as vt then boolean(vs, vt);
+  src.multipleBirth : integer as vs -> tgt.multipleBirth = create("integer") as vt then integer(vs, vt);
+  src.photo -> tgt.photo;
+  src.contact as vs0 -> tgt.contact as vt0 then contact(vs0, vt0);
+  src.extension as vs0 where url = 'http://hl7.org/fhir/StructureDefinition/patient-animal' -> tgt.animal as vt0 then animal(vs0, vt0) "animal";
+  src.communication as vs0 -> tgt.communication as vt0 then communication(vs0, vt0);
+  src.generalPractitioner -> tgt.generalPractitioner;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.link as vs0 -> tgt.link as vt0 then link(vs0, vt0);
+}
 
+group contact(source src, target tgt) extends BackboneElement {
+  src.relationship -> tgt.relationship;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+  src.gender -> tgt.gender;
+  src.organization -> tgt.organization;
+  src.period -> tgt.period;
+}
 
-group Patient extends DomainResource
-  input src : Patient as source
-  input tgt : PatientR3 as target
+group animal(source src, target tgt) {
+  src.extension as ext where url = 'species' then {
+    ext.value as vs0 -> tgt.species = vs0 "species2";
+  } "species";
+  src.extension as ext where url = 'breed' then {
+    ext.value as vs0 -> tgt.breed = vs0 "breed";
+  } "breed";
+  src.extension as ext where url = 'genderStatus' then {
+    ext.value as vs0 -> tgt.genderStatus = vs0 "genderStatus";
+  } "genderStatus";
+}
 
-  "Patient.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Patient.active" : for src.active as vs make tgt.active as vt
-  "Patient.name" : for src.name as vs make tgt.name as vt
-  "Patient.telecom" : for src.telecom as vs make tgt.telecom as vt
-  "Patient.gender" : for src.gender as vs make tgt.gender as vt
-  "Patient.birthDate" : for src.birthDate as vs make tgt.birthDate as vt
-  "Patient.deceased-boolean" : for src.deceased  : boolean as vs make tgt.deceased = create("boolean") as vt then boolean(vs,vt)
-  "Patient.deceased-dateTime" : for src.deceased  : dateTime as vs make tgt.deceased = create("dateTime") as vt then dateTime(vs,vt)
-  "Patient.address" : for src.address as vs make tgt.address as vt
-  "Patient.maritalStatus" : for src.maritalStatus as vs make tgt.maritalStatus as vt
-  "Patient.multipleBirth-boolean" : for src.multipleBirth  : boolean as vs make tgt.multipleBirth = create("boolean") as vt then boolean(vs,vt)
-  "Patient.multipleBirth-integer" : for src.multipleBirth  : integer as vs make tgt.multipleBirth = create("integer") as vt then integer(vs,vt)
-  "Patient.photo" : for src.photo as vs make tgt.photo as vt
-  "Patient.communication" : for src.communication as vs0 make tgt.communication as vt0 then {
-    "Patient.communication.language" : for vs0.language as vs make vt0.language as vt
-    "Patient.communication.preferred" : for vs0.preferred as vs make vt0.preferred as vt
-  }
-  "Patient.generalPractitioner" : for src.generalPractitioner as vs make tgt.generalPractitioner as vt
-  "Patient.managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt
-  "Patient.link" : for src.link as vs0 make tgt.link as vt0 then {
-    "Patient.link.other" : for vs0.other as vs make vt0.other as vt
-    "Patient.link.type" : for vs0.type as vs make vt0.type as vt
-  }
-endgroup
+group communication(source src, target tgt) extends BackboneElement {
+  src.language -> tgt.language;
+  src.preferred -> tgt.preferred;
+}
 
+group link(source src, target tgt) extends BackboneElement {
+  src.other -> tgt.other;
+  src.type -> tgt.type;
+}

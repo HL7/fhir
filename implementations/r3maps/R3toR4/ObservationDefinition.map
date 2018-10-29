@@ -1,53 +1,39 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ObservationDefinition3to4" = "R3 to R4 Conversions for ObservationDefinition"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ObservationDefinition" alias ObservationDefinitionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ObservationDefinition" alias ObservationDefinition as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group ObservationDefinition(source src : ObservationDefinitionR3, target tgt : ObservationDefinition) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.permittedDataType -> tgt.permittedDataType;
+  src.multipleResultsAllowed -> tgt.multipleResultsAllowed;
+  src.method -> tgt.method;
+  src.preferredReportName -> tgt.preferredReportName;
+  src.quantitativeDetails as s -> tgt.quantitativeDetails as t then ObservationDefinitionQuantitativeDetails(s, t);
+  src.qualifiedInterval as s -> tgt.qualifiedInterval as t then ObservationDefinitionQualifiedInterval(s, t);
+  src.validCodedValueSet -> tgt.validCodedValueSet;
+  src.normalCodedValueSet -> tgt.normalCodedValueSet;
+  src.abnormalCodedValueSet -> tgt.abnormalCodedValueSet;
+  src.criticalCodedValueSet -> tgt.criticalCodedValueSet;
+}
 
+group ObservationDefinitionQuantitativeDetails(source src : ObservationDefinitionR3, target tgt : ObservationDefinition) extends BackboneElement <<type+>> {
+  src.customaryUnit -> tgt.customaryUnit;
+  src.unit -> tgt.unit;
+  src.conversionFactor -> tgt.conversionFactor;
+  src.decimalPrecision -> tgt.decimalPrecision;
+}
 
-group ObservationDefinition extends DomainResource
-  input src : ObservationDefinitionR3 as source
-  input tgt : ObservationDefinition as target
-
-  "ObservationDefinition.category": for src.category make tgt.category
-  "ObservationDefinition.code": for src.code make tgt.code
-  "ObservationDefinition.permittedDataType": for src.permittedDataType make tgt.permittedDataType
-  "ObservationDefinition.multipleResultsAllowed": for src.multipleResultsAllowed make tgt.multipleResultsAllowed
-  "ObservationDefinition.method": for src.method make tgt.method
-  "ObservationDefinition.preferredReportName": for src.preferredReportName make tgt.preferredReportName
-  "ObservationDefinition.quantitativeDetails": for src.quantitativeDetails as s make tgt.quantitativeDetails as t then ObservationDefinitionQuantitativeDetails(s,t)
-  "ObservationDefinition.qualifiedInterval": for src.qualifiedInterval as s make tgt.qualifiedInterval as t then ObservationDefinitionQualifiedInterval(s,t)
-  "ObservationDefinition.validCodedValueSet": for src.validCodedValueSet make tgt.validCodedValueSet
-  "ObservationDefinition.normalCodedValueSet": for src.normalCodedValueSet make tgt.normalCodedValueSet
-  "ObservationDefinition.abnormalCodedValueSet": for src.abnormalCodedValueSet make tgt.abnormalCodedValueSet
-  "ObservationDefinition.criticalCodedValueSet": for src.criticalCodedValueSet make tgt.criticalCodedValueSet
-endgroup
-
-
-group ObservationDefinitionQuantitativeDetails extends BackboneElement
-  input src : ObservationDefinitionR3 as source
-  input tgt : ObservationDefinition as target
-
-  "ObservationDefinition.quantitativeDetails.customaryUnit": for src.customaryUnit make tgt.customaryUnit
-  "ObservationDefinition.quantitativeDetails.unit": for src.unit make tgt.unit
-  "ObservationDefinition.quantitativeDetails.conversionFactor": for src.conversionFactor make tgt.conversionFactor
-  "ObservationDefinition.quantitativeDetails.decimalPrecision": for src.decimalPrecision make tgt.decimalPrecision
-endgroup
-
-
-group ObservationDefinitionQualifiedInterval extends BackboneElement
-  input src : ObservationDefinitionR3 as source
-  input tgt : ObservationDefinition as target
-
-  "ObservationDefinition.qualifiedInterval.category": for src.category make tgt.category
-  "ObservationDefinition.qualifiedInterval.range": for src.range make tgt.range
-  "ObservationDefinition.qualifiedInterval.type": for src.type make tgt.type
-  "ObservationDefinition.qualifiedInterval.appliesTo": for src.appliesTo make tgt.appliesTo
-  "ObservationDefinition.qualifiedInterval.age": for src.age make tgt.age
-  "ObservationDefinition.qualifiedInterval.gestationalAge": for src.gestationalAge make tgt.gestationalAge
-  "ObservationDefinition.qualifiedInterval.condition": for src.condition make tgt.condition
-endgroup
+group ObservationDefinitionQualifiedInterval(source src : ObservationDefinitionR3, target tgt : ObservationDefinition) extends BackboneElement <<type+>> {
+  src.category -> tgt.category;
+  src.range -> tgt.range;
+  src.type -> tgt.type;
+  src.appliesTo -> tgt.appliesTo;
+  src.age -> tgt.age;
+  src.gestationalAge -> tgt.gestationalAge;
+  src.condition -> tgt.condition;
+}
 

@@ -1,39 +1,70 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ConceptMap4to3" = "R4 to R3 Conversion for ConceptMap"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ConceptMap" alias ConceptMap as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ConceptMap" alias ConceptMapR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group ConceptMap(source src : ConceptMap, target tgt : ConceptMapR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.source : uri as vs0 -> tgt.source = create("uri") as vt0 then uri(vs0, vt0);
+  src.source : canonical as vs0 -> tgt.source = create("Reference") as vt0 then Canonical2Reference(vs0, vt0);
+  src.target : uri as vs0 -> tgt.target = create("uri") as vt0 then uri(vs0, vt0) "targetU";
+  src.target : canonical as vs0 -> tgt.target = create("Reference") as vt0 then Canonical2Reference(vs0, vt0);
+  src.group as vs0 -> tgt.group as vt0 then group(vs0, vt0);
+}
 
+group group(source src, target tgt) extends BackboneElement {
+  src.source -> tgt.source;
+  src.sourceVersion -> tgt.sourceVersion;
+  src.target -> tgt.target;
+  src.targetVersion -> tgt.targetVersion;
+  src.element as vs0 -> tgt.element as vt0 then element(vs0, vt0);
+  src.unmapped as vs0 -> tgt.unmapped as vt0 then unmapped(vs0, vt0);
+}
 
-group ConceptMap extends DomainResource
-  input src : ConceptMap as source
-  input tgt : ConceptMapR3 as target
+group element(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.target as vs0 -> tgt.target as vt0 then target(vs0, vt0);
+}
 
-  "ConceptMap.url" : for src.url as vs make tgt.url as vt
-  "ConceptMap.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "ConceptMap.version" : for src.version as vs make tgt.version as vt
-  "ConceptMap.name" : for src.name as vs make tgt.name as vt
-  "ConceptMap.title" : for src.title as vs make tgt.title as vt
-  "ConceptMap.status" : for src.status as vs make tgt.status as vt
-  "ConceptMap.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "ConceptMap.date" : for src.date as vs make tgt.date as vt
-  "ConceptMap.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "ConceptMap.contact" : for src.contact as vs make tgt.contact as vt
-  "ConceptMap.description" : for src.description as vs make tgt.description as vt
-  "ConceptMap.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "ConceptMap.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "ConceptMap.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "ConceptMap.copyright" : for src.copyright as vs make tgt.copyright as vt
-  "ConceptMap.source-uri" : for src.source  : uri as vs make tgt.source = create("uri") as vt then uri(vs,vt)
-  "ConceptMap.target-uri" : for src.target  : uri as vs make tgt.target = create("uri") as vt then uri(vs,vt)
-  "ConceptMap.group" : for src.group as vs0 make tgt.group as vt0 then {
-    "ConceptMap.group.source" : for vs0.source as vs make vt0.source as vt
-    "ConceptMap.group.sourceVersion" : for vs0.sourceVersion as vs make vt0.sourceVersion as vt
-    "ConceptMap.group.target" : for vs0.target as vs make vt0.target as vt
-    "ConceptMap.group.targetVersion" : for vs0.targetVersion as vs make vt0.targetVersion as vt
-  }
-endgroup
+group target(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.equivalence -> tgt.equivalence;
+  src.comment -> tgt.comment;
+  src.dependsOn as vs0 -> tgt.dependsOn as vt0 then qualifier(vs0, vt0);
+  src.product as vs0 -> tgt.product as vt0 then qualifier(vs0, vt0);
+}
+
+group qualifier(source src, target tgt) extends BackboneElement {
+  src.property -> tgt.property;
+  src.system -> tgt.system;
+  src.value -> tgt.code "code";
+  src.display -> tgt.display;
+}
+
+group unmapped(source src, target tgt) extends BackboneElement {
+  src.mode -> tgt.mode;
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.url -> tgt.url;
+}
 

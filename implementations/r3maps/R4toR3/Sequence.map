@@ -1,67 +1,61 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Sequence4to3" = "R4 to R3 Conversion for Sequence"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Sequence" alias Sequence as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Sequence" alias SequenceR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group Sequence extends DomainResource
-  input src : Sequence as source
-  input tgt : SequenceR3 as target
-
-  "Sequence.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Sequence.type" : for src.type as vs make tgt.type as vt
-  "Sequence.coordinateSystem" : for src.coordinateSystem as vs make tgt.coordinateSystem as vt
-  "Sequence.patient" : for src.patient as vs make tgt.patient as vt
-  "Sequence.specimen" : for src.specimen as vs make tgt.specimen as vt
-  "Sequence.device" : for src.device as vs make tgt.device as vt
-  "Sequence.performer" : for src.performer as vs make tgt.performer as vt
-  "Sequence.quantity" : for src.quantity as vs make tgt.quantity as vt
-  "Sequence.referenceSeq" : for src.referenceSeq as vs0 make tgt.referenceSeq as vt0 then {
-    "Sequence.referenceSeq.chromosome" : for vs0.chromosome as vs make vt0.chromosome as vt
-    "Sequence.referenceSeq.genomeBuild" : for vs0.genomeBuild as vs make vt0.genomeBuild as vt
-    "Sequence.referenceSeq.referenceSeqId" : for vs0.referenceSeqId as vs make vt0.referenceSeqId as vt
-    "Sequence.referenceSeq.referenceSeqPointer" : for vs0.referenceSeqPointer as vs make vt0.referenceSeqPointer as vt
-    "Sequence.referenceSeq.referenceSeqString" : for vs0.referenceSeqString as vs make vt0.referenceSeqString as vt
-    "Sequence.referenceSeq.windowEnd" : for vs0.windowEnd as vs make vt0.windowEnd as vt
-  }
-  "Sequence.variant" : for src.variant as vs0 make tgt.variant as vt0 then {
-    "Sequence.variant.start" : for vs0.start as vs make vt0.start as vt
-    "Sequence.variant.end" : for vs0.end as vs make vt0.end as vt
-    "Sequence.variant.observedAllele" : for vs0.observedAllele as vs make vt0.observedAllele as vt
-    "Sequence.variant.referenceAllele" : for vs0.referenceAllele as vs make vt0.referenceAllele as vt
-    "Sequence.variant.cigar" : for vs0.cigar as vs make vt0.cigar as vt
-    "Sequence.variant.variantPointer" : for vs0.variantPointer as vs make vt0.variantPointer as vt
-  }
-  "Sequence.observedSeq" : for src.observedSeq as vs make tgt.observedSeq as vt
-  "Sequence.quality" : for src.quality as vs0 make tgt.quality as vt0 then {
-    "Sequence.quality.type" : for vs0.type as vs make vt0.type as vt
-    "Sequence.quality.standardSequence" : for vs0.standardSequence as vs make vt0.standardSequence as vt
-    "Sequence.quality.start" : for vs0.start as vs make vt0.start as vt
-    "Sequence.quality.end" : for vs0.end as vs make vt0.end as vt
-    "Sequence.quality.score" : for vs0.score as vs make vt0.score as vt
-    "Sequence.quality.method" : for vs0.method as vs make vt0.method as vt
-    "Sequence.quality.truthTP" : for vs0.truthTP as vs make vt0.truthTP as vt
-    "Sequence.quality.queryTP" : for vs0.queryTP as vs make vt0.queryTP as vt
-    "Sequence.quality.truthFN" : for vs0.truthFN as vs make vt0.truthFN as vt
-    "Sequence.quality.queryFP" : for vs0.queryFP as vs make vt0.queryFP as vt
-    "Sequence.quality.gtFP" : for vs0.gtFP as vs make vt0.gtFP as vt
-    "Sequence.quality.precision" : for vs0.precision as vs make vt0.precision as vt
-    "Sequence.quality.recall" : for vs0.recall as vs make vt0.recall as vt
-    "Sequence.quality.fScore" : for vs0.fScore as vs make vt0.fScore as vt
-  }
-  "Sequence.readCoverage" : for src.readCoverage as vs make tgt.readCoverage as vt
-  "Sequence.repository" : for src.repository as vs0 make tgt.repository as vt0 then {
-    "Sequence.repository.type" : for vs0.type as vs make vt0.type as vt
-    "Sequence.repository.url" : for vs0.url as vs make vt0.url as vt
-    "Sequence.repository.name" : for vs0.name as vs make vt0.name as vt
-    "Sequence.repository.datasetId" : for vs0.datasetId as vs make vt0.datasetId as vt
-    "Sequence.repository.variantsetId" : for vs0.variantsetId as vs make vt0.variantsetId as vt
-    "Sequence.repository.readsetId" : for vs0.readsetId as vs make vt0.readsetId as vt
-  }
-  "Sequence.pointer" : for src.pointer as vs make tgt.pointer as vt
-endgroup
+group Sequence(source src : Sequence, target tgt : SequenceR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.coordinateSystem -> tgt.coordinateSystem;
+  src.patient -> tgt.patient;
+  src.specimen -> tgt.specimen;
+  src.device -> tgt.device;
+  src.performer -> tgt.performer;
+  src.quantity -> tgt.quantity;
+  src.referenceSeq as vs0 -> tgt.referenceSeq as vt0 then {
+    vs0.chromosome -> vt0.chromosome;
+    vs0.genomeBuild -> vt0.genomeBuild;
+    vs0.referenceSeqId -> vt0.referenceSeqId;
+    vs0.referenceSeqPointer -> vt0.referenceSeqPointer;
+    vs0.referenceSeqString -> vt0.referenceSeqString;
+    vs0.windowEnd -> vt0.windowEnd;
+  };
+  src.variant as vs0 -> tgt.variant as vt0 then {
+    vs0.start -> vt0.start;
+    vs0.end -> vt0.end;
+    vs0.observedAllele -> vt0.observedAllele;
+    vs0.referenceAllele -> vt0.referenceAllele;
+    vs0.cigar -> vt0.cigar;
+    vs0.variantPointer -> vt0.variantPointer;
+  };
+  src.observedSeq -> tgt.observedSeq;
+  src.quality as vs0 -> tgt.quality as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.standardSequence -> vt0.standardSequence;
+    vs0.start -> vt0.start;
+    vs0.end -> vt0.end;
+    vs0.score -> vt0.score;
+    vs0.method -> vt0.method;
+    vs0.truthTP -> vt0.truthTP;
+    vs0.queryTP -> vt0.queryTP;
+    vs0.truthFN -> vt0.truthFN;
+    vs0.queryFP -> vt0.queryFP;
+    vs0.gtFP -> vt0.gtFP;
+    vs0.precision -> vt0.precision;
+    vs0.recall -> vt0.recall;
+    vs0.fScore -> vt0.fScore;
+  };
+  src.readCoverage -> tgt.readCoverage;
+  src.repository as vs0 -> tgt.repository as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.url -> vt0.url;
+    vs0.name -> vt0.name;
+    vs0.datasetId -> vt0.datasetId;
+    vs0.variantsetId -> vt0.variantsetId;
+    vs0.readsetId -> vt0.readsetId;
+  };
+  src.pointer -> tgt.pointer;
+}
 

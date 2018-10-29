@@ -2008,7 +2008,7 @@ public class StructureMap extends MetadataResource {
 // added from java-adornments.txt:
 
   public String toString() {
-    return StructureMapUtilities.groupToString(this);
+    return StructureMapUtilities.groupToString(this, true);
   }
 
 
@@ -6964,7 +6964,7 @@ public class StructureMap extends MetadataResource {
 // added from java-adornments.txt:
 
   public String toString() {
-    return StructureMapUtilities.render(this);
+    return StructureMapUtilities.render(this, true);
   }
 
 

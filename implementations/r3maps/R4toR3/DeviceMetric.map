@@ -1,30 +1,24 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceMetric4to3" = "R4 to R3 Conversion for DeviceMetric"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/DeviceMetric" alias DeviceMetric as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceMetric" alias DeviceMetricR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group DeviceMetric extends DomainResource
-  input src : DeviceMetric as source
-  input tgt : DeviceMetricR3 as target
-
-  "DeviceMetric.identifier" : for src.identifierFirstRep as vs make tgt.identifier as vt
-  "DeviceMetric.type" : for src.type as vs make tgt.type as vt
-  "DeviceMetric.unit" : for src.unit as vs make tgt.unit as vt
-  "DeviceMetric.source" : for src.source as vs make tgt.source as vt
-  "DeviceMetric.parent" : for src.parent as vs make tgt.parent as vt
-  "DeviceMetric.operationalStatus" : for src.operationalStatus as vs make tgt.operationalStatus as vt
-  "DeviceMetric.color" : for src.color as vs make tgt.color as vt
-  "DeviceMetric.category" : for src.category as vs make tgt.category as vt
-  "DeviceMetric.measurementPeriod" : for src.measurementPeriod as vs make tgt.measurementPeriod as vt
-  "DeviceMetric.calibration" : for src.calibration as vs0 make tgt.calibration as vt0 then {
-    "DeviceMetric.calibration.type" : for vs0.type as vs make vt0.type as vt
-    "DeviceMetric.calibration.state" : for vs0.state as vs make vt0.state as vt
-    "DeviceMetric.calibration.time" : for vs0.time as vs make vt0.time as vt
-  }
-endgroup
+group DeviceMetric(source src : DeviceMetric, target tgt : DeviceMetricR3) extends DomainResource <<type+>> {
+  src.identifierFirstRep -> tgt.identifier "identifier";
+  src.type -> tgt.type;
+  src.unit -> tgt.unit;
+  src.source -> tgt.source;
+  src.parent -> tgt.parent;
+  src.operationalStatus -> tgt.operationalStatus;
+  src.color -> tgt.color;
+  src.category -> tgt.category;
+  src.measurementPeriod -> tgt.measurementPeriod;
+  src.calibration as vs0 -> tgt.calibration as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.state -> vt0.state;
+    vs0.time -> vt0.time;
+  };
+}
 

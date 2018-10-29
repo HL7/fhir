@@ -86,7 +86,7 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
 import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
 
-/**
+/** 
  * This class provides a set of utility operations for working with Profiles.
  * Key functionality:
  *  * getChildMap --?
@@ -106,6 +106,7 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
 public class ProfileUtilities extends TranslatingUtilities {
 
   private static int nextSliceId = 0;
+  private static final int MAX_RECURSION_LIMIT = 10;
   
   public class ExtensionContext {
 
@@ -639,7 +640,10 @@ public class ProfileUtilities extends TranslatingUtilities {
           if (diffMatches.size() > 1 && diffMatches.get(0).hasSlicing() && (nbl > baseCursor || differential.getElement().indexOf(diffMatches.get(1)) > differential.getElement().indexOf(diffMatches.get(0))+1)) { // there's a default set before the slices
             int ndc = differential.getElement().indexOf(diffMatches.get(0));
             int ndl = findEndOfElement(differential, ndc);
-            processPaths(indent+"  ", result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, 0), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true, null).setSlicing(diffMatches.get(0).getSlicing());
+            ElementDefinition e = processPaths(indent+"  ", result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, 0), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true, null);
+            if (e==null)
+              throw new FHIRException("Did not find single slice: " + diffMatches.get(0).getPath());
+            e.setSlicing(diffMatches.get(0).getSlicing());
             start++;
           } else {
             // we're just going to accept the differential slicing at face value
@@ -2926,6 +2930,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
 
     private int find(String path) {
+      String op = path;
       int lc = 0;
       String actual = base+path.substring(prefixLength);
       for (int i = 0; i < snapshot.size(); i++) {
@@ -2949,8 +2954,8 @@ public class ProfileUtilities extends TranslatingUtilities {
             
           i = 0;
           lc++;
-          if (lc > 5)
-            throw new Error("Error sorting: find() loop count > 5 - check paths are valid");
+          if (lc > MAX_RECURSION_LIMIT)
+            throw new Error("Internal recursion detection: find() loop path recursion > "+MAX_RECURSION_LIMIT+" - check paths are valid (for path "+path+"/"+op+")");
         }
       }
       if (prefixLength == 0)
