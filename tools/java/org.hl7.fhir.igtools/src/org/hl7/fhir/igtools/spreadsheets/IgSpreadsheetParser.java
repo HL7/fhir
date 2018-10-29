@@ -1109,6 +1109,10 @@ public class IgSpreadsheetParser {
     ElementDefinition exu = ex.getDifferential().addElement();
     exu.setPath("Extension.url");
     exu.setFixed(new UriType(ex.getUrl()));
+    TypeRefComponent tc = new TypeRefComponent(new UriType("uri"));
+    List<TypeRefComponent> tcList = new ArrayList<TypeRefComponent>();
+    tcList.add(tc);
+    exu.setType(tcList);
 
     if (invariants != null) {
       for (ElementDefinitionConstraintComponent inv : invariants.values()) {
