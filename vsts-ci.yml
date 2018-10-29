@@ -26,3 +26,18 @@ steps:
      fi
    }
    antBuild
+- bash: |
+   echo "Will publish!"
+   
+   PASSPHRASE=$(DEPLOY_KEY_PASSPHRASE)
+   echo $DEPLOY_KEY_ENCRYPTED | openssl  enc -aes-256-cbc -d  -pass pass:$PASSPHRASE  -base64 -A > ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
+   chmod 400 ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
+   
+   echo "deploy.rsa file size"
+   wc -l ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
+   
+   tar czf - * | ssh  -i ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa -p 2222 build.fhir.org ./publish ${BUILD_SOURCEBRANCHNAME:=unknown-branch}
+   
+   rm ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
+  workingDirectory: publish
+  displayName: Publish
