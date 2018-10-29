@@ -30,6 +30,7 @@ steps:
    }
    antBuild
 - bash: |
+   env
    echo "Will publish to '${BUILD_SOURCEBRANCHNAME:=unknown-branch}' !"
    
    echo $(DEPLOY_KEY_ENCRYPTED) | openssl  enc -aes-256-cbc -d  -pass pass:$(DEPLOY_KEY_PASSPHRASE)    -base64 -A > ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
