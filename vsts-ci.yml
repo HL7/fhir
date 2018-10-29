@@ -31,7 +31,7 @@ steps:
    antBuild
 - bash: |
 
-   TARGET_DIRECTORY=echo "${SYSTEM_PULLREQUEST_SOURCEBRANCH:=unknown-branch}" | sed -r 's/\//_/g'
+   TARGET_DIRECTORY=$(echo "${SYSTEM_PULLREQUEST_SOURCEBRANCH:=unknown-branch}" | sed -r 's/\//_/g')
    echo "Will publish to '$TARGET_DIRECTORY' !"
 
    echo $(DEPLOY_KEY_ENCRYPTED) | openssl  enc -aes-256-cbc -d  -pass pass:$(DEPLOY_KEY_PASSPHRASE)    -base64 -A > ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
