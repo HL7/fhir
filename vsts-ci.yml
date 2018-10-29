@@ -34,10 +34,10 @@ steps:
    
    PASSPHRASE=$(DEPLOY_KEY_PASSPHRASE)
    echo "Size of encrypted key"
-   cat  $(DEPLOY_KEY_ENCRYPTED) | wc
+   echo  $(DEPLOY_KEY_ENCRYPTED) | wc
    
    echo "Size of passphrase"
-   cat  $(DEPLOY_KEY_PASSPHRASE) | wc
+   echo  $(DEPLOY_KEY_PASSPHRASE) | wc
    
    echo $DEPLOY_KEY_ENCRYPTED | openssl  enc -aes-256-cbc -d  -pass pass:$PASSPHRASE  -base64 -A > ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
    chmod 400 ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
