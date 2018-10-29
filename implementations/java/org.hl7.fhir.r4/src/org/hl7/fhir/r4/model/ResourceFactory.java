@@ -189,8 +189,6 @@ public class ResourceFactory extends Factory {
             return new ChargeItemDefinition();
         if ("OperationOutcome".equals(name))
             return new OperationOutcome();
-        if ("UserSession".equals(name))
-            return new UserSession();
         if ("Procedure".equals(name))
             return new Procedure();
         if ("List".equals(name))
@@ -646,7 +644,6 @@ public class ResourceFactory extends Factory {
         case -1789797270: return new Timing();
         case 770498827: return new TriggerDefinition();
         case 1071332590: return new UsageContext();
-        case -943977429: return new UserSession();
         case -1345530543: return new ValueSet();
         case 957089336: return new VerificationResult();
         case -555387838: return new VisionPrescription();
