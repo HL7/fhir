@@ -6,11 +6,8 @@ steps:
    [ -d publish ] && rm -rf publish   
    
    antBuild (){
-     #ant -Dargs="./publish.sh -url http://build.fhir.org/ -nocheck"
-     #checkStatus
-     echo "Skipping build to just try publish steps"
-     mkdir publish
-     echo "Test Value" > publish/index.html
+     ant -Dargs="./publish.sh -url http://build.fhir.org/ -nocheck"
+     checkStatus
    }
    
    checkStatus (){
@@ -30,20 +27,14 @@ steps:
    }
    antBuild
 - bash: |
-
    TARGET_DIRECTORY=$(echo "${SYSTEM_PULLREQUEST_SOURCEBRANCH:=unknown-branch}" | sed -r 's/\//_/g')
    echo "Will publish to '$TARGET_DIRECTORY' !"
-
    echo $(DEPLOY_KEY_ENCRYPTED) | openssl  enc -aes-256-cbc -d  -pass pass:$(DEPLOY_KEY_PASSPHRASE)    -base64 -A > ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
    chmod 400 ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
-   wc -l ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
-   
    if [ "$BUILD_SOURCEBRANCHNAME" != "master" ]; then
      tar czf - * | ssh  -i ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa -p 2222 build.fhir.org ./publish $TARGET_DIRECTORY
-   fi
- 
+   fi 
    rm ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
    echo "Published"
-
   workingDirectory: publish
   displayName: Publish
