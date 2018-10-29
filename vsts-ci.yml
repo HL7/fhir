@@ -39,7 +39,7 @@ steps:
    echo "Size of passphrase"
    echo  $(DEPLOY_KEY_PASSPHRASE) | wc
    
-   echo $DEPLOY_KEY_ENCRYPTED | openssl  enc -aes-256-cbc -d  -pass pass:$PASSPHRASE  -base64 -A > ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
+   echo $(DEPLOY_KEY_ENCRYPTED) | openssl  enc -aes-256-cbc -d  -pass pass:$PASSPHRASE  -base64 -A > ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
    chmod 400 ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
    
    echo "deploy.rsa file size"
