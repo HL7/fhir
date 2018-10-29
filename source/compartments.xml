@@ -700,14 +700,6 @@
     <Cell><Data ss:Type="String">ExampleScenario</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">UserSession</Data></Cell>
-    <Cell><Data ss:Type="String">user | focus</Data></Cell>
-    <Cell><Data ss:Type="String">focus</Data></Cell>
-    <Cell><Data ss:Type="String">user</Data></Cell>
-    <Cell><Data ss:Type="String">user | focus</Data></Cell>
-    <Cell><Data ss:Type="String">user</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ObservationDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

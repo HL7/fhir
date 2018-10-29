@@ -17185,66 +17185,6 @@ public class RdfParser extends RdfParserBase {
       composeTestScriptSetupActionOperationComponent(t, "TestScript", "operation", element.getOperation(), -1);
   }
 
-  protected void composeUserSession(Complex parent, String parentType, String name, UserSession element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeDomainResource(t, "UserSession", name, element, index);
-    if (element.hasIdentifier())
-      composeIdentifier(t, "UserSession", "identifier", element.getIdentifier(), -1);
-    if (element.hasUser())
-      composeReference(t, "UserSession", "user", element.getUser(), -1);
-    if (element.hasStatus())
-      composeUserSessionUserSessionStatusComponent(t, "UserSession", "status", element.getStatus(), -1);
-    if (element.hasWorkstation())
-      composeIdentifier(t, "UserSession", "workstation", element.getWorkstation(), -1);
-    for (int i = 0; i < element.getFocus().size(); i++)
-      composeReference(t, "UserSession", "focus", element.getFocus().get(i), i);
-    if (element.hasCreatedElement())
-      composeInstant(t, "UserSession", "created", element.getCreatedElement(), -1);
-    if (element.hasExpiresElement())
-      composeInstant(t, "UserSession", "expires", element.getExpiresElement(), -1);
-    for (int i = 0; i < element.getContext().size(); i++)
-      composeUserSessionUserSessionContextComponent(t, "UserSession", "context", element.getContext().get(i), i);
-  }
-
-  protected void composeUserSessionUserSessionStatusComponent(Complex parent, String parentType, String name, UserSession.UserSessionStatusComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "status", name, element, index);
-    if (element.hasCodeElement())
-      composeEnum(t, "UserSession", "code", element.getCodeElement(), -1);
-    if (element.hasSourceElement())
-      composeEnum(t, "UserSession", "source", element.getSourceElement(), -1);
-  }
-
-  protected void composeUserSessionUserSessionContextComponent(Complex parent, String parentType, String name, UserSession.UserSessionContextComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "context", name, element, index);
-    if (element.hasTypeElement())
-      composeString(t, "UserSession", "type", element.getTypeElement(), -1);
-    if (element.hasValue())
-      composeType(t, "UserSession", "value", element.getValue(), -1);
-  }
-
   protected void composeValueSet(Complex parent, String parentType, String name, ValueSet element, int index) {
     if (element == null) 
       return;
@@ -17947,8 +17887,6 @@ public class RdfParser extends RdfParserBase {
       composeTestReport(parent, null, "TestReport", (TestReport)resource, -1);
     else if (resource instanceof TestScript)
       composeTestScript(parent, null, "TestScript", (TestScript)resource, -1);
-    else if (resource instanceof UserSession)
-      composeUserSession(parent, null, "UserSession", (UserSession)resource, -1);
     else if (resource instanceof ValueSet)
       composeValueSet(parent, null, "ValueSet", (ValueSet)resource, -1);
     else if (resource instanceof VerificationResult)
