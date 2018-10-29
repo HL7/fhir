@@ -11,15 +11,6 @@
 			<code value="WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02"/>
 		</coding>
 	</productClassification>
-	<marketingAuthorization>
-		<reference value="MedicinalProductAuthorization/example"/>
-	</marketingAuthorization>
-	<packagedMedicinalProduct>
-		<reference value="MedicinalProductPackaged/example"/>
-	</packagedMedicinalProduct>
-	<pharmaceuticalProductReference>
-		<reference value="MedicinalProductPharmaceutical/example"/>
-	</pharmaceuticalProductReference>
 	<attachedDocument>
 		<reference value="DocumentReference/example"/>
 	</attachedDocument>
