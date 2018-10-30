@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
-	<id value="verificationresult-communicationmethod"/>
-	<url value="http://terminology.hl7.org/CodeSystem/verificationresult-communicationmethod"/>
-	<name value="verificationresult_communicationmethod"/>
+	<id value="verificationresult-communication-method"/>
+	<url value="http://terminology.hl7.org/CodeSystem/verificationresult-communication-method"/>
+	<name value="verificationresult-communication-method"/>
 	<title value="VerificationResult Communication Method Code System"/>
 	<status value="active"/>
 	<date value="2018-10-31"/>
