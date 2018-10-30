@@ -387,6 +387,69 @@
 		</tr>
 	</table>	
 	
+	
+<a name="waitlist-flow"></a>
+	<h3>Flow for a patient waitlist:</h3>
+	<table  class="grid">
+		<tr>
+			<th>Activity Description</th>
+			<th>Appointment (inconvenient)</th>
+			<th>Appointment (preferred)</th>
+		</tr>
+		<tr>
+			<td>An appointment is booked for an inconvenient time using a typical status flow</td>
+			<!-- Activity Description -->
+			<td>
+				status = booked<br/>
+				participant.status = accepted
+			</td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Waitlist -->
+		</tr>
+		<tr>
+			<td>Waitlist appointment created</td>
+			<!-- Activity Description -->
+			<td>
+				status = booked<br/>
+				participant.status = accepted
+			</td>
+			<!-- Appointment -->
+			<td>
+				status = waitlist<br/>
+				requestedPeriod = <i>(more convinient time period)</i>
+			</td>
+			<!-- Appointment Waitlist -->
+		</tr>
+		<tr>
+			<td>Patient notified of availability of a better slot</td>
+			<!-- Activity Description -->
+			<td>
+				status = booked
+			</td>
+			<!-- Appointment -->
+			<td>
+				status = proposed<br/>
+				participant.status = needs-action
+			</td>
+			<!-- Appointment Response -->
+		</tr>
+		<tr>
+			<td>Patient accepts better slot</td>
+			<!-- Activity Description -->
+			<td>
+				status = cancelled
+			</td>
+			<!-- Appointment -->
+			<td>
+				status = booked<br/>
+				participant.status = accepted
+			</td>
+			<!-- Appointment Response -->
+		</tr>
+	</table>
+	
+	
 <a name="notes"></a>
 	<h2>Notes:</h2>
 	<ul>

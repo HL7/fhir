@@ -39,6 +39,7 @@ import java.util.Map;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.r4.formats.IParser;
@@ -116,6 +117,8 @@ public class BindingsParser {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(1));
+        cd.getValueSet().setVersion(Constants.VERSION);
+        
         if (!Utilities.noString(sheet.getColumn(row, "Committee"))) {
           cd.getValueSet().addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType(sheet.getColumn(row, "Committee").toLowerCase()));
         }
@@ -149,6 +152,7 @@ public class BindingsParser {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(1));
+        cd.getValueSet().setVersion(Constants.VERSION);
         cd.getValueSet().setName(cd.getName());
         
         // do nothing more: this will get filled out once all the resources are loaded
@@ -211,10 +215,12 @@ public class BindingsParser {
       ValueSet result = ValueSetUtilities.makeShareable((ValueSet) p.parse(input));
       result.setId(ref.substring(9));
       result.setExperimental(true);
-      if (!result.hasVersion())
-        result.setVersion(version);
-//      if (!result.hasUrl())
+//    if (!result.hasUrl())
         result.setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(9));
+
+      if (!result.hasVersion() || result.getUrl().startsWith("http://hl7.org/fhir"))
+        result.setVersion(version);
+
         
         if (!Utilities.noString(committee)) {
           if (!result.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {

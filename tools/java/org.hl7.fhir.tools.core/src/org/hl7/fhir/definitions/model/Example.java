@@ -73,7 +73,6 @@ public class Example {
     this.type = type;
     this.registered = registered;
     this.title = title;
-    this.element = element;
     
     xml = doc;
     resourceName = xml.getDocumentElement().getNodeName();
