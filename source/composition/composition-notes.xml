@@ -18,6 +18,40 @@ Notes:
  <li>It is acceptable for a Composition to contain only narrative (<code>Composition.section.text</code>) and no entries (<code>Composition.section.entry</code>)</li>
 </ul>  
 
+<a name="mixed"></a>
+<h2>
+Compositions about multiple entities
+</h2>
+<p>
+Typically, a composition is made about the subject - e.g. a patient, or group of patients, location, or device - and the 
+distinction between the subject and the composition describes the subject. Some kinds of documents contain data about other 
+parties or entities that are relevant to the subject of the document. Some examples:
+</p>
+<ul>
+ <li>A neonatal discharge summary that contains information about the mother</li>
+ <li>A family history document that contains multiple sections for different family members</li>
+ <li>A social health evaluation document that contains information about the patient's family members</li>
+ <li>A procedure report that contains details about a device implanted in the patient</li>
+</ul>
+<p>
+In all these cases, the subject of the document is a single patient, but some of the details are actually
+related to other persons or entities. When this happens, these other entities are detailed in the <code>Composition.section.focus</code> element.
+In the absence of a <code>focus</code>, it is assumed that the <code>subject</code> of the composition is the focus. 
+</p>
+<p>
+If a <code>focus</code> is specified, then the resources referred to from the section SHALL 
+either:
+</p>
+<ul>
+ <li>specify that their <code>subject</code> (however named e.g. <code>patient</code>) or <code>focus</code> element (if present) is the focus indicated</li>
+ <li>not have a <code>subject</code> element</li>
+</ul>
+<p>
+A few compositions genuinely cover multiple subjects - different sections are about different subjects. In such
+case, <code>Composition.subject</code> is omitted, and the extension <a href="extension-composition-section-subject.html">section-subject</a>
+is used on each section to indicate the subject.
+</p>
+
 <a name="dstu"></a>
 [%stu-note%]
 Feedback is welcome on two issues related to Composition:

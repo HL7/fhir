@@ -19,7 +19,7 @@
 	</software>
   <implementation>
     <description value="Acme Message endpoint"/>
-    <description value="http://acem.com/fhir/message-drop"/>
+    <url value="http://acem.com/fhir/message-drop"/>
   </implementation>
 	<!--  while the FHIR infrastructure is turning over prior to development, a version is 
     required.   -->

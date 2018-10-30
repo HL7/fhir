@@ -543,7 +543,7 @@
         <kind value="codesystem"/>
         <publisher value="HL7, Inc"/>
         <date value="2015-08-21"/>
-        <description value="This is used for identifying langauge throughout FHIR. Note that usually these codes are in a code and the system is assumed"/>
+        <description value="This is used for identifying language throughout FHIR. Note that usually these codes are in a code and the system is assumed"/>
         <uniqueId>
           <type value="uri"/>
           <value value="urn:ietf:bcp:47"/>
