@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- infant-mom -->
+<Composition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/composition.xsd">
+	<id value="example-mixed"/>
+	<status value="final"/>
+	<type>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="78418-1"/>
+			<display value="Neonatal perinatal medicine Discharge summary"/>
+		</coding>
+	</type>
+	<category>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="LP173421-1"/>
+			<display value="Report"/>
+		</coding>
+	</category>
+	<subject>
+		<reference value="Patient/newborn"/>
+		<display value="Tahlia Smith"/>
+	</subject>
+	<date value="2018-10-30T16:56:04+11:00"/>
+	<author>
+		<reference value="Practitioner/xcda-author"/>
+		<display value="Harold Hippocrates, MD"/>
+	</author>
+	<title value="Discharge Summary (Neonatal Service)"/>
+	<confidentiality value="N"/>
+	<attester>
+		<mode value="legal"/>
+		<time value="2012-01-04T09:10:14Z"/>
+		<party>
+			<reference value="Practitioner/xcda-author"/>
+			<display value="Harold Hippocrates, MD"/>
+		</party>
+	</attester>
+	<custodian>
+		<reference value="Organization/2.16.840.1.113883.19.5"/>
+		<display value="Good Health Clinic"/>
+	</custodian>
+	<section>
+		<title value="Child's Details"/>
+		<code>
+			<coding>
+				<system value="http://acme.org/codes/SectionType"/>
+				<code value="newborn"/>
+				<display value="New Born Details"/>
+			</coding>
+		</code>
+		<text>
+			<status value="generated"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+        (snip)
+			</div>
+		</text>
+    <!-- entries for child - CarePlan, observations, conditions, encounter, Prescriptions, etc -->
+	</section>
+	<section>
+		<title value="Mpther's Details"/>
+		<code>
+			<coding>
+				<system value="http://acme.org/codes/SectionType"/>
+				<code value="mother"/>
+				<display value="Mother's Details"/>
+			</coding>
+		</code>
+		<text>
+			<status value="generated"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				(snip)
+			</div>
+		</text>
+    <!-- entries for mother - Coverage, Observations, Supplies, etc -->    
+	</section>
+</Composition>
