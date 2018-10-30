@@ -37,6 +37,7 @@ import org.hl7.fhir.r4.elementmodel.ObjectConverter;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.OperationDefinition;
 import org.hl7.fhir.r4.model.SearchParameter;
 import org.hl7.fhir.r4.model.StructureDefinition;
@@ -516,6 +517,14 @@ public class ExampleInspector implements IValidatorResourceFetcher {
       for (Example e : r.getExamples()) {
         if (e.getElement() == null && e.hasXml()) {
           e.setElement(new org.hl7.fhir.r4.elementmodel.XmlParser(context).parse(e.getXml()));
+          if (e.getElement().getProperty().getStructure().getBaseDefinition().contains("MetadataResource")) {
+            String urle = e.getElement().getChildValue("url");
+            String v = e.getElement().getChildValue("url");
+            if (urle.startsWith("http://hl7.org/fhir") && !Constants.VERSION.equals(v)) {
+              e.getElement().setChildValue("version", Constants.VERSION);
+              
+            }
+          }
         }
         if (e.getElement() != null) {
           if (e.getElement().fhirType().equals("Bundle")) {
@@ -533,15 +542,15 @@ public class ExampleInspector implements IValidatorResourceFetcher {
         }
       }
       try {
-        if (parts[0].equals("StructureDefinition")) //, "CodeSystem", "OperationDefinition", "SearchParameter", "ValueSet"))
+        if (parts[0].equals("StructureDefinition"))  
           return new ObjectConverter(context).convert(context.fetchResourceWithException(StructureDefinition.class, "http://hl7.org/fhir/"+parts[0]+"/"+parts[1]));
-        if (parts[0].equals("OperationDefinition")) //, "CodeSystem", "OperationDefinition", "SearchParameter", "ValueSet"))
+        if (parts[0].equals("OperationDefinition")) 
           return new ObjectConverter(context).convert(context.fetchResourceWithException(OperationDefinition.class, "http://hl7.org/fhir/"+parts[0]+"/"+parts[1]));
-        if (parts[0].equals("SearchParameter")) //, "CodeSystem", "OperationDefinition", "SearchParameter", "ValueSet"))
+        if (parts[0].equals("SearchParameter")) 
           return new ObjectConverter(context).convert(context.fetchResourceWithException(SearchParameter.class, "http://hl7.org/fhir/"+parts[0]+"/"+parts[1]));
-        if (parts[0].equals("ValueSet")) //, "CodeSystem", "OperationDefinition", "SearchParameter", "ValueSet"))
+        if (parts[0].equals("ValueSet"))
           return new ObjectConverter(context).convert(context.fetchResourceWithException(ValueSet.class, "http://hl7.org/fhir/"+parts[0]+"/"+parts[1]));
-        if (parts[0].equals("CodeSystem")) //, "CodeSystem", "OperationDefinition", "SearchParameter", "ValueSet"))
+        if (parts[0].equals("CodeSystem"))
           return new ObjectConverter(context).convert(context.fetchResourceWithException(CodeSystem.class, "http://hl7.org/fhir/"+parts[0]+"/"+parts[1]));
       } catch (Exception e) {
         return null;

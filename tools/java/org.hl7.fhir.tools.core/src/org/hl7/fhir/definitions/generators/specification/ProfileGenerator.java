@@ -214,6 +214,7 @@ public class ProfileGenerator {
     if (!de.hasMeta())
       de.setMeta(new Meta());
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
+    de.setVersion(Constants.VERSION);
     de.setName(ed.getPath());
     de.setStatus(PublicationStatus.DRAFT);
     de.setExperimental(true);
@@ -254,6 +255,7 @@ public class ProfileGenerator {
     p.setType(type.getCode());
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
+    p.setVersion(version.toCode());
     ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
 
     
@@ -400,6 +402,7 @@ public class ProfileGenerator {
     p.setType("xhtml");
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
+    p.setVersion(version.toCode());
     ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
 
     
@@ -525,6 +528,7 @@ public class ProfileGenerator {
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
     p.setFhirVersion(version);
+    p.setVersion(version.toCode());
     ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
 
     ToolResourceUtilities.updateUsage(p, "core");
@@ -648,6 +652,7 @@ public class ProfileGenerator {
     }
     p.setType(t.getName());
     p.setFhirVersion(version);
+    p.setVersion(version.toCode());
     ToolingExtensions.setStandardsStatus(p, t.getStandardsStatus());
 
     ToolResourceUtilities.updateUsage(p, "core");
@@ -702,6 +707,7 @@ public class ProfileGenerator {
     p.setUserData("filename", pt.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+pt.getName());
     p.setFhirVersion(version);
+    p.setVersion(version.toCode());
     ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
 
     ToolResourceUtilities.updateUsage(p, "core");
@@ -851,6 +857,7 @@ public class ProfileGenerator {
     p.setUserData("path", r.getName().toLowerCase()+".html");
     p.setTitle(pack.metadata("display"));
     p.setFhirVersion(version);
+    p.setVersion(version.toCode());
     ToolingExtensions.setStandardsStatus(p, r.getStatus());
 
     if (r.getFmmLevel() != null)
@@ -952,6 +959,7 @@ public class ProfileGenerator {
     p.setUserData("path", ((usage == null || usage.isCore()) ? "" : usage.getCode()+File.separator)+id+".html");
     p.setTitle(pack.metadata("display"));
     p.setFhirVersion(version);
+    p.setVersion(version.toCode());
 
     if (pack.hasMetadata("summary-"+profile.getTitle()))
       ToolingExtensions.addMarkdownExtension(p, "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary", pack.metadata("summary-"+profile.getTitle()));
@@ -1089,6 +1097,7 @@ public class ProfileGenerator {
     spd.setCommonId(sp.getId());
     if (created) {
       sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
+      sp.setVersion(Constants.VERSION);
       if (context.getSearchParameter(sp.getUrl()) != null)
         throw new Exception("Duplicated Search Parameter "+sp.getUrl());
       context.cacheResource(sp);
@@ -2037,6 +2046,7 @@ public class ProfileGenerator {
     opd.setId(FormatUtilities.makeId(id));
     opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+id);
     opd.setName(op.getTitle());
+    opd.setVersion(Constants.VERSION);
     opd.setPublisher("HL7 (FHIR Project)");
     opd.addContact().getTelecom().add(org.hl7.fhir.r4.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     opd.getContact().get(0).getTelecom().add(org.hl7.fhir.r4.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
@@ -2131,6 +2141,7 @@ public class ProfileGenerator {
     p.setUserData("path", igd.getPrefix()+ r.getName().toLowerCase()+".html");
     p.setTitle(r.getName());
     p.setFhirVersion(version);
+    p.setVersion(version.toCode());
     ToolingExtensions.setStandardsStatus(p, r.getStatus());
 
     ToolResourceUtilities.updateUsage(p, igd.getCode());
