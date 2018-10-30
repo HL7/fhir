@@ -77,11 +77,7 @@
 	    <text value="XR Wrist 3+ Views"/>
 	</note>
 	<series>
-		<identifier>
-			<use value="official"/>
-			<system value="urn:ietf:rfc:3986"/>
-			<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1"/>
-		</identifier>
+		<uid value="2.16.124.113543.6003.1154777499.30246.19789.3503430045.1"/>
 		<number value="3"/>
 		<modality>
 			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -116,11 +112,7 @@
 			</actor>
 		</performer>
 		<instance>
-			<identifier>
-				<use value="official"/>
-				<system value="urn:ietf:rfc:3986"/>
-				<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.1"/>
-			</identifier>
+			<uid value="2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.1"/>
 			<number value="1"/>
 			<sopClass>
 				<system value="urn:ietf:rfc:3986"/>
@@ -130,11 +122,7 @@
 			<title value="PA VIEW"/>
 		</instance>
 		<instance>
-			<identifier>
-				<use value="official"/>
-				<system value="urn:ietf:rfc:3986"/>
-				<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.2"/>
-			</identifier>
+			<uid value="2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.2"/>
 			<number value="2"/>
 			<sopClass>
 				<system value="urn:ietf:rfc:3986"/>
