@@ -4800,7 +4800,7 @@
     <Cell ss:StyleID="s85"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Device.udi.carrierHRF | Device.udi.carrierAIDC</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">UDI Barcode (RFID or other technology) string either in HRF format or AIDC format converted to base64 string.</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">UDI Barcode (RFID or other technology) string in *HRF* format.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">url</Data></Cell>
