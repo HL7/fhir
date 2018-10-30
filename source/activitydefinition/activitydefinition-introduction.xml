@@ -7,7 +7,7 @@
 
 <p>An ActivityDefinition is a shareable, consumable description of some activity to be performed. It may be used to specify actions to be taken as part of a workflow, order set, or protocol, or it may be used independently as part of a catalog of activities such as orderables.</p>
 
-<p>For more information on how activity definitions can be used to construct request resources, see the Realizing an ActivityDefinition topic below.</p>
+<p>For more information on how activity definitions can be used to construct request resources, see the Applying an ActivityDefinition topic below.</p>
 </div>
 
 <div>

@@ -28,6 +28,8 @@
 	<li>Apply any <code>dynamicValue</code> elements (in the order in which they appear in the ActivityDefinition resource) by evaluating the expression and setting the value of the appropriate element of the target resource (as specified by the <code>dynamicValue.path</code> element)</li>
 </ol>
 
+<p>Note that the parameters to the $apply operation are available within dynamicValue CQL and FHIRPath expressions as context variables, accessible by the name of the parameter prefixed with a percent (%) symbol. For example, to access the subject given to the apply, use the expression <code>%subject</code>.</p>
+
 <h3>Profiling ActivityDefinition</h3>
 
 <p>Because the ActivityDefinition resource can be used to describe many different types of request resources, profiles of the resource will be useful in communicating additional constraints and expectations about how the resource should be used in a particular context. For example, a profile of ActivityDefinition may specify that it is intended to describe medication orders within an order set. Such a profile would indicate that the <code>quantity</code> element should not be used, but the <code>dosage</code> element must be.</p>
