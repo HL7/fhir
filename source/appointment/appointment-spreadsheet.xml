@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4461,7 +4461,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6861,7 +6860,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">Waitlisted</Data></Cell>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">The appointment has been placed on a waitlist, to be scheduled/confirmed in the future when a slot/service is available.&#10;A specific time may or may not be pre-allocated.</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">The appointment has been placed on a waitlist, to be scheduled/confirmed in the future when a slot/service is available.&#10;A specific time might or might not be pre-allocated.</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s148"/>
@@ -7319,6 +7318,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
