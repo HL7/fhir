@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3940,7 +3940,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4593,11 +4592,11 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">The type of the library (e.g. logic-library, model-definition, asset-collection, module-definition)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">content-type</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Library.content.contentType</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">The type of content in the library (e.g. text/cql)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"/>
@@ -4717,6 +4716,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
