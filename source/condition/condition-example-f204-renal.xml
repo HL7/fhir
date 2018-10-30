@@ -52,10 +52,10 @@
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
-  <context>
+  <encounter>
     <reference value="Encounter/f203"/>
     <display value="Roel's encounter on March elevanth"/>
-  </context>
+  </encounter>
   <onsetDateTime value="2013-03-11"/>
   <abatementDateTime value="2013-03-20"/>
   <recordedDate value="2013-03-11"/>

@@ -6904,5 +6904,9 @@ public class VersionConvertor_14_40 {
     throw new FHIRException("Unknown resource "+src.fhirType());
   }
 
+  public static boolean convertsResource(String rt) {
+    return Utilities.existsInList(rt, "Parameters", "Bundle", "CodeSystem", "CompartmentDefinition", "ConceptMap", "CapabilityStatement", "ImplementationGuide", "NamingSystem", "OperationDefinition", "OperationOutcome", "Questionnaire", "QuestionnaireResponse", "SearchParameter", "StructureDefinition", "StructureMap", "ValueSet");
+  }
+
 
 }

@@ -26725,79 +26725,6 @@ public class JsonParser extends JsonParserBase {
       res.setOperation(parseTestScriptSetupActionOperationComponent(json.getAsJsonObject("operation"), owner));
   }
 
-  protected UserSession parseUserSession(JsonObject json) throws IOException, FHIRFormatError {
-    UserSession res = new UserSession();
-    parseUserSessionProperties(json, res);
-    return res;
-  }
-
-  protected void parseUserSessionProperties(JsonObject json, UserSession res) throws IOException, FHIRFormatError {
-    parseDomainResourceProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
-    if (json.has("user"))
-      res.setUser(parseReference(json.getAsJsonObject("user")));
-    if (json.has("status"))
-      res.setStatus(parseUserSessionUserSessionStatusComponent(json.getAsJsonObject("status"), res));
-    if (json.has("workstation"))
-      res.setWorkstation(parseIdentifier(json.getAsJsonObject("workstation")));
-    if (json.has("focus")) {
-      JsonArray array = json.getAsJsonArray("focus");
-      for (int i = 0; i < array.size(); i++) {
-        res.getFocus().add(parseReference(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("created"))
-      res.setCreatedElement(parseInstant(json.get("created").getAsString()));
-    if (json.has("_created"))
-      parseElementProperties(json.getAsJsonObject("_created"), res.getCreatedElement());
-    if (json.has("expires"))
-      res.setExpiresElement(parseInstant(json.get("expires").getAsString()));
-    if (json.has("_expires"))
-      parseElementProperties(json.getAsJsonObject("_expires"), res.getExpiresElement());
-    if (json.has("context")) {
-      JsonArray array = json.getAsJsonArray("context");
-      for (int i = 0; i < array.size(); i++) {
-        res.getContext().add(parseUserSessionUserSessionContextComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-  }
-
-  protected UserSession.UserSessionStatusComponent parseUserSessionUserSessionStatusComponent(JsonObject json, UserSession owner) throws IOException, FHIRFormatError {
-    UserSession.UserSessionStatusComponent res = new UserSession.UserSessionStatusComponent();
-    parseUserSessionUserSessionStatusComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseUserSessionUserSessionStatusComponentProperties(JsonObject json, UserSession owner, UserSession.UserSessionStatusComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("code"))
-      res.setCodeElement(parseEnumeration(json.get("code").getAsString(), UserSession.UserSessionStatus.NULL, new UserSession.UserSessionStatusEnumFactory()));
-    if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
-    if (json.has("source"))
-      res.setSourceElement(parseEnumeration(json.get("source").getAsString(), UserSession.UserSessionStatusSource.NULL, new UserSession.UserSessionStatusSourceEnumFactory()));
-    if (json.has("_source"))
-      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
-  }
-
-  protected UserSession.UserSessionContextComponent parseUserSessionUserSessionContextComponent(JsonObject json, UserSession owner) throws IOException, FHIRFormatError {
-    UserSession.UserSessionContextComponent res = new UserSession.UserSessionContextComponent();
-    parseUserSessionUserSessionContextComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseUserSessionUserSessionContextComponentProperties(JsonObject json, UserSession owner, UserSession.UserSessionContextComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseString(json.get("type").getAsString()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    Type value = parseType("value", json);
-    if (value != null)
-      res.setValue(value);
-  }
-
   protected ValueSet parseValueSet(JsonObject json) throws IOException, FHIRFormatError {
     ValueSet res = new ValueSet();
     parseValueSetProperties(json, res);
@@ -27712,8 +27639,6 @@ public class JsonParser extends JsonParserBase {
       return parseTestReport(json);
     else if (t.equals("TestScript"))
       return parseTestScript(json);
-    else if (t.equals("UserSession"))
-      return parseUserSession(json);
     else if (t.equals("ValueSet"))
       return parseValueSet(json);
     else if (t.equals("VerificationResult"))
@@ -28367,8 +28292,6 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"TestReport"))
       return true;
     if (json.has(prefix+"TestScript"))
-      return true;
-    if (json.has(prefix+"UserSession"))
       return true;
     if (json.has(prefix+"ValueSet"))
       return true;
@@ -57311,88 +57234,6 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  protected void composeUserSession(String name, UserSession element) throws IOException {
-    if (element != null) {
-      prop("resourceType", name);
-      composeUserSessionInner(element);
-    }
-  }
-
-  protected void composeUserSessionInner(UserSession element) throws IOException {
-      composeDomainResourceElements(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
-      if (element.hasUser()) {
-        composeReference("user", element.getUser());
-      }
-      if (element.hasStatus()) {
-        composeUserSessionUserSessionStatusComponent("status", element.getStatus());
-      }
-      if (element.hasWorkstation()) {
-        composeIdentifier("workstation", element.getWorkstation());
-      }
-      if (element.hasFocus()) {
-        openArray("focus");
-        for (Reference e : element.getFocus()) 
-          composeReference(null, e);
-        closeArray();
-      };
-      if (element.hasCreatedElement()) {
-        composeInstantCore("created", element.getCreatedElement(), false);
-        composeInstantExtras("created", element.getCreatedElement(), false);
-      }
-      if (element.hasExpiresElement()) {
-        composeInstantCore("expires", element.getExpiresElement(), false);
-        composeInstantExtras("expires", element.getExpiresElement(), false);
-      }
-      if (element.hasContext()) {
-        openArray("context");
-        for (UserSession.UserSessionContextComponent e : element.getContext()) 
-          composeUserSessionUserSessionContextComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeUserSessionUserSessionStatusComponent(String name, UserSession.UserSessionStatusComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeUserSessionUserSessionStatusComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeUserSessionUserSessionStatusComponentInner(UserSession.UserSessionStatusComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasCodeElement()) {
-        composeEnumerationCore("code", element.getCodeElement(), new UserSession.UserSessionStatusEnumFactory(), false);
-        composeEnumerationExtras("code", element.getCodeElement(), new UserSession.UserSessionStatusEnumFactory(), false);
-      }
-      if (element.hasSourceElement()) {
-        composeEnumerationCore("source", element.getSourceElement(), new UserSession.UserSessionStatusSourceEnumFactory(), false);
-        composeEnumerationExtras("source", element.getSourceElement(), new UserSession.UserSessionStatusSourceEnumFactory(), false);
-      }
-  }
-
-  protected void composeUserSessionUserSessionContextComponent(String name, UserSession.UserSessionContextComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeUserSessionUserSessionContextComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeUserSessionUserSessionContextComponentInner(UserSession.UserSessionContextComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeStringCore("type", element.getTypeElement(), false);
-        composeStringExtras("type", element.getTypeElement(), false);
-      }
-      if (element.hasValue()) {
-        composeType("value", element.getValue());
-      }
-  }
-
   protected void composeValueSet(String name, ValueSet element) throws IOException {
     if (element != null) {
       prop("resourceType", name);
@@ -58347,8 +58188,6 @@ public class JsonParser extends JsonParserBase {
       composeTestReport("TestReport", (TestReport)resource);
     else if (resource instanceof TestScript)
       composeTestScript("TestScript", (TestScript)resource);
-    else if (resource instanceof UserSession)
-      composeUserSession("UserSession", (UserSession)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
     else if (resource instanceof VerificationResult)
@@ -58654,8 +58493,6 @@ public class JsonParser extends JsonParserBase {
       composeTestReport(name, (TestReport)resource);
     else if (resource instanceof TestScript)
       composeTestScript(name, (TestScript)resource);
-    else if (resource instanceof UserSession)
-      composeUserSession(name, (UserSession)resource);
     else if (resource instanceof ValueSet)
       composeValueSet(name, (ValueSet)resource);
     else if (resource instanceof VerificationResult)

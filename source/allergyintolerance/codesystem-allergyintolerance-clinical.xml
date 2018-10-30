@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"/>
+  <name value="AllergyIntoleranceClinicalStatusCodes"/>
+  <title value="AllergyIntolerance Clinical Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Preferred value set for AllergyIntolerance Clinical Status."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/allergyintolerance-clinical"/>
+  <content value="complete"/>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="An active record of a risk of a reaction to the identified substance."/> 
+  </concept>
+  <concept>
+    <code value="inactive"/>
+    <display value="Inactive"/>
+    <definition value="An inactivated record of a risk of a reaction to the identified substance."/>
+	  <concept>
+		<code value="resolved"/>
+		<display value="Resolved"/>
+		<definition value="A reaction to the identified substance has been clinically reassessed by testing or re-exposure and considered to be resolved. Re-exposure could be accidental, unplanned, or outside of any clinical setting."/>
+	  </concept>
+   </concept>
+</CodeSystem>

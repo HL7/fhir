@@ -942,7 +942,7 @@
       <selectionBehavior value="any"/>
       <action>
         <textEquivalent value="Refer to outpatient mental health program for evaluation and treatment of mental health conditions now"/>
-        <definition value="#referralToMentalHealthCare"/>
+        <definitionCanonical value="#referralToMentalHealthCare"/>
         <!-- These expressions will be evaluated with the library referenced above as an include -->
         <dynamicValue>
           <path value="timing.event"/>
@@ -1036,7 +1036,7 @@
           <selectionBehavior value="at-most-one"/>
           <action>
             <textEquivalent value="citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)"/>
-            <definition value="#citalopramPrescription"/>
+            <definitionCanonical value="#citalopramPrescription"/>
             <dynamicValue>
               <path value="status"/>
               <expression>

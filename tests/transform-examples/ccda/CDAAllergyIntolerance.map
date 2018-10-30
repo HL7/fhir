@@ -1,0 +1,73 @@
+map "http://hl7.org/fhir/cda/mapping/cdaAllergyIntolerance" = "C-CDA AllergyIntolerance"
+
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as target
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as source
+uses "http://hl7.org/fhir/cda/StructureDefinition/Act" alias Act as source
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntolerance as source
+
+imports "http://hl7.org/fhir/cda/mapping/cdaToFhirTypes"
+imports "http://hl7.org/fhir/cda/mapping/ClinicalDocumentToFHIR"
+
+
+group AllergySection extends ClinicalDocumentSection
+	input source: Section as source
+	input patient: Patient as source
+	input bundle: Bundle as target
+	input target as target
+
+	entry: for source.entry as allergyEntry make bundle.entry as e, e.resource = create("AllergyIntolerance") as allergy, target.entry = reference(allergy) then {
+		act: for allergyEntry.act as allergyAct then AllergyIntolerance(allergyAct, patient, bundle, allergy)
+	}
+endgroup
+
+group AllergyIntolerance
+	input source: Act as source
+	input patient: Patient as source
+	input bundle: Bundle as target
+	input allergy: AllergyIntolerance as target
+	
+	templateID: for source.templateId as template then TemplateID(template, allergy)
+	id: for source.id make allergy.identifier
+	statusCode: for source.statusCode make allergy.clinicalStatus
+	effectiveTime: for source.effectiveTime as effectiveTime make allergy.onset
+	
+	patient: for patient make allergy.patient = reference(patient)
+	
+	// We can only handle the first author
+	author: for source.author as author then {
+		time: for author.time make allergy.assertedDate
+		recorder: for author.assignedAuthor as assignedAuthor make bundle.entry as e, e.resource = create("Practitioner") as practitioner, allergy.recorder = reference(practitioner) then ClinicalDocumentAuthorPractitioner(author, practitioner)
+	}
+	
+	entry: for source.entryRelationship as entry then {
+		observation: for entry.observation as observation then {
+			negationInd: for observation.negationInd as negation then Negation(negation, allergy)
+			templateID: for observation.templateId as template then TemplateID(template, allergy)
+			value: for observation.value make allergy.code
+			consumable: for observation.participant as participant then {
+				role: for participant.participantRole as role then {
+					entity: for role.playingEntity as entity make allergy.reaction as reaction then {
+						code: for entity.code make reaction.substance
+					}
+				}
+			}
+			reaction: for observation.entryRelationship as entry where typeCode = 'MFST' make allergy.reaction as reaction then {
+				reaction: for entry.observation as reactionObs then {
+					effectiveTime: for reactionObs.effectiveTime make reaction.onset
+					value: for reactionObs.value make reaction.manifestation
+					severity: for reactionObs.entryRelationship as sevEntry where typeCode = "SUBJ" then {
+						observation: for sevEntry.observation as severity then {
+							severity: for severity.value make reaction.severity
+						}
+					}
+				}
+			}
+			
+			criticality: for observation.entryRelationship as criticalityEntry where typeCode = 'SUBJ' then {
+				observation: for criticalityEntry.observation as criticalityObservation then {
+					code: for criticalityObservation.value make allergy.criticality
+				}
+			}
+		}
+	}
+endgroup

@@ -76,8 +76,10 @@
 
 			<class>
 				<type>
-					<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
-					<code value="group"/>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
+						<code value="group"/>
+					</coding>
 				</type>
 				<value value="80902206"/>
 			</class>

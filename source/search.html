@@ -51,6 +51,7 @@ complexity that they require for their implementations.
 <a href="#include"><code>_include</code></a><br/>
 <a href="#revinclude"><code>_revinclude</code></a><br/>
 <a href="#summary"><code>_summary</code></a><br/>
+<a href="#total"><code>_total</code></a><br/>
 <a href="#elements"><code>_elements</code></a><br/>
 <a href="#contained"><code>_contained</code></a><br/>
 <a href="#containedType"><code>_containedType</code></a><br/>
@@ -1257,7 +1258,7 @@ Examples of using composite parameters:
 Consider the case of searching for all AllergyIntolerance resources:
 </p>
 <pre>
-GET [base]/AllergyIntolerance?clinical-status=active
+GET [base]/AllergyIntolerance?clinical-status=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical|active
 </pre>
 <p>
 This search will only return resources that have a value for clinicalStatus:
@@ -1265,7 +1266,14 @@ This search will only return resources that have a value for clinicalStatus:
 <pre class="json" fragment="AllergyIntolerance">
 {
   "resourceType" : "AllergyIntolerance",
-  "clinicalStatus" : "active"
+   "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+        "code": "active"
+      }
+    ]
+  }
 }
 </pre>
 <p>
@@ -1275,7 +1283,7 @@ only return resources with an explicit clinicalStatus. Instead, it might be desi
 AllergyIntolerance resources with either an explicit value for clinicalStatus, or none:
 </p>
 <pre>
-GET [base]/AllergyIntolerance?clinical-status=active
+GET [base]/AllergyIntolerance?clinical-status=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical|active
 GET [base]/AllergyIntolerance?clinical-status:missing=true
 </pre>
 <p>
@@ -1283,7 +1291,7 @@ Note that this is 2 separate queries. They can be <a href="http.html#transaction
 but not in a single operation. This query will always return an empty list, as no resource can satisfy both criteria at once:
 </p>
 <pre>
-GET [base]/AllergyIntolerance?clinical-status=active&amp;clinical-status:missing=true
+GET [base]/AllergyIntolerance?clinical-status=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical|active&amp;clinical-status:missing=true
 </pre>
 <p>
 There is no way to use the :missing modifier and mix with a value using the
@@ -1526,6 +1534,41 @@ Notes:
      purpose of sorting is to provide data in a "reasonable" order for end-users.
     "Reasonable" may vary by use case and realm, particularly for accented characters.</li>
 </ul>
+
+<div class="trial-content">
+<p>
+The _total parameter has the status <a href="versions.html#std-process" title="Trial Content" class="draft-flag">trial-use</a> 
+pending real world experience of it's use.
+</p>
+
+<a name="total"></a>
+<h4>Total number of matching resources</h4>
+<p>
+The return <a href="bundle.html">Bundle</a> has an element <code>total</code>
+which is the number of resources that match the search parameters. 
+</p>
+<p>
+Note that <code>Bundle.total</code> represents the total 
+number of matches, not how many resources are returned in 
+a particular response (see <a href="#count">paging</a>, immediately below).
+</p>
+<p>
+Providing a precise number of matching resources may be onerous for the 
+server, depending on how the server is designed. To help reduce the server 
+load, a client can provide the parameter <code>_total</code> to indicate
+it's preference with regard to the total, which can have one of the 
+following values:
+</p>
+<table class="codes">
+ <tr><td>none</td><td>There is no need to populate the total count; the client will not use it</td></tr>
+ <tr><td>estimate</td><td>A rough estimate of the number of matching resources is sufficient</td></tr>
+ <tr><td>accurate</td><td>The client requests that the server provide an exact total of the number of matching resources</td></tr>
+</table>
+<p>
+The <code>Bundle.total</code> element is still optional, and the servers can ignore the <code>_total</code> 
+parameter: it is just an optimization hint, that might possibly save the server some work.
+</p>
+</div>
 
 <a name="count"></a>
 <h4>Page Count</h4>

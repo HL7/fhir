@@ -553,5 +553,10 @@ public class XMLUtil {
    
   }
 
+  public static String getNamedChildText(Element element, String name) {
+    Element e = getNamedChild(element, name);
+    return e == null ? null : e.getTextContent();
+  }
+
  	
 }

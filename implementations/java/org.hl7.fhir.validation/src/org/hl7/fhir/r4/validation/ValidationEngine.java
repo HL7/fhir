@@ -37,6 +37,7 @@ import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -99,6 +100,7 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
@@ -162,7 +164,10 @@ public class ValidationEngine {
 
     @Override
     public void log(String message) {
-      System.out.println(message);
+      if (mapLog != null)
+        mapLog.println(message);
+      else
+        System.out.println(message);
     }
 
     @Override
@@ -211,6 +216,7 @@ public class ValidationEngine {
   private boolean anyExtensionsAllowed = false;
   private String version;
   private PackageCacheManager pcm;
+  private PrintWriter mapLog;
 
   private class AsteriskFilter implements FilenameFilter {
     String dir;
@@ -250,7 +256,7 @@ public class ValidationEngine {
   }
   
   public ValidationEngine() throws IOException {
-    pcm = new PackageCacheManager(true);  
+    pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);  
   }
   
   public void loadInitialDefinitions(String src) throws Exception {
@@ -278,14 +284,14 @@ public class ValidationEngine {
   }
 
   public ValidationEngine(String src, String txsrvr, String txLog, FhirPublication version) throws Exception {
-    pcm = new PackageCacheManager(true);
+    pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
     loadInitialDefinitions(src);
     setTerminologyServer(txsrvr, txLog, version);
   }
   
   public ValidationEngine(String src) throws Exception {
     loadDefinitions(src);
-    pcm = new PackageCacheManager(true);
+    pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
   }
   
   private void loadDefinitions(String src) throws Exception {
@@ -347,7 +353,7 @@ public class ValidationEngine {
 
   private byte[] loadProfileFromUrl(String src) throws Exception {
     try {
-      URL url = new URL(src);
+      URL url = new URL(src+"?nocache=" + System.currentTimeMillis());
       URLConnection c = url.openConnection();
       return IOUtils.toByteArray(c.getInputStream());
     } catch (Exception e) {
@@ -439,7 +445,7 @@ public class ValidationEngine {
 
   private InputStream fetchFromUrlSpecific(String source, boolean optional) throws Exception {
     try {
-      URL url = new URL(source);
+      URL url = new URL(source+"?nocache=" + System.currentTimeMillis());
       URLConnection c = url.openConnection();
       return c.getInputStream();
     } catch (Exception e) {
@@ -469,7 +475,7 @@ public class ValidationEngine {
   public Map<String, byte[]> loadPackage(NpmPackage pi) throws IOException {
     Map<String, byte[]> res = new HashMap<String, byte[]>();
     for (String s : pi.list("package")) {
-      if (s.startsWith("CodeSystem-") || s.startsWith("ConceptMap-") || s.startsWith("ImplementationGuide-") || s.startsWith("ValueSet-") || s.startsWith("StructureDefinition-"))
+      if (s.startsWith("CodeSystem-") || s.startsWith("ConceptMap-") || s.startsWith("ImplementationGuide-") || s.startsWith("StructureMap-") || s.startsWith("ValueSet-") || s.startsWith("StructureDefinition-"))
         res.put(s, TextFile.streamToBytes(pi.load("package", s)));
     }
     String ini = "[FHIR]\r\nversion="+pi.fhirVersion()+"\r\n";
@@ -510,7 +516,7 @@ public class ValidationEngine {
     }
     if (pcm == null) {
       log("Creating Package manager?");
-      pcm = new PackageCacheManager(true);
+      pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
     }
     NpmPackage pi = null;
     if (version == null) {
@@ -906,6 +912,7 @@ public class ValidationEngine {
     
     StructureMapUtilities scu = new StructureMapUtilities(context, new TransformSupportServices(outputs));
 
+    
     org.hl7.fhir.r4.elementmodel.Element src = Manager.parse(context, new ByteArrayInputStream(source), cntType); 
     StructureMap map = context.getTransform(mapUri);
     if (map == null)
@@ -979,6 +986,10 @@ public class ValidationEngine {
     validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
     validator.setNoInvariantChecks(isNoInvariantChecks());
     return validator;
+  }
+
+  public void setMapLog(String mapLog) throws FileNotFoundException {
+    this.mapLog = new PrintWriter(mapLog);
   }
 
   

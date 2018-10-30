@@ -1,0 +1,35 @@
+map "http://hl7.org/fhir/cda/mapping/fhirToCDATypes" = "Transform for FHIR types to CDA types"
+
+uses "http://hl7.org/fhir/StructureDefinition/Identifier" as source
+uses "http://hl7.org/fhir/cda/StructureDefinition/II" as target
+
+group Any
+  // nullFlavor, we use the ISO nullFlavor extension
+  nullFlavor: for source.extension as ext where ext.url = 'http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor' make target.nullFlavor as nullFlavor then {
+  	value: for ext.value as v make nullFlavor.value = cast(v, "string")
+  }
+      
+endgroup
+
+group for types Identifier extends Any
+	input source: Identifier as source
+	input target: II as target
+
+	root: for source.system as system then {
+		rootValue : for source.value as value then {
+			noextension: for value.value as v where system.value = 'urn:ietf:rfc:3986' make target.root = cast(v, "string")
+			withextension: for system.value as v where system.value != 'urn:ietf:rfc:3986' make target.root = v then {
+				extension: for value.value as val make target.extension = cast(val, "string")
+			}
+		}
+	}
+	
+	assigner: for source.assigner as a then {
+		display: for a.display as display then {
+			value: for display.value as val make target.assigningAuthorityName = cast(val, "string")
+		}
+	}
+	displayable: for source.extension as ext where ext.url = 'http://hl7.org/fhir/cdaStructureDefinition/extension-displayable' make target.displayable as displayable then {
+		value: for ext.value as v make displayable.value = cast(v, "string")
+	}
+endgroup

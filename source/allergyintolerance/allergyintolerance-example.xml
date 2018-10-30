@@ -8,9 +8,23 @@
     <value value="49476534"/>
   </identifier>
 
-  <!-- this individual has had several reactions --> 
-  <clinicalStatus value="active"/>
-  <verificationStatus value="confirmed"/>
+  <!-- this individual has had several reactions -->   
+  <clinicalStatus>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"/>
+      <code value="active"/>
+      <display value="Active"/>
+    </coding>
+  </clinicalStatus>
+
+  <verificationStatus>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"/>
+      <code value="confirmed"/>
+      <display value="Confirmed"/>
+    </coding>
+  </verificationStatus>
+  
   <!-- note: it's often unknown whether an allergy is mediated by an immune response, and not as significant as once thought -->
   <type value="allergy"/>
   

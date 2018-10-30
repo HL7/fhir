@@ -193,11 +193,11 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.REQUIRED,  rd.getName(), name.equals("Parameters") || translations.hasTranslation(name), "The name '"+name+"' is not found in the file translations.xml");
     rule(errors, IssueType.STRUCTURE, rd.getName(), name.length() > 1 && Character.isUpperCase(name.charAt(0)), "Resource Name must start with an uppercase alpha character");
     rule(errors, IssueType.STRUCTURE, rd.getName(), !Utilities.noString(rd.getFmmLevel()), "Resource must have a maturity level");
-
     rule(errors, IssueType.REQUIRED,  rd.getName(), rd.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     rule(errors, IssueType.REQUIRED,  rd.getName(), rd.getWg() != null, "A resource must have a designated owner"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     rule(errors, IssueType.REQUIRED,  rd.getName(), !Utilities.noString(rd.getRoot().getW5()), "A resource must have a W5 category"); 
-    
+    rd.getRoot().setMinCardinality(0);
+    rd.getRoot().setMaxCardinality(Integer.MAX_VALUE);
     // pattern related rules
     buildW5Mappings(rd.getRoot(), true);    
     if ((isWorkflowPattern(rd, "Event") || isWorkflowPattern(rd, "Request")) && hasPatient(rd)) {

@@ -10,7 +10,7 @@
 	<identifier>
 		<value value="123"/>
 	</identifier>
-	<status value="on-hold"/>
+	<lifecycleStatus value="on-hold" />
 	<category>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/goal-category"/>

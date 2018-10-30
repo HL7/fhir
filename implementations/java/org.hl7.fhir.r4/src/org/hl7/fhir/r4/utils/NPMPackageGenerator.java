@@ -4,9 +4,12 @@ import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TimeZone;
 
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream;
@@ -95,11 +98,11 @@ public class NPMPackageGenerator {
     if (ig.hasTitle())
       npm.addProperty("title", ig.getTitle());
     if (ig.hasDescription())
-      npm.addProperty("description", ig.getDescription()+ "(built "+genDate+")");
+      npm.addProperty("description", ig.getDescription()+ " (built "+genDate+timezone()+")");
     JsonObject dep = new JsonObject();
     npm.add("dependencies", dep);
     for (Enumeration<FHIRVersion> v : ig.getFhirVersion()) { // TODO: fix for multiple versions
-      dep.addProperty("hl7.fhir.core", v.toString());
+      dep.addProperty("hl7.fhir.core", v.asStringValue());
     }
     for (ImplementationGuideDependsOnComponent d : ig.getDependsOn()) {
       dep.addProperty(d.getPackageId(), d.getVersion());
@@ -130,6 +133,18 @@ public class NPMPackageGenerator {
       addFile(Category.RESOURCE, "package.json", json.getBytes("UTF-8"));
     } catch (UnsupportedEncodingException e) {
     }
+  }
+
+
+  private String timezone() {
+    TimeZone tz = TimeZone.getDefault();  
+    Calendar cal = GregorianCalendar.getInstance(tz);
+    int offsetInMillis = tz.getOffset(cal.getTimeInMillis());
+
+    String offset = String.format("%02d:%02d", Math.abs(offsetInMillis / 3600000), Math.abs((offsetInMillis / 60000) % 60));
+    offset = (offsetInMillis >= 0 ? "+" : "-") + offset;
+
+    return offset;
   }
 
 

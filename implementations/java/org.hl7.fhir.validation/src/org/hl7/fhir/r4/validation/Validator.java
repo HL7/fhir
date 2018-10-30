@@ -246,6 +246,7 @@ public class Validator {
       Map<String, String> locations = new HashMap<String, String>();
       String sv = null;
       String txLog = null;
+      String mapLog = null;
 
         // load the parameters - so order doesn't matter
       for (int i = 0; i < args.length; i++) {
@@ -309,6 +310,11 @@ public class Validator {
             throw new Error("Specified -txLog without indicating file");
           else
             txLog = args[++i];
+        else if (args[i].equals("-log"))
+          if (i+1 == args.length)
+            throw new Error("Specified -log without indicating file");
+          else
+            mapLog = args[++i];
         else if (args[i].equals("-ig"))
           if (i+1 == args.length)
             throw new Error("Specified -ig without indicating ig file");
@@ -360,6 +366,7 @@ public class Validator {
         if  (map == null)
           throw new Exception("Must provide a map when doing a transform");
         try {
+          validator.setMapLog(mapLog);
           Resource r = validator.transform(sources.get(0), map);
           System.out.println(" ...success");
           if (output != null) {
