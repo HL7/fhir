@@ -75,6 +75,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn.FMGApproval;
 import org.hl7.fhir.definitions.model.ResourceDefn.PointSpec;
+import org.hl7.fhir.definitions.model.ResourceDefn.SecurityCategorization;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
@@ -1117,6 +1118,11 @@ public class SourceParser {
     root.setFmmLevel(ini.getStringProperty("fmm", n.toLowerCase()));
     root.setNormativePackage(ini.getStringProperty("normative", root.getName()));
     root.setApproval(FMGApproval.fromCode(ini.getStringProperty("fmg-approval", root.getName())));
+    String sc = ini.getStringProperty("security-categorization", root.getName().toLowerCase());
+    if (sc != null)
+      root.setSecurityCategorization(SecurityCategorization.fromCode(sc));
+    else if (!Utilities.existsInList(root.getName(), "Resource", "DomainResource", "MetadataResource"))
+      throw new Exception("Must have an entry in the security-categorization section of fhir.ini for the resource "+root.getName());
 
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());

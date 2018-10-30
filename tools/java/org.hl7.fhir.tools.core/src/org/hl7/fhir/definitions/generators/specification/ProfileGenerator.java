@@ -839,7 +839,7 @@ public class ProfileGenerator {
     if (logical)
       p.setKind(StructureDefinitionKind.LOGICAL);
     else
-    p.setKind(StructureDefinitionKind.RESOURCE);
+      p.setKind(StructureDefinitionKind.RESOURCE);
     IniFile cini = new IniFile(Utilities.path(rootFolder, "temp", "categories.ini"));
     String cat = cini.getStringProperty("category", r.getName());
     if (!Utilities.noString(cat))
@@ -862,6 +862,8 @@ public class ProfileGenerator {
 
     if (r.getFmmLevel() != null)
       ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(r.getFmmLevel()));
+    if (r.getSecurityCategorization() != null)
+      ToolingExtensions.addCodeExtension(p, ToolingExtensions.EXT_SEC_CAT, r.getSecurityCategorization().toCode());
     ToolResourceUtilities.updateUsage(p, usage);
     p.setName(r.getRoot().getName());
     p.setPublisher("Health Level Seven International"+(r.getWg() == null ? "" : " ("+r.getWg().getName()+")"));
