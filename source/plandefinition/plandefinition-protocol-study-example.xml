@@ -333,7 +333,7 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <definition value="#encounter"/>
+    <definitionCanonical value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -347,7 +347,7 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <definition value="#encounter"/>
+    <definitionCanonical value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -361,7 +361,7 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <definition value="#encounter"/>
+    <definitionCanonical value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -375,7 +375,7 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <definition value="#encounter"/>
+    <definitionCanonical value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -389,7 +389,7 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <definition value="#encounter"/>
+    <definitionCanonical value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -403,7 +403,7 @@
 	      <language value="text/cql"/>
       </expression>
     </condition>
-    <definition value="#encounter"/>
+    <definitionCanonical value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -417,7 +417,7 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <definition value="#encounter"/>
+    <definitionCanonical value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -431,7 +431,7 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <definition value="#encounter"/>
+    <definitionCanonical value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -445,7 +445,7 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <definition value="#encounter"/>
+    <definitionCanonical value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -459,6 +459,6 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <definition value="#encounter"/>
+    <definitionCanonical value="#encounter"/>
   </action>
 </PlanDefinition>

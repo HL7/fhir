@@ -108,6 +108,7 @@ public class ToolingExtensions {
   public static final String EXT_CIMI_REFERENCE = "http://hl7.org/fhir/StructureDefinition/cimi-reference";
   public static final String EXT_UNCLOSED = "http://hl7.org/fhir/StructureDefinition/valueset-unclosed";
   public static final String EXT_FMM_LEVEL = "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm";
+  public static final String EXT_SEC_CAT = "http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category";
   public static final String EXT_RESOURCE_CATEGORY = "http://hl7.org/fhir/StructureDefinition/structuredefinition-category";
   public static final String EXT_TABLE_NAME = "http://hl7.org/fhir/StructureDefinition/structuredefinition-table-name";
   public static final String EXT_OO_FILE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-file";
@@ -207,6 +208,14 @@ public class ToolingExtensions {
       ex.setValue(new IntegerType(value));
     else
       dr.getExtension().add(Factory.newExtension(url, new IntegerType(value), true));   
+  }
+
+  public static void addCodeExtension(DomainResource dr, String url, String value) {
+    Extension ex = getExtension(dr, url);
+    if (ex != null)
+      ex.setValue(new CodeType(value));
+    else
+      dr.getExtension().add(Factory.newExtension(url, new CodeType(value), true));   
   }
 
   public static void addVSComment(ConceptSetComponent nc, String comment) {

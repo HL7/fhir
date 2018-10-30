@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -953,7 +953,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">If the Appointment's status is "cancelled" then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.&#10;&#10;This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3963,7 +3963,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>86</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4023,8 +4022,8 @@
     <Cell ss:StyleID="s93"/>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Appointment</Data></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Only proposed or cancelled appointments can be missing start/end dates</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">(start.exists() and end.exists()) or (status in ('proposed' | 'cancelled'))</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">((exists(f:start) and exists(f:end)) or (f:status/@value='proposed') or (f:status/@value='cancelled'))</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">(start.exists() and end.exists()) or (status in ('proposed' | 'cancelled' | 'waitlist'))</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">((exists(f:start) and exists(f:end)) or (f:status/@value='proposed') or (f:status/@value='cancelled') or (f:status/@value='waitlist'))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s114"><Data ss:Type="Number">4</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4467,7 +4466,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6856,12 +6855,12 @@
     <Cell ss:StyleID="s148"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">waitlist</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Waitlisted</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">The appointment has been placed on a waitlist, to be scheduled/confirmed in the future when a slot/service is available.&#10;A specific time might or might not be pre-allocated.</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s148"/>
@@ -7319,6 +7318,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

@@ -143,8 +143,8 @@ like <code>&amp;nbsp;</code> or <code>&amp;copy;</code> etc. Unicode characters 
 </p>
 <p>
 The narrative content SHOULD be in the <a href="resource-definitions.html#Resource.language">language of the resource</a>, but
-there is no reason to expect that HTML type tooling would understand the resource <a href="resource.html#content">language</a> element. For this reason,
-a <code>lang</code> attribute on the <code>&lt;div&gt;</code> SHOULD also be used (see
+there is no reason to expect that HTML enabled tooling would understand the resource <a href="resource.html#content">language</a> element. For this reason,
+a <code>lang</code> attribute on the <code>&lt;div&gt;</code> SHOULD also be used if language is declared on the resource (see
 <a href="http://www.w3.org/html/wg/drafts/html/master/dom.html#the-lang-and-xml:lang-attributes">the note in the HTML 5 specification about use of language</a>).
 </p>
 
@@ -158,7 +158,7 @@ speaking multiple languages. Some resources - specially standing documentation s
 preparation notes - will contain the same documentation in several different languages.
 </p>
 <p>
-Resources containing the same information in multiple different langauges should 
+Resources containing the same information in multiple different languages should 
 use a <code>div</code> element with an XHTML lang attribute in the root div. 
 By default, all languages will be displayed to a user, but multi-language 
 aware applications can filter the content by language and only display the 
@@ -230,8 +230,9 @@ and <i>id</i> attributes on the XHTML elements and internal styles are applied u
 a <i>style</i> attribute on the XHTML elements directly.
 </p>
 <p>
-In order to minimize manageability and security issues, authoring systems cannot
-specify the CSS stylesheet to use directly. Instead, the application that displays
+In order to minimize manageability and security issues, authoring systems cannot 
+specify the CSS stylesheet to use directly, unless the stylesheet is included in a FHIR Document. 
+Instead, the application that displays
 the resource provides the stylesheets. This means that the rendering system
 chooses what styles can be used, but the authoring system must use them in advance.
 Authoring systems can use these classes, which SHALL be supported by all rendering systems:
@@ -381,7 +382,7 @@ and the composition that represents it:
 <p>
 Health care records are often associated with legislative and business requirements for very long retention
 times (up to a century) and extreme risk aversion with regards to inconsistent display across
-a variety of devices. Although the narrative is allowed to use the standard XHTML and CSS
+a variety of devices, rendering engines, and display constraints. Although the narrative is allowed to use the standard XHTML and CSS
 features as described above, implementations are encouraged to show restraint when using the
 features available. Even when trading partner arrangements limit the current requirements
 made on a system, experience shows that these trading arrangements will likely broaden

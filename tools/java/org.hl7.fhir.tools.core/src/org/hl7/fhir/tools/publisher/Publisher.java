@@ -166,6 +166,7 @@ import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.r4.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.r4.model.ConceptMap.TargetElementComponent;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
@@ -180,6 +181,7 @@ import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r4.model.Meta;
+import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemType;
@@ -758,7 +760,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cm.setUserData("resource-definition", rd);
     cm.setId("sc-"+vs.getId());
     cm.setUrl("http://hl7.org/fhir/ConceptMap/"+cm.getId());
-    cm.setVersion(page.getVersion());
+    cm.setVersion(page.getVersion());   
     cm.setName(vs.getName()+"CanonicalMap");  
     cm.setTitle("Canonical Mapping for \""+vs.present()+"\""); 
     cm.setStatus(PublicationStatus.DRAFT);  
@@ -1500,7 +1502,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpd.setStatus(PublicationStatus.DRAFT);
     cpd.setDescription(c.getIdentity()+". "+c.getDescription());
     cpd.setExperimental(true);
-    cpd.setVersion(page.getVersion() + "-" + page.getBuildId());
+    cpd.setVersion(Constants.VERSION);
     cpd.setDate(page.getGenDate().getTime());
     cpd.setPublisher("FHIR Project Team");
     cpd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
@@ -1546,7 +1548,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     CapabilityStatement cpbs = new CapabilityStatement();
     cpbs.setId(FormatUtilities.makeId(name));
     cpbs.setUrl("http://hl7.org/fhir/CapabilityStatement/" + name);
-    cpbs.setVersion(page.getVersion() + "-" + page.getBuildId());
+    cpbs.setVersion(page.getVersion());
     cpbs.setName("Base FHIR Capability Statement " + (full ? "(Full)" : "(Empty)"));
     cpbs.setStatus(PublicationStatus.DRAFT);
     cpbs.setExperimental(true);
@@ -3352,6 +3354,14 @@ public class Publisher implements URIResolver, SectionNumberer {
           page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL doesn't match resource and id on entry "+Integer.toString(i)+" : "+e.getFullUrl()+" should end with /"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId(),IssueSeverity.ERROR));
         else if (!e.getFullUrl().equals("http://hl7.org/fhir/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId()) && e.getResource().getResourceType() != ResourceType.CodeSystem)
           page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL is non-FHIR "+Integer.toString(i)+" : "+e.getFullUrl()+" should start with http://hl7.org/fhir/ for HL7-defined artifacts",IssueSeverity.WARNING));
+        if (e.getResource() instanceof MetadataResource) {
+          MetadataResource m = (MetadataResource) e.getResource();
+          String url = m.getUrl();
+          if (url != null && url.startsWith("http://hl7.org/fhir")) {
+            if (!Constants.VERSION.equals(m.getVersion())) 
+              page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "definitions in FHIR space should have the correct version (url = "+url+", version = "+m.getVersion()+")", IssueSeverity.ERROR));              
+          }
+        }
       }
     }
   }
@@ -3611,6 +3621,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     p.setAbstract(true);
     p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
     p.setName(rd.getName());
+    p.setVersion(Constants.VERSION);
     p.setType(rd.getName());
     p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
     SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd, rd);
@@ -4499,7 +4510,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getDefinitions().addNs("http://hl7.org/fhir/"+rt+"/"+id, "Example", prefix +n + ".html");
       if (rt.equals("ValueSet") || rt.equals("CodeSystem") || rt.equals("ConceptMap") || rt.equals("CapabilityStatement")) {
         // for these, we use the reference implementation directly
-        DomainResource res = (DomainResource) new XmlParser().parse(new FileInputStream(file));
+        MetadataResource res = (MetadataResource) new XmlParser().parse(new FileInputStream(file));
+        if (res.getUrl().startsWith("http://hl7.org/fhir"))
+          res.setVersion(Constants.VERSION);
         boolean wantSave = false;
         if (res instanceof CapabilityStatement) {
           ((CapabilityStatement) res).setFhirVersion(FHIRVersion.fromCode(page.getVersion()));
@@ -4541,6 +4554,9 @@ public class Publisher implements URIResolver, SectionNumberer {
                 new XmlGenerator().generate(ers, bs);
                 bs.close();
                 NamingSystem ns = (NamingSystem) new XmlParser().parse(new ByteArrayInputStream(bs.toByteArray()));
+                if (!ns.hasUrl() || ns.getUrl().startsWith("http://hl7.org/fhir"))
+                  ns.setVersion(Constants.VERSION);
+                
                 ns.setUserData("path", prefix +n+".html");
                 page.getDefinitions().getNamingSystems().add(ns);
               }
@@ -4573,6 +4589,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(file));
       vs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
       vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
+      if (vs.getUrl().startsWith("http://hl7.org/fhir"))
+        vs.setVersion(Constants.VERSION);
 
       page.getVsValidator().validate(page.getValidationErrors(), "Value set Example "+prefix +n, vs, false, false);
       if (vs.getUrl() == null)
@@ -4584,6 +4602,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
     } else if (rt.equals("CodeSystem")) {
       CodeSystem cs = (CodeSystem) new XmlParser().parse(new FileInputStream(file));
+      if (cs.getUrl().startsWith("http://hl7.org/fhir"))
+        cs.setVersion(Constants.VERSION);
       cs.setUserData("example", "true");
       cs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
       cs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
@@ -4595,6 +4615,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       new ConceptMapValidator(page.getDefinitions(), e.getTitle()).validate(cm, false);
       if (cm.getUrl() == null)
         throw new Exception("Value set example " + e.getTitle() + " has no identifier");
+      if (cm.getUrl().startsWith("http://hl7.org/fhir"))
+        cm.setVersion(Constants.VERSION);
       addToResourceFeed(cm, conceptMapsFeed, file.getName());
       page.getDefinitions().getConceptMaps().put(cm.getUrl(), cm);
       cm.setUserData("path", prefix +n + ".html");

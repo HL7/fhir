@@ -1,4 +1,4 @@
-﻿<PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="KDN5" />
@@ -297,7 +297,7 @@
               </extension>
             </extension>
             <textEquivalent value="Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" />
-            <definition value="#1111"/>
+            <definitionCanonical value="#1111"/>
           </action>
           <action id="action-2">
             <extension url="http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle">
@@ -310,7 +310,7 @@
               <actionId value="action-1"/>
               <relationship value="concurrent-with-start"/>
             </relatedAction>
-            <definition value="#2222"/>
+            <definitionCanonical value="#2222"/>
           </action> <!-- end of regimen entries -->
         </action> <!-- end of cycle definitions -->
       </action> <!-- end of regimen parts -->

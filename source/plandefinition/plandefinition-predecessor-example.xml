@@ -412,7 +412,7 @@
               <expression value="Should Administer Zika Virus Exposure Assessment"/>
             </expression>
 		</condition>
-		<definition value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
+		<definitionCanonical value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
     </action>
     <action>
 		<condition>
@@ -422,7 +422,7 @@
 	          <expression value="Should Order Serum + Urine rRT-PCR Test"/>
 	        </expression>
 		</condition>
-		<definition value="ActivityDefinition/order-serum-urine-rrt-pcr-test"/>
+		<definitionCanonical value="ActivityDefinition/order-serum-urine-rrt-pcr-test"/>
     </action>
     <action>
 		<condition>
@@ -432,7 +432,7 @@
 	          <expression value="Should Order Serum Zika Virus IgM + Dengue Virus IgM"/>
 	        </expression>
 		</condition>
-		<definition value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
+		<definitionCanonical value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
     </action>
     <action>
 		<condition>
@@ -442,7 +442,7 @@
 	          <expression value="Should Consider IgM Antibody Testing"/>
 	        </expression>
 		</condition>
-		<definition value="ActivityDefinition/consider-igm-antibody-testing"/>
+		<definitionCanonical value="ActivityDefinition/consider-igm-antibody-testing"/>
     </action>
     <action>
 		<condition>
@@ -453,10 +453,10 @@
 	        </expression>
 		</condition>
 		<action>
-			<definition value="ActivityDefinition/provide-mosquito-prevention-advice"/>
+			<definitionCanonical value="ActivityDefinition/provide-mosquito-prevention-advice"/>
 		</action>
 		<action>
-			<definition value="ActivityDefinition/provide-contraception-advice"/>
+			<definitionCanonical value="ActivityDefinition/provide-contraception-advice"/>
 		</action>
     </action>
   </action>
