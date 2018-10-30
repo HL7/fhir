@@ -6125,7 +6125,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Generated</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The contents of the narrative are entirely generated from the structured data in the content.</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The contents of the narrative are entirely generated from the core elements in the content.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6136,7 +6136,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Extensions</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The contents of the narrative are entirely generated from the structured data in the content and some of the content is generated from extensions. The narrative SHALL reflect the impact of all modifier extensions.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The contents of the narrative are entirely generated from the core elements in the content and some of the content is generated from extensions. The narrative SHALL reflect the impact of all modifier extensions.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
