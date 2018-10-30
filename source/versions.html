@@ -351,7 +351,10 @@ technical limitations in their software (e.g. schema based processing).
 
 <a name="f-compat"></a>
 <h4>Forward and backward compatible rules</h4>
-The following rules apply once an artifact in the FHIR core specification or in an HL7-international published implementation guide has become normative
+<p>
+The following rules apply once an artifact in the FHIR core specification or in an HL7-international published implementation guide has become normative.
+</p>
+
 <table>
   <tbody>
     <tr>
@@ -528,8 +531,15 @@ The following rules apply once an artifact in the FHIR core specification or in 
   </tbody>
 </table>
 <p>
-NOTE: In rare circumstances, HL7 may approve changes that technically break one of the above rules in situations where there is a high level of confidence that the change will not impact existing implementers.  Such deviations from these declared rules will involve broad notification, extensive community consultation and reviews by multiple levels of HL7 governance processes.
+Notes:
 </p>
+<ul>
+ <li>In rare circumstances, HL7 may approve changes that technically break one of the above rules in situations where there is a high level of confidence that the change will not impact existing implementers.  Such deviations from these declared rules will involve broad notification, extensive community consultation and reviews by multiple levels of HL7 governance processes</li>
+ <li>The compatibility rules described in this section are binding on HL7, but not on external bodies that define artifacts FHIR relies on.  
+    For example, if ISO were to make breaking changes to their language code table, that could impact FHIR in ways that do not comply with 
+    our compatibility rules.  Most external specifications FHIR depends on are governed under their own compatibility rules which implementers 
+    can consult if they wish to better understand risks of change.</li>
+</ul>
 <p>
 &nbsp;
 </p>
