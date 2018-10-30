@@ -230,8 +230,9 @@ and <i>id</i> attributes on the XHTML elements and internal styles are applied u
 a <i>style</i> attribute on the XHTML elements directly.
 </p>
 <p>
-In order to minimize manageability and security issues, authoring systems cannot
-specify the CSS stylesheet to use directly. Instead, the application that displays
+In order to minimize manageability and security issues, authoring systems cannot 
+specify the CSS stylesheet to use directly, unless the stylesheet is included in a FHIR Document. 
+Instead, the application that displays
 the resource provides the stylesheets. This means that the rendering system
 chooses what styles can be used, but the authoring system must use them in advance.
 Authoring systems can use these classes, which SHALL be supported by all rendering systems:
