@@ -93,7 +93,7 @@
 				</p>
 				<p>				
 					If new time slots become available during the requestedPeriod, the scheduling system, or staff
-					at the scheduling organization, may notify the patient that a new time slot is available.  If the patient
+					at the scheduling organization, can notify the patient that a new time slot is available.  If the patient
 					chooses, the waitlisted appointment would then be booked into that specific slot, and the previously booked 
 					appointment would be canceled.  The specific business process for notifying patients of new availablity is not
 					specified, and is up to the implementing system to determine.					
