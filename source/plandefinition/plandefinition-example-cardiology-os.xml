@@ -726,7 +726,7 @@
       <selectionBehavior value="any" />
       <action>
         <textEquivalent value="Referral to cardiology to evaluate chest pain (routine)" />
-        <definition value="#referralToCardiologyConsult" />
+        <definitionCanonical value="#referralToCardiologyConsult" />
         <!--  These expressions will be evaluated with the library referenced above as an include  -->
         <dynamicValue>
           <path value="timing.event" />
@@ -782,11 +782,11 @@
       </action>
       <action>
         <title value="Reason for cardiology consultation" />
-        <definition value="#CollectReferralReason" />
+        <definitionCanonical value="#CollectReferralReason" />
       </action>
       <action>
         <title value="Goal of cardiology consultation" />
-        <definition value="#CardiologyConsultationGoal" />
+        <definitionCanonical value="#CardiologyConsultationGoal" />
       </action>
     </action>
     <!--  
@@ -817,7 +817,7 @@
         <selectionBehavior value="at-most-one" />
         <action>
           <textEquivalent value="metoprolol tartrate 25 mg tablet 1 tablet oral 2 time daily" />
-          <definition value="#metoprololTartrate25Prescription" />
+          <definitionCanonical value="#metoprololTartrate25Prescription" />
           <dynamicValue>
             <path value="status" />
             <expression>
@@ -842,7 +842,7 @@
         </action>
         <action>
           <textEquivalent value="metoprolol tartrate 50 mg tablet 1 tablet oral 2 time daily" />
-          <definition value="#metoprololTartrate50Prescription" />
+          <definitionCanonical value="#metoprololTartrate50Prescription" />
           <dynamicValue>
             <path value="status" />
             <expression>
@@ -867,7 +867,7 @@
         </action>
         <action>
           <textEquivalent value="amlodipine 5  tablet 1 tablet oral  daily" />
-          <definition value="#amlodipinePrescription" />
+          <definitionCanonical value="#amlodipinePrescription" />
           <dynamicValue>
             <path value="status" />
             <expression>
@@ -898,7 +898,7 @@
         <!-- This is a subgroup with one element -->
         <action>
           <textEquivalent value="nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as needed for chest pain; maximum 3 tablets" />
-          <definition value="#nitroglycerinPrescription" />
+          <definitionCanonical value="#nitroglycerinPrescription" />
           <dynamicValue>
             <path value="status" />
             <expression>

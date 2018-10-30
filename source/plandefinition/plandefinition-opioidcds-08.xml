@@ -1,4 +1,7 @@
-<PlanDefinition xmlns="http://hl7.org/fhir">
+<PlanDefinition xmlns="http://hl7.org/fhir"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
+>
     <id value="opioidcds-08"/>
     <url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-08"/>
     <identifier>
