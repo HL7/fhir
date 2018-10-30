@@ -143,8 +143,8 @@ like <code>&amp;nbsp;</code> or <code>&amp;copy;</code> etc. Unicode characters 
 </p>
 <p>
 The narrative content SHOULD be in the <a href="resource-definitions.html#Resource.language">language of the resource</a>, but
-there is no reason to expect that HTML type tooling would understand the resource <a href="resource.html#content">language</a> element. For this reason,
-a <code>lang</code> attribute on the <code>&lt;div&gt;</code> SHOULD also be used (see
+there is no reason to expect that HTML enabled tooling would understand the resource <a href="resource.html#content">language</a> element. For this reason,
+a <code>lang</code> attribute on the <code>&lt;div&gt;</code> SHOULD also be used if language is declared on the resource (see
 <a href="http://www.w3.org/html/wg/drafts/html/master/dom.html#the-lang-and-xml:lang-attributes">the note in the HTML 5 specification about use of language</a>).
 </p>
 
@@ -158,7 +158,7 @@ speaking multiple languages. Some resources - specially standing documentation s
 preparation notes - will contain the same documentation in several different languages.
 </p>
 <p>
-Resources containing the same information in multiple different langauges should 
+Resources containing the same information in multiple different languages should 
 use a <code>div</code> element with an XHTML lang attribute in the root div. 
 By default, all languages will be displayed to a user, but multi-language 
 aware applications can filter the content by language and only display the 
