@@ -82,6 +82,23 @@
 					start again, with other systems replying to a new set of times.
 				</p>
 			</li>
+			<li>
+				<b>Waitlisting the Appointment (optional)</b>
+				<p>
+					This optional step permits creating a waitlisted appointment. This could occur if an
+					appointment needs to be booked into a time that is not ideal for the patient due to lack of available
+					time slots.  In this workflow, there would be two appointments, the booked appointment in the time 
+					slot that is currently available, and the waitlisted appointment with a requestedPeriod spanning the
+					time that the patient would prefer if new slots become available.
+				</p>
+				<p>				
+					If new time slots become available during the requestedPeriod, the scheduling system, or staff
+					at the scheduling organization, may notify the patient that a new time slot is available.  If the patient
+					chooses, the waitlisted appointment would then be booked into that specific slot, and the previously booked 
+					appointment would be canceled.  The specific business process for notifying patients of new availablity is not
+					specified, and is up to the implementing system to determine.					
+				</p>
+			</li>
 		</ul>
 
 <a name="workflow-types"></a>
