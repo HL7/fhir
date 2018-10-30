@@ -21,11 +21,11 @@
 		<reference value="Patient/pat1"/>
 		<display value="Donald Duck"/>   
 	</subject>
-	<context>
+	<encounter>
 		<!-- Linked to a resource Encounter between patient and practitioner-->
 		<reference value="Encounter/f001"/>
 		<display value="encounter that leads to this prescription"/>
-	</context>
+	</encounter>
 	<authoredOn value="2015-03-01"/>
 	<requester>
 		<reference value="Practitioner/f007"/>
