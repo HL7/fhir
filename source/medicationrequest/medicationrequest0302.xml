@@ -29,10 +29,10 @@
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>         
     </subject>
-    <context> <!-- Linked to a resource Encounter between patient and practitioner-->
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
-    </context>
+    </encounter>
     <supportingInformation>
         <reference value="Coverage/SP1234"/>
     </supportingInformation>
