@@ -330,7 +330,7 @@ is used in a few contexts in this specification. When the restricted
 FHIRPath language subset is in use, the following rules apply:
 </p>
 <ul>
- <li>All statements SHALL start with the name of the context element (e.g. on a Patient resource, Patient.contact.name.)</li>
+ <li>All statements SHALL start with the name of the context element (e.g. on a Patient resource, Patient.contact.name.), or SHALL be simply "$this" to refer to the element that has focus</li>
  <li>Operators SHALL NOT be used</li>
  <li>Only the following functions may be used:
    <ul>
