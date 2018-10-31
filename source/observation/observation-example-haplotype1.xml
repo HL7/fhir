@@ -12,12 +12,12 @@
 		</valueCodeableConcept>
 	</extension><!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
 		<valueReference>
-			<reference value="Sequence/example-sequence1"/>
+			<reference value="MolecularSequence/example-sequence1"/>
 		</valueReference>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
 		<valueReference>
-			<reference value="Sequence/example-sequence2"/>
+			<reference value="MolecularSequence/example-sequence2"/>
 		</valueReference>
 	</extension--><status value="unknown"/>
 	<code>
@@ -43,9 +43,9 @@
 		<reference value="Specimen/genetics-example1-somatic"/>
 		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
 	</specimen><!-->If you do not like "related", you can delete this block<--><derivedFrom>
-		<reference value="Sequence/example-pgx-1"/>
+		<reference value="MolecularSequence/example-pgx-1"/>
 	</derivedFrom>
 	<derivedFrom>
-		<reference value="Sequence/example-pgx-2"/>
+		<reference value="MolecularSequence/example-pgx-2"/>
 	</derivedFrom>
 </Observation>

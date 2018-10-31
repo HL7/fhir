@@ -117,7 +117,7 @@
 				<id value="od-1"/>
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
 					<valueReference>
-						<reference value="Sequence/seq2-1"/>
+						<reference value="MolecularSequence/seq2-1"/>
 					</valueReference>
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
@@ -186,7 +186,7 @@
 				<id value="od-2"/>
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
 					<valueReference>
-						<reference value="Sequence/seq2-2"/>
+						<reference value="MolecularSequence/seq2-2"/>
 					</valueReference>
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
@@ -255,7 +255,7 @@
 				<id value="od-3"/>
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
 					<valueReference>
-						<reference value="Sequence/seq2-3"/>
+						<reference value="MolecularSequence/seq2-3"/>
 					</valueReference>
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
@@ -324,7 +324,7 @@
 				<id value="od-4"/>
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
 					<valueReference>
-						<reference value="Sequence/seq2-4"/>
+						<reference value="MolecularSequence/seq2-4"/>
 					</valueReference>
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
