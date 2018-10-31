@@ -75,11 +75,13 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn.FMGApproval;
 import org.hl7.fhir.definitions.model.ResourceDefn.PointSpec;
+import org.hl7.fhir.definitions.model.ResourceDefn.SecurityCategorization;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
@@ -793,6 +795,8 @@ public class SourceParser {
     CodeSystem cs = (CodeSystem) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("codesystems", n).replace('\\', File.separatorChar)));
     if (!cs.hasId())  
       cs.setId(FormatUtilities.makeId(n));
+    if (cs.getUrl().startsWith("http://hl7.org/fhir"))
+      cs.setVersion(Constants.VERSION);
     cs.setUserData("path", "codesystem-"+cs.getId()+".html");
     cs.setUserData("filename", "codesystem-"+cs.getId());
     definitions.getCodeSystems().put(cs.getUrl(), cs);
@@ -805,6 +809,9 @@ public class SourceParser {
     new CodeSystemConvertor(definitions.getCodeSystems()).convert(xml, vs, srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar));
     vs.setId(FormatUtilities.makeId(n));
     vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
+    if (!vs.hasVersion() || vs.getUrl().startsWith("http://hl7.org/fhir"))
+      vs.setVersion(version.toCode());
+
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
     vs.setUserData("filename", "valueset-"+vs.getId());
     definitions.getExtraValuesets().put(n, vs);
@@ -910,6 +917,7 @@ public class SourceParser {
       if (!(rf instanceof StructureDefinition)) 
         throw new Exception("Error parsing Profile: not a structure definition");
       StructureDefinition sd = (StructureDefinition) rf;
+      sd.setVersion(Constants.VERSION);
       ap.putMetadata("id", sd.getId()+"-pack");
       ap.putMetadata("date", sd.getDateElement().asStringValue());
       ap.putMetadata("title", sd.getTitle());
@@ -1110,6 +1118,11 @@ public class SourceParser {
     root.setFmmLevel(ini.getStringProperty("fmm", n.toLowerCase()));
     root.setNormativePackage(ini.getStringProperty("normative", root.getName()));
     root.setApproval(FMGApproval.fromCode(ini.getStringProperty("fmg-approval", root.getName())));
+    String sc = ini.getStringProperty("security-categorization", root.getName().toLowerCase());
+    if (sc != null)
+      root.setSecurityCategorization(SecurityCategorization.fromCode(sc));
+    else if (!Utilities.existsInList(root.getName(), "Resource", "DomainResource", "MetadataResource"))
+      throw new Exception("Must have an entry in the security-categorization section of fhir.ini for the resource "+root.getName());
 
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());

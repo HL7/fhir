@@ -177,6 +177,6 @@ For those who have not been overweight, a 2 year interval is appropriate for the
     <requiredBehavior value="must-unless-documented"/>
     <cardinalityBehavior value="single"/>
     <!--	Activities that occur within timepoint-->
-    <definition value="#procedure"/>
+    <definitionCanonical value="#procedure"/>
   </action>
 </PlanDefinition>

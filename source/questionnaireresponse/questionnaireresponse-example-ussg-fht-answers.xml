@@ -182,18 +182,6 @@
 <!-- see comment in questionnaire     <item>
         <linkId value="2.1.1"/> -->
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaireresponse-isSubject" >
- 					  <valueBoolean value="true"/>
-					</extension>
-          <linkId value="2.1.1.0"/>
-          <text value="Family Member identity"/>
-          <answer>
-					  <valueReference>
-						  <reference value="Patient/pat1"/>
-					  </valueReference>						
-          </answer>
-        </item>
-        <item>
           <linkId value="2.1.1.1"/>
           <definition value="http://loinc.org/fhir/DataElement/54136-7"/>
           <text value="Relationship to you"/>

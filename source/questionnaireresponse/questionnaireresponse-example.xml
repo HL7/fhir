@@ -104,9 +104,9 @@
   <subject>
     <reference value="#patsub"/>
   </subject>
-  <context>
+  <encounter>
     <reference value="Encounter/example"/>
-  </context>
+  </encounter>
   <authored value="2013-02-19T14:15:00-05:00"/>
   <author>
     <reference value="#questauth"/>

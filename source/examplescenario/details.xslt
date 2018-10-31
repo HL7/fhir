@@ -432,10 +432,10 @@ $( '#tabs' ).tabs({
 	<xsl:template  match="alternative">
 		<a name="p2">Alternative:
 			<xsl:value-of select="number/@value"/> </a>
-		<xsl:value-of select="name/@value"/>
+		<xsl:value-of select="title/@value"/>
 		<xsl:value-of select="description/@value"/>
 		<div id="accordion">
-			<xsl:apply-templates select="./option"/>
+			<xsl:apply-templates select="./step"/>
 		</div>
 	</xsl:template>	
 

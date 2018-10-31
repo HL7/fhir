@@ -53,6 +53,11 @@
 	<li>If the action is a group, determine which actions to process based on the behaviors specified in the group. Note that this aspect of the process may require input from a user. In these cases, either the choices made by the user can be provided as input to the process, or the process can be performed as part of a user-entry workflow that enables user input to be provided as necessary.</li>
 </ol>
 
+<p>The parameters to the $apply operation are available within dynamicValue CQL and FHIRPath expressions as context variables, accessible by the name of the parameter prefixed with a percent (%) symbol. For example, to access the subject given to the apply, use the expression <code>%subject</code>. The value of the %subject context variable in a dynamicValue expression is determined using the current <i>subject</i>, as specified by the <code>subject</code> element on the PlanDefinition, current PlanDefinition.action, or ActivityDefinition.</p>
+
+<p>In addition to the $apply operation parameters, the context variable %action can be used within the path element of a dynamicValue to specify the current action target. For example, to specify the path to the description element of the current action, use <code>%action.description</code>.</p>
+
+
 <h3>Overlap with ActivityDefinition</h3>
 
 <p>As noted in the Boundaries section, there is some overlap between the content that can be represented within the <code>action</code> element of a PlanDefinition, and the elements of the ActivityDefinition resource. This overlap allows for both resources to be used independently, as well as in combination. For example, a PlanDefinition may be used without any supporting ActivityDefinitions to describe a particular workflow, where it is sufficient to describe the actions simply as textual descriptions of what needs to take place. On the other hand, the PlanDefinition may be used together with ActivityDefinition to provide a detailed structural representation of the activities to be performed.</p>

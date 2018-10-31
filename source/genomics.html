@@ -38,12 +38,12 @@ table th {
     <ol>
       <li><a href="#background">Background</a></li>
       <li><a href="#overview">Overview</a></li>
-      <li><a href="#sequence">Sequence Resource</a></li>
+      <li><a href="#sequence">MolecularSequence Resource</a></li>
       <li><a href="#observation-genetics">Observation-genetics Profile</a></li>
       <li><a href="#diagnosticreport-genetics">DiagnosticReport-genetics Profile</a></li>
       <li><a href="#servicerequest-genetics">ServiceRequest-genetics Profile</a></li>
       <li><a href="#hla">HLA genotyping results Profile</a></li>
-      <li><a href="#resource_vs_profiles">Relationship among Sequence resource and genetics profiles</a></li>
+      <li><a href="#resource_vs_profiles">Relationship among MolecularSequence resource and genetics profiles</a></li>
       <li><a href="#dam">HL7 Domain Analysis Model Use Cases</a></li>
       <li><a href="#other_examples">Other Genomics Use Cases</a></li>
       <li><a href="#apps">Clinical Genomics Apps</a></li>
@@ -93,26 +93,26 @@ This page and the associated profiles are slated for deprecation.  This content 
     FHIR DSTU2 introduced a standard genetics profile that applies to the FHIR Observation resource. Using this profile, Observation payloads can return genetic testing results in a standardized manner.
   </p>
   <p>
-    Extending Observations rather than creating a new, dedicated FHIR genetics data resource is consistent with the FHIR community mandate because it only adds new resources to an existing resource library when there is a compelling case to do so. We provide the case to add a Sequence resource in this specification.
+    Extending Observations rather than creating a new, dedicated FHIR genetics data resource is consistent with the FHIR community mandate because it only adds new resources to an existing resource library when there is a compelling case to do so. We provide the case to add a MolecularSequence resource in this specification.
   </p>
 
 <a name="overview"></a>
   <h2>Overview</h2>
   <p>
-    STU3 moves beyond FHIR DSTU2 Standard Genetics profile on Observation allowing increased granularity and less ambiguity by creating a new resource to be called <strong>Sequence</strong>. This resource will be used to hold clinically relevant sequence data in a manner that is both efficient and versatile integrating new and as yet undefined types of genomic and other -omics data that will soon be commonly entered into health records for clinical use.   Sequence will be leveraged by other FHIR resources, including Observation.  This is consistent with how all FHIR resources are designed and used.
+    STU3 moves beyond FHIR DSTU2 Standard Genetics profile on Observation allowing increased granularity and less ambiguity by creating a new resource to be called <strong>MolecularSequence</strong>. This resource will be used to hold clinically relevant sequence data in a manner that is both efficient and versatile integrating new and as yet undefined types of genomic and other -omics data that will soon be commonly entered into health records for clinical use.   MolecularSequence will be leveraged by other FHIR resources, including Observation.  This is consistent with how all FHIR resources are designed and used.
   </p>
   <p>
     The September 2014 Informative Ballot (“HL7 Clinical Genomics, Domain Analysis Model: Clinical Sequencing Release 1”) provided guiding use cases,
     which initially informed development of the initial Standard Genetics profile that is found in FHIR DSTU2. The same use cases also led to a
-    second Project to develop a Sequence resource (“Develop FHIR sequence resource for Clinical Genomics”). A preliminary effort to address these issues has been explored and published in context of the <a href="http://smarthealthit.org/an-app-platform-for-healthcare/about/">Substitutable Medical Applications and Reusable Technologies</a> (<abbr title="Substitutable Medical Applications and Reusable Technologies">SMART</abbr>) Platforms Project and described in an article (“<a href="http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long">SMART on FHIR Genomics: Facilitating standardized clinico-genomic apps</a>”).
+    second Project to develop a MolecularSequence resource (“Develop FHIR sequence resource for Clinical Genomics”). A preliminary effort to address these issues has been explored and published in context of the <a href="http://smarthealthit.org/an-app-platform-for-healthcare/about/">Substitutable Medical Applications and Reusable Technologies</a> (<abbr title="Substitutable Medical Applications and Reusable Technologies">SMART</abbr>) Platforms Project and described in an article (“<a href="http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long">SMART on FHIR Genomics: Facilitating standardized clinico-genomic apps</a>”).
   </p>
   <p>
-    Sequence is designed to hold genetic sequences in blocks relevant to actionable clinical decision-making. Extensions to Sequence address complex cases and can associate it with repositories for retrieving a patient’s full sequence data, such as those defined by GA4GH. Other changes include a suite of genetics profiles for other FHIR resources. In addition, the Observation-genetics profile adds new references so that an Observation can report genetics test results to be integrated into the EHR. There are also new genetics-extension profiles for DiagnosticReport, ServiceRequest and FamilyMemberHistory, respectively, to extend them to report genetics results. We have given all of these FHIR genetics profiles the suffix “-genetics” (e.g. “DiagnosticReport-genetics profile”). New profiles on top of DiagnosticReport have been created for reporting HLA genotyping results.
+    MolecularSequence is designed to hold genetic sequences in blocks relevant to actionable clinical decision-making. Extensions to MolecularSequence address complex cases and can associate it with repositories for retrieving a patient’s full sequence data, such as those defined by GA4GH. Other changes include a suite of genetics profiles for other FHIR resources. In addition, the Observation-genetics profile adds new references so that an Observation can report genetics test results to be integrated into the EHR. There are also new genetics-extension profiles for DiagnosticReport, ServiceRequest and FamilyMemberHistory, respectively, to extend them to report genetics results. We have given all of these FHIR genetics profiles the suffix “-genetics” (e.g. “DiagnosticReport-genetics profile”). New profiles on top of DiagnosticReport have been created for reporting HLA genotyping results.
   </p>
   <p>
     On the following pages, we elaborate upon the rationale for the proposed design, introducing in some detail the following resource and profiles:
     <ul>
-      <li>A Sequence resource</li>
+      <li>A MolecularSequence resource</li>
       <li>An Observation-genetics profile on Observation</li>
       <li>A DiagnosticReport-genetics profile on DiagnosticReport</li>
       <li>A ServiceRequest-genetics profile on ServiceRequest</li>
@@ -125,22 +125,22 @@ This page and the associated profiles are slated for deprecation.  This content 
   </p>
 
 <a name="sequence"></a>
-  <h2>Sequence Resource</h2>
+  <h2>MolecularSequence Resource</h2>
 
   <h3>Structure Diagram</h3>
 
-[%resource-table Sequence%]
+[%resource-table MolecularSequence%]
 
   <h3>Description</h3>
   <p>
-    The <a href="sequence.html">Sequence resource</a> is designed for next-generation sequencing data. Patients’ observed sequences should be represented by recording reference sequence id/string and detected variants. To specify how it proceed, here is a picture below:
+    The <a href="molecularsequence.html">MolecularSequence resource</a> is designed for next-generation sequencing data. Patients’ observed sequences should be represented by recording reference sequence id/string and detected variants. To specify how it proceed, here is a picture below:
   </p>
 
 
 <img src="genomics-image34.jpg" alt="" style="width:624px;height:468px"/>
 
 <p>
-  Sequence.coordinateSystem: This element shall be constrained into only two possible values: 0 for 0-based system and 1 for 1-based system. Below is the picture that could explain what’s the difference between these two systems:
+  MolecularSequence.coordinateSystem: This element shall be constrained into only two possible values: 0 for 0-based system and 1 for 1-based system. Below is the picture that could explain what’s the difference between these two systems:
 </p>
 
 <img src="genomics-image11.png" alt="coordinateSystem" style="width:624px;height:412px;"/>
@@ -153,20 +153,20 @@ This page and the associated profiles are slated for deprecation.  This content 
 </p>
 
 <p>
-  Sequence.referenceSeq: Four optional ways are provided to represent reference sequence in Sequence resource:
+  MolecularSequence.referenceSeq: Four optional ways are provided to represent reference sequence in MolecularSequence resource:
   <ol>
-    <li>Sequence.referenceSeq.referenceSeqId: Reference sequence id in public database;</li>
-    <li>Sequence.referenceSeq.referenceSeqString: Reference sequence string; </li>
-    <li>Sequence.referenceSeq.referenceSeqPointer: Reference to observed sequence stored in another sequence entity;  </li>
-    <li>Sequence.referenceSeq.genomeBuild, Sequence.reference.chromosome: The combination of genome build and chromosome. </li>
+    <li>MolecularSequence.referenceSeq.referenceSeqId: Reference sequence id in public database;</li>
+    <li>MolecularSequence.referenceSeq.referenceSeqString: Reference sequence string; </li>
+    <li>MolecularSequence.referenceSeq.referenceSeqPointer: Reference to observed sequence stored in another sequence entity;  </li>
+    <li>MolecularSequence.referenceSeq.genomeBuild, MolecularSequence.reference.chromosome: The combination of genome build and chromosome. </li>
   </ol>
 </p>
 
 <p>
-The window selects a range from the reference sequence (or genome) that is used to define building block of a current sequence (e.g. Sequence resource instance 1).
+The window selects a range from the reference sequence (or genome) that is used to define building block of a current sequence (e.g. MolecularSequence resource instance 1).
 </p>
 <p>
-  Sequence.referenceSeq.strand: Only two possible values can be made by strand, +1 for plus strand while -1 for minus strand. Since the directionality of the sequence string might be represented in different word in different omics scenario, below are simple example of how to map other expressions into its correlated value:
+  MolecularSequence.referenceSeq.strand: Only two possible values can be made by strand, +1 for plus strand while -1 for minus strand. Since the directionality of the sequence string might be represented in different word in different omics scenario, below are simple example of how to map other expressions into its correlated value:
 </p>
 <table style="width:100%">
     <tr>
@@ -192,32 +192,32 @@ The window selects a range from the reference sequence (or genome) that is used 
 </table>
 
 <p>
-Sequence.quality: Quality scores for bases in the sequence. It is intended to be compliant with emerging regulatory needs needs (eg: those found at <a href="https://precision.fda.gov">PrecisionFDA</a>).
+MolecularSequence.quality: Quality scores for bases in the sequence. It is intended to be compliant with emerging regulatory needs needs (eg: those found at <a href="https://precision.fda.gov">PrecisionFDA</a>).
 </p>
 <p>
-Sequence.variant: This complex element is used for encoding sequence. When the information of reference sequence and variants are provided, the observed sequence will be derived.
+MolecularSequence.variant: This complex element is used for encoding sequence. When the information of reference sequence and variants are provided, the observed sequence will be derived.
 </p>
 
 <h4>Internal Pointers</h4>
 <p>
-Sequence.patient: This element points to a Patient identifier to show that this sequence is related to the same patient.
+MolecularSequence.patient: This element points to a Patient identifier to show that this sequence is related to the same patient.
 </p>
 <p>
-Sequence.specimen: A pointer to specimen identifier, if needed.
+MolecularSequence.specimen: A pointer to specimen identifier, if needed.
 </p>
 <p>
-Sequence.device: A pointer to Device identifier which is used for describing sequencing method (such as chip id,  chip manufacturer etc.)
+MolecularSequence.device: A pointer to Device identifier which is used for describing sequencing method (such as chip id,  chip manufacturer etc.)
 </p>
 <p>
-Sequence.pointer: A pointer to a Sequence instance for the next sequence block to build a sequence graph.
+MolecularSequence.pointer: A pointer to a MolecularSequence instance for the next sequence block to build a sequence graph.
 </p>
 
 <h4>External Pointers</h4>
 <p>
-Sequence.repository: This complex element is used to provide a clarifying structure, a base URL, and/or relevant IDs when referring to an external repository.
+MolecularSequence.repository: This complex element is used to provide a clarifying structure, a base URL, and/or relevant IDs when referring to an external repository.
 </p>
 <p>
-GA4GH Repository Example. If the Sequence resource refers to a GA4GH repository for read info, references to a GA4GH full sequence dataset should conform to GA4GH data models and accessed via the GA4GH API. The URL of a GA4GH repository, ids of a GA4GH variant and read group are contained in the Sequence resource. The URL of a GA4GH repository is an api_base of a GA4GH server that could be called for sequence data. The GA4GH variant set is a collection of call sets and the GA4GH call set is a collection of variant calls, typically for one sample. A variant call represents a determination of genotype with respect to that variant.
+GA4GH Repository Example. If the MolecularSequence resource refers to a GA4GH repository for read info, references to a GA4GH full sequence dataset should conform to GA4GH data models and accessed via the GA4GH API. The URL of a GA4GH repository, ids of a GA4GH variant and read group are contained in the MolecularSequence resource. The URL of a GA4GH repository is an api_base of a GA4GH server that could be called for sequence data. The GA4GH variant set is a collection of call sets and the GA4GH call set is a collection of variant calls, typically for one sample. A variant call represents a determination of genotype with respect to that variant.
 </p>
 <p>
   VariantSet definition: A VariantSet is a collection of variants and variant calls intended to be analyzed together.
@@ -236,9 +236,9 @@ GA4GH Repository Example. If the Sequence resource refers to a GA4GH repository 
 <p>
 We provide a detailed example to show how sequence resource can be used to represent record of observed sequence by different method.
 </p>
-<img src="genomics-image15.jpeg" alt="Sequence Graph" style="width:624px;height:468px;"/>
+<img src="genomics-image15.jpeg" alt="MolecularSequence Graph" style="width:624px;height:468px;"/>
 
-<p>The diagram above describes 4 optional ways provided in the Sequence resource to encode sequencing data.
+<p>The diagram above describes 4 optional ways provided in the MolecularSequence resource to encode sequencing data.
 Here are the corresponding examples
 <ul>
     <li> <a href="sequence-graphic-example-1.html">By referenceSeqId</a> Source:<a href="sequence-graphic-example-1.xml.html">XML</a>,<a href="sequence-graphic-example-1.json.html">JSON</a>,<a href="sequence-graphic-example-1.ttl.html">TURTLE</a></li>
@@ -281,7 +281,7 @@ The <a href="observation-genetic.html">Observation-genetics profile</a> Observat
 <p>
   Some of the attributes of the profile follow:
   <ul>
-    <li>The observation-geneticsSequence extension will refer to the Sequence resource for sequence information related to this variant.</li>
+    <li>The observation-geneticsSequence extension will refer to the MolecularSequence resource for sequence information related to this variant.</li>
     <li>The observation-geneticsInterpretation extension will refer to an Observation instance which contains clinical interpretations for the variant described.</li>
     <li>The code, effective[x], issued, performer, method, specimen elements can be used to describe how the genetic observation (variant and sequence data) is obtained.</li>
     <li>Other extensions are used to describe attributes of this variant such as Genomics Source Class, Amino Acid Change Type, etc. These are mappings from v2 and lonic code reference with details can be found in this <a href="observation-genetic.html#content">list </a>.</li>
@@ -478,7 +478,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   These principles were implemented in a technical specification by extending an existing XML based format for exchanging histocompatibility and immunogenetic genotyping data called Histoimmunogenetics Markup Language (HML) to include results from NGS methodologies  (https://bioinformatics.bethematchclinical.org/hla-resources/hml/). The resulting schema may be found in https://schemas.nmdp.org/. The National Marrow Donor Program (NMDP)/Be The Match uses this format for reporting HLA genotyping from potential donors and for patients needing stem cell transplants.
 </p>
 <p>
-  Both MIRING and HML were used to inform mapping data elements to FHIR resources such as Patient, Specimen, Sequence, Observation-Genetic Profile, and DiagnosticReport  where possible. Several additional data elements were needed specifically for this use case, resulting in the development of a specific profile for reporting HLA genotyping results (Diagnostic Report Profile for HLA Genotyping Results).
+  Both MIRING and HML were used to inform mapping data elements to FHIR resources such as Patient, Specimen, MolecularSequence, Observation-Genetic Profile, and DiagnosticReport  where possible. Several additional data elements were needed specifically for this use case, resulting in the development of a specific profile for reporting HLA genotyping results (Diagnostic Report Profile for HLA Genotyping Results).
   <ul>
     <li>Minimum information for reporting next generation sequence genotyping (MIRING): Guidelines for reporting HLA and KIR genotyping via next generation sequencing (see <a href="http://www.ncbi.nlm.nih.gov/pubmed/26407912">here</a>)</li>
     <li>Histoimmunogenetics Markup Language 1.0: Reporting Next Generation Sequencing-based HLA and KIR Genotyping (see <a href="http://www.ncbi.nlm.nih.gov/pubmed/26319908">here</a>)</li>
@@ -671,29 +671,29 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
 <img src="genomics-image25.png" alt="Phasing" style="width:624px;height:396px;"/>
 
 <a name="resource_vs_profiles"></a>
-<h2>Relationship among Sequence resource and genetics profiles</h2>
+<h2>Relationship among MolecularSequence resource and genetics profiles</h2>
 
 <img src="genomics-image20.png" alt="" style="width:624.00px; height:428.00px;"/>
 
-<h3>Pointers to Sequence resource</h3>
+<h3>Pointers to MolecularSequence resource</h3>
 
 <p>
-  Sequence resource is used to transmit and represent sequencing data. In FHIR Genomics, there are several genetics profiles containing internal pointers to Sequence resource for genetic data reporting. Here is the summary:
+  MolecularSequence resource is used to transmit and represent sequencing data. In FHIR Genomics, there are several genetics profiles containing internal pointers to MolecularSequence resource for genetic data reporting. Here is the summary:
 </p>
 <p>
-  Sequence.pointer: A bundle of Sequence instances can be connected by Sequence.pointer to build sequence graph described in Section 3. Sequence.pointer will point to the next sequence block.
+  MolecularSequence.pointer: A bundle of MolecularSequence instances can be connected by MolecularSequence.pointer to build sequence graph described in Section 3. MolecularSequence.pointer will point to the next sequence block.
 </p>
 <p>
-  Sequence extension in Observation-genetics profile: Observation-genetics profile is used to report a genetic variant found in patients. Sequence extension contains a pointer to Sequence identifier which has related sequencing read info. It will provide reference/observed allele information and quality scores for each base/sequence block.
+  MolecularSequence extension in Observation-genetics profile: Observation-genetics profile is used to report a genetic variant found in patients. MolecularSequence extension contains a pointer to MolecularSequence identifier which has related sequencing read info. It will provide reference/observed allele information and quality scores for each base/sequence block.
 </p>
 
 <h3>Pointer to Observation resource (based on genetics profile)</h3>
 
 <p>
-  Observation-genetics based Observation resource is used for interpretative genetic data.  Sequence resource and genetics profiles will use internal pointers to Observation-genetics-profile based Observation instance for variant report.
+  Observation-genetics based Observation resource is used for interpretative genetic data.  MolecularSequence resource and genetics profiles will use internal pointers to Observation-genetics-profile based Observation instance for variant report.
 </p>
 <p>
-  Sequence.observation: A pointer to genetics Observation instance which is used for interpretations of this sequence block. Interpretations are generally about genetic variant found in this sequence block.
+  MolecularSequence.observation: A pointer to genetics Observation instance which is used for interpretations of this sequence block. Interpretations are generally about genetic variant found in this sequence block.
 </p>
 <p>
   DiagnosticReport.result: A pointer to Observation instance. This element is used for reporting genetic result.
@@ -705,10 +705,10 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   FamilyMemberHistory:  A pointer to genetics Observation instance to report genetic test results of family member
 </p>
 
-<h3>Observation vs. Sequence</h3>
+<h3>Observation vs. MolecularSequence</h3>
 
 <p>
-  Sequence is used for raw sequencing data while genetic-profile-based Observation resource is used for reporting interpretative genetic information (eg. DNA/amino acid variant detected in the patient). Although both Sequence and Observation-genetics profiles contain variant info, they are used differently: Sequence.variant is used for encoding the sequence block; the Observation-genetics profile is mainly used for a variants test result or interpretations of raw data in Sequence resource.
+  MolecularSequence is used for raw sequencing data while genetic-profile-based Observation resource is used for reporting interpretative genetic information (eg. DNA/amino acid variant detected in the patient). Although both MolecularSequence and Observation-genetics profiles contain variant info, they are used differently: MolecularSequence.variant is used for encoding the sequence block; the Observation-genetics profile is mainly used for a variants test result or interpretations of raw data in MolecularSequence resource.
 </p>
 
 <a name="PGx-example"></a>
@@ -731,9 +731,9 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
     <th>Links of resources example </th>
             </tr>
             <tr>
-    <td>Sequence</td>
-    <td><a href="#sequence">Sequence Data Structure</a></td>
-    <td><a href="sequence-example.html">Example Here</a></td>
+    <td>MolecularSequence</td>
+    <td><a href="#sequence">MolecularSequence Data Structure</a></td>
+    <td><a href="molecularsequence-example.html">Example Here</a></td>
             </tr>
             <tr>
     <td>Observation</td>
@@ -753,7 +753,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
 </table>
 
 <p>
-  Here is a specific use case to depict the whole story of FHIR in the clinical genomics setting: a <a href="servicerequest-example-pgx.html">ServiceRequest</a> is requested, then a <a href="diagnosticreport-example-pgx.html">Diagnosticreport</a> are reported. Two <a href="sequence-example-pgx-1.html">Sequence</a> instance, two <a href="observation-example-haplotype1.html">Observation-haplotype</a> instance, a <a href="observation-example-diplotype1.html">Observation-diplotype</a> and a <a href="observation-example-phenotype.html">Observation-phenotype</a> for further interpretation are also created. (You can see the xml code and json code if you click the link.)
+  Here is a specific use case to depict the whole story of FHIR in the clinical genomics setting: a <a href="servicerequest-example-pgx.html">ServiceRequest</a> is requested, then a <a href="diagnosticreport-example-pgx.html">Diagnosticreport</a> are reported. Two <a href="sequence-example-pgx-1.html">MolecularSequence</a> instance, two <a href="observation-example-haplotype1.html">Observation-haplotype</a> instance, a <a href="observation-example-diplotype1.html">Observation-diplotype</a> and a <a href="observation-example-phenotype.html">Observation-phenotype</a> for further interpretation are also created. (You can see the xml code and json code if you click the link.)
   <ul>
     <li><b>Haplotype:</b> A haplotype is a set of DNA variations, or polymorphisms, that tend to be inherited together. A haplotype can refer to a combination of alleles or to a set of single nucleotide polymorphisms (SNPs) found on the same chromosome.</li>
     <li><b>Diplotype:</b> A diplotype is defined as a specific combination of two haplotypes.</li>
@@ -772,7 +772,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
 <h2>HL7 Domain Analysis Use Cases</h2>
 
 <p>
-  Simulated use of the proposed Sequence resource and profiles on other FHIR resources are shown for many of the examples in Section 5 – Use Case Scenarios in the <a href="https://www.hl7.org/documentcenter/public_temp_649E1787-1C23-BA17-0CA4C354EB3E41D5/wg/clingenomics/docs/V3DAM_CG_CLINSEQ_R1_O1_2013JAN.pdf">HL7 Domain Analysis Model (DAM): Clinical Genomics, Release 1, September 2014 Informative Ballot</a>.
+  Simulated use of the proposed MolecularSequence resource and profiles on other FHIR resources are shown for many of the examples in Section 5 – Use Case Scenarios in the <a href="https://www.hl7.org/documentcenter/public_temp_649E1787-1C23-BA17-0CA4C354EB3E41D5/wg/clingenomics/docs/V3DAM_CG_CLINSEQ_R1_O1_2013JAN.pdf">HL7 Domain Analysis Model (DAM): Clinical Genomics, Release 1, September 2014 Informative Ballot</a>.
 </p>
 
 <p>
@@ -1223,13 +1223,13 @@ Get /Specimen?
     duration=quot
 </pre>
 
-<h3>Sequence Test Metrics</h3>
+<h3>MolecularSequence Test Metrics</h3>
 
 <a name="apps"></a>
 <h2>Clinical Genomic Apps</h2>
 
 <p>
-  The idea for a Sequence resource grew out, in part, the SMART Platforms Project, which explored creating clinical genomic apps to integrated traditional EMR clinical data and genomic data to show data visualization and analysis, including CDS that depended upon both types of data.  Below are a couple of examples.  Several apps have already been designed including Genomics Advisor, SMART Precision Cancer Medicine, and Diabetes Bear EMR.  Below, one of these apps will be described.  To include other apps in this section, please feel free to add a note on it and how it uses FHIR/Genomics calls.
+  The idea for a MolecularSequence resource grew out, in part, the SMART Platforms Project, which explored creating clinical genomic apps to integrated traditional EMR clinical data and genomic data to show data visualization and analysis, including CDS that depended upon both types of data.  Below are a couple of examples.  Several apps have already been designed including Genomics Advisor, SMART Precision Cancer Medicine, and Diabetes Bear EMR.  Below, one of these apps will be described.  To include other apps in this section, please feel free to add a note on it and how it uses FHIR/Genomics calls.
 </p>
 
 <h3>Genomics Advisor</h3>
@@ -1250,48 +1250,48 @@ Get /Specimen?
 <h2>Appendix 1: From DSTU2 Genomics to STU3</h2>
 
 <p>
-  The table shows how the data elements in the DSTU2 Observation resource as extended by the Standard Genetics Profile would be mapped to the new Sequence resource.
+  The table shows how the data elements in the DSTU2 Observation resource as extended by the Standard Genetics Profile would be mapped to the new MolecularSequence resource.
 </p>
 
 <table style="width:100%">
         <tr>
     <th>DSTU2 Standard Genetics profile on Observation</th>
     <th>Observation-genetics profile</th>
-    <th>Maps to Sequence (Proposed)</th>
+    <th>Maps to MolecularSequence (Proposed)</th>
         </tr>
         <tr>
     <td>geneticsGenomeBuild</td>
-    <td>Sequence extension</td>
+    <td>MolecularSequence extension</td>
     <td>referenceSeq.genomicsBuild</td>
         </tr>
         <tr>
     <td>geneticsChromosome</td>
-    <td>Sequence extension</td>
+    <td>MolecularSequence extension</td>
     <td>referenceSeq.chromosome</td>
         </tr>
         <tr>
     <td>geneticsGenomicsStart</td>
-    <td>Sequence extension</td>
+    <td>MolecularSequence extension</td>
     <td>variant.start</td>
         </tr>
         <tr>
     <td>geneticsGenomicsStop</td>
-    <td>Sequence extension</td>
+    <td>MolecularSequence extension</td>
     <td>variant.end</td>
         </tr>
         <tr>
     <td>geneticsReferenceAllele</td>
-    <td>Sequence extension</td>
+    <td>MolecularSequence extension</td>
     <td>variant.referenceAllele</td>
         </tr>
         <tr>
     <td>geneticsObservedAllele</td>
-    <td>Sequence extension</td>
+    <td>MolecularSequence extension</td>
     <td>variant.observedAllele</td>
         </tr>
         <tr>
     <td>geneticsSpecies</td>
-    <td>Sequence extension</td>
+    <td>MolecularSequence extension</td>
     <td>specimen</td>
         </tr>
         <tr>
@@ -1306,7 +1306,7 @@ Get /Specimen?
         </tr>
         <tr>
     <td>geneticsReadCoverage</td>
-    <td>Sequence extension</td>
+    <td>MolecularSequence extension</td>
     <td>readCoverage</td>
         </tr>
         <tr>
@@ -1326,7 +1326,7 @@ Get /Specimen?
         </tr>
         <tr>
     <td>geneticsCIGAR</td>
-    <td>Sequence extension</td>
+    <td>MolecularSequence extension</td>
     <td>variant.cigar</td>
         </tr>
         <tr>

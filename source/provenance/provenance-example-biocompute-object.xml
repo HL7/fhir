@@ -7,7 +7,7 @@
 				<b>Generated Narrative with Details</b>
 			</p><p>
 				<b>id</b>: example-biocompute-object</p><p>
-				<b>target</b>: <a href="http://build.fhir.org/sequence-example.html">Sequence/example</a>
+				<b>target</b>: <a href="http://build.fhir.org/sequence-example.html">MolecularSequence/example</a>
 			</p><p>
 				<b>period</b>: 2017-6-6 --&gt; (ongoing)</p><p>
 				<b>recorded</b>: 2016-6-9 8:12:14</p><p>
@@ -55,7 +55,7 @@
 		</div>
 	</text>
 	<target>
-		<reference value="Sequence/example"/>
+		<reference value="MolecularSequence/example"/>
 	</target>
 	<occurredPeriod>
 		<start value="2017-06-06"/>

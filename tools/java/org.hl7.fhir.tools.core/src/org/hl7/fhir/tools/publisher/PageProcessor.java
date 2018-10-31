@@ -1303,6 +1303,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getProfileContext((MetadataResource) resource, genlevel(level))+s3;
       else if (com[0].equals("res-list-maturity"))
         src = s1+buildResListByMaturity()+s3;
+      else if (com[0].equals("res-list-security"))
+        src = s1+buildResListBySecurity()+s3;
       else if (com[0].equals("res-list-fmg"))
         src = s1+buildResListByFMG()+s3;
       else if (com[0].equals("res-list-ballot"))
@@ -1814,6 +1816,43 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("</ul>\r\n");
     }
     return b.toString();
+  }
+
+  private String buildResListBySecurity() throws FHIRException {
+    List<String> res = new ArrayList<String>();
+    for (ResourceDefn rd : definitions.getResources().values())
+      res.add((rd.getSecurityCategorization() == null ? "9" : rd.getSecurityCategorization().toIndex())+":" +rd.getName());
+    Collections.sort(res);
+    
+    StringBuilder b = new StringBuilder();
+    for (int i = 0; i <= 5; i++) {
+      b.append("<p><b>"+secCategory(i));
+      b.append("</b></p>\r\n<ul style=\"width: 90%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
+      for (String rn : res) {
+        if (rn.startsWith(Integer.toString(i))) {
+          String r = rn.substring(2);
+          ResourceDefn rd = definitions.getResourceByName(r);
+          if (rd.getNormativePackage() != null)
+            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
+          else
+            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
+        }
+      }
+      b.append("</ul>\r\n");
+    }
+    return b.toString();
+  }
+
+  private String secCategory(int i) {
+    switch (i) {
+    case 0: return "Anonymous";
+    case 1: return "Business";
+    case 2: return "Individual";
+    case 3: return "Patient";
+    case 4: return "Not Classified";
+    case 5: return "Not Applicable";
+    default: return "??";
+    }
   }
 
   private String buildResListByBallot() throws FHIRException {
@@ -5856,6 +5895,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genR3MapsSummary() + s3;
       else if (com[0].equals("res-list-maturity"))
         src = s1+buildResListByMaturity()+s3;
+      else if (com[0].equals("res-list-security"))
+        src = s1+buildResListBySecurity()+s3;
       else if (com[0].equals("res-list-fmg"))
         src = s1+buildResListByFMG()+s3;
       else if (com[0].equals("res-list-ballot"))
@@ -6298,6 +6339,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+(resource.getWg() == null ?  "null" : resource.getWg().getName())+s3;
       else if (com[0].equals("fmm"))
         src = s1+"<a href=\"versions.html#maturity\">Maturity Level</a>: "+resource.getFmmLevel()+s3;
+      else if (com[0].equals("sec-cat"))
+        src = s1+(resource.getSecurityCategorization() == null ? "" : "<a href=\"security.html#SecPrivConsiderations\">Security Category</a>: "+resource.getSecurityCategorization().toDisplay())+s3;
       else if (com[0].equals("sstatus")) 
         src = s1+getStandardsStatus(resource.getName())+s3;
       else if (com[0].equals("example-list"))

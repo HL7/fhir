@@ -2629,6 +2629,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         validateQuestionannaireResponse(errors, element, stack);
       else if (element.getType().equals("CodeSystem"))
         validateCodeSystem(errors, element, stack);
+      validateResourceRules(errors, element, stack);
     }
     for (ProfileUsage profileUsage : resourceProfiles.uncheckedProfiles()) {
       profileUsage.setChecked();
@@ -2636,6 +2637,23 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 //      if (!profileUsage.getProfile().getType().equals(resource.fhirType()))
 //        throw new FHIRException("Profile type mismatch - resource is "+resource.fhirType()+", and profile is for "+profileUsage.getProfile().getType());
       validateElement(hostContext, errors, profileUsage.getProfile(), profileUsage.getProfile().getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
+    }
+  }
+
+  private void validateResourceRules(List<ValidationMessage> errors, Element element, NodeStack stack) {
+    String lang = element.getNamedChildValue("language");
+    Element text = element.getNamedChild("text");
+    if (text != null) {
+      Element div = text.getNamedChild("div");
+      if (lang != null && div != null) {
+        XhtmlNode xhtml = div.getXhtml();
+        String xl = xhtml.getAttribute("lang");
+        if (xl == null) {
+          warning(errors, IssueType.BUSINESSRULE, div.line(), div.col(), stack.getLiteralPath(), false, "Resource has a language, but the XHTML does not have a language tag");           
+        } else if (!xl.equals(lang)) {
+          warning(errors, IssueType.BUSINESSRULE, div.line(), div.col(), stack.getLiteralPath(), false, "Resource has a language ("+lang+"), and the XHTML has a language ("+xl+"), but they differ ");           
+        }
+      }
     }
   }
 

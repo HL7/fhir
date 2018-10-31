@@ -9,6 +9,7 @@ import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.ConceptMap;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.r4.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.r4.model.ConceptMap.TargetElementComponent;
@@ -151,6 +152,7 @@ public class CodeListToValueSetParser {
   private void generateConceptMapV2(String v2map, ValueSet vs, CodeSystem cs) throws Exception {
     ConceptMap cm = new ConceptMap();
     cm.setId("cm-"+vs.getId()+"-v2");
+    cm.setVersion(Constants.VERSION);
     cm.setUserData("path", cm.getId()+".html");
     cm.setUserData("generate", true);
     cm.setUrl("http://hl7.org/fhir/ConceptMap/" + cm.getId());
@@ -243,6 +245,7 @@ public class CodeListToValueSetParser {
       v3map = "http://terminology.hl7.org/ValueSet/v3-"+v3map;
 
     ConceptMap cm = new ConceptMap();
+    cm.setVersion(Constants.VERSION);
     cm.setId("cm-"+vs.getId()+"-v3");
     cm.setUserData("path", cm.getId()+".html");
     cm.setUserData("generate", true);
