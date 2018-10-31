@@ -4824,8 +4824,8 @@
     <Cell ss:StyleID="s85"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Device.deviceName</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.deviceName.name | Device.deviceName.type.coding.display | Device.deviceName.type.text</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">A server defined search that may match any of the string fields in Device.deviceName.</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.deviceName.name | Device.type.coding.display | Device.type.text</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">A server defined search that may match any of the string fields in Device.deviceName or Device.type.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">status</Data></Cell>
