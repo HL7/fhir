@@ -7,9 +7,7 @@
   </text>
   <status value="complete"/>
   <type value="individual"/>
-  <measure>
-	  <reference value="Measure/measure-cms146-example"/>
-  </measure>
+  <measure value="Measure/measure-cms146-example"/>
 
   <!-- insert contents here -->
   
