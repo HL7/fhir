@@ -19,7 +19,7 @@
   
   
   <TabRatio>670</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -828,9 +828,6 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s165">
-   <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
-  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R49C1"/>
@@ -1495,8 +1492,8 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The type of participant that can execute the task.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Requested performer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The kind of participant that should perform the task.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Use to distinguish tasks on different activity queues.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4081,12 +4078,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6566,9 +6564,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s156"><Data ss:Type="String">TaskPerformerType</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type(s) of task performers allowed</Data></Cell>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/performer-role</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/performer-role</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
@@ -6936,7 +6934,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
