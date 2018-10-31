@@ -4,7 +4,7 @@
   <LastAuthor>Paul</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
   <LastSaved>2017-02-23T12:11:36Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">747a3dc3-14ba-4528-94a7-b06f9d606003</WorkbookGuid>
@@ -113,6 +113,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -570,7 +571,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">QuestionnaireResponse</Data></Cell>
     <Cell><Data ss:Type="String">subject | author</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">context</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">author | source</Data></Cell>
     <Cell><Data ss:Type="String">author | source</Data></Cell>
     <Cell><Data ss:Type="String">author</Data></Cell>
@@ -813,7 +814,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>43</TopRowBottomPane>
+   <TopRowBottomPane>69</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
