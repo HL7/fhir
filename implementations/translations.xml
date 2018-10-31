@@ -877,7 +877,7 @@
 	</item>
 	<item id="MolecularSequence">
 		<translation lang="en">MolecularSequence</translation>
-		<translation lang="es">Secuenciamolecular</translation>
+		<translation lang="es">SecuenciaMolecular</translation>
 		<translation lang="zh">分子序列</translation>
 	</item>
 	<!--item id="ServiceDefinition">
