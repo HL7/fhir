@@ -46,30 +46,12 @@
 					<reference value="Patient/a2"/>
 				</subject>
 				<date value="2013-07-01T23:11:33+10:00"/>
-				<agent>
-					<type>
-						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-							<code value="AUT"/>
-							<display value="author (originator)"/>
-						</coding>
-					</type>
-					<who>
-						<reference value="Practitioner/a3"/>
-					</who>
-				</agent>
-				<agent>
-					<type>
-						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-							<code value="AUT"/>
-							<display value="author (originator)"/>
-						</coding>
-					</type>
-					<who>
-						<reference value="Practitioner/a4"/>
-					</who>
-				</agent>
+				<author>
+					<reference value="Practitioner/a3"/>
+				</author>
+				<author>
+					<reference value="Practitioner/a4"/>
+				</author>
 				<description value="Physical"/>
 				<securityLabel>
 					<coding>
