@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<MolecularSequence>
+    <id value="coord-1-base"/>
+    <type value="dna"/>
+    <coordinateSystem value="1"/>
+    <referenceSeq>
+        <referenceSeqString value="ACGTAGTC"/>
+        <strand value="watson"/>
+        <windowStart value="1"/>
+        <windowEnd value="8"/>
+    </referenceSeq>
+    <variant>
+        <start value="2"/>
+        <end value="3"/>
+        <observedAllele value="ATG"/>
+        <referenceAllele value="-"/>
+        <cigar value="3I"/>
+    </variant>
+    <variant>
+        <start value="5"/>
+        <end value="5"/>
+        <observedAllele value="T"/>
+        <referenceAllele value="A"/>
+        <cigar value="3I"/>
+    </variant>
+    <variant>
+        <start value="7"/>
+        <end value="7"/>
+        <observedAllele value="-"/>
+        <referenceAllele value="T"/>
+        <cigar value="1D"/>
+    </variant>  
+    <observedSeq value="ACATGGTAGC"/>
+</MolecularSequence>

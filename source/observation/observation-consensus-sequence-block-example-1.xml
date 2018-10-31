@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- NOTE: This example will soon be revised and moved to the Genomics Reporting implementation guide - current version at http://hl7.org/fhir/uv/genomics-reporting -->
 
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/sequence.xsd">
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/molecularsequence.xsd">
   <id value="consensus-sequence-block-example-1"/>
   <contained>
-      <Sequence>
+      <MolecularSequence>
           <id value="variant-1"/>
           <type value="DNA"/>
           <coordinate>
@@ -13,10 +13,10 @@
           </coordinate>
           <observedAllele value="AT"/>
           <referenceAllele value="C"/>
-      </Sequence>
+      </MolecularSequence>
   </contained>
   <contained>
-      <Sequence>
+      <MolecularSequence>
           <id value="variant-2"/>
           <type value="DNA"/>
           <coordinate>
@@ -25,7 +25,7 @@
           </coordinate>
           <observedAllele value="G"/>
           <referenceAllele value="CT"/>
-      </Sequence>
+      </MolecularSequence>
   </contained>
 
   <extension url="http://hl7.org/fhir/StructureDefinition/observation-consensus-sequence-blockReferenceSeq">
