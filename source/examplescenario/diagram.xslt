@@ -64,22 +64,6 @@ group#A9CCEF #A9CCEF <xsl:value-of select="title/@value"/><xsl:text>&#13;&#10;</
 
 
 <xsl:template match="step/alternative">
-'<xsl:value-of select="name/@value"/> 
-<xsl:apply-templates select="option"/>
-
-<xsl:text>&#13;&#10;</xsl:text>
-<xsl:apply-templates select="./step"/>end
-</xsl:template>
-
-<!--
-<xsl:template match="alternative/option">
-<xsl:value-of select="description/@value"/>
-<xsl:apply-templates select="./step"/>
-</xsl:template>
--->
-
-
-<xsl:template match="alternative/option"> 
 <xsl:choose>
 <xsl:when test="position() &lt; 2"> 
 alt#blue #A9DCDF </xsl:when>
@@ -90,17 +74,20 @@ else </xsl:otherwise>
 <xsl:value-of select="description/@value"/>
 <xsl:text>&#13;&#10;</xsl:text>
 
+'<xsl:value-of select="title/@value"/> 
 <xsl:apply-templates select="./step"/>
 
-<!-- was like this before:
-<xsl:apply-templates select="operation"/>
-<xsl:apply-templates select="process"/>
-<xsl:apply-templates select="pause"/>
-<xsl:apply-templates select="alternative"/>
+<xsl:text>&#13;&#10;</xsl:text>
+end
+</xsl:template>
+
+<!--
+<xsl:template match="alternative/option">
+<xsl:value-of select="description/@value"/>
+<xsl:apply-templates select="./step"/>
+</xsl:template>
 -->
 
-
-</xsl:template>
 
 <xsl:template match="actor">
 <xsl:variable name="actorType" select="type/@value"/>

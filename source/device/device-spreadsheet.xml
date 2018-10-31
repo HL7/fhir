@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1082,7 +1082,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="31">
     <Cell ss:StyleID="s78"><Data ss:Type="String">Device.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String"></Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1111,7 +1111,7 @@
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s92"><Data ss:Type="String">Reference (DeviceDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="7" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>1
+    <Cell ss:Index="7" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4223,11 +4223,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>14</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4731,19 +4730,21 @@
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C6"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="31" ss:StyleID="s125" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="31" ss:StyleID="s125" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="71.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="57.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="110.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="210.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="211.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="383.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s126">
     <Cell ss:StyleID="s114"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">Unique name for search parameter - required, lower-case, dash-delimited string    </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type for parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Target Types</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Comma delimited list of target resources</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Expression</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Description</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4751,55 +4752,56 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Device.type</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">The type of the device</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s129"><Data ss:Type="String">The type of the device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">manufacturer</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Device.manufacturer</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The manufacturer of the device</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">The manufacturer of the device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">model</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.model</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The model of the device</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.modelNumber</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">The model of the device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">organization</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Device.owner</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The organization responsible for the device</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">The organization responsible for the device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Device.identifier</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Instance id from manufacturer, owner, and others</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">Instance id from manufacturer, owner, and others</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">location</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Device.location</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">A location, where the resource is found</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">A location, where the resource is found</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Device.patient</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Patient information, if the resource is affixed to a person</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">Patient information, if the resource is affixed to a person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s130"><Data ss:Type="String">udi-carrier</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.udi.carrierHRF | Device.udi.carrierAIDC</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.udiCarrier</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.udiCarrier.carrierHRF</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">UDI Barcode (RFID or other technology) string in *HRF* format.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4807,147 +4809,149 @@
     <Cell ss:StyleID="s85"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Device.url</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Network address to contact device</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">Network address to contact device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">udi-di</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.udi.deviceIdentifier</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.udiCarrier</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.udiCarrier.deviceIdentifier</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">The udi Device Identifier (DI)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s130"><Data ss:Type="String">device-name</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.udi.name | Device.type.text | Device.type.coding.display</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">A server defined search that may match any of the string fields in the Device.udi.name  or Device.type.coding.display or  Device.type.text</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.deviceName</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.deviceName.name | Device.type.coding.display | Device.type.text</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">A server defined search that may match any of the string fields in Device.deviceName or Device.type.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">status</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Device.status</Data></Cell>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">                                                                        </Data></Cell>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:Index="6" ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
+    <Cell ss:Index="6" ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0"/>
   </Table>
@@ -4963,6 +4967,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4975,7 +4980,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C5">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C6">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Operations">

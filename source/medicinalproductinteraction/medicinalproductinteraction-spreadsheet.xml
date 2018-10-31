@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>rik</LastAuthor>
@@ -15,9 +15,8 @@
   
   
   
-  <TabRatio>837</TabRatio>
+  <TabRatio>631</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -642,9 +641,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R9C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R10C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="9" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="10" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="347.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="287.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="28.0"/>
@@ -693,16 +692,16 @@
     <Cell ss:Index="9"><Data ss:Type="String">clinical.general</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">MedicinalProductInteraction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">The interactions of the medicinal product with other medicinal products, or other forms of interactions</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">314;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductInteraction.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5" ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Reference(MedicinalProduct|Medication)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">The medication for which this is an indication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5" ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Reference(MedicinalProduct|Medication|Substance)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">The medication for which this is a described interaction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductInteraction.interaction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductInteraction.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -722,7 +721,24 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Backbone Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The specific medication, food or laboratory test that interacts</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">400;25</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductInteraction.interactant.item[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Reference(MedicinalProduct|Medication|Substance|ObservationDefinition)|CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -747,7 +763,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The type of the interaction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The type of the interaction e.g. drug-drug interaction, drug-food interaction, drug-lab test interaction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductInteraction.effect</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -763,7 +779,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The effect of the interaction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The effect of the interaction, for example "reduced gastric absorption of primary medication"</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductInteraction.incidence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -779,7 +795,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The incidence of the interaction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The incidence of the interaction, e.g. theoretical, observed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductInteraction.management</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -817,14 +833,14 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>16</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R9C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R10C24">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
