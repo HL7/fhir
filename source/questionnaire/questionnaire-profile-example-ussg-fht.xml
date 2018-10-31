@@ -486,10 +486,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<type value="group"/>
 							-->
 							<item>
-							  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-isSubject">
-								  <valueBoolean value="true"/>
-								</extension>
-							  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource">
+							  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource">
 								  <valueCode value="Patient"/>
 								</extension>
 								<linkId value="2.1.1.0"/>
