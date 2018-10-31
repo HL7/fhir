@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="SubscriberRelationshipCodes"/>
+  <title value="SubscriberPolicyholder Relationship Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes codes for the relationship between the Subscriber and the Beneficiary (insured/covered party/patient)."/>
+  <copyright value="This is an extensible set."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/subscriber-relationship"/>
+    </include>
+  </compose>
+</ValueSet>
