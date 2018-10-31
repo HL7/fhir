@@ -1,3 +1,15 @@
+### FHIR Specification Source
+
+This is the official source the FHIR Specification.
+
+Note: this source builds the FHIR specification. The content here is not suitable for 
+implementers of the FHIR specification, and there's no reason for you to try running
+this build unless you are one of the editors of the FHIR specification. If you 
+are building software, look here for open source implementations of the FHIR 
+Spec:
+
+http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations
+
 ### To run the FHIR Publisher
 First ensure that [ant 1.9+](http://ant.apache.org/bindownload.cgi) is installed on your system.
 
