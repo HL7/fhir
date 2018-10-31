@@ -5559,7 +5559,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s131">
     <Cell ss:StyleID="s153"><Data ss:Type="String">!component-value-string</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">string</Data></Ce ll>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Observation.component.valueString</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">The value of the component observation, if the value is a string, and also searches in CodeableConcept.text</Data></Cell>
