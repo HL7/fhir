@@ -126,6 +126,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
    <Column ss:StyleID="s65" ss:Width="149.0"/>
    <Column ss:StyleID="s65" ss:Width="198.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="210.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
@@ -319,19 +320,19 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentManifest</Data></Cell>
-    <Cell><Data ss:Type="String">subject | agent | recipient</Data></Cell>
+    <Cell><Data ss:Type="String">subject | author | recipient</Data></Cell>
     <Cell><Data ss:Type="String">related-ref</Data></Cell>
-    <Cell><Data ss:Type="String">agent</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">subject | agent | recipient</Data></Cell>
-    <Cell><Data ss:Type="String">subject | agent</Data></Cell>
+    <Cell><Data ss:Type="String">author | recipient</Data></Cell>
+    <Cell><Data ss:Type="String">subject | author | recipient </Data></Cell>
+    <Cell><Data ss:Type="String">subject | author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
-    <Cell><Data ss:Type="String">subject </Data></Cell>
+    <Cell><Data ss:Type="String">subject | author </Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">agent</Data></Cell>
-    <Cell><Data ss:Type="String">subject | agent | authenticator</Data></Cell>
-    <Cell><Data ss:Type="String">subject | agent</Data></Cell>
+    <Cell><Data ss:Type="String">author </Data></Cell>
+    <Cell><Data ss:Type="String">subject | author | authenticator</Data></Cell>
+    <Cell><Data ss:Type="String">subject | author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CoverageEligibilityRequest</Data></Cell>
