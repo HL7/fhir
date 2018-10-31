@@ -17,8 +17,8 @@
   
   
   
-  <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>8</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1832,7 +1832,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">MeasureImprovementNotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4503,7 +4503,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>39</TopRowBottomPane>
+   <TopRowBottomPane>30</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5045,7 +5045,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7052,7 +7051,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s151"><Data ss:Type="String">MeasureImprovementNotation</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Improvement notation for a measure (e.g. increase or decrease)</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">#measure-improvement-notation</Data></Cell>
@@ -7393,6 +7392,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -10940,8 +10940,8 @@
     <Cell ss:StyleID="s132"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">Increase</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">Improvement in the measure is noted as an increase in the measure score</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Increased score indicates improvement</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Improvement is indicated as an increase in the score or measurement (e.g. Higher score indicates better quality)</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s145"/>
@@ -10951,8 +10951,8 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">Decrease</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">Improvement in the measure is noted as a decrease in the measure score</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">Decreased score indicates improvement</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">Improvement is indicated as a decrease in the score or measurement (e.g. Lower score indicates better quality)</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s147"/>

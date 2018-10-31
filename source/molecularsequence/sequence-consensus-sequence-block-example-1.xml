@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<MolecularSequence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/molecularsequence.xsd">
+  <id value="consensus-sequence-block-example-1"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/sequence-consensus-sequence-blockPhaseSet">
+      <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/sequence-consensus-sequence-blockExpectedCopyNumber">
+      <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/sequence-consensus-sequence-blockContinuity">
+      <valueBoolean value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/sequence-consensus-sequence-blockStrand">
+      <valueInteger value="1"/>
+  </extension>
+  <type value="DNA"/>
+  <coordinateSystem value="0"/>
+  <referenceSeq>
+        <referenceSeqId>
+            <coding>
+                <system value="http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/"/>
+                <code value="ref1"/>
+            </coding>
+        </referenceSeqId>
+      <strand value="watson"/>
+      <windowStart value="29942412"/>
+      <windowEnd value="29942852"/>
+  </referenceSeq>
+  <variant>
+      <start value="29945809"/>
+      <end value="29942810"/>
+      <observedAllele value="AT"/>
+      <referenceAllele value="C"/>
+  </variant>
+  <variant>
+      <start value="29942940"/>
+      <end value="29942942"/>
+      <observedAllele value="G"/>
+      <referenceAllele value="CT"/>
+  </variant>
+</MolecularSequence>
+    

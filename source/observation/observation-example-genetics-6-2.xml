@@ -20,7 +20,7 @@
 <Observation xmlns="http://hl7.org/fhir">
   <id value="ob-genetics-6-2"/>
   <contained>
-      <Sequence>
+      <MolecularSequence>
           <id value="g-2"/>
           <type value="DNA"/>
           <variationID>
@@ -47,7 +47,7 @@
           </coordinate>
           <observedAllele value="A"/>
           <referenceAllele value="T"/>
-      </Sequence>
+      </MolecularSequence>
   </contained>
   <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
       <valueReference>
