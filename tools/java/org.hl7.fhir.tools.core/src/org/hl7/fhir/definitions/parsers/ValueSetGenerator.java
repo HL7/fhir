@@ -23,6 +23,7 @@ import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.CodeType;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
@@ -329,7 +330,8 @@ public class ValueSetGenerator {
     vs.setName("OperationOutcomeCodes");
     vs.setTitle("Operation Outcome Codes");
     vs.setPublisher("HL7 (FHIR Project)");
-    
+    vs.setVersion(Constants.VERSION);
+
     vs.setUserData("filename", "valueset-"+vs.getId());
     if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
       vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));

@@ -116,7 +116,23 @@
 			},
 			"synthea.json": {
 				"errorCount": 2
-			}
+			}, 
+      "patient-good.json" : {
+        "errorCount": 0,
+        "warningCount": 0
+      }, 
+      "patient-lang1.json" : {
+        "errorCount": 0,
+        "warningCount": 1
+      }, 
+      "patient-lang2.json" : {
+        "errorCount": 0,
+        "warningCount": 0
+      }, 
+      "patient-lang3.json" : {
+        "errorCount": 0,
+        "warningCount": 1
+      }
 		},
 		"Xml": {
 			"bundle-good.xml": {
@@ -355,6 +371,22 @@
       "qr.xml" : {
         "questionnaire" : "q.xml",
         "errorCount": 2
+      }, 
+      "patient-good.xml" : {
+        "errorCount": 0,
+        "warningCount": 0
+      }, 
+      "patient-lang1.xml" : {
+        "errorCount": 0,
+        "warningCount": 1
+      }, 
+      "patient-lang2.xml" : {
+        "errorCount": 0,
+        "warningCount": 0
+      }, 
+      "patient-lang3.xml" : {
+        "errorCount": 0,
+        "warningCount": 1
       }
 		}
 	}

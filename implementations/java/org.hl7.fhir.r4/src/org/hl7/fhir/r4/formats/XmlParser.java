@@ -23125,92 +23125,6 @@ public class XmlParser extends XmlParserBase {
     return true;
   }
 
-  protected UserSession parseUserSession(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError {
-    UserSession res = new UserSession();
-    parseDomainResourceAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseUserSessionContent(eventType, xpp, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseUserSessionContent(int eventType, XmlPullParser xpp, UserSession res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.setIdentifier(parseIdentifier(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("user")) {
-        res.setUser(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
-        res.setStatus(parseUserSessionUserSessionStatusComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("workstation")) {
-        res.setWorkstation(parseIdentifier(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("focus")) {
-        res.getFocus().add(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("created")) {
-        res.setCreatedElement(parseInstant(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("expires")) {
-        res.setExpiresElement(parseInstant(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("context")) {
-        res.getContext().add(parseUserSessionUserSessionContextComponent(xpp, res));
-      } else if (!parseDomainResourceContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected UserSession.UserSessionStatusComponent parseUserSessionUserSessionStatusComponent(XmlPullParser xpp, UserSession owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    UserSession.UserSessionStatusComponent res = new UserSession.UserSessionStatusComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseUserSessionUserSessionStatusComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseUserSessionUserSessionStatusComponentContent(int eventType, XmlPullParser xpp, UserSession owner, UserSession.UserSessionStatusComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
-        res.setCodeElement(parseEnumeration(xpp, UserSession.UserSessionStatus.NULL, new UserSession.UserSessionStatusEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("source")) {
-        res.setSourceElement(parseEnumeration(xpp, UserSession.UserSessionStatusSource.NULL, new UserSession.UserSessionStatusSourceEnumFactory()));
-      } else if (!parseBackboneElementContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected UserSession.UserSessionContextComponent parseUserSessionUserSessionContextComponent(XmlPullParser xpp, UserSession owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    UserSession.UserSessionContextComponent res = new UserSession.UserSessionContextComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseUserSessionUserSessionContextComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseUserSessionUserSessionContextComponentContent(int eventType, XmlPullParser xpp, UserSession owner, UserSession.UserSessionContextComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
-        res.setTypeElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "value")) {
-        res.setValue(parseType("value", xpp));
-      } else if (!parseBackboneElementContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
 
   protected ValueSet parseValueSet(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError {
     ValueSet res = new ValueSet();
@@ -24058,8 +23972,6 @@ public class XmlParser extends XmlParserBase {
       return parseTestReport(xpp);
     else if (xpp.getName().equals("TestScript"))
       return parseTestScript(xpp);
-    else if (xpp.getName().equals("UserSession"))
-      return parseUserSession(xpp);
     else if (xpp.getName().equals("ValueSet"))
       return parseValueSet(xpp);
     else if (xpp.getName().equals("VerificationResult"))
@@ -24714,8 +24626,6 @@ public class XmlParser extends XmlParserBase {
       return parseTestReport(xpp);
     else if (type.equals("TestScript"))
       return parseTestScript(xpp);
-    else if (type.equals("UserSession"))
-      return parseUserSession(xpp);
     else if (type.equals("ValueSet"))
       return parseValueSet(xpp);
     else if (type.equals("VerificationResult"))
@@ -25127,8 +25037,6 @@ public class XmlParser extends XmlParserBase {
     if (xpp.getName().equals(prefix+"TestReport"))
       return true;
     if (xpp.getName().equals(prefix+"TestScript"))
-      return true;
-    if (xpp.getName().equals(prefix+"UserSession"))
       return true;
     if (xpp.getName().equals(prefix+"ValueSet"))
       return true;
@@ -49281,83 +49189,6 @@ public class XmlParser extends XmlParserBase {
       }
   }
 
-  protected void composeUserSession(String name, UserSession element) throws IOException {
-    if (element != null) {
-      composeDomainResourceAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeUserSessionElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeUserSessionElements(UserSession element) throws IOException {
-      composeDomainResourceElements(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
-      if (element.hasUser()) {
-        composeReference("user", element.getUser());
-      }
-      if (element.hasStatus()) {
-        composeUserSessionUserSessionStatusComponent("status", element.getStatus());
-      }
-      if (element.hasWorkstation()) {
-        composeIdentifier("workstation", element.getWorkstation());
-      }
-      if (element.hasFocus()) { 
-        for (Reference e : element.getFocus()) 
-          composeReference("focus", e);
-      }
-      if (element.hasCreatedElement()) {
-        composeInstant("created", element.getCreatedElement());
-      }
-      if (element.hasExpiresElement()) {
-        composeInstant("expires", element.getExpiresElement());
-      }
-      if (element.hasContext()) { 
-        for (UserSession.UserSessionContextComponent e : element.getContext()) 
-          composeUserSessionUserSessionContextComponent("context", e);
-      }
-  }
-
-  protected void composeUserSessionUserSessionStatusComponent(String name, UserSession.UserSessionStatusComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeUserSessionUserSessionStatusComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeUserSessionUserSessionStatusComponentElements(UserSession.UserSessionStatusComponent element) throws IOException {
-      composeBackboneElementElements(element);
-      if (element.hasCodeElement())
-        composeEnumeration("code", element.getCodeElement(), new UserSession.UserSessionStatusEnumFactory());
-      if (element.hasSourceElement())
-        composeEnumeration("source", element.getSourceElement(), new UserSession.UserSessionStatusSourceEnumFactory());
-  }
-
-  protected void composeUserSessionUserSessionContextComponent(String name, UserSession.UserSessionContextComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeUserSessionUserSessionContextComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeUserSessionUserSessionContextComponentElements(UserSession.UserSessionContextComponent element) throws IOException {
-      composeBackboneElementElements(element);
-      if (element.hasTypeElement()) {
-        composeString("type", element.getTypeElement());
-      }
-      if (element.hasValue()) {
-        composeType("value", element.getValue());
-      }  }
-
   protected void composeValueSet(String name, ValueSet element) throws IOException {
     if (element != null) {
       composeDomainResourceAttributes(element);
@@ -50215,8 +50046,6 @@ public class XmlParser extends XmlParserBase {
       composeTestReport("TestReport", (TestReport)resource);
     else if (resource instanceof TestScript)
       composeTestScript("TestScript", (TestScript)resource);
-    else if (resource instanceof UserSession)
-      composeUserSession("UserSession", (UserSession)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
     else if (resource instanceof VerificationResult)
@@ -50522,8 +50351,6 @@ public class XmlParser extends XmlParserBase {
       composeTestReport(name, (TestReport)resource);
     else if (resource instanceof TestScript)
       composeTestScript(name, (TestScript)resource);
-    else if (resource instanceof UserSession)
-      composeUserSession(name, (UserSession)resource);
     else if (resource instanceof ValueSet)
       composeValueSet(name, (ValueSet)resource);
     else if (resource instanceof VerificationResult)

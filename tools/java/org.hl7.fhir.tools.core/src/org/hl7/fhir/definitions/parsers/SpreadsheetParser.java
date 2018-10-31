@@ -92,6 +92,7 @@ import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.ConceptMap;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.DateType;
@@ -779,6 +780,7 @@ public class SpreadsheetParser {
           throw new Exception("Search Param "+pack.getTitle()+"/"+n+" includes relative time "+ getLocation(row));
 //        if (!n.toLowerCase().equals(n))
 //          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" must be all lowercase "+ getLocation(row));
+        sp.setVersion(Constants.VERSION);
         sp.setName(n);
         sp.setCode(n);
         sp.setMultipleAnd(true);
@@ -1130,6 +1132,7 @@ public class SpreadsheetParser {
           throw new Exception("don't start code list references with #valueset-");
         cd.setValueSet(ValueSetUtilities.makeShareable(new ValueSet()));
         valuesets.add(cd.getValueSet());
+        cd.getValueSet().setVersion(Constants.VERSION);
         cd.getValueSet().setId(igSuffix(ig)+ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(1));
         cd.getValueSet().setUserData("filename", "valueset-"+cd.getValueSet().getId());
@@ -1291,7 +1294,7 @@ public class SpreadsheetParser {
       if (!result.hasTitle())
         result.setTitle(Utilities.capitalize(Utilities.unCamelCase(result.getName())));
 	    result.setExperimental(true);
-	    if (!result.hasVersion())
+	    if (!result.hasVersion() || result.getUrl().startsWith("http://hl7.org/fhir"))
 	      result.setVersion(version.toCode());
       result.setUserData("filename", ref);
       result.setUserData("path", ((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ ref+".html");
@@ -2101,6 +2104,7 @@ public class SpreadsheetParser {
     ex.setDerivation(TypeDerivationRule.CONSTRAINT);
     ex.setAbstract(false);
     ex.setFhirVersion(version);
+    ex.setVersion(Constants.VERSION);
     if (wg != null)
       ToolingExtensions.setCodeExtension(ex, ToolingExtensions.EXT_WORKGROUP, wg.getCode());
     String fmm = sheet.getColumn(row, "FMM");

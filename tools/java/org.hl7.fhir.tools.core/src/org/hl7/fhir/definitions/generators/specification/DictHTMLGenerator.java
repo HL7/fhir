@@ -484,7 +484,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   public void generate(ElementDefn root) throws Exception
 	{
 		write("<table class=\"dict\">\r\n");
-		writeEntry(root.getName(), "1..1", describeType(root), null, root, root.getName());
+		writeEntry(root.getName(), "0..*", describeType(root), null, root, root.getName());
 		for (ElementDefn e : root.getElements()) {
 		   generateElement(root.getName(), e, root.getName());
 		}

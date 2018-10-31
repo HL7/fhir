@@ -7,8 +7,7 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>
 	</text>
 	<identifier>
-		<use value="official"/>
-		<system value="urn:ietf:rfc:3986"/>
+		<system value="urn:dicom:uid"/>
 		<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
 	</identifier>
 	<status value="available"/>
@@ -20,10 +19,7 @@
 	<numberOfInstances value="1"/>
 
 	<series>
-		<identifier>
-			<system value="urn:ietf:rfc:3986"/>
-			<value value="urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630"/>
-		</identifier>
+		<uid value="2.16.124.113543.6003.2588828330.45298.17418.2723805630"/>
 		<number value="3"/>
 		<modality>
 			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -38,15 +34,12 @@
 			<display value="Upper Trunk Structure"/>
 		</bodySite>
 		<instance>
-			<identifier>
-				<system value="urn:ietf:rfc:3986"/>
-				<value value="urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903"/>
-			</identifier>
-			<number value="1"/>
+			<uid value="2.16.124.113543.6003.189642796.63084.16748.2599092903"/>
 			<sopClass>
 				<system value="urn:ietf:rfc:3986"/>
 				<code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
 			</sopClass> 
+			<number value="1"/>
 		</instance>
 	</series>   
 </ImagingStudy>

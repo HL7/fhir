@@ -314,6 +314,8 @@ public class IgSpreadsheetParser {
     }
     sd.getDifferential().getElementFirstRep().getType().clear();
     sd.setUrl(base+"/StructureDefinition/"+sd.getId());
+    if ("http://hl7.org/fhir".equals(base))
+      sd.setVersion(Constants.VERSION);
     bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
 
     // Changed the default from metadata to Short because the former caused problems when there are multiple sheets in a workbook
@@ -1077,6 +1079,8 @@ public class IgSpreadsheetParser {
     ex.setDerivation(TypeDerivationRule.CONSTRAINT);
     ex.setAbstract(false);
     ex.setFhirVersion(FHIRVersion.fromCode(Constants.VERSION));
+    if ("http://hl7.org/fhir".equals(base))
+      ex.setVersion(Constants.VERSION);
 
     String context = null;
     if (Utilities.noString(name))
@@ -1446,6 +1450,7 @@ public class IgSpreadsheetParser {
             op.setUrl(base+"/OperationDefinition/"+name);
             op.setSystem(system);
             op.setInstance(istype);
+            op.setVersion(Constants.VERSION);
             String s = sheet.getColumn(row, "Type");
             if (!Utilities.noString(s)) {
               op.addResource(s);

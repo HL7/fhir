@@ -1,7 +1,7 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
-
+<a name="notes"></a>
 <h3>Implementation Notes</h3>
 <p>
 A referenced DICOM SOP instance could be:
@@ -15,8 +15,37 @@ A referenced DICOM SOP instance could be:
 </ul>
 </p>
 <p>
-UID values follow the FHIR convention of expressing UIDs as URNs. For example, the DICOM Study Instance UID
-of <code>1.2.250.1.59.40211.12345678.678910</code> is expressed as <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>.
+DICOM Series Instance UID and SOP Instance UID use the <code>id</code> datatype, and are encoded directly. For example, an image with SOP Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430045.1.1</code> is encoded in <code>ImagingStudy.series.instance.uid</code> as <code>“2.16.124.113543.1154777499.30246.19789.3503430045.1.1”</code>.
+</p>
+<p>
+The ImagingStudy’s DICOM Study Instance UID is encoded in the <code>ImagingStudy.identifier</code> element, which is of the <code>Identifier</code> datatype. When encoding a DICOM UID in an <code>Identifier</code> datatype, use the Identifier system of <code>“urn:dicom:uid”</code>, and prefix the UID value with <code>“urn:oid:”</code>. Therefore, an ImagingStudy with DICOM Study Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430046</code> is encoded as:
+<pre class="json">
+
+	"identifier":{
+		"system":"urn:dicom:uid",
+		"value":"urn:oid:2.16.124.113543.1154777499.30246.19789.3503430046"
+	} 
+
+</pre>
+</p>
+<p>
+The study accession number can also be encoded as an <code>Identifier</code> using the <code>“ACSN”</code> identifier type, as follows:
+<pre class="json">
+
+  "identifier":{
+		"type" : {
+			"coding" : [
+				{
+					"system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+					"code" : "ACSN"
+				}
+			]
+		},
+		"system":"http://ginormoushospital.org/accession",
+		"value":"GH334103"
+	} 
+
+</pre>
 </p>
 <p>
 The ImagingStudy.endpoint elements and ImagingStudy.series.endpoint elements indicate network 
@@ -33,21 +62,20 @@ a series would be stored together, and thus instance-level endpoints are not def
 </p>
 <p>
 Different Endpoint connection types may have different capabilities, protocols or requirements; and the specified 
-Endpoint.url may require manipulation. For the details on use of imaging-related Endpoint connection types, 
-See below for details.
+<code>Endpoint.address</code> may require manipulation. See below for the details on use of imaging-related Endpoint connection types.
 </p>
 <a name="endpoint"></a>
 <h4>WADO-RS</h4>
 <p>
-An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rsi</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
+An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rs</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
 identifies a DICOM WADO-RS service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
-That is, only the scheme, authority and path are included. Sub-services, such as study, shall not be specified. 
+That is, only the scheme, authority and path are included. Sub-services, such as <code>study</code>, shall not be specified. 
 The path shall not contain a trailing slash.
 </p>
 <p>
 The DICOM WADO-RS (Web Access to DICOM Objects, RESTful mode) service uses a RESTful approach to instance retrieval.
 This service allows for retrieval of native DICOM SOP instances, or instances “rendered” into other formats, including
-JPEG and MPEG. The media type of a response is specified by the request Accept header (preferred); or, by the accept
+JPEG and MPEG. The media type of a response is specified by the request Accept header (preferred); or, by the <code>accept</code>
 query parameters. Supported media types depend on the  capabilities of the WADO-RS server and the classification of the instance 
 as “single frame,” “multi-frame,” “video,” “text,” or “other.” The WADO-RS service also allows retrieval of study
 or series level information.
@@ -56,12 +84,14 @@ or series level information.
 The path to retrieve a DICOM instance is constructed by appending the appropriate sub-resource paths to the <code>Endpoint.address</code> value.
 </p>
 <p>
-For example, a native DICOM PS3.10 instance file can be retrieved (if consistent with the Accept header) by
-performing a GET on a URL constructed from a <code>Endpoint.address</code> of <code>“https://pacs.hospital.org/wado-rs”</code>, the
-study.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>, study.series.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.789001276.14556172.67789”</code>, and study.series.instance.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.2678810.87991027.899772.2”</code>:
+For example, using the following information in a fictional ImagingStudy resource:
+<ul>
+<li>the WADO-RS service base url of <code>“https://pacs.hospital.org/wado-rs”</code> found in an <code>ImagingStudy.endpoint.address</code>,</li>
+<li>the DICOM Study Instance UID of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
+<li>the DICOM Series Instance UID of <code>“1.2.250.1.59.40211.789001276.14556172.67789”</code> found in <code>ImagingStudy.series.uid</code>, and</li>
+<li>the DICOM SOP Instance UID of <code>“1.2.250.1.59.40211.2678810.87991027.899772.2”</code> found in <code>ImagingStudy.series.instance.uid</code></li>
+</ul>
+we can construct the WADO-RS URL to issue an HTTP GET for a native DICOM PS3.10 instance file (if consistent with the Accept header):
 </p>
 <pre>
 
@@ -90,9 +120,9 @@ For further details on DICOM WADO-RS capabilities including additional rendering
 see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
 </p>
 <h4>WADO-URI</h4>
-<p>An Endpoint.connectionType of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
-identifies a DICOM WADO-URI service. The Endpoint.address identifies the HTTP(S) service base url. 
-That is, only the scheme, authority and path are included. Neither a question mark (?) nor any query parameters shall be included.
+<p>An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
+identifies a DICOM WADO-URI service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
+That is, only the scheme, authority and path are included. Neither a question mark (“?”) nor any query parameters shall be included.
 </p>
 <p>
 The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
@@ -101,21 +131,23 @@ type of a response is specified by the request Accept header (preferred); or, by
 Supported media types depend on the classification of the instance as “single frame,” “multi-frame,” “video,” “text,” or “other.”
 </p>
 <p>
-The query to retrieve a DICOM instance is constructed by appending the appropriate query parameters to the <code>Endpoint.address.url</code>.
+The query to retrieve a DICOM instance is constructed by appending the appropriate query parameters to the <code>Endpoint.address</code> value.
 </p>
 <p>
-For example, a native DICOM PS3.10 instance file can be retrieved (if consistent with the Accept header) by performing
-a GET on a URL constructed from an <code>Endpoint.address.url</code> of <code>“https://pacs.hospital.org/wado-uri”</code>, the study.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>, study.series.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.789001276.14556172.67789”</code>, and study.series.instance.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.2678810.87991027.899772.2”</code>:
+For example, using the following information in a fictional ImagingStudy resource:
+<ul>
+<li>the WADO-URI service base url of <code>“https://pacs.hospital.org/wado-uri”</code> found in an <code>ImagingStudy.endpoint.address</code>,</li>
+<li>the DICOM Study Instance UID of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
+<li>the DICOM Series Instance UID of <code>“1.2.250.1.59.40211.789001276.14556172.67789”</code> found in <code>ImagingStudy.series.uid</code>, and</li>
+<li>the DICOM SOP Instance UID of <code>“1.2.250.1.59.40211.2678810.87991027.899772.2”</code> found in <code>ImagingStudy.series.instance.uid</code></li>
+</ul>
+we can construct the WADO-URI URL to issue an HTTP GET for a native DICOM PS3.10 instance file (if consistent with the Accept header):
 </p>
 <pre>
 
 https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;seriesUID=1.2.250.1.59.40211.789001276.14556172.67789&amp;objectUID=1.2.250.1.59.40211.2678810.87991027.899772.2
 
 </pre>
-
 <p>
 Additional query parameters can control other aspects of the rendering including rendered dimensions, quality (compression
 ratio), the region of interest within the image to render, brightness/contrast (window center/width) adjustments, whether
@@ -136,9 +168,9 @@ For further details on DICOM WADO-URI capabilities including additional renderin
 see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
 </p>
 <h4>IID</h4>
-<p>An Endpoint.connectionType of code <code>ihe-iid</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies an IHE 
-<b>Invoke Image Display (IID)</b> service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
-That is, only the scheme, authority and path are included. Neither the question mark (“?”) nor any query parameters shall be included.
+<p>An <code>Endpoint.connectionType</code> of code <code>ihe-iid</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
+identifies an IHE <b>Invoke Image Display (IID)</b> service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
+That is, only the scheme, authority and path are included. Neither a question mark (“?”) nor any query parameters shall be included.
 </p>
 <p>
 The IHE <b>Invoke Image Display (IID)</b> service provides a standardized mechanism to launch a viewer in a particular study 
@@ -150,9 +182,12 @@ viewer capabilities, image quality, and more.
 To launch a viewer, append the appropriate query parameters to <code>Endpoint.address</code> value.
 </p>
 <p>
-For example, given an <code>Endpoint.address</code> of <code>https://pacs.hospital.org/IHEInvokeImageDisplay</code>, to 
-invoke a diagnostic quality viewer on the study with <code>study.uid</code> value of <code>“urn:uri:1.2.250.1.59.40211.12345678.678910”</code>, 
-the following URL would be constructed:
+For example, using the following information in a fictional ImagingStudy resource:
+<ul>
+<li>the WADO-URI service base url of <code>“https://pacs.hospital.org/IHEInvokeImageDisplay”</code> found in an <code>ImagingStudy.endpoint.address</code>,</li>
+<li>the DICOM Study Instance UID of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
+</ul>
+we can construct the IID URL to invoke a diagnostic quality viewer on the indicated study:
 </p>
 <pre>
 
@@ -164,8 +199,6 @@ For further details on IHE Invoke Image Display capabilities including additiona
 the <a href="http://www.ihe.net/Technical_Frameworks/#radiology">IHE Technical Frameworks</a>, 
 or the introduction on the <a href="http://wiki.ihe.net/index.php/Invoke_Image_Display">IHE IID Profile Wiki</a>.
 </p>
-
-
 
 
 <h3>Use Case</h3>
