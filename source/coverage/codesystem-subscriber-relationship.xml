@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/subscriber-relationship"/>
+  <name value="SubscriberRelationshipCodes"/>
+  <title value="Subscriber Relationship Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes codes for the relationship between the Subscriber and the Beneficiary (insured/covered party/patient)."/>
+  <copyright value="This is an extensible set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+  <!--   beneficiary is the subscriber's child -->
+    <code value="child"/>
+    <display value="Child"/>
+    <definition value="The Beneficiary is a child of the Subscriber"/>
+  </concept>
+  <concept>
+  <!--   beneficiary is the subscriber's parent  -->
+    <code value="parent"/>
+    <display value="Parent"/>
+    <definition value="The Beneficiary is a parent of the Subscriber"/>
+  </concept>
+  <concept>
+  <!--   beneficiary is the subscriber's spouse  -->
+    <code value="spouse"/>
+    <display value="Spouse"/>
+    <definition value="The Beneficiary is a spouse or equivalent of the Subscriber"/>
+  </concept>
+  <concept>
+  <!--   beneficiary is the subscriber's common law spouse  -->
+    <code value="common"/>
+    <display value="Common Law Spouse"/>
+    <definition value="The Beneficiary is a common law spouse or equivalent of the Subscriber"/>
+  </concept>
+  <concept>
+  <!--   beneficiary has an other relationship to the subscriber  -->
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="The Beneficiary has some other relationship the Subscriber"/>
+  </concept>
+    <concept>
+  <!--   beneficiary is the subscriber  -->
+    <code value="self"/>
+    <display value="Self"/>
+    <definition value="The Beneficiary is the Subscriber"/>
+  </concept>
+    <concept>
+  <!--   beneficiary is the party injured by subscriber directly or indirectly  -->
+    <code value="injured"/>
+    <display value="Injured Party"/>
+    <definition value="The Beneficiary is covered under insurance of the subscriber due to an injury."/>
+  </concept>
+
+</CodeSystem>
