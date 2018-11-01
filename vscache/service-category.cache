@@ -1,19 +1,18 @@
--------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
+?-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
     "include" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/service-category"
     }]
   }
-}}
-####
+}}####
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:b3185023-e328-4799-9354-c35db6139815",
-    "timestamp" : "2018-08-19T10:30:27.715Z",
+    "identifier" : "urn:uuid:e18d1f02-80e7-4d70-99e9-786dc7f41143",
+    "timestamp" : "2018-11-01T19:22:06.814Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -23,152 +22,8 @@ e: {
       "valueString" : "-1"
     },
     {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
+      "name" : "excludeNested",
+      "valueString" : "-1"
     },
     {
       "name" : "version",
@@ -521,21 +376,20 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
-{"hierarchical" : false, "valueSet" :{
+{"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
     "include" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/service-category"
     }]
   }
-}}
-####
+}}####
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:c83605c2-37e8-442a-b852-a8a3dab29588",
-    "timestamp" : "2018-08-19T10:40:04.604Z",
+    "identifier" : "urn:uuid:368cab39-158b-4868-9559-2dde624748ad",
+    "timestamp" : "2018-11-01T19:42:22.738Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -543,158 +397,6 @@ e: {
     {
       "name" : "includeDesignations",
       "valueString" : "-1"
-    },
-    {
-      "name" : "excludeNested",
-      "valueString" : "-1"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
     },
     {
       "name" : "version",

@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------------
+?-------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -6,8 +6,7 @@
       "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason"
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason"
 }
@@ -19,8 +18,7 @@ e: {
       "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason"
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason"
 }

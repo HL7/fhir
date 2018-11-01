@@ -1,3 +1,15 @@
+?-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.ensembl.org"
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://www.ensembl.org"
+}
 -------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
@@ -6,22 +18,8 @@
       "system" : "http://www.ensembl.org"
     }]
   }
-}}
-####
+}}####
 e: {
-  "error" : "Error unmarshalling resource: Unable to provide support for code system http://www.ensembl.org"
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : false, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://www.ensembl.org"
-    }]
-  }
-}}
-####
-e: {
-  "error" : "Error unmarshalling resource: Unable to provide support for code system http://www.ensembl.org"
+  "error" : "Error from server: Unable to provide support for code system http://www.ensembl.org"
 }
 -------------------------------------------------------------------------------------

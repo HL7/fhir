@@ -278,22 +278,23 @@ public class TerminologyCache {
     
     try {
       FileWriter sw = new FileWriter(new File(Utilities.path(folder, nc.name+".cache")));
+      sw.write('\ufeff');
       sw.write(ENTRY_MARKER+"\r\n");
       JsonParser json = new JsonParser();
       json.setOutputStyle(OutputStyle.PRETTY);
       for (CacheEntry ce : nc.list) {
-        sw.write(ce.request);
+        sw.write(ce.request.trim());
         sw.write(BREAK+"\r\n");
         if (ce.e != null) {
           sw.write("e: {\r\n");
           if (ce.e.getValueset() != null)
-            sw.write("  \"valueSet\" : "+json.composeString(ce.e.getValueset())+",\r\n");
-          sw.write("  \"error\" : \""+Utilities.escapeJson(ce.e.getError())+"\"\r\n}\r\n");
+            sw.write("  \"valueSet\" : "+json.composeString(ce.e.getValueset()).trim()+",\r\n");
+          sw.write("  \"error\" : \""+Utilities.escapeJson(ce.e.getError()).trim()+"\"\r\n}\r\n");
         } else {
           sw.write("v: {\r\n");
-          sw.write("  \"display\" : \""+Utilities.escapeJson(ce.v.getDisplay())+"\",\r\n");
-          sw.write("  \"severity\" : "+(ce.v.getSeverity() == null ? "null" : "\""+ce.v.getSeverity().toCode()+"\"")+",\r\n");
-          sw.write("  \"error\" : \""+Utilities.escapeJson(ce.v.getMessage())+"\"\r\n}\r\n");
+          sw.write("  \"display\" : \""+Utilities.escapeJson(ce.v.getDisplay()).trim()+"\",\r\n");
+          sw.write("  \"severity\" : "+(ce.v.getSeverity() == null ? "null" : "\""+ce.v.getSeverity().toCode().trim()+"\"")+",\r\n");
+          sw.write("  \"error\" : \""+Utilities.escapeJson(ce.v.getMessage()).trim()+"\"\r\n}\r\n");
         }
         sw.write(ENTRY_MARKER+"\r\n");
       }      

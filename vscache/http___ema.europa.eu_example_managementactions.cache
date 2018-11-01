@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------------
+?-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://ema.europa.eu/example/managementactions",
   "code" : "CoadministrationnotrecommendedinpatientsreceivingconcomitantsystemictreatmentstronginhibitorsofbothCYP3A4andP-gp"
@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://ema.europa.eu/example/managementactions"
+  "error" : "The code system \"http://ema.europa.eu/example/managementactions\" is not known; The code provided (http://ema.europa.eu/example/managementactions#CoadministrationnotrecommendedinpatientsreceivingconcomitantsystemictreatmentstronginhibitorsofbothCYP3A4andP-gp) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

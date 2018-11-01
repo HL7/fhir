@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------------
+?-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://org.mdhhs.fhir.consentdirective-type",
   "code" : "OPTIN"
@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://org.mdhhs.fhir.consentdirective-type"
+  "error" : "The code system \"http://org.mdhhs.fhir.consentdirective-type\" is not known; The code provided (http://org.mdhhs.fhir.consentdirective-type#OPTIN) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

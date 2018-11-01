@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------------
+?-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info.sct",
   "code" : "26369006"
@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://snomed.info.sct"
+  "error" : "The code system \"http://snomed.info.sct\" is not known; The code provided (http://snomed.info.sct#26369006) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

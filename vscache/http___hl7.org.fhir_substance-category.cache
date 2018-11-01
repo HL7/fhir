@@ -1,5 +1,4 @@
--------------------------------------------------------------------------------------
-
+?-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org.fhir/substance-category",
   "code" : "allergen"
@@ -7,10 +6,9 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org.fhir/substance-category"
+  "error" : "The code system \"http://hl7.org.fhir/substance-category\" is not known; The code provided (http://hl7.org.fhir/substance-category#allergen) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
-
 {"code" : {
   "system" : "http://hl7.org.fhir/substance-category",
   "code" : "chemical"
@@ -18,10 +16,9 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org.fhir/substance-category"
+  "error" : "The code system \"http://hl7.org.fhir/substance-category\" is not known; The code provided (http://hl7.org.fhir/substance-category#chemical) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
-
 {"code" : {
   "system" : "http://hl7.org.fhir/substance-category",
   "code" : "drug"
@@ -29,7 +26,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org.fhir/substance-category"
+  "error" : "The code system \"http://hl7.org.fhir/substance-category\" is not known; The code provided (http://hl7.org.fhir/substance-category#drug) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -49,7 +46,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org.fhir/substance-category"
+  "error" : "The code system \"http://hl7.org.fhir/substance-category\" is not known; The code provided (http://hl7.org.fhir/substance-category#allergen) is not  valid in the value set SubstanceCategoryCodes"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -69,7 +66,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org.fhir/substance-category"
+  "error" : "The code system \"http://hl7.org.fhir/substance-category\" is not known; The code provided (http://hl7.org.fhir/substance-category#chemical) is not  valid in the value set SubstanceCategoryCodes"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -89,6 +86,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org.fhir/substance-category"
+  "error" : "The code system \"http://hl7.org.fhir/substance-category\" is not known; The code provided (http://hl7.org.fhir/substance-category#drug) is not  valid in the value set SubstanceCategoryCodes"
 }
 -------------------------------------------------------------------------------------

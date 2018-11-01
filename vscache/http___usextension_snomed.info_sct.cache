@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------------
+?-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://usextension/snomed.info/sct",
   "code" : "659311000124118"
@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://usextension/snomed.info/sct"
+  "error" : "The code system \"http://usextension/snomed.info/sct\" is not known; The code provided (http://usextension/snomed.info/sct#659311000124118) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

@@ -1,40 +1,4 @@
--------------------------------------------------------------------------------------
-
-
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/cvx",
-  "code" : "01",
-  "display" : "DTP"
-}, "valueSet" :null}####
-v: {
-  "display" : "DTP",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-
-
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/cvx",
-  "code" : "104"
-}, "valueSet" :null}####
-v: {
-  "display" : "Hep A-Hep B",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/cvx",
-  "code" : "01"
-}, "valueSet" :null}####
-v: {
-  "display" : "DTP",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
+?-------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -42,14 +6,13 @@ v: {
       "system" : "http://hl7.org/fhir/sid/cvx"
     }]
   }
-}}
-####
+}}####
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:b262bfe9-963d-4442-bb87-17f8fa427b07",
-    "timestamp" : "2018-11-01T18:07:36.550Z",
+    "identifier" : "urn:uuid:ce261426-866f-4303-853a-05cd32d441fd",
+    "timestamp" : "2018-11-01T19:22:19.955Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -1829,14 +1792,13 @@ e: {
       "system" : "http://hl7.org/fhir/sid/cvx"
     }]
   }
-}}
-####
+}}####
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:d7997e98-c131-4a81-a554-88268431a096",
-    "timestamp" : "2018-11-01T18:08:35.941Z",
+    "identifier" : "urn:uuid:85ed2b21-79b2-4daf-9980-31ee94db41a7",
+    "timestamp" : "2018-11-01T19:43:59.270Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -3602,6 +3564,37 @@ e: {
     }]
   }
 },
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "01"
+}, "valueSet" :null}####
+v: {
+  "display" : "DTP",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "104"
+}, "valueSet" :null}####
+v: {
+  "display" : "Hep A-Hep B",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "01",
+  "display" : "DTP"
+}, "valueSet" :null}####
+v: {
+  "display" : "DTP",
+  "severity" : null,
   "error" : ""
 }
 -------------------------------------------------------------------------------------

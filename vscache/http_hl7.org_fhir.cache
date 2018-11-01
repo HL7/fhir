@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------------
+?-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http:hl7.org/fhir",
   "code" : "EM"
@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http:hl7.org/fhir"
+  "error" : "The code system \"http:hl7.org/fhir\" is not known; The code provided (http:hl7.org/fhir#EM) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

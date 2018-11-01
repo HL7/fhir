@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------------
+?-------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -9,8 +9,7 @@
       "system" : "http://www.ncbi.nlm.nih.gov/nuccore"
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system http://www.ensembl.org"
 }
@@ -25,8 +24,7 @@ e: {
       "system" : "https://precision.fda.gov/jobs/"
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system https://precision.fda.gov/apps/"
 }
@@ -86,8 +84,7 @@ e: {
       "valueSet" : ["http://terminology.hl7.org/ValueSet/v3-ActTaskCode"]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to find value set \"http://hl7.org/fhir/ValueSet/usps-state\""
 }
@@ -110,8 +107,7 @@ e: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system urn:iso:std:iso:3166:-2"
 }
@@ -414,8 +410,7 @@ e: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2.3"
 }
@@ -433,14 +428,13 @@ e: {
       "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
     }]
   }
-}}
-####
+}}####
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "id" : "dataelement-sdcobjectclass",
   "meta" : {
-    "lastUpdated" : "2018-11-02T05:04:39.478+11:00",
+    "lastUpdated" : "2018-11-02T06:15:46.051+11:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
   "text" : {
@@ -457,15 +451,15 @@ e: {
   "title" : "DataElement SDC Object Class",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2018-11-02T05:04:39+11:00",
-  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Fri, Nov 2, 2018 05:08+1100",
+  "date" : "2018-11-02T06:15:46+11:00",
+  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Fri, Nov 2, 2018 06:44+1100",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:6570e81b-ea92-43af-a608-7c203cdccee7",
-    "timestamp" : "2018-11-01T18:08:24.831Z",
+    "identifier" : "urn:uuid:8da3134f-3f7e-48d8-afff-c66d4340d32e",
+    "timestamp" : "2018-11-01T19:42:31.488Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/dataelement-sdcobjectclass"
@@ -493,8 +487,7 @@ e: {
       "system" : "https://precision.fda.gov/jobs/"
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system https://precision.fda.gov/apps/"
 }
@@ -554,8 +547,7 @@ e: {
       "valueSet" : ["http://terminology.hl7.org/ValueSet/v3-ActTaskCode"]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to find value set \"http://hl7.org/fhir/ValueSet/usps-state\""
 }
@@ -570,8 +562,7 @@ e: {
       "system" : "http://www.ncbi.nlm.nih.gov/nuccore"
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system http://www.ensembl.org"
 }
@@ -594,8 +585,7 @@ e: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system urn:iso:std:iso:3166:-2"
 }
@@ -898,8 +888,7 @@ e: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2.3"
 }

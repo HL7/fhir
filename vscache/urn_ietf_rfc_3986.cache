@@ -1,5 +1,4 @@
--------------------------------------------------------------------------------------
-
+?-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:rfc:3986",
   "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
@@ -10,7 +9,6 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
-
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -22,14 +20,13 @@ v: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:4fb94017-a897-4bd5-bb87-db6b6b945884",
-    "timestamp" : "2018-08-19T10:33:14.586Z",
+    "identifier" : "urn:uuid:706aeb2d-ce54-4f24-af50-7c03f8cf08a5",
+    "timestamp" : "2018-11-01T19:34:28.269Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"

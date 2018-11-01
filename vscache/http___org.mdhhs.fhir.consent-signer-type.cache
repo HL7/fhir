@@ -1,5 +1,4 @@
--------------------------------------------------------------------------------------
-
+?-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://org.mdhhs.fhir.consent-signer-type",
   "code" : "SELF"
@@ -7,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://org.mdhhs.fhir.consent-signer-type"
+  "error" : "The code system \"http://org.mdhhs.fhir.consent-signer-type\" is not known; The code provided (http://org.mdhhs.fhir.consent-signer-type#SELF) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -24,6 +23,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://org.mdhhs.fhir.consent-signer-type"
+  "error" : "The code system \"http://org.mdhhs.fhir.consent-signer-type\" is not known; The code provided (http://org.mdhhs.fhir.consent-signer-type#SELF) is not  valid in the value set ContractSignerTypeCodes"
 }
 -------------------------------------------------------------------------------------
