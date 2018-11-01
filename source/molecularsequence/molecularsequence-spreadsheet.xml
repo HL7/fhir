@@ -4455,7 +4455,7 @@
     <Cell ss:StyleID="s128"><Data ss:Type="String">Chromosome number of the reference sequence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"><Data ss:Type="String">referenceSeqId</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">referenceseqid</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">MolecularSequence.referenceSeq.referenceSeqId</Data></Cell>
@@ -4484,10 +4484,10 @@
     <Cell><Data ss:Type="String">MolecularSequence; referenceSeq.chromosome; variant.start; variant.end</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="21">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">referenceSeqId-coordinate</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">referenceseqid-coordinate</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">composite</Data></Cell>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">referenceSeqId &amp; start &amp; end</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">referenceseqid &amp; start &amp; end</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Search parameter for region of the reference sequence. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource on NC_000001.11 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Data></Cell>
     <Cell><Data ss:Type="String">MolecularSequence; referenceSeq.referenceSeqId; variant.start; variant.end</Data></Cell>
    </Row>
