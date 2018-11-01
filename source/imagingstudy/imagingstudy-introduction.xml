@@ -26,7 +26,7 @@ query (e.g., QIDO-RS) in the simplest cases. The DICOM instances are not stored 
 resource; use of a DICOM WADO-RS server or other storage mechanism is needed.
 </p>
 <p> 
-An ImagingStudy shall reference one DICOM Study, and may reference a subset of that Study. More than one ImagingStudy may reference, potentially different subsets of, the same DICOM Study.
+An ImagingStudy SHALL reference one DICOM Study, and MAY reference a subset of that Study. More than one ImagingStudy MAY reference the same DICOM Study or different subsets of the same DICOM Study.
 </p>
 </div>
 
