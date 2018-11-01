@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Fred</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-10-30T03:17:31Z</LastSaved>
+  <LastSaved>2018-11-01T04:19:42Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,7 +18,7 @@
   
   
   <TabRatio>613</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4356,7 +4356,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5056,8 +5055,8 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C10"/>
   </Names>
-  <Table ss:ExpandedColumnCount="12" ss:ExpandedRowCount="51" ss:StyleID="s118" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="131.0"/>
+  <Table ss:ExpandedColumnCount="12" ss:ExpandedRowCount="60" ss:StyleID="s118" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="145.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="125.0"/>
    <Column ss:StyleID="s118" ss:Width="26.0"/>
    <Column ss:StyleID="s118" ss:Width="27.0"/>
@@ -5167,6 +5166,42 @@
     <Cell ss:StyleID="s139"><Data ss:Type="String">If specified and set to 'true' (and the server is capable), the server should use what resources and other knowledge it has about the referenced subject when pre-populating answers to questions.</Data></Cell>
     <Cell ss:StyleID="s140"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">populate.context</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Tuple</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Property that allows context to be passed in when performing this operation</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">populate.context.name</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">The name of the context</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">populate.context.value</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Reference(Any)</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">The value of the context</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s120"><Data ss:Type="String">populate.questionnaire</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">out</Data></Cell>
@@ -5266,6 +5301,42 @@
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">populatehtml.context</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Tuple</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Property that allows context to be passed in when performing this operation</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">populatehtml.context.name</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">The name of the context</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">populatehtml.context.value</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Reference(Any)</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">The value of the context</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
     <Cell ss:StyleID="s120"><Data ss:Type="String">populatehtml.form</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
@@ -5361,6 +5432,42 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s139"><Data ss:Type="String">If specified and set to 'true' (and the server is capable), the server should use what resources and other knowledge it has about the referenced subject when pre-populating answers to questions.</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">populatelink.context</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Tuple</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Property that allows context to be passed in when performing this operation</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">populatelink.context.name</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">The name of the context</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">populatelink.context.value</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">Reference(Any)</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">The value of the context</Data></Cell>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57">
@@ -5683,10 +5790,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
