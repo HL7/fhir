@@ -4,7 +4,7 @@
   <LastAuthor>Microsoft Office User</LastAuthor>
   <LastPrinted>2015-12-03T17:50:33Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-10-28T16:49:09Z</LastSaved>
+  <LastSaved>2018-11-01T15:12:11Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -16,7 +16,7 @@
   
   
   <TabRatio>796</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -943,7 +943,7 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R172C24"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="181" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="214.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="256.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="54.0"/>
    <Column ss:StyleID="s69" ss:Width="44.0"/>
    <Column ss:StyleID="s69" ss:Width="39.0"/>
@@ -969,7 +969,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="103.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s71">
     <Cell ss:StyleID="s72"><Data ss:Type="String">Element</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Format is ResourceName.componentName.componentName</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Aliases</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Other names - semi-colon separated</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Aliases</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Other names - semi-colon separated</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Card.</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Min and max repetitions n..m</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Inv.</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Comma-delimited list of Ids from Invariant tab that controls appearance of this element</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see the wiki</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -982,7 +982,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Missing Meaning</Data><Comment ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Semantic inferred if element is omitted from instance</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Regex</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Indicates a regular expression that the value of this element must meet.  Only allowed for simple data types.</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Short Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Short description or code1 | code2 | code3 +</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">        </Font><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Full definition - required</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Full definition - required</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Requirements</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Why element/resource is needed or why selected constraints chosen</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Comments</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes for implementers</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">To Do</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Things to bug you about if they're not done :&gt;</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3918,7 +3918,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4433,19 +4432,19 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="18" ss:StyleID="s123" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="20" ss:StyleID="s123" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="116.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="57.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="110.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="210.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="383.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="272.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="463.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="559.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="31" ss:StyleID="s124">
     <Cell ss:StyleID="s113"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">Unique name for search parameter - required, lower-case, dash-delimited string    </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type for parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">Target Types</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Comma delimited list of target resources</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Corresponding resource element.  E.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Description</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Description</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Expression</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4454,6 +4453,13 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">MolecularSequence.referenceSeq.chromosome</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Chromosome number of the reference sequence</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">referenceSeqId</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">MolecularSequence.referenceSeq.referenceSeqId</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Reference Sequence of the sequence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s129"><Data ss:Type="String">start</Data></Cell>
@@ -4470,12 +4476,20 @@
     <Cell ss:StyleID="s131"><Data ss:Type="String">End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="21">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">coordinate</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">chromosome-coordinate</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">composite</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">chromosome &amp; start &amp; end</Data></Cell>
-    <Cell ss:StyleID="s105"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">Search parameter for region of the reference </Font><B><Font html:Color="#000000">DNA</Font></B><Font html:Color="#000000"> sequence string. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font html:Color="#000000">1-based system</Font></B><Font html:Color="#000000">. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource on chromosome 1 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Font></ss:Data></Cell>
-    <Cell><Data ss:Type="String">MolecularSequence.variant; %resource.referenceSeq.chromosome; start; end</Data></Cell>
+    <Cell ss:StyleID="s105"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">Search parameter for region of the chromosome sequence string. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font html:Color="#000000">1-based system</Font></B><Font html:Color="#000000">. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource on chromosome 1 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">MolecularSequence; referenceSeq.chromosome; variant.start; variant.end</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="21">
+    <Cell ss:StyleID="s105"><Data ss:Type="String">referenceSeqId-coordinate</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">composite</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">referenceSeqId &amp; start &amp; end</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Search parameter for region of the reference sequence. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource on NC_000001.11 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Data></Cell>
+    <Cell><Data ss:Type="String">MolecularSequence; referenceSeq.referenceSeqId; variant.start; variant.end</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s105"><Data ss:Type="String">type</Data></Cell>
@@ -4574,6 +4588,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>125</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
