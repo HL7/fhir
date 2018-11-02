@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- infant-mom -->
-<Composition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/composition.xsd">
+<Composition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../FHIRTransforms/schemas/FHIR/R4/composition.xsd"
+ xmlns="http://hl7.org/fhir">
 	<id value="example-mixed"/>
 	<status value="final"/>
 	<type>
@@ -52,13 +54,42 @@
 		<text>
 			<status value="generated"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-        (snip)
+				<ul>
+					<li>Birth weight: 700 grams</li>
+					<li>Birth head circumference: 24 cm</li>
+					<li>Gestational age: 26 weeks 3 days</li>
+					<li>Apgar at 1 minute: 4</li>
+					<li>Apgar at 5 minutes: 6</li>
+					<li>Apgar at 10 minutes: 8</li>
+					<li>Birth location: Outborn</li>
+				</ul>
 			</div>
 		</text>
-    <!-- entries for child - CarePlan, observations, conditions, encounter, Prescriptions, etc -->
+		
+		<entry>
+			<reference value="Observation/birth-weight"/>
+		</entry>
+		<entry>
+			<reference value="Observation/birth-head-circumference"/>
+		</entry>
+		<entry>
+			<reference value="Observation/gestational-age"/>
+		</entry>
+		<entry>
+			<reference value="Observation/apgar-1-minute"/>
+		</entry>
+		<entry>
+			<reference value="Observation/apgar-5-minute"/>
+		</entry>
+		<entry>
+			<reference value="Observation/apgar-10-minute"/>
+		</entry>
+		<entry>
+			<reference value="Observation/birth-location"/>
+		</entry>
 	</section>
 	<section>
-		<title value="Mpther's Details"/>
+		<title value="Mother's Details"/>
 		<code>
 			<coding>
 				<system value="http://acme.org/codes/SectionType"/>
@@ -66,12 +97,207 @@
 				<display value="Mother's Details"/>
 			</coding>
 		</code>
-		<text>
-			<status value="generated"/>
-			<div xmlns="http://www.w3.org/1999/xhtml">
-				(snip)
-			</div>
-		</text>
-    <!-- entries for mother - Coverage, Observations, Supplies, etc -->    
+		<focus>
+			<reference value="Patient/mother"/>
+		</focus>
+		
+		<!--  Admission Diagnosis Section Narrative -->
+		<section>
+			<title value="Admission Diagnosis Section"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="46241-6"/>
+					<display value="Hospital admission diagnosis"/>
+				</coding>
+			</code>
+			<text>
+				<status value="generated"/>
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					<!-- TBD: Need relevant narrative and entries -->
+				</div>
+			</text>
+		</section>
+		
+		<section>
+			<title value="Family History Section"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="10157-6"/>
+					<display value="History of family member diseases"/>
+				</coding>
+			</code>
+			<text>
+				<status value="generated"/>
+				<div
+					xmlns="http://www.w3.org/1999/xhtml">
+					<table>
+						<tr>
+							<td>
+								<b>Relationship</b>
+							</td>
+							<td>
+								<b>Diagnosis</b>
+							</td>
+							<td>
+								<b>Age at Onset</b>
+							</td>
+						</tr>
+						<tr>
+							<td>Father</td>
+							<td>Myocardial Infarction(cause of Death)</td>
+							<td>57</td>
+						</tr>
+						<tr>
+							<td>Father</td>
+							<td>Diabetes</td>
+							<td>40</td>
+						</tr>
+					</table>
+				</div>
+			</text>
+			<entry><reference value="FamilyMemberHistory/father"/></entry>
+		</section>
+		<section>
+			<title value="Social History Section"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="29762-2"/>
+					<display value="Social history"/>
+				</coding>
+			</code>
+			<text>
+				<status value="generated"/>
+				<div
+					xmlns="http://www.w3.org/1999/xhtml">
+					<table>
+						<tr>
+							<td>
+								<b>Social History Element</b>
+							</td>
+							<td>
+								<b>Description</b>
+							</td>
+							<td>
+								<b>Effective Dates</b>
+							</td>
+						</tr>
+						<tr>
+							<td>Smoking</td>
+							<td>1 pack tobacco per day</td>
+							<td>2005/05/01 - 2010/02/28</td>
+						</tr>
+					</table>
+				</div>
+			</text>
+			<!--  Social History Section Observation Resource-->
+			<entry>
+				<reference value="Observation/observation-smoker"/>
+			</entry>
+		</section>
+		<section>
+			<title value="Hospital Course Section"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="8648-8"/>
+					<display value="Hospital course"/>
+				</coding>
+			</code>
+			<text>
+				<status value="generated"/>
+				<div
+					xmlns="http://www.w3.org/1999/xhtml">
+					<!-- TBD -->
+				</div>
+			</text>
+		</section>
+		<!--  Problem Section Narrative -->
+		<section>
+			<title value="Problem Section"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="11450-4"/>
+					<display value="Problem list"/>
+				</coding>
+			</code>
+			<text>
+				<status value="generated"/>
+				<div
+					xmlns="http://www.w3.org/1999/xhtml">
+					<table>
+						<tr>
+							<td>
+								<b>Problem Name</b>
+							</td>
+							<td>
+								<b>Type</b>
+							</td>
+							<td>
+								<b>Onset Date</b>
+							</td>
+							<td>
+								<b>Abatement Date</b>
+							</td>
+							<td>
+								<b>Status</b>
+							</td>
+						</tr>
+						<tr>
+							<td>Pregnancy</td>
+							<td>Condition</td>
+							<td>2018-04-15</td>
+							<td>2018-10-30</td>
+							<td>Complete</td>
+						</tr>
+					</table>
+				</div>
+			</text>
+			<!--  Problem Section Condition Resource -->
+			<entry>
+				<reference value="Condition/condition-pregnancy"/>
+			</entry>
+		</section>
+		
+		<section>
+			<title value="Vital Signs Section"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="8716-3"/>
+					<display value="Vital signs"/>
+				</coding>
+			</code>
+			<text>
+				<status value="generated"/>
+				<div
+					xmlns="http://www.w3.org/1999/xhtml">
+					<table>
+						<tr>
+							<td>
+								<b>Vital Sign</b>
+							</td>
+							<td>
+								<b>Date</b>
+							</td>
+							<td>
+								<b>Value</b>
+							</td>
+						</tr>
+						<tr>
+							<td>Temperature</td>
+							<td>2016/06/15</td>
+							<td>39 Degrees Celcius</td>
+						</tr>
+					</table>
+				</div>
+			</text>
+			<entry>
+				<reference value="Observation/observation-vitals-temp"/>
+			</entry>
+		</section>
 	</section>
 </Composition>
