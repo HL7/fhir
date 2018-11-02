@@ -1,4 +1,4 @@
-?-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -11,8 +11,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:e18d1f02-80e7-4d70-99e9-786dc7f41143",
-    "timestamp" : "2018-11-01T19:22:06.814Z",
+    "identifier" : "urn:uuid:4717c4c8-5fdb-4461-810e-7073846cbfa0",
+    "timestamp" : "2018-11-01T22:30:31.909Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -388,8 +388,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:368cab39-158b-4868-9559-2dde624748ad",
-    "timestamp" : "2018-11-01T19:42:22.738Z",
+    "identifier" : "urn:uuid:8cb6ae88-62f4-4ae0-98bf-e02f7984e926",
+    "timestamp" : "2018-11-01T22:50:30.100Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"

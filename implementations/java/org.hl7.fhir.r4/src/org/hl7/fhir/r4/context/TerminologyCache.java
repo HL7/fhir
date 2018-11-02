@@ -2,8 +2,11 @@ package org.hl7.fhir.r4.context;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -277,8 +280,7 @@ public class TerminologyCache {
       return;
     
     try {
-      FileWriter sw = new FileWriter(new File(Utilities.path(folder, nc.name+".cache")));
-      sw.write('\ufeff');
+      OutputStreamWriter sw = new OutputStreamWriter(new FileOutputStream(Utilities.path(folder, nc.name+".cache")), "UTF-8");
       sw.write(ENTRY_MARKER+"\r\n");
       JsonParser json = new JsonParser();
       json.setOutputStyle(OutputStyle.PRETTY);
@@ -314,6 +316,8 @@ public class TerminologyCache {
           nc.name = title;
           caches.put(title, nc);
           String src = TextFile.fileToString(Utilities.path(folder, fn));
+          if (src.startsWith("?"))
+            src = src.substring(1);
           int i = src.indexOf(ENTRY_MARKER); 
           while (i > -1) {
             String s = src.substring(0, i);

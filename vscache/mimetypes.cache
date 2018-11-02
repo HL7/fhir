@@ -1,4 +1,4 @@
-?-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:13",
   "code" : "application/hl7-cda+xml"
@@ -25,8 +25,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:7839ae12-e486-4036-855d-fe32afca51bf",
-    "timestamp" : "2018-11-01T19:17:01.113Z",
+    "identifier" : "urn:uuid:cfaef5e3-2748-408f-9620-a88dcd8bf072",
+    "timestamp" : "2018-11-01T22:25:27.502Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -60,8 +60,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:4c3c10b2-d6fa-4779-84bf-05358645d994",
-    "timestamp" : "2018-11-01T19:34:28.847Z",
+    "identifier" : "urn:uuid:29723044-b96f-433d-9d62-9331d35fcd52",
+    "timestamp" : "2018-11-01T22:42:40.989Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -100,8 +100,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:6f13cc26-914b-4556-8f8c-7d6a2cee3062",
-    "timestamp" : "2018-11-01T19:55:50.552Z",
+    "identifier" : "urn:uuid:3e8adf82-6ba8-4ecc-ae3f-ccab3cbc9e58",
+    "timestamp" : "2018-11-01T23:03:54.722Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"

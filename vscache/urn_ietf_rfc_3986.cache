@@ -1,4 +1,4 @@
-?-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:rfc:3986",
   "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
@@ -25,8 +25,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:706aeb2d-ce54-4f24-af50-7c03f8cf08a5",
-    "timestamp" : "2018-11-01T19:34:28.269Z",
+    "identifier" : "urn:uuid:5dbeed72-d4c5-46f8-8bc5-000331b26015",
+    "timestamp" : "2018-11-01T22:42:40.458Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"

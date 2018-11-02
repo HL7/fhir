@@ -1,4 +1,4 @@
-?-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -37,7 +37,7 @@
         "display" : "hour",
         "designation" : [{
           "language" : "zh",
-          "value" : "�?时"
+          "value" : "小时"
         }]
       },
       {
@@ -95,8 +95,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:d3bc6c44-1ab2-4ab3-9280-a4ad4f5b6899",
-    "timestamp" : "2018-11-01T19:16:57.941Z",
+    "identifier" : "urn:uuid:78faa515-b1f6-426c-8c1a-120591be0370",
+    "timestamp" : "2018-11-01T22:25:24.080Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -126,7 +126,7 @@ e: {
     {
       "system" : "http://unitsofmeasure.org",
       "code" : "h",
-      "display" : "�?时"
+      "display" : "小时"
     },
     {
       "system" : "http://unitsofmeasure.org",
@@ -189,8 +189,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:4e240cc7-eca0-4673-8274-71b9579062ae",
-    "timestamp" : "2018-11-01T19:22:13.064Z",
+    "identifier" : "urn:uuid:d8187b8e-a72d-41da-acee-a414228afd73",
+    "timestamp" : "2018-11-01T22:30:37.894Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -262,8 +262,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:a0c0a572-0050-4e9a-bfa8-9f51dd064358",
-    "timestamp" : "2018-11-01T19:31:57.487Z",
+    "identifier" : "urn:uuid:04e95c89-e518-4ebf-9378-29a167a320cf",
+    "timestamp" : "2018-11-01T22:40:12.114Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -5333,8 +5333,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:ff97d3d9-ad1b-42e0-98e6-724aea22583e",
-    "timestamp" : "2018-11-01T19:33:02.112Z",
+    "identifier" : "urn:uuid:d25e78b2-8a04-41f5-9baf-2ce8f013d542",
+    "timestamp" : "2018-11-01T22:41:15.426Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -5425,8 +5425,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:22f218fd-8b84-489a-9a61-e4f3ec44d625",
-    "timestamp" : "2018-11-01T19:35:24.987Z",
+    "identifier" : "urn:uuid:9cf43926-a0d6-4233-8bfc-7f32c8e578fe",
+    "timestamp" : "2018-11-01T22:43:35.692Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -5508,8 +5508,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:02b4c511-5630-44b3-b514-3f11e5be0b3d",
-    "timestamp" : "2018-11-01T19:43:39.864Z",
+    "identifier" : "urn:uuid:6274cd4e-ac46-49b8-b715-cb6571586f18",
+    "timestamp" : "2018-11-01T22:51:48.443Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -10564,8 +10564,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:58779e20-c22f-4e9d-a3f5-50f47f2594a6",
-    "timestamp" : "2018-11-01T19:55:51.786Z",
+    "identifier" : "urn:uuid:a4d4c87b-7d63-40bf-b7af-a89a802fea9a",
+    "timestamp" : "2018-11-01T23:03:55.910Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -10604,8 +10604,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:a6c67fab-2133-4028-935e-64f6913e9bce",
-    "timestamp" : "2018-11-01T19:55:52.911Z",
+    "identifier" : "urn:uuid:bd3bcba5-2e60-41f5-b99d-f9f070a82653",
+    "timestamp" : "2018-11-01T23:03:56.957Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"

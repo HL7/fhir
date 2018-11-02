@@ -1,4 +1,4 @@
-?-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -11,8 +11,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:94300e79-5982-44f7-81f6-668caf2db9cf",
-    "timestamp" : "2018-11-01T19:22:21.252Z",
+    "identifier" : "urn:uuid:87d31712-58bd-420d-a995-d4328678fd1c",
+    "timestamp" : "2018-11-01T22:30:45.722Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"

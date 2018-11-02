@@ -1,12 +1,12 @@
-?-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://terminology.hl7.org/CodeSystem/task-performer-type",
   "code" : "performer"
 }, "valueSet" :null}####
 v: {
-  "display" : "Performer",
-  "severity" : null,
-  "error" : ""
+  "display" : "",
+  "severity" : "error",
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {

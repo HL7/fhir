@@ -1,4 +1,4 @@
-?-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "ar"
@@ -617,7 +617,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Бенгаль�?кий"
+          "value" : "Бенгальский"
         },
         {
           "language" : "zh",
@@ -669,7 +669,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Чеш�?кий"
+          "value" : "Чешский"
         },
         {
           "language" : "zh",
@@ -677,7 +677,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�克语"
+          "value" : "捷克语"
         },
         {
           "language" : "de",
@@ -721,7 +721,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Дат�?кий"
+          "value" : "Датский"
         },
         {
           "language" : "zh",
@@ -773,7 +773,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий"
+          "value" : "Немецкий"
         },
         {
           "language" : "zh",
@@ -825,7 +825,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (�?в�?три�?)"
+          "value" : "Немецкий (Австрия)"
         },
         {
           "language" : "zh",
@@ -877,7 +877,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Швейцари�?)"
+          "value" : "Немецкий (Швейцария)"
         },
         {
           "language" : "zh",
@@ -929,7 +929,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Германи�?)"
+          "value" : "Немецкий (Германия)"
         },
         {
           "language" : "zh",
@@ -981,7 +981,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Грече�?кий"
+          "value" : "Греческий"
         },
         {
           "language" : "zh",
@@ -1033,7 +1033,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий"
+          "value" : "Английский"
         },
         {
           "language" : "zh",
@@ -1085,7 +1085,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?в�?трали�?)"
+          "value" : "Английский (Австралия)"
         },
         {
           "language" : "zh",
@@ -1137,7 +1137,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Канада)"
+          "value" : "Английский (Канада)"
         },
         {
           "language" : "zh",
@@ -1189,7 +1189,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Великобритани�?)"
+          "value" : "Английский (Великобритания)"
         },
         {
           "language" : "zh",
@@ -1241,7 +1241,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Инди�?)"
+          "value" : "Английский (Индия)"
         },
         {
           "language" : "zh",
@@ -1249,7 +1249,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （�?�度）"
+          "value" : "英语 （印度）"
         },
         {
           "language" : "de",
@@ -1293,7 +1293,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?ова�? Зеланди�?)"
+          "value" : "Английский (Новая Зеландия)"
         },
         {
           "language" : "zh",
@@ -1345,7 +1345,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Сингапур)"
+          "value" : "Английский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -1353,7 +1353,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （新加�?�）"
+          "value" : "英语 （新加坡）"
         },
         {
           "language" : "de",
@@ -1397,7 +1397,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (СШ�?)"
+          "value" : "Английский (США)"
         },
         {
           "language" : "zh",
@@ -1449,7 +1449,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий"
+          "value" : "Испанский"
         },
         {
           "language" : "zh",
@@ -1457,7 +1457,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语"
+          "value" : "西班牙语"
         },
         {
           "language" : "de",
@@ -1501,7 +1501,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (�?ргентина)"
+          "value" : "Испанский (Аргентина)"
         },
         {
           "language" : "zh",
@@ -1509,7 +1509,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （阿根廷）"
+          "value" : "西班牙语 （阿根廷）"
         },
         {
           "language" : "de",
@@ -1553,7 +1553,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (И�?пани�?)"
+          "value" : "Испанский (Испания)"
         },
         {
           "language" : "zh",
@@ -1561,7 +1561,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （西�?�牙）"
+          "value" : "西班牙语 （西班牙）"
         },
         {
           "language" : "de",
@@ -1605,7 +1605,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (Уругвай)"
+          "value" : "Испанский (Уругвай)"
         },
         {
           "language" : "zh",
@@ -1613,7 +1613,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （乌拉圭）"
+          "value" : "西班牙语 （乌拉圭）"
         },
         {
           "language" : "de",
@@ -1657,7 +1657,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Фин�?кий"
+          "value" : "Финский"
         },
         {
           "language" : "zh",
@@ -1709,7 +1709,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий"
+          "value" : "Французский"
         },
         {
           "language" : "zh",
@@ -1797,7 +1797,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Швейцари�?)"
+          "value" : "Французский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -1849,7 +1849,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Франци�?)"
+          "value" : "Французский (Франция)"
         },
         {
           "language" : "zh",
@@ -1945,7 +1945,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "弗里士兰语（�?�兰）"
+          "value" : "弗里士兰语（荷兰）"
         },
         {
           "language" : "de",
@@ -2017,7 +2017,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Хорват�?кий"
+          "value" : "Хорватский"
         },
         {
           "language" : "zh",
@@ -2069,7 +2069,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий"
+          "value" : "Итальянский"
         },
         {
           "language" : "zh",
@@ -2077,7 +2077,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语"
+          "value" : "意大利语"
         },
         {
           "language" : "de",
@@ -2121,7 +2121,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Швейцари�?)"
+          "value" : "Итальянский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -2129,7 +2129,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （瑞士）"
+          "value" : "意大利语 （瑞士）"
         },
         {
           "language" : "de",
@@ -2173,7 +2173,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Итали�?)"
+          "value" : "Итальянский (Италия)"
         },
         {
           "language" : "zh",
@@ -2181,7 +2181,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （�?大利）"
+          "value" : "意大利语 （意大利）"
         },
         {
           "language" : "de",
@@ -2225,7 +2225,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Япон�?кий"
+          "value" : "Японский"
         },
         {
           "language" : "zh",
@@ -2277,7 +2277,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Корей�?кий"
+          "value" : "Корейский"
         },
         {
           "language" : "zh",
@@ -2285,7 +2285,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?鲜语"
+          "value" : "朝鲜语"
         },
         {
           "language" : "de",
@@ -2329,7 +2329,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий"
+          "value" : "Нидерландский"
         },
         {
           "language" : "zh",
@@ -2337,7 +2337,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语"
+          "value" : "荷兰语"
         },
         {
           "language" : "de",
@@ -2381,7 +2381,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （比利时）"
+          "value" : "荷兰语 （比利时）"
         },
         {
           "language" : "de",
@@ -2425,7 +2425,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий (�?идерланды)"
+          "value" : "Нидерландский (Нидерланды)"
         },
         {
           "language" : "zh",
@@ -2433,7 +2433,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （�?�兰）"
+          "value" : "荷兰语 （荷兰）"
         },
         {
           "language" : "de",
@@ -2477,7 +2477,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий"
+          "value" : "Норвежский"
         },
         {
           "language" : "zh",
@@ -2485,7 +2485,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语"
+          "value" : "挪威语"
         },
         {
           "language" : "de",
@@ -2529,7 +2529,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий (�?орвеги�?)"
+          "value" : "Норвежский (Норвегия)"
         },
         {
           "language" : "zh",
@@ -2537,7 +2537,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语 （挪�?）"
+          "value" : "挪威语 （挪威）"
         },
         {
           "language" : "de",
@@ -2621,7 +2621,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий"
+          "value" : "Португальский"
         },
         {
           "language" : "zh",
@@ -2629,7 +2629,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语"
+          "value" : "葡萄牙语"
         },
         {
           "language" : "de",
@@ -2673,7 +2673,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий (Бразили�?)"
+          "value" : "Португальский (Бразилия)"
         },
         {
           "language" : "zh",
@@ -2681,7 +2681,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语 （巴西）"
+          "value" : "葡萄牙语 （巴西）"
         },
         {
           "language" : "de",
@@ -2725,7 +2725,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий"
+          "value" : "Русский"
         },
         {
           "language" : "zh",
@@ -2777,7 +2777,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий (Ро�?�?и�?)"
+          "value" : "Русский (Россия)"
         },
         {
           "language" : "zh",
@@ -2829,7 +2829,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий"
+          "value" : "Сербский"
         },
         {
           "language" : "zh",
@@ -2881,7 +2881,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий (Серби�?)"
+          "value" : "Сербский (Сербия)"
         },
         {
           "language" : "zh",
@@ -2933,7 +2933,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий"
+          "value" : "Шведский"
         },
         {
           "language" : "zh",
@@ -2985,7 +2985,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий (Швеци�?)"
+          "value" : "Шведский (Швеция)"
         },
         {
           "language" : "zh",
@@ -3045,7 +3045,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "泰�?�固语"
+          "value" : "泰卢固语"
         },
         {
           "language" : "de",
@@ -3089,7 +3089,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий"
+          "value" : "Kитайский"
         },
         {
           "language" : "zh",
@@ -3141,7 +3141,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Китай)"
+          "value" : "Kитайский (Китай)"
         },
         {
           "language" : "zh",
@@ -3193,7 +3193,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Гонконг)"
+          "value" : "Kитайский (Гонконг)"
         },
         {
           "language" : "zh",
@@ -3245,7 +3245,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Сингапур)"
+          "value" : "Kитайский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -3253,7 +3253,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （新加�?�）"
+          "value" : "中文 （新加坡）"
         },
         {
           "language" : "de",
@@ -3297,7 +3297,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Тайвань)"
+          "value" : "Kитайский (Тайвань)"
         },
         {
           "language" : "zh",
@@ -3305,7 +3305,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （�?�湾）"
+          "value" : "中文 （台湾）"
         },
         {
           "language" : "de",
@@ -3331,8 +3331,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:ef966f11-5d07-4164-b94c-c3a71de8cbe2",
-    "timestamp" : "2018-11-01T19:25:42.517Z",
+    "identifier" : "urn:uuid:cc7cd1a1-cec5-4603-9875-07d82be24a34",
+    "timestamp" : "2018-11-01T22:34:04.519Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -3646,8 +3646,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:92afb30c-029e-4de7-8fa0-54fea20b683d",
-    "timestamp" : "2018-11-01T19:45:43.145Z",
+    "identifier" : "urn:uuid:bb5d9f87-d2a7-40ed-aa57-0040d8e7d84a",
+    "timestamp" : "2018-11-01T22:53:51.194Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -3724,7 +3724,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Бенгаль�?кий"
+          "value" : "Бенгальский"
         },
         {
           "language" : "zh",
@@ -3776,7 +3776,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Чеш�?кий"
+          "value" : "Чешский"
         },
         {
           "language" : "zh",
@@ -3784,7 +3784,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�克语"
+          "value" : "捷克语"
         },
         {
           "language" : "de",
@@ -3828,7 +3828,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Дат�?кий"
+          "value" : "Датский"
         },
         {
           "language" : "zh",
@@ -3880,7 +3880,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий"
+          "value" : "Немецкий"
         },
         {
           "language" : "zh",
@@ -3932,7 +3932,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (�?в�?три�?)"
+          "value" : "Немецкий (Австрия)"
         },
         {
           "language" : "zh",
@@ -3984,7 +3984,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Швейцари�?)"
+          "value" : "Немецкий (Швейцария)"
         },
         {
           "language" : "zh",
@@ -4036,7 +4036,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Германи�?)"
+          "value" : "Немецкий (Германия)"
         },
         {
           "language" : "zh",
@@ -4088,7 +4088,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Грече�?кий"
+          "value" : "Греческий"
         },
         {
           "language" : "zh",
@@ -4140,7 +4140,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий"
+          "value" : "Английский"
         },
         {
           "language" : "zh",
@@ -4192,7 +4192,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?в�?трали�?)"
+          "value" : "Английский (Австралия)"
         },
         {
           "language" : "zh",
@@ -4244,7 +4244,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Канада)"
+          "value" : "Английский (Канада)"
         },
         {
           "language" : "zh",
@@ -4296,7 +4296,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Великобритани�?)"
+          "value" : "Английский (Великобритания)"
         },
         {
           "language" : "zh",
@@ -4348,7 +4348,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Инди�?)"
+          "value" : "Английский (Индия)"
         },
         {
           "language" : "zh",
@@ -4356,7 +4356,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （�?�度）"
+          "value" : "英语 （印度）"
         },
         {
           "language" : "de",
@@ -4400,7 +4400,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?ова�? Зеланди�?)"
+          "value" : "Английский (Новая Зеландия)"
         },
         {
           "language" : "zh",
@@ -4452,7 +4452,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Сингапур)"
+          "value" : "Английский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -4460,7 +4460,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （新加�?�）"
+          "value" : "英语 （新加坡）"
         },
         {
           "language" : "de",
@@ -4504,7 +4504,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (СШ�?)"
+          "value" : "Английский (США)"
         },
         {
           "language" : "zh",
@@ -4556,7 +4556,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий"
+          "value" : "Испанский"
         },
         {
           "language" : "zh",
@@ -4564,7 +4564,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语"
+          "value" : "西班牙语"
         },
         {
           "language" : "de",
@@ -4608,7 +4608,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (�?ргентина)"
+          "value" : "Испанский (Аргентина)"
         },
         {
           "language" : "zh",
@@ -4616,7 +4616,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （阿根廷）"
+          "value" : "西班牙语 （阿根廷）"
         },
         {
           "language" : "de",
@@ -4660,7 +4660,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (И�?пани�?)"
+          "value" : "Испанский (Испания)"
         },
         {
           "language" : "zh",
@@ -4668,7 +4668,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （西�?�牙）"
+          "value" : "西班牙语 （西班牙）"
         },
         {
           "language" : "de",
@@ -4712,7 +4712,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (Уругвай)"
+          "value" : "Испанский (Уругвай)"
         },
         {
           "language" : "zh",
@@ -4720,7 +4720,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （乌拉圭）"
+          "value" : "西班牙语 （乌拉圭）"
         },
         {
           "language" : "de",
@@ -4764,7 +4764,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Фин�?кий"
+          "value" : "Финский"
         },
         {
           "language" : "zh",
@@ -4816,7 +4816,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий"
+          "value" : "Французский"
         },
         {
           "language" : "zh",
@@ -4904,7 +4904,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Швейцари�?)"
+          "value" : "Французский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -4956,7 +4956,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Франци�?)"
+          "value" : "Французский (Франция)"
         },
         {
           "language" : "zh",
@@ -5052,7 +5052,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "弗里士兰语（�?�兰）"
+          "value" : "弗里士兰语（荷兰）"
         },
         {
           "language" : "de",
@@ -5124,7 +5124,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Хорват�?кий"
+          "value" : "Хорватский"
         },
         {
           "language" : "zh",
@@ -5176,7 +5176,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий"
+          "value" : "Итальянский"
         },
         {
           "language" : "zh",
@@ -5184,7 +5184,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语"
+          "value" : "意大利语"
         },
         {
           "language" : "de",
@@ -5228,7 +5228,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Швейцари�?)"
+          "value" : "Итальянский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -5236,7 +5236,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （瑞士）"
+          "value" : "意大利语 （瑞士）"
         },
         {
           "language" : "de",
@@ -5280,7 +5280,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Итали�?)"
+          "value" : "Итальянский (Италия)"
         },
         {
           "language" : "zh",
@@ -5288,7 +5288,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （�?大利）"
+          "value" : "意大利语 （意大利）"
         },
         {
           "language" : "de",
@@ -5332,7 +5332,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Япон�?кий"
+          "value" : "Японский"
         },
         {
           "language" : "zh",
@@ -5384,7 +5384,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Корей�?кий"
+          "value" : "Корейский"
         },
         {
           "language" : "zh",
@@ -5392,7 +5392,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?鲜语"
+          "value" : "朝鲜语"
         },
         {
           "language" : "de",
@@ -5436,7 +5436,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий"
+          "value" : "Нидерландский"
         },
         {
           "language" : "zh",
@@ -5444,7 +5444,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语"
+          "value" : "荷兰语"
         },
         {
           "language" : "de",
@@ -5488,7 +5488,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （比利时）"
+          "value" : "荷兰语 （比利时）"
         },
         {
           "language" : "de",
@@ -5532,7 +5532,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий (�?идерланды)"
+          "value" : "Нидерландский (Нидерланды)"
         },
         {
           "language" : "zh",
@@ -5540,7 +5540,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （�?�兰）"
+          "value" : "荷兰语 （荷兰）"
         },
         {
           "language" : "de",
@@ -5584,7 +5584,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий"
+          "value" : "Норвежский"
         },
         {
           "language" : "zh",
@@ -5592,7 +5592,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语"
+          "value" : "挪威语"
         },
         {
           "language" : "de",
@@ -5636,7 +5636,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий (�?орвеги�?)"
+          "value" : "Норвежский (Норвегия)"
         },
         {
           "language" : "zh",
@@ -5644,7 +5644,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语 （挪�?）"
+          "value" : "挪威语 （挪威）"
         },
         {
           "language" : "de",
@@ -5728,7 +5728,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий"
+          "value" : "Португальский"
         },
         {
           "language" : "zh",
@@ -5736,7 +5736,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语"
+          "value" : "葡萄牙语"
         },
         {
           "language" : "de",
@@ -5780,7 +5780,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий (Бразили�?)"
+          "value" : "Португальский (Бразилия)"
         },
         {
           "language" : "zh",
@@ -5788,7 +5788,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语 （巴西）"
+          "value" : "葡萄牙语 （巴西）"
         },
         {
           "language" : "de",
@@ -5832,7 +5832,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий"
+          "value" : "Русский"
         },
         {
           "language" : "zh",
@@ -5884,7 +5884,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий (Ро�?�?и�?)"
+          "value" : "Русский (Россия)"
         },
         {
           "language" : "zh",
@@ -5936,7 +5936,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий"
+          "value" : "Сербский"
         },
         {
           "language" : "zh",
@@ -5988,7 +5988,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий (Серби�?)"
+          "value" : "Сербский (Сербия)"
         },
         {
           "language" : "zh",
@@ -6040,7 +6040,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий"
+          "value" : "Шведский"
         },
         {
           "language" : "zh",
@@ -6092,7 +6092,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий (Швеци�?)"
+          "value" : "Шведский (Швеция)"
         },
         {
           "language" : "zh",
@@ -6152,7 +6152,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "泰�?�固语"
+          "value" : "泰卢固语"
         },
         {
           "language" : "de",
@@ -6196,7 +6196,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий"
+          "value" : "Kитайский"
         },
         {
           "language" : "zh",
@@ -6248,7 +6248,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Китай)"
+          "value" : "Kитайский (Китай)"
         },
         {
           "language" : "zh",
@@ -6300,7 +6300,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Гонконг)"
+          "value" : "Kитайский (Гонконг)"
         },
         {
           "language" : "zh",
@@ -6352,7 +6352,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Сингапур)"
+          "value" : "Kитайский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -6360,7 +6360,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （新加�?�）"
+          "value" : "中文 （新加坡）"
         },
         {
           "language" : "de",
@@ -6404,7 +6404,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Тайвань)"
+          "value" : "Kитайский (Тайвань)"
         },
         {
           "language" : "zh",
@@ -6412,7 +6412,7 @@ e: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （�?�湾）"
+          "value" : "中文 （台湾）"
         },
         {
           "language" : "de",
@@ -6505,7 +6505,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Бенгаль�?кий"
+          "value" : "Бенгальский"
         },
         {
           "language" : "zh",
@@ -6557,7 +6557,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Чеш�?кий"
+          "value" : "Чешский"
         },
         {
           "language" : "zh",
@@ -6565,7 +6565,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�克语"
+          "value" : "捷克语"
         },
         {
           "language" : "de",
@@ -6609,7 +6609,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Дат�?кий"
+          "value" : "Датский"
         },
         {
           "language" : "zh",
@@ -6661,7 +6661,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий"
+          "value" : "Немецкий"
         },
         {
           "language" : "zh",
@@ -6713,7 +6713,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (�?в�?три�?)"
+          "value" : "Немецкий (Австрия)"
         },
         {
           "language" : "zh",
@@ -6765,7 +6765,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Швейцари�?)"
+          "value" : "Немецкий (Швейцария)"
         },
         {
           "language" : "zh",
@@ -6817,7 +6817,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Германи�?)"
+          "value" : "Немецкий (Германия)"
         },
         {
           "language" : "zh",
@@ -6869,7 +6869,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Грече�?кий"
+          "value" : "Греческий"
         },
         {
           "language" : "zh",
@@ -6921,7 +6921,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий"
+          "value" : "Английский"
         },
         {
           "language" : "zh",
@@ -6973,7 +6973,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?в�?трали�?)"
+          "value" : "Английский (Австралия)"
         },
         {
           "language" : "zh",
@@ -7025,7 +7025,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Канада)"
+          "value" : "Английский (Канада)"
         },
         {
           "language" : "zh",
@@ -7077,7 +7077,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Великобритани�?)"
+          "value" : "Английский (Великобритания)"
         },
         {
           "language" : "zh",
@@ -7129,7 +7129,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Инди�?)"
+          "value" : "Английский (Индия)"
         },
         {
           "language" : "zh",
@@ -7137,7 +7137,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （�?�度）"
+          "value" : "英语 （印度）"
         },
         {
           "language" : "de",
@@ -7181,7 +7181,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?ова�? Зеланди�?)"
+          "value" : "Английский (Новая Зеландия)"
         },
         {
           "language" : "zh",
@@ -7233,7 +7233,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Сингапур)"
+          "value" : "Английский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -7241,7 +7241,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （新加�?�）"
+          "value" : "英语 （新加坡）"
         },
         {
           "language" : "de",
@@ -7285,7 +7285,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (СШ�?)"
+          "value" : "Английский (США)"
         },
         {
           "language" : "zh",
@@ -7337,7 +7337,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий"
+          "value" : "Испанский"
         },
         {
           "language" : "zh",
@@ -7345,7 +7345,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语"
+          "value" : "西班牙语"
         },
         {
           "language" : "de",
@@ -7389,7 +7389,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (�?ргентина)"
+          "value" : "Испанский (Аргентина)"
         },
         {
           "language" : "zh",
@@ -7397,7 +7397,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （阿根廷）"
+          "value" : "西班牙语 （阿根廷）"
         },
         {
           "language" : "de",
@@ -7441,7 +7441,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (И�?пани�?)"
+          "value" : "Испанский (Испания)"
         },
         {
           "language" : "zh",
@@ -7449,7 +7449,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （西�?�牙）"
+          "value" : "西班牙语 （西班牙）"
         },
         {
           "language" : "de",
@@ -7493,7 +7493,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (Уругвай)"
+          "value" : "Испанский (Уругвай)"
         },
         {
           "language" : "zh",
@@ -7501,7 +7501,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （乌拉圭）"
+          "value" : "西班牙语 （乌拉圭）"
         },
         {
           "language" : "de",
@@ -7545,7 +7545,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Фин�?кий"
+          "value" : "Финский"
         },
         {
           "language" : "zh",
@@ -7597,7 +7597,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий"
+          "value" : "Французский"
         },
         {
           "language" : "zh",
@@ -7685,7 +7685,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Швейцари�?)"
+          "value" : "Французский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -7737,7 +7737,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Франци�?)"
+          "value" : "Французский (Франция)"
         },
         {
           "language" : "zh",
@@ -7833,7 +7833,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "弗里士兰语（�?�兰）"
+          "value" : "弗里士兰语（荷兰）"
         },
         {
           "language" : "de",
@@ -7905,7 +7905,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Хорват�?кий"
+          "value" : "Хорватский"
         },
         {
           "language" : "zh",
@@ -7957,7 +7957,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий"
+          "value" : "Итальянский"
         },
         {
           "language" : "zh",
@@ -7965,7 +7965,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语"
+          "value" : "意大利语"
         },
         {
           "language" : "de",
@@ -8009,7 +8009,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Швейцари�?)"
+          "value" : "Итальянский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -8017,7 +8017,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （瑞士）"
+          "value" : "意大利语 （瑞士）"
         },
         {
           "language" : "de",
@@ -8061,7 +8061,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Итали�?)"
+          "value" : "Итальянский (Италия)"
         },
         {
           "language" : "zh",
@@ -8069,7 +8069,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （�?大利）"
+          "value" : "意大利语 （意大利）"
         },
         {
           "language" : "de",
@@ -8113,7 +8113,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Япон�?кий"
+          "value" : "Японский"
         },
         {
           "language" : "zh",
@@ -8165,7 +8165,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Корей�?кий"
+          "value" : "Корейский"
         },
         {
           "language" : "zh",
@@ -8173,7 +8173,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?鲜语"
+          "value" : "朝鲜语"
         },
         {
           "language" : "de",
@@ -8217,7 +8217,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий"
+          "value" : "Нидерландский"
         },
         {
           "language" : "zh",
@@ -8225,7 +8225,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语"
+          "value" : "荷兰语"
         },
         {
           "language" : "de",
@@ -8269,7 +8269,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （比利时）"
+          "value" : "荷兰语 （比利时）"
         },
         {
           "language" : "de",
@@ -8313,7 +8313,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий (�?идерланды)"
+          "value" : "Нидерландский (Нидерланды)"
         },
         {
           "language" : "zh",
@@ -8321,7 +8321,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （�?�兰）"
+          "value" : "荷兰语 （荷兰）"
         },
         {
           "language" : "de",
@@ -8365,7 +8365,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий"
+          "value" : "Норвежский"
         },
         {
           "language" : "zh",
@@ -8373,7 +8373,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语"
+          "value" : "挪威语"
         },
         {
           "language" : "de",
@@ -8417,7 +8417,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий (�?орвеги�?)"
+          "value" : "Норвежский (Норвегия)"
         },
         {
           "language" : "zh",
@@ -8425,7 +8425,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语 （挪�?）"
+          "value" : "挪威语 （挪威）"
         },
         {
           "language" : "de",
@@ -8509,7 +8509,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий"
+          "value" : "Португальский"
         },
         {
           "language" : "zh",
@@ -8517,7 +8517,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语"
+          "value" : "葡萄牙语"
         },
         {
           "language" : "de",
@@ -8561,7 +8561,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий (Бразили�?)"
+          "value" : "Португальский (Бразилия)"
         },
         {
           "language" : "zh",
@@ -8569,7 +8569,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语 （巴西）"
+          "value" : "葡萄牙语 （巴西）"
         },
         {
           "language" : "de",
@@ -8613,7 +8613,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий"
+          "value" : "Русский"
         },
         {
           "language" : "zh",
@@ -8665,7 +8665,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий (Ро�?�?и�?)"
+          "value" : "Русский (Россия)"
         },
         {
           "language" : "zh",
@@ -8717,7 +8717,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий"
+          "value" : "Сербский"
         },
         {
           "language" : "zh",
@@ -8769,7 +8769,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий (Серби�?)"
+          "value" : "Сербский (Сербия)"
         },
         {
           "language" : "zh",
@@ -8821,7 +8821,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий"
+          "value" : "Шведский"
         },
         {
           "language" : "zh",
@@ -8873,7 +8873,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий (Швеци�?)"
+          "value" : "Шведский (Швеция)"
         },
         {
           "language" : "zh",
@@ -8933,7 +8933,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "泰�?�固语"
+          "value" : "泰卢固语"
         },
         {
           "language" : "de",
@@ -8977,7 +8977,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий"
+          "value" : "Kитайский"
         },
         {
           "language" : "zh",
@@ -9029,7 +9029,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Китай)"
+          "value" : "Kитайский (Китай)"
         },
         {
           "language" : "zh",
@@ -9081,7 +9081,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Гонконг)"
+          "value" : "Kитайский (Гонконг)"
         },
         {
           "language" : "zh",
@@ -9133,7 +9133,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Сингапур)"
+          "value" : "Kитайский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -9141,7 +9141,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （新加�?�）"
+          "value" : "中文 （新加坡）"
         },
         {
           "language" : "de",
@@ -9185,7 +9185,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Тайвань)"
+          "value" : "Kитайский (Тайвань)"
         },
         {
           "language" : "zh",
@@ -9193,7 +9193,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （�?�湾）"
+          "value" : "中文 （台湾）"
         },
         {
           "language" : "de",
@@ -9296,7 +9296,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Бенгаль�?кий"
+          "value" : "Бенгальский"
         },
         {
           "language" : "zh",
@@ -9348,7 +9348,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Чеш�?кий"
+          "value" : "Чешский"
         },
         {
           "language" : "zh",
@@ -9356,7 +9356,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�克语"
+          "value" : "捷克语"
         },
         {
           "language" : "de",
@@ -9400,7 +9400,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Дат�?кий"
+          "value" : "Датский"
         },
         {
           "language" : "zh",
@@ -9452,7 +9452,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий"
+          "value" : "Немецкий"
         },
         {
           "language" : "zh",
@@ -9504,7 +9504,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (�?в�?три�?)"
+          "value" : "Немецкий (Австрия)"
         },
         {
           "language" : "zh",
@@ -9556,7 +9556,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Швейцари�?)"
+          "value" : "Немецкий (Швейцария)"
         },
         {
           "language" : "zh",
@@ -9608,7 +9608,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Германи�?)"
+          "value" : "Немецкий (Германия)"
         },
         {
           "language" : "zh",
@@ -9660,7 +9660,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Грече�?кий"
+          "value" : "Греческий"
         },
         {
           "language" : "zh",
@@ -9712,7 +9712,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий"
+          "value" : "Английский"
         },
         {
           "language" : "zh",
@@ -9764,7 +9764,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?в�?трали�?)"
+          "value" : "Английский (Австралия)"
         },
         {
           "language" : "zh",
@@ -9816,7 +9816,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Канада)"
+          "value" : "Английский (Канада)"
         },
         {
           "language" : "zh",
@@ -9868,7 +9868,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Великобритани�?)"
+          "value" : "Английский (Великобритания)"
         },
         {
           "language" : "zh",
@@ -9920,7 +9920,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Инди�?)"
+          "value" : "Английский (Индия)"
         },
         {
           "language" : "zh",
@@ -9928,7 +9928,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （�?�度）"
+          "value" : "英语 （印度）"
         },
         {
           "language" : "de",
@@ -9972,7 +9972,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?ова�? Зеланди�?)"
+          "value" : "Английский (Новая Зеландия)"
         },
         {
           "language" : "zh",
@@ -10024,7 +10024,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Сингапур)"
+          "value" : "Английский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -10032,7 +10032,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （新加�?�）"
+          "value" : "英语 （新加坡）"
         },
         {
           "language" : "de",
@@ -10076,7 +10076,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (СШ�?)"
+          "value" : "Английский (США)"
         },
         {
           "language" : "zh",
@@ -10128,7 +10128,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий"
+          "value" : "Испанский"
         },
         {
           "language" : "zh",
@@ -10136,7 +10136,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语"
+          "value" : "西班牙语"
         },
         {
           "language" : "de",
@@ -10180,7 +10180,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (�?ргентина)"
+          "value" : "Испанский (Аргентина)"
         },
         {
           "language" : "zh",
@@ -10188,7 +10188,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （阿根廷）"
+          "value" : "西班牙语 （阿根廷）"
         },
         {
           "language" : "de",
@@ -10232,7 +10232,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (И�?пани�?)"
+          "value" : "Испанский (Испания)"
         },
         {
           "language" : "zh",
@@ -10240,7 +10240,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （西�?�牙）"
+          "value" : "西班牙语 （西班牙）"
         },
         {
           "language" : "de",
@@ -10284,7 +10284,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (Уругвай)"
+          "value" : "Испанский (Уругвай)"
         },
         {
           "language" : "zh",
@@ -10292,7 +10292,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （乌拉圭）"
+          "value" : "西班牙语 （乌拉圭）"
         },
         {
           "language" : "de",
@@ -10336,7 +10336,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Фин�?кий"
+          "value" : "Финский"
         },
         {
           "language" : "zh",
@@ -10388,7 +10388,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий"
+          "value" : "Французский"
         },
         {
           "language" : "zh",
@@ -10476,7 +10476,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Швейцари�?)"
+          "value" : "Французский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -10528,7 +10528,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Франци�?)"
+          "value" : "Французский (Франция)"
         },
         {
           "language" : "zh",
@@ -10624,7 +10624,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "弗里士兰语（�?�兰）"
+          "value" : "弗里士兰语（荷兰）"
         },
         {
           "language" : "de",
@@ -10696,7 +10696,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Хорват�?кий"
+          "value" : "Хорватский"
         },
         {
           "language" : "zh",
@@ -10748,7 +10748,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий"
+          "value" : "Итальянский"
         },
         {
           "language" : "zh",
@@ -10756,7 +10756,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语"
+          "value" : "意大利语"
         },
         {
           "language" : "de",
@@ -10800,7 +10800,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Швейцари�?)"
+          "value" : "Итальянский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -10808,7 +10808,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （瑞士）"
+          "value" : "意大利语 （瑞士）"
         },
         {
           "language" : "de",
@@ -10852,7 +10852,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Итали�?)"
+          "value" : "Итальянский (Италия)"
         },
         {
           "language" : "zh",
@@ -10860,7 +10860,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （�?大利）"
+          "value" : "意大利语 （意大利）"
         },
         {
           "language" : "de",
@@ -10904,7 +10904,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Япон�?кий"
+          "value" : "Японский"
         },
         {
           "language" : "zh",
@@ -10956,7 +10956,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Корей�?кий"
+          "value" : "Корейский"
         },
         {
           "language" : "zh",
@@ -10964,7 +10964,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?鲜语"
+          "value" : "朝鲜语"
         },
         {
           "language" : "de",
@@ -11008,7 +11008,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий"
+          "value" : "Нидерландский"
         },
         {
           "language" : "zh",
@@ -11016,7 +11016,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语"
+          "value" : "荷兰语"
         },
         {
           "language" : "de",
@@ -11060,7 +11060,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （比利时）"
+          "value" : "荷兰语 （比利时）"
         },
         {
           "language" : "de",
@@ -11104,7 +11104,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий (�?идерланды)"
+          "value" : "Нидерландский (Нидерланды)"
         },
         {
           "language" : "zh",
@@ -11112,7 +11112,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （�?�兰）"
+          "value" : "荷兰语 （荷兰）"
         },
         {
           "language" : "de",
@@ -11156,7 +11156,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий"
+          "value" : "Норвежский"
         },
         {
           "language" : "zh",
@@ -11164,7 +11164,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语"
+          "value" : "挪威语"
         },
         {
           "language" : "de",
@@ -11208,7 +11208,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий (�?орвеги�?)"
+          "value" : "Норвежский (Норвегия)"
         },
         {
           "language" : "zh",
@@ -11216,7 +11216,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语 （挪�?）"
+          "value" : "挪威语 （挪威）"
         },
         {
           "language" : "de",
@@ -11300,7 +11300,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий"
+          "value" : "Португальский"
         },
         {
           "language" : "zh",
@@ -11308,7 +11308,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语"
+          "value" : "葡萄牙语"
         },
         {
           "language" : "de",
@@ -11352,7 +11352,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий (Бразили�?)"
+          "value" : "Португальский (Бразилия)"
         },
         {
           "language" : "zh",
@@ -11360,7 +11360,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语 （巴西）"
+          "value" : "葡萄牙语 （巴西）"
         },
         {
           "language" : "de",
@@ -11404,7 +11404,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий"
+          "value" : "Русский"
         },
         {
           "language" : "zh",
@@ -11456,7 +11456,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий (Ро�?�?и�?)"
+          "value" : "Русский (Россия)"
         },
         {
           "language" : "zh",
@@ -11508,7 +11508,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий"
+          "value" : "Сербский"
         },
         {
           "language" : "zh",
@@ -11560,7 +11560,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий (Серби�?)"
+          "value" : "Сербский (Сербия)"
         },
         {
           "language" : "zh",
@@ -11612,7 +11612,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий"
+          "value" : "Шведский"
         },
         {
           "language" : "zh",
@@ -11664,7 +11664,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий (Швеци�?)"
+          "value" : "Шведский (Швеция)"
         },
         {
           "language" : "zh",
@@ -11724,7 +11724,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "泰�?�固语"
+          "value" : "泰卢固语"
         },
         {
           "language" : "de",
@@ -11768,7 +11768,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий"
+          "value" : "Kитайский"
         },
         {
           "language" : "zh",
@@ -11820,7 +11820,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Китай)"
+          "value" : "Kитайский (Китай)"
         },
         {
           "language" : "zh",
@@ -11872,7 +11872,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Гонконг)"
+          "value" : "Kитайский (Гонконг)"
         },
         {
           "language" : "zh",
@@ -11924,7 +11924,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Сингапур)"
+          "value" : "Kитайский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -11932,7 +11932,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （新加�?�）"
+          "value" : "中文 （新加坡）"
         },
         {
           "language" : "de",
@@ -11976,7 +11976,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Тайвань)"
+          "value" : "Kитайский (Тайвань)"
         },
         {
           "language" : "zh",
@@ -11984,7 +11984,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （�?�湾）"
+          "value" : "中文 （台湾）"
         },
         {
           "language" : "de",
@@ -12087,7 +12087,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Бенгаль�?кий"
+          "value" : "Бенгальский"
         },
         {
           "language" : "zh",
@@ -12139,7 +12139,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Чеш�?кий"
+          "value" : "Чешский"
         },
         {
           "language" : "zh",
@@ -12147,7 +12147,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�克语"
+          "value" : "捷克语"
         },
         {
           "language" : "de",
@@ -12191,7 +12191,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Дат�?кий"
+          "value" : "Датский"
         },
         {
           "language" : "zh",
@@ -12243,7 +12243,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий"
+          "value" : "Немецкий"
         },
         {
           "language" : "zh",
@@ -12295,7 +12295,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (�?в�?три�?)"
+          "value" : "Немецкий (Австрия)"
         },
         {
           "language" : "zh",
@@ -12347,7 +12347,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Швейцари�?)"
+          "value" : "Немецкий (Швейцария)"
         },
         {
           "language" : "zh",
@@ -12399,7 +12399,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Германи�?)"
+          "value" : "Немецкий (Германия)"
         },
         {
           "language" : "zh",
@@ -12451,7 +12451,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Грече�?кий"
+          "value" : "Греческий"
         },
         {
           "language" : "zh",
@@ -12503,7 +12503,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий"
+          "value" : "Английский"
         },
         {
           "language" : "zh",
@@ -12555,7 +12555,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?в�?трали�?)"
+          "value" : "Английский (Австралия)"
         },
         {
           "language" : "zh",
@@ -12607,7 +12607,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Канада)"
+          "value" : "Английский (Канада)"
         },
         {
           "language" : "zh",
@@ -12659,7 +12659,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Великобритани�?)"
+          "value" : "Английский (Великобритания)"
         },
         {
           "language" : "zh",
@@ -12711,7 +12711,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Инди�?)"
+          "value" : "Английский (Индия)"
         },
         {
           "language" : "zh",
@@ -12719,7 +12719,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （�?�度）"
+          "value" : "英语 （印度）"
         },
         {
           "language" : "de",
@@ -12763,7 +12763,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?ова�? Зеланди�?)"
+          "value" : "Английский (Новая Зеландия)"
         },
         {
           "language" : "zh",
@@ -12815,7 +12815,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Сингапур)"
+          "value" : "Английский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -12823,7 +12823,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （新加�?�）"
+          "value" : "英语 （新加坡）"
         },
         {
           "language" : "de",
@@ -12867,7 +12867,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (СШ�?)"
+          "value" : "Английский (США)"
         },
         {
           "language" : "zh",
@@ -12919,7 +12919,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий"
+          "value" : "Испанский"
         },
         {
           "language" : "zh",
@@ -12927,7 +12927,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语"
+          "value" : "西班牙语"
         },
         {
           "language" : "de",
@@ -12971,7 +12971,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (�?ргентина)"
+          "value" : "Испанский (Аргентина)"
         },
         {
           "language" : "zh",
@@ -12979,7 +12979,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （阿根廷）"
+          "value" : "西班牙语 （阿根廷）"
         },
         {
           "language" : "de",
@@ -13023,7 +13023,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (И�?пани�?)"
+          "value" : "Испанский (Испания)"
         },
         {
           "language" : "zh",
@@ -13031,7 +13031,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （西�?�牙）"
+          "value" : "西班牙语 （西班牙）"
         },
         {
           "language" : "de",
@@ -13075,7 +13075,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (Уругвай)"
+          "value" : "Испанский (Уругвай)"
         },
         {
           "language" : "zh",
@@ -13083,7 +13083,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （乌拉圭）"
+          "value" : "西班牙语 （乌拉圭）"
         },
         {
           "language" : "de",
@@ -13127,7 +13127,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Фин�?кий"
+          "value" : "Финский"
         },
         {
           "language" : "zh",
@@ -13179,7 +13179,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий"
+          "value" : "Французский"
         },
         {
           "language" : "zh",
@@ -13267,7 +13267,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Швейцари�?)"
+          "value" : "Французский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -13319,7 +13319,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Франци�?)"
+          "value" : "Французский (Франция)"
         },
         {
           "language" : "zh",
@@ -13415,7 +13415,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "弗里士兰语（�?�兰）"
+          "value" : "弗里士兰语（荷兰）"
         },
         {
           "language" : "de",
@@ -13487,7 +13487,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Хорват�?кий"
+          "value" : "Хорватский"
         },
         {
           "language" : "zh",
@@ -13539,7 +13539,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий"
+          "value" : "Итальянский"
         },
         {
           "language" : "zh",
@@ -13547,7 +13547,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语"
+          "value" : "意大利语"
         },
         {
           "language" : "de",
@@ -13591,7 +13591,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Швейцари�?)"
+          "value" : "Итальянский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -13599,7 +13599,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （瑞士）"
+          "value" : "意大利语 （瑞士）"
         },
         {
           "language" : "de",
@@ -13643,7 +13643,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Итали�?)"
+          "value" : "Итальянский (Италия)"
         },
         {
           "language" : "zh",
@@ -13651,7 +13651,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （�?大利）"
+          "value" : "意大利语 （意大利）"
         },
         {
           "language" : "de",
@@ -13695,7 +13695,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Япон�?кий"
+          "value" : "Японский"
         },
         {
           "language" : "zh",
@@ -13747,7 +13747,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Корей�?кий"
+          "value" : "Корейский"
         },
         {
           "language" : "zh",
@@ -13755,7 +13755,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?鲜语"
+          "value" : "朝鲜语"
         },
         {
           "language" : "de",
@@ -13799,7 +13799,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий"
+          "value" : "Нидерландский"
         },
         {
           "language" : "zh",
@@ -13807,7 +13807,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语"
+          "value" : "荷兰语"
         },
         {
           "language" : "de",
@@ -13851,7 +13851,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （比利时）"
+          "value" : "荷兰语 （比利时）"
         },
         {
           "language" : "de",
@@ -13895,7 +13895,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий (�?идерланды)"
+          "value" : "Нидерландский (Нидерланды)"
         },
         {
           "language" : "zh",
@@ -13903,7 +13903,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （�?�兰）"
+          "value" : "荷兰语 （荷兰）"
         },
         {
           "language" : "de",
@@ -13947,7 +13947,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий"
+          "value" : "Норвежский"
         },
         {
           "language" : "zh",
@@ -13955,7 +13955,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语"
+          "value" : "挪威语"
         },
         {
           "language" : "de",
@@ -13999,7 +13999,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий (�?орвеги�?)"
+          "value" : "Норвежский (Норвегия)"
         },
         {
           "language" : "zh",
@@ -14007,7 +14007,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语 （挪�?）"
+          "value" : "挪威语 （挪威）"
         },
         {
           "language" : "de",
@@ -14091,7 +14091,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий"
+          "value" : "Португальский"
         },
         {
           "language" : "zh",
@@ -14099,7 +14099,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语"
+          "value" : "葡萄牙语"
         },
         {
           "language" : "de",
@@ -14143,7 +14143,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий (Бразили�?)"
+          "value" : "Португальский (Бразилия)"
         },
         {
           "language" : "zh",
@@ -14151,7 +14151,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语 （巴西）"
+          "value" : "葡萄牙语 （巴西）"
         },
         {
           "language" : "de",
@@ -14195,7 +14195,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий"
+          "value" : "Русский"
         },
         {
           "language" : "zh",
@@ -14247,7 +14247,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий (Ро�?�?и�?)"
+          "value" : "Русский (Россия)"
         },
         {
           "language" : "zh",
@@ -14299,7 +14299,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий"
+          "value" : "Сербский"
         },
         {
           "language" : "zh",
@@ -14351,7 +14351,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий (Серби�?)"
+          "value" : "Сербский (Сербия)"
         },
         {
           "language" : "zh",
@@ -14403,7 +14403,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий"
+          "value" : "Шведский"
         },
         {
           "language" : "zh",
@@ -14455,7 +14455,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий (Швеци�?)"
+          "value" : "Шведский (Швеция)"
         },
         {
           "language" : "zh",
@@ -14515,7 +14515,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "泰�?�固语"
+          "value" : "泰卢固语"
         },
         {
           "language" : "de",
@@ -14559,7 +14559,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий"
+          "value" : "Kитайский"
         },
         {
           "language" : "zh",
@@ -14611,7 +14611,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Китай)"
+          "value" : "Kитайский (Китай)"
         },
         {
           "language" : "zh",
@@ -14663,7 +14663,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Гонконг)"
+          "value" : "Kитайский (Гонконг)"
         },
         {
           "language" : "zh",
@@ -14715,7 +14715,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Сингапур)"
+          "value" : "Kитайский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -14723,7 +14723,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （新加�?�）"
+          "value" : "中文 （新加坡）"
         },
         {
           "language" : "de",
@@ -14767,7 +14767,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Тайвань)"
+          "value" : "Kитайский (Тайвань)"
         },
         {
           "language" : "zh",
@@ -14775,7 +14775,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （�?�湾）"
+          "value" : "中文 （台湾）"
         },
         {
           "language" : "de",
@@ -14868,7 +14868,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Бенгаль�?кий"
+          "value" : "Бенгальский"
         },
         {
           "language" : "zh",
@@ -14920,7 +14920,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Чеш�?кий"
+          "value" : "Чешский"
         },
         {
           "language" : "zh",
@@ -14928,7 +14928,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�克语"
+          "value" : "捷克语"
         },
         {
           "language" : "de",
@@ -14972,7 +14972,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Дат�?кий"
+          "value" : "Датский"
         },
         {
           "language" : "zh",
@@ -15024,7 +15024,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий"
+          "value" : "Немецкий"
         },
         {
           "language" : "zh",
@@ -15076,7 +15076,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (�?в�?три�?)"
+          "value" : "Немецкий (Австрия)"
         },
         {
           "language" : "zh",
@@ -15128,7 +15128,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Швейцари�?)"
+          "value" : "Немецкий (Швейцария)"
         },
         {
           "language" : "zh",
@@ -15180,7 +15180,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Германи�?)"
+          "value" : "Немецкий (Германия)"
         },
         {
           "language" : "zh",
@@ -15232,7 +15232,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Грече�?кий"
+          "value" : "Греческий"
         },
         {
           "language" : "zh",
@@ -15284,7 +15284,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий"
+          "value" : "Английский"
         },
         {
           "language" : "zh",
@@ -15336,7 +15336,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?в�?трали�?)"
+          "value" : "Английский (Австралия)"
         },
         {
           "language" : "zh",
@@ -15388,7 +15388,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Канада)"
+          "value" : "Английский (Канада)"
         },
         {
           "language" : "zh",
@@ -15440,7 +15440,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Великобритани�?)"
+          "value" : "Английский (Великобритания)"
         },
         {
           "language" : "zh",
@@ -15492,7 +15492,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Инди�?)"
+          "value" : "Английский (Индия)"
         },
         {
           "language" : "zh",
@@ -15500,7 +15500,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （�?�度）"
+          "value" : "英语 （印度）"
         },
         {
           "language" : "de",
@@ -15544,7 +15544,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?ова�? Зеланди�?)"
+          "value" : "Английский (Новая Зеландия)"
         },
         {
           "language" : "zh",
@@ -15596,7 +15596,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Сингапур)"
+          "value" : "Английский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -15604,7 +15604,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （新加�?�）"
+          "value" : "英语 （新加坡）"
         },
         {
           "language" : "de",
@@ -15648,7 +15648,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (СШ�?)"
+          "value" : "Английский (США)"
         },
         {
           "language" : "zh",
@@ -15700,7 +15700,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий"
+          "value" : "Испанский"
         },
         {
           "language" : "zh",
@@ -15708,7 +15708,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语"
+          "value" : "西班牙语"
         },
         {
           "language" : "de",
@@ -15752,7 +15752,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (�?ргентина)"
+          "value" : "Испанский (Аргентина)"
         },
         {
           "language" : "zh",
@@ -15760,7 +15760,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （阿根廷）"
+          "value" : "西班牙语 （阿根廷）"
         },
         {
           "language" : "de",
@@ -15804,7 +15804,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (И�?пани�?)"
+          "value" : "Испанский (Испания)"
         },
         {
           "language" : "zh",
@@ -15812,7 +15812,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （西�?�牙）"
+          "value" : "西班牙语 （西班牙）"
         },
         {
           "language" : "de",
@@ -15856,7 +15856,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (Уругвай)"
+          "value" : "Испанский (Уругвай)"
         },
         {
           "language" : "zh",
@@ -15864,7 +15864,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （乌拉圭）"
+          "value" : "西班牙语 （乌拉圭）"
         },
         {
           "language" : "de",
@@ -15908,7 +15908,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Фин�?кий"
+          "value" : "Финский"
         },
         {
           "language" : "zh",
@@ -15960,7 +15960,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий"
+          "value" : "Французский"
         },
         {
           "language" : "zh",
@@ -16048,7 +16048,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Швейцари�?)"
+          "value" : "Французский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -16100,7 +16100,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Франци�?)"
+          "value" : "Французский (Франция)"
         },
         {
           "language" : "zh",
@@ -16196,7 +16196,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "弗里士兰语（�?�兰）"
+          "value" : "弗里士兰语（荷兰）"
         },
         {
           "language" : "de",
@@ -16268,7 +16268,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Хорват�?кий"
+          "value" : "Хорватский"
         },
         {
           "language" : "zh",
@@ -16320,7 +16320,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий"
+          "value" : "Итальянский"
         },
         {
           "language" : "zh",
@@ -16328,7 +16328,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语"
+          "value" : "意大利语"
         },
         {
           "language" : "de",
@@ -16372,7 +16372,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Швейцари�?)"
+          "value" : "Итальянский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -16380,7 +16380,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （瑞士）"
+          "value" : "意大利语 （瑞士）"
         },
         {
           "language" : "de",
@@ -16424,7 +16424,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Итали�?)"
+          "value" : "Итальянский (Италия)"
         },
         {
           "language" : "zh",
@@ -16432,7 +16432,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （�?大利）"
+          "value" : "意大利语 （意大利）"
         },
         {
           "language" : "de",
@@ -16476,7 +16476,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Япон�?кий"
+          "value" : "Японский"
         },
         {
           "language" : "zh",
@@ -16528,7 +16528,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Корей�?кий"
+          "value" : "Корейский"
         },
         {
           "language" : "zh",
@@ -16536,7 +16536,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?鲜语"
+          "value" : "朝鲜语"
         },
         {
           "language" : "de",
@@ -16580,7 +16580,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий"
+          "value" : "Нидерландский"
         },
         {
           "language" : "zh",
@@ -16588,7 +16588,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语"
+          "value" : "荷兰语"
         },
         {
           "language" : "de",
@@ -16632,7 +16632,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （比利时）"
+          "value" : "荷兰语 （比利时）"
         },
         {
           "language" : "de",
@@ -16676,7 +16676,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий (�?идерланды)"
+          "value" : "Нидерландский (Нидерланды)"
         },
         {
           "language" : "zh",
@@ -16684,7 +16684,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （�?�兰）"
+          "value" : "荷兰语 （荷兰）"
         },
         {
           "language" : "de",
@@ -16728,7 +16728,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий"
+          "value" : "Норвежский"
         },
         {
           "language" : "zh",
@@ -16736,7 +16736,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语"
+          "value" : "挪威语"
         },
         {
           "language" : "de",
@@ -16780,7 +16780,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий (�?орвеги�?)"
+          "value" : "Норвежский (Норвегия)"
         },
         {
           "language" : "zh",
@@ -16788,7 +16788,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语 （挪�?）"
+          "value" : "挪威语 （挪威）"
         },
         {
           "language" : "de",
@@ -16872,7 +16872,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий"
+          "value" : "Португальский"
         },
         {
           "language" : "zh",
@@ -16880,7 +16880,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语"
+          "value" : "葡萄牙语"
         },
         {
           "language" : "de",
@@ -16924,7 +16924,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий (Бразили�?)"
+          "value" : "Португальский (Бразилия)"
         },
         {
           "language" : "zh",
@@ -16932,7 +16932,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语 （巴西）"
+          "value" : "葡萄牙语 （巴西）"
         },
         {
           "language" : "de",
@@ -16976,7 +16976,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий"
+          "value" : "Русский"
         },
         {
           "language" : "zh",
@@ -17028,7 +17028,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий (Ро�?�?и�?)"
+          "value" : "Русский (Россия)"
         },
         {
           "language" : "zh",
@@ -17080,7 +17080,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий"
+          "value" : "Сербский"
         },
         {
           "language" : "zh",
@@ -17132,7 +17132,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий (Серби�?)"
+          "value" : "Сербский (Сербия)"
         },
         {
           "language" : "zh",
@@ -17184,7 +17184,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий"
+          "value" : "Шведский"
         },
         {
           "language" : "zh",
@@ -17236,7 +17236,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий (Швеци�?)"
+          "value" : "Шведский (Швеция)"
         },
         {
           "language" : "zh",
@@ -17296,7 +17296,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "泰�?�固语"
+          "value" : "泰卢固语"
         },
         {
           "language" : "de",
@@ -17340,7 +17340,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий"
+          "value" : "Kитайский"
         },
         {
           "language" : "zh",
@@ -17392,7 +17392,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Китай)"
+          "value" : "Kитайский (Китай)"
         },
         {
           "language" : "zh",
@@ -17444,7 +17444,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Гонконг)"
+          "value" : "Kитайский (Гонконг)"
         },
         {
           "language" : "zh",
@@ -17496,7 +17496,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Сингапур)"
+          "value" : "Kитайский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -17504,7 +17504,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （新加�?�）"
+          "value" : "中文 （新加坡）"
         },
         {
           "language" : "de",
@@ -17548,7 +17548,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Тайвань)"
+          "value" : "Kитайский (Тайвань)"
         },
         {
           "language" : "zh",
@@ -17556,7 +17556,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （�?�湾）"
+          "value" : "中文 （台湾）"
         },
         {
           "language" : "de",
@@ -17659,7 +17659,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Бенгаль�?кий"
+          "value" : "Бенгальский"
         },
         {
           "language" : "zh",
@@ -17711,7 +17711,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Чеш�?кий"
+          "value" : "Чешский"
         },
         {
           "language" : "zh",
@@ -17719,7 +17719,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�克语"
+          "value" : "捷克语"
         },
         {
           "language" : "de",
@@ -17763,7 +17763,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Дат�?кий"
+          "value" : "Датский"
         },
         {
           "language" : "zh",
@@ -17815,7 +17815,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий"
+          "value" : "Немецкий"
         },
         {
           "language" : "zh",
@@ -17867,7 +17867,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (�?в�?три�?)"
+          "value" : "Немецкий (Австрия)"
         },
         {
           "language" : "zh",
@@ -17919,7 +17919,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Швейцари�?)"
+          "value" : "Немецкий (Швейцария)"
         },
         {
           "language" : "zh",
@@ -17971,7 +17971,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?емецкий (Германи�?)"
+          "value" : "Немецкий (Германия)"
         },
         {
           "language" : "zh",
@@ -18023,7 +18023,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Грече�?кий"
+          "value" : "Греческий"
         },
         {
           "language" : "zh",
@@ -18075,7 +18075,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий"
+          "value" : "Английский"
         },
         {
           "language" : "zh",
@@ -18127,7 +18127,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?в�?трали�?)"
+          "value" : "Английский (Австралия)"
         },
         {
           "language" : "zh",
@@ -18179,7 +18179,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Канада)"
+          "value" : "Английский (Канада)"
         },
         {
           "language" : "zh",
@@ -18231,7 +18231,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Великобритани�?)"
+          "value" : "Английский (Великобритания)"
         },
         {
           "language" : "zh",
@@ -18283,7 +18283,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Инди�?)"
+          "value" : "Английский (Индия)"
         },
         {
           "language" : "zh",
@@ -18291,7 +18291,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （�?�度）"
+          "value" : "英语 （印度）"
         },
         {
           "language" : "de",
@@ -18335,7 +18335,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (�?ова�? Зеланди�?)"
+          "value" : "Английский (Новая Зеландия)"
         },
         {
           "language" : "zh",
@@ -18387,7 +18387,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (Сингапур)"
+          "value" : "Английский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -18395,7 +18395,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "英语 （新加�?�）"
+          "value" : "英语 （新加坡）"
         },
         {
           "language" : "de",
@@ -18439,7 +18439,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?нглий�?кий (СШ�?)"
+          "value" : "Английский (США)"
         },
         {
           "language" : "zh",
@@ -18491,7 +18491,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий"
+          "value" : "Испанский"
         },
         {
           "language" : "zh",
@@ -18499,7 +18499,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语"
+          "value" : "西班牙语"
         },
         {
           "language" : "de",
@@ -18543,7 +18543,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (�?ргентина)"
+          "value" : "Испанский (Аргентина)"
         },
         {
           "language" : "zh",
@@ -18551,7 +18551,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （阿根廷）"
+          "value" : "西班牙语 （阿根廷）"
         },
         {
           "language" : "de",
@@ -18595,7 +18595,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (И�?пани�?)"
+          "value" : "Испанский (Испания)"
         },
         {
           "language" : "zh",
@@ -18603,7 +18603,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （西�?�牙）"
+          "value" : "西班牙语 （西班牙）"
         },
         {
           "language" : "de",
@@ -18647,7 +18647,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "И�?пан�?кий (Уругвай)"
+          "value" : "Испанский (Уругвай)"
         },
         {
           "language" : "zh",
@@ -18655,7 +18655,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "西�?�牙语 （乌拉圭）"
+          "value" : "西班牙语 （乌拉圭）"
         },
         {
           "language" : "de",
@@ -18699,7 +18699,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Фин�?кий"
+          "value" : "Финский"
         },
         {
           "language" : "zh",
@@ -18751,7 +18751,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий"
+          "value" : "Французский"
         },
         {
           "language" : "zh",
@@ -18839,7 +18839,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Швейцари�?)"
+          "value" : "Французский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -18891,7 +18891,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Француз�?кий (Франци�?)"
+          "value" : "Французский (Франция)"
         },
         {
           "language" : "zh",
@@ -18987,7 +18987,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "弗里士兰语（�?�兰）"
+          "value" : "弗里士兰语（荷兰）"
         },
         {
           "language" : "de",
@@ -19059,7 +19059,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Хорват�?кий"
+          "value" : "Хорватский"
         },
         {
           "language" : "zh",
@@ -19111,7 +19111,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий"
+          "value" : "Итальянский"
         },
         {
           "language" : "zh",
@@ -19119,7 +19119,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语"
+          "value" : "意大利语"
         },
         {
           "language" : "de",
@@ -19163,7 +19163,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Швейцари�?)"
+          "value" : "Итальянский (Швейцария)"
         },
         {
           "language" : "zh",
@@ -19171,7 +19171,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （瑞士）"
+          "value" : "意大利语 （瑞士）"
         },
         {
           "language" : "de",
@@ -19215,7 +19215,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Италь�?н�?кий (Итали�?)"
+          "value" : "Итальянский (Италия)"
         },
         {
           "language" : "zh",
@@ -19223,7 +19223,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?大利语 （�?大利）"
+          "value" : "意大利语 （意大利）"
         },
         {
           "language" : "de",
@@ -19267,7 +19267,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Япон�?кий"
+          "value" : "Японский"
         },
         {
           "language" : "zh",
@@ -19319,7 +19319,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Корей�?кий"
+          "value" : "Корейский"
         },
         {
           "language" : "zh",
@@ -19327,7 +19327,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?鲜语"
+          "value" : "朝鲜语"
         },
         {
           "language" : "de",
@@ -19371,7 +19371,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий"
+          "value" : "Нидерландский"
         },
         {
           "language" : "zh",
@@ -19379,7 +19379,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语"
+          "value" : "荷兰语"
         },
         {
           "language" : "de",
@@ -19423,7 +19423,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （比利时）"
+          "value" : "荷兰语 （比利时）"
         },
         {
           "language" : "de",
@@ -19467,7 +19467,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?идерланд�?кий (�?идерланды)"
+          "value" : "Нидерландский (Нидерланды)"
         },
         {
           "language" : "zh",
@@ -19475,7 +19475,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?�兰语 （�?�兰）"
+          "value" : "荷兰语 （荷兰）"
         },
         {
           "language" : "de",
@@ -19519,7 +19519,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий"
+          "value" : "Норвежский"
         },
         {
           "language" : "zh",
@@ -19527,7 +19527,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语"
+          "value" : "挪威语"
         },
         {
           "language" : "de",
@@ -19571,7 +19571,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "�?орвеж�?кий (�?орвеги�?)"
+          "value" : "Норвежский (Норвегия)"
         },
         {
           "language" : "zh",
@@ -19579,7 +19579,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "挪�?语 （挪�?）"
+          "value" : "挪威语 （挪威）"
         },
         {
           "language" : "de",
@@ -19663,7 +19663,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий"
+          "value" : "Португальский"
         },
         {
           "language" : "zh",
@@ -19671,7 +19671,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语"
+          "value" : "葡萄牙语"
         },
         {
           "language" : "de",
@@ -19715,7 +19715,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Португаль�?кий (Бразили�?)"
+          "value" : "Португальский (Бразилия)"
         },
         {
           "language" : "zh",
@@ -19723,7 +19723,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "葡�?�牙语 （巴西）"
+          "value" : "葡萄牙语 （巴西）"
         },
         {
           "language" : "de",
@@ -19767,7 +19767,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий"
+          "value" : "Русский"
         },
         {
           "language" : "zh",
@@ -19819,7 +19819,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Ру�?�?кий (Ро�?�?и�?)"
+          "value" : "Русский (Россия)"
         },
         {
           "language" : "zh",
@@ -19871,7 +19871,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий"
+          "value" : "Сербский"
         },
         {
           "language" : "zh",
@@ -19923,7 +19923,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Серб�?кий (Серби�?)"
+          "value" : "Сербский (Сербия)"
         },
         {
           "language" : "zh",
@@ -19975,7 +19975,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий"
+          "value" : "Шведский"
         },
         {
           "language" : "zh",
@@ -20027,7 +20027,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Швед�?кий (Швеци�?)"
+          "value" : "Шведский (Швеция)"
         },
         {
           "language" : "zh",
@@ -20087,7 +20087,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "泰�?�固语"
+          "value" : "泰卢固语"
         },
         {
           "language" : "de",
@@ -20131,7 +20131,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий"
+          "value" : "Kитайский"
         },
         {
           "language" : "zh",
@@ -20183,7 +20183,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Китай)"
+          "value" : "Kитайский (Китай)"
         },
         {
           "language" : "zh",
@@ -20235,7 +20235,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Гонконг)"
+          "value" : "Kитайский (Гонконг)"
         },
         {
           "language" : "zh",
@@ -20287,7 +20287,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Сингапур)"
+          "value" : "Kитайский (Сингапур)"
         },
         {
           "language" : "zh",
@@ -20295,7 +20295,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （新加�?�）"
+          "value" : "中文 （新加坡）"
         },
         {
           "language" : "de",
@@ -20339,7 +20339,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "Kитай�?кий (Тайвань)"
+          "value" : "Kитайский (Тайвань)"
         },
         {
           "language" : "zh",
@@ -20347,7 +20347,7 @@ v: {
             "system" : "http://terminology.hl7.org/CodeSystem/designation-usage",
             "code" : "display"
           },
-          "value" : "中文 （�?�湾）"
+          "value" : "中文 （台湾）"
         },
         {
           "language" : "de",

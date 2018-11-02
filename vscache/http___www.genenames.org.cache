@@ -1,4 +1,4 @@
-?-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -48,7 +48,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#HGNC:4932) is not  valid in the value set HGNC"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
