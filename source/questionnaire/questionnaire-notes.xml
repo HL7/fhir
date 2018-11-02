@@ -19,6 +19,29 @@ Observations to model Questionnaires. Such use cases should now use the Question
 <li>In cases where it is necessary or appropriate to capture the reason why a response is missing (that is, why a particular question was not answered), there should be an explicit child item defined for the relevant question(s) in the Questionnaire; e.g. add a child question of "Reason not specified:" with an enableWhen operator "not exists" to the parent question.</li>
 </ul>
 
+<a name="sdc"> </a>
+<h3>Structured Data Capture</h3>
+<p>
+The base questionnaire resource is aimed at the capabilities of "most" healthcare systems that deal with forms and questionnaires.  While the resource structure
+supports a reasonable degree of complexity, it doesn't provide the degree of control over rendering, question flow and data management needed by some portions 
+of the healthcare space.  Many of these more sophisticated requirements are addressed by a supplemental implementation guide called 
+<a href="http://build.fhir.org/ig/HL7/sdc/">Structured Data Capture (SDC)</a>.  This implementation guide covers the following capabilities, plus several others:
+</p>
+<ul>
+  <li>Rendering grids of questions, multi-column drop-downs, multi-language questionnaires, and other 'advanced' formatting capabilities</li>
+  <li>Advanced dynamic questionnaires including calculated scores, enabling of questions and groups based on complex logic, drop-downs driven by answers to other questions</li>
+  <li>Support for populating questionnaires from existing clinical data based on the current patient, encounter, etc., including the ability to render the form as HTML or to redirect to a website to complete unanswered items</li>
+  <li>Support for extracting information from a completed QuestionnaireResponse to generate other FHIR resources such as Observations, MedicationStatements, etc.</li>
+  <li>Support for completing 'adaptive' questionnaires (see below)</li>
+</ul>
+
+<a name="adaptive"> </a>
+<h3>Adaptive Questionnaires</h3>
+<p>
+Some questionnaires might not provide a full listing of questions, instead relying on a service to interactively sending partially completed forms to a server which generates the next set of questions.  
+As such, some questionnaires might be 'active' but have either no questions or an insufficient set of questions for their purpose.  Further guidance on the use of such forms, can be found in the <a href="#sdc">SDC</a> implementation guide.
+</p>
+
 <a name="qversusr"></a>
 <h3>Using Questionnaires versus using Resources</h3>
 <p>
@@ -78,20 +101,6 @@ Group text is intended to provide a "label" for a collection of nested items.  T
 Detailed instructions should be conveyed by a nested "display" item.  It's not necessary to create groups in order to relate an instruction to a collection of questions - you can simply intermix
 display items and questions or groups, with the expectation that users will see the display text before encountering the following questions. 
 </p>
-
-<a name="adaptive"> </a>
-<h3>Adaptive Questionnaires</h3>
-<p>
-Some questionnaires might not provide a full listing of questions, instead relying on a service to interactively sending partially completed forms to a server which generates the next set of questions.  
-As such, some questionnaires might be 'active' but have either no questions or an insufficient set of questions for their purpose.  Additional capabilities relating to adaptive questionnaires, including how 
-to clearly distingish such forms from other forms.
-</p>
-
-<blockquote class="stu-note">
-<p>
-Feedback on how best to handle adaptive questionnaires - and how to discover the services that support completing such questionnaires - is welcome.
-</p>
-</blockquote>
 
 <a name="identifiers"> </a>
 <h3>Identifiers within Questionnaire</h3>
