@@ -187,7 +187,7 @@ following additional canonicalization URIs are also defined:
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/xml#static</td>
-  <td>In addition to narrative (Resource.text), the <code>Resource.meta</code> element is removed. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed</td>
+  <td>In addition to narrative (Resource.text), the <code>Resource.meta</code> element is removed. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed.  Note that workflow and security tags may contain information important to the handling of the resource, so meta elements should be protected from tampering by other means if unsigned.</td>
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/xml#narrative</td>

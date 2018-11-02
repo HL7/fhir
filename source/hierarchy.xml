@@ -312,7 +312,7 @@ signatures.html
       <page type="resource" resource="DiagnosticReport"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingManifest"/>
-      <page type="resource" resource="Sequence"/>
+      <page type="resource" resource="MolecularSequence"/>
       <page type="resource" resource="Specimen"/>
       <page type="resource" resource="SpecimenDefinition"/>
       <page type="resource" resource="BodyStructure"/>
