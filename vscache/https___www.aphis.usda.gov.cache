@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system https://www.aphis.usda.gov"
+  "error" : "The code system \"https://www.aphis.usda.gov\" is not known; The code provided (https://www.aphis.usda.gov#POR) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

@@ -6,14 +6,13 @@
       "system" : "urn:iso:std:iso:4217"
     }]
   }
-}}
-####
+}}####
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:e443c841-7cc6-4c98-8005-da312e8dba6c",
-    "timestamp" : "2018-08-19T10:27:04.361Z",
+    "identifier" : "urn:uuid:2c044aa1-6eee-46af-888b-4e39e9309f55",
+    "timestamp" : "2018-11-02T21:12:02.690Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -293,6 +292,11 @@ e: {
     },
     {
       "system" : "urn:iso:std:iso:4217",
+      "code" : "GGP",
+      "display" : "Guernsey Pound"
+    },
+    {
+      "system" : "urn:iso:std:iso:4217",
       "code" : "GHS",
       "display" : "Ghanaian cedi"
     },
@@ -358,6 +362,11 @@ e: {
     },
     {
       "system" : "urn:iso:std:iso:4217",
+      "code" : "IMP",
+      "display" : "Isle of Man Pound"
+    },
+    {
+      "system" : "urn:iso:std:iso:4217",
       "code" : "INR",
       "display" : "Indian rupee"
     },
@@ -375,6 +384,11 @@ e: {
       "system" : "urn:iso:std:iso:4217",
       "code" : "ISK",
       "display" : "Icelandic króna"
+    },
+    {
+      "system" : "urn:iso:std:iso:4217",
+      "code" : "JEP",
+      "display" : "Jersey Pound"
     },
     {
       "system" : "urn:iso:std:iso:4217",
@@ -748,6 +762,11 @@ e: {
     },
     {
       "system" : "urn:iso:std:iso:4217",
+      "code" : "TVD",
+      "display" : "Tuvalu Dollar"
+    },
+    {
+      "system" : "urn:iso:std:iso:4217",
       "code" : "TWD",
       "display" : "New Taiwan dollar"
     },
@@ -928,14 +947,13 @@ e: {
       "system" : "urn:iso:std:iso:4217"
     }]
   }
-}}
-####
+}}####
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:7c64d435-87b0-4f07-942e-d6abb0bcf7d3",
-    "timestamp" : "2018-08-19T10:32:13.204Z",
+    "identifier" : "urn:uuid:8e66a74a-1f2f-4752-a5b3-a128b1577c65",
+    "timestamp" : "2018-11-02T21:41:28.615Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -1211,6 +1229,11 @@ e: {
     },
     {
       "system" : "urn:iso:std:iso:4217",
+      "code" : "GGP",
+      "display" : "Guernsey Pound"
+    },
+    {
+      "system" : "urn:iso:std:iso:4217",
       "code" : "GHS",
       "display" : "Ghanaian cedi"
     },
@@ -1276,6 +1299,11 @@ e: {
     },
     {
       "system" : "urn:iso:std:iso:4217",
+      "code" : "IMP",
+      "display" : "Isle of Man Pound"
+    },
+    {
+      "system" : "urn:iso:std:iso:4217",
       "code" : "INR",
       "display" : "Indian rupee"
     },
@@ -1293,6 +1321,11 @@ e: {
       "system" : "urn:iso:std:iso:4217",
       "code" : "ISK",
       "display" : "Icelandic króna"
+    },
+    {
+      "system" : "urn:iso:std:iso:4217",
+      "code" : "JEP",
+      "display" : "Jersey Pound"
     },
     {
       "system" : "urn:iso:std:iso:4217",
@@ -1663,6 +1696,11 @@ e: {
       "system" : "urn:iso:std:iso:4217",
       "code" : "TTD",
       "display" : "Trinidad and Tobago dollar"
+    },
+    {
+      "system" : "urn:iso:std:iso:4217",
+      "code" : "TVD",
+      "display" : "Tuvalu Dollar"
     },
     {
       "system" : "urn:iso:std:iso:4217",

@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://ema.europa.eu/example/intendedeffect"
+  "error" : "The code system \"http://ema.europa.eu/example/intendedeffect\" is not known; The code provided (http://ema.europa.eu/example/intendedeffect#PRYLX) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

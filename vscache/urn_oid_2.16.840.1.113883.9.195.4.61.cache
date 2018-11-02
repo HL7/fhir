@@ -1,5 +1,4 @@
 -------------------------------------------------------------------------------------
-
 {"code" : {
   "system" : "urn:oid:2.16.840.1.113883.9.195.4.61",
   "code" : "RSLT"
@@ -7,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.9.195.4.61"
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.9.195.4.61\" is not known; The code provided (urn:oid:2.16.840.1.113883.9.195.4.61#RSLT) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -27,6 +26,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.9.195.4.61"
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.9.195.4.61\" is not known; The code provided (urn:oid:2.16.840.1.113883.9.195.4.61#RSLT) is not  valid in the value set ObservationCategoryCodes"
 }
 -------------------------------------------------------------------------------------

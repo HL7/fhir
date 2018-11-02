@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://fhir.de/CodingSystem/kbv/ebm"
+  "error" : "The code system \"http://fhir.de/CodingSystem/kbv/ebm\" is not known; The code provided (http://fhir.de/CodingSystem/kbv/ebm#30110) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

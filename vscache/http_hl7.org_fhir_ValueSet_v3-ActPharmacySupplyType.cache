@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http:hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"
+  "error" : "The code system \"http:hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType\" is not known; The code provided (http:hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType#RFP) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

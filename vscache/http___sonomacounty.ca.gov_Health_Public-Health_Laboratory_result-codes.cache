@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/result-codes"
+  "error" : "The code system \"http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/result-codes\" is not known; The code provided (http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/result-codes#POSITIVE) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

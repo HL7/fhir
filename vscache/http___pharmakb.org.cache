@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://pharmakb.org"
+  "error" : "The code system \"http://pharmakb.org\" is not known; The code provided (http://pharmakb.org#PA165971587) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,7 +16,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://pharmakb.org"
+  "error" : "The code system \"http://pharmakb.org\" is not known; The code provided (http://pharmakb.org#PA16581679) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -26,7 +26,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://pharmakb.org"
+  "error" : "The code system \"http://pharmakb.org\" is not known; The code provided (http://pharmakb.org#PA166128347) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -36,6 +36,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://pharmakb.org"
+  "error" : "The code system \"http://pharmakb.org\" is not known; The code provided (http://pharmakb.org#PA166128353) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

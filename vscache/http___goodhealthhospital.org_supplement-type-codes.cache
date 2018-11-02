@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://goodhealthhospital.org/supplement-type-codes"
+  "error" : "The code system \"http://goodhealthhospital.org/supplement-type-codes\" is not known; The code provided (http://goodhealthhospital.org/supplement-type-codes#1040) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,7 +16,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://goodhealthhospital.org/supplement-type-codes"
+  "error" : "The code system \"http://goodhealthhospital.org/supplement-type-codes\" is not known; The code provided (http://goodhealthhospital.org/supplement-type-codes#1010) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -26,6 +26,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://goodhealthhospital.org/supplement-type-codes"
+  "error" : "The code system \"http://goodhealthhospital.org/supplement-type-codes\" is not known; The code provided (http://goodhealthhospital.org/supplement-type-codes#1000) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

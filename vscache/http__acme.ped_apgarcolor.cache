@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http:/acme.ped/apgarcolor"
+  "error" : "The code system \"http:/acme.ped/apgarcolor\" is not known; The code provided (http:/acme.ped/apgarcolor#0) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,7 +16,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http:/acme.ped/apgarcolor"
+  "error" : "The code system \"http:/acme.ped/apgarcolor\" is not known; The code provided (http:/acme.ped/apgarcolor#1) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -26,6 +26,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http:/acme.ped/apgarcolor"
+  "error" : "The code system \"http:/acme.ped/apgarcolor\" is not known; The code provided (http:/acme.ped/apgarcolor#2) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

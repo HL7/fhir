@@ -1,0 +1,1 @@
+del *.cache /s /q

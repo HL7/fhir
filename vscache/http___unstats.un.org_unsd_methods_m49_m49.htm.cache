@@ -1,6 +1,4 @@
 -------------------------------------------------------------------------------------
-
-
 {"code" : {
   "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "code" : "001"
@@ -11,8 +9,6 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
-
-
 {"code" : {
   "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "code" : "009"
@@ -23,7 +19,6 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
-
 {"code" : {
   "coding" : [{
     "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
@@ -52,10 +47,20 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:iso:std:iso:3166:-2"
+  "error" : "Not done yet @ TAreaCodeServices.Close"
 }
 -------------------------------------------------------------------------------------
-
+{"code" : {
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "code" : "840",
+  "display" : "United States of America"
+}, "valueSet" :null}####
+v: {
+  "display" : "United States of America (USA)",
+  "severity" : "warning",
+  "error" : "The display \"United States of America\" is not a valid display for the code {http://unstats.un.org/unsd/methods/m49/m49.htm}840 - should be one of [\"United States of America (USA)\"]"
+}
+-------------------------------------------------------------------------------------
 {"code" : {
   "coding" : [{
     "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
@@ -83,10 +88,9 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:iso:std:iso:3166:-2"
+  "error" : "Not done yet @ TAreaCodeServices.Close"
 }
 -------------------------------------------------------------------------------------
-
 {"code" : {
   "coding" : [{
     "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
@@ -115,18 +119,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:iso:std:iso:3166:-2"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
-  "code" : "840",
-  "display" : "United States of America"
-}, "valueSet" :null}####
-v: {
-  "display" : "United States of America (USA)",
-  "severity" : "warning",
-  "error" : "The display \"United States of America\" is not a valid display for the code {http://unstats.un.org/unsd/methods/m49/m49.htm}840 - should be one of [\"United States of America (USA)\"]"
+  "error" : "Not done yet @ TAreaCodeServices.Close"
 }
 -------------------------------------------------------------------------------------
 {"code" : {

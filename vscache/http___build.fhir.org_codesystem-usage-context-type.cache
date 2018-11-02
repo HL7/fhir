@@ -14,6 +14,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://build.fhir.org/codesystem-usage-context-type"
+  "error" : "The code system \"http://build.fhir.org/codesystem-usage-context-type\" is not known; The code provided (http://build.fhir.org/codesystem-usage-context-type#venue) is not  valid in the value set UsageContextType"
 }
 -------------------------------------------------------------------------------------

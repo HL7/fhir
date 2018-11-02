@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.com"
+  "error" : "The code system \"http://example.com\" is not known; The code provided (http://example.com#1) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,7 +16,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.com"
+  "error" : "The code system \"http://example.com\" is not known; The code provided (http://example.com#2) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -26,7 +26,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.com"
+  "error" : "The code system \"http://example.com\" is not known; The code provided (http://example.com#3) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -36,7 +36,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.com"
+  "error" : "The code system \"http://example.com\" is not known; The code provided (http://example.com#4) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -46,7 +46,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.com"
+  "error" : "The code system \"http://example.com\" is not known; The code provided (http://example.com#5) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -56,7 +56,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.com"
+  "error" : "The code system \"http://example.com\" is not known; The code provided (http://example.com#6) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -66,6 +66,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.com"
+  "error" : "The code system \"http://example.com\" is not known; The code provided (http://example.com#7) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

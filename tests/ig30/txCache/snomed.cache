@@ -4,9 +4,9 @@
   "code" : "404684003"
 }, "valueSet" :null}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Code system validation not supported in R2"
+  "display" : "Clinical finding (finding)",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
@@ -21,8 +21,7 @@ v: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "org.hl7.fhir.dstu3.model.ExpansionProfile cannot be cast to org.hl7.fhir.dstu3.model.Parameters"
 }

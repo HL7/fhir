@@ -1,27 +1,4 @@
 -------------------------------------------------------------------------------------
-
-{"code" : {
-  "system" : "http://acme.com/config/fhir/codesystems/internal",
-  "code" : "internal-label"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "900000000000446008"
-      }]
-    }]
-  }
-}}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.com/config/fhir/codesystems/internal"
-}
--------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://acme.com/config/fhir/codesystems/internal",
   "code" : "internal-label"
