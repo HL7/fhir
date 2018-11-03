@@ -32,9 +32,25 @@
 		<reference value="Practitioner/1"/>
 	</enterer>
 
+	<insurer>
+		<reference value="Organization/3"/>
+	</insurer>
+
 	<provider>
 		<reference value="Practitioner/1"/>
 	</provider>
+
+	<payee>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/payeetype"/>
+				<code value="provider"/>
+			</coding>
+		</type>
+		<party>
+			<reference value="Organization/2"/>
+		</party>
+	</payee>
 
 	<facility>
 		<reference value="Location/1"/>
@@ -51,22 +67,6 @@
 	<outcome value="complete" />
 
 	<disposition value="Claim settled as per contract."/>
-
-	<payee>
-		<type>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/payeetype"/>
-				<code value="provider"/>
-			</coding>
-		</type>
-		<resource>
-			<system value="http://terminology.hl7.org/CodeSystem/resource-type-link"/>
-			<code value="organization"/>
-		</resource>
-		<party>
-			<reference value="Organization/2"/>
-		</party>
-	</payee>
 
 	<careTeam>
 		<sequence value="1"/>
@@ -85,12 +85,12 @@
 	<item>
 		<sequence value="1"/>
 		<careTeamSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/ex-USCLS"/>
 				<code value="1205"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>
