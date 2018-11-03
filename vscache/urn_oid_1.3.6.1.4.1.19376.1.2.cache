@@ -1,5 +1,4 @@
 -------------------------------------------------------------------------------------
-
 {"code" : {
   "system" : "urn:oid:1.3.6.1.4.1.19376.1.2",
   "code" : "ITI-9"
@@ -7,10 +6,9 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2"
+  "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2\" is not known; The code provided (urn:oid:1.3.6.1.4.1.19376.1.2#ITI-9) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
-
 {"code" : {
   "system" : "urn:oid:1.3.6.1.4.1.19376.1.2",
   "code" : "ITI-32"
@@ -18,7 +16,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2"
+  "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2\" is not known; The code provided (urn:oid:1.3.6.1.4.1.19376.1.2#ITI-32) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -108,7 +106,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2"
+  "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2\" is not known; The code provided (urn:oid:1.3.6.1.4.1.19376.1.2#ITI-9) is not  valid in the value set AuditEventSub-Type"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -198,6 +196,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2"
+  "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2\" is not known; The code provided (urn:oid:1.3.6.1.4.1.19376.1.2#ITI-32) is not  valid in the value set AuditEventSub-Type"
 }
 -------------------------------------------------------------------------------------

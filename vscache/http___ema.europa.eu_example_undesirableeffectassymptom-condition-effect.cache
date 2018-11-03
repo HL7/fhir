@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://ema.europa.eu/example/undesirableeffectassymptom-condition-effect"
+  "error" : "The code system \"http://ema.europa.eu/example/undesirableeffectassymptom-condition-effect\" is not known; The code provided (http://ema.europa.eu/example/undesirableeffectassymptom-condition-effect#Anaemia) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

@@ -13,7 +13,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.org/fhir/CodeSystem/indications"
+  "error" : "The code system \"http://example.org/fhir/CodeSystem/indications\" is not known; The code provided (http://example.org/fhir/CodeSystem/indications#treamentSetting-or-diseaseStatus) is not  valid in the value set UsageContextType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -30,7 +30,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.org/fhir/CodeSystem/indications"
+  "error" : "The code system \"http://example.org/fhir/CodeSystem/indications\" is not known; The code provided (http://example.org/fhir/CodeSystem/indications#disease-or-histology) is not  valid in the value set UsageContextType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -47,6 +47,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.org/fhir/CodeSystem/indications"
+  "error" : "The code system \"http://example.org/fhir/CodeSystem/indications\" is not known; The code provided (http://example.org/fhir/CodeSystem/indications#treatmentSetting-or-diseaseStatus) is not  valid in the value set UsageContextType"
 }
 -------------------------------------------------------------------------------------

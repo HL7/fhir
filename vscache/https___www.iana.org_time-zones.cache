@@ -6,9 +6,8 @@
       "system" : "https://www.iana.org/time-zones"
     }]
   }
-}}
-####
+}}####
 e: {
-  "error" : "Error unmarshalling resource: Unable to provide support for code system https://www.iana.org/time-zones"
+  "error" : "Error from server: Unable to provide support for code system https://www.iana.org/time-zones"
 }
 -------------------------------------------------------------------------------------

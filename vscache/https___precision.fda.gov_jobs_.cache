@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system https://precision.fda.gov/jobs/"
+  "error" : "The code system \"https://precision.fda.gov/jobs/\" is not known; The code provided (https://precision.fda.gov/jobs/#job-ByxYPx809jFVy21KJG74Jg3Y) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

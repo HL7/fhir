@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0069-2587-10) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,7 +16,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0206-8862-02) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -26,7 +26,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#76388-713-25) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -36,7 +36,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#2501-813-16) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -46,7 +46,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#51144-050-01) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -56,7 +56,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0169-7501-11) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -66,7 +66,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#16590-619-30) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -76,7 +76,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#50580-506-02) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -86,7 +86,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0338-1134-03) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -96,7 +96,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0409-5779-01) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -106,7 +106,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0338-0519-02) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -116,7 +116,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#50090-0001) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -126,7 +126,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0378-1805-01) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -136,7 +136,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#33261-403-02) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -146,7 +146,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#49999-051-30) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -156,7 +156,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0071-2214-20) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -166,7 +166,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#60505-7001-2) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -176,7 +176,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0056-1072-70) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -186,7 +186,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0056-0170-70) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -196,6 +196,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/ndc"
+  "error" : "The code system \"http://hl7.org/fhir/sid/ndc\" is not known; The code provided (http://hl7.org/fhir/sid/ndc#0067-2091-03) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.lab"
+  "error" : "The code system \"http://acme.lab\" is not known; The code provided (http://acme.lab#BT) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

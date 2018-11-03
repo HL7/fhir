@@ -70,6 +70,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system https://github.com/common-workflow-language/workflows"
+  "error" : "The code system \"https://github.com/common-workflow-language/workflows\" is not known; The code provided (https://github.com/common-workflow-language/workflows#CWL) is not  valid in the value set Identifier Type Codes"
 }
 -------------------------------------------------------------------------------------

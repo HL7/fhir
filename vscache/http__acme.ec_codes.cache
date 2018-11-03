@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http:/acme.ec/codes"
+  "error" : "The code system \"http:/acme.ec/codes\" is not known; The code provided (http:/acme.ec/codes#5) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,6 +16,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http:/acme.ec/codes"
+  "error" : "The code system \"http:/acme.ec/codes\" is not known; The code provided (http:/acme.ec/codes#4) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
