@@ -16,6 +16,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.genenames.org"
+  "error" : "The code system \"https://www.ncbi.nlm.nih.gov/nuccore\" is not known; The code provided (https://www.ncbi.nlm.nih.gov/nuccore#KX470182.1) is not  valid in the value set HGNC"
 }
 -------------------------------------------------------------------------------------

@@ -25620,6 +25620,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://ihe.net/connectathon/classCodes"
+  "error" : "The code system \"http://ihe.net/connectathon/classCodes\" is not known; The code provided (http://ihe.net/connectathon/classCodes#History and Physical) is not  valid in the value set DocumentTypeValueSet"
 }
 -------------------------------------------------------------------------------------

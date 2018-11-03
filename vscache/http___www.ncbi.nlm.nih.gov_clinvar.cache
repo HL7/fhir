@@ -6,9 +6,8 @@
       "system" : "http://www.ncbi.nlm.nih.gov/clinvar"
     }]
   }
-}}
-####
+}}####
 e: {
-  "error" : "Error unmarshalling resource: Unable to provide support for code system http://www.ncbi.nlm.nih.gov/clinvar"
+  "error" : "Error from server: Unable to provide support for code system http://www.ncbi.nlm.nih.gov/clinvar"
 }
 -------------------------------------------------------------------------------------

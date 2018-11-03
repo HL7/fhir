@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/test-codes"
+  "error" : "The code system \"http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/test-codes\" is not known; The code provided (http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/test-codes#VP MULTI PCR) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

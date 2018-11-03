@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/devices/clinical-codes"
+  "error" : "The code system \"http://acme.org/devices/clinical-codes\" is not known; The code provided (http://acme.org/devices/clinical-codes#body-weight) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,7 +16,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/devices/clinical-codes"
+  "error" : "The code system \"http://acme.org/devices/clinical-codes\" is not known; The code provided (http://acme.org/devices/clinical-codes#bp-s) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -26,6 +26,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/devices/clinical-codes"
+  "error" : "The code system \"http://acme.org/devices/clinical-codes\" is not known; The code provided (http://acme.org/devices/clinical-codes#Mycoplasma) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

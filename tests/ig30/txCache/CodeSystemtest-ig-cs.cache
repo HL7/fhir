@@ -12,8 +12,7 @@
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "org.hl7.fhir.dstu3.model.ExpansionProfile cannot be cast to org.hl7.fhir.dstu3.model.Parameters"
 }
@@ -31,8 +30,7 @@ e: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "org.hl7.fhir.dstu3.model.ExpansionProfile cannot be cast to org.hl7.fhir.dstu3.model.Parameters"
 }
@@ -50,8 +48,7 @@ e: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "org.hl7.fhir.dstu3.model.ExpansionProfile cannot be cast to org.hl7.fhir.dstu3.model.Parameters"
 }
@@ -69,8 +66,7 @@ e: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "org.hl7.fhir.dstu3.model.ExpansionProfile cannot be cast to org.hl7.fhir.dstu3.model.Parameters"
 }
@@ -82,8 +78,7 @@ e: {
       "system" : "http://hl7.org/fhir/CodeSystem/test-ig-cs"
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "org.hl7.fhir.dstu3.model.ExpansionProfile cannot be cast to org.hl7.fhir.dstu3.model.Parameters"
 }

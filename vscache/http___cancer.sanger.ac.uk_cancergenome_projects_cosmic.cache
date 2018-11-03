@@ -6,9 +6,8 @@
       "system" : "http://cancer.sanger.ac.uk/cancergenome/projects/cosmic"
     }]
   }
-}}
-####
+}}####
 e: {
-  "error" : "Error unmarshalling resource: Unable to provide support for code system http://cancer.sanger.ac.uk/cancergenome/projects/cosmic"
+  "error" : "Error from server: Unable to provide support for code system http://cancer.sanger.ac.uk/cancergenome/projects/cosmic"
 }
 -------------------------------------------------------------------------------------

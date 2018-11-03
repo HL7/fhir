@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system https://vetmed.iastate.edu/vdl"
+  "error" : "The code system \"https://vetmed.iastate.edu/vdl\" is not known; The code provided (https://vetmed.iastate.edu/vdl#Serum sample, pooled) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,6 +16,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system https://vetmed.iastate.edu/vdl"
+  "error" : "The code system \"https://vetmed.iastate.edu/vdl\" is not known; The code provided (https://vetmed.iastate.edu/vdl#RTT) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

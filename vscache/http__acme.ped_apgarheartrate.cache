@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http:/acme.ped/apgarheartrate"
+  "error" : "The code system \"http:/acme.ped/apgarheartrate\" is not known; The code provided (http:/acme.ped/apgarheartrate#0) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,7 +16,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http:/acme.ped/apgarheartrate"
+  "error" : "The code system \"http:/acme.ped/apgarheartrate\" is not known; The code provided (http:/acme.ped/apgarheartrate#1) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -26,6 +26,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http:/acme.ped/apgarheartrate"
+  "error" : "The code system \"http:/acme.ped/apgarheartrate\" is not known; The code provided (http:/acme.ped/apgarheartrate#2) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

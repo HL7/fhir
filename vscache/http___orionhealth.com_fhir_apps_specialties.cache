@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://orionhealth.com/fhir/apps/specialties"
+  "error" : "The code system \"http://orionhealth.com/fhir/apps/specialties\" is not known; The code provided (http://orionhealth.com/fhir/apps/specialties#ent) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

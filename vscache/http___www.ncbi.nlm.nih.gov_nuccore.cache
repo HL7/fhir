@@ -6,10 +6,9 @@
       "system" : "http://www.ncbi.nlm.nih.gov/nuccore"
     }]
   }
-}}
-####
+}}####
 e: {
-  "error" : "Error unmarshalling resource: Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+  "error" : "Error from server: Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -19,7 +18,7 @@ e: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+  "error" : "The code system \"http://www.ncbi.nlm.nih.gov/nuccore\" is not known; The code provided (http://www.ncbi.nlm.nih.gov/nuccore#NC_000009.11) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -29,7 +28,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+  "error" : "The code system \"http://www.ncbi.nlm.nih.gov/nuccore\" is not known; The code provided (http://www.ncbi.nlm.nih.gov/nuccore#NC_000001.11) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -39,7 +38,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+  "error" : "The code system \"http://www.ncbi.nlm.nih.gov/nuccore\" is not known; The code provided (http://www.ncbi.nlm.nih.gov/nuccore#NC_000002.12) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -49,7 +48,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+  "error" : "The code system \"http://www.ncbi.nlm.nih.gov/nuccore\" is not known; The code provided (http://www.ncbi.nlm.nih.gov/nuccore#NG_007726.3) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -59,6 +58,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+  "error" : "The code system \"http://www.ncbi.nlm.nih.gov/nuccore\" is not known; The code provided (http://www.ncbi.nlm.nih.gov/nuccore#NT_007592.15) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

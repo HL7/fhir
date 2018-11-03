@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/icd-10-us"
+  "error" : "The code system \"http://hl7.org/fhir/sid/icd-10-us\" is not known; The code provided (http://hl7.org/fhir/sid/icd-10-us#S52.209A) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,6 +16,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/sid/icd-10-us"
+  "error" : "The code system \"http://hl7.org/fhir/sid/icd-10-us\" is not known; The code provided (http://hl7.org/fhir/sid/icd-10-us#S52.209D) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

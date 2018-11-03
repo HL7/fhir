@@ -1,5 +1,4 @@
 -------------------------------------------------------------------------------------
-
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -7,10 +6,9 @@
       "system" : "http://www.genenames.org"
     }]
   }
-}}
-####
+}}####
 e: {
-  "error" : "Error unmarshalling resource: Unable to provide support for code system http://www.genenames.org"
+  "error" : "Error from server: Unable to provide support for code system http://www.genenames.org"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -30,7 +28,7 @@ e: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.genenames.org"
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#HGNC:4931) is not  valid in the value set HGNC"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -50,7 +48,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.genenames.org"
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#HGNC:4932) is not  valid in the value set HGNC"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -70,7 +68,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.genenames.org"
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#HGNC:4933) is not  valid in the value set HGNC"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -90,7 +88,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.genenames.org"
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#3236) is not  valid in the value set HGNC"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -110,7 +108,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.genenames.org"
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#2623) is not  valid in the value set HGNC"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -130,7 +128,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.genenames.org"
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#2625) is not  valid in the value set HGNC"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -150,6 +148,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://www.genenames.org"
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#12014) is not  valid in the value set HGNC"
 }
 -------------------------------------------------------------------------------------

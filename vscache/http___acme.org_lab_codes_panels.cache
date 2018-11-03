@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/panels"
+  "error" : "The code system \"http://acme.org/lab/codes/panels\" is not known; The code provided (http://acme.org/lab/codes/panels#60790) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,6 +16,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/panels"
+  "error" : "The code system \"http://acme.org/lab/codes/panels\" is not known; The code provided (http://acme.org/lab/codes/panels#60418) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

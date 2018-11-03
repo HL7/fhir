@@ -13,6 +13,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://example.org/fhir/CodeSystem/use-contexts"
+  "error" : "The code system \"http://example.org/fhir/CodeSystem/use-contexts\" is not known; The code provided (http://example.org/fhir/CodeSystem/use-contexts#species) is not  valid in the value set UsageContextType"
 }
 -------------------------------------------------------------------------------------
