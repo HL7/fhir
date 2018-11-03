@@ -181,18 +181,20 @@ Protected Health Information and as such must be afforded the same protection an
  <tr><td>Eligibility Check</td><td><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></td><td><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></td></tr>
  <tr><td>Enrollment Update</td><td><a href="enrollmentrequest.html">EnrollmentRequest</a></td><td><a href="enrollmentresponse.html">EnrollmentResponse</a></td></tr>
  <tr><td>Claim</td><td><a href="claim.html">Claim</a> (type={discipline}, use=claim)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Claim with attachments</td><td><a href="Bundle.html">Bundle</a> containing <a href="claim.html">Claim</a> and the attachments</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Predetermination</td><td><a href="claim.html">Claim</a> (type={discipline}, use=predetermination)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Preauthorization</td><td><a href="claim.html">Claim</a> (type={discipline}, use=preauthorization)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
- <tr><td>Reversal</td><td><a href="processrequest.html">ProcessRequest</a> (action=cancel, nullify=false)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
- <tr><td>Nullify</td><td><a href="processrequest.html">ProcessRequest</a> (action=cancel, nullify=true)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
- <tr><td>Re-adjudication</td><td><a href="processrequest.html">ProcessRequest</a> (action=reprocess)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
- <tr><td>Status Check</td><td><a href="processrequest.html">ProcessRequest</a> (action=status)</td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
- <tr><td>Pended Check (Polling)</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll)</td><td><a href="resourcelist.html">{Resource}</a> or <a href="processresponse.html">ProcessResponse</a></td></tr>
- <tr><td>Payment Notice</td><td><a href="paymentnotice.html">PaymentNotice</a></td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
- <tr><td>Payment Reconciliation</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll, include=<a href="paymentreconciliation.html">PaymentReconciliation</a>)</td><td><a href="paymentreconciliation.html">PaymentReconciliation</a></td></tr>
- <tr><td>Send Attachments</td><td><a href="communication.html">Communication</a></td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
- <tr><td>Request Attachments</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll, include=<a href="communicationrequest.html">CommunicationRequest</a>)</td><td><a href="communicationrequest.html">CommunicationRequest</a></td></tr>
- <tr><td>Request an Explanation of Benefits&nbsp;&nbsp;&nbsp;</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll, include=<a href="explanationofbenefit.html">ExplanationOfBenefit</a>)</td><td><a href="explanationofbenefit.html">ExplanationOfBenefit</a></td></tr>
+ <tr><td>Reversal<sup><a href="#cancel">Cancel</a></sup></td><td><a href="task.html">Task</a> (code=cancel)</td><td><a href="task.html">Task</a> (optional output=<a href="claimresponse.html">ClaimResponse</a>)</td></tr>
+ <tr><td>Nullify<sup><a href="#nullify">Nullify</a></sup></td><td><a href="task.html">Task</a> (code=nullify)</td><td><a href="task.html">Task</a> (output=error codes)</td></tr>
+ <tr><td>Release<sup><a href="#release">Release</a></sup></td><td><a href="task.html">Task</a> (code=release)</td><td><a href="task.html">Task</a> (output=error codes)</td></tr>
+ <tr><td>Re-adjudication<sup><a href="#reprocess">Reprocess</a></sup></td><td><a href="task.html">Task</a> (code=reprocess)</td><td><a href="task.html">Task</a> (output=<a href="claimresponse.html">ClaimResponse</a>)</td></tr>
+ <tr><td>Status Check<sup><a href="#status">Status</a></sup></td><td><a href="task.html">Task</a> (code=status)</td><td><a href="task.html">Task</a> (output=status code)</td></tr>
+ <tr><td>Pended Check (Polling)<sup><a href="#poll">Poll</a></sup></td><td><a href="task.html">Task</a> (code=poll)</td><td><a href="task.html">Task</a> (output=<a href="resourcelist.html">{Resource}</a>)</td></tr>
+ <tr><td>Payment Notice</td><td><a href="task.html">Task</a> (code=deliver, input=<a href="paymentnotice.html">PaymentNotice</a>)</td><td><a href="task.html">Task</a> (output=error codes)</td></tr>
+ <tr><td>Payment Reconciliation</td><td><a href="task.html">Task</a> (code=poll, input=<a href="paymentreconciliation.html">PaymentReconciliation</a>)</td><td><a href="task.html">Task</a> (output=<a href="paymentreconciliation.html">PaymentReconciliation</a>)</td></tr>
+ <tr><td>Send Attachments</td><td><a href="task.html">Task</a> (code=deliver, input=<a href="communication.html">Communication</a>)</td><td><a href="task.html">Task</a> (output=error codes)</td></tr>
+ <tr><td>Request Attachments</td><td><a href="task.html">Task</a> (code=poll, input=<a href="communicationrequest.html">CommunicationRequest</a>)</td><td><a href="task.html">Task</a> (output=<a href="communicationrequest.html">CommunicationRequest</a>)</td></tr>
+ <tr><td>Request an Explanation of Benefits&nbsp;&nbsp;&nbsp;</td><td><a href="task.html">Task</a> (code=poll, input=<a href="explanationofbenefit.html">ExplanationOfBenefit</a>)</td><td><a href="task.html">Task</a> (output=<a href="explanationofbenefit.html">ExplanationOfBenefit</a>)</td></tr>
 </table>
  <p>
  <b>{discipline}</b> means the type of claim: OralHealth, Vision, Pharmacy, Professional or Institutional.
@@ -201,6 +203,90 @@ Protected Health Information and as such must be afforded the same protection an
  <b>{Resource}</b> means any pended or undelivered resource subject to the selection details specified in the request.
  </p>
 
+<a name="tasks"></a>
+<h3>Tasks</h3>
+<p> See the Financial examples in <a href="task.html">Task</a>. </p>
+<p>
+In addition to supplying a reference to a focal resource in the .focus element, where appropriate an .input element 
+of type 'origresponse' may also be provided with a reference to the resource which was the original response to the focal resource. 
+</p>
+
+<a name="cancel"></a>
+<h4>Cancel</h4>
+<p>
+The <b>Cancel</b> is the formal request to cease processing an incomplete prior request or to reverse 
+a completed prior request or information submission. A copy of the original request may be retained. The Task will be updated to indicate 
+whether the requested action was accepted and successful or whether errors were found in the request and 
+ may contain a reference to the ClaimResponse or such other resource as may be appropriate for expressing the outcome of the cancellation.
+</p>
+<a name="nullify"></a>
+<h4>Nullify</h4>
+<p>
+The <b>Nullify</b> is the formal request to cease processing an incomplete prior request or to reverse 
+a completed prior request or information submission. All copies 
+of the original submission are to be purged, although audit logs may be retained. The Task will be updated to indicate 
+whether the requested action was accepted and successful or whether errors were found in the request.
+</p>
+<a name="poll"></a>
+<h4>Poll</h4>
+<p>
+<b>Poll</b> provides supporting information for the poll request. The response to 
+a Poll is a Task referring to: a previously undelivered response Resource; a Bundle containing one or more Resources; or, a Task which may 
+contain errors. 
+</p>
+<p>
+A simple Poll request, one which doesn't specify additional .input parameters: origresponse, include, exclude, period or count; would return
+any single pended resource. Specific types of business behaviors may be supported by providing values for the
+filtering elements in the .input element, for example:
+</p>
+<ul>
+<li>Get any pended resource - no filters specified</li>
+<li>Get deferred response to a Claim - specify the Claim in the .focus and optionally the original response in 'origresponse'</li>
+<li>Get all supporting information - specify 'Communication' as an 'include'</li>
+<li>Get an Explanation of Benefit - specify 'ExplanationOfBenefit' as an 'include'</li>
+<li>Get any resource except Explanation of Benefit - specify 'ExplanationOfBenefit' as an 'exclude'</li>
+<li>Get a payment reconciliation - specify a 'period' which contains the expected reconciliation 
+creation date, and specify 'PaymentReconciliation' as an 'include'</li> 
+<li>Get a bundle containing more than one resource - specify the maximum number in 'count'</li>
+</ul>
+<p>
+Upon processing of the request the Task or Bundle may contain errors or a reference to the resource(s) found.
+</p>
+<a name="release"></a>
+<h4>Release</h4>
+<p>
+<b>Release</b> is the formal request for the release of any allocation or reserved resources such as funds or products reserved, for example  
+on a preauthorization, which have not been consumed, eg. as indicated on claims, and which are no longer required. The preauthorization which request ed the reservation
+will be identified in the .focus element and the insurer's response confirming the reservation may be provided as a .input element.
+</p>
+
+<a name="reprocess"></a>
+<h4>Reprocess</h4>
+<p>
+<b>Reprocess</b> indicates the resource which is to be reprocessed in the .focus element, for example a claim to be re-adjudicated or a specimen or diagnostic image to be re-examined, 
+and provides both supporting information for the reprocessing and the line items which are to be reprocessed in the .input element.
+</p>
+<p>
+This is necessary for the limited supporters who require the ability to formally request the 
+reprocessing of specified service sub-trees from an already processed resource such as a previously adjudicated Claim. Upon processing of the request the
+ Task may contain errors or a reference to the ClaimResponse or such other resource as may be appropriate for expressing the outcome of the reprocessing.
+</p>
+
+<a name="status"></a>
+<h4>Status</h4>
+<p>
+<b>Status</b> indicates the resource for which the processing status is requested in the .focus element and 
+provides any supporting information for the status request. The 
+</p>
+<p>
+This is a formal request for systems which require requisition-level information or transports which don't support a
+'Get Operation', for the processing status of a previously submitted processing request.
+</p>
+<p>
+Upon processing of the status request the Task may contain errors or a .output parameter of 'status' containing the status of outcome code of the processing
+of the targeted resource.
+</p> 
+ 
 <a name="order"></a>
 <h3>Relative Order of Use</h3>
 
@@ -208,6 +294,7 @@ Protected Health Information and as such must be afforded the same protection an
  The table below details the relative order of events and use of financial resources for patient care during the care cycle.
  Not all steps or information exchanges may occur, and supporting information may be required more frequently than has been depicted below.
  </p>
+ <p>
  <table class="grid">
  <tr><td><b>Business Activity</b></td><td><b>Focal Resource</b></td></tr>
  <tr><td><b>Patient visits Provider</b></td></tr>
@@ -222,22 +309,37 @@ Protected Health Information and as such must be afforded the same protection an
  <tr><td>Insurer requests additional information</td><td><a href="communicationrequest.html">CommunicationRequest</a></td></tr>
  <tr><td>Provider submits supporting information</td><td><a href="communication.html">Communication</a></td></tr>
  <tr><td>Insurer provides adjudicated response to pre-authorization</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
- <tr><td>Provider checks on status of pre-authorization processing</td><td><a href="processrequest.html">ProcessRequest</a> {action=status}</td></tr>
- <tr><td>Insurer responds indicating adjudication is ready</td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
- <tr><td>Provider retrieves pre-authorization adjudication</td><td>READ or <a href="processrequest.html">ProcessRequest</a> {action=poll}</td></tr>
+ <tr><td>Provider checks on status of pre-authorization processing</td><td><a href="task.html">Task</a> {code=status}</td></tr>
+ <tr><td>Insurer responds indicating adjudication is ready</td><td><a href="task.html">Task</a></td></tr>
+ <tr><td>Provider retrieves pre-authorization adjudication</td><td>READ or <a href="task.html">Task</a> {code=poll}</td></tr>
  <tr><td><b>Provider provides treatment</b></td></tr>
  <tr><td>Provider submits patient's claim for reimbursement</td><td><a href="claim.html">Claim</a> {use=claim}</td></tr>
  <tr><td>Insurer responds with claim adjudication</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td><b>Patient leaves treatment setting</b></td></tr>
- <tr><td>Patient requests an Explanation of Benefit for their Personal Health Record application</td><td>READ or <a href="processrequest.html">ProcessRequest</a> {action=poll}</td></tr>
+ <tr><td>Patient requests an Explanation of Benefit for their Personal Health Record application</td><td>READ or <a href="task.html">Task</a> {code=poll}</td></tr>
  <tr><td>Insurer responds with Explanation of Benefit</td><td><a href="explanationofbenefit.html">ExplanationOfBenefit</a></td></tr>
- <tr><td>Provider requests the payment details associated with a bulk payment</td><td>SEARCH or <a href="processrequest.html">ProcessRequest</a> {action=poll}</td></tr>
+ <tr><td>Provider requests the payment details associated with a bulk payment</td><td>SEARCH or <a href="task.html">Task</a> {code=poll}</td></tr>
  <tr><td>Insurer responds with a Payment Reconciliation</td><td><a href="paymentreconciliation.html">PaymentReconciliation</a></td></tr>
  <tr><td>Insurer notifies provider that payment has been issued</td><td><a href="paymentnotice.html">PaymentNotice</a></td></tr>
  <tr><td>Insurer notifies parties that payment funds have been received</td><td><a href="paymentnotice.html">PaymentNotice</a></td></tr>
  </table>
- <p/>
+ </p>
 
+ <a name="resource-status"></a>
+<h3>Resource Status Life-cycle</h3>
+<p>
+Financial resources, such as claim and eligibility resources, begin with the status 'draft' and continue with this status during the 
+development of the resource. When a resource is exchanged with an external party, for example when a provider claim is sent or 
+otherwise created on the insurer's system before the exchange the status of the claim shall be changed to 'active'. A resource with 
+the 'active' status is immutable and cannot be edited except for further change to the status in the event the resource is subsequently 
+canceled resulting in a status of 'cancel'.
+</p>
+<p>
+In the event that a resource is determined to have been entered in error, for example a wrong date of service or billing code, while the
+status is 'draft' then the status may be changed to 'entered-in-error' and no further editing of the resource is permitted. If the resource 
+status is 'active' when the error is noted then the resource must be canceled and further interaction with whatever parties have been supplied 
+the resource may be required to halt any processing or reverse any effects of the resource prior to creating an amended instance.
+</p>
 <a name="secondary-use"></a>
 <h3>Secondary Uses</h3>
 <p>
@@ -261,7 +363,7 @@ Supporting information may be provided, as a reference or the actual material, t
 <li><b>Solicited</b>: in a <a href="communication.html">Communication</a> in response to a <a href="communicationrequest.html">CommunicationRequest</a> from the insurer requesting more information; or</li>
 <li><b>Input</b>: in the input parameters of a FHIR operation or Task.input element if a <a href="task.html">Task</a> resource is used.</li>
 </ul>
-<p/>
+
 
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
