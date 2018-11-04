@@ -43,9 +43,9 @@
 		</identifier>
 	</insurer>
 
-	<requestProvider>
+	<requestor>
 		<reference value="Organization/1"/>
-	</requestProvider>
+	</requestor>
 
 	<request>
 		<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>

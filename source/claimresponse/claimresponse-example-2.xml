@@ -37,9 +37,9 @@
 		</identifier>
 	</insurer>
 
-	<requestProvider>
+	<requestor>
 		<reference value="Practitioner/1"/>
-	</requestProvider>
+	</requestor>
 
 	<request>
 		<reference value="Claim/100156"/>
@@ -49,49 +49,12 @@
 	
 	<disposition value="Claim could not be processed"/>
 	
-	<item>
-		<itemSequence value="1"/>
-		<noteNumber value="1"/>
-	</item>
-
-	<item>
-		<itemSequence value="2"/>
-		<noteNumber value="1"/>
-	</item>
-	
-	<item>
-		<itemSequence value="3"/>
-		<noteNumber value="1"/>
-		
-		<detail>
-			<detailSequence value="1"/>
-			<noteNumber value="1"/>
-		</detail>
-		
-		<detail>
-			<detailSequence value="2"/>
-			<noteNumber value="1"/>
-		</detail>
-	</item>
-	
-	<!-- Detailed error description -->
-	<error>
-		<itemSequence value="3"/>
-		<detailSequence value="2"/>
-		<code>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/adjudication-error"/>
-				<code value="a002"/>
-			</coding>
-		</code>
-	</error>
-
-	<form>
+	<formCode>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/forms-codes" />
 			<code value="2" />
 		</coding>
-	</form>
+	</formCode>
 	
 	<processNote>
 		<number value="1"/>
@@ -108,4 +71,18 @@
 	<communicationRequest>
 		<reference value="CommunicationRequest/fm-solicit"/>
 	</communicationRequest>
+	
+	<!-- Detailed error description -->
+	<error>
+		<itemSequence value="3"/>
+		<detailSequence value="2"/>
+		<code>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/adjudication-error"/>
+				<code value="a002"/>
+			</coding>
+		</code>
+	</error>
+
+
 </ClaimResponse>
