@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -4201,10 +4201,10 @@ public class MedicationKnowledge extends DomainResource {
     protected CodeableConcept code;
 
     /**
-     * A code to indicate if the medication is in active use.
+     * A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties..
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="A code to indicate if the medication is in active use." )
+    @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties.." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medicationknowledge-status")
     protected CodeType status;
 
@@ -4399,7 +4399,7 @@ public class MedicationKnowledge extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (A code to indicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties..). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public CodeType getStatusElement() { 
       if (this.status == null)
@@ -4419,7 +4419,7 @@ public class MedicationKnowledge extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (A code to indicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties..). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public MedicationKnowledge setStatusElement(CodeType value) { 
       this.status = value;
@@ -4427,14 +4427,14 @@ public class MedicationKnowledge extends DomainResource {
     }
 
     /**
-     * @return A code to indicate if the medication is in active use.
+     * @return A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties..
      */
     public String getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value A code to indicate if the medication is in active use.
+     * @param value A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties..
      */
     public MedicationKnowledge setStatus(String value) { 
       if (Utilities.noString(value))
@@ -5462,7 +5462,7 @@ public class MedicationKnowledge extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("code", "CodeableConcept", "A code that specifies this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.", 0, 1, code));
-        children.add(new Property("status", "code", "A code to indicate if the medication is in active use.", 0, 1, status));
+        children.add(new Property("status", "code", "A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties..", 0, 1, status));
         children.add(new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.", 0, 1, manufacturer));
         children.add(new Property("doseForm", "CodeableConcept", "Describes the form of the item.  Powder; tablets; capsule.", 0, 1, doseForm));
         children.add(new Property("amount", "SimpleQuantity", "Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc).", 0, 1, amount));
@@ -5489,7 +5489,7 @@ public class MedicationKnowledge extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that specifies this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.", 0, 1, code);
-        case -892481550: /*status*/  return new Property("status", "code", "A code to indicate if the medication is in active use.", 0, 1, status);
+        case -892481550: /*status*/  return new Property("status", "code", "A code to indicate if the medication is in active use.  The status refers to the validity about the information of the medication and not to its medicinal properties..", 0, 1, status);
         case -1969347631: /*manufacturer*/  return new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.", 0, 1, manufacturer);
         case 1303858817: /*doseForm*/  return new Property("doseForm", "CodeableConcept", "Describes the form of the item.  Powder; tablets; capsule.", 0, 1, doseForm);
         case -1413853096: /*amount*/  return new Property("amount", "SimpleQuantity", "Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc).", 0, 1, amount);

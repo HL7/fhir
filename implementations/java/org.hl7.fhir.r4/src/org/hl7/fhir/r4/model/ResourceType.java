@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 public enum ResourceType {
     Account,
@@ -98,6 +98,7 @@ public enum ResourceType {
     MedicinalProductUndesirableEffect,
     MessageDefinition,
     MessageHeader,
+    MolecularSequence,
     NamingSystem,
     NutritionOrder,
     Observation,
@@ -130,7 +131,6 @@ public enum ResourceType {
     RiskEvidenceSynthesis,
     Schedule,
     SearchParameter,
-    Sequence,
     ServiceRequest,
     Slot,
     Specimen,
@@ -151,7 +151,6 @@ public enum ResourceType {
     TerminologyCapabilities,
     TestReport,
     TestScript,
-    UserSession,
     ValueSet,
     VerificationResult,
     VisionPrescription;
@@ -345,6 +344,8 @@ public enum ResourceType {
       return "messagedefinition";
     case MessageHeader:
       return "messageheader";
+    case MolecularSequence:
+      return "molecularsequence";
     case NamingSystem:
       return "namingsystem";
     case NutritionOrder:
@@ -409,8 +410,6 @@ public enum ResourceType {
       return "schedule";
     case SearchParameter:
       return "searchparameter";
-    case Sequence:
-      return "sequence";
     case ServiceRequest:
       return "servicerequest";
     case Slot:
@@ -451,8 +450,6 @@ public enum ResourceType {
       return "testreport";
     case TestScript:
       return "testscript";
-    case UserSession:
-      return "usersession";
     case ValueSet:
       return "valueset";
     case VerificationResult:
@@ -651,6 +648,8 @@ public enum ResourceType {
       return MessageDefinition;
     if ("MessageHeader".equals(code))
       return MessageHeader;
+    if ("MolecularSequence".equals(code))
+      return MolecularSequence;
     if ("NamingSystem".equals(code))
       return NamingSystem;
     if ("NutritionOrder".equals(code))
@@ -715,8 +714,6 @@ public enum ResourceType {
       return Schedule;
     if ("SearchParameter".equals(code))
       return SearchParameter;
-    if ("Sequence".equals(code))
-      return Sequence;
     if ("ServiceRequest".equals(code))
       return ServiceRequest;
     if ("Slot".equals(code))
@@ -757,8 +754,6 @@ public enum ResourceType {
       return TestReport;
     if ("TestScript".equals(code))
       return TestScript;
-    if ("UserSession".equals(code))
-      return UserSession;
     if ("ValueSet".equals(code))
       return ValueSet;
     if ("VerificationResult".equals(code))

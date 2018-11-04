@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -265,7 +265,7 @@ into another (possibly the same) biological entity.
          */
         CONTRACT, 
         /**
-         * Financial instrument which may be used to reimburse or pay for health care products and services.
+         * Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.
          */
         COVERAGE, 
         /**
@@ -281,7 +281,7 @@ into another (possibly the same) biological entity.
          */
         DETECTEDISSUE, 
         /**
-         * This resource identifies a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc. This is the catalog description of a device (not the specific instance).
+         * A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.
          */
         DEVICE, 
         /**
@@ -521,6 +521,10 @@ into another (possibly the same) biological entity.
          */
         MESSAGEHEADER, 
         /**
+         * Raw data describing a biological sequence.
+         */
+        MOLECULARSEQUENCE, 
+        /**
          * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
          */
         NAMINGSYSTEM, 
@@ -653,10 +657,6 @@ into another (possibly the same) biological entity.
          */
         SEARCHPARAMETER, 
         /**
-         * Raw data describing a biological sequence.
-         */
-        SEQUENCE, 
-        /**
          * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
          */
         SERVICEREQUEST, 
@@ -737,10 +737,6 @@ into another (possibly the same) biological entity.
          */
         TESTSCRIPT, 
         /**
-         * Information about a user's current session.
-         */
-        USERSESSION, 
-        /**
          * A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
          */
         VALUESET, 
@@ -749,7 +745,7 @@ into another (possibly the same) biological entity.
          */
         VERIFICATIONRESULT, 
         /**
-         * An authorization for the supply of glasses and/or contact lenses to a patient.
+         * An authorization for the provision of glasses and/or contact lenses to a patient.
          */
         VISIONPRESCRIPTION, 
         /**
@@ -947,6 +943,8 @@ into another (possibly the same) biological entity.
           return MESSAGEDEFINITION;
         if ("MessageHeader".equals(codeString))
           return MESSAGEHEADER;
+        if ("MolecularSequence".equals(codeString))
+          return MOLECULARSEQUENCE;
         if ("NamingSystem".equals(codeString))
           return NAMINGSYSTEM;
         if ("NutritionOrder".equals(codeString))
@@ -1013,8 +1011,6 @@ into another (possibly the same) biological entity.
           return SCHEDULE;
         if ("SearchParameter".equals(codeString))
           return SEARCHPARAMETER;
-        if ("Sequence".equals(codeString))
-          return SEQUENCE;
         if ("ServiceRequest".equals(codeString))
           return SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -1055,8 +1051,6 @@ into another (possibly the same) biological entity.
           return TESTREPORT;
         if ("TestScript".equals(codeString))
           return TESTSCRIPT;
-        if ("UserSession".equals(codeString))
-          return USERSESSION;
         if ("ValueSet".equals(codeString))
           return VALUESET;
         if ("VerificationResult".equals(codeString))
@@ -1164,6 +1158,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "MedicinalProductUndesirableEffect";
             case MESSAGEDEFINITION: return "MessageDefinition";
             case MESSAGEHEADER: return "MessageHeader";
+            case MOLECULARSEQUENCE: return "MolecularSequence";
             case NAMINGSYSTEM: return "NamingSystem";
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
@@ -1197,7 +1192,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "RiskEvidenceSynthesis";
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
-            case SEQUENCE: return "Sequence";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -1218,7 +1212,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "TerminologyCapabilities";
             case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
-            case USERSESSION: return "UserSession";
             case VALUESET: return "ValueSet";
             case VERIFICATIONRESULT: return "VerificationResult";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -1321,6 +1314,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "http://hl7.org/fhir/resource-types";
             case MESSAGEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case MESSAGEHEADER: return "http://hl7.org/fhir/resource-types";
+            case MOLECULARSEQUENCE: return "http://hl7.org/fhir/resource-types";
             case NAMINGSYSTEM: return "http://hl7.org/fhir/resource-types";
             case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
@@ -1354,7 +1348,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "http://hl7.org/fhir/resource-types";
             case SCHEDULE: return "http://hl7.org/fhir/resource-types";
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
-            case SEQUENCE: return "http://hl7.org/fhir/resource-types";
             case SERVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
@@ -1375,7 +1368,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "http://hl7.org/fhir/resource-types";
             case TESTREPORT: return "http://hl7.org/fhir/resource-types";
             case TESTSCRIPT: return "http://hl7.org/fhir/resource-types";
-            case USERSESSION: return "http://hl7.org/fhir/resource-types";
             case VALUESET: return "http://hl7.org/fhir/resource-types";
             case VERIFICATIONRESULT: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -1414,11 +1406,11 @@ into another (possibly the same) biological entity.
             case CONDITION: return "A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.";
             case CONSENT: return "A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.";
-            case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services.";
+            case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.";
             case COVERAGEELIGIBILITYREQUEST: return "The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.";
             case COVERAGEELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
-            case DEVICE: return "This resource identifies a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc. This is the catalog description of a device (not the specific instance).";
+            case DEVICE: return "A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.";
             case DEVICEDEFINITION: return "The characteristics, operational status and capabilities of a medical-related component of a medical device.";
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
@@ -1478,6 +1470,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "Describe the undesirable effects of the medicinal product.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
             case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
+            case MOLECULARSEQUENCE: return "Raw data describing a biological sequence.";
             case NAMINGSYSTEM: return "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.";
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
@@ -1511,7 +1504,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "The RiskEvidenceSynthesis resource describes the likelihood of an outcome in a population plus exposure state where the risk estimate is derived from a combination of research studies.";
             case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
-            case SEQUENCE: return "Raw data describing a biological sequence.";
             case SERVICEREQUEST: return "A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
@@ -1532,10 +1524,9 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case TESTREPORT: return "A summary of information based on the results of executing a TestScript.";
             case TESTSCRIPT: return "A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.";
-            case USERSESSION: return "Information about a user's current session.";
             case VALUESET: return "A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).";
             case VERIFICATIONRESULT: return "Describes validation requirements, source(s), status and dates for one or more elements.";
-            case VISIONPRESCRIPTION: return "An authorization for the supply of glasses and/or contact lenses to a patient.";
+            case VISIONPRESCRIPTION: return "An authorization for the provision of glasses and/or contact lenses to a patient.";
             default: return "?";
           }
         }
@@ -1635,6 +1626,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "MedicinalProductUndesirableEffect";
             case MESSAGEDEFINITION: return "MessageDefinition";
             case MESSAGEHEADER: return "MessageHeader";
+            case MOLECULARSEQUENCE: return "MolecularSequence";
             case NAMINGSYSTEM: return "NamingSystem";
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
@@ -1668,7 +1660,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "RiskEvidenceSynthesis";
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
-            case SEQUENCE: return "Sequence";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -1689,7 +1680,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "TerminologyCapabilities";
             case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
-            case USERSESSION: return "UserSession";
             case VALUESET: return "ValueSet";
             case VERIFICATIONRESULT: return "VerificationResult";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -1891,6 +1881,8 @@ into another (possibly the same) biological entity.
           return FHIRResourceType.MESSAGEDEFINITION;
         if ("MessageHeader".equals(codeString))
           return FHIRResourceType.MESSAGEHEADER;
+        if ("MolecularSequence".equals(codeString))
+          return FHIRResourceType.MOLECULARSEQUENCE;
         if ("NamingSystem".equals(codeString))
           return FHIRResourceType.NAMINGSYSTEM;
         if ("NutritionOrder".equals(codeString))
@@ -1957,8 +1949,6 @@ into another (possibly the same) biological entity.
           return FHIRResourceType.SCHEDULE;
         if ("SearchParameter".equals(codeString))
           return FHIRResourceType.SEARCHPARAMETER;
-        if ("Sequence".equals(codeString))
-          return FHIRResourceType.SEQUENCE;
         if ("ServiceRequest".equals(codeString))
           return FHIRResourceType.SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -1999,8 +1989,6 @@ into another (possibly the same) biological entity.
           return FHIRResourceType.TESTREPORT;
         if ("TestScript".equals(codeString))
           return FHIRResourceType.TESTSCRIPT;
-        if ("UserSession".equals(codeString))
-          return FHIRResourceType.USERSESSION;
         if ("ValueSet".equals(codeString))
           return FHIRResourceType.VALUESET;
         if ("VerificationResult".equals(codeString))
@@ -2205,6 +2193,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.MESSAGEDEFINITION);
         if ("MessageHeader".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.MESSAGEHEADER);
+        if ("MolecularSequence".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.MOLECULARSEQUENCE);
         if ("NamingSystem".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.NAMINGSYSTEM);
         if ("NutritionOrder".equals(codeString))
@@ -2271,8 +2261,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SCHEDULE);
         if ("SearchParameter".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SEARCHPARAMETER);
-        if ("Sequence".equals(codeString))
-          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SEQUENCE);
         if ("ServiceRequest".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SERVICEREQUEST);
         if ("Slot".equals(codeString))
@@ -2313,8 +2301,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.TESTREPORT);
         if ("TestScript".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.TESTSCRIPT);
-        if ("UserSession".equals(codeString))
-          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.USERSESSION);
         if ("ValueSet".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.VALUESET);
         if ("VerificationResult".equals(codeString))
@@ -2512,6 +2498,8 @@ into another (possibly the same) biological entity.
         return "MessageDefinition";
       if (code == FHIRResourceType.MESSAGEHEADER)
         return "MessageHeader";
+      if (code == FHIRResourceType.MOLECULARSEQUENCE)
+        return "MolecularSequence";
       if (code == FHIRResourceType.NAMINGSYSTEM)
         return "NamingSystem";
       if (code == FHIRResourceType.NUTRITIONORDER)
@@ -2578,8 +2566,6 @@ into another (possibly the same) biological entity.
         return "Schedule";
       if (code == FHIRResourceType.SEARCHPARAMETER)
         return "SearchParameter";
-      if (code == FHIRResourceType.SEQUENCE)
-        return "Sequence";
       if (code == FHIRResourceType.SERVICEREQUEST)
         return "ServiceRequest";
       if (code == FHIRResourceType.SLOT)
@@ -2620,8 +2606,6 @@ into another (possibly the same) biological entity.
         return "TestReport";
       if (code == FHIRResourceType.TESTSCRIPT)
         return "TestScript";
-      if (code == FHIRResourceType.USERSESSION)
-        return "UserSession";
       if (code == FHIRResourceType.VALUESET)
         return "ValueSet";
       if (code == FHIRResourceType.VERIFICATIONRESULT)
@@ -4569,13 +4553,13 @@ into another (possibly the same) biological entity.
         protected ExampleScenarioProcessStepOperationComponent operation;
 
         /**
-         * Each interaction in the workflow.
+         * Indicates an alternative step that can be taken instead of the operations on the base step in exceptional/atypical circumstances.
          */
-        @Child(name = "alternative", type = {}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Each interaction in the process", formalDefinition="Each interaction in the workflow." )
-        protected ExampleScenarioProcessStepAlternativeComponent alternative;
+        @Child(name = "alternative", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Alternate non-typical step action", formalDefinition="Indicates an alternative step that can be taken instead of the operations on the base step in exceptional/atypical circumstances." )
+        protected List<ExampleScenarioProcessStepAlternativeComponent> alternative;
 
-        private static final long serialVersionUID = -939172007L;
+        private static final long serialVersionUID = -894029605L;
 
     /**
      * Constructor
@@ -4707,27 +4691,56 @@ into another (possibly the same) biological entity.
         }
 
         /**
-         * @return {@link #alternative} (Each interaction in the workflow.)
+         * @return {@link #alternative} (Indicates an alternative step that can be taken instead of the operations on the base step in exceptional/atypical circumstances.)
          */
-        public ExampleScenarioProcessStepAlternativeComponent getAlternative() { 
+        public List<ExampleScenarioProcessStepAlternativeComponent> getAlternative() { 
           if (this.alternative == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ExampleScenarioProcessStepComponent.alternative");
-            else if (Configuration.doAutoCreate())
-              this.alternative = new ExampleScenarioProcessStepAlternativeComponent(); // cc
+            this.alternative = new ArrayList<ExampleScenarioProcessStepAlternativeComponent>();
           return this.alternative;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ExampleScenarioProcessStepComponent setAlternative(List<ExampleScenarioProcessStepAlternativeComponent> theAlternative) { 
+          this.alternative = theAlternative;
+          return this;
+        }
+
         public boolean hasAlternative() { 
-          return this.alternative != null && !this.alternative.isEmpty();
+          if (this.alternative == null)
+            return false;
+          for (ExampleScenarioProcessStepAlternativeComponent item : this.alternative)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public ExampleScenarioProcessStepAlternativeComponent addAlternative() { //3
+          ExampleScenarioProcessStepAlternativeComponent t = new ExampleScenarioProcessStepAlternativeComponent();
+          if (this.alternative == null)
+            this.alternative = new ArrayList<ExampleScenarioProcessStepAlternativeComponent>();
+          this.alternative.add(t);
+          return t;
+        }
+
+        public ExampleScenarioProcessStepComponent addAlternative(ExampleScenarioProcessStepAlternativeComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.alternative == null)
+            this.alternative = new ArrayList<ExampleScenarioProcessStepAlternativeComponent>();
+          this.alternative.add(t);
+          return this;
         }
 
         /**
-         * @param value {@link #alternative} (Each interaction in the workflow.)
+         * @return The first repetition of repeating field {@link #alternative}, creating it if it does not already exist
          */
-        public ExampleScenarioProcessStepComponent setAlternative(ExampleScenarioProcessStepAlternativeComponent value) { 
-          this.alternative = value;
-          return this;
+        public ExampleScenarioProcessStepAlternativeComponent getAlternativeFirstRep() { 
+          if (getAlternative().isEmpty()) {
+            addAlternative();
+          }
+          return getAlternative().get(0);
         }
 
         protected void listChildren(List<Property> children) {
@@ -4735,7 +4748,7 @@ into another (possibly the same) biological entity.
           children.add(new Property("process", "@ExampleScenario.process", "Nested process.", 0, java.lang.Integer.MAX_VALUE, process));
           children.add(new Property("pause", "boolean", "If there is a pause in the flow.", 0, 1, pause));
           children.add(new Property("operation", "", "Each interaction or action.", 0, 1, operation));
-          children.add(new Property("alternative", "", "Each interaction in the workflow.", 0, 1, alternative));
+          children.add(new Property("alternative", "", "Indicates an alternative step that can be taken instead of the operations on the base step in exceptional/atypical circumstances.", 0, java.lang.Integer.MAX_VALUE, alternative));
         }
 
         @Override
@@ -4744,7 +4757,7 @@ into another (possibly the same) biological entity.
           case -309518737: /*process*/  return new Property("process", "@ExampleScenario.process", "Nested process.", 0, java.lang.Integer.MAX_VALUE, process);
           case 106440182: /*pause*/  return new Property("pause", "boolean", "If there is a pause in the flow.", 0, 1, pause);
           case 1662702951: /*operation*/  return new Property("operation", "", "Each interaction or action.", 0, 1, operation);
-          case -196794451: /*alternative*/  return new Property("alternative", "", "Each interaction in the workflow.", 0, 1, alternative);
+          case -196794451: /*alternative*/  return new Property("alternative", "", "Indicates an alternative step that can be taken instead of the operations on the base step in exceptional/atypical circumstances.", 0, java.lang.Integer.MAX_VALUE, alternative);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -4756,7 +4769,7 @@ into another (possibly the same) biological entity.
         case -309518737: /*process*/ return this.process == null ? new Base[0] : this.process.toArray(new Base[this.process.size()]); // ExampleScenarioProcessComponent
         case 106440182: /*pause*/ return this.pause == null ? new Base[0] : new Base[] {this.pause}; // BooleanType
         case 1662702951: /*operation*/ return this.operation == null ? new Base[0] : new Base[] {this.operation}; // ExampleScenarioProcessStepOperationComponent
-        case -196794451: /*alternative*/ return this.alternative == null ? new Base[0] : new Base[] {this.alternative}; // ExampleScenarioProcessStepAlternativeComponent
+        case -196794451: /*alternative*/ return this.alternative == null ? new Base[0] : this.alternative.toArray(new Base[this.alternative.size()]); // ExampleScenarioProcessStepAlternativeComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -4775,7 +4788,7 @@ into another (possibly the same) biological entity.
           this.operation = (ExampleScenarioProcessStepOperationComponent) value; // ExampleScenarioProcessStepOperationComponent
           return value;
         case -196794451: // alternative
-          this.alternative = (ExampleScenarioProcessStepAlternativeComponent) value; // ExampleScenarioProcessStepAlternativeComponent
+          this.getAlternative().add((ExampleScenarioProcessStepAlternativeComponent) value); // ExampleScenarioProcessStepAlternativeComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -4791,7 +4804,7 @@ into another (possibly the same) biological entity.
         } else if (name.equals("operation")) {
           this.operation = (ExampleScenarioProcessStepOperationComponent) value; // ExampleScenarioProcessStepOperationComponent
         } else if (name.equals("alternative")) {
-          this.alternative = (ExampleScenarioProcessStepAlternativeComponent) value; // ExampleScenarioProcessStepAlternativeComponent
+          this.getAlternative().add((ExampleScenarioProcessStepAlternativeComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -4803,7 +4816,7 @@ into another (possibly the same) biological entity.
         case -309518737:  return addProcess(); 
         case 106440182:  return getPauseElement();
         case 1662702951:  return getOperation(); 
-        case -196794451:  return getAlternative(); 
+        case -196794451:  return addAlternative(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4834,8 +4847,7 @@ into another (possibly the same) biological entity.
           return this.operation;
         }
         else if (name.equals("alternative")) {
-          this.alternative = new ExampleScenarioProcessStepAlternativeComponent();
-          return this.alternative;
+          return addAlternative();
         }
         else
           return super.addChild(name);
@@ -4851,7 +4863,11 @@ into another (possibly the same) biological entity.
         };
         dst.pause = pause == null ? null : pause.copy();
         dst.operation = operation == null ? null : operation.copy();
-        dst.alternative = alternative == null ? null : alternative.copy();
+        if (alternative != null) {
+          dst.alternative = new ArrayList<ExampleScenarioProcessStepAlternativeComponent>();
+          for (ExampleScenarioProcessStepAlternativeComponent i : alternative)
+            dst.alternative.add(i.copy());
+        };
         return dst;
       }
 
@@ -5651,20 +5667,27 @@ into another (possibly the same) biological entity.
     @Block()
     public static class ExampleScenarioProcessStepAlternativeComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The name of each alternative.
+         * The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked.
          */
-        @Child(name = "name", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The name of each alternative", formalDefinition="The name of each alternative." )
-        protected StringType name;
+        @Child(name = "title", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Label for alternative", formalDefinition="The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked." )
+        protected StringType title;
 
         /**
-         * Each of the possible options in an alternative.
+         * A human-readable description of the alternative explaining when the alternative should occur rather than the base step.
          */
-        @Child(name = "option", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Each of the possible options in an alternative", formalDefinition="Each of the possible options in an alternative." )
-        protected List<ExampleScenarioProcessStepAlternativeOptionComponent> option;
+        @Child(name = "description", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="A human-readable description of each option", formalDefinition="A human-readable description of the alternative explaining when the alternative should occur rather than the base step." )
+        protected MarkdownType description;
 
-        private static final long serialVersionUID = 379920547L;
+        /**
+         * What happens in each alternative option.
+         */
+        @Child(name = "step", type = {ExampleScenarioProcessStepComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="What happens in each alternative option", formalDefinition="What happens in each alternative option." )
+        protected List<ExampleScenarioProcessStepComponent> step;
+
+        private static final long serialVersionUID = -254687460L;
 
     /**
      * Constructor
@@ -5673,281 +5696,66 @@ into another (possibly the same) biological entity.
         super();
       }
 
+    /**
+     * Constructor
+     */
+      public ExampleScenarioProcessStepAlternativeComponent(StringType title) {
+        super();
+        this.title = title;
+      }
+
         /**
-         * @return {@link #name} (The name of each alternative.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #title} (The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getNameElement() { 
-          if (this.name == null)
+        public StringType getTitleElement() { 
+          if (this.title == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ExampleScenarioProcessStepAlternativeComponent.name");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepAlternativeComponent.title");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType(); // bb
-          return this.name;
+              this.title = new StringType(); // bb
+          return this.title;
         }
 
-        public boolean hasNameElement() { 
-          return this.name != null && !this.name.isEmpty();
+        public boolean hasTitleElement() { 
+          return this.title != null && !this.title.isEmpty();
         }
 
-        public boolean hasName() { 
-          return this.name != null && !this.name.isEmpty();
+        public boolean hasTitle() { 
+          return this.title != null && !this.title.isEmpty();
         }
 
         /**
-         * @param value {@link #name} (The name of each alternative.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #title} (The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public ExampleScenarioProcessStepAlternativeComponent setNameElement(StringType value) { 
-          this.name = value;
+        public ExampleScenarioProcessStepAlternativeComponent setTitleElement(StringType value) { 
+          this.title = value;
           return this;
         }
 
         /**
-         * @return The name of each alternative.
+         * @return The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked.
          */
-        public String getName() { 
-          return this.name == null ? null : this.name.getValue();
+        public String getTitle() { 
+          return this.title == null ? null : this.title.getValue();
         }
 
         /**
-         * @param value The name of each alternative.
+         * @param value The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked.
          */
-        public ExampleScenarioProcessStepAlternativeComponent setName(String value) { 
-          if (Utilities.noString(value))
-            this.name = null;
-          else {
-            if (this.name == null)
-              this.name = new StringType();
-            this.name.setValue(value);
-          }
+        public ExampleScenarioProcessStepAlternativeComponent setTitle(String value) { 
+            if (this.title == null)
+              this.title = new StringType();
+            this.title.setValue(value);
           return this;
         }
 
         /**
-         * @return {@link #option} (Each of the possible options in an alternative.)
-         */
-        public List<ExampleScenarioProcessStepAlternativeOptionComponent> getOption() { 
-          if (this.option == null)
-            this.option = new ArrayList<ExampleScenarioProcessStepAlternativeOptionComponent>();
-          return this.option;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public ExampleScenarioProcessStepAlternativeComponent setOption(List<ExampleScenarioProcessStepAlternativeOptionComponent> theOption) { 
-          this.option = theOption;
-          return this;
-        }
-
-        public boolean hasOption() { 
-          if (this.option == null)
-            return false;
-          for (ExampleScenarioProcessStepAlternativeOptionComponent item : this.option)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public ExampleScenarioProcessStepAlternativeOptionComponent addOption() { //3
-          ExampleScenarioProcessStepAlternativeOptionComponent t = new ExampleScenarioProcessStepAlternativeOptionComponent();
-          if (this.option == null)
-            this.option = new ArrayList<ExampleScenarioProcessStepAlternativeOptionComponent>();
-          this.option.add(t);
-          return t;
-        }
-
-        public ExampleScenarioProcessStepAlternativeComponent addOption(ExampleScenarioProcessStepAlternativeOptionComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.option == null)
-            this.option = new ArrayList<ExampleScenarioProcessStepAlternativeOptionComponent>();
-          this.option.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #option}, creating it if it does not already exist
-         */
-        public ExampleScenarioProcessStepAlternativeOptionComponent getOptionFirstRep() { 
-          if (getOption().isEmpty()) {
-            addOption();
-          }
-          return getOption().get(0);
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("name", "string", "The name of each alternative.", 0, 1, name));
-          children.add(new Property("option", "", "Each of the possible options in an alternative.", 0, java.lang.Integer.MAX_VALUE, option));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 3373707: /*name*/  return new Property("name", "string", "The name of each alternative.", 0, 1, name);
-          case -1010136971: /*option*/  return new Property("option", "", "Each of the possible options in an alternative.", 0, java.lang.Integer.MAX_VALUE, option);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -1010136971: /*option*/ return this.option == null ? new Base[0] : this.option.toArray(new Base[this.option.size()]); // ExampleScenarioProcessStepAlternativeOptionComponent
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3373707: // name
-          this.name = castToString(value); // StringType
-          return value;
-        case -1010136971: // option
-          this.getOption().add((ExampleScenarioProcessStepAlternativeOptionComponent) value); // ExampleScenarioProcessStepAlternativeOptionComponent
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name")) {
-          this.name = castToString(value); // StringType
-        } else if (name.equals("option")) {
-          this.getOption().add((ExampleScenarioProcessStepAlternativeOptionComponent) value);
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3373707:  return getNameElement();
-        case -1010136971:  return addOption(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3373707: /*name*/ return new String[] {"string"};
-        case -1010136971: /*option*/ return new String[] {};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.name");
-        }
-        else if (name.equals("option")) {
-          return addOption();
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public ExampleScenarioProcessStepAlternativeComponent copy() {
-        ExampleScenarioProcessStepAlternativeComponent dst = new ExampleScenarioProcessStepAlternativeComponent();
-        copyValues(dst);
-        dst.name = name == null ? null : name.copy();
-        if (option != null) {
-          dst.option = new ArrayList<ExampleScenarioProcessStepAlternativeOptionComponent>();
-          for (ExampleScenarioProcessStepAlternativeOptionComponent i : option)
-            dst.option.add(i.copy());
-        };
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other_) {
-        if (!super.equalsDeep(other_))
-          return false;
-        if (!(other_ instanceof ExampleScenarioProcessStepAlternativeComponent))
-          return false;
-        ExampleScenarioProcessStepAlternativeComponent o = (ExampleScenarioProcessStepAlternativeComponent) other_;
-        return compareDeep(name, o.name, true) && compareDeep(option, o.option, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other_) {
-        if (!super.equalsShallow(other_))
-          return false;
-        if (!(other_ instanceof ExampleScenarioProcessStepAlternativeComponent))
-          return false;
-        ExampleScenarioProcessStepAlternativeComponent o = (ExampleScenarioProcessStepAlternativeComponent) other_;
-        return compareValues(name, o.name, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, option);
-      }
-
-  public String fhirType() {
-    return "ExampleScenario.process.step.alternative";
-
-  }
-
-  }
-
-    @Block()
-    public static class ExampleScenarioProcessStepAlternativeOptionComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * A human-readable description of each option.
-         */
-        @Child(name = "description", type = {MarkdownType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="A human-readable description of each option", formalDefinition="A human-readable description of each option." )
-        protected MarkdownType description;
-
-        /**
-         * What happens in each alternative option.
-         */
-        @Child(name = "step", type = {ExampleScenarioProcessStepComponent.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="What happens in each alternative option", formalDefinition="What happens in each alternative option." )
-        protected List<ExampleScenarioProcessStepComponent> step;
-
-        /**
-         * If there is a pause in the flow.
-         */
-        @Child(name = "pause", type = {BooleanType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="If there is a pause in the flow", formalDefinition="If there is a pause in the flow." )
-        protected List<BooleanType> pause;
-
-        private static final long serialVersionUID = -1719991565L;
-
-    /**
-     * Constructor
-     */
-      public ExampleScenarioProcessStepAlternativeOptionComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public ExampleScenarioProcessStepAlternativeOptionComponent(MarkdownType description) {
-        super();
-        this.description = description;
-      }
-
-        /**
-         * @return {@link #description} (A human-readable description of each option.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         * @return {@link #description} (A human-readable description of the alternative explaining when the alternative should occur rather than the base step.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public MarkdownType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ExampleScenarioProcessStepAlternativeOptionComponent.description");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepAlternativeComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new MarkdownType(); // bb
           return this.description;
@@ -5962,27 +5770,31 @@ into another (possibly the same) biological entity.
         }
 
         /**
-         * @param value {@link #description} (A human-readable description of each option.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         * @param value {@link #description} (A human-readable description of the alternative explaining when the alternative should occur rather than the base step.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ExampleScenarioProcessStepAlternativeOptionComponent setDescriptionElement(MarkdownType value) { 
+        public ExampleScenarioProcessStepAlternativeComponent setDescriptionElement(MarkdownType value) { 
           this.description = value;
           return this;
         }
 
         /**
-         * @return A human-readable description of each option.
+         * @return A human-readable description of the alternative explaining when the alternative should occur rather than the base step.
          */
         public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
-         * @param value A human-readable description of each option.
+         * @param value A human-readable description of the alternative explaining when the alternative should occur rather than the base step.
          */
-        public ExampleScenarioProcessStepAlternativeOptionComponent setDescription(String value) { 
+        public ExampleScenarioProcessStepAlternativeComponent setDescription(String value) { 
+          if (value == null)
+            this.description = null;
+          else {
             if (this.description == null)
               this.description = new MarkdownType();
             this.description.setValue(value);
+          }
           return this;
         }
 
@@ -5998,7 +5810,7 @@ into another (possibly the same) biological entity.
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ExampleScenarioProcessStepAlternativeOptionComponent setStep(List<ExampleScenarioProcessStepComponent> theStep) { 
+        public ExampleScenarioProcessStepAlternativeComponent setStep(List<ExampleScenarioProcessStepComponent> theStep) { 
           this.step = theStep;
           return this;
         }
@@ -6020,7 +5832,7 @@ into another (possibly the same) biological entity.
           return t;
         }
 
-        public ExampleScenarioProcessStepAlternativeOptionComponent addStep(ExampleScenarioProcessStepComponent t) { //3
+        public ExampleScenarioProcessStepAlternativeComponent addStep(ExampleScenarioProcessStepComponent t) { //3
           if (t == null)
             return this;
           if (this.step == null)
@@ -6039,80 +5851,19 @@ into another (possibly the same) biological entity.
           return getStep().get(0);
         }
 
-        /**
-         * @return {@link #pause} (If there is a pause in the flow.)
-         */
-        public List<BooleanType> getPause() { 
-          if (this.pause == null)
-            this.pause = new ArrayList<BooleanType>();
-          return this.pause;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public ExampleScenarioProcessStepAlternativeOptionComponent setPause(List<BooleanType> thePause) { 
-          this.pause = thePause;
-          return this;
-        }
-
-        public boolean hasPause() { 
-          if (this.pause == null)
-            return false;
-          for (BooleanType item : this.pause)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #pause} (If there is a pause in the flow.)
-         */
-        public BooleanType addPauseElement() {//2 
-          BooleanType t = new BooleanType();
-          if (this.pause == null)
-            this.pause = new ArrayList<BooleanType>();
-          this.pause.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #pause} (If there is a pause in the flow.)
-         */
-        public ExampleScenarioProcessStepAlternativeOptionComponent addPause(boolean value) { //1
-          BooleanType t = new BooleanType();
-          t.setValue(value);
-          if (this.pause == null)
-            this.pause = new ArrayList<BooleanType>();
-          this.pause.add(t);
-          return this;
-        }
-
-        /**
-         * @param value {@link #pause} (If there is a pause in the flow.)
-         */
-        public boolean hasPause(boolean value) { 
-          if (this.pause == null)
-            return false;
-          for (BooleanType v : this.pause)
-            if (v.getValue().equals(value)) // boolean
-              return true;
-          return false;
-        }
-
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("description", "markdown", "A human-readable description of each option.", 0, 1, description));
+          children.add(new Property("title", "string", "The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked.", 0, 1, title));
+          children.add(new Property("description", "markdown", "A human-readable description of the alternative explaining when the alternative should occur rather than the base step.", 0, 1, description));
           children.add(new Property("step", "@ExampleScenario.process.step", "What happens in each alternative option.", 0, java.lang.Integer.MAX_VALUE, step));
-          children.add(new Property("pause", "boolean", "If there is a pause in the flow.", 0, java.lang.Integer.MAX_VALUE, pause));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case -1724546052: /*description*/  return new Property("description", "markdown", "A human-readable description of each option.", 0, 1, description);
+          case 110371416: /*title*/  return new Property("title", "string", "The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked.", 0, 1, title);
+          case -1724546052: /*description*/  return new Property("description", "markdown", "A human-readable description of the alternative explaining when the alternative should occur rather than the base step.", 0, 1, description);
           case 3540684: /*step*/  return new Property("step", "@ExampleScenario.process.step", "What happens in each alternative option.", 0, java.lang.Integer.MAX_VALUE, step);
-          case 106440182: /*pause*/  return new Property("pause", "boolean", "If there is a pause in the flow.", 0, java.lang.Integer.MAX_VALUE, pause);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -6121,9 +5872,9 @@ into another (possibly the same) biological entity.
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case 3540684: /*step*/ return this.step == null ? new Base[0] : this.step.toArray(new Base[this.step.size()]); // ExampleScenarioProcessStepComponent
-        case 106440182: /*pause*/ return this.pause == null ? new Base[0] : this.pause.toArray(new Base[this.pause.size()]); // BooleanType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -6132,14 +5883,14 @@ into another (possibly the same) biological entity.
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case 110371416: // title
+          this.title = castToString(value); // StringType
+          return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
           return value;
         case 3540684: // step
           this.getStep().add((ExampleScenarioProcessStepComponent) value); // ExampleScenarioProcessStepComponent
-          return value;
-        case 106440182: // pause
-          this.getPause().add(castToBoolean(value)); // BooleanType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -6148,12 +5899,12 @@ into another (possibly the same) biological entity.
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("description")) {
+        if (name.equals("title")) {
+          this.title = castToString(value); // StringType
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
         } else if (name.equals("step")) {
           this.getStep().add((ExampleScenarioProcessStepComponent) value);
-        } else if (name.equals("pause")) {
-          this.getPause().add(castToBoolean(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -6162,9 +5913,9 @@ into another (possibly the same) biological entity.
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case 110371416:  return getTitleElement();
         case -1724546052:  return getDescriptionElement();
         case 3540684:  return addStep(); 
-        case 106440182:  return addPauseElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -6173,9 +5924,9 @@ into another (possibly the same) biological entity.
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case 110371416: /*title*/ return new String[] {"string"};
         case -1724546052: /*description*/ return new String[] {"markdown"};
         case 3540684: /*step*/ return new String[] {"@ExampleScenario.process.step"};
-        case 106440182: /*pause*/ return new String[] {"boolean"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -6183,32 +5934,28 @@ into another (possibly the same) biological entity.
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("description")) {
+        if (name.equals("title")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.title");
+        }
+        else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.description");
         }
         else if (name.equals("step")) {
           return addStep();
         }
-        else if (name.equals("pause")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.pause");
-        }
         else
           return super.addChild(name);
       }
 
-      public ExampleScenarioProcessStepAlternativeOptionComponent copy() {
-        ExampleScenarioProcessStepAlternativeOptionComponent dst = new ExampleScenarioProcessStepAlternativeOptionComponent();
+      public ExampleScenarioProcessStepAlternativeComponent copy() {
+        ExampleScenarioProcessStepAlternativeComponent dst = new ExampleScenarioProcessStepAlternativeComponent();
         copyValues(dst);
+        dst.title = title == null ? null : title.copy();
         dst.description = description == null ? null : description.copy();
         if (step != null) {
           dst.step = new ArrayList<ExampleScenarioProcessStepComponent>();
           for (ExampleScenarioProcessStepComponent i : step)
             dst.step.add(i.copy());
-        };
-        if (pause != null) {
-          dst.pause = new ArrayList<BooleanType>();
-          for (BooleanType i : pause)
-            dst.pause.add(i.copy());
         };
         return dst;
       }
@@ -6217,10 +5964,10 @@ into another (possibly the same) biological entity.
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ExampleScenarioProcessStepAlternativeOptionComponent))
+        if (!(other_ instanceof ExampleScenarioProcessStepAlternativeComponent))
           return false;
-        ExampleScenarioProcessStepAlternativeOptionComponent o = (ExampleScenarioProcessStepAlternativeOptionComponent) other_;
-        return compareDeep(description, o.description, true) && compareDeep(step, o.step, true) && compareDeep(pause, o.pause, true)
+        ExampleScenarioProcessStepAlternativeComponent o = (ExampleScenarioProcessStepAlternativeComponent) other_;
+        return compareDeep(title, o.title, true) && compareDeep(description, o.description, true) && compareDeep(step, o.step, true)
           ;
       }
 
@@ -6228,19 +5975,19 @@ into another (possibly the same) biological entity.
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ExampleScenarioProcessStepAlternativeOptionComponent))
+        if (!(other_ instanceof ExampleScenarioProcessStepAlternativeComponent))
           return false;
-        ExampleScenarioProcessStepAlternativeOptionComponent o = (ExampleScenarioProcessStepAlternativeOptionComponent) other_;
-        return compareValues(description, o.description, true) && compareValues(pause, o.pause, true);
+        ExampleScenarioProcessStepAlternativeComponent o = (ExampleScenarioProcessStepAlternativeComponent) other_;
+        return compareValues(title, o.title, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, step, pause
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(title, description, step
           );
       }
 
   public String fhirType() {
-    return "ExampleScenario.process.step.alternative.option";
+    return "ExampleScenario.process.step.alternative";
 
   }
 
@@ -6754,7 +6501,7 @@ into another (possibly the same) biological entity.
     }
 
     /**
-     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate example scenario instances.)
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate example scenario instances.)
      */
     public List<UsageContext> getUseContext() { 
       if (this.useContext == null)
@@ -7188,7 +6935,7 @@ into another (possibly the same) biological entity.
         children.add(new Property("date", "dateTime", "The date  (and optionally time) when the example scenario was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').", 0, 1, date));
         children.add(new Property("publisher", "string", "The name of the organization or individual that published the example scenario.", 0, 1, publisher));
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate example scenario instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate example scenario instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
         children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the example scenario is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.", 0, 1, copyright));
         children.add(new Property("purpose", "markdown", "What the example scenario resource is created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario.", 0, 1, purpose));
@@ -7210,7 +6957,7 @@ into another (possibly the same) biological entity.
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the example scenario was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').", 0, 1, date);
         case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the organization or individual that published the example scenario.", 0, 1, publisher);
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
-        case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate example scenario instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
+        case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate example scenario instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
         case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the example scenario is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.", 0, 1, copyright);
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "What the example scenario resource is created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario.", 0, 1, purpose);

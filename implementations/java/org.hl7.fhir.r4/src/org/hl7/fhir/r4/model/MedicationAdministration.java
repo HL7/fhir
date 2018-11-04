@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -315,10 +315,10 @@ public class MedicationAdministration extends DomainResource {
         protected Quantity dose;
 
         /**
-         * Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
+         * Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
          */
         @Child(name = "rate", type = {Ratio.class, Quantity.class}, order=6, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Dose quantity per unit of time", formalDefinition="Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours." )
+        @Description(shortDefinition="Dose quantity per unit of time", formalDefinition="Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours." )
         protected Type rate;
 
         private static final long serialVersionUID = 947835626L;
@@ -476,14 +476,14 @@ public class MedicationAdministration extends DomainResource {
         }
 
         /**
-         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
+         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
         public Type getRate() { 
           return this.rate;
         }
 
         /**
-         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
+         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
         public Ratio getRateRatio() throws FHIRException { 
           if (this.rate == null)
@@ -498,7 +498,7 @@ public class MedicationAdministration extends DomainResource {
         }
 
         /**
-         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
+         * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
         public Quantity getRateQuantity() throws FHIRException { 
           if (this.rate == null)
@@ -517,7 +517,7 @@ public class MedicationAdministration extends DomainResource {
         }
 
         /**
-         * @param value {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
+         * @param value {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
         public MedicationAdministrationDosageComponent setRate(Type value) { 
           if (value != null && !(value instanceof Ratio || value instanceof Quantity))
@@ -533,7 +533,7 @@ public class MedicationAdministration extends DomainResource {
           children.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.  For example, topical, intravenous, etc.", 0, 1, route));
           children.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.", 0, 1, method));
           children.add(new Property("dose", "SimpleQuantity", "The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.", 0, 1, dose));
-          children.add(new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate));
+          children.add(new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate));
         }
 
         @Override
@@ -544,10 +544,10 @@ public class MedicationAdministration extends DomainResource {
           case 108704329: /*route*/  return new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.  For example, topical, intravenous, etc.", 0, 1, route);
           case -1077554975: /*method*/  return new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.", 0, 1, method);
           case 3089437: /*dose*/  return new Property("dose", "SimpleQuantity", "The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.", 0, 1, dose);
-          case 983460768: /*rate[x]*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
-          case 3493088: /*rate*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
-          case 204021515: /*rateRatio*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
-          case -1085459061: /*rateQuantity*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
+          case 983460768: /*rate[x]*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
+          case 3493088: /*rate*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
+          case 204021515: /*rateRatio*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
+          case -1085459061: /*rateQuantity*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -721,10 +721,10 @@ public class MedicationAdministration extends DomainResource {
   }
 
     /**
-     * External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event. This identifier is particularly important when these records require updates.
+     * Identifiers associated with this Medication Administration that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="External identifier", formalDefinition="External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event. This identifier is particularly important when these records require updates." )
+    @Description(shortDefinition="External identifier", formalDefinition="Identifiers associated with this Medication Administration that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server." )
     protected List<Identifier> identifier;
 
     /**
@@ -755,9 +755,17 @@ public class MedicationAdministration extends DomainResource {
     protected CodeType status;
 
     /**
+     * A code indicating why the administration was not performed.
+     */
+    @Child(name = "statusReason", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Reason administration not performed", formalDefinition="A code indicating why the administration was not performed." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes")
+    protected List<CodeableConcept> statusReason;
+
+    /**
      * Indicates where the medication is expected to be consumed or administered.
      */
-    @Child(name = "category", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "category", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Type of medication usage", formalDefinition="Indicates where the medication is expected to be consumed or administered." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-admin-category")
     protected CodeableConcept category;
@@ -765,7 +773,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=6, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What was administered", formalDefinition="Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-codes")
     protected Type medication;
@@ -773,7 +781,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The person or animal or group receiving the medication.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class}, order=6, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who received medication", formalDefinition="The person or animal or group receiving the medication." )
     protected Reference subject;
 
@@ -785,7 +793,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The visit, admission, or other contact between patient and health care provider during which the medication administration was performed.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Encounter or Episode of Care administered as part of", formalDefinition="The visit, admission, or other contact between patient and health care provider during which the medication administration was performed." )
     protected Reference context;
 
@@ -797,7 +805,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Additional information (for example, patient height and weight) that supports the administration of the medication.
      */
-    @Child(name = "supportingInformation", type = {Reference.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "supportingInformation", type = {Reference.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional information to support administration", formalDefinition="Additional information (for example, patient height and weight) that supports the administration of the medication." )
     protected List<Reference> supportingInformation;
     /**
@@ -809,24 +817,16 @@ public class MedicationAdministration extends DomainResource {
     /**
      * A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
      */
-    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=9, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=10, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Start and end time of administration", formalDefinition="A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate." )
     protected Type effective;
 
     /**
      * Indicates who or what performed the medication administration and how they were involved.
      */
-    @Child(name = "performer", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "performer", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Who performed the medication administration and what they did", formalDefinition="Indicates who or what performed the medication administration and how they were involved." )
     protected List<MedicationAdministrationPerformerComponent> performer;
-
-    /**
-     * A code indicating why the administration was not performed.
-     */
-    @Child(name = "statusReason", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Reason administration not performed", formalDefinition="A code indicating why the administration was not performed." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes")
-    protected List<CodeableConcept> statusReason;
 
     /**
      * A code indicating why the medication was given.
@@ -898,7 +898,7 @@ public class MedicationAdministration extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = -829646632L;
+    private static final long serialVersionUID = -1448772670L;
 
   /**
    * Constructor
@@ -919,7 +919,7 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event. This identifier is particularly important when these records require updates.)
+     * @return {@link #identifier} (Identifiers associated with this Medication Administration that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1138,6 +1138,59 @@ public class MedicationAdministration extends DomainResource {
           this.status = new CodeType();
         this.status.setValue(value);
       return this;
+    }
+
+    /**
+     * @return {@link #statusReason} (A code indicating why the administration was not performed.)
+     */
+    public List<CodeableConcept> getStatusReason() { 
+      if (this.statusReason == null)
+        this.statusReason = new ArrayList<CodeableConcept>();
+      return this.statusReason;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationAdministration setStatusReason(List<CodeableConcept> theStatusReason) { 
+      this.statusReason = theStatusReason;
+      return this;
+    }
+
+    public boolean hasStatusReason() { 
+      if (this.statusReason == null)
+        return false;
+      for (CodeableConcept item : this.statusReason)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addStatusReason() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.statusReason == null)
+        this.statusReason = new ArrayList<CodeableConcept>();
+      this.statusReason.add(t);
+      return t;
+    }
+
+    public MedicationAdministration addStatusReason(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.statusReason == null)
+        this.statusReason = new ArrayList<CodeableConcept>();
+      this.statusReason.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #statusReason}, creating it if it does not already exist
+     */
+    public CodeableConcept getStatusReasonFirstRep() { 
+      if (getStatusReason().isEmpty()) {
+        addStatusReason();
+      }
+      return getStatusReason().get(0);
     }
 
     /**
@@ -1458,59 +1511,6 @@ public class MedicationAdministration extends DomainResource {
         addPerformer();
       }
       return getPerformer().get(0);
-    }
-
-    /**
-     * @return {@link #statusReason} (A code indicating why the administration was not performed.)
-     */
-    public List<CodeableConcept> getStatusReason() { 
-      if (this.statusReason == null)
-        this.statusReason = new ArrayList<CodeableConcept>();
-      return this.statusReason;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public MedicationAdministration setStatusReason(List<CodeableConcept> theStatusReason) { 
-      this.statusReason = theStatusReason;
-      return this;
-    }
-
-    public boolean hasStatusReason() { 
-      if (this.statusReason == null)
-        return false;
-      for (CodeableConcept item : this.statusReason)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public CodeableConcept addStatusReason() { //3
-      CodeableConcept t = new CodeableConcept();
-      if (this.statusReason == null)
-        this.statusReason = new ArrayList<CodeableConcept>();
-      this.statusReason.add(t);
-      return t;
-    }
-
-    public MedicationAdministration addStatusReason(CodeableConcept t) { //3
-      if (t == null)
-        return this;
-      if (this.statusReason == null)
-        this.statusReason = new ArrayList<CodeableConcept>();
-      this.statusReason.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #statusReason}, creating it if it does not already exist
-     */
-    public CodeableConcept getStatusReasonFirstRep() { 
-      if (getStatusReason().isEmpty()) {
-        addStatusReason();
-      }
-      return getStatusReason().get(0);
     }
 
     /**
@@ -1902,10 +1902,11 @@ public class MedicationAdministration extends DomainResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event. This identifier is particularly important when these records require updates.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("identifier", "Identifier", "Identifiers associated with this Medication Administration that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("instantiates", "uri", "A protocol, guideline, orderset, or other definition that was adhered to in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, instantiates));
         children.add(new Property("partOf", "Reference(MedicationAdministration|Procedure)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf));
         children.add(new Property("status", "code", "Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.", 0, 1, status));
+        children.add(new Property("statusReason", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, statusReason));
         children.add(new Property("category", "CodeableConcept", "Indicates where the medication is expected to be consumed or administered.", 0, 1, category));
         children.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication));
         children.add(new Property("subject", "Reference(Patient|Group)", "The person or animal or group receiving the medication.", 0, 1, subject));
@@ -1913,7 +1914,6 @@ public class MedicationAdministration extends DomainResource {
         children.add(new Property("supportingInformation", "Reference(Any)", "Additional information (for example, patient height and weight) that supports the administration of the medication.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         children.add(new Property("effective[x]", "dateTime|Period", "A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, 1, effective));
         children.add(new Property("performer", "", "Indicates who or what performed the medication administration and how they were involved.", 0, java.lang.Integer.MAX_VALUE, performer));
-        children.add(new Property("statusReason", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, statusReason));
         children.add(new Property("reasonCode", "CodeableConcept", "A code indicating why the medication was given.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport)", "Condition or observation that supports why the medication was administered.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         children.add(new Property("request", "Reference(MedicationRequest)", "The original request, instruction or authority to perform the administration.", 0, 1, request));
@@ -1926,10 +1926,11 @@ public class MedicationAdministration extends DomainResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event. This identifier is particularly important when these records require updates.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers associated with this Medication Administration that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -246883639: /*instantiates*/  return new Property("instantiates", "uri", "A protocol, guideline, orderset, or other definition that was adhered to in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, instantiates);
         case -995410646: /*partOf*/  return new Property("partOf", "Reference(MedicationAdministration|Procedure)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf);
         case -892481550: /*status*/  return new Property("status", "code", "Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.", 0, 1, status);
+        case 2051346646: /*statusReason*/  return new Property("statusReason", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, statusReason);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "Indicates where the medication is expected to be consumed or administered.", 0, 1, category);
         case 1458402129: /*medication[x]*/  return new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication);
         case 1998965455: /*medication*/  return new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication);
@@ -1943,7 +1944,6 @@ public class MedicationAdministration extends DomainResource {
         case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, 1, effective);
         case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, 1, effective);
         case 481140686: /*performer*/  return new Property("performer", "", "Indicates who or what performed the medication administration and how they were involved.", 0, java.lang.Integer.MAX_VALUE, performer);
-        case 2051346646: /*statusReason*/  return new Property("statusReason", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, statusReason);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "A code indicating why the medication was given.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
         case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport)", "Condition or observation that supports why the medication was administered.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
         case 1095692943: /*request*/  return new Property("request", "Reference(MedicationRequest)", "The original request, instruction or authority to perform the administration.", 0, 1, request);
@@ -1963,6 +1963,7 @@ public class MedicationAdministration extends DomainResource {
         case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : this.instantiates.toArray(new Base[this.instantiates.size()]); // UriType
         case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeType
+        case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : this.statusReason.toArray(new Base[this.statusReason.size()]); // CodeableConcept
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
@@ -1970,7 +1971,6 @@ public class MedicationAdministration extends DomainResource {
         case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // MedicationAdministrationPerformerComponent
-        case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : this.statusReason.toArray(new Base[this.statusReason.size()]); // CodeableConcept
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // Reference
@@ -1998,6 +1998,9 @@ public class MedicationAdministration extends DomainResource {
         case -892481550: // status
           this.status = castToCode(value); // CodeType
           return value;
+        case 2051346646: // statusReason
+          this.getStatusReason().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
         case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
           return value;
@@ -2018,9 +2021,6 @@ public class MedicationAdministration extends DomainResource {
           return value;
         case 481140686: // performer
           this.getPerformer().add((MedicationAdministrationPerformerComponent) value); // MedicationAdministrationPerformerComponent
-          return value;
-        case 2051346646: // statusReason
-          this.getStatusReason().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case 722137681: // reasonCode
           this.getReasonCode().add(castToCodeableConcept(value)); // CodeableConcept
@@ -2058,6 +2058,8 @@ public class MedicationAdministration extends DomainResource {
           this.getPartOf().add(castToReference(value));
         } else if (name.equals("status")) {
           this.status = castToCode(value); // CodeType
+        } else if (name.equals("statusReason")) {
+          this.getStatusReason().add(castToCodeableConcept(value));
         } else if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("medication[x]")) {
@@ -2072,8 +2074,6 @@ public class MedicationAdministration extends DomainResource {
           this.effective = castToType(value); // Type
         } else if (name.equals("performer")) {
           this.getPerformer().add((MedicationAdministrationPerformerComponent) value);
-        } else if (name.equals("statusReason")) {
-          this.getStatusReason().add(castToCodeableConcept(value));
         } else if (name.equals("reasonCode")) {
           this.getReasonCode().add(castToCodeableConcept(value));
         } else if (name.equals("reasonReference")) {
@@ -2100,6 +2100,7 @@ public class MedicationAdministration extends DomainResource {
         case -246883639:  return addInstantiatesElement();
         case -995410646:  return addPartOf(); 
         case -892481550:  return getStatusElement();
+        case 2051346646:  return addStatusReason(); 
         case 50511102:  return getCategory(); 
         case 1458402129:  return getMedication(); 
         case 1998965455:  return getMedication(); 
@@ -2109,7 +2110,6 @@ public class MedicationAdministration extends DomainResource {
         case 247104889:  return getEffective(); 
         case -1468651097:  return getEffective(); 
         case 481140686:  return addPerformer(); 
-        case 2051346646:  return addStatusReason(); 
         case 722137681:  return addReasonCode(); 
         case -1146218137:  return addReasonReference(); 
         case 1095692943:  return getRequest(); 
@@ -2129,6 +2129,7 @@ public class MedicationAdministration extends DomainResource {
         case -246883639: /*instantiates*/ return new String[] {"uri"};
         case -995410646: /*partOf*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
+        case 2051346646: /*statusReason*/ return new String[] {"CodeableConcept"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 1998965455: /*medication*/ return new String[] {"CodeableConcept", "Reference"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
@@ -2136,7 +2137,6 @@ public class MedicationAdministration extends DomainResource {
         case -1248768647: /*supportingInformation*/ return new String[] {"Reference"};
         case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
         case 481140686: /*performer*/ return new String[] {};
-        case 2051346646: /*statusReason*/ return new String[] {"CodeableConcept"};
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case 1095692943: /*request*/ return new String[] {"Reference"};
@@ -2162,6 +2162,9 @@ public class MedicationAdministration extends DomainResource {
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type MedicationAdministration.status");
+        }
+        else if (name.equals("statusReason")) {
+          return addStatusReason();
         }
         else if (name.equals("category")) {
           this.category = new CodeableConcept();
@@ -2196,9 +2199,6 @@ public class MedicationAdministration extends DomainResource {
         }
         else if (name.equals("performer")) {
           return addPerformer();
-        }
-        else if (name.equals("statusReason")) {
-          return addStatusReason();
         }
         else if (name.equals("reasonCode")) {
           return addReasonCode();
@@ -2251,6 +2251,11 @@ public class MedicationAdministration extends DomainResource {
             dst.partOf.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
+        if (statusReason != null) {
+          dst.statusReason = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : statusReason)
+            dst.statusReason.add(i.copy());
+        };
         dst.category = category == null ? null : category.copy();
         dst.medication = medication == null ? null : medication.copy();
         dst.subject = subject == null ? null : subject.copy();
@@ -2265,11 +2270,6 @@ public class MedicationAdministration extends DomainResource {
           dst.performer = new ArrayList<MedicationAdministrationPerformerComponent>();
           for (MedicationAdministrationPerformerComponent i : performer)
             dst.performer.add(i.copy());
-        };
-        if (statusReason != null) {
-          dst.statusReason = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : statusReason)
-            dst.statusReason.add(i.copy());
         };
         if (reasonCode != null) {
           dst.reasonCode = new ArrayList<CodeableConcept>();
@@ -2313,13 +2313,13 @@ public class MedicationAdministration extends DomainResource {
           return false;
         MedicationAdministration o = (MedicationAdministration) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
-           && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
-           && compareDeep(medication, o.medication, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
-           && compareDeep(supportingInformation, o.supportingInformation, true) && compareDeep(effective, o.effective, true)
-           && compareDeep(performer, o.performer, true) && compareDeep(statusReason, o.statusReason, true)
-           && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
-           && compareDeep(request, o.request, true) && compareDeep(device, o.device, true) && compareDeep(note, o.note, true)
-           && compareDeep(dosage, o.dosage, true) && compareDeep(eventHistory, o.eventHistory, true);
+           && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true) && compareDeep(statusReason, o.statusReason, true)
+           && compareDeep(category, o.category, true) && compareDeep(medication, o.medication, true) && compareDeep(subject, o.subject, true)
+           && compareDeep(context, o.context, true) && compareDeep(supportingInformation, o.supportingInformation, true)
+           && compareDeep(effective, o.effective, true) && compareDeep(performer, o.performer, true) && compareDeep(reasonCode, o.reasonCode, true)
+           && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(request, o.request, true)
+           && compareDeep(device, o.device, true) && compareDeep(note, o.note, true) && compareDeep(dosage, o.dosage, true)
+           && compareDeep(eventHistory, o.eventHistory, true);
       }
 
       @Override
@@ -2334,9 +2334,9 @@ public class MedicationAdministration extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiates, partOf
-          , status, category, medication, subject, context, supportingInformation, effective
-          , performer, statusReason, reasonCode, reasonReference, request, device, note
-          , dosage, eventHistory);
+          , status, statusReason, category, medication, subject, context, supportingInformation
+          , effective, performer, reasonCode, reasonReference, request, device, note, dosage
+          , eventHistory);
       }
 
   @Override

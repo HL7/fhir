@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -6159,6 +6159,26 @@ public class SubstanceSpecification extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.SubstanceSpecification;
    }
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>Codes associated with the substance</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SubstanceSpecification.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="SubstanceSpecification.code", description="Codes associated with the substance", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>Codes associated with the substance</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SubstanceSpecification.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -1190,16 +1190,16 @@ public class QuestionnaireResponse extends DomainResource {
     protected Resource subjectTarget;
 
     /**
-     * The encounter or episode of care with primary association to the questionnaire response.
+     * The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Encounter or Episode during which questionnaire was completed", formalDefinition="The encounter or episode of care with primary association to the questionnaire response." )
-    protected Reference context;
+    @Child(name = "encounter", type = {Encounter.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Encounter created as part of", formalDefinition="The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated." )
+    protected Reference encounter;
 
     /**
-     * The actual object that is the target of the reference (The encounter or episode of care with primary association to the questionnaire response.)
+     * The actual object that is the target of the reference (The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.)
      */
-    protected Resource contextTarget;
+    protected Encounter encounterTarget;
 
     /**
      * The date and/or time that this set of answers were last changed.
@@ -1239,7 +1239,7 @@ public class QuestionnaireResponse extends DomainResource {
     @Description(shortDefinition="Groups and questions", formalDefinition="A group or question item from the original questionnaire for which answers are provided." )
     protected List<QuestionnaireResponseItemComponent> item;
 
-    private static final long serialVersionUID = 446560994L;
+    private static final long serialVersionUID = -259908687L;
 
   /**
    * Constructor
@@ -1540,41 +1540,46 @@ public class QuestionnaireResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #context} (The encounter or episode of care with primary association to the questionnaire response.)
+     * @return {@link #encounter} (The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.)
      */
-    public Reference getContext() { 
-      if (this.context == null)
+    public Reference getEncounter() { 
+      if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create QuestionnaireResponse.context");
+          throw new Error("Attempt to auto-create QuestionnaireResponse.encounter");
         else if (Configuration.doAutoCreate())
-          this.context = new Reference(); // cc
-      return this.context;
+          this.encounter = new Reference(); // cc
+      return this.encounter;
     }
 
-    public boolean hasContext() { 
-      return this.context != null && !this.context.isEmpty();
+    public boolean hasEncounter() { 
+      return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
-     * @param value {@link #context} (The encounter or episode of care with primary association to the questionnaire response.)
+     * @param value {@link #encounter} (The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.)
      */
-    public QuestionnaireResponse setContext(Reference value) { 
-      this.context = value;
+    public QuestionnaireResponse setEncounter(Reference value) { 
+      this.encounter = value;
       return this;
     }
 
     /**
-     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter or episode of care with primary association to the questionnaire response.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.)
      */
-    public Resource getContextTarget() { 
-      return this.contextTarget;
+    public Encounter getEncounterTarget() { 
+      if (this.encounterTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create QuestionnaireResponse.encounter");
+        else if (Configuration.doAutoCreate())
+          this.encounterTarget = new Encounter(); // aa
+      return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter or episode of care with primary association to the questionnaire response.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.)
      */
-    public QuestionnaireResponse setContextTarget(Resource value) { 
-      this.contextTarget = value;
+    public QuestionnaireResponse setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
       return this;
     }
 
@@ -1766,7 +1771,7 @@ public class QuestionnaireResponse extends DomainResource {
         children.add(new Property("questionnaire", "canonical(Questionnaire)", "The Questionnaire that defines and organizes the questions for which answers are being provided.", 0, 1, questionnaire));
         children.add(new Property("status", "code", "The position of the questionnaire response within its overall lifecycle.", 0, 1, status));
         children.add(new Property("subject", "Reference(Any)", "The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.", 0, 1, subject));
-        children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care with primary association to the questionnaire response.", 0, 1, context));
+        children.add(new Property("encounter", "Reference(Encounter)", "The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.", 0, 1, encounter));
         children.add(new Property("authored", "dateTime", "The date and/or time that this set of answers were last changed.", 0, 1, authored));
         children.add(new Property("author", "Reference(Device|Practitioner|PractitionerRole|Patient|RelatedPerson|Organization)", "Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.", 0, 1, author));
         children.add(new Property("source", "Reference(Patient|Practitioner|RelatedPerson)", "The person who answered the questions about the subject.", 0, 1, source));
@@ -1782,7 +1787,7 @@ public class QuestionnaireResponse extends DomainResource {
         case -1017049693: /*questionnaire*/  return new Property("questionnaire", "canonical(Questionnaire)", "The Questionnaire that defines and organizes the questions for which answers are being provided.", 0, 1, questionnaire);
         case -892481550: /*status*/  return new Property("status", "code", "The position of the questionnaire response within its overall lifecycle.", 0, 1, status);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Any)", "The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.", 0, 1, subject);
-        case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care with primary association to the questionnaire response.", 0, 1, context);
+        case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.", 0, 1, encounter);
         case 1433073514: /*authored*/  return new Property("authored", "dateTime", "The date and/or time that this set of answers were last changed.", 0, 1, authored);
         case -1406328437: /*author*/  return new Property("author", "Reference(Device|Practitioner|PractitionerRole|Patient|RelatedPerson|Organization)", "Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.", 0, 1, author);
         case -896505829: /*source*/  return new Property("source", "Reference(Patient|Practitioner|RelatedPerson)", "The person who answered the questions about the subject.", 0, 1, source);
@@ -1801,7 +1806,7 @@ public class QuestionnaireResponse extends DomainResource {
         case -1017049693: /*questionnaire*/ return this.questionnaire == null ? new Base[0] : new Base[] {this.questionnaire}; // CanonicalType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<QuestionnaireResponseStatus>
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case 1433073514: /*authored*/ return this.authored == null ? new Base[0] : new Base[] {this.authored}; // DateTimeType
         case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
         case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // Reference
@@ -1833,8 +1838,8 @@ public class QuestionnaireResponse extends DomainResource {
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           return value;
-        case 951530927: // context
-          this.context = castToReference(value); // Reference
+        case 1524132147: // encounter
+          this.encounter = castToReference(value); // Reference
           return value;
         case 1433073514: // authored
           this.authored = castToDateTime(value); // DateTimeType
@@ -1868,8 +1873,8 @@ public class QuestionnaireResponse extends DomainResource {
           this.status = (Enumeration) value; // Enumeration<QuestionnaireResponseStatus>
         } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        } else if (name.equals("context")) {
-          this.context = castToReference(value); // Reference
+        } else if (name.equals("encounter")) {
+          this.encounter = castToReference(value); // Reference
         } else if (name.equals("authored")) {
           this.authored = castToDateTime(value); // DateTimeType
         } else if (name.equals("author")) {
@@ -1892,7 +1897,7 @@ public class QuestionnaireResponse extends DomainResource {
         case -1017049693:  return getQuestionnaireElement();
         case -892481550:  return getStatusElement();
         case -1867885268:  return getSubject(); 
-        case 951530927:  return getContext(); 
+        case 1524132147:  return getEncounter(); 
         case 1433073514:  return getAuthoredElement();
         case -1406328437:  return getAuthor(); 
         case -896505829:  return getSource(); 
@@ -1911,7 +1916,7 @@ public class QuestionnaireResponse extends DomainResource {
         case -1017049693: /*questionnaire*/ return new String[] {"canonical"};
         case -892481550: /*status*/ return new String[] {"code"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
-        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case 1433073514: /*authored*/ return new String[] {"dateTime"};
         case -1406328437: /*author*/ return new String[] {"Reference"};
         case -896505829: /*source*/ return new String[] {"Reference"};
@@ -1943,9 +1948,9 @@ public class QuestionnaireResponse extends DomainResource {
           this.subject = new Reference();
           return this.subject;
         }
-        else if (name.equals("context")) {
-          this.context = new Reference();
-          return this.context;
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
         }
         else if (name.equals("authored")) {
           throw new FHIRException("Cannot call addChild on a primitive type QuestionnaireResponse.authored");
@@ -1987,7 +1992,7 @@ public class QuestionnaireResponse extends DomainResource {
         dst.questionnaire = questionnaire == null ? null : questionnaire.copy();
         dst.status = status == null ? null : status.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.context = context == null ? null : context.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.authored = authored == null ? null : authored.copy();
         dst.author = author == null ? null : author.copy();
         dst.source = source == null ? null : source.copy();
@@ -2012,7 +2017,7 @@ public class QuestionnaireResponse extends DomainResource {
         QuestionnaireResponse o = (QuestionnaireResponse) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true)
            && compareDeep(questionnaire, o.questionnaire, true) && compareDeep(status, o.status, true) && compareDeep(subject, o.subject, true)
-           && compareDeep(context, o.context, true) && compareDeep(authored, o.authored, true) && compareDeep(author, o.author, true)
+           && compareDeep(encounter, o.encounter, true) && compareDeep(authored, o.authored, true) && compareDeep(author, o.author, true)
            && compareDeep(source, o.source, true) && compareDeep(item, o.item, true);
       }
 
@@ -2028,7 +2033,8 @@ public class QuestionnaireResponse extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, partOf
-          , questionnaire, status, subject, context, authored, author, source, item);
+          , questionnaire, status, subject, encounter, authored, author, source, item
+          );
       }
 
   @Override
@@ -2207,32 +2213,6 @@ public class QuestionnaireResponse extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:patient").toLocked();
 
  /**
-   * Search parameter: <b>context</b>
-   * <p>
-   * Description: <b>Encounter or episode associated with the questionnaire response</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>QuestionnaireResponse.context</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="context", path="QuestionnaireResponse.context", description="Encounter or episode associated with the questionnaire response", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class, EpisodeOfCare.class } )
-  public static final String SP_CONTEXT = "context";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>context</b>
-   * <p>
-   * Description: <b>Encounter or episode associated with the questionnaire response</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>QuestionnaireResponse.context</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>QuestionnaireResponse:context</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:context").toLocked();
-
- /**
    * Search parameter: <b>part-of</b>
    * <p>
    * Description: <b>Procedure or observation this questionnaire response was performed as a part of</b><br>
@@ -2257,6 +2237,32 @@ public class QuestionnaireResponse extends DomainResource {
    * the path value of "<b>QuestionnaireResponse:part-of</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PART_OF = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:part-of").toLocked();
+
+ /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Encounter associated with the questionnaire response</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>QuestionnaireResponse.encounter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="QuestionnaireResponse.encounter", description="Encounter associated with the questionnaire response", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Encounter associated with the questionnaire response</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>QuestionnaireResponse.encounter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>QuestionnaireResponse:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("QuestionnaireResponse:encounter").toLocked();
 
  /**
    * Search parameter: <b>source</b>

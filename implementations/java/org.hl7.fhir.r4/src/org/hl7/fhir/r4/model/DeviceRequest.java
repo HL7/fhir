@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -58,19 +58,19 @@ public class DeviceRequest extends DomainResource {
          */
         ACTIVE, 
         /**
-         * The authorization/request to act has been temporarily withdrawn but is expected to resume in the future.
+         * The request (and any implicit authorization to act) has been temporarily withdrawn but is expected to resume in the future.
          */
         ONHOLD, 
         /**
-         * The authorization/request to act has been terminated prior to the known full completion of the intended actions.  No further activity should occur.
+         * The request (and any implicit authorization to act) has been terminated prior to the known full completion of the intended actions.  No further activity should occur.
          */
         REVOKED, 
         /**
-         * Activity against the request has been sufficiently completed to the satisfaction of the requester.
+         * The activity described by the request has been fully performed.  No further activity will occur.
          */
         COMPLETED, 
         /**
-         * This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".).
+         * This request should never have existed and should be considered 'void'.  (It is possible that real-world decisions were based on it.  If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".).
          */
         ENTEREDINERROR, 
         /**
@@ -131,10 +131,10 @@ public class DeviceRequest extends DomainResource {
           switch (this) {
             case DRAFT: return "The request has been created but is not yet complete or ready for action.";
             case ACTIVE: return "The request is in force and ready to be acted upon.";
-            case ONHOLD: return "The authorization/request to act has been temporarily withdrawn but is expected to resume in the future.";
-            case REVOKED: return "The authorization/request to act has been terminated prior to the known full completion of the intended actions.  No further activity should occur.";
-            case COMPLETED: return "Activity against the request has been sufficiently completed to the satisfaction of the requester.";
-            case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".).";
+            case ONHOLD: return "The request (and any implicit authorization to act) has been temporarily withdrawn but is expected to resume in the future.";
+            case REVOKED: return "The request (and any implicit authorization to act) has been terminated prior to the known full completion of the intended actions.  No further activity should occur.";
+            case COMPLETED: return "The activity described by the request has been fully performed.  No further activity will occur.";
+            case ENTEREDINERROR: return "This request should never have existed and should be considered 'void'.  (It is possible that real-world decisions were based on it.  If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".).";
             case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" . One of the listed statuses is presumed to apply,  but the system creating the request does not know.";
             default: return "?";
           }
@@ -230,7 +230,11 @@ public class DeviceRequest extends DomainResource {
          */
         PLAN, 
         /**
-         * The request represents a request/demand and authorization for action.
+         * The request represents a legally binding instruction authored by a Patient or RelatedPerson.
+         */
+        DIRECTIVE, 
+        /**
+         * The request represents a request/demand and authorization for action by a Practitioner.
          */
         ORDER, 
         /**
@@ -264,6 +268,8 @@ public class DeviceRequest extends DomainResource {
           return PROPOSAL;
         if ("plan".equals(codeString))
           return PLAN;
+        if ("directive".equals(codeString))
+          return DIRECTIVE;
         if ("order".equals(codeString))
           return ORDER;
         if ("original-order".equals(codeString))
@@ -285,6 +291,7 @@ public class DeviceRequest extends DomainResource {
           switch (this) {
             case PROPOSAL: return "proposal";
             case PLAN: return "plan";
+            case DIRECTIVE: return "directive";
             case ORDER: return "order";
             case ORIGINALORDER: return "original-order";
             case REFLEXORDER: return "reflex-order";
@@ -298,6 +305,7 @@ public class DeviceRequest extends DomainResource {
           switch (this) {
             case PROPOSAL: return "http://hl7.org/fhir/request-intent";
             case PLAN: return "http://hl7.org/fhir/request-intent";
+            case DIRECTIVE: return "http://hl7.org/fhir/request-intent";
             case ORDER: return "http://hl7.org/fhir/request-intent";
             case ORIGINALORDER: return "http://hl7.org/fhir/request-intent";
             case REFLEXORDER: return "http://hl7.org/fhir/request-intent";
@@ -311,7 +319,8 @@ public class DeviceRequest extends DomainResource {
           switch (this) {
             case PROPOSAL: return "The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act.";
             case PLAN: return "The request represents an intention to ensure something occurs without providing an authorization for others to act.";
-            case ORDER: return "The request represents a request/demand and authorization for action.";
+            case DIRECTIVE: return "The request represents a legally binding instruction authored by a Patient or RelatedPerson.";
+            case ORDER: return "The request represents a request/demand and authorization for action by a Practitioner.";
             case ORIGINALORDER: return "The request represents an original authorization for action.";
             case REFLEXORDER: return "The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization.";
             case FILLERORDER: return "The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order.";
@@ -324,6 +333,7 @@ public class DeviceRequest extends DomainResource {
           switch (this) {
             case PROPOSAL: return "Proposal";
             case PLAN: return "Plan";
+            case DIRECTIVE: return "Directive";
             case ORDER: return "Order";
             case ORIGINALORDER: return "Original Order";
             case REFLEXORDER: return "Reflex Order";
@@ -344,6 +354,8 @@ public class DeviceRequest extends DomainResource {
           return RequestIntent.PROPOSAL;
         if ("plan".equals(codeString))
           return RequestIntent.PLAN;
+        if ("directive".equals(codeString))
+          return RequestIntent.DIRECTIVE;
         if ("order".equals(codeString))
           return RequestIntent.ORDER;
         if ("original-order".equals(codeString))
@@ -370,6 +382,8 @@ public class DeviceRequest extends DomainResource {
           return new Enumeration<RequestIntent>(this, RequestIntent.PROPOSAL);
         if ("plan".equals(codeString))
           return new Enumeration<RequestIntent>(this, RequestIntent.PLAN);
+        if ("directive".equals(codeString))
+          return new Enumeration<RequestIntent>(this, RequestIntent.DIRECTIVE);
         if ("order".equals(codeString))
           return new Enumeration<RequestIntent>(this, RequestIntent.ORDER);
         if ("original-order".equals(codeString))
@@ -389,6 +403,8 @@ public class DeviceRequest extends DomainResource {
         return "proposal";
       if (code == RequestIntent.PLAN)
         return "plan";
+      if (code == RequestIntent.DIRECTIVE)
+        return "directive";
       if (code == RequestIntent.ORDER)
         return "order";
       if (code == RequestIntent.ORIGINALORDER)

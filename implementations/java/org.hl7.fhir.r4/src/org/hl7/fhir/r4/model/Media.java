@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -313,16 +313,16 @@ public class Media extends DomainResource {
     protected Resource subjectTarget;
 
     /**
-     * The encounter or episode of care that establishes the context for this media.
+     * The encounter that establishes the context for this media.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Encounter / Episode associated with media", formalDefinition="The encounter or episode of care that establishes the context for this media." )
-    protected Reference context;
+    @Child(name = "encounter", type = {Encounter.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Encounter associated with media", formalDefinition="The encounter that establishes the context for this media." )
+    protected Reference encounter;
 
     /**
-     * The actual object that is the target of the reference (The encounter or episode of care that establishes the context for this media.)
+     * The actual object that is the target of the reference (The encounter that establishes the context for this media.)
      */
-    protected Resource contextTarget;
+    protected Encounter encounterTarget;
 
     /**
      * The date and time(s) at which the media was collected.
@@ -427,7 +427,7 @@ public class Media extends DomainResource {
     @Description(shortDefinition="Comments made about the media", formalDefinition="Comments made about the media by the performer, subject or other participants." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 413873607L;
+    private static final long serialVersionUID = 2069980126L;
 
   /**
    * Constructor
@@ -781,41 +781,46 @@ public class Media extends DomainResource {
     }
 
     /**
-     * @return {@link #context} (The encounter or episode of care that establishes the context for this media.)
+     * @return {@link #encounter} (The encounter that establishes the context for this media.)
      */
-    public Reference getContext() { 
-      if (this.context == null)
+    public Reference getEncounter() { 
+      if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Media.context");
+          throw new Error("Attempt to auto-create Media.encounter");
         else if (Configuration.doAutoCreate())
-          this.context = new Reference(); // cc
-      return this.context;
+          this.encounter = new Reference(); // cc
+      return this.encounter;
     }
 
-    public boolean hasContext() { 
-      return this.context != null && !this.context.isEmpty();
+    public boolean hasEncounter() { 
+      return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
-     * @param value {@link #context} (The encounter or episode of care that establishes the context for this media.)
+     * @param value {@link #encounter} (The encounter that establishes the context for this media.)
      */
-    public Media setContext(Reference value) { 
-      this.context = value;
+    public Media setEncounter(Reference value) { 
+      this.encounter = value;
       return this;
     }
 
     /**
-     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter or episode of care that establishes the context for this media.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter that establishes the context for this media.)
      */
-    public Resource getContextTarget() { 
-      return this.contextTarget;
+    public Encounter getEncounterTarget() { 
+      if (this.encounterTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Media.encounter");
+        else if (Configuration.doAutoCreate())
+          this.encounterTarget = new Encounter(); // aa
+      return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter or episode of care that establishes the context for this media.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter that establishes the context for this media.)
      */
-    public Media setContextTarget(Resource value) { 
-      this.contextTarget = value;
+    public Media setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
       return this;
     }
 
@@ -1412,7 +1417,7 @@ public class Media extends DomainResource {
         children.add(new Property("modality", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, 1, modality));
         children.add(new Property("view", "CodeableConcept", "The name of the imaging view e.g. Lateral or Antero-posterior (AP).", 0, 1, view));
         children.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device|Specimen|Location)", "Who/What this Media is a record of.", 0, 1, subject));
-        children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care that establishes the context for this media.", 0, 1, context));
+        children.add(new Property("encounter", "Reference(Encounter)", "The encounter that establishes the context for this media.", 0, 1, encounter));
         children.add(new Property("created[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, created));
         children.add(new Property("issued", "instant", "The date and time this version of the media was made available to providers, typically after having been reviewed.", 0, 1, issued));
         children.add(new Property("operator", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|Patient|Device|RelatedPerson)", "The person who administered the collection of the image.", 0, 1, operator));
@@ -1439,7 +1444,7 @@ public class Media extends DomainResource {
         case -622722335: /*modality*/  return new Property("modality", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, 1, modality);
         case 3619493: /*view*/  return new Property("view", "CodeableConcept", "The name of the imaging view e.g. Lateral or Antero-posterior (AP).", 0, 1, view);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Practitioner|Group|Device|Specimen|Location)", "Who/What this Media is a record of.", 0, 1, subject);
-        case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care that establishes the context for this media.", 0, 1, context);
+        case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The encounter that establishes the context for this media.", 0, 1, encounter);
         case 1369676952: /*created[x]*/  return new Property("created[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, created);
         case 1028554472: /*created*/  return new Property("created[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, created);
         case -1968526685: /*createdDateTime*/  return new Property("created[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, created);
@@ -1472,7 +1477,7 @@ public class Media extends DomainResource {
         case -622722335: /*modality*/ return this.modality == null ? new Base[0] : new Base[] {this.modality}; // CodeableConcept
         case 3619493: /*view*/ return this.view == null ? new Base[0] : new Base[] {this.view}; // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // Type
         case -1179159893: /*issued*/ return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
         case -500553564: /*operator*/ return this.operator == null ? new Base[0] : new Base[] {this.operator}; // Reference
@@ -1519,8 +1524,8 @@ public class Media extends DomainResource {
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           return value;
-        case 951530927: // context
-          this.context = castToReference(value); // Reference
+        case 1524132147: // encounter
+          this.encounter = castToReference(value); // Reference
           return value;
         case 1028554472: // created
           this.created = castToType(value); // Type
@@ -1585,8 +1590,8 @@ public class Media extends DomainResource {
           this.view = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        } else if (name.equals("context")) {
-          this.context = castToReference(value); // Reference
+        } else if (name.equals("encounter")) {
+          this.encounter = castToReference(value); // Reference
         } else if (name.equals("created[x]")) {
           this.created = castToType(value); // Type
         } else if (name.equals("issued")) {
@@ -1629,7 +1634,7 @@ public class Media extends DomainResource {
         case -622722335:  return getModality(); 
         case 3619493:  return getView(); 
         case -1867885268:  return getSubject(); 
-        case 951530927:  return getContext(); 
+        case 1524132147:  return getEncounter(); 
         case 1369676952:  return getCreated(); 
         case 1028554472:  return getCreated(); 
         case -1179159893:  return getIssuedElement();
@@ -1660,7 +1665,7 @@ public class Media extends DomainResource {
         case -622722335: /*modality*/ return new String[] {"CodeableConcept"};
         case 3619493: /*view*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
-        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case 1028554472: /*created*/ return new String[] {"dateTime", "Period"};
         case -1179159893: /*issued*/ return new String[] {"instant"};
         case -500553564: /*operator*/ return new String[] {"Reference"};
@@ -1709,9 +1714,9 @@ public class Media extends DomainResource {
           this.subject = new Reference();
           return this.subject;
         }
-        else if (name.equals("context")) {
-          this.context = new Reference();
-          return this.context;
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
         }
         else if (name.equals("createdDateTime")) {
           this.created = new DateTimeType();
@@ -1793,7 +1798,7 @@ public class Media extends DomainResource {
         dst.modality = modality == null ? null : modality.copy();
         dst.view = view == null ? null : view.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.context = context == null ? null : context.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.created = created == null ? null : created.copy();
         dst.issued = issued == null ? null : issued.copy();
         dst.operator = operator == null ? null : operator.copy();
@@ -1831,7 +1836,7 @@ public class Media extends DomainResource {
         Media o = (Media) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true)
            && compareDeep(status, o.status, true) && compareDeep(type, o.type, true) && compareDeep(modality, o.modality, true)
-           && compareDeep(view, o.view, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
+           && compareDeep(view, o.view, true) && compareDeep(subject, o.subject, true) && compareDeep(encounter, o.encounter, true)
            && compareDeep(created, o.created, true) && compareDeep(issued, o.issued, true) && compareDeep(operator, o.operator, true)
            && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(deviceName, o.deviceName, true)
            && compareDeep(device, o.device, true) && compareDeep(height, o.height, true) && compareDeep(width, o.width, true)
@@ -1853,7 +1858,7 @@ public class Media extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, partOf
-          , status, type, modality, view, subject, context, created, issued, operator
+          , status, type, modality, view, subject, encounter, created, issued, operator
           , reasonCode, bodySite, deviceName, device, height, width, frames, duration
           , content, note);
       }
@@ -1948,6 +1953,32 @@ public class Media extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+
+ /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Encounter associated with media</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Media.encounter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="Media.encounter", description="Encounter associated with media", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Encounter associated with media</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Media.encounter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Media:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Media:encounter").toLocked();
 
  /**
    * Search parameter: <b>type</b>
@@ -2086,32 +2117,6 @@ public class Media extends DomainResource {
    * the path value of "<b>Media:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Media:patient").toLocked();
-
- /**
-   * Search parameter: <b>context</b>
-   * <p>
-   * Description: <b>Encounter / Episode associated with media</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Media.context</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="context", path="Media.context", description="Encounter / Episode associated with media", type="reference", target={Encounter.class, EpisodeOfCare.class } )
-  public static final String SP_CONTEXT = "context";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>context</b>
-   * <p>
-   * Description: <b>Encounter / Episode associated with media</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Media.context</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Media:context</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("Media:context").toLocked();
 
  /**
    * Search parameter: <b>device</b>

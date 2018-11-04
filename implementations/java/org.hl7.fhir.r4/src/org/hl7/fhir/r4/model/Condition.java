@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -686,16 +686,16 @@ public class Condition extends DomainResource {
     protected Resource subjectTarget;
 
     /**
-     * Encounter during which the condition was first asserted.
+     * The Encounter during which this Condition was created or to which the creation of this record is tightly associated.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Encounter or episode when condition first asserted", formalDefinition="Encounter during which the condition was first asserted." )
-    protected Reference context;
+    @Child(name = "encounter", type = {Encounter.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Encounter created as part of", formalDefinition="The Encounter during which this Condition was created or to which the creation of this record is tightly associated." )
+    protected Reference encounter;
 
     /**
-     * The actual object that is the target of the reference (Encounter during which the condition was first asserted.)
+     * The actual object that is the target of the reference (The Encounter during which this Condition was created or to which the creation of this record is tightly associated.)
      */
-    protected Resource contextTarget;
+    protected Encounter encounterTarget;
 
     /**
      * Estimated or actual date or date-time  the condition began, in the opinion of the clinician.
@@ -763,7 +763,7 @@ public class Condition extends DomainResource {
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 149113403L;
+    private static final long serialVersionUID = 186776568L;
 
   /**
    * Constructor
@@ -1075,41 +1075,46 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #context} (Encounter during which the condition was first asserted.)
+     * @return {@link #encounter} (The Encounter during which this Condition was created or to which the creation of this record is tightly associated.)
      */
-    public Reference getContext() { 
-      if (this.context == null)
+    public Reference getEncounter() { 
+      if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Condition.context");
+          throw new Error("Attempt to auto-create Condition.encounter");
         else if (Configuration.doAutoCreate())
-          this.context = new Reference(); // cc
-      return this.context;
+          this.encounter = new Reference(); // cc
+      return this.encounter;
     }
 
-    public boolean hasContext() { 
-      return this.context != null && !this.context.isEmpty();
+    public boolean hasEncounter() { 
+      return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
-     * @param value {@link #context} (Encounter during which the condition was first asserted.)
+     * @param value {@link #encounter} (The Encounter during which this Condition was created or to which the creation of this record is tightly associated.)
      */
-    public Condition setContext(Reference value) { 
-      this.context = value;
+    public Condition setEncounter(Reference value) { 
+      this.encounter = value;
       return this;
     }
 
     /**
-     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Encounter during which the condition was first asserted.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Encounter during which this Condition was created or to which the creation of this record is tightly associated.)
      */
-    public Resource getContextTarget() { 
-      return this.contextTarget;
+    public Encounter getEncounterTarget() { 
+      if (this.encounterTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Condition.encounter");
+        else if (Configuration.doAutoCreate())
+          this.encounterTarget = new Encounter(); // aa
+      return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Encounter during which the condition was first asserted.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Encounter during which this Condition was created or to which the creation of this record is tightly associated.)
      */
-    public Condition setContextTarget(Resource value) { 
-      this.contextTarget = value;
+    public Condition setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
       return this;
     }
 
@@ -1601,7 +1606,7 @@ public class Condition extends DomainResource {
         children.add(new Property("code", "CodeableConcept", "Identification of the condition, problem or diagnosis.", 0, 1, code));
         children.add(new Property("bodySite", "CodeableConcept", "The anatomical location where this condition manifests itself.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         children.add(new Property("subject", "Reference(Patient|Group)", "Indicates the patient or group who the condition record is associated with.", 0, 1, subject));
-        children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Encounter during which the condition was first asserted.", 0, 1, context));
+        children.add(new Property("encounter", "Reference(Encounter)", "The Encounter during which this Condition was created or to which the creation of this record is tightly associated.", 0, 1, encounter));
         children.add(new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, 1, onset));
         children.add(new Property("abatement[x]", "dateTime|Age|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, 1, abatement));
         children.add(new Property("recordedDate", "dateTime", "The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date.", 0, 1, recordedDate));
@@ -1623,7 +1628,7 @@ public class Condition extends DomainResource {
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Identification of the condition, problem or diagnosis.", 0, 1, code);
         case 1702620169: /*bodySite*/  return new Property("bodySite", "CodeableConcept", "The anatomical location where this condition manifests itself.", 0, java.lang.Integer.MAX_VALUE, bodySite);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group)", "Indicates the patient or group who the condition record is associated with.", 0, 1, subject);
-        case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "Encounter during which the condition was first asserted.", 0, 1, context);
+        case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The Encounter during which this Condition was created or to which the creation of this record is tightly associated.", 0, 1, encounter);
         case -1886216323: /*onset[x]*/  return new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, 1, onset);
         case 105901603: /*onset*/  return new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, 1, onset);
         case -1701663010: /*onsetDateTime*/  return new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, 1, onset);
@@ -1660,7 +1665,7 @@ public class Condition extends DomainResource {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case 105901603: /*onset*/ return this.onset == null ? new Base[0] : new Base[] {this.onset}; // Type
         case -921554001: /*abatement*/ return this.abatement == null ? new Base[0] : new Base[] {this.abatement}; // Type
         case -1952893826: /*recordedDate*/ return this.recordedDate == null ? new Base[0] : new Base[] {this.recordedDate}; // DateTimeType
@@ -1701,8 +1706,8 @@ public class Condition extends DomainResource {
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           return value;
-        case 951530927: // context
-          this.context = castToReference(value); // Reference
+        case 1524132147: // encounter
+          this.encounter = castToReference(value); // Reference
           return value;
         case 105901603: // onset
           this.onset = castToType(value); // Type
@@ -1751,8 +1756,8 @@ public class Condition extends DomainResource {
           this.getBodySite().add(castToCodeableConcept(value));
         } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        } else if (name.equals("context")) {
-          this.context = castToReference(value); // Reference
+        } else if (name.equals("encounter")) {
+          this.encounter = castToReference(value); // Reference
         } else if (name.equals("onset[x]")) {
           this.onset = castToType(value); // Type
         } else if (name.equals("abatement[x]")) {
@@ -1785,7 +1790,7 @@ public class Condition extends DomainResource {
         case 3059181:  return getCode(); 
         case 1702620169:  return addBodySite(); 
         case -1867885268:  return getSubject(); 
-        case 951530927:  return getContext(); 
+        case 1524132147:  return getEncounter(); 
         case -1886216323:  return getOnset(); 
         case 105901603:  return getOnset(); 
         case -584196495:  return getAbatement(); 
@@ -1812,7 +1817,7 @@ public class Condition extends DomainResource {
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
-        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case 105901603: /*onset*/ return new String[] {"dateTime", "Age", "Period", "Range", "string"};
         case -921554001: /*abatement*/ return new String[] {"dateTime", "Age", "Period", "Range", "string"};
         case -1952893826: /*recordedDate*/ return new String[] {"dateTime"};
@@ -1857,9 +1862,9 @@ public class Condition extends DomainResource {
           this.subject = new Reference();
           return this.subject;
         }
-        else if (name.equals("context")) {
-          this.context = new Reference();
-          return this.context;
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
         }
         else if (name.equals("onsetDateTime")) {
           this.onset = new DateTimeType();
@@ -1953,7 +1958,7 @@ public class Condition extends DomainResource {
             dst.bodySite.add(i.copy());
         };
         dst.subject = subject == null ? null : subject.copy();
-        dst.context = context == null ? null : context.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.onset = onset == null ? null : onset.copy();
         dst.abatement = abatement == null ? null : abatement.copy();
         dst.recordedDate = recordedDate == null ? null : recordedDate.copy();
@@ -1991,7 +1996,7 @@ public class Condition extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(clinicalStatus, o.clinicalStatus, true)
            && compareDeep(verificationStatus, o.verificationStatus, true) && compareDeep(category, o.category, true)
            && compareDeep(severity, o.severity, true) && compareDeep(code, o.code, true) && compareDeep(bodySite, o.bodySite, true)
-           && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(onset, o.onset, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(encounter, o.encounter, true) && compareDeep(onset, o.onset, true)
            && compareDeep(abatement, o.abatement, true) && compareDeep(recordedDate, o.recordedDate, true)
            && compareDeep(recorder, o.recorder, true) && compareDeep(asserter, o.asserter, true) && compareDeep(stage, o.stage, true)
            && compareDeep(evidence, o.evidence, true) && compareDeep(note, o.note, true);
@@ -2009,7 +2014,7 @@ public class Condition extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, clinicalStatus
-          , verificationStatus, category, severity, code, bodySite, subject, context, onset
+          , verificationStatus, category, severity, code, bodySite, subject, encounter, onset
           , abatement, recordedDate, recorder, asserter, stage, evidence, note);
       }
 
@@ -2233,19 +2238,19 @@ public class Condition extends DomainResource {
  /**
    * Search parameter: <b>encounter</b>
    * <p>
-   * Description: <b>Encounter when condition first asserted</b><br>
+   * Description: <b>Encounter created as part of</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Condition.context</b><br>
+   * Path: <b>Condition.encounter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="Condition.context.where(resolve() is Encounter)", description="Encounter when condition first asserted", type="reference", target={Encounter.class } )
+  @SearchParamDefinition(name="encounter", path="Condition.encounter", description="Encounter created as part of", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
    * <p>
-   * Description: <b>Encounter when condition first asserted</b><br>
+   * Description: <b>Encounter created as part of</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Condition.context</b><br>
+   * Path: <b>Condition.encounter</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
@@ -2387,32 +2392,6 @@ public class Condition extends DomainResource {
    * the path value of "<b>Condition:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Condition:patient").toLocked();
-
- /**
-   * Search parameter: <b>context</b>
-   * <p>
-   * Description: <b>Encounter or episode when condition first asserted</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Condition.context</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="context", path="Condition.context", description="Encounter or episode when condition first asserted", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class, EpisodeOfCare.class } )
-  public static final String SP_CONTEXT = "context";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>context</b>
-   * <p>
-   * Description: <b>Encounter or episode when condition first asserted</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Condition.context</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Condition:context</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("Condition:context").toLocked();
 
  /**
    * Search parameter: <b>onset-age</b>
