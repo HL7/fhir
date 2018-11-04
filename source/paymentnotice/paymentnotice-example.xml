@@ -21,20 +21,33 @@
 		<reference value="http://benefitsinc.com/fhir/claimresponse/CR12345"/>
 	</response>
 
-	<statusDate value="2014-08-15"/>
-
 	<created value="2014-08-16"/>
-
-	<target>
-		<identifier>
-			<system value="http://regulators.gov"/>
-			<value value="AB123"/>
-		</identifier>
-	</target>
 
 	<provider>
 		<reference value="Organization/1"/>
 	</provider>
+
+	<payment>
+		<reference value="PaymentReconciliation/1"/>
+	</payment>
+
+	<paymentDate value="2014-08-15"/>
+
+	<payee>
+		<reference value="Organization/1"/>
+	</payee>
+
+	<recipient>
+		<identifier>
+			<system value="http://regulators.gov"/>
+			<value value="AB123"/>
+		</identifier>
+	</recipient>
+
+	<amount>
+		<value value="12500.00"/>
+		<currency value="USD"/> 
+	</amount>
 
 	<paymentStatus>
 		<coding>

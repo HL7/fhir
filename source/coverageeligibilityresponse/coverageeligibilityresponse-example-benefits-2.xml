@@ -7,26 +7,6 @@
 	</text>
 
 	<contained>
-		<Patient>
-			<id value="patient-1"/>
-			<name>
-				<use value="official"/>
-				<family value="Donald"/>
-				<given value="Duck"/>
-			</name>
-			<gender value="male"/>
-			<birthDate value="1986-05-17"/>
-			<address>
-				<use value="home"/>
-				<line value="1234 Main Street"/>
-				<city value="Vancouver"/>
-				<postalCode value="V2H1Y3"/>
-				<country value="CAD"/>
-			</address>
-		</Patient>
-	</contained>
-
-	<contained>
 		<Coverage>
 			<id value="coverage-1"/>
 
@@ -45,11 +25,11 @@
 			</type>
 
 			<subscriber>
-				<reference value="#patient-1"/>
+				<reference value="Patient/f201"/>
 			</subscriber>
 
 			<beneficiary>
-				<reference value="#patient-1"/>
+				<reference value="Patient/f201"/>
 			</beneficiary>
 			<dependent value="1"/>
 
@@ -68,8 +48,10 @@
 
 			<class>
 				<type>
-					<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
-					<code value="plan"/>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+						<code value="EHCPOL"/>
+					</coding>
 				</type>
 				<value value="CBI35"/>
 				<name value="Corporate Baker's Inc. Plan#35"/>
@@ -77,8 +59,10 @@
 
 			<class>
 				<type>
-					<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
-					<code value="subplan"/>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
+						<code value="subplan"/>
+					</coding>
 				</type>
 				<value value="123"/>
 				<name value="Trainee Part-time Benefits"/>
@@ -86,8 +70,10 @@
 
 			<class>
 				<type>
-					<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
-					<code value="sequence"/>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
+						<code value="sequence"/>
+					</coding>
 				</type>
 				<value value="1"/>
 			</class>
@@ -105,14 +91,18 @@
 	<purpose value="validation"/>
 	<purpose value="benefits"/>
 
+	<patient>
+		<reference value="Patient/f201"/>
+	</patient>
+
 	<created value="2014-09-16"/>
 
-	<requestProvider>
+	<requestor>
 		<identifier>
 			<system value="http://national.org/clinic"/>
 			<value value="OR1234"/>
 		</identifier>   
-	</requestProvider>
+	</requestor>
 
 	<request>
 		<reference value="http://www.BenefitsInc.com/fhir/coverageeligibilityrequest/225476332405"/>
@@ -130,9 +120,7 @@
 		<coverage>
 			<reference value="#coverage-1"/>
 		</coverage>
-		<contract>
-			<reference value="http://www.BenefitsInc.com/fhir/contract/NBU22547"/>
-		</contract>
+
 		<inforce value="true"/>
 
 		<item>
