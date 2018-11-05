@@ -70,4 +70,14 @@
     <display value="EmploymentImpacted"/>
     <definition value="An indication that the patient was unable to work, the period if known otherwise a Yes/No (boolean)."/>
   </concept>
+  <concept>
+    <code value="externalcause"/>
+    <display value="External Caause"/>
+    <definition value="The external cause of an illness or injury."/>
+  </concept>
+  <concept>
+    <code value="patientreasonforvisit"/>
+    <display value="Patient Reason for Visit"/>
+    <definition value="The reason for the patient visit."/>
+  </concept>
 </CodeSystem>

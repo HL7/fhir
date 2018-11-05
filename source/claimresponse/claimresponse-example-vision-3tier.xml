@@ -33,9 +33,9 @@
 		<reference value="Organization/2"/>
 	</insurer>
 
-	<requestProvider>
+	<requestor>
 		<reference value="Organization/1"/>
-	</requestProvider>
+	</requestor>
 
 	<request>
 		<identifier> 

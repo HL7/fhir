@@ -203,11 +203,11 @@
 	<item>
 		<sequence value="1"/>
 		<careTeamSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<code value="1200"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>
