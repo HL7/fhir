@@ -82,12 +82,12 @@
 	<item>
 		<sequence value="1"/>
 		<careTeamSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 				<code value="glasses"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="214.00"/>
@@ -99,12 +99,12 @@
 		</net> 
 		<detail>
 			<sequence value="1"/>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 					<code value="frame"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="100.00"/>
 				<currency value="USD"/> 
@@ -116,12 +116,12 @@
 		</detail>
 		<detail>
 			<sequence value="2"/>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 					<code value="lens"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<quantity>
 				<value value="2"/>
 			</quantity>
@@ -136,12 +136,12 @@
 		</detail>
 		<detail>
 			<sequence value="3"/>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 					<code value="fst"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="200.00"/>
 				<currency value="USD"/> 

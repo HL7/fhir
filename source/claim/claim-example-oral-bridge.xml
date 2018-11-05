@@ -85,9 +85,6 @@
 				<code value="other"/>
 			</coding>
 		</type>
-		<resource>
-			<code value="relatedperson"/>
-		</resource>
 		<party>
 			<reference value="RelatedPerson/peter"/>
 		</party>
@@ -104,7 +101,7 @@
 		</provider>
 	</careTeam>
 
-	<information>
+	<supportingInfo>
 		<sequence value="1"/>
 		<category>
 			<coding>
@@ -120,7 +117,7 @@
 			</coding>
 		</code>
 		<timingDate value="2001-04-07"/> <!-- original placement -->
-	</information>
+	</supportingInfo>
 
 	<procedure>
 		<sequence value="1"/>   
@@ -142,13 +139,13 @@
 		<sequence value="1"/>
 		<careTeamSequence value="1"/>
 		<informationSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="67221"/>
 				<display value="Maryland Bridge"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<locationCodeableConcept>
 			<coding>
@@ -179,12 +176,12 @@
 	<item>
 		<sequence value="2"/>
 		<careTeamSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="21211"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<locationCodeableConcept>
 			<coding>
@@ -218,12 +215,12 @@
 		<sequence value="3"/>
 		<careTeamSequence value="1"/>
 		<procedureSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="27211"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<locationCodeableConcept>
 			<coding>
@@ -248,12 +245,12 @@
 
 		<detail>
 			<sequence value="1"/>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="27211"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="1000.00"/>
 				<currency value="USD"/> 
@@ -267,12 +264,12 @@
 
 		<detail>
 			<sequence value="2"/>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="lab"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="350.00"/>
 				<currency value="USD"/> 

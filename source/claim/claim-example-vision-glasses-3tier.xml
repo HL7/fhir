@@ -8,22 +8,6 @@
 	</text>
 
 	<contained>
-		<ClaimResponse>
-			<id value="claimresponse-1"/>
-
-			<identifier>
-				<system value="http://thebenefircompany.com/claimresponse"/>
-				<value value="CR6532875367"/>
-			</identifier>
-			
-			<use value="claim"/>
-
-			<!-- rest of the resource omitted for brevity -->
-
-		</ClaimResponse>
-	</contained>
-
-	<contained>
 		<Device>
 			<id value="device-frame"/>
 			<!-- rest of the resource omitted for brevity -->
@@ -110,7 +94,7 @@
 		</coverage>
 		<preAuthRef value="PR7652387237"/>
 		<claimResponse>
-			<reference value="#claimresponse-1"/>
+			<reference value="ClaimResponse/R3500"/>
 		</claimResponse>
 	</insurance>
 
@@ -140,12 +124,12 @@
 				<display value ="Vision Coverage"/>
 			</coding>
 		</category>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 				<code value="glasses"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<modifier>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/modifiers"/>
@@ -184,12 +168,12 @@
 					<display value ="Vision Coverage"/>
 				</coding>
 			</category>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 					<code value="frame"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<modifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/modifiers"/>
@@ -200,7 +184,7 @@
 				<value value="100.00"/>
 				<currency value="USD"/> 
 			</unitPrice> 
-			<factor value="1.1"/> <!-- 10% surchage for out of hours work -->
+			<factor value="1.1"/> <!-- 10% surcharge for out of hours work -->
 			<net>
 				<value value="110.00"/>
 				<currency value="USD"/> 
@@ -226,12 +210,12 @@
 					<display value ="Vision Coverage"/>
 				</coding>
 			</category>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 					<code value="lens"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<programCode>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/ex-programcode"/>
@@ -266,12 +250,12 @@
 						<display value ="Vision Coverage"/>
 					</coding>
 				</category>
-				<billcode>
+				<productOrService>
 					<coding>
 						<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 						<code value="lens"/>
 					</coding>
-				</billcode>
+				</productOrService>
 				<modifier>
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/modifiers"/>
@@ -317,12 +301,12 @@
 						<display value ="Vision Coverage"/>
 					</coding>
 				</category>
-				<billcode>
+				<productOrService>
 					<coding>
 						<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 						<code value="hardening"/>
 					</coding>
-				</billcode>
+				</productOrService>
 				<modifier>
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/modifiers"/>
@@ -359,12 +343,12 @@
 						<display value ="Vision Coverage"/>
 					</coding>
 				</category>
-				<billcode>
+				<productOrService>
 					<coding>
 						<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 						<code value="UV coating"/>
 					</coding>
-				</billcode>
+				</productOrService>
 				<modifier>
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/modifiers"/>
@@ -402,12 +386,12 @@
 					<display value ="Vision Coverage"/>
 				</coding>
 			</category>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 					<code value="fst"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="220.00"/>
 				<currency value="USD"/> 

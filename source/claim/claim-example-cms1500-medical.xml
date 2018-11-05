@@ -154,7 +154,7 @@
 		</provider>
 	</careTeam>
 
-	<information>
+	<supportingInfo>
 		<sequence value="1"/>
 		<category>
 			<coding>
@@ -166,9 +166,9 @@
 			<start value="2015-10-01T00:00:00-07:00"/>
 			<end value="2015-10-05T00:00:00-07:00"/>
 		</timingPeriod>
-	</information>
+	</supportingInfo>
 
-	<information>
+	<supportingInfo>
 		<sequence value="2"/>
 		<category>
 			<coding>
@@ -183,7 +183,7 @@
 				<display value="Discharge to Home or Self Care"/>
 			</coding>
 		</code>
-	</information>
+	</supportingInfo>
 
 	<diagnosis>
 		<sequence value="1"/>
@@ -246,13 +246,13 @@
 		<diagnosisSequence value="2"/>
 		<diagnosisSequence value="4"/>
 		<informationSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://www.ama-assn.org/go/cpt"/>
 				<code value="62264"/>
 				<display value="Surgical Procedures on the Spine and Spinal Cord"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2015-10-13"/>
 		<locationCodeableConcept>
 			<coding>

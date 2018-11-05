@@ -58,7 +58,7 @@
 		</provider>
 	</careTeam>
 
-	<information>
+	<supportingInfo>
 		<sequence value="1"/>
 		<category>
 			<coding>
@@ -79,9 +79,9 @@
 				<code value="e"/>	<!-- Extraction -->
 			</coding>
 		</reason>
-	</information>
+	</supportingInfo>
 
-	<information>
+	<supportingInfo>
 		<sequence value="2"/>
 		<category>
 			<coding>
@@ -96,7 +96,7 @@
 			</coding>
 		</code>
 		<valueString value="Happy Valley Community College"/>
-	</information>
+	</supportingInfo>
 
 	<diagnosis>
 		<sequence value="1"/>
@@ -118,12 +118,12 @@
 	<item>
 		<sequence value="1"/>
 		<careTeamSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="1200"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>
@@ -138,12 +138,12 @@
 	<item>
 		<sequence value="2"/>
 		<careTeamSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="21211"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="105.00"/>
@@ -170,12 +170,12 @@
 	<item>
 		<sequence value="3"/>
 		<careTeamSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="27211"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="1100.00"/>
@@ -193,12 +193,12 @@
 		</bodySite>
 		<detail>
 			<sequence value="1"/>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="27211"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="1000.00"/>
 				<currency value="USD"/> 
@@ -211,12 +211,12 @@
 		</detail>
 		<detail>
 			<sequence value="2"/>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="lab"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="350.00"/>
 				<currency value="USD"/> 
