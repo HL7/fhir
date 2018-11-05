@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -5582,11 +5582,11 @@
     <Cell ss:StyleID="s146"><Data ss:Type="String">UDI associated with a line item detail subdetail product or service</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">!use</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">Claim.use</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">The type of claim</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s144"/>
@@ -5671,10 +5671,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8084,7 +8085,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
