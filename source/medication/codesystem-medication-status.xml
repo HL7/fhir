@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/ValueSet/medication-status"/>
+  <url value="http://hl7.org/fhir/CodeSystem/medication-status"/>
   <name value="Medication Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
