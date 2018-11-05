@@ -29,12 +29,9 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r4.formats.FormatUtilities;
-import org.hl7.fhir.utilities.xhtml.NodeType;
-import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class ResourceFactory extends Factory {
 
@@ -213,10 +210,14 @@ public class ResourceFactory extends Factory {
             return new VisionPrescription();
         if ("Media".equals(name))
             return new Media();
+        if ("MedicinalProductContraindication".equals(name))
+            return new MedicinalProductContraindication();
+        if ("MolecularSequence".equals(name))
+            return new MolecularSequence();
         if ("EvidenceVariable".equals(name))
             return new EvidenceVariable();
-        if ("Sequence".equals(name))
-            return new Sequence();
+        if ("MedicinalProduct".equals(name))
+            return new MedicinalProduct();
         if ("DeviceMetric".equals(name))
             return new DeviceMetric();
         if ("Flag".equals(name))
@@ -273,6 +274,8 @@ public class ResourceFactory extends Factory {
             return new OrganizationAffiliation();
         if ("HealthcareService".equals(name))
             return new HealthcareService();
+        if ("MedicinalProductIndication".equals(name))
+            return new MedicinalProductIndication();
         if ("NutritionOrder".equals(name))
             return new NutritionOrder();
         if ("TerminologyCapabilities".equals(name))
@@ -311,6 +314,8 @@ public class ResourceFactory extends Factory {
             return new CoverageEligibilityRequest();
         if ("NamingSystem".equals(name))
             return new NamingSystem();
+        if ("MedicinalProductUndesirableEffect".equals(name))
+            return new MedicinalProductUndesirableEffect();
         if ("ExampleScenario".equals(name))
             return new ExampleScenario();
         if ("Schedule".equals(name))
@@ -453,10 +458,9 @@ public class ResourceFactory extends Factory {
         if ("unsignedInt".equals(name))
             return new UnsignedIntType();
         if ("time".equals(name))
-          return new TimeType();
-        if ("xhtml".equals(name))
-          return new XhtmlType();
-       throw new FHIRException("Unknown Type Name '"+name+"'");
+            return new TimeType();
+        else
+            throw new FHIRException("Unknown Type Name '"+name+"'");
     }
 
     public static Base createResourceOrType(String name) throws FHIRException {
@@ -562,15 +566,20 @@ public class ResourceFactory extends Factory {
         case 1537687119: return new MedicationKnowledge();
         case 1627523232: return new MedicationRequest();
         case -2097348800: return new MedicationStatement();
+        case -1349298375: return new MedicinalProduct();
         case -29557312: return new MedicinalProductAuthorization();
+        case -1375810986: return new MedicinalProductContraindication();
+        case -961008267: return new MedicinalProductIndication();
         case -570248726: return new MedicinalProductIngredient();
         case -844984039: return new MedicinalProductInteraction();
         case 568246684: return new MedicinalProductManufactured();
         case -500906185: return new MedicinalProductPackaged();
         case -1034780964: return new MedicinalProductPharmaceutical();
+        case 1717675156: return new MedicinalProductUndesirableEffect();
         case -2037697382: return new MessageDefinition();
         case -1087398572: return new MessageHeader();
         case 2394661: return new Meta();
+        case -1839726095: return new MolecularSequence();
         case 74526880: return new Money();
         case 977885515: return new MoneyQuantity();
         case 369315063: return new NamingSystem();
@@ -617,7 +626,6 @@ public class ResourceFactory extends Factory {
         case 1824308900: return new SampledData();
         case -633276745: return new Schedule();
         case -912457023: return new SearchParameter();
-        case 1414192097: return new Sequence();
         case -1944810950: return new ServiceRequest();
         case -1217415016: return new Signature();
         case -1097468803: return new SimpleQuantity();
@@ -666,9 +674,8 @@ public class ResourceFactory extends Factory {
         case 116076: return new UriType();
         case 116079: return new UrlType();
         case 3601339: return new UuidType();
-        case 114035747: return new XhtmlType();
       default:
-        throw new FHIRException("Unknown Resource or Type Name '"+name+"' ("+name.hashCode()+")");
+        throw new FHIRException("Unknown Resource or Type Name '"+name+"'");
     }
   }
 

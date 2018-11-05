@@ -1065,7 +1065,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   private void genPropMaker(String indent, ElementDefn e, String tn, String elementname) throws IOException {
     write(indent+"    case "+propId(elementname)+": ");
     String name = e.getName().replace("[x]", "");
-    if (isPrimitive(e.typeCode()) || e.typeCode().startsWith("canonical(")) {
+    if (isPrimitive(e.typeCode()) || (e.getTypes().size() == 1 && e.typeCode().startsWith("canonical("))) {
       if (e.unbounded())
         write(" return add"+upFirst(getElementName(name, false))+"Element();\r\n");
 //      else if (e.getPath().equals("Reference.reference"))
@@ -2177,7 +2177,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		    }
 		  }
 		} else {
-      if (isJavaPrimitive(e) || e.typeCode().startsWith("canonical(")) {
+      if (isJavaPrimitive(e) || (e.getTypes().size() == 1 && e.typeCode().startsWith("canonical("))) {
         jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+"). This is the underlying object with id, value and extensions. The accessor \"get"+getTitle(getElementName(e.getName(), false))+"\" gives direct access to the value");
         if (isReferenceRefField) {
           /*

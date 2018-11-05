@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -704,16 +704,16 @@ public class Communication extends DomainResource {
 
 
     /**
-     * The encounter within which the communication was sent.
+     * The Encounter during which this Communication was created or to which the creation of this record is tightly associated.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=14, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Encounter or episode leading to message", formalDefinition="The encounter within which the communication was sent." )
-    protected Reference context;
+    @Child(name = "encounter", type = {Encounter.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Encounter created as part of", formalDefinition="The Encounter during which this Communication was created or to which the creation of this record is tightly associated." )
+    protected Reference encounter;
 
     /**
-     * The actual object that is the target of the reference (The encounter within which the communication was sent.)
+     * The actual object that is the target of the reference (The Encounter during which this Communication was created or to which the creation of this record is tightly associated.)
      */
-    protected Resource contextTarget;
+    protected Encounter encounterTarget;
 
     /**
      * The time when this communication was sent.
@@ -787,7 +787,7 @@ public class Communication extends DomainResource {
     @Description(shortDefinition="Comments made about the communication", formalDefinition="Additional notes or commentary about the communication by the sender, receiver or other interested parties." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = -1041082661L;
+    private static final long serialVersionUID = 1325359310L;
 
   /**
    * Constructor
@@ -1531,41 +1531,46 @@ public class Communication extends DomainResource {
     }
 
     /**
-     * @return {@link #context} (The encounter within which the communication was sent.)
+     * @return {@link #encounter} (The Encounter during which this Communication was created or to which the creation of this record is tightly associated.)
      */
-    public Reference getContext() { 
-      if (this.context == null)
+    public Reference getEncounter() { 
+      if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Communication.context");
+          throw new Error("Attempt to auto-create Communication.encounter");
         else if (Configuration.doAutoCreate())
-          this.context = new Reference(); // cc
-      return this.context;
+          this.encounter = new Reference(); // cc
+      return this.encounter;
     }
 
-    public boolean hasContext() { 
-      return this.context != null && !this.context.isEmpty();
+    public boolean hasEncounter() { 
+      return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
-     * @param value {@link #context} (The encounter within which the communication was sent.)
+     * @param value {@link #encounter} (The Encounter during which this Communication was created or to which the creation of this record is tightly associated.)
      */
-    public Communication setContext(Reference value) { 
-      this.context = value;
+    public Communication setEncounter(Reference value) { 
+      this.encounter = value;
       return this;
     }
 
     /**
-     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter within which the communication was sent.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Encounter during which this Communication was created or to which the creation of this record is tightly associated.)
      */
-    public Resource getContextTarget() { 
-      return this.contextTarget;
+    public Encounter getEncounterTarget() { 
+      if (this.encounterTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Communication.encounter");
+        else if (Configuration.doAutoCreate())
+          this.encounterTarget = new Encounter(); // aa
+      return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter within which the communication was sent.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Encounter during which this Communication was created or to which the creation of this record is tightly associated.)
      */
-    public Communication setContextTarget(Resource value) { 
-      this.contextTarget = value;
+    public Communication setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
       return this;
     }
 
@@ -2007,7 +2012,7 @@ public class Communication extends DomainResource {
         children.add(new Property("subject", "Reference(Patient|Group)", "The patient or group that was the focus of this communication.", 0, 1, subject));
         children.add(new Property("topic", "CodeableConcept", "Description of the purpose/content, similar to a subject line in an email.", 0, 1, topic));
         children.add(new Property("about", "Reference(Any)", "Other resources that pertain to this communication and to which this communication should be associated.", 0, java.lang.Integer.MAX_VALUE, about));
-        children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter within which the communication was sent.", 0, 1, context));
+        children.add(new Property("encounter", "Reference(Encounter)", "The Encounter during which this Communication was created or to which the creation of this record is tightly associated.", 0, 1, encounter));
         children.add(new Property("sent", "dateTime", "The time when this communication was sent.", 0, 1, sent));
         children.add(new Property("received", "dateTime", "The time when this communication arrived at the destination.", 0, 1, received));
         children.add(new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|PractitionerRole|RelatedPerson|Group|CareTeam|HealthcareService)", "The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).", 0, java.lang.Integer.MAX_VALUE, recipient));
@@ -2035,7 +2040,7 @@ public class Communication extends DomainResource {
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group)", "The patient or group that was the focus of this communication.", 0, 1, subject);
         case 110546223: /*topic*/  return new Property("topic", "CodeableConcept", "Description of the purpose/content, similar to a subject line in an email.", 0, 1, topic);
         case 92611469: /*about*/  return new Property("about", "Reference(Any)", "Other resources that pertain to this communication and to which this communication should be associated.", 0, java.lang.Integer.MAX_VALUE, about);
-        case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter within which the communication was sent.", 0, 1, context);
+        case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The Encounter during which this Communication was created or to which the creation of this record is tightly associated.", 0, 1, encounter);
         case 3526552: /*sent*/  return new Property("sent", "dateTime", "The time when this communication was sent.", 0, 1, sent);
         case -808719903: /*received*/  return new Property("received", "dateTime", "The time when this communication arrived at the destination.", 0, 1, received);
         case 820081177: /*recipient*/  return new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|PractitionerRole|RelatedPerson|Group|CareTeam|HealthcareService)", "The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).", 0, java.lang.Integer.MAX_VALUE, recipient);
@@ -2066,7 +2071,7 @@ public class Communication extends DomainResource {
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 110546223: /*topic*/ return this.topic == null ? new Base[0] : new Base[] {this.topic}; // CodeableConcept
         case 92611469: /*about*/ return this.about == null ? new Base[0] : this.about.toArray(new Base[this.about.size()]); // Reference
-        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case 3526552: /*sent*/ return this.sent == null ? new Base[0] : new Base[] {this.sent}; // DateTimeType
         case -808719903: /*received*/ return this.received == null ? new Base[0] : new Base[] {this.received}; // DateTimeType
         case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
@@ -2127,8 +2132,8 @@ public class Communication extends DomainResource {
         case 92611469: // about
           this.getAbout().add(castToReference(value)); // Reference
           return value;
-        case 951530927: // context
-          this.context = castToReference(value); // Reference
+        case 1524132147: // encounter
+          this.encounter = castToReference(value); // Reference
           return value;
         case 3526552: // sent
           this.sent = castToDateTime(value); // DateTimeType
@@ -2191,8 +2196,8 @@ public class Communication extends DomainResource {
           this.topic = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("about")) {
           this.getAbout().add(castToReference(value));
-        } else if (name.equals("context")) {
-          this.context = castToReference(value); // Reference
+        } else if (name.equals("encounter")) {
+          this.encounter = castToReference(value); // Reference
         } else if (name.equals("sent")) {
           this.sent = castToDateTime(value); // DateTimeType
         } else if (name.equals("received")) {
@@ -2231,7 +2236,7 @@ public class Communication extends DomainResource {
         case -1867885268:  return getSubject(); 
         case 110546223:  return getTopic(); 
         case 92611469:  return addAbout(); 
-        case 951530927:  return getContext(); 
+        case 1524132147:  return getEncounter(); 
         case 3526552:  return getSentElement();
         case -808719903:  return getReceivedElement();
         case 820081177:  return addRecipient(); 
@@ -2262,7 +2267,7 @@ public class Communication extends DomainResource {
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 110546223: /*topic*/ return new String[] {"CodeableConcept"};
         case 92611469: /*about*/ return new String[] {"Reference"};
-        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case 3526552: /*sent*/ return new String[] {"dateTime"};
         case -808719903: /*received*/ return new String[] {"dateTime"};
         case 820081177: /*recipient*/ return new String[] {"Reference"};
@@ -2323,9 +2328,9 @@ public class Communication extends DomainResource {
         else if (name.equals("about")) {
           return addAbout();
         }
-        else if (name.equals("context")) {
-          this.context = new Reference();
-          return this.context;
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
         }
         else if (name.equals("sent")) {
           throw new FHIRException("Cannot call addChild on a primitive type Communication.sent");
@@ -2414,7 +2419,7 @@ public class Communication extends DomainResource {
           for (Reference i : about)
             dst.about.add(i.copy());
         };
-        dst.context = context == null ? null : context.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.sent = sent == null ? null : sent.copy();
         dst.received = received == null ? null : received.copy();
         if (recipient != null) {
@@ -2462,7 +2467,7 @@ public class Communication extends DomainResource {
            && compareDeep(partOf, o.partOf, true) && compareDeep(inResponseTo, o.inResponseTo, true) && compareDeep(status, o.status, true)
            && compareDeep(statusReason, o.statusReason, true) && compareDeep(category, o.category, true) && compareDeep(priority, o.priority, true)
            && compareDeep(medium, o.medium, true) && compareDeep(subject, o.subject, true) && compareDeep(topic, o.topic, true)
-           && compareDeep(about, o.about, true) && compareDeep(context, o.context, true) && compareDeep(sent, o.sent, true)
+           && compareDeep(about, o.about, true) && compareDeep(encounter, o.encounter, true) && compareDeep(sent, o.sent, true)
            && compareDeep(received, o.received, true) && compareDeep(recipient, o.recipient, true) && compareDeep(sender, o.sender, true)
            && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
            && compareDeep(payload, o.payload, true) && compareDeep(note, o.note, true);
@@ -2483,7 +2488,7 @@ public class Communication extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiatesCanonical
           , instantiatesUri, basedOn, partOf, inResponseTo, status, statusReason, category
-          , priority, medium, subject, topic, about, context, sent, received, recipient
+          , priority, medium, subject, topic, about, encounter, sent, received, recipient
           , sender, reasonCode, reasonReference, payload, note);
       }
 
@@ -2633,19 +2638,19 @@ public class Communication extends DomainResource {
  /**
    * Search parameter: <b>encounter</b>
    * <p>
-   * Description: <b>Encounter leading to message</b><br>
+   * Description: <b>Encounter created as part of</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Communication.context</b><br>
+   * Path: <b>Communication.encounter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="Communication.context.where(resolve() is Encounter)", description="Encounter leading to message", type="reference", target={Encounter.class } )
+  @SearchParamDefinition(name="encounter", path="Communication.encounter", description="Encounter created as part of", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
    * <p>
-   * Description: <b>Encounter leading to message</b><br>
+   * Description: <b>Encounter created as part of</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Communication.context</b><br>
+   * Path: <b>Communication.encounter</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
@@ -2779,32 +2784,6 @@ public class Communication extends DomainResource {
    * the path value of "<b>Communication:recipient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RECIPIENT = new ca.uhn.fhir.model.api.Include("Communication:recipient").toLocked();
-
- /**
-   * Search parameter: <b>context</b>
-   * <p>
-   * Description: <b>Encounter or episode leading to message</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Communication.context</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="context", path="Communication.context", description="Encounter or episode leading to message", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class, EpisodeOfCare.class } )
-  public static final String SP_CONTEXT = "context";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>context</b>
-   * <p>
-   * Description: <b>Encounter or episode leading to message</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Communication.context</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Communication:context</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("Communication:context").toLocked();
 
  /**
    * Search parameter: <b>instantiates-uri</b>

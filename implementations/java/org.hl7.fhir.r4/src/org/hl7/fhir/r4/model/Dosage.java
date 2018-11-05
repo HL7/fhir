@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -52,7 +52,7 @@ public class Dosage extends BackboneType implements ICompositeType {
         /**
          * The kind of dose or rate specified, for example, ordered or calculated.
          */
-        @Child(name = "type", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "type", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The kind of dose or rate specified", formalDefinition="The kind of dose or rate specified, for example, ordered or calculated." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/dose-rate-type")
         protected CodeableConcept type;
@@ -78,14 +78,6 @@ public class Dosage extends BackboneType implements ICompositeType {
      */
       public DosageDoseAndRateComponent() {
         super();
-      }
-
-    /**
-     * Constructor
-     */
-      public DosageDoseAndRateComponent(CodeableConcept type) {
-        super();
-        this.type = type;
       }
 
         /**

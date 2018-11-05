@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -1897,6 +1897,66 @@ public class MedicinalProductPharmaceutical extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.MedicinalProductPharmaceutical;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>An identifier for the pharmaceutical medicinal product</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicinalProductPharmaceutical.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="MedicinalProductPharmaceutical.identifier", description="An identifier for the pharmaceutical medicinal product", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>An identifier for the pharmaceutical medicinal product</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicinalProductPharmaceutical.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>route</b>
+   * <p>
+   * Description: <b>Coded expression for the route</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicinalProductPharmaceutical.routeOfAdministration.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="route", path="MedicinalProductPharmaceutical.routeOfAdministration.code", description="Coded expression for the route", type="token" )
+  public static final String SP_ROUTE = "route";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>route</b>
+   * <p>
+   * Description: <b>Coded expression for the route</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicinalProductPharmaceutical.routeOfAdministration.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROUTE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROUTE);
+
+ /**
+   * Search parameter: <b>target-species</b>
+   * <p>
+   * Description: <b>Coded expression for the species</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="target-species", path="MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.code", description="Coded expression for the species", type="token" )
+  public static final String SP_TARGET_SPECIES = "target-species";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>target-species</b>
+   * <p>
+   * Description: <b>Coded expression for the species</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TARGET_SPECIES = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TARGET_SPECIES);
 
 
 }

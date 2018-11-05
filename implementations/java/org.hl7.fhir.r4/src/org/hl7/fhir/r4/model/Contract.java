@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -670,7 +670,7 @@ public class Contract extends DomainResource {
         /**
          * The  individual or organization that published the Contract precursor content.
          */
-        @Child(name = "publisher", type = {Person.class, Practitioner.class, Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "publisher", type = {Practitioner.class, Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Publisher Entity", formalDefinition="The  individual or organization that published the Contract precursor content." )
         protected Reference publisher;
 
@@ -953,7 +953,7 @@ public class Contract extends DomainResource {
           super.listChildren(children);
           children.add(new Property("type", "CodeableConcept", "Precusory content structure and use, i.e., a boilerplate, template, application for a contract such as an insurance policy or benefits under a program, e.g., workers compensation.", 0, 1, type));
           children.add(new Property("subType", "CodeableConcept", "Detailed Precusory content type.", 0, 1, subType));
-          children.add(new Property("publisher", "Reference(Person|Practitioner|Organization)", "The  individual or organization that published the Contract precursor content.", 0, 1, publisher));
+          children.add(new Property("publisher", "Reference(Practitioner|Organization)", "The  individual or organization that published the Contract precursor content.", 0, 1, publisher));
           children.add(new Property("publicationDate", "dateTime", "The date (and optionally time) when the contract was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the contract changes.", 0, 1, publicationDate));
           children.add(new Property("publicationStatus", "code", "draft | active | retired | unknown.", 0, 1, publicationStatus));
           children.add(new Property("copyright", "markdown", "A copyright statement relating to Contract precursor content. Copyright statements are generally legal restrictions on the use and publishing of the Contract precursor content.", 0, 1, copyright));
@@ -964,7 +964,7 @@ public class Contract extends DomainResource {
           switch (_hash) {
           case 3575610: /*type*/  return new Property("type", "CodeableConcept", "Precusory content structure and use, i.e., a boilerplate, template, application for a contract such as an insurance policy or benefits under a program, e.g., workers compensation.", 0, 1, type);
           case -1868521062: /*subType*/  return new Property("subType", "CodeableConcept", "Detailed Precusory content type.", 0, 1, subType);
-          case 1447404028: /*publisher*/  return new Property("publisher", "Reference(Person|Practitioner|Organization)", "The  individual or organization that published the Contract precursor content.", 0, 1, publisher);
+          case 1447404028: /*publisher*/  return new Property("publisher", "Reference(Practitioner|Organization)", "The  individual or organization that published the Contract precursor content.", 0, 1, publisher);
           case 1470566394: /*publicationDate*/  return new Property("publicationDate", "dateTime", "The date (and optionally time) when the contract was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the contract changes.", 0, 1, publicationDate);
           case 616500542: /*publicationStatus*/  return new Property("publicationStatus", "code", "draft | active | retired | unknown.", 0, 1, publicationStatus);
           case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to Contract precursor content. Copyright statements are generally legal restrictions on the use and publishing of the Contract precursor content.", 0, 1, copyright);
@@ -3255,7 +3255,7 @@ public class Contract extends DomainResource {
         /**
          * Participant in the offer.
          */
-        @Child(name = "reference", type = {Patient.class, Person.class, RelatedPerson.class, Practitioner.class, Device.class, Group.class, Organization.class}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "reference", type = {Patient.class, RelatedPerson.class, Practitioner.class, Device.class, Group.class, Organization.class}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Referenced entity", formalDefinition="Participant in the offer." )
         protected List<Reference> reference;
         /**
@@ -3378,14 +3378,14 @@ public class Contract extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("reference", "Reference(Patient|Person|RelatedPerson|Practitioner|Device|Group|Organization)", "Participant in the offer.", 0, java.lang.Integer.MAX_VALUE, reference));
+          children.add(new Property("reference", "Reference(Patient|RelatedPerson|Practitioner|Device|Group|Organization)", "Participant in the offer.", 0, java.lang.Integer.MAX_VALUE, reference));
           children.add(new Property("role", "CodeableConcept", "How the party participates in the offer.", 0, 1, role));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case -925155509: /*reference*/  return new Property("reference", "Reference(Patient|Person|RelatedPerson|Practitioner|Device|Group|Organization)", "Participant in the offer.", 0, java.lang.Integer.MAX_VALUE, reference);
+          case -925155509: /*reference*/  return new Property("reference", "Reference(Patient|RelatedPerson|Practitioner|Device|Group|Organization)", "Participant in the offer.", 0, java.lang.Integer.MAX_VALUE, reference);
           case 3506294: /*role*/  return new Property("role", "CodeableConcept", "How the party participates in the offer.", 0, 1, role);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -6603,7 +6603,7 @@ public class Contract extends DomainResource {
         /**
          * Who or what initiated the action and has responsibility for its activation.
          */
-        @Child(name = "requester", type = {Patient.class, Person.class, RelatedPerson.class, Practitioner.class, Device.class, Group.class, Organization.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "requester", type = {Patient.class, RelatedPerson.class, Practitioner.class, Device.class, Group.class, Organization.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Who asked for action", formalDefinition="Who or what initiated the action and has responsibility for its activation." )
         protected List<Reference> requester;
         /**
@@ -6638,7 +6638,7 @@ public class Contract extends DomainResource {
         /**
          * Indicates who or what is being asked to perform (or not perform) the ction.
          */
-        @Child(name = "performer", type = {Person.class, RelatedPerson.class, Patient.class, Practitioner.class, PractitionerRole.class, CareTeam.class, Device.class, Substance.class, Organization.class, Location.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "performer", type = {RelatedPerson.class, Patient.class, Practitioner.class, PractitionerRole.class, CareTeam.class, Device.class, Substance.class, Organization.class, Location.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Actor that wil execute (or not) the action", formalDefinition="Indicates who or what is being asked to perform (or not perform) the ction." )
         protected Reference performer;
 
@@ -7782,11 +7782,11 @@ public class Contract extends DomainResource {
           children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Encounter or Episode with primary association to specified term activity.", 0, 1, context));
           children.add(new Property("contextLinkId", "string", "Id [identifier??] of the clause or question text related to the requester of this action in the referenced form or QuestionnaireResponse.", 0, java.lang.Integer.MAX_VALUE, contextLinkId));
           children.add(new Property("occurrence[x]", "dateTime|Period|Timing", "When action happens.", 0, 1, occurrence));
-          children.add(new Property("requester", "Reference(Patient|Person|RelatedPerson|Practitioner|Device|Group|Organization)", "Who or what initiated the action and has responsibility for its activation.", 0, java.lang.Integer.MAX_VALUE, requester));
+          children.add(new Property("requester", "Reference(Patient|RelatedPerson|Practitioner|Device|Group|Organization)", "Who or what initiated the action and has responsibility for its activation.", 0, java.lang.Integer.MAX_VALUE, requester));
           children.add(new Property("requesterLinkId", "string", "Id [identifier??] of the clause or question text related to the requester of this action in the referenced form or QuestionnaireResponse.", 0, java.lang.Integer.MAX_VALUE, requesterLinkId));
           children.add(new Property("performerType", "CodeableConcept", "The type of individual that is desired or required to perform or not perform the action.", 0, java.lang.Integer.MAX_VALUE, performerType));
           children.add(new Property("performerRole", "CodeableConcept", "The type of role or competency of an individual desired or required to perform or not perform the action.", 0, 1, performerRole));
-          children.add(new Property("performer", "Reference(Person|RelatedPerson|Patient|Practitioner|PractitionerRole|CareTeam|Device|Substance|Organization|Location)", "Indicates who or what is being asked to perform (or not perform) the ction.", 0, 1, performer));
+          children.add(new Property("performer", "Reference(RelatedPerson|Patient|Practitioner|PractitionerRole|CareTeam|Device|Substance|Organization|Location)", "Indicates who or what is being asked to perform (or not perform) the ction.", 0, 1, performer));
           children.add(new Property("performerLinkId", "string", "Id [identifier??] of the clause or question text related to the reason type or reference of this  action in the referenced form or QuestionnaireResponse.", 0, java.lang.Integer.MAX_VALUE, performerLinkId));
           children.add(new Property("reasonCode", "CodeableConcept", "Rationale for the action to be performed or not performed. Describes why the action is permitted or prohibited.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
           children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference|Questionnaire|QuestionnaireResponse)", "Indicates another resource whose existence justifies permitting or not permitting this action.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
@@ -7812,11 +7812,11 @@ public class Contract extends DomainResource {
           case -298443636: /*occurrenceDateTime*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "When action happens.", 0, 1, occurrence);
           case 1397156594: /*occurrencePeriod*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "When action happens.", 0, 1, occurrence);
           case 1515218299: /*occurrenceTiming*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "When action happens.", 0, 1, occurrence);
-          case 693933948: /*requester*/  return new Property("requester", "Reference(Patient|Person|RelatedPerson|Practitioner|Device|Group|Organization)", "Who or what initiated the action and has responsibility for its activation.", 0, java.lang.Integer.MAX_VALUE, requester);
+          case 693933948: /*requester*/  return new Property("requester", "Reference(Patient|RelatedPerson|Practitioner|Device|Group|Organization)", "Who or what initiated the action and has responsibility for its activation.", 0, java.lang.Integer.MAX_VALUE, requester);
           case -1468032687: /*requesterLinkId*/  return new Property("requesterLinkId", "string", "Id [identifier??] of the clause or question text related to the requester of this action in the referenced form or QuestionnaireResponse.", 0, java.lang.Integer.MAX_VALUE, requesterLinkId);
           case -901444568: /*performerType*/  return new Property("performerType", "CodeableConcept", "The type of individual that is desired or required to perform or not perform the action.", 0, java.lang.Integer.MAX_VALUE, performerType);
           case -901513884: /*performerRole*/  return new Property("performerRole", "CodeableConcept", "The type of role or competency of an individual desired or required to perform or not perform the action.", 0, 1, performerRole);
-          case 481140686: /*performer*/  return new Property("performer", "Reference(Person|RelatedPerson|Patient|Practitioner|PractitionerRole|CareTeam|Device|Substance|Organization|Location)", "Indicates who or what is being asked to perform (or not perform) the ction.", 0, 1, performer);
+          case 481140686: /*performer*/  return new Property("performer", "Reference(RelatedPerson|Patient|Practitioner|PractitionerRole|CareTeam|Device|Substance|Organization|Location)", "Indicates who or what is being asked to perform (or not perform) the ction.", 0, 1, performer);
           case 1051302947: /*performerLinkId*/  return new Property("performerLinkId", "string", "Id [identifier??] of the clause or question text related to the reason type or reference of this  action in the referenced form or QuestionnaireResponse.", 0, java.lang.Integer.MAX_VALUE, performerLinkId);
           case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Rationale for the action to be performed or not performed. Describes why the action is permitted or prohibited.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
           case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference|Questionnaire|QuestionnaireResponse)", "Indicates another resource whose existence justifies permitting or not permitting this action.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
@@ -8250,7 +8250,7 @@ public class Contract extends DomainResource {
         /**
          * The entity the action is performed or not performed on or for.
          */
-        @Child(name = "reference", type = {Patient.class, Person.class, RelatedPerson.class, Practitioner.class, Device.class, Group.class, Organization.class}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "reference", type = {Patient.class, RelatedPerson.class, Practitioner.class, Device.class, Group.class, Organization.class}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Entity of the action", formalDefinition="The entity the action is performed or not performed on or for." )
         protected List<Reference> reference;
         /**
@@ -8365,14 +8365,14 @@ public class Contract extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("reference", "Reference(Patient|Person|RelatedPerson|Practitioner|Device|Group|Organization)", "The entity the action is performed or not performed on or for.", 0, java.lang.Integer.MAX_VALUE, reference));
+          children.add(new Property("reference", "Reference(Patient|RelatedPerson|Practitioner|Device|Group|Organization)", "The entity the action is performed or not performed on or for.", 0, java.lang.Integer.MAX_VALUE, reference));
           children.add(new Property("role", "CodeableConcept", "Role type of agent assigned roles in this Contract.", 0, 1, role));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case -925155509: /*reference*/  return new Property("reference", "Reference(Patient|Person|RelatedPerson|Practitioner|Device|Group|Organization)", "The entity the action is performed or not performed on or for.", 0, java.lang.Integer.MAX_VALUE, reference);
+          case -925155509: /*reference*/  return new Property("reference", "Reference(Patient|RelatedPerson|Practitioner|Device|Group|Organization)", "The entity the action is performed or not performed on or for.", 0, java.lang.Integer.MAX_VALUE, reference);
           case 3506294: /*role*/  return new Property("role", "CodeableConcept", "Role type of agent assigned roles in this Contract.", 0, 1, role);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -9543,7 +9543,7 @@ public class Contract extends DomainResource {
     /**
      * The individual or organization that authored the Contract definition, derivative, or instance in any legal state.
      */
-    @Child(name = "author", type = {Person.class, Patient.class, Practitioner.class, Organization.class}, order=19, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "author", type = {Patient.class, Practitioner.class, Organization.class}, order=19, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Source of Contract", formalDefinition="The individual or organization that authored the Contract definition, derivative, or instance in any legal state." )
     protected Reference author;
 
@@ -11289,7 +11289,7 @@ public class Contract extends DomainResource {
         children.add(new Property("title", "string", "A short, descriptive, user-friendly title for this Contract definition, derivative, or instance in any legal state.t giving additional information about its content.", 0, 1, title));
         children.add(new Property("subtitle", "string", "An explanatory or alternate user-friendly title for this Contract definition, derivative, or instance in any legal state.t giving additional information about its content.", 0, 1, subtitle));
         children.add(new Property("alias", "string", "Alternative representation of the title for this Contract definition, derivative, or instance in any legal state., e.g., a domain specific contract number related to legislation.", 0, java.lang.Integer.MAX_VALUE, alias));
-        children.add(new Property("author", "Reference(Person|Patient|Practitioner|Organization)", "The individual or organization that authored the Contract definition, derivative, or instance in any legal state.", 0, 1, author));
+        children.add(new Property("author", "Reference(Patient|Practitioner|Organization)", "The individual or organization that authored the Contract definition, derivative, or instance in any legal state.", 0, 1, author));
         children.add(new Property("scope", "CodeableConcept", "A selector of legal concerns for this Contract definition, derivative, or instance in any legal state.", 0, 1, scope));
         children.add(new Property("topic[x]", "CodeableConcept|Reference(Any)", "Narrows the range of legal concerns to focus on the achievement of specific contractual objectives.", 0, 1, topic));
         children.add(new Property("type", "CodeableConcept", "A high-level category for the legal instrument, whether constructed as a Contract definition, derivative, or instance in any legal state.  Provides additional information about its content within the context of the Contract's scope to distinguish the kinds of systems that would be interested in the contract.", 0, 1, type));
@@ -11327,7 +11327,7 @@ public class Contract extends DomainResource {
         case 110371416: /*title*/  return new Property("title", "string", "A short, descriptive, user-friendly title for this Contract definition, derivative, or instance in any legal state.t giving additional information about its content.", 0, 1, title);
         case -2060497896: /*subtitle*/  return new Property("subtitle", "string", "An explanatory or alternate user-friendly title for this Contract definition, derivative, or instance in any legal state.t giving additional information about its content.", 0, 1, subtitle);
         case 92902992: /*alias*/  return new Property("alias", "string", "Alternative representation of the title for this Contract definition, derivative, or instance in any legal state., e.g., a domain specific contract number related to legislation.", 0, java.lang.Integer.MAX_VALUE, alias);
-        case -1406328437: /*author*/  return new Property("author", "Reference(Person|Patient|Practitioner|Organization)", "The individual or organization that authored the Contract definition, derivative, or instance in any legal state.", 0, 1, author);
+        case -1406328437: /*author*/  return new Property("author", "Reference(Patient|Practitioner|Organization)", "The individual or organization that authored the Contract definition, derivative, or instance in any legal state.", 0, 1, author);
         case 109264468: /*scope*/  return new Property("scope", "CodeableConcept", "A selector of legal concerns for this Contract definition, derivative, or instance in any legal state.", 0, 1, scope);
         case -957295375: /*topic[x]*/  return new Property("topic[x]", "CodeableConcept|Reference(Any)", "Narrows the range of legal concerns to focus on the achievement of specific contractual objectives.", 0, 1, topic);
         case 110546223: /*topic*/  return new Property("topic[x]", "CodeableConcept|Reference(Any)", "Narrows the range of legal concerns to focus on the achievement of specific contractual objectives.", 0, 1, topic);

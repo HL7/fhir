@@ -199,6 +199,18 @@ public class VersionConvertor_10_40 {
     return tgt;
   }
 
+  public org.hl7.fhir.r4.model.DateTimeType convertDateToDateTime(org.hl7.fhir.dstu2.model.DateType src) throws FHIRException {
+    org.hl7.fhir.r4.model.DateTimeType tgt = new org.hl7.fhir.r4.model.DateTimeType(src.getValueAsString());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
+  public org.hl7.fhir.dstu2.model.DateType convertDateTimeToDate(org.hl7.fhir.r4.model.DateTimeType src) throws FHIRException {
+    org.hl7.fhir.dstu2.model.DateType tgt = new org.hl7.fhir.dstu2.model.DateType(src.getValueAsString());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
   public org.hl7.fhir.dstu2.model.DateType convertDate(org.hl7.fhir.r4.model.DateType src) throws FHIRException {
     org.hl7.fhir.dstu2.model.DateType tgt = new org.hl7.fhir.dstu2.model.DateType(src.getValueAsString());
     copyElement(src, tgt);
@@ -2916,7 +2928,7 @@ public class VersionConvertor_10_40 {
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setStatus(convertCarePlanStatus(src.getStatus()));
-    tgt.setContext(convertReference(src.getContext()));
+    tgt.setEncounter(convertReference(src.getContext()));
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getAuthor())
       if (!tgt.hasAuthor())
@@ -2952,7 +2964,7 @@ public class VersionConvertor_10_40 {
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setStatus(convertCarePlanStatus(src.getStatus()));
-    tgt.setContext(convertReference(src.getContext()));
+    tgt.setContext(convertReference(src.getEncounter()));
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     if (src.hasAuthor())
       tgt.addAuthor(convertReference(src.getAuthor()));
@@ -3318,7 +3330,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getMedium())
       tgt.addMedium(convertCodeableConcept(t));
     tgt.setStatus(convertCommunicationStatus(src.getStatus()));
-    tgt.setContext(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setSent(src.getSent());
     tgt.setReceived(src.getReceived());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReason())
@@ -3343,7 +3355,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getMedium())
       tgt.addMedium(convertCodeableConcept(t));
     tgt.setStatus(convertCommunicationStatus(src.getStatus()));
-    tgt.setEncounter(convertReference(src.getContext()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setSent(src.getSent());
     tgt.setReceived(src.getReceived());
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReasonCode())
@@ -3413,7 +3425,7 @@ public class VersionConvertor_10_40 {
       tgt.addMedium(convertCodeableConcept(t));
     tgt.setRequester(convertReference(src.getRequester()));
     tgt.setStatus(convertCommunicationRequestStatus(src.getStatus()));
-    tgt.setContext(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setOccurrence(convertType(src.getScheduled()));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReason())
       tgt.addReasonCode(convertCodeableConcept(t));
@@ -3454,7 +3466,7 @@ public class VersionConvertor_10_40 {
       tgt.addMedium(convertCodeableConcept(t));
     tgt.setRequester(convertReference(src.getRequester()));
     tgt.setStatus(convertCommunicationRequestStatus(src.getStatus()));
-    tgt.setEncounter(convertReference(src.getContext()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setScheduled(convertType(src.getOccurrence()));
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReasonCode())
       tgt.addReason(convertCodeableConcept(t));
@@ -3995,7 +4007,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setSubject(convertReference(src.getPatient()));
-    tgt.setContext(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setAsserter(convertReference(src.getAsserter()));
     if (src.hasDateRecorded())
       tgt.setRecordedDate(src.getDateRecorded());
@@ -4024,7 +4036,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setPatient(convertReference(src.getSubject()));
-    tgt.setEncounter(convertReference(src.getContext()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setAsserter(convertReference(src.getAsserter()));
     if (src.hasRecordedDate())
       tgt.setDateRecorded(src.getRecordedDate());
@@ -5229,13 +5241,13 @@ public class VersionConvertor_10_40 {
     org.hl7.fhir.r4.model.DetectedIssue tgt = new org.hl7.fhir.r4.model.DetectedIssue();
     copyDomainResource(src, tgt);
     tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.setCode(convertCodeableConcept(src.getCategory()));
     tgt.setSeverity(convertDetectedIssueSeverity(src.getSeverity()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getImplicated())
       tgt.addImplicated(convertReference(t));
     tgt.setDetail(src.getDetail());
     if (src.hasDate())
-      tgt.setDate(src.getDate());
+      tgt.setIdentified(convertDateTime(src.getDateElement()));
     tgt.setAuthor(convertReference(src.getAuthor()));
     tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
     tgt.setReference(src.getReference());
@@ -5250,13 +5262,13 @@ public class VersionConvertor_10_40 {
     org.hl7.fhir.dstu2.model.DetectedIssue tgt = new org.hl7.fhir.dstu2.model.DetectedIssue();
     copyDomainResource(src, tgt);
     tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.setCategory(convertCodeableConcept(src.getCode()));
     tgt.setSeverity(convertDetectedIssueSeverity(src.getSeverity()));
     for (org.hl7.fhir.r4.model.Reference t : src.getImplicated())
       tgt.addImplicated(convertReference(t));
     tgt.setDetail(src.getDetail());
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
+    if (src.hasIdentifiedDateTimeType())
+      tgt.setDateElement(convertDateTime(src.getIdentifiedDateTimeType()));
     tgt.setAuthor(convertReference(src.getAuthor()));
     tgt.setIdentifier(convertIdentifier(src.getIdentifierFirstRep()));
     tgt.setReference(src.getReference());
@@ -5764,10 +5776,10 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertDiagnosticReportStatus(src.getStatus()));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.addCategory(convertCodeableConcept(src.getCategory()));
     tgt.setCode(convertCodeableConcept(src.getCode()));
     tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setContext(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setEffective(convertType(src.getEffective()));
     tgt.setIssued(src.getIssued());
 //    tgt.setPerformer(convertReference(src.getPerformer()));
@@ -5797,10 +5809,10 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertDiagnosticReportStatus(src.getStatus()));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.setCategory(convertCodeableConcept(src.getCategoryFirstRep()));
     tgt.setCode(convertCodeableConcept(src.getCode()));
     tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setEncounter(convertReference(src.getContext()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setEffective(convertType(src.getEffective()));
     tgt.setIssued(src.getIssued());
 //    tgt.setPerformer(convertReference(src.getPerformer()));
@@ -6207,11 +6219,11 @@ public class VersionConvertor_10_40 {
       tgt.addBasedOn(convertReference(t));
     for (org.hl7.fhir.dstu2.model.Encounter.EncounterParticipantComponent t : src.getParticipant())
       tgt.addParticipant(convertEncounterParticipantComponent(t));
-    tgt.setAppointment(convertReference(src.getAppointment()));
+    tgt.addAppointment(convertReference(src.getAppointment()));
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     tgt.setLength(convertDuration(src.getLength()));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReason())
-      tgt.addReason(convertCodeableConcept(t));
+      tgt.addReasonCode(convertCodeableConcept(t));
     tgt.setHospitalization(convertEncounterHospitalizationComponent(src.getHospitalization()));
     for (org.hl7.fhir.dstu2.model.Encounter.EncounterLocationComponent t : src.getLocation())
       tgt.addLocation(convertEncounterLocationComponent(t));
@@ -6241,10 +6253,10 @@ public class VersionConvertor_10_40 {
       tgt.addIncomingReferral(convertReference(t));
     for (org.hl7.fhir.r4.model.Encounter.EncounterParticipantComponent t : src.getParticipant())
       tgt.addParticipant(convertEncounterParticipantComponent(t));
-    tgt.setAppointment(convertReference(src.getAppointment()));
+    tgt.setAppointment(convertReference(src.getAppointmentFirstRep()));
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     tgt.setLength(convertDuration(src.getLength()));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReason())
+    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReasonCode())
       tgt.addReason(convertCodeableConcept(t));
     tgt.setHospitalization(convertEncounterHospitalizationComponent(src.getHospitalization()));
     for (org.hl7.fhir.r4.model.Encounter.EncounterLocationComponent t : src.getLocation())
@@ -6890,10 +6902,12 @@ public class VersionConvertor_10_40 {
       tgt.addCoverageArea(convertReference(t));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getServiceProvisionCode())
       tgt.addServiceProvisionCode(convertCodeableConcept(t));
-    tgt.setEligibility(convertCodeableConcept(src.getEligibility()));
-    tgt.setEligibilityNote(src.getEligibilityNote());
+    if (src.hasEligibility())
+      tgt.getEligibilityFirstRep().setCode(convertCodeableConcept(src.getEligibility()));
+    if (src.hasEligibilityNote())
+      tgt.getEligibilityFirstRep().setComment(src.getEligibilityNote());
     for (org.hl7.fhir.dstu2.model.StringType t : src.getProgramName())
-      tgt.addProgramName(t.getValue());
+      tgt.addProgram().setText(t.getValue());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getCharacteristic())
       tgt.addCharacteristic(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReferralMethod())
@@ -6936,10 +6950,11 @@ public class VersionConvertor_10_40 {
       tgt.addCoverageArea(convertReference(t));
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getServiceProvisionCode())
       tgt.addServiceProvisionCode(convertCodeableConcept(t));
-    tgt.setEligibility(convertCodeableConcept(src.getEligibility()));
-    tgt.setEligibilityNote(src.getEligibilityNote());
-    for (org.hl7.fhir.r4.model.StringType t : src.getProgramName())
-      tgt.addProgramName(t.getValue());
+    tgt.setEligibility(convertCodeableConcept(src.getEligibilityFirstRep().getCode()));
+    tgt.setEligibilityNote(src.getEligibilityFirstRep().getComment());
+    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getProgram())
+      if (t.hasText())
+      tgt.addProgramName(t.getText());
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getCharacteristic())
       tgt.addCharacteristic(convertCodeableConcept(t));
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReferralMethod())
@@ -9849,7 +9864,7 @@ public class VersionConvertor_10_40 {
     tgt.setAuthor(convertReference(src.getAuthor()));
     tgt.setAuthored(src.getAuthored());
     tgt.setSource(convertReference(src.getSource()));
-    tgt.setContext(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     if (src.hasGroup())
       tgt.addItem(convertQuestionnaireResponseGroupComponent(src.getGroup()));
     return tgt;
@@ -9867,7 +9882,7 @@ public class VersionConvertor_10_40 {
     tgt.setAuthor(convertReference(src.getAuthor()));
     tgt.setAuthored(src.getAuthored());
     tgt.setSource(convertReference(src.getSource()));
-    tgt.setEncounter(convertReference(src.getContext()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
 
     if (src.getItem().size() != 1)
       throw new FHIRException("multiple root items not supported"); // though we could define a placeholder group?

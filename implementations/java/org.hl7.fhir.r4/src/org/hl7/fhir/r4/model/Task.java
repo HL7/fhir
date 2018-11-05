@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -1933,14 +1933,14 @@ public class Task extends DomainResource {
     /**
      * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "encounter", type = {Encounter.class}, order=15, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Healthcare event during which this task originated", formalDefinition="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created." )
-    protected Reference context;
+    protected Reference encounter;
 
     /**
      * The actual object that is the target of the reference (The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.)
      */
-    protected Resource contextTarget;
+    protected Encounter encounterTarget;
 
     /**
      * Identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end).
@@ -1976,11 +1976,11 @@ public class Task extends DomainResource {
     protected Resource requesterTarget;
 
     /**
-     * The type of participant that can execute the task.
+     * The kind of participant that should perform the task.
      */
     @Child(name = "performerType", type = {CodeableConcept.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer", formalDefinition="The type of participant that can execute the task." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/task-performer-type")
+    @Description(shortDefinition="Requested performer", formalDefinition="The kind of participant that should perform the task." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
     protected List<CodeableConcept> performerType;
 
     /**
@@ -2078,7 +2078,7 @@ public class Task extends DomainResource {
     @Description(shortDefinition="Information produced as part of task", formalDefinition="Outputs produced by the Task." )
     protected List<TaskOutputComponent> output;
 
-    private static final long serialVersionUID = -995373407L;
+    private static final long serialVersionUID = -765029272L;
 
   /**
    * Constructor
@@ -2748,41 +2748,46 @@ public class Task extends DomainResource {
     }
 
     /**
-     * @return {@link #context} (The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.)
+     * @return {@link #encounter} (The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.)
      */
-    public Reference getContext() { 
-      if (this.context == null)
+    public Reference getEncounter() { 
+      if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Task.context");
+          throw new Error("Attempt to auto-create Task.encounter");
         else if (Configuration.doAutoCreate())
-          this.context = new Reference(); // cc
-      return this.context;
+          this.encounter = new Reference(); // cc
+      return this.encounter;
     }
 
-    public boolean hasContext() { 
-      return this.context != null && !this.context.isEmpty();
+    public boolean hasEncounter() { 
+      return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
-     * @param value {@link #context} (The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.)
+     * @param value {@link #encounter} (The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.)
      */
-    public Task setContext(Reference value) { 
-      this.context = value;
+    public Task setEncounter(Reference value) { 
+      this.encounter = value;
       return this;
     }
 
     /**
-     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.)
      */
-    public Resource getContextTarget() { 
-      return this.contextTarget;
+    public Encounter getEncounterTarget() { 
+      if (this.encounterTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Task.encounter");
+        else if (Configuration.doAutoCreate())
+          this.encounterTarget = new Encounter(); // aa
+      return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.)
      */
-    public Task setContextTarget(Resource value) { 
-      this.contextTarget = value;
+    public Task setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
       return this;
     }
 
@@ -2948,7 +2953,7 @@ public class Task extends DomainResource {
     }
 
     /**
-     * @return {@link #performerType} (The type of participant that can execute the task.)
+     * @return {@link #performerType} (The kind of participant that should perform the task.)
      */
     public List<CodeableConcept> getPerformerType() { 
       if (this.performerType == null)
@@ -3484,12 +3489,12 @@ public class Task extends DomainResource {
         children.add(new Property("description", "string", "A free-text description of what is to be performed.", 0, 1, description));
         children.add(new Property("focus", "Reference(Any)", "The request being actioned or the resource being manipulated by this task.", 0, 1, focus));
         children.add(new Property("for", "Reference(Any)", "The entity who benefits from the performance of the service specified in the task (e.g., the patient).", 0, 1, for_));
-        children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.", 0, 1, context));
+        children.add(new Property("encounter", "Reference(Encounter)", "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.", 0, 1, encounter));
         children.add(new Property("executionPeriod", "Period", "Identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end).", 0, 1, executionPeriod));
         children.add(new Property("authoredOn", "dateTime", "The date and time this task was created.", 0, 1, authoredOn));
         children.add(new Property("lastModified", "dateTime", "The date and time of last modification to this task.", 0, 1, lastModified));
         children.add(new Property("requester", "Reference(Device|Organization|Patient|Practitioner|PractitionerRole|RelatedPerson)", "The creator of the task.", 0, 1, requester));
-        children.add(new Property("performerType", "CodeableConcept", "The type of participant that can execute the task.", 0, java.lang.Integer.MAX_VALUE, performerType));
+        children.add(new Property("performerType", "CodeableConcept", "The kind of participant that should perform the task.", 0, java.lang.Integer.MAX_VALUE, performerType));
         children.add(new Property("owner", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|HealthcareService|Patient|Device|RelatedPerson)", "Individual organization or Device currently responsible for task execution.", 0, 1, owner));
         children.add(new Property("location", "Reference(Location)", "The principal physical location where the this task is performed.", 0, 1, location));
         children.add(new Property("reasonCode", "CodeableConcept", "A description or code indicating why this task needs to be performed.", 0, 1, reasonCode));
@@ -3520,12 +3525,12 @@ public class Task extends DomainResource {
         case -1724546052: /*description*/  return new Property("description", "string", "A free-text description of what is to be performed.", 0, 1, description);
         case 97604824: /*focus*/  return new Property("focus", "Reference(Any)", "The request being actioned or the resource being manipulated by this task.", 0, 1, focus);
         case 101577: /*for*/  return new Property("for", "Reference(Any)", "The entity who benefits from the performance of the service specified in the task (e.g., the patient).", 0, 1, for_);
-        case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.", 0, 1, context);
+        case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.", 0, 1, encounter);
         case 1218624249: /*executionPeriod*/  return new Property("executionPeriod", "Period", "Identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end).", 0, 1, executionPeriod);
         case -1500852503: /*authoredOn*/  return new Property("authoredOn", "dateTime", "The date and time this task was created.", 0, 1, authoredOn);
         case 1959003007: /*lastModified*/  return new Property("lastModified", "dateTime", "The date and time of last modification to this task.", 0, 1, lastModified);
         case 693933948: /*requester*/  return new Property("requester", "Reference(Device|Organization|Patient|Practitioner|PractitionerRole|RelatedPerson)", "The creator of the task.", 0, 1, requester);
-        case -901444568: /*performerType*/  return new Property("performerType", "CodeableConcept", "The type of participant that can execute the task.", 0, java.lang.Integer.MAX_VALUE, performerType);
+        case -901444568: /*performerType*/  return new Property("performerType", "CodeableConcept", "The kind of participant that should perform the task.", 0, java.lang.Integer.MAX_VALUE, performerType);
         case 106164915: /*owner*/  return new Property("owner", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|HealthcareService|Patient|Device|RelatedPerson)", "Individual organization or Device currently responsible for task execution.", 0, 1, owner);
         case 1901043637: /*location*/  return new Property("location", "Reference(Location)", "The principal physical location where the this task is performed.", 0, 1, location);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "A description or code indicating why this task needs to be performed.", 0, 1, reasonCode);
@@ -3559,7 +3564,7 @@ public class Task extends DomainResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 97604824: /*focus*/ return this.focus == null ? new Base[0] : new Base[] {this.focus}; // Reference
         case 101577: /*for*/ return this.for_ == null ? new Base[0] : new Base[] {this.for_}; // Reference
-        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case 1218624249: /*executionPeriod*/ return this.executionPeriod == null ? new Base[0] : new Base[] {this.executionPeriod}; // Period
         case -1500852503: /*authoredOn*/ return this.authoredOn == null ? new Base[0] : new Base[] {this.authoredOn}; // DateTimeType
         case 1959003007: /*lastModified*/ return this.lastModified == null ? new Base[0] : new Base[] {this.lastModified}; // DateTimeType
@@ -3631,8 +3636,8 @@ public class Task extends DomainResource {
         case 101577: // for
           this.for_ = castToReference(value); // Reference
           return value;
-        case 951530927: // context
-          this.context = castToReference(value); // Reference
+        case 1524132147: // encounter
+          this.encounter = castToReference(value); // Reference
           return value;
         case 1218624249: // executionPeriod
           this.executionPeriod = castToPeriod(value); // Period
@@ -3719,8 +3724,8 @@ public class Task extends DomainResource {
           this.focus = castToReference(value); // Reference
         } else if (name.equals("for")) {
           this.for_ = castToReference(value); // Reference
-        } else if (name.equals("context")) {
-          this.context = castToReference(value); // Reference
+        } else if (name.equals("encounter")) {
+          this.encounter = castToReference(value); // Reference
         } else if (name.equals("executionPeriod")) {
           this.executionPeriod = castToPeriod(value); // Period
         } else if (name.equals("authoredOn")) {
@@ -3774,7 +3779,7 @@ public class Task extends DomainResource {
         case -1724546052:  return getDescriptionElement();
         case 97604824:  return getFocus(); 
         case 101577:  return getFor(); 
-        case 951530927:  return getContext(); 
+        case 1524132147:  return getEncounter(); 
         case 1218624249:  return getExecutionPeriod(); 
         case -1500852503:  return getAuthoredOnElement();
         case 1959003007:  return getLastModifiedElement();
@@ -3813,7 +3818,7 @@ public class Task extends DomainResource {
         case -1724546052: /*description*/ return new String[] {"string"};
         case 97604824: /*focus*/ return new String[] {"Reference"};
         case 101577: /*for*/ return new String[] {"Reference"};
-        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case 1218624249: /*executionPeriod*/ return new String[] {"Period"};
         case -1500852503: /*authoredOn*/ return new String[] {"dateTime"};
         case 1959003007: /*lastModified*/ return new String[] {"dateTime"};
@@ -3887,9 +3892,9 @@ public class Task extends DomainResource {
           this.for_ = new Reference();
           return this.for_;
         }
-        else if (name.equals("context")) {
-          this.context = new Reference();
-          return this.context;
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
         }
         else if (name.equals("executionPeriod")) {
           this.executionPeriod = new Period();
@@ -3982,7 +3987,7 @@ public class Task extends DomainResource {
         dst.description = description == null ? null : description.copy();
         dst.focus = focus == null ? null : focus.copy();
         dst.for_ = for_ == null ? null : for_.copy();
-        dst.context = context == null ? null : context.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.executionPeriod = executionPeriod == null ? null : executionPeriod.copy();
         dst.authoredOn = authoredOn == null ? null : authoredOn.copy();
         dst.lastModified = lastModified == null ? null : lastModified.copy();
@@ -4042,7 +4047,7 @@ public class Task extends DomainResource {
            && compareDeep(status, o.status, true) && compareDeep(statusReason, o.statusReason, true) && compareDeep(businessStatus, o.businessStatus, true)
            && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true) && compareDeep(code, o.code, true)
            && compareDeep(description, o.description, true) && compareDeep(focus, o.focus, true) && compareDeep(for_, o.for_, true)
-           && compareDeep(context, o.context, true) && compareDeep(executionPeriod, o.executionPeriod, true)
+           && compareDeep(encounter, o.encounter, true) && compareDeep(executionPeriod, o.executionPeriod, true)
            && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(lastModified, o.lastModified, true)
            && compareDeep(requester, o.requester, true) && compareDeep(performerType, o.performerType, true)
            && compareDeep(owner, o.owner, true) && compareDeep(location, o.location, true) && compareDeep(reasonCode, o.reasonCode, true)
@@ -4067,7 +4072,7 @@ public class Task extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiatesCanonical
           , instantiatesUri, basedOn, groupIdentifier, partOf, status, statusReason, businessStatus
-          , intent, priority, code, description, focus, for_, context, executionPeriod
+          , intent, priority, code, description, focus, for_, encounter, executionPeriod
           , authoredOn, lastModified, requester, performerType, owner, location, reasonCode
           , reasonReference, insurance, note, relevantHistory, restriction, input, output
           );
@@ -4309,6 +4314,32 @@ public class Task extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PART_OF = new ca.uhn.fhir.model.api.Include("Task:part-of").toLocked();
 
  /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Search by encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.encounter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="Task.encounter", description="Search by encounter", type="reference", target={Encounter.class } )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Search by encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.encounter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Task:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Task:encounter").toLocked();
+
+ /**
    * Search parameter: <b>priority</b>
    * <p>
    * Description: <b>Search by task priority</b><br>
@@ -4439,32 +4470,6 @@ public class Task extends DomainResource {
    * the path value of "<b>Task:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Task:patient").toLocked();
-
- /**
-   * Search parameter: <b>context</b>
-   * <p>
-   * Description: <b>Search by encounter or episode</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.context</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="context", path="Task.context", description="Search by encounter or episode", type="reference", target={Encounter.class, EpisodeOfCare.class } )
-  public static final String SP_CONTEXT = "context";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>context</b>
-   * <p>
-   * Description: <b>Search by encounter or episode</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.context</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Task:context</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("Task:context").toLocked();
 
  /**
    * Search parameter: <b>modified</b>

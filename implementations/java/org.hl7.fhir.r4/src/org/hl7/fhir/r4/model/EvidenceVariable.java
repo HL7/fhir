@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -354,19 +354,19 @@ public class EvidenceVariable extends MetadataResource {
         /**
          * Indicates duration from the participant's study entry.
          */
-        @Child(name = "participantEffectiveTimeFromStart", type = {Duration.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "timeFromStart", type = {Duration.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Observation time from study start", formalDefinition="Indicates duration from the participant's study entry." )
-        protected Duration participantEffectiveTimeFromStart;
+        protected Duration timeFromStart;
 
         /**
          * Indicates how elements are aggregated within the study effective period.
          */
-        @Child(name = "participantEffectiveGroupMeasure", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "groupMeasure", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-median", formalDefinition="Indicates how elements are aggregated within the study effective period." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/group-measure")
-        protected Enumeration<GroupMeasure> participantEffectiveGroupMeasure;
+        protected Enumeration<GroupMeasure> groupMeasure;
 
-        private static final long serialVersionUID = 729343550L;
+        private static final long serialVersionUID = 1901961318L;
 
     /**
      * Constructor
@@ -723,74 +723,74 @@ public class EvidenceVariable extends MetadataResource {
         }
 
         /**
-         * @return {@link #participantEffectiveTimeFromStart} (Indicates duration from the participant's study entry.)
+         * @return {@link #timeFromStart} (Indicates duration from the participant's study entry.)
          */
-        public Duration getParticipantEffectiveTimeFromStart() { 
-          if (this.participantEffectiveTimeFromStart == null)
+        public Duration getTimeFromStart() { 
+          if (this.timeFromStart == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create EvidenceVariableCharacteristicComponent.participantEffectiveTimeFromStart");
+              throw new Error("Attempt to auto-create EvidenceVariableCharacteristicComponent.timeFromStart");
             else if (Configuration.doAutoCreate())
-              this.participantEffectiveTimeFromStart = new Duration(); // cc
-          return this.participantEffectiveTimeFromStart;
+              this.timeFromStart = new Duration(); // cc
+          return this.timeFromStart;
         }
 
-        public boolean hasParticipantEffectiveTimeFromStart() { 
-          return this.participantEffectiveTimeFromStart != null && !this.participantEffectiveTimeFromStart.isEmpty();
+        public boolean hasTimeFromStart() { 
+          return this.timeFromStart != null && !this.timeFromStart.isEmpty();
         }
 
         /**
-         * @param value {@link #participantEffectiveTimeFromStart} (Indicates duration from the participant's study entry.)
+         * @param value {@link #timeFromStart} (Indicates duration from the participant's study entry.)
          */
-        public EvidenceVariableCharacteristicComponent setParticipantEffectiveTimeFromStart(Duration value) { 
-          this.participantEffectiveTimeFromStart = value;
+        public EvidenceVariableCharacteristicComponent setTimeFromStart(Duration value) { 
+          this.timeFromStart = value;
           return this;
         }
 
         /**
-         * @return {@link #participantEffectiveGroupMeasure} (Indicates how elements are aggregated within the study effective period.). This is the underlying object with id, value and extensions. The accessor "getParticipantEffectiveGroupMeasure" gives direct access to the value
+         * @return {@link #groupMeasure} (Indicates how elements are aggregated within the study effective period.). This is the underlying object with id, value and extensions. The accessor "getGroupMeasure" gives direct access to the value
          */
-        public Enumeration<GroupMeasure> getParticipantEffectiveGroupMeasureElement() { 
-          if (this.participantEffectiveGroupMeasure == null)
+        public Enumeration<GroupMeasure> getGroupMeasureElement() { 
+          if (this.groupMeasure == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create EvidenceVariableCharacteristicComponent.participantEffectiveGroupMeasure");
+              throw new Error("Attempt to auto-create EvidenceVariableCharacteristicComponent.groupMeasure");
             else if (Configuration.doAutoCreate())
-              this.participantEffectiveGroupMeasure = new Enumeration<GroupMeasure>(new GroupMeasureEnumFactory()); // bb
-          return this.participantEffectiveGroupMeasure;
+              this.groupMeasure = new Enumeration<GroupMeasure>(new GroupMeasureEnumFactory()); // bb
+          return this.groupMeasure;
         }
 
-        public boolean hasParticipantEffectiveGroupMeasureElement() { 
-          return this.participantEffectiveGroupMeasure != null && !this.participantEffectiveGroupMeasure.isEmpty();
+        public boolean hasGroupMeasureElement() { 
+          return this.groupMeasure != null && !this.groupMeasure.isEmpty();
         }
 
-        public boolean hasParticipantEffectiveGroupMeasure() { 
-          return this.participantEffectiveGroupMeasure != null && !this.participantEffectiveGroupMeasure.isEmpty();
+        public boolean hasGroupMeasure() { 
+          return this.groupMeasure != null && !this.groupMeasure.isEmpty();
         }
 
         /**
-         * @param value {@link #participantEffectiveGroupMeasure} (Indicates how elements are aggregated within the study effective period.). This is the underlying object with id, value and extensions. The accessor "getParticipantEffectiveGroupMeasure" gives direct access to the value
+         * @param value {@link #groupMeasure} (Indicates how elements are aggregated within the study effective period.). This is the underlying object with id, value and extensions. The accessor "getGroupMeasure" gives direct access to the value
          */
-        public EvidenceVariableCharacteristicComponent setParticipantEffectiveGroupMeasureElement(Enumeration<GroupMeasure> value) { 
-          this.participantEffectiveGroupMeasure = value;
+        public EvidenceVariableCharacteristicComponent setGroupMeasureElement(Enumeration<GroupMeasure> value) { 
+          this.groupMeasure = value;
           return this;
         }
 
         /**
          * @return Indicates how elements are aggregated within the study effective period.
          */
-        public GroupMeasure getParticipantEffectiveGroupMeasure() { 
-          return this.participantEffectiveGroupMeasure == null ? null : this.participantEffectiveGroupMeasure.getValue();
+        public GroupMeasure getGroupMeasure() { 
+          return this.groupMeasure == null ? null : this.groupMeasure.getValue();
         }
 
         /**
          * @param value Indicates how elements are aggregated within the study effective period.
          */
-        public EvidenceVariableCharacteristicComponent setParticipantEffectiveGroupMeasure(GroupMeasure value) { 
+        public EvidenceVariableCharacteristicComponent setGroupMeasure(GroupMeasure value) { 
           if (value == null)
-            this.participantEffectiveGroupMeasure = null;
+            this.groupMeasure = null;
           else {
-            if (this.participantEffectiveGroupMeasure == null)
-              this.participantEffectiveGroupMeasure = new Enumeration<GroupMeasure>(new GroupMeasureEnumFactory());
-            this.participantEffectiveGroupMeasure.setValue(value);
+            if (this.groupMeasure == null)
+              this.groupMeasure = new Enumeration<GroupMeasure>(new GroupMeasureEnumFactory());
+            this.groupMeasure.setValue(value);
           }
           return this;
         }
@@ -802,8 +802,8 @@ public class EvidenceVariable extends MetadataResource {
           children.add(new Property("usageContext", "UsageContext", "Use UsageContext to define the members of the population, such as Age Ranges, Genders, Settings.", 0, java.lang.Integer.MAX_VALUE, usageContext));
           children.add(new Property("exclude", "boolean", "When true, members with this characteristic are excluded from the element.", 0, 1, exclude));
           children.add(new Property("participantEffective[x]", "dateTime|Period|Duration|Timing", "Indicates what effective period the study covers.", 0, 1, participantEffective));
-          children.add(new Property("participantEffectiveTimeFromStart", "Duration", "Indicates duration from the participant's study entry.", 0, 1, participantEffectiveTimeFromStart));
-          children.add(new Property("participantEffectiveGroupMeasure", "code", "Indicates how elements are aggregated within the study effective period.", 0, 1, participantEffectiveGroupMeasure));
+          children.add(new Property("timeFromStart", "Duration", "Indicates duration from the participant's study entry.", 0, 1, timeFromStart));
+          children.add(new Property("groupMeasure", "code", "Indicates how elements are aggregated within the study effective period.", 0, 1, groupMeasure));
         }
 
         @Override
@@ -826,8 +826,8 @@ public class EvidenceVariable extends MetadataResource {
           case -883650923: /*participantEffectivePeriod*/  return new Property("participantEffective[x]", "dateTime|Period|Duration|Timing", "Indicates what effective period the study covers.", 0, 1, participantEffective);
           case -1210941080: /*participantEffectiveDuration*/  return new Property("participantEffective[x]", "dateTime|Period|Duration|Timing", "Indicates what effective period the study covers.", 0, 1, participantEffective);
           case -765589218: /*participantEffectiveTiming*/  return new Property("participantEffective[x]", "dateTime|Period|Duration|Timing", "Indicates what effective period the study covers.", 0, 1, participantEffective);
-          case -1471501513: /*participantEffectiveTimeFromStart*/  return new Property("participantEffectiveTimeFromStart", "Duration", "Indicates duration from the participant's study entry.", 0, 1, participantEffectiveTimeFromStart);
-          case 889320371: /*participantEffectiveGroupMeasure*/  return new Property("participantEffectiveGroupMeasure", "code", "Indicates how elements are aggregated within the study effective period.", 0, 1, participantEffectiveGroupMeasure);
+          case 2100140683: /*timeFromStart*/  return new Property("timeFromStart", "Duration", "Indicates duration from the participant's study entry.", 0, 1, timeFromStart);
+          case 588892639: /*groupMeasure*/  return new Property("groupMeasure", "code", "Indicates how elements are aggregated within the study effective period.", 0, 1, groupMeasure);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -841,8 +841,8 @@ public class EvidenceVariable extends MetadataResource {
         case 907012302: /*usageContext*/ return this.usageContext == null ? new Base[0] : this.usageContext.toArray(new Base[this.usageContext.size()]); // UsageContext
         case -1321148966: /*exclude*/ return this.exclude == null ? new Base[0] : new Base[] {this.exclude}; // BooleanType
         case 1376306100: /*participantEffective*/ return this.participantEffective == null ? new Base[0] : new Base[] {this.participantEffective}; // Type
-        case -1471501513: /*participantEffectiveTimeFromStart*/ return this.participantEffectiveTimeFromStart == null ? new Base[0] : new Base[] {this.participantEffectiveTimeFromStart}; // Duration
-        case 889320371: /*participantEffectiveGroupMeasure*/ return this.participantEffectiveGroupMeasure == null ? new Base[0] : new Base[] {this.participantEffectiveGroupMeasure}; // Enumeration<GroupMeasure>
+        case 2100140683: /*timeFromStart*/ return this.timeFromStart == null ? new Base[0] : new Base[] {this.timeFromStart}; // Duration
+        case 588892639: /*groupMeasure*/ return this.groupMeasure == null ? new Base[0] : new Base[] {this.groupMeasure}; // Enumeration<GroupMeasure>
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -866,12 +866,12 @@ public class EvidenceVariable extends MetadataResource {
         case 1376306100: // participantEffective
           this.participantEffective = castToType(value); // Type
           return value;
-        case -1471501513: // participantEffectiveTimeFromStart
-          this.participantEffectiveTimeFromStart = castToDuration(value); // Duration
+        case 2100140683: // timeFromStart
+          this.timeFromStart = castToDuration(value); // Duration
           return value;
-        case 889320371: // participantEffectiveGroupMeasure
+        case 588892639: // groupMeasure
           value = new GroupMeasureEnumFactory().fromType(castToCode(value));
-          this.participantEffectiveGroupMeasure = (Enumeration) value; // Enumeration<GroupMeasure>
+          this.groupMeasure = (Enumeration) value; // Enumeration<GroupMeasure>
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -890,11 +890,11 @@ public class EvidenceVariable extends MetadataResource {
           this.exclude = castToBoolean(value); // BooleanType
         } else if (name.equals("participantEffective[x]")) {
           this.participantEffective = castToType(value); // Type
-        } else if (name.equals("participantEffectiveTimeFromStart")) {
-          this.participantEffectiveTimeFromStart = castToDuration(value); // Duration
-        } else if (name.equals("participantEffectiveGroupMeasure")) {
+        } else if (name.equals("timeFromStart")) {
+          this.timeFromStart = castToDuration(value); // Duration
+        } else if (name.equals("groupMeasure")) {
           value = new GroupMeasureEnumFactory().fromType(castToCode(value));
-          this.participantEffectiveGroupMeasure = (Enumeration) value; // Enumeration<GroupMeasure>
+          this.groupMeasure = (Enumeration) value; // Enumeration<GroupMeasure>
         } else
           return super.setProperty(name, value);
         return value;
@@ -910,8 +910,8 @@ public class EvidenceVariable extends MetadataResource {
         case -1321148966:  return getExcludeElement();
         case 1777308748:  return getParticipantEffective(); 
         case 1376306100:  return getParticipantEffective(); 
-        case -1471501513:  return getParticipantEffectiveTimeFromStart(); 
-        case 889320371:  return getParticipantEffectiveGroupMeasureElement();
+        case 2100140683:  return getTimeFromStart(); 
+        case 588892639:  return getGroupMeasureElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -925,8 +925,8 @@ public class EvidenceVariable extends MetadataResource {
         case 907012302: /*usageContext*/ return new String[] {"UsageContext"};
         case -1321148966: /*exclude*/ return new String[] {"boolean"};
         case 1376306100: /*participantEffective*/ return new String[] {"dateTime", "Period", "Duration", "Timing"};
-        case -1471501513: /*participantEffectiveTimeFromStart*/ return new String[] {"Duration"};
-        case 889320371: /*participantEffectiveGroupMeasure*/ return new String[] {"code"};
+        case 2100140683: /*timeFromStart*/ return new String[] {"Duration"};
+        case 588892639: /*groupMeasure*/ return new String[] {"code"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -983,12 +983,12 @@ public class EvidenceVariable extends MetadataResource {
           this.participantEffective = new Timing();
           return this.participantEffective;
         }
-        else if (name.equals("participantEffectiveTimeFromStart")) {
-          this.participantEffectiveTimeFromStart = new Duration();
-          return this.participantEffectiveTimeFromStart;
+        else if (name.equals("timeFromStart")) {
+          this.timeFromStart = new Duration();
+          return this.timeFromStart;
         }
-        else if (name.equals("participantEffectiveGroupMeasure")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EvidenceVariable.participantEffectiveGroupMeasure");
+        else if (name.equals("groupMeasure")) {
+          throw new FHIRException("Cannot call addChild on a primitive type EvidenceVariable.groupMeasure");
         }
         else
           return super.addChild(name);
@@ -1006,8 +1006,8 @@ public class EvidenceVariable extends MetadataResource {
         };
         dst.exclude = exclude == null ? null : exclude.copy();
         dst.participantEffective = participantEffective == null ? null : participantEffective.copy();
-        dst.participantEffectiveTimeFromStart = participantEffectiveTimeFromStart == null ? null : participantEffectiveTimeFromStart.copy();
-        dst.participantEffectiveGroupMeasure = participantEffectiveGroupMeasure == null ? null : participantEffectiveGroupMeasure.copy();
+        dst.timeFromStart = timeFromStart == null ? null : timeFromStart.copy();
+        dst.groupMeasure = groupMeasure == null ? null : groupMeasure.copy();
         return dst;
       }
 
@@ -1020,8 +1020,8 @@ public class EvidenceVariable extends MetadataResource {
         EvidenceVariableCharacteristicComponent o = (EvidenceVariableCharacteristicComponent) other_;
         return compareDeep(description, o.description, true) && compareDeep(definition, o.definition, true)
            && compareDeep(usageContext, o.usageContext, true) && compareDeep(exclude, o.exclude, true) && compareDeep(participantEffective, o.participantEffective, true)
-           && compareDeep(participantEffectiveTimeFromStart, o.participantEffectiveTimeFromStart, true)
-           && compareDeep(participantEffectiveGroupMeasure, o.participantEffectiveGroupMeasure, true);
+           && compareDeep(timeFromStart, o.timeFromStart, true) && compareDeep(groupMeasure, o.groupMeasure, true)
+          ;
       }
 
       @Override
@@ -1031,14 +1031,13 @@ public class EvidenceVariable extends MetadataResource {
         if (!(other_ instanceof EvidenceVariableCharacteristicComponent))
           return false;
         EvidenceVariableCharacteristicComponent o = (EvidenceVariableCharacteristicComponent) other_;
-        return compareValues(description, o.description, true) && compareValues(exclude, o.exclude, true) && compareValues(participantEffectiveGroupMeasure, o.participantEffectiveGroupMeasure, true)
+        return compareValues(description, o.description, true) && compareValues(exclude, o.exclude, true) && compareValues(groupMeasure, o.groupMeasure, true)
           ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, definition, usageContext
-          , exclude, participantEffective, participantEffectiveTimeFromStart, participantEffectiveGroupMeasure
-          );
+          , exclude, participantEffective, timeFromStart, groupMeasure);
       }
 
   public String fhirType() {
@@ -1825,7 +1824,7 @@ public class EvidenceVariable extends MetadataResource {
     }
 
     /**
-     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate evidence variable instances.)
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate evidence variable instances.)
      */
     public List<UsageContext> getUseContext() { 
       if (this.useContext == null)
@@ -2536,7 +2535,7 @@ public class EvidenceVariable extends MetadataResource {
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         children.add(new Property("description", "markdown", "A free text natural language description of the evidence variable from a consumer's perspective.", 0, 1, description));
         children.add(new Property("note", "Annotation", "A human-readable string to clarify or explain concepts about the resource.", 0, java.lang.Integer.MAX_VALUE, note));
-        children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate evidence variable instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate evidence variable instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
         children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the evidence variable is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the evidence variable and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the evidence variable.", 0, 1, copyright));
         children.add(new Property("approvalDate", "date", "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, 1, approvalDate));
@@ -2568,7 +2567,7 @@ public class EvidenceVariable extends MetadataResource {
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
         case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the evidence variable from a consumer's perspective.", 0, 1, description);
         case 3387378: /*note*/  return new Property("note", "Annotation", "A human-readable string to clarify or explain concepts about the resource.", 0, java.lang.Integer.MAX_VALUE, note);
-        case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate evidence variable instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
+        case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate evidence variable instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
         case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the evidence variable is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the evidence variable and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the evidence variable.", 0, 1, copyright);
         case 223539345: /*approvalDate*/  return new Property("approvalDate", "date", "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, 1, approvalDate);

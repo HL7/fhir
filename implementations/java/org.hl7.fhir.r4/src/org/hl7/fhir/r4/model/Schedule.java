@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -819,6 +819,66 @@ public class Schedule extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
+   * Search parameter: <b>specialty</b>
+   * <p>
+   * Description: <b>Type of specialty needed</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Schedule.specialty</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="specialty", path="Schedule.specialty", description="Type of specialty needed", type="token" )
+  public static final String SP_SPECIALTY = "specialty";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>specialty</b>
+   * <p>
+   * Description: <b>Type of specialty needed</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Schedule.specialty</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIALTY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIALTY);
+
+ /**
+   * Search parameter: <b>service-category</b>
+   * <p>
+   * Description: <b>High-level category</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Schedule.serviceCategory</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="service-category", path="Schedule.serviceCategory", description="High-level category", type="token" )
+  public static final String SP_SERVICE_CATEGORY = "service-category";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>service-category</b>
+   * <p>
+   * Description: <b>High-level category</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Schedule.serviceCategory</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SERVICE_CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SERVICE_CATEGORY);
+
+ /**
+   * Search parameter: <b>service-type</b>
+   * <p>
+   * Description: <b>The type of appointments that can be booked into associated slot(s)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Schedule.serviceType</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="service-type", path="Schedule.serviceType", description="The type of appointments that can be booked into associated slot(s)", type="token" )
+  public static final String SP_SERVICE_TYPE = "service-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>service-type</b>
+   * <p>
+   * Description: <b>The type of appointments that can be booked into associated slot(s)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Schedule.serviceType</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SERVICE_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SERVICE_TYPE);
+
+ /**
    * Search parameter: <b>active</b>
    * <p>
    * Description: <b>Is the schedule in active use</b><br>
@@ -837,26 +897,6 @@ public class Schedule extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTIVE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTIVE);
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>The type of appointments that can be booked into associated slot(s)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Schedule.serviceType</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="Schedule.serviceType", description="The type of appointments that can be booked into associated slot(s)", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>The type of appointments that can be booked into associated slot(s)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Schedule.serviceType</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
 
 }

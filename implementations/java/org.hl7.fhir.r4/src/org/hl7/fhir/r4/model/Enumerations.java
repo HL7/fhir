@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -1162,7 +1162,7 @@ public class Enumerations {
          */
         MONEYQUANTITY, 
         /**
-         * A human-readable formatted text, including images.
+         * A human-readable summary of the resource conveying the essential clinical and business information for the resource.
          */
         NARRATIVE, 
         /**
@@ -1611,7 +1611,7 @@ public class Enumerations {
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.";
             case MONEY: return "An amount of economic utility in some recognized currency.";
             case MONEYQUANTITY: return "";
-            case NARRATIVE: return "A human-readable formatted text, including images.";
+            case NARRATIVE: return "A human-readable summary of the resource conveying the essential clinical and business information for the resource.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
             case POPULATION: return "A populatioof people with some set of grouping criteria.";
@@ -3086,7 +3086,7 @@ public class Enumerations {
          */
         MONEYQUANTITY, 
         /**
-         * A human-readable formatted text, including images.
+         * A human-readable summary of the resource conveying the essential clinical and business information for the resource.
          */
         NARRATIVE, 
         /**
@@ -3359,7 +3359,7 @@ into another (possibly the same) biological entity.
          */
         CONTRACT, 
         /**
-         * Financial instrument which may be used to reimburse or pay for health care products and services.
+         * Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.
          */
         COVERAGE, 
         /**
@@ -3375,7 +3375,7 @@ into another (possibly the same) biological entity.
          */
         DETECTEDISSUE, 
         /**
-         * This resource identifies a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc. This is the catalog description of a device (not the specific instance).
+         * A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.
          */
         DEVICE, 
         /**
@@ -3615,6 +3615,10 @@ into another (possibly the same) biological entity.
          */
         MESSAGEHEADER, 
         /**
+         * Raw data describing a biological sequence.
+         */
+        MOLECULARSEQUENCE, 
+        /**
          * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
          */
         NAMINGSYSTEM, 
@@ -3747,10 +3751,6 @@ into another (possibly the same) biological entity.
          */
         SEARCHPARAMETER, 
         /**
-         * Raw data describing a biological sequence.
-         */
-        SEQUENCE, 
-        /**
          * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
          */
         SERVICEREQUEST, 
@@ -3831,10 +3831,6 @@ into another (possibly the same) biological entity.
          */
         TESTSCRIPT, 
         /**
-         * Information about a user's current session.
-         */
-        USERSESSION, 
-        /**
          * A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
          */
         VALUESET, 
@@ -3843,7 +3839,7 @@ into another (possibly the same) biological entity.
          */
         VERIFICATIONRESULT, 
         /**
-         * An authorization for the supply of glasses and/or contact lenses to a patient.
+         * An authorization for the provision of glasses and/or contact lenses to a patient.
          */
         VISIONPRESCRIPTION, 
         /**
@@ -4175,6 +4171,8 @@ into another (possibly the same) biological entity.
           return MESSAGEDEFINITION;
         if ("MessageHeader".equals(codeString))
           return MESSAGEHEADER;
+        if ("MolecularSequence".equals(codeString))
+          return MOLECULARSEQUENCE;
         if ("NamingSystem".equals(codeString))
           return NAMINGSYSTEM;
         if ("NutritionOrder".equals(codeString))
@@ -4241,8 +4239,6 @@ into another (possibly the same) biological entity.
           return SCHEDULE;
         if ("SearchParameter".equals(codeString))
           return SEARCHPARAMETER;
-        if ("Sequence".equals(codeString))
-          return SEQUENCE;
         if ("ServiceRequest".equals(codeString))
           return SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -4283,8 +4279,6 @@ into another (possibly the same) biological entity.
           return TESTREPORT;
         if ("TestScript".equals(codeString))
           return TESTSCRIPT;
-        if ("UserSession".equals(codeString))
-          return USERSESSION;
         if ("ValueSet".equals(codeString))
           return VALUESET;
         if ("VerificationResult".equals(codeString))
@@ -4456,6 +4450,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "MedicinalProductUndesirableEffect";
             case MESSAGEDEFINITION: return "MessageDefinition";
             case MESSAGEHEADER: return "MessageHeader";
+            case MOLECULARSEQUENCE: return "MolecularSequence";
             case NAMINGSYSTEM: return "NamingSystem";
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
@@ -4489,7 +4484,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "RiskEvidenceSynthesis";
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
-            case SEQUENCE: return "Sequence";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -4510,7 +4504,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "TerminologyCapabilities";
             case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
-            case USERSESSION: return "UserSession";
             case VALUESET: return "ValueSet";
             case VERIFICATIONRESULT: return "VerificationResult";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -4678,6 +4671,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "http://hl7.org/fhir/resource-types";
             case MESSAGEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case MESSAGEHEADER: return "http://hl7.org/fhir/resource-types";
+            case MOLECULARSEQUENCE: return "http://hl7.org/fhir/resource-types";
             case NAMINGSYSTEM: return "http://hl7.org/fhir/resource-types";
             case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
@@ -4711,7 +4705,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "http://hl7.org/fhir/resource-types";
             case SCHEDULE: return "http://hl7.org/fhir/resource-types";
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
-            case SEQUENCE: return "http://hl7.org/fhir/resource-types";
             case SERVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
@@ -4732,7 +4725,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "http://hl7.org/fhir/resource-types";
             case TESTREPORT: return "http://hl7.org/fhir/resource-types";
             case TESTSCRIPT: return "http://hl7.org/fhir/resource-types";
-            case USERSESSION: return "http://hl7.org/fhir/resource-types";
             case VALUESET: return "http://hl7.org/fhir/resource-types";
             case VERIFICATIONRESULT: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -4768,7 +4760,7 @@ into another (possibly the same) biological entity.
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.";
             case MONEY: return "An amount of economic utility in some recognized currency.";
             case MONEYQUANTITY: return "";
-            case NARRATIVE: return "A human-readable formatted text, including images.";
+            case NARRATIVE: return "A human-readable summary of the resource conveying the essential clinical and business information for the resource.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
             case POPULATION: return "A populatioof people with some set of grouping criteria.";
@@ -4836,11 +4828,11 @@ into another (possibly the same) biological entity.
             case CONDITION: return "A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.";
             case CONSENT: return "A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.";
-            case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services.";
+            case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.";
             case COVERAGEELIGIBILITYREQUEST: return "The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.";
             case COVERAGEELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
-            case DEVICE: return "This resource identifies a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc. This is the catalog description of a device (not the specific instance).";
+            case DEVICE: return "A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.";
             case DEVICEDEFINITION: return "The characteristics, operational status and capabilities of a medical-related component of a medical device.";
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
@@ -4900,6 +4892,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "Describe the undesirable effects of the medicinal product.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
             case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
+            case MOLECULARSEQUENCE: return "Raw data describing a biological sequence.";
             case NAMINGSYSTEM: return "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.";
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
@@ -4933,7 +4926,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "The RiskEvidenceSynthesis resource describes the likelihood of an outcome in a population plus exposure state where the risk estimate is derived from a combination of research studies.";
             case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
-            case SEQUENCE: return "Raw data describing a biological sequence.";
             case SERVICEREQUEST: return "A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
@@ -4954,10 +4946,9 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case TESTREPORT: return "A summary of information based on the results of executing a TestScript.";
             case TESTSCRIPT: return "A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.";
-            case USERSESSION: return "Information about a user's current session.";
             case VALUESET: return "A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).";
             case VERIFICATIONRESULT: return "Describes validation requirements, source(s), status and dates for one or more elements.";
-            case VISIONPRESCRIPTION: return "An authorization for the supply of glasses and/or contact lenses to a patient.";
+            case VISIONPRESCRIPTION: return "An authorization for the provision of glasses and/or contact lenses to a patient.";
             case TYPE: return "A place holder that means any kind of data type";
             case ANY: return "A place holder that means any kind of resource";
             default: return "?";
@@ -5122,6 +5113,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "MedicinalProductUndesirableEffect";
             case MESSAGEDEFINITION: return "MessageDefinition";
             case MESSAGEHEADER: return "MessageHeader";
+            case MOLECULARSEQUENCE: return "MolecularSequence";
             case NAMINGSYSTEM: return "NamingSystem";
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
@@ -5155,7 +5147,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "RiskEvidenceSynthesis";
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
-            case SEQUENCE: return "Sequence";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -5176,7 +5167,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "TerminologyCapabilities";
             case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
-            case USERSESSION: return "UserSession";
             case VALUESET: return "ValueSet";
             case VERIFICATIONRESULT: return "VerificationResult";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -5506,6 +5496,8 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.MESSAGEDEFINITION;
         if ("MessageHeader".equals(codeString))
           return FHIRAllTypes.MESSAGEHEADER;
+        if ("MolecularSequence".equals(codeString))
+          return FHIRAllTypes.MOLECULARSEQUENCE;
         if ("NamingSystem".equals(codeString))
           return FHIRAllTypes.NAMINGSYSTEM;
         if ("NutritionOrder".equals(codeString))
@@ -5572,8 +5564,6 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.SCHEDULE;
         if ("SearchParameter".equals(codeString))
           return FHIRAllTypes.SEARCHPARAMETER;
-        if ("Sequence".equals(codeString))
-          return FHIRAllTypes.SEQUENCE;
         if ("ServiceRequest".equals(codeString))
           return FHIRAllTypes.SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -5614,8 +5604,6 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.TESTREPORT;
         if ("TestScript".equals(codeString))
           return FHIRAllTypes.TESTSCRIPT;
-        if ("UserSession".equals(codeString))
-          return FHIRAllTypes.USERSESSION;
         if ("ValueSet".equals(codeString))
           return FHIRAllTypes.VALUESET;
         if ("VerificationResult".equals(codeString))
@@ -5950,6 +5938,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MESSAGEDEFINITION);
         if ("MessageHeader".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MESSAGEHEADER);
+        if ("MolecularSequence".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MOLECULARSEQUENCE);
         if ("NamingSystem".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.NAMINGSYSTEM);
         if ("NutritionOrder".equals(codeString))
@@ -6016,8 +6006,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SCHEDULE);
         if ("SearchParameter".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SEARCHPARAMETER);
-        if ("Sequence".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SEQUENCE);
         if ("ServiceRequest".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SERVICEREQUEST);
         if ("Slot".equals(codeString))
@@ -6058,8 +6046,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.TESTREPORT);
         if ("TestScript".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.TESTSCRIPT);
-        if ("UserSession".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.USERSESSION);
         if ("ValueSet".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.VALUESET);
         if ("VerificationResult".equals(codeString))
@@ -6387,6 +6373,8 @@ into another (possibly the same) biological entity.
         return "MessageDefinition";
       if (code == FHIRAllTypes.MESSAGEHEADER)
         return "MessageHeader";
+      if (code == FHIRAllTypes.MOLECULARSEQUENCE)
+        return "MolecularSequence";
       if (code == FHIRAllTypes.NAMINGSYSTEM)
         return "NamingSystem";
       if (code == FHIRAllTypes.NUTRITIONORDER)
@@ -6453,8 +6441,6 @@ into another (possibly the same) biological entity.
         return "Schedule";
       if (code == FHIRAllTypes.SEARCHPARAMETER)
         return "SearchParameter";
-      if (code == FHIRAllTypes.SEQUENCE)
-        return "Sequence";
       if (code == FHIRAllTypes.SERVICEREQUEST)
         return "ServiceRequest";
       if (code == FHIRAllTypes.SLOT)
@@ -6495,8 +6481,6 @@ into another (possibly the same) biological entity.
         return "TestReport";
       if (code == FHIRAllTypes.TESTSCRIPT)
         return "TestScript";
-      if (code == FHIRAllTypes.USERSESSION)
-        return "UserSession";
       if (code == FHIRAllTypes.VALUESET)
         return "ValueSet";
       if (code == FHIRAllTypes.VERIFICATIONRESULT)
@@ -6616,7 +6600,7 @@ into another (possibly the same) biological entity.
          */
         MONEYQUANTITY, 
         /**
-         * A human-readable formatted text, including images.
+         * A human-readable summary of the resource conveying the essential clinical and business information for the resource.
          */
         NARRATIVE, 
         /**
@@ -6889,7 +6873,7 @@ into another (possibly the same) biological entity.
          */
         CONTRACT, 
         /**
-         * Financial instrument which may be used to reimburse or pay for health care products and services.
+         * Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.
          */
         COVERAGE, 
         /**
@@ -6905,7 +6889,7 @@ into another (possibly the same) biological entity.
          */
         DETECTEDISSUE, 
         /**
-         * This resource identifies a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc. This is the catalog description of a device (not the specific instance).
+         * A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.
          */
         DEVICE, 
         /**
@@ -7145,6 +7129,10 @@ into another (possibly the same) biological entity.
          */
         MESSAGEHEADER, 
         /**
+         * Raw data describing a biological sequence.
+         */
+        MOLECULARSEQUENCE, 
+        /**
          * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
          */
         NAMINGSYSTEM, 
@@ -7277,10 +7265,6 @@ into another (possibly the same) biological entity.
          */
         SEARCHPARAMETER, 
         /**
-         * Raw data describing a biological sequence.
-         */
-        SEQUENCE, 
-        /**
          * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
          */
         SERVICEREQUEST, 
@@ -7361,10 +7345,6 @@ into another (possibly the same) biological entity.
          */
         TESTSCRIPT, 
         /**
-         * Information about a user's current session.
-         */
-        USERSESSION, 
-        /**
          * A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
          */
         VALUESET, 
@@ -7373,7 +7353,7 @@ into another (possibly the same) biological entity.
          */
         VERIFICATIONRESULT, 
         /**
-         * An authorization for the supply of glasses and/or contact lenses to a patient.
+         * An authorization for the provision of glasses and/or contact lenses to a patient.
          */
         VISIONPRESCRIPTION, 
         /**
@@ -7697,6 +7677,8 @@ into another (possibly the same) biological entity.
           return MESSAGEDEFINITION;
         if ("MessageHeader".equals(codeString))
           return MESSAGEHEADER;
+        if ("MolecularSequence".equals(codeString))
+          return MOLECULARSEQUENCE;
         if ("NamingSystem".equals(codeString))
           return NAMINGSYSTEM;
         if ("NutritionOrder".equals(codeString))
@@ -7763,8 +7745,6 @@ into another (possibly the same) biological entity.
           return SCHEDULE;
         if ("SearchParameter".equals(codeString))
           return SEARCHPARAMETER;
-        if ("Sequence".equals(codeString))
-          return SEQUENCE;
         if ("ServiceRequest".equals(codeString))
           return SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -7805,8 +7785,6 @@ into another (possibly the same) biological entity.
           return TESTREPORT;
         if ("TestScript".equals(codeString))
           return TESTSCRIPT;
-        if ("UserSession".equals(codeString))
-          return USERSESSION;
         if ("ValueSet".equals(codeString))
           return VALUESET;
         if ("VerificationResult".equals(codeString))
@@ -7974,6 +7952,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "MedicinalProductUndesirableEffect";
             case MESSAGEDEFINITION: return "MessageDefinition";
             case MESSAGEHEADER: return "MessageHeader";
+            case MOLECULARSEQUENCE: return "MolecularSequence";
             case NAMINGSYSTEM: return "NamingSystem";
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
@@ -8007,7 +7986,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "RiskEvidenceSynthesis";
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
-            case SEQUENCE: return "Sequence";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -8028,7 +8006,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "TerminologyCapabilities";
             case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
-            case USERSESSION: return "UserSession";
             case VALUESET: return "ValueSet";
             case VERIFICATIONRESULT: return "VerificationResult";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -8194,6 +8171,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "http://hl7.org/fhir/resource-types";
             case MESSAGEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case MESSAGEHEADER: return "http://hl7.org/fhir/resource-types";
+            case MOLECULARSEQUENCE: return "http://hl7.org/fhir/resource-types";
             case NAMINGSYSTEM: return "http://hl7.org/fhir/resource-types";
             case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
@@ -8227,7 +8205,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "http://hl7.org/fhir/resource-types";
             case SCHEDULE: return "http://hl7.org/fhir/resource-types";
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
-            case SEQUENCE: return "http://hl7.org/fhir/resource-types";
             case SERVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
@@ -8248,7 +8225,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "http://hl7.org/fhir/resource-types";
             case TESTREPORT: return "http://hl7.org/fhir/resource-types";
             case TESTSCRIPT: return "http://hl7.org/fhir/resource-types";
-            case USERSESSION: return "http://hl7.org/fhir/resource-types";
             case VALUESET: return "http://hl7.org/fhir/resource-types";
             case VERIFICATIONRESULT: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -8282,7 +8258,7 @@ into another (possibly the same) biological entity.
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.";
             case MONEY: return "An amount of economic utility in some recognized currency.";
             case MONEYQUANTITY: return "";
-            case NARRATIVE: return "A human-readable formatted text, including images.";
+            case NARRATIVE: return "A human-readable summary of the resource conveying the essential clinical and business information for the resource.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
             case POPULATION: return "A populatioof people with some set of grouping criteria.";
@@ -8350,11 +8326,11 @@ into another (possibly the same) biological entity.
             case CONDITION: return "A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.";
             case CONSENT: return "A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.";
-            case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services.";
+            case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.";
             case COVERAGEELIGIBILITYREQUEST: return "The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.";
             case COVERAGEELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
-            case DEVICE: return "This resource identifies a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc. This is the catalog description of a device (not the specific instance).";
+            case DEVICE: return "A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.";
             case DEVICEDEFINITION: return "The characteristics, operational status and capabilities of a medical-related component of a medical device.";
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
@@ -8414,6 +8390,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "Describe the undesirable effects of the medicinal product.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
             case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
+            case MOLECULARSEQUENCE: return "Raw data describing a biological sequence.";
             case NAMINGSYSTEM: return "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.";
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
@@ -8447,7 +8424,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "The RiskEvidenceSynthesis resource describes the likelihood of an outcome in a population plus exposure state where the risk estimate is derived from a combination of research studies.";
             case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
-            case SEQUENCE: return "Raw data describing a biological sequence.";
             case SERVICEREQUEST: return "A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
@@ -8468,10 +8444,9 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case TESTREPORT: return "A summary of information based on the results of executing a TestScript.";
             case TESTSCRIPT: return "A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.";
-            case USERSESSION: return "Information about a user's current session.";
             case VALUESET: return "A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).";
             case VERIFICATIONRESULT: return "Describes validation requirements, source(s), status and dates for one or more elements.";
-            case VISIONPRESCRIPTION: return "An authorization for the supply of glasses and/or contact lenses to a patient.";
+            case VISIONPRESCRIPTION: return "An authorization for the provision of glasses and/or contact lenses to a patient.";
             default: return "?";
           }
         }
@@ -8634,6 +8609,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "MedicinalProductUndesirableEffect";
             case MESSAGEDEFINITION: return "MessageDefinition";
             case MESSAGEHEADER: return "MessageHeader";
+            case MOLECULARSEQUENCE: return "MolecularSequence";
             case NAMINGSYSTEM: return "NamingSystem";
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
@@ -8667,7 +8643,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "RiskEvidenceSynthesis";
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
-            case SEQUENCE: return "Sequence";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -8688,7 +8663,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "TerminologyCapabilities";
             case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
-            case USERSESSION: return "UserSession";
             case VALUESET: return "ValueSet";
             case VERIFICATIONRESULT: return "VerificationResult";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -9016,6 +8990,8 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.MESSAGEDEFINITION;
         if ("MessageHeader".equals(codeString))
           return FHIRDefinedType.MESSAGEHEADER;
+        if ("MolecularSequence".equals(codeString))
+          return FHIRDefinedType.MOLECULARSEQUENCE;
         if ("NamingSystem".equals(codeString))
           return FHIRDefinedType.NAMINGSYSTEM;
         if ("NutritionOrder".equals(codeString))
@@ -9082,8 +9058,6 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.SCHEDULE;
         if ("SearchParameter".equals(codeString))
           return FHIRDefinedType.SEARCHPARAMETER;
-        if ("Sequence".equals(codeString))
-          return FHIRDefinedType.SEQUENCE;
         if ("ServiceRequest".equals(codeString))
           return FHIRDefinedType.SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -9124,8 +9098,6 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.TESTREPORT;
         if ("TestScript".equals(codeString))
           return FHIRDefinedType.TESTSCRIPT;
-        if ("UserSession".equals(codeString))
-          return FHIRDefinedType.USERSESSION;
         if ("ValueSet".equals(codeString))
           return FHIRDefinedType.VALUESET;
         if ("VerificationResult".equals(codeString))
@@ -9456,6 +9428,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MESSAGEDEFINITION);
         if ("MessageHeader".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MESSAGEHEADER);
+        if ("MolecularSequence".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MOLECULARSEQUENCE);
         if ("NamingSystem".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.NAMINGSYSTEM);
         if ("NutritionOrder".equals(codeString))
@@ -9522,8 +9496,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SCHEDULE);
         if ("SearchParameter".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SEARCHPARAMETER);
-        if ("Sequence".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SEQUENCE);
         if ("ServiceRequest".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SERVICEREQUEST);
         if ("Slot".equals(codeString))
@@ -9564,8 +9536,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.TESTREPORT);
         if ("TestScript".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.TESTSCRIPT);
-        if ("UserSession".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.USERSESSION);
         if ("ValueSet".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.VALUESET);
         if ("VerificationResult".equals(codeString))
@@ -9889,6 +9859,8 @@ into another (possibly the same) biological entity.
         return "MessageDefinition";
       if (code == FHIRDefinedType.MESSAGEHEADER)
         return "MessageHeader";
+      if (code == FHIRDefinedType.MOLECULARSEQUENCE)
+        return "MolecularSequence";
       if (code == FHIRDefinedType.NAMINGSYSTEM)
         return "NamingSystem";
       if (code == FHIRDefinedType.NUTRITIONORDER)
@@ -9955,8 +9927,6 @@ into another (possibly the same) biological entity.
         return "Schedule";
       if (code == FHIRDefinedType.SEARCHPARAMETER)
         return "SearchParameter";
-      if (code == FHIRDefinedType.SEQUENCE)
-        return "Sequence";
       if (code == FHIRDefinedType.SERVICEREQUEST)
         return "ServiceRequest";
       if (code == FHIRDefinedType.SLOT)
@@ -9997,8 +9967,6 @@ into another (possibly the same) biological entity.
         return "TestReport";
       if (code == FHIRDefinedType.TESTSCRIPT)
         return "TestScript";
-      if (code == FHIRDefinedType.USERSESSION)
-        return "UserSession";
       if (code == FHIRDefinedType.VALUESET)
         return "ValueSet";
       if (code == FHIRDefinedType.VERIFICATIONRESULT)
@@ -11430,7 +11398,7 @@ into another (possibly the same) biological entity.
          */
         CONTRACT, 
         /**
-         * Financial instrument which may be used to reimburse or pay for health care products and services.
+         * Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.
          */
         COVERAGE, 
         /**
@@ -11446,7 +11414,7 @@ into another (possibly the same) biological entity.
          */
         DETECTEDISSUE, 
         /**
-         * This resource identifies a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc. This is the catalog description of a device (not the specific instance).
+         * A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.
          */
         DEVICE, 
         /**
@@ -11686,6 +11654,10 @@ into another (possibly the same) biological entity.
          */
         MESSAGEHEADER, 
         /**
+         * Raw data describing a biological sequence.
+         */
+        MOLECULARSEQUENCE, 
+        /**
          * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
          */
         NAMINGSYSTEM, 
@@ -11818,10 +11790,6 @@ into another (possibly the same) biological entity.
          */
         SEARCHPARAMETER, 
         /**
-         * Raw data describing a biological sequence.
-         */
-        SEQUENCE, 
-        /**
          * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
          */
         SERVICEREQUEST, 
@@ -11902,10 +11870,6 @@ into another (possibly the same) biological entity.
          */
         TESTSCRIPT, 
         /**
-         * Information about a user's current session.
-         */
-        USERSESSION, 
-        /**
          * A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
          */
         VALUESET, 
@@ -11914,7 +11878,7 @@ into another (possibly the same) biological entity.
          */
         VERIFICATIONRESULT, 
         /**
-         * An authorization for the supply of glasses and/or contact lenses to a patient.
+         * An authorization for the provision of glasses and/or contact lenses to a patient.
          */
         VISIONPRESCRIPTION, 
         /**
@@ -12112,6 +12076,8 @@ into another (possibly the same) biological entity.
           return MESSAGEDEFINITION;
         if ("MessageHeader".equals(codeString))
           return MESSAGEHEADER;
+        if ("MolecularSequence".equals(codeString))
+          return MOLECULARSEQUENCE;
         if ("NamingSystem".equals(codeString))
           return NAMINGSYSTEM;
         if ("NutritionOrder".equals(codeString))
@@ -12178,8 +12144,6 @@ into another (possibly the same) biological entity.
           return SCHEDULE;
         if ("SearchParameter".equals(codeString))
           return SEARCHPARAMETER;
-        if ("Sequence".equals(codeString))
-          return SEQUENCE;
         if ("ServiceRequest".equals(codeString))
           return SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -12220,8 +12184,6 @@ into another (possibly the same) biological entity.
           return TESTREPORT;
         if ("TestScript".equals(codeString))
           return TESTSCRIPT;
-        if ("UserSession".equals(codeString))
-          return USERSESSION;
         if ("ValueSet".equals(codeString))
           return VALUESET;
         if ("VerificationResult".equals(codeString))
@@ -12326,6 +12288,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "MedicinalProductUndesirableEffect";
             case MESSAGEDEFINITION: return "MessageDefinition";
             case MESSAGEHEADER: return "MessageHeader";
+            case MOLECULARSEQUENCE: return "MolecularSequence";
             case NAMINGSYSTEM: return "NamingSystem";
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
@@ -12359,7 +12322,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "RiskEvidenceSynthesis";
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
-            case SEQUENCE: return "Sequence";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -12380,7 +12342,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "TerminologyCapabilities";
             case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
-            case USERSESSION: return "UserSession";
             case VALUESET: return "ValueSet";
             case VERIFICATIONRESULT: return "VerificationResult";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -12483,6 +12444,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "http://hl7.org/fhir/resource-types";
             case MESSAGEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case MESSAGEHEADER: return "http://hl7.org/fhir/resource-types";
+            case MOLECULARSEQUENCE: return "http://hl7.org/fhir/resource-types";
             case NAMINGSYSTEM: return "http://hl7.org/fhir/resource-types";
             case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
@@ -12516,7 +12478,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "http://hl7.org/fhir/resource-types";
             case SCHEDULE: return "http://hl7.org/fhir/resource-types";
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
-            case SEQUENCE: return "http://hl7.org/fhir/resource-types";
             case SERVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
@@ -12537,7 +12498,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "http://hl7.org/fhir/resource-types";
             case TESTREPORT: return "http://hl7.org/fhir/resource-types";
             case TESTSCRIPT: return "http://hl7.org/fhir/resource-types";
-            case USERSESSION: return "http://hl7.org/fhir/resource-types";
             case VALUESET: return "http://hl7.org/fhir/resource-types";
             case VERIFICATIONRESULT: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -12576,11 +12536,11 @@ into another (possibly the same) biological entity.
             case CONDITION: return "A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.";
             case CONSENT: return "A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.";
-            case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services.";
+            case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.";
             case COVERAGEELIGIBILITYREQUEST: return "The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.";
             case COVERAGEELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
-            case DEVICE: return "This resource identifies a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc. This is the catalog description of a device (not the specific instance).";
+            case DEVICE: return "A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.";
             case DEVICEDEFINITION: return "The characteristics, operational status and capabilities of a medical-related component of a medical device.";
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
@@ -12640,6 +12600,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "Describe the undesirable effects of the medicinal product.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
             case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
+            case MOLECULARSEQUENCE: return "Raw data describing a biological sequence.";
             case NAMINGSYSTEM: return "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.";
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
@@ -12673,7 +12634,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "The RiskEvidenceSynthesis resource describes the likelihood of an outcome in a population plus exposure state where the risk estimate is derived from a combination of research studies.";
             case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
-            case SEQUENCE: return "Raw data describing a biological sequence.";
             case SERVICEREQUEST: return "A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
@@ -12694,10 +12654,9 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case TESTREPORT: return "A summary of information based on the results of executing a TestScript.";
             case TESTSCRIPT: return "A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.";
-            case USERSESSION: return "Information about a user's current session.";
             case VALUESET: return "A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).";
             case VERIFICATIONRESULT: return "Describes validation requirements, source(s), status and dates for one or more elements.";
-            case VISIONPRESCRIPTION: return "An authorization for the supply of glasses and/or contact lenses to a patient.";
+            case VISIONPRESCRIPTION: return "An authorization for the provision of glasses and/or contact lenses to a patient.";
             default: return "?";
           }
         }
@@ -12797,6 +12756,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTUNDESIRABLEEFFECT: return "MedicinalProductUndesirableEffect";
             case MESSAGEDEFINITION: return "MessageDefinition";
             case MESSAGEHEADER: return "MessageHeader";
+            case MOLECULARSEQUENCE: return "MolecularSequence";
             case NAMINGSYSTEM: return "NamingSystem";
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
@@ -12830,7 +12790,6 @@ into another (possibly the same) biological entity.
             case RISKEVIDENCESYNTHESIS: return "RiskEvidenceSynthesis";
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
-            case SEQUENCE: return "Sequence";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -12851,7 +12810,6 @@ into another (possibly the same) biological entity.
             case TERMINOLOGYCAPABILITIES: return "TerminologyCapabilities";
             case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
-            case USERSESSION: return "UserSession";
             case VALUESET: return "ValueSet";
             case VERIFICATIONRESULT: return "VerificationResult";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -13053,6 +13011,8 @@ into another (possibly the same) biological entity.
           return ResourceType.MESSAGEDEFINITION;
         if ("MessageHeader".equals(codeString))
           return ResourceType.MESSAGEHEADER;
+        if ("MolecularSequence".equals(codeString))
+          return ResourceType.MOLECULARSEQUENCE;
         if ("NamingSystem".equals(codeString))
           return ResourceType.NAMINGSYSTEM;
         if ("NutritionOrder".equals(codeString))
@@ -13119,8 +13079,6 @@ into another (possibly the same) biological entity.
           return ResourceType.SCHEDULE;
         if ("SearchParameter".equals(codeString))
           return ResourceType.SEARCHPARAMETER;
-        if ("Sequence".equals(codeString))
-          return ResourceType.SEQUENCE;
         if ("ServiceRequest".equals(codeString))
           return ResourceType.SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -13161,8 +13119,6 @@ into another (possibly the same) biological entity.
           return ResourceType.TESTREPORT;
         if ("TestScript".equals(codeString))
           return ResourceType.TESTSCRIPT;
-        if ("UserSession".equals(codeString))
-          return ResourceType.USERSESSION;
         if ("ValueSet".equals(codeString))
           return ResourceType.VALUESET;
         if ("VerificationResult".equals(codeString))
@@ -13367,6 +13323,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<ResourceType>(this, ResourceType.MESSAGEDEFINITION);
         if ("MessageHeader".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.MESSAGEHEADER);
+        if ("MolecularSequence".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.MOLECULARSEQUENCE);
         if ("NamingSystem".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.NAMINGSYSTEM);
         if ("NutritionOrder".equals(codeString))
@@ -13433,8 +13391,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<ResourceType>(this, ResourceType.SCHEDULE);
         if ("SearchParameter".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.SEARCHPARAMETER);
-        if ("Sequence".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.SEQUENCE);
         if ("ServiceRequest".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.SERVICEREQUEST);
         if ("Slot".equals(codeString))
@@ -13475,8 +13431,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<ResourceType>(this, ResourceType.TESTREPORT);
         if ("TestScript".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.TESTSCRIPT);
-        if ("UserSession".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.USERSESSION);
         if ("ValueSet".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.VALUESET);
         if ("VerificationResult".equals(codeString))
@@ -13674,6 +13628,8 @@ into another (possibly the same) biological entity.
         return "MessageDefinition";
       if (code == ResourceType.MESSAGEHEADER)
         return "MessageHeader";
+      if (code == ResourceType.MOLECULARSEQUENCE)
+        return "MolecularSequence";
       if (code == ResourceType.NAMINGSYSTEM)
         return "NamingSystem";
       if (code == ResourceType.NUTRITIONORDER)
@@ -13740,8 +13696,6 @@ into another (possibly the same) biological entity.
         return "Schedule";
       if (code == ResourceType.SEARCHPARAMETER)
         return "SearchParameter";
-      if (code == ResourceType.SEQUENCE)
-        return "Sequence";
       if (code == ResourceType.SERVICEREQUEST)
         return "ServiceRequest";
       if (code == ResourceType.SLOT)
@@ -13782,8 +13736,6 @@ into another (possibly the same) biological entity.
         return "TestReport";
       if (code == ResourceType.TESTSCRIPT)
         return "TestScript";
-      if (code == ResourceType.USERSESSION)
-        return "UserSession";
       if (code == ResourceType.VALUESET)
         return "ValueSet";
       if (code == ResourceType.VERIFICATIONRESULT)
