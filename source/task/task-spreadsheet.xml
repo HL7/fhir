@@ -4,7 +4,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2018-08-11T01:13:26Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -19,7 +19,7 @@
   
   
   <TabRatio>670</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4078,7 +4078,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6034,7 +6033,7 @@
    <Column ss:StyleID="s141" ss:Width="182.0"/>
    <Column ss:StyleID="s141" ss:Width="28.0"/>
    <Column ss:StyleID="s141" ss:Width="328.0"/>
-   <Column ss:StyleID="s141" ss:Width="57.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s141" ss:Width="67.0"/>
    <Column ss:Span="1" ss:StyleID="s141" ss:Width="206.0"/>
    <Column ss:Index="7" ss:StyleID="s141" ss:Width="40.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -6101,56 +6100,56 @@
     <Cell ss:StyleID="s150"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Cancel a preauthorization</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example of the cancellation of a preauthorization</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">fm-example1</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">task-example-fm-cancel.xml</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s152"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Cancel a preauthorization</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example of polling for queued resources</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">fm-example2</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">task-example-fm-poll.xml</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s152"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Cancel a preauthorization</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example of the release of the balance of reserved funds for a preauthorization</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">fm-example3</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">task-example-fm-release.xml</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s152"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Cancel a preauthorization</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example of the cancellation of a preauthorization</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">fm-example4</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">task-example-fm-reprocess.xml</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s152"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Cancel a preauthorization</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example of checking the processing status of a preauthorization</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">fm-example5</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">task-example-fm-status.xml</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s152"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Cancel a preauthorization</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example of the response to checking the processing status of a preauthorization</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">fm-example6</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">task-example-fm-status-resp.xml</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s152"/>
    </Row>
@@ -6437,6 +6436,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

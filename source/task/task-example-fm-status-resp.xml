@@ -27,8 +27,8 @@
 	<!--   fictive code and description elements populated for this example    -->
 	<code> 
 		<coding>
-			<system value="http://hl7.org/ex-financial-task-codes"/>
-			<value value="status"/>
+			<system value="http://terminology.hl7.org/CodeSystem/financialtaskcode"/>
+			<code value="status"/>
 		</coding>
 	</code> 
 	<focus> 
@@ -47,14 +47,13 @@
 		<identifier>
 			<system value="http://nationalinsurers.com/identifiers"/>
 			<value value="12345"/>
-			<display value="Great Care Benefits Inc."/>
 		</identifier>
 	</owner> 
 	<output>
 		<type>
 			<coding>
-				<system value="http://hl7.org/ex-financial-taskinputtypes"/>
-				<value value="status"/> <!-- the processing status of the referenced resource -->
+				<system value="http://hl7.org/financial-taskoutputtype"/>
+				<code value="status"/> <!-- the processing status of the referenced resource -->
 			</coding>
 		</type>
 		<valueCode value="complete"/>

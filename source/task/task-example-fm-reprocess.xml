@@ -22,8 +22,8 @@
 	<!--   fictive code and description elements populated for this example    -->
 	<code> 
 		<coding>
-			<system value="http://hl7.org/ex-financial-task-codes"/>
-			<value value="reprocess"/>
+			<system value="http://terminology.hl7.org/CodeSystem/financialtaskcode"/>
+			<code value="reprocess"/>
 		</coding>
 	</code> 
 	<focus> 
@@ -42,14 +42,13 @@
 		<identifier>
 			<system value="http://nationalinsurers.com/identifiers"/>
 			<value value="12345"/>
-			<display value="Great Care Benefits Inc."/>
 		</identifier>
 	</owner> 
 	<input>
 		<type>
 			<coding>
-				<system value="http://hl7.org/ex-financial-taskinputtypes"/>
-				<value value="origresponse"/> <!-- identifier of the insurer's response to the preauthorization -->
+				<system value="http://terminology.hl7.org/CodeSystem/financialtaskinputtype"/>
+				<code value="origresponse"/> <!-- identifier of the insurer's response to the preauthorization -->
 			</coding>
 		</type>
 		<valueReference>
@@ -62,8 +61,8 @@
 	<input>
 		<type>
 			<coding>
-				<system value="http://hl7.org/ex-financial-taskinputtypes"/>
-				<value value="reference"/> <!-- authorization reference -->
+				<system value="http://terminology.hl7.org/CodeSystem/financialtaskinputtype"/>
+				<code value="reference"/> <!-- authorization reference -->
 			</coding>
 		</type>
 		<valueString value="BR12345"/> 
@@ -71,8 +70,8 @@
 	<input>
 		<type>
 			<coding>
-				<system value="http://hl7.org/ex-financial-taskinputtypes"/>
-				<value value="item"/> <!-- line item sequence number to reprocess -->
+				<system value="http://terminology.hl7.org/CodeSystem/financialtaskinputtype"/>
+				<code value="item"/> <!-- line item sequence number to reprocess -->
 			</coding>
 		</type>
 		<valuePositiveInt value="2"/>
@@ -80,8 +79,8 @@
 	<input>
 		<type>
 			<coding>
-				<system value="http://hl7.org/ex-financial-taskinputtypes"/>
-				<value value="item"/> <!-- line item sequence number to reprocess -->
+				<system value="http://terminology.hl7.org/CodeSystem/financialtaskinputtype"/>
+				<code value="item"/> <!-- line item sequence number to reprocess -->
 			</coding>
 		</type>
 		<valuePositiveInt value="3"/>
