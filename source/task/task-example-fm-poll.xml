@@ -23,8 +23,8 @@
 	<!--   fictive code and description elements populated for this example    -->
 	<code> 
 		<coding>
-			<system value="http://hl7.org/ex-financial-task-codes"/>
-			<value value="poll"/>
+			<system value="http://terminology.hl7.org/CodeSystem/financialtaskcode"/>
+			<code value="poll"/>
 		</coding>
 	</code> 
 	<authoredOn value="2018-10-12T08:25:05+10:00"/> 
@@ -37,14 +37,13 @@
 		<identifier>
 			<system value="http://nationalinsurers.com/identifiers"/>
 			<value value="12345"/>
-			<display value="Great Care Benefits Inc."/>
 		</identifier>
 	</owner> 
 	<input>
 		<type>
 			<coding>
-				<system value="http://hl7.org/ex-financial-taskinputtypes"/>
-				<value value="include"/>
+				<system value="http://terminology.hl7.org/CodeSystem/financialtaskinputtype"/>
+				<code value="include"/>
 			</coding>
 		</type>
 		<valueCode value="ClaimResponse"/>
@@ -52,13 +51,13 @@
 	<input>
 		<type>
 			<coding>
-				<system value="http://hl7.org/ex-financial-taskinputtypes"/>
-				<value value="period"/>
+				<system value="http://terminology.hl7.org/CodeSystem/financialtaskinputtype"/>
+				<code value="period"/>
 			</coding>
 		</type>
 		<valuePeriod>
 			<start value="2018-10-01"/>
 			<end value="2018-10-12"/>
 		</valuePeriod>
-	</input>
+	</input> 
 </Task> 

@@ -22,8 +22,8 @@
 	<!--   fictive code and description elements populated for this example    -->
 	<code> 
 		<coding>
-			<system value="http://hl7.org/ex-financial-task-codes"/>
-			<value value="cancel"/>
+			<system value="http://terminology.hl7.org/CodeSystem/financialtaskcode"/>
+			<code value="cancel"/>
 		</coding>
 	</code> 
 	<focus> 
@@ -42,7 +42,6 @@
 		<identifier>
 			<system value="http://nationalinsurers.com/identifiers"/>
 			<value value="12345"/>
-			<display value="Great Care Benefits Inc."/>
 		</identifier>
 	</owner> 
 </Task> 
