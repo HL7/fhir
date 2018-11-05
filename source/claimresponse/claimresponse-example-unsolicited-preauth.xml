@@ -36,9 +36,9 @@
 		</identifier>
 	</insurer>
 
-	<requestProvider>
+	<requestor>
 		<reference value="Organization/1"/>
-	</requestProvider>
+	</requestor>
 
 	<outcome value="complete" />
 
@@ -58,12 +58,12 @@
 	<!-- Authorization to receive an exam and an Xray panel -->
 	<addItem> <!-- Exam -->
 		<itemSequence value="1"/> 
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="1101"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<modifier>
 			<coding>
 				<system value="http://example.org/fhir/modifiers"/>
@@ -124,13 +124,13 @@
 
 	<addItem> <!-- Xray Panel -->
 		<itemSequence value="1"/> 
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="2101"/>
 				<display value="Radiograph, series (12)"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<net>
 			<value value="800.00"/>
 			<currency value="USD"/>

@@ -27,9 +27,9 @@
   }
 }}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "display" : "sexually transmitted disease information sensitivity",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -60,9 +60,9 @@ v: {
   }
 }}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "display" : "delete after use",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -82,9 +82,9 @@ v: {
   }
 }}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "display" : "extended healthcare",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -105,9 +105,9 @@ v: {
   }
 }}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "display" : "health insurance plan policy",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -167,9 +167,9 @@ v: {
   }
 }}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "display" : "taboo",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -210,7 +210,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "error" : "The code provided (http://terminology.hl7.org/CodeSystem/v3-ActCode#EMRGONLY) is not  valid in the value set ConsentCategoryCodes"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -249,9 +249,9 @@ v: {
   }
 }}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "display" : "access only",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -281,9 +281,9 @@ v: {
   }
 }}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "display" : "psychiatry disorder information sensitivity",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -313,9 +313,9 @@ v: {
   }
 }}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "display" : "specially protected information sensitivity",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -345,9 +345,9 @@ v: {
   }
 }}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "display" : "sexuality and reproductive health information sensitivity",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -392,9 +392,9 @@ v: {
   }
 }}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system "
+  "display" : "extended healthcare",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {

@@ -146,7 +146,7 @@ ServiceRequest/123  (report is based on this request)
 	<entry>
 		<fullUrl value="urn:uuid:8200dab6-18a2-4550-b913-a7db480c0804"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -176,18 +176,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="773"/>
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCAGGAGACACGGAATATGAAGGCCCACTCACAGACTGACCGAGCGAACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGACG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:7c393185-f15c-45bc-a714-c0fdbea32675"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -217,18 +217,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="1290"/>
 				</referenceSeq>
 				<observedSeq value="GTTCTCACACCATCCAGATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGGGTACCGGCAGGACGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCAGCTCAGATCACCAAGCGCAAGTGGGAGGCGGTCCATGCGGCGGAGCAGCGGAGAGTCTACCTGGAGGGCCGGTGCGTGGACGGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:65c85f14-c3a0-4b72-818f-820e04fcc621"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -258,18 +258,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="773"/>
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAGGTATTTCTCCACATCCGTGTCCCGGCCCGGCAGTGGAGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCAGGAGACACGGAATATGAAGGCCCACTCACAGACTGACCGAGCGAACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGACG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:fbba9fe7-0ece-4ec1-9233-a437a8d242a0"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -299,18 +299,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="1290"/>
 				</referenceSeq>
 				<observedSeq value="GTTCTCACACCATCCAGATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGGGTACCGGCAGGACGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCAGCTCAGATCACCAAGCGCAAGTGGGAGGCGGTCCATGCGGCGGAGCAGCGGAGAGTCTACCTGGAGGGCCGGTGCGTGGACGGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:cbabf93e-1b4b-46f2-ba1e-d84862670670"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -340,18 +340,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="756"/>
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAGGTATTTCTACACCGCCATGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACCCAGTTCGTGAGGTTCGACAGCGACGCCGCGAGTCCGAGGATGGCGCCCCGGGCGCCATGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCGGGAGACACAGATCTCCAAGACCAACACACAGACTTACCGAGAGAGCCTGCGGAACCTGCGCGGCTACTACAACCAGAGCGAGGCCG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:c233ad3d-1572-48d6-93da-0a583535e138"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -381,18 +381,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="1277"/>
 				</referenceSeq>
 				<observedSeq value="GGTCTCACACCCTCCAGAGGATGTACGGCTGCGACGTGGGGCCGGACGGGCGCCTCCTCCGCGGGCATGACCAGTCCGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGACCTGAGCTCCTGGACCGCGGCGGACACGGCGGCTCAGATCACCCAGCGCAAGTGGGAGGCGGCCCGTGAGGCGGAGCAGTGGAGAGCCTACCTGGAGGGCCTGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCGCGG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:05fa52d7-5c67-460a-8722-d3460b24d6fe"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -422,18 +422,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="755"/>
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAGGTATTTCTACACCGCCATGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACCCAGTTCGTGAGGTTCGACAGCGACGCCGCGAGTCCGAGGATGGCGCCCCGGGCGCCATGGATAGAGCAGGAGGGGCCGGAGTATTGGGACGGGGAGACACGGAACATGAAGGCCTCCGCGCAGACTTACCGAGAGAACCTGCGGATCGCGCTCCGCTACTACAACCAGAGCGAGGCCG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:db69e549-6267-4777-b4b9-8813f3329309"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -463,18 +463,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="1277"/>
 				</referenceSeq>
 				<observedSeq value="GGTCTCACATCATCCAGGTGATGTATGGCTGCGACGTGGGGCCGGACGGGCGCCTCCTCCGCGGGCATGACCAGTCCGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGACCTGAGCTCCTGGACCGCGGCGGACACGGCGGCTCAGATCACCCAGCGCAAGTGGGAGGCGGCCCGTGTGGCGGAGCAGCTGAGAGCCTACCTGGAGGGCCTGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCGCGG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:bb55c2bc-5ad2-4bc1-8ff3-c407d06b12d0"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -504,18 +504,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="756"/>
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAAGTATTTCTTCACATCCGTGTCCCGGCCTGGCCGCGGAGAGCCCCGCTTCATCTCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGTCCGAGAGGGGAGCCGCGGGCGCCGTGGGTGGAGCAGGAGGGGCCGGAGTATTGGGACCGGGAGACACAGAAGTACAAGCGCCAGGCACAGACTGACCGAGTGAGCCTGCGGAACCTGCGCGGCTACTACAACCAGAGCGAGGCCG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:46938bb2-0486-4e87-bfd3-89aab2d5e22f"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -545,18 +545,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="1278"/>
 				</referenceSeq>
 				<observedSeq value="GGTCTCACACCCTCCAGTGGATGTGTGGCTGCGACCTGGGGCCCGACGGGCGCCTCCTCCGCGGGTATGACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGACCTGCGCTCCTGGACCGCCGCGGACACCGCGGCTCAGATCACCCAGCGCAAGTGGGAGGCGGCCCGTGAGGCGGAGCAGCGGAGAGCCTACCTGGAGGGCACGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCGCGG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:2ae2ff34-279e-43c2-9018-b054fd3fc1ce"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -586,18 +586,18 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="756"/>
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAGGTATTTCTACACCGCTGTGTCCCGGCCCGGCCGCGGGGAGCCCCACTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGTCCGAGAGGGGAGCCGCGGGCGCCGTGGGTGGAGCAGGAGGGGCCGGAGTATTGGGACCGGGAGACACAGAAGTACAAGCGCCAGGCACAGACTGACCGAGTGAGCCTGCGGAACCTGCGCGGCTACTACAACCAGAGCGAGGCCG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>
 		<fullUrl value="urn:uuid:19153ef1-68c6-47a2-9676-c4eefbd39af9"/>
 		<resource>
-			<Sequence>
+			<MolecularSequence>
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
@@ -627,12 +627,12 @@ ServiceRequest/123  (report is based on this request)
 					<windowEnd value="1277"/>
 				</referenceSeq>
 				<observedSeq value="GGTCTCACATCATCCAGAGGATGTATGGCTGCGACGTGGGGCCCGACGGGCGCCTCCTCCGCGGGTATGACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGATCTGCGCTCCTGGACCGCCGCGGACACGGCGGCTCAGATCACCCAGCGCAAGTGGGAGGCGGCCCGTGAGGCGGAGCAGCTGAGAGCCTACCTGGAGGGCCTGTGCGTGGAGTGGCTCCGCAGATACCTGAAGAATGGGAAGGAGACGCTGCAGCGCGCGG"/>
-			</Sequence>
+			</MolecularSequence>
 		</resource>
     <!--    transaction details    -->
     <request>
 			<method value="POST"/>
-			<url value="Sequence"/>
+			<url value="MolecularSequence"/>
 		</request>
 	</entry>
 	<entry>

@@ -1,5 +1,4 @@
 -------------------------------------------------------------------------------------
-
 {"code" : {
   "system" : "urn:oid:2.16.840.1.113883.2.4.15.111",
   "code" : "01.000"
@@ -7,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.2.4.15.111"
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known; The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.000) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -496,7 +495,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.2.4.15.111"
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known; The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.011, (specialization)) is not  valid in the value set PracticeSettingCodeValueSet"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -985,7 +984,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.2.4.15.111"
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known; The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.015, (specialization)) is not  valid in the value set PracticeSettingCodeValueSet"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1474,7 +1473,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.2.4.15.111"
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known; The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.018, (specialization)) is not  valid in the value set PracticeSettingCodeValueSet"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1963,7 +1962,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.2.4.15.111"
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known; The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.018, (specialization)) is not  valid in the value set PracticeSettingCodeValueSet"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2452,6 +2451,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.2.4.15.111"
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known; The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#17.000, (specialization)) is not  valid in the value set PracticeSettingCodeValueSet"
 }
 -------------------------------------------------------------------------------------

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
+// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -44,18 +44,18 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A human-readable formatted text, including images.
+ * A human-readable summary of the resource conveying the essential clinical and business information for the resource.
  */
 @DatatypeDef(name="Narrative")
 public class Narrative extends BaseNarrative implements INarrative {
 
     public enum NarrativeStatus {
         /**
-         * The contents of the narrative are entirely generated from the structured data in the content.
+         * The contents of the narrative are entirely generated from the core elements in the content.
          */
         GENERATED, 
         /**
-         * The contents of the narrative are entirely generated from the structured data in the content and some of the content is generated from extensions. The narrative SHALL reflect the impact of all modifier extensions.
+         * The contents of the narrative are entirely generated from the core elements in the content and some of the content is generated from extensions. The narrative SHALL reflect the impact of all modifier extensions.
          */
         EXTENSIONS, 
         /**
@@ -106,8 +106,8 @@ public class Narrative extends BaseNarrative implements INarrative {
         }
         public String getDefinition() {
           switch (this) {
-            case GENERATED: return "The contents of the narrative are entirely generated from the structured data in the content.";
-            case EXTENSIONS: return "The contents of the narrative are entirely generated from the structured data in the content and some of the content is generated from extensions. The narrative SHALL reflect the impact of all modifier extensions.";
+            case GENERATED: return "The contents of the narrative are entirely generated from the core elements in the content.";
+            case EXTENSIONS: return "The contents of the narrative are entirely generated from the core elements in the content and some of the content is generated from extensions. The narrative SHALL reflect the impact of all modifier extensions.";
             case ADDITIONAL: return "The contents of the narrative may contain additional information not found in the structured data. Note that there is no computable way to determine what the extra information is, other than by human inspection.";
             case EMPTY: return "The contents of the narrative are some equivalent of \"No human-readable text provided in this case\".";
             default: return "?";
@@ -293,7 +293,7 @@ public class Narrative extends BaseNarrative implements INarrative {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<NarrativeStatus>
-        case 99473: /*div*/ return this.div == null ? new Base[0] : new Base[] {new XhtmlType(this)}; // XhtmlNode
+        case 99473: /*div*/ return this.div == null ? new Base[0] : new Base[] {new StringType(new org.hl7.fhir.utilities.xhtml.XhtmlComposer(true).composeEx(this.div))}; // XhtmlNode
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -308,7 +308,7 @@ public class Narrative extends BaseNarrative implements INarrative {
           return value;
         case 99473: // div
           this.div = castToXhtml(value); // XhtmlNode
-          return new XhtmlType(this);
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 

@@ -33,6 +33,6 @@
 		</coding>
 	</valueCodeableConcept>
 	<derivedFrom>
-		<reference value="Sequence/example-TPMT-two"/>
+		<reference value="MolecularSequence/example-TPMT-two"/>
 	</derivedFrom>
 </Observation>

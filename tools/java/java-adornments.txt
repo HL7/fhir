@@ -416,7 +416,13 @@ ICoding
     }
     return false;
   } 
-      
+
+  public CodeableConcept(Coding code) {
+    super();
+    addCoding(code);
+  }
+  
+  
 ----
 
 -- Binary --

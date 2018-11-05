@@ -13,14 +13,20 @@
 
 	<status value="active"/>
 
+	<purpose value="validation"/>
+
+	<patient>
+		<reference value="Patient/f201"/>
+	</patient>
+
 	<created value="2014-09-16"/>
 
-	<requestProvider>
+	<requestor>
 		<identifier>
 			<system value="http://national.org/clinic"/>
 			<value value="OR1234"/>
 		</identifier>   
-	</requestProvider>
+	</requestor>
 
 	<request>
 		<reference value="http://www.BenefitsInc.com/fhir/coverageeligibilityresponse/225476332406"/>

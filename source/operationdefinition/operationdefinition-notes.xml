@@ -79,17 +79,17 @@ There are two ways to pass resources to an operation: directly or by reference.
 The definition of an operation distinguishes between these two, since they have very different behaviors and consequences.
 </p>
 <p>
-As an example, take the <a href="questionnaire-operation-populate.html">Questionnaire.$populate operation</a>.  
-This operation takes a questionnaire as a direct parameter. The type of the parameter is 
-defined as 'Questionnaire'. In a <a href="parameters.html">Parameters</a> resource, it would be represented like this:
+As an example, take the <a href="valueset-operation-expand.html">ValueSet.$expand operation</a>.  
+This operation takes a valueset as a direct parameter. The type of the parameter is 
+defined as 'ValueSet'. In a <a href="parameters.html">Parameters</a> resource, it would be represented like this:
 </p>
 <pre class="xml">
   &lt;parameter&gt;
-    &lt;name value=&quot;questionnaire&quot;/&gt;
+    &lt;name value=&quot;valueset&quot;/&gt;
     &lt;resource&gt;
-      &lt;Questionnaire&gt;
-        &lt;!-- Questionnaire contents --&gt;
-      &lt;/Questionnaire&gt;
+      &lt;ValueSet&gt;
+        &lt;!-- Valueset contents --&gt;
+      &lt;/ValueSet&gt;
     &lt;/resource&gt;
   &lt;/parameter&gt; 
 </pre>
@@ -99,28 +99,27 @@ or, in JSON:
 <pre>
  "parameter": [
     {
-      "name": "questionnaire",
+      "name": "valueset",
       "resource": {
-        "resourceType": "Questionnaire",
-        // Questionnaire contents 
+        "resourceType": "ValueSet",
+        // Valueset contents 
       }
     }
   ]
 </pre>
 
 <p>
-Other parameters are passed by reference. For example, <code>$populate</code> takes a 
-set of references to other resources that should be used to pre-populate the 
-questionnaire. These are passed by reference, and the type of the 
-parameter is <code>Reference(Any)</code> - a reference to any kind of resource.
-In a parameters resource, it would be represented like this: 
+Other parameters are passed by reference. For example, the <a href="chargeitemdefinition-operation-apply.html">ChargeItemDefinition.$apply operation</a> 
+takes two parameters of type Reference - one to the chargeItem and the other to the account.  The type of the 
+parameters is <code>Reference(Charge)</code> and <code>Reference(Account)</code>, respectively.  The expectation is that the server performing the 
+operation will resolve those references as part of the operation execution.
+In a parameters resource, the chargeItem parameter would be represented like this: 
 </p>
 <pre class="xml">
   &lt;parameter&gt;
-    &lt;name value=&quot;content&quot;/&gt;
+    &lt;name value=&quot;chargeItem&quot;/&gt;
     &lt;valueReference&gt;
-      &lt;reference value="Patient/123"&gt;
-      &lt;/Questionnaire&gt;
+      &lt;reference value="ChargeItem/123"/&gt;
     &lt;/valueReference&gt;
   &lt;/parameter&gt; 
 </pre>
@@ -130,9 +129,9 @@ or, in JSON:
 <pre>
  "parameter": [
     {
-      "name": "questionnaire",
+      "name": "chargeItem",
       "valueReference" : {
-        "reference" : "Patient/123"
+        "reference" : "ChargeItem/123"
       }
     }
   ]
@@ -140,7 +139,7 @@ or, in JSON:
 
 <p>
 Some operations can take either form; in that case, two distinct parameters
-must be defined, one for a resource as a direct parameter, and one for a reference.
+must be defined: one for a resource as a direct parameter, and one for a reference.
 </p>
 
 <a name="renaming"></a>

@@ -1,5 +1,4 @@
 -------------------------------------------------------------------------------------
-
 {"code" : {
   "system" : "http://terminology.hl7.org/CodeSystem/0078",
   "code" : "L"
@@ -7,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/0078"
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/0078\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/0078#L) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -28,6 +27,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/0078"
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/0078\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/0078#L, (Below low normal)) is not  valid in the value set ObservationInterpretationCodes"
 }
 -------------------------------------------------------------------------------------

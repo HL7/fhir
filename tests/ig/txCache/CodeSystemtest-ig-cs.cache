@@ -12,8 +12,7 @@
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
 }
@@ -31,8 +30,7 @@ e: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
 }
@@ -50,8 +48,7 @@ e: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
 }
@@ -69,8 +66,7 @@ e: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
 }
@@ -82,8 +78,7 @@ e: {
       "system" : "http://hl7.org/fhir/CodeSystem/test-ig-cs"
     }]
   }
-}}
-####
+}}####
 e: {
   "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
 }

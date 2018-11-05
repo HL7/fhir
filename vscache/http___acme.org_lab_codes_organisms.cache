@@ -6,6 +6,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/organisms"
+  "error" : "The code system \"http://acme.org/lab/codes/organisms\" is not known; The code provided (http://acme.org/lab/codes/organisms#Staaur) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

@@ -56,7 +56,7 @@ query responses, etc.).  The content of bundles is typically algorithmically det
 The <a href="composition.html">Composition</a> resource - defines a set of healthcare-related information that is assembled 
 together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
 that has clinical attestation with regard to who is making the statement. The Composition resource provides the basic structure 
-of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a bundle 
+of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a <a href="bundle.html">Bundle</a> 
 containing the Composition and its entries. 
 </li>
 </ul>
@@ -66,13 +66,14 @@ and references other resources for supporting data. The narrative content of the
 supported by the resources referenced in the section entries.  The complete set of content to make up a document includes 
 the Composition resource together with various resources pointed to or indirectly
 connected to the Composition, all gathered together into a <a href="bundle.html">Bundle</a> for transport and persistence.
-The following list of Composition references SHALL be included in the bundle:
+Resources associated with the following list of Composition references SHALL be included in the <a href="bundle.html">Bundle</a>:
 </p>
 <%res-ref-list Composition%>
 
 <p>
-Other resources referred to by those resources may be included in the bundle at the discretion of the authoring 
-system, or as specified by any applicable profiles. 
+Other resources referred to by those resources MAY be included in the <a href="bundle.html">Bundle</a> at the discretion of the authoring 
+system as documented in the system's operation definition (such as <a href="composition-operation-document.html">$document</a> operation), 
+or as specified by any applicable profiles. 
 </p>
 </div>
 

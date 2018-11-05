@@ -5295,7 +5295,7 @@ public class VersionConvertor_14_40 {
     tgt.setQuestionnaireElement(convertReferenceToCanonical(src.getQuestionnaire()));
     tgt.setStatus(convertQuestionnaireResponseStatus(src.getStatus()));
     tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setContext(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setAuthor(convertReference(src.getAuthor()));
     if (src.hasAuthored())
       tgt.setAuthored(src.getAuthored());
@@ -5314,7 +5314,7 @@ public class VersionConvertor_14_40 {
     tgt.setQuestionnaire(convertCanonicalToReference(src.getQuestionnaireElement()));
     tgt.setStatus(convertQuestionnaireResponseStatus(src.getStatus()));
     tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setEncounter(convertReference(src.getContext()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setAuthor(convertReference(src.getAuthor()));
     if (src.hasAuthored())
       tgt.setAuthored(src.getAuthored());

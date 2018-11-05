@@ -21,8 +21,7 @@ v: {
       }]
     }]
   }
-}}
-####
+}}####
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
@@ -35,8 +34,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:97bc7b77-0595-423e-ac4e-c26230e0f06c",
-    "timestamp" : "2018-10-17T19:58:38.302Z",
+    "identifier" : "urn:uuid:e2c1d0a3-00d6-42e7-b92b-18b1668adeec",
+    "timestamp" : "2018-11-03T14:34:44.647Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"

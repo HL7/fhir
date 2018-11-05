@@ -1,0 +1,10 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile defines extensions that can be used to provide alignment with the <a href="request.html">Request</a> workflow pattern.  These extensions cover concepts that may be generally applicable but are be sufficiently uncommon that they are more appropriate to include as extensions than as core properties of the resource.  See the <a href="workflow-module.html">workflow module</a> for more discussion about this specification defines the Event logical model for resources that are typically involved in workflow.
+</p>
+</div>
+
+</div>

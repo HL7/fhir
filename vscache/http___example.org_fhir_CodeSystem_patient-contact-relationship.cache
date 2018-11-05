@@ -20,6 +20,6 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The filter \"concept is-not-a O\" was not understood in the context of http://terminology.hl7.org/CodeSystem/v2-0131"
+  "error" : "The code system \"http://example.org/fhir/CodeSystem/patient-contact-relationship\" is not known; The code provided (http://example.org/fhir/CodeSystem/patient-contact-relationship#E) is not  valid in the value set PatientContactRelationship"
 }
 -------------------------------------------------------------------------------------

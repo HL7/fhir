@@ -36,9 +36,9 @@
 		</identifier>
 	</insurer>
 
-	<requestProvider>
+	<requestor>
 		<reference value="Organization/1"/>
-	</requestProvider>
+	</requestor>
 
 	<request>
 		<identifier>
@@ -234,12 +234,12 @@
 	<!-- Pays for a claim package code (1200) with two actual codes (1101, 2141) with adjudication details -->
 	<addItem>
 		<itemSequence value="1"/> 
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="1101"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<modifier>
 			<coding>
 				<system value="http://example.org/fhir/modifiers"/>
@@ -307,13 +307,13 @@
 	</addItem>
 	<addItem>
 		<itemSequence value="1"/> 
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="2141"/>
 				<display value="Radiograph, bytewing"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<net>
 			<value value="35.57"/>
 			<currency value="USD"/>
@@ -355,12 +355,12 @@
 	<addItem>
 		<itemSequence value="3"/> 
 		<detailSequence value="2"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="expense"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<modifier>
 			<coding>
 				<system value="http://example.org/fhir/modifiers"/>

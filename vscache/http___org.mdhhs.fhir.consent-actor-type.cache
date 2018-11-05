@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://org.mdhhs.fhir.consent-actor-type"
+  "error" : "The code system \"http://org.mdhhs.fhir.consent-actor-type\" is not known; The code provided (http://org.mdhhs.fhir.consent-actor-type#IR) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,6 +16,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://org.mdhhs.fhir.consent-actor-type"
+  "error" : "The code system \"http://org.mdhhs.fhir.consent-actor-type\" is not known; The code provided (http://org.mdhhs.fhir.consent-actor-type#IS) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

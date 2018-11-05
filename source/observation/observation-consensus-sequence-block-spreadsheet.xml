@@ -1308,9 +1308,9 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Sequence</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">MolecularSequence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Sequence</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">MolecularSequence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6467,7 +6467,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s132"><Data ss:Type="String">ReferenceSeq</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Sequence</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">MolecularSequence</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s110"><Data ss:Type="String">0..1</Data></Cell>
@@ -6484,7 +6484,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s113"><Data ss:Type="String">Start</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Sequence</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">MolecularSequence</Data></Cell>
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s98"><Data ss:Type="String">0..1</Data></Cell>
@@ -6511,7 +6511,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s113"><Data ss:Type="String">End</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Sequence</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">MolecularSequence</Data></Cell>
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s98"><Data ss:Type="String">0..1</Data></Cell>
@@ -6538,7 +6538,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s132"><Data ss:Type="String">PhaseSet</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Sequence</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">MolecularSequence</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">0..1</Data></Cell>
@@ -6555,7 +6555,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s132"><Data ss:Type="String">ExpectedCopyNumber</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Sequence</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">MolecularSequence</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">0..1</Data></Cell>
@@ -6572,7 +6572,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s132"><Data ss:Type="String">Continuity</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Sequence</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">MolecularSequence</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">0..1</Data></Cell>
@@ -6589,16 +6589,16 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Variant</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Sequence</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">MolecularSequence</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Reference(Sequence)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Reference(MolecularSequence)</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Variant info</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Variant info</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SequenceQuality</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Sequence</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">MolecularSequence</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s88"><Data ss:Type="String">Sequence Quality</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Sequence Quality</Data></Cell>

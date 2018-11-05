@@ -6,7 +6,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#ORGANISM) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,7 +16,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#CULTPOSNEG) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -26,7 +26,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60504) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -36,7 +36,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60512) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -46,7 +46,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60516) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -56,7 +56,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60527) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -66,7 +66,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#61203) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -76,7 +76,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60532) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -86,7 +86,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60533) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -96,7 +96,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60536) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -106,7 +106,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#61007) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -116,7 +116,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60699) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -126,7 +126,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#61204) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -136,7 +136,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60551) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -146,7 +146,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60552) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -156,7 +156,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60697) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -166,7 +166,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60555) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -176,7 +176,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60558) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -186,7 +186,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60561) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -196,7 +196,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60563) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -206,7 +206,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#2099930) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -216,6 +216,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60036) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

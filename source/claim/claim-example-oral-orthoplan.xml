@@ -86,12 +86,12 @@
 		<sequence value="1"/>
 		<careTeamSequence value="1"/>
 		<diagnosisSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="ORTHPLAN"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2015-05-16"/>  <!-- Start Date -->
 		<unitPrice>
 			<value value="9000.00"/>
@@ -103,12 +103,12 @@
 		</net> 
 		<detail>
 			<sequence value="1"/> <!-- Exam Fee -->
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="ORTHOEXAM"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="1000.00"/>
 				<currency value="USD"/> 
@@ -120,12 +120,12 @@
 		</detail>
 		<detail>
 			<sequence value="2"/> <!-- Diagnostic Fee -->
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="ORTHODIAG"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="1500.00"/>
 				<currency value="USD"/> 
@@ -137,12 +137,12 @@
 		</detail>
 		<detail>
 			<sequence value="3"/> <!-- Initial Payment -->
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="ORTHOINITIAL"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="500.00"/>
 				<currency value="USD"/> 
@@ -154,24 +154,24 @@
 		</detail>
 		<detail>
 			<sequence value="4"/> <!-- Duration in Months -->
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="ORTHOMONTHS"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<quantity>
 				<value value="24"/>
 			</quantity>  
 		</detail>
 		<detail>
 			<sequence value="5"/> <!-- Periodic Payments -->
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="ORTHOPERIODIC"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<quantity>
 				<value value="24"/>
 			</quantity>  
@@ -189,12 +189,12 @@
 	<item>
 		<sequence value="2"/>
 		<careTeamSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="21211"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="105.00"/>
@@ -221,12 +221,12 @@
 	<item>
 		<sequence value="3"/>
 		<careTeamSequence value="1"/>
-		<billcode>
+		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="27211"/>
 			</coding>
-		</billcode>
+		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="1100.00"/>
@@ -244,12 +244,12 @@
 		</bodySite>
 		<detail>
 			<sequence value="1"/>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="27211"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="750.00"/>
 				<currency value="USD"/> 
@@ -261,12 +261,12 @@
 		</detail>
 		<detail>
 			<sequence value="2"/>
-			<billcode>
+			<productOrService>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="lab"/>
 				</coding>
-			</billcode>
+			</productOrService>
 			<unitPrice>
 				<value value="350.00"/>
 				<currency value="USD"/> 
