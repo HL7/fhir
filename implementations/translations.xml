@@ -755,20 +755,6 @@
 		<translation lang="it">Procedura</translation>
 		<translation lang="es">Procedimiento</translation>
 	</item>
-	<item id="ProcessRequest">
-		<translation lang="en">ProcessRequest</translation>
-		<translation lang="fr">DemandeProcessus</translation>
-		<translation lang="it">RichiestaProcesso</translation>
-		<translation lang="es">SolicitudDeProceso</translation>
-		<translation lang="zh">处理请求</translation>
-	</item>
-	<item id="ProcessResponse">
-		<translation lang="en">ProcessResponse</translation>
-		<translation lang="fr">RéponseProcessus</translation>
-		<translation lang="it">RispostaProcesso</translation>
-		<translation lang="es">RespuestaDeProceso</translation>
-		<translation lang="zh">处理响应</translation>
-	</item>
 	<item id="InsurancePlan">
 		<translation lang="en">InsurancePlan</translation>
 	</item>
