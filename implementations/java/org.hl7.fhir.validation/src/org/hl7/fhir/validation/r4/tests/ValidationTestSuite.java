@@ -1,6 +1,7 @@
 package org.hl7.fhir.validation.r4.tests;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -111,25 +112,20 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
     if (content.has("questionnaire")) {
       ve.getContext().cacheResource(new XmlParser().parse(new FileInputStream(Utilities.path(TestingUtilities.home(), "tests", "validation-examples", content.get("questionnaire").getAsString()))));
     }
+    if (content.has("profiles")) {
+      for (JsonElement je : content.getAsJsonArray("profiles")) {
+        String p = je.getAsString();
+        String filename = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", p);
+        StructureDefinition sd = loadProfile(filename, Constants.VERSION);
+        val.getContext().cacheResource(sd);
+      }
+    }
     if (content.has("profile")) {
       List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
       JsonObject profile = content.getAsJsonObject("profile");
       String filename = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", profile.get("source").getAsString());
       String v = content.has("version") ? content.get("version").getAsString() : Constants.VERSION;
-      StructureDefinition sd = null;
-      if (Constants.VERSION.equals(v))
-        sd = (StructureDefinition) new XmlParser().parse(new FileInputStream(filename));
-      else if (org.hl7.fhir.dstu3.model.Constants.VERSION.equals(v))
-        sd = (StructureDefinition) VersionConvertor_30_40.convertResource(new org.hl7.fhir.dstu3.formats.XmlParser().parse(new FileInputStream(filename)), false);
-      else if (org.hl7.fhir.dstu2016may.model.Constants.VERSION.equals(v))
-        sd = (StructureDefinition) VersionConvertor_14_40.convertResource(new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(new FileInputStream(filename)));
-      else if (org.hl7.fhir.dstu2.model.Constants.VERSION.equals(v))
-        sd = (StructureDefinition) new VersionConvertor_10_40(null).convertResource(new org.hl7.fhir.dstu2.formats.XmlParser().parse(new FileInputStream(filename)));
-      if (!sd.hasSnapshot()) {
-        ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
-        StructureDefinition base = TestingUtilities.context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
-        pu.generateSnapshot(base, sd, sd.getUrl(), sd.getTitle());
-      }
+      StructureDefinition sd = loadProfile(filename, v);
       if (name.startsWith("Json."))
         val.validate(null, errors, new FileInputStream(path), FhirFormat.JSON, sd);
       else
@@ -143,6 +139,25 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
         val.validate(null, errors, new FileInputStream(path), FhirFormat.XML);
       checkOutcomes(errors, content);
     }
+  }
+
+  public StructureDefinition loadProfile(String filename, String v)
+      throws IOException, FHIRFormatError, FileNotFoundException, FHIRException, DefinitionException {
+    StructureDefinition sd = null;
+    if (Constants.VERSION.equals(v))
+      sd = (StructureDefinition) new XmlParser().parse(new FileInputStream(filename));
+    else if (org.hl7.fhir.dstu3.model.Constants.VERSION.equals(v))
+      sd = (StructureDefinition) VersionConvertor_30_40.convertResource(new org.hl7.fhir.dstu3.formats.XmlParser().parse(new FileInputStream(filename)), false);
+    else if (org.hl7.fhir.dstu2016may.model.Constants.VERSION.equals(v))
+      sd = (StructureDefinition) VersionConvertor_14_40.convertResource(new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(new FileInputStream(filename)));
+    else if (org.hl7.fhir.dstu2.model.Constants.VERSION.equals(v))
+      sd = (StructureDefinition) new VersionConvertor_10_40(null).convertResource(new org.hl7.fhir.dstu2.formats.XmlParser().parse(new FileInputStream(filename)));
+    if (!sd.hasSnapshot()) {
+      ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
+      StructureDefinition base = TestingUtilities.context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
+      pu.generateSnapshot(base, sd, sd.getUrl(), sd.getTitle());
+    }
+    return sd;
   }
 
   private void checkOutcomes(List<ValidationMessage> errors, JsonObject focus) {

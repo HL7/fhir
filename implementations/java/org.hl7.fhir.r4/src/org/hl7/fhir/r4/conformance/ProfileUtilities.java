@@ -537,7 +537,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           baseCursor++;
         } else if (diffMatches.size() == 1 && (slicingDone || !(diffMatches.get(0).hasSlicing() || (isExtension(diffMatches.get(0)) && diffMatches.get(0).hasSliceName())))) {// one matching element in the differential
           ElementDefinition template = null;
-          if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !diffMatches.get(0).getType().get(0).getCode().equals("Reference")) {
+          if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !"Reference".equals(diffMatches.get(0).getType().get(0).getCode())) {
             String p = diffMatches.get(0).getType().get(0).getProfile().get(0).getValue();
             StructureDefinition sd = context.fetchResource(StructureDefinition.class, p);
             if (sd != null) {
@@ -550,7 +550,7 @@ public class ProfileUtilities extends TranslatingUtilities {
               template = sd.getSnapshot().getElement().get(0).copy().setPath(currentBase.getPath());
               template.setSliceName(null);
               // temporary work around
-              if (!diffMatches.get(0).getType().get(0).getCode().equals("Extension")) {
+              if (!"Extension".equals(diffMatches.get(0).getType().get(0).getCode())) {
                 template.setMin(currentBase.getMin());
                 template.setMax(currentBase.getMax());
               }
@@ -1532,6 +1532,11 @@ public class ProfileUtilities extends TranslatingUtilities {
         if (!Base.compareDeep(derived.getType(), base.getType(), false)) {
           if (base.hasType()) {
             for (TypeRefComponent ts : derived.getType()) {
+              if (!ts.hasCode()) { // ommitted in the differential; copy it over....
+                if (base.getType().size() > 1) 
+                  throw new DefinitionException("StructureDefinition "+pn+" at "+derived.getPath()+": constrained type code must be present if there are multiple types ("+base.typeSummary()+")");
+                ts.setCode(base.getType().get(0).getCode());
+              }
               boolean ok = false;
               CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
               for (TypeRefComponent td : base.getType()) {;
@@ -3385,7 +3390,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       idMap.put(ed.hasId() ? ed.getId() : ed.getPath(), bs);
       ed.setId(bs);
       if (idList.containsKey(bs)) {
-        if (exception)
+        if (exception || messages == null)
           throw new DefinitionException("Same id '"+bs+"'on multiple elements "+idList.get(bs)+"/"+ed.getPath()+" in "+name);
         else
           messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, name+"."+bs, "Duplicate Element id "+bs, ValidationMessage.IssueSeverity.ERROR));
