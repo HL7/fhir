@@ -369,8 +369,6 @@ signatures.html
       <page type="resource" resource="VisionPrescription"/>
       <page type="resource" resource="ActivityDefinition"/>
       <page type="resource" resource="PlanDefinition"/>
-      <page type="resource" resource="ProcessRequest"/>
-      <page type="resource" resource="ProcessResponse"/>
       <page type="resource" resource="DeviceRequest"/>
       <page type="resource" resource="DeviceUseStatement"/>
       <page type="resource" resource="SupplyRequest"/>

@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/fhir-build/build.fhir.org/_apis/build/status/FHIR%20CI%20Build)](https://dev.azure.com/fhir-build/build.fhir.org/_build/latest?definitionId=3)
+
 ### To run the FHIR Publisher
 First ensure that [ant 1.9+](http://ant.apache.org/bindownload.cgi) is installed on your system.
 
