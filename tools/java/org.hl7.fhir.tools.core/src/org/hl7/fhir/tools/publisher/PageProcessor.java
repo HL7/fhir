@@ -7753,7 +7753,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String produceExampleList(ResourceDefn resource) throws Exception {
     if (resource.getName().equals("StructureDefinition")) {
-      return produceStructureDefinitionExamples();
+      return produceStructureDefinitionExamples(resource);
     } else {
       StringBuilder s = new StringBuilder();
       s.append("<p>Example List:</p>\r\n<table class=\"list\">\r\n");
@@ -7819,7 +7819,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("</tr>");
   }
 
-  private String produceStructureDefinitionExamples() throws Exception {
+  private String produceStructureDefinitionExamples(ResourceDefn resource) throws Exception {
     StringBuilder s = new StringBuilder();
 
     s.append("<div id=\"tabs\">\r\n");
@@ -7828,6 +7828,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("  <li><a href=\"#tabs-2\">Resources</a></li>\r\n");
     s.append("  <li><a href=\"#tabs-3\">Constraints</a></li>\r\n");
     s.append("  <li><a href=\"#tabs-4\">Extensions</a></li>\r\n");
+    s.append("  <li><a href=\"#tabs-5\">Examples</a></li>\r\n");
     s.append("</ul>\r\n");
     s.append("<div id=\"tabs-1\">\r\n");
 
@@ -7927,6 +7928,39 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           }
           String prefix = ig.isCore() ? "" : ig.getCode()+"/";
           genStructureExample(s, prefix+ "extension-"+ed.getId().toLowerCase()+".html", prefix+ "extension-"+ed.getId().toLowerCase(), ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
+        }
+      }
+    }
+    s.append("</table>\r\n");
+
+    s.append("</div>\r\n");
+    s.append("<div id=\"tabs-5\">\r\n");
+    s.append("<table class=\"list\">\r\n");
+    for (Example e: resource.getExamples()) {
+      if (e.isRegistered() && Utilities.noString(e.getIg()))
+        produceExampleListEntry(s, e, null, null);
+    }
+    for (Profile p : resource.getConformancePackages()) {
+      for (Example e: p.getExamples()) {
+        produceExampleListEntry(s, e, p, null);
+      }
+    }
+    for (Profile p : definitions.getPackList()) {
+      ImplementationGuideDefn ig = definitions.getIgs().get(p.getCategory());
+      for (Example e: p.getExamples()) {
+        String rn = e.getResourceName();
+        if (Utilities.noString(rn))
+          rn = e.getXml().getDocumentElement().getNodeName();
+        if (rn.equals(resource.getName()))
+          produceExampleListEntry(s, e, p, ig);
+      }
+    }
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
+      if (ig.getIg() != null) {
+        for (ImplementationGuideDefinitionResourceComponent res : ig.getIg().getDefinition().getResource()) {
+          Example e = (Example) res.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
+          if (res.hasExample() && e != null && e.getResourceName().equals(resource.getName()))
+            produceExampleListEntry(s, res, ig);
         }
       }
     }

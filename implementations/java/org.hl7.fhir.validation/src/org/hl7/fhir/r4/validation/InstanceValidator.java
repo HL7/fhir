@@ -1984,7 +1984,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return context;
   }
 
-  private ElementDefinition getCriteriaForDiscriminator(String path, ElementDefinition element, String discriminator, StructureDefinition profile, boolean removeResolve) throws DefinitionException, FHIRLexerException {
+  private ElementDefinition getCriteriaForDiscriminator(String path, ElementDefinition element, String discriminator, StructureDefinition profile, boolean removeResolve) throws FHIRException {
     if ("value".equals(discriminator) && element.hasFixed())
       return element;
 
@@ -1997,13 +1997,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         
     if (element.hasType() && element.getTypeFirstRep().hasProfile()) { // todo: more than one type, more than one profile
       // we need to walk into the profile
-      String p = element.getTypeFirstRep().getProfile().get(0).getValue();
-      String id = null;
-      if (p.contains("#")) {
-        id = p.substring(p.indexOf("#")+1);
-        p = p.substring(0, p.indexOf("#"));
-      }
-      StructureDefinition sd = context.fetchResource(StructureDefinition.class, p);
+      CanonicalType p = element.getTypeFirstRep().getProfile().get(0);
+      String id = p.hasExtension(ToolingExtensions.EXT_PROFILE_ELEMENT) ? p.getExtensionString(ToolingExtensions.EXT_PROFILE_ELEMENT) : null;
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, p.getValue());
       if (sd == null)
         throw new DefinitionException("Unable to resolve profile "+p);
       profile = sd;
@@ -3659,8 +3655,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         } else if (ei.definition.getContentReference() != null) {
           typeDefn = resolveNameReference(profile.getSnapshot(), ei.definition.getContentReference());
         } else if (ei.definition.getType().size() == 1 && ("Element".equals(ei.definition.getType().get(0).getCode()) || "BackboneElement".equals(ei.definition.getType().get(0).getCode()))) {
-          if (ei.definition.getType().get(0).hasProfile())
-            profiles.add(ei.definition.getType().get(0).getProfile().get(0).getValue());
+          if (ei.definition.getType().get(0).hasProfile()) {
+            CanonicalType pu = ei.definition.getType().get(0).getProfile().get(0);
+            if (pu.hasExtension(ToolingExtensions.EXT_PROFILE_ELEMENT))
+              profiles.add(pu.getValue()+"#"+pu.getExtensionString(ToolingExtensions.EXT_PROFILE_ELEMENT));
+            else
+              profiles.add(pu.getValue());
+          }
         }
 
         if (type != null) {

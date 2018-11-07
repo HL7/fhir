@@ -4511,7 +4511,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (rt.equals("ValueSet") || rt.equals("CodeSystem") || rt.equals("ConceptMap") || rt.equals("CapabilityStatement")) {
         // for these, we use the reference implementation directly
         MetadataResource res = (MetadataResource) new XmlParser().parse(new FileInputStream(file));
-        if (res.getUrl().startsWith("http://hl7.org/fhir"))
+        if (res.getUrl() != null && res.getUrl().startsWith("http://hl7.org/fhir"))
           res.setVersion(Constants.VERSION);
         boolean wantSave = false;
         if (res instanceof CapabilityStatement) {

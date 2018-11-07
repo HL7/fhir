@@ -8,8 +8,8 @@ with a different code:
  - code c
  -->
 <StructureDefinition xmlns="http://hl7.org/fhir"> 
-  <id value="document-structure"/>
-  <url value="http://hl7.org/fhir/test/StructureDefinition/document-structure"/>
+  <id value="example-composition"/>
+  <url value="http://hl7.org/test/StructureDefinition/example-composition"/>
   <name value="DocumentStructure"/>
   <title value="Document Structure (For testing section templates)"/>
   <status value="active"/>
@@ -41,13 +41,13 @@ with a different code:
     <element>
        <!-- first slice -->  
       <path value="Composition.section"/>
-      <sliceName value="code-A"/>
+      <sliceName value="procedure"/>
       <min value="1"/>
       <type>
         <code value="BackboneElement"/> 
         <profile value="http://hl7.org/fhir/test/StructureDefinition/document-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
-            <valueId value="Composition.section:codeA"/>
+            <valueId value="Composition.section:procedure"/>
           </extension>
         </profile>
       </type>
@@ -55,13 +55,13 @@ with a different code:
     <element>
        <!-- first slice -->  
       <path value="Composition.section"/>
-      <sliceName value="code-B"/>
+      <sliceName value="medications"/>
       <min value="1"/>
       <type>
         <code value="BackboneElement"/> 
         <profile value="http://hl7.org/fhir/test/StructureDefinition/document-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
-            <valueId value="Composition.section:codeB"/>
+            <valueId value="Composition.section:medications"/>
           </extension>
         </profile>
       </type>
@@ -69,13 +69,13 @@ with a different code:
     <element>
        <!-- first slice -->  
       <path value="Composition.section"/>
-      <sliceName value="code-C"/>
+      <sliceName value="plan"/>
       <min value="0"/>
       <type>
         <code value="BackboneElement"/> 
         <profile value="http://hl7.org/fhir/test/StructureDefinition/document-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
-            <valueId value="Composition.section:codeC"/>
+            <valueId value="Composition.section:plan"/>
           </extension>
         </profile>
       </type>
