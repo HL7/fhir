@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
+// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -3937,8 +3937,8 @@ public class PlanDefinition extends MetadataResource {
         case -1163906287:  return getRequiredBehaviorElement();
         case -1174249033:  return getPrecheckBehaviorElement();
         case -922577408:  return getCardinalityBehaviorElement();
-//        case -1139422643:  return getDefinitionElement();
-//        case -1014418093:  return getDefinitionElement();
+        case -1139422643:  return getDefinition(); 
+        case -1014418093:  return getDefinition(); 
         case 1052666732:  return getTransformElement();
         case 572625010:  return addDynamicValue(); 
         case -1422950858:  return addAction(); 

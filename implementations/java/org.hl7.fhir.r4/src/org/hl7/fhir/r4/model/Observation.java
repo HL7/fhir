@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
+// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -4026,17 +4026,17 @@ public class Observation extends DomainResource {
    * <p>
    * Description: <b>The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</b><br>
    * Type: <b>quantity</b><br>
-   * Path: <b>Observation.valueQuantity</b><br>
+   * Path: <b>Observation.value[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="value-quantity", path="(Observation.value as Quantity)", description="The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
+  @SearchParamDefinition(name="value-quantity", path="Observation.value as Quantity | Observation.value as SampledData", description="The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
   public static final String SP_VALUE_QUANTITY = "value-quantity";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>value-quantity</b>
    * <p>
    * Description: <b>The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</b><br>
    * Type: <b>quantity</b><br>
-   * Path: <b>Observation.valueQuantity</b><br>
+   * Path: <b>Observation.value[x]</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.QuantityClientParam VALUE_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_VALUE_QUANTITY);
@@ -4046,17 +4046,17 @@ public class Observation extends DomainResource {
    * <p>
    * Description: <b>The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</b><br>
    * Type: <b>quantity</b><br>
-   * Path: <b>Observation.component.valueQuantity</b><br>
+   * Path: <b>Observation.component.value[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="component-value-quantity", path="(Observation.component.value as Quantity)", description="The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
+  @SearchParamDefinition(name="component-value-quantity", path="Observation.component.value as Quantity | Observation.component.value as SampledData", description="The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
   public static final String SP_COMPONENT_VALUE_QUANTITY = "component-value-quantity";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>component-value-quantity</b>
    * <p>
    * Description: <b>The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</b><br>
    * Type: <b>quantity</b><br>
-   * Path: <b>Observation.component.valueQuantity</b><br>
+   * Path: <b>Observation.component.value[x]</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.QuantityClientParam COMPONENT_VALUE_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_COMPONENT_VALUE_QUANTITY);
@@ -4086,17 +4086,17 @@ public class Observation extends DomainResource {
    * <p>
    * Description: <b>The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</b><br>
    * Type: <b>quantity</b><br>
-   * Path: <b>Observation.valueQuantity, Observation.component.valueQuantity</b><br>
+   * Path: <b>Observation.value[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="combo-value-quantity", path="(Observation.value as Quantity) | (Observation.component.value as Quantity)", description="The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
+  @SearchParamDefinition(name="combo-value-quantity", path="Observation.value as Quantity | Observation.value as SampledData | Observation.component.value as Quantity | Observation.component.value as SampledData", description="The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
   public static final String SP_COMBO_VALUE_QUANTITY = "combo-value-quantity";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>combo-value-quantity</b>
    * <p>
    * Description: <b>The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</b><br>
    * Type: <b>quantity</b><br>
-   * Path: <b>Observation.valueQuantity, Observation.component.valueQuantity</b><br>
+   * Path: <b>Observation.value[x]</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.QuantityClientParam COMBO_VALUE_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_COMBO_VALUE_QUANTITY);

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
+// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -1143,7 +1143,7 @@ public class AllergyIntolerance extends DomainResource {
      * The recordedDate represents when this particular AllergyIntolerance record was created in the system, which is often a system-generated date.
      */
     @Child(name = "recordedDate", type = {DateTimeType.class}, order=10, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Date record was first recorded", formalDefinition="The recordedDate represents when this particular AllergyIntolerance record was created in the system, which is often a system-generated date." )
+    @Description(shortDefinition="Date first version of the resource instance was recorded", formalDefinition="The recordedDate represents when this particular AllergyIntolerance record was created in the system, which is often a system-generated date." )
     protected DateTimeType recordedDate;
 
     /**
@@ -2369,17 +2369,17 @@ public class AllergyIntolerance extends DomainResource {
  /**
    * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Date record was first recorded</b><br>
+   * Description: <b>Date first version of the resource instance was recorded</b><br>
    * Type: <b>date</b><br>
    * Path: <b>AllergyIntolerance.recordedDate</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="AllergyIntolerance.recordedDate", description="Date record was first recorded", type="date" )
+  @SearchParamDefinition(name="date", path="AllergyIntolerance.recordedDate", description="Date first version of the resource instance was recorded", type="date" )
   public static final String SP_DATE = "date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Date record was first recorded</b><br>
+   * Description: <b>Date first version of the resource instance was recorded</b><br>
    * Type: <b>date</b><br>
    * Path: <b>AllergyIntolerance.recordedDate</b><br>
    * </p>

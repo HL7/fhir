@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
+// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -264,8 +264,6 @@ public class ResourceFactory extends Factory {
             return new TestReport();
         if ("ClaimResponse".equals(name))
             return new ClaimResponse();
-        if ("ProcessRequest".equals(name))
-            return new ProcessRequest();
         if ("MedicationDispense".equals(name))
             return new MedicationDispense();
         if ("DiagnosticReport".equals(name))
@@ -308,8 +306,6 @@ public class ResourceFactory extends Factory {
             return new Coverage();
         if ("QuestionnaireResponse".equals(name))
             return new QuestionnaireResponse();
-        if ("ProcessResponse".equals(name))
-            return new ProcessResponse();
         if ("CoverageEligibilityRequest".equals(name))
             return new CoverageEligibilityRequest();
         if ("NamingSystem".equals(name))
@@ -603,8 +599,6 @@ public class ResourceFactory extends Factory {
         case 738893626: return new Practitioner();
         case -621058352: return new PractitionerRole();
         case 908763827: return new Procedure();
-        case 8777024: return new ProcessRequest();
-        case 325021616: return new ProcessResponse();
         case 458000626: return new ProdCharacteristic();
         case 1209602103: return new ProductShelfLife();
         case 2093211201: return new Provenance();

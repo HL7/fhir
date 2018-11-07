@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
+// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -2472,7 +2472,7 @@ public class Consent extends DomainResource {
     /**
      * The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.
      */
-    @Child(name = "source", type = {Attachment.class, Identifier.class, Consent.class, DocumentReference.class, Contract.class, QuestionnaireResponse.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "source", type = {Attachment.class, Consent.class, DocumentReference.class, Contract.class, QuestionnaireResponse.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Source from which this consent is taken", formalDefinition="The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document." )
     protected Type source;
 
@@ -2954,21 +2954,6 @@ public class Consent extends DomainResource {
     /**
      * @return {@link #source} (The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.)
      */
-    public Identifier getSourceIdentifier() throws FHIRException { 
-      if (this.source == null)
-        this.source = new Identifier();
-      if (!(this.source instanceof Identifier))
-        throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.source.getClass().getName()+" was encountered");
-      return (Identifier) this.source;
-    }
-
-    public boolean hasSourceIdentifier() { 
-      return this != null && this.source instanceof Identifier;
-    }
-
-    /**
-     * @return {@link #source} (The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.)
-     */
     public Reference getSourceReference() throws FHIRException { 
       if (this.source == null)
         this.source = new Reference();
@@ -2989,7 +2974,7 @@ public class Consent extends DomainResource {
      * @param value {@link #source} (The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.)
      */
     public Consent setSource(Type value) { 
-      if (value != null && !(value instanceof Attachment || value instanceof Identifier || value instanceof Reference))
+      if (value != null && !(value instanceof Attachment || value instanceof Reference))
         throw new Error("Not the right type for Consent.source[x]: "+value.fhirType());
       this.source = value;
       return this;
@@ -3159,7 +3144,7 @@ public class Consent extends DomainResource {
         children.add(new Property("dateTime", "dateTime", "When this  Consent was issued / created / indexed.", 0, 1, dateTime));
         children.add(new Property("performer", "Reference(Organization|Patient|Practitioner|RelatedPerson|PractitionerRole)", "Either the Grantor, which is the entity responsible for granting the rights listed in a Consent Directive or the Grantee, which is the entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions.", 0, java.lang.Integer.MAX_VALUE, performer));
         children.add(new Property("organization", "Reference(Organization)", "The organization that manages the consent, and the framework within which it is executed.", 0, java.lang.Integer.MAX_VALUE, organization));
-        children.add(new Property("source[x]", "Attachment|Identifier|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source));
+        children.add(new Property("source[x]", "Attachment|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source));
         children.add(new Property("policy", "", "The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law.", 0, java.lang.Integer.MAX_VALUE, policy));
         children.add(new Property("policyRule", "CodeableConcept", "A reference to the specific base computable regulation or policy.", 0, 1, policyRule));
         children.add(new Property("verification", "", "Whether a treatment instruction (e.g. artificial respiration yes or no) was verified with the patient, his/her family or another authorized person.", 0, java.lang.Integer.MAX_VALUE, verification));
@@ -3177,11 +3162,10 @@ public class Consent extends DomainResource {
         case 1792749467: /*dateTime*/  return new Property("dateTime", "dateTime", "When this  Consent was issued / created / indexed.", 0, 1, dateTime);
         case 481140686: /*performer*/  return new Property("performer", "Reference(Organization|Patient|Practitioner|RelatedPerson|PractitionerRole)", "Either the Grantor, which is the entity responsible for granting the rights listed in a Consent Directive or the Grantee, which is the entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions.", 0, java.lang.Integer.MAX_VALUE, performer);
         case 1178922291: /*organization*/  return new Property("organization", "Reference(Organization)", "The organization that manages the consent, and the framework within which it is executed.", 0, java.lang.Integer.MAX_VALUE, organization);
-        case -1698413947: /*source[x]*/  return new Property("source[x]", "Attachment|Identifier|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source);
-        case -896505829: /*source*/  return new Property("source[x]", "Attachment|Identifier|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source);
-        case 1964406686: /*sourceAttachment*/  return new Property("source[x]", "Attachment|Identifier|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source);
-        case -1985492188: /*sourceIdentifier*/  return new Property("source[x]", "Attachment|Identifier|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source);
-        case -244259472: /*sourceReference*/  return new Property("source[x]", "Attachment|Identifier|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source);
+        case -1698413947: /*source[x]*/  return new Property("source[x]", "Attachment|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source);
+        case -896505829: /*source*/  return new Property("source[x]", "Attachment|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source);
+        case 1964406686: /*sourceAttachment*/  return new Property("source[x]", "Attachment|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source);
+        case -244259472: /*sourceReference*/  return new Property("source[x]", "Attachment|Reference(Consent|DocumentReference|Contract|QuestionnaireResponse)", "The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.", 0, 1, source);
         case -982670030: /*policy*/  return new Property("policy", "", "The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law.", 0, java.lang.Integer.MAX_VALUE, policy);
         case 1593493326: /*policyRule*/  return new Property("policyRule", "CodeableConcept", "A reference to the specific base computable regulation or policy.", 0, 1, policyRule);
         case -1484401125: /*verification*/  return new Property("verification", "", "Whether a treatment instruction (e.g. artificial respiration yes or no) was verified with the patient, his/her family or another authorized person.", 0, java.lang.Integer.MAX_VALUE, verification);
@@ -3327,7 +3311,7 @@ public class Consent extends DomainResource {
         case 1792749467: /*dateTime*/ return new String[] {"dateTime"};
         case 481140686: /*performer*/ return new String[] {"Reference"};
         case 1178922291: /*organization*/ return new String[] {"Reference"};
-        case -896505829: /*source*/ return new String[] {"Attachment", "Identifier", "Reference"};
+        case -896505829: /*source*/ return new String[] {"Attachment", "Reference"};
         case -982670030: /*policy*/ return new String[] {};
         case 1593493326: /*policyRule*/ return new String[] {"CodeableConcept"};
         case -1484401125: /*verification*/ return new String[] {};
@@ -3367,10 +3351,6 @@ public class Consent extends DomainResource {
         }
         else if (name.equals("sourceAttachment")) {
           this.source = new Attachment();
-          return this.source;
-        }
-        else if (name.equals("sourceIdentifier")) {
-          this.source = new Identifier();
           return this.source;
         }
         else if (name.equals("sourceReference")) {
@@ -3614,26 +3594,6 @@ public class Consent extends DomainResource {
    * the path value of "<b>Consent:source-reference</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE_REFERENCE = new ca.uhn.fhir.model.api.Include("Consent:source-reference").toLocked();
-
- /**
-   * Search parameter: <b>source-identifier</b>
-   * <p>
-   * Description: <b>Search by token to an identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Consent.source[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="source-identifier", path="Consent.source", description="Search by token to an identifier", type="token" )
-  public static final String SP_SOURCE_IDENTIFIER = "source-identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>source-identifier</b>
-   * <p>
-   * Description: <b>Search by token to an identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Consent.source[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SOURCE_IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SOURCE_IDENTIFIER);
 
  /**
    * Search parameter: <b>actor</b>
