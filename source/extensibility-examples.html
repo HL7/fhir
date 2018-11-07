@@ -396,8 +396,7 @@ trial. There are 3 data items to collect:
 
 <p>
 Like simple extensions, the first thing to do is to assign a URI to the
-extension. Since this one is part of the FHIR publication, it is assigned
-a URI where it will be published: http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial.
+extension, e.g.: <code>http://example.org/fhir/StructureDefinition/patient-clinicalTrial</code>.
 </p>
 <p>
 Internally, in the extension, the maximum cardinality of the value[x] element is set to 0 since it
@@ -408,7 +407,7 @@ The relevant parts of the definition of this extension are as follows:
 <pre class="xml">
 &lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;!-- metadata - setting up the base definition --&gt;
-  &lt;url value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
+  &lt;url value=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
   &lt;name value=&quot;ClinicalTrialParticipation&quot;/&gt;
   &lt;title value=&quot;The patient's participation in clinical trials&quot;/&gt;
   &lt;context&gt;
@@ -519,7 +518,7 @@ The relevant parts of the definition of this extension are as follows:
     &lt;!-- last (for order reasons): the fixed URI --&gt;
     &lt;element&gt;
       &lt;path value=&quot;Extension.url&quot;/&gt;
-      &lt;fixedUri value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
+      &lt;fixedUri value=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
     &lt;/element&gt;
     &lt;!-- and no value in the root --&gt;
     &lt;element&gt;
@@ -537,7 +536,7 @@ With complex extensions, only the first URL is an absolute URL:
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient xmlns="http://hl7.org/fhir"&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot; &gt;
+  &lt;extension url=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot; &gt;
     &lt;extension url=&quot;NCT&quot; &gt;
       &lt;valueString value=&quot;NCT00000419&quot;/&gt;
     &lt;/extension&gt;
@@ -605,7 +604,7 @@ This is the same as for a simple extension:
         &lt;code value=&quot;Extension&quot;/&gt;
         &lt;!-- and here is the link to the extension definition:
           this extension has to conform to the rules laid down in its definition --&gt;
-        &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
+        &lt;profile value=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
 
