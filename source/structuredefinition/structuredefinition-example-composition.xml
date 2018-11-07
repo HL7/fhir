@@ -21,11 +21,11 @@ with a different code:
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition"/>
   <derivation value="constraint"/>
   <differential>
-    <element>
+    <element id="Composition">
       <!-- this is present to work around a bug in the snapshot generator -->
       <path value="Composition"/>
     </element>
-    <element>
+    <element id="Composition.section">
       <!-- set up slicing on Composition.section - by the code -->  
       <path value="Composition.section"/>
       <slicing>  
@@ -38,7 +38,7 @@ with a different code:
         <rules value="closed"/>
        </slicing>
     </element>
-    <element>
+    <element id="Composition.section:procedure">
        <!-- first slice -->  
       <path value="Composition.section"/>
       <sliceName value="procedure"/>
@@ -47,12 +47,12 @@ with a different code:
         <code value="BackboneElement"/> 
         <profile value="http://hl7.org/fhir/test/StructureDefinition/document-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
-            <valueId value="Composition.section:procedure"/>
+            <valueString value="Composition.section:procedure"/>
           </extension>
         </profile>
       </type>
     </element>
-    <element>
+    <element id="Composition.section:medications">
        <!-- first slice -->  
       <path value="Composition.section"/>
       <sliceName value="medications"/>
@@ -61,12 +61,12 @@ with a different code:
         <code value="BackboneElement"/> 
         <profile value="http://hl7.org/fhir/test/StructureDefinition/document-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
-            <valueId value="Composition.section:medications"/>
+            <valueString value="Composition.section:medications"/>
           </extension>
         </profile>
       </type>
     </element>
-    <element>
+    <element id="Composition.section:plan">
        <!-- first slice -->  
       <path value="Composition.section"/>
       <sliceName value="plan"/>
@@ -75,7 +75,7 @@ with a different code:
         <code value="BackboneElement"/> 
         <profile value="http://hl7.org/fhir/test/StructureDefinition/document-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
-            <valueId value="Composition.section:plan"/>
+            <valueString value="Composition.section:plan"/>
           </extension>
         </profile>
       </type>

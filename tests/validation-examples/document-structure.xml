@@ -47,7 +47,7 @@ with a different code:
         <code value="BackboneElement"/> 
         <profile value="http://hl7.org/fhir/test/StructureDefinition/document-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
-            <valueId value="Composition.section:codeA"/>
+            <valueString value="Composition.section:codeA"/>
           </extension>
         </profile>
       </type>
@@ -61,7 +61,7 @@ with a different code:
         <code value="BackboneElement"/> 
         <profile value="http://hl7.org/fhir/test/StructureDefinition/document-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
-            <valueId value="Composition.section:codeB"/>
+            <valueString value="Composition.section:codeB"/>
           </extension>
         </profile>
       </type>
@@ -75,7 +75,7 @@ with a different code:
         <code value="BackboneElement"/> 
         <profile value="http://hl7.org/fhir/test/StructureDefinition/document-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
-            <valueId value="Composition.section:codeC"/>
+            <valueString value="Composition.section:codeC"/>
           </extension>
         </profile>
       </type>

@@ -22,11 +22,11 @@ These should be sliced by pattern on Section.code
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition"/>
   <derivation value="constraint"/>
   <differential>
-    <element>
+    <element id="Composition">
       <!-- this is present to work around a bug in the snapshot generator -->
       <path value="Composition"/>
     </element>
-    <element>
+    <element id="Composition.section">
       <!-- set up slicing on Composition.section - by the code. Actually, this slicing is never used anywhere since this profile is abstract -->  
       <path value="Composition.section"/>
       <slicing>  
@@ -41,16 +41,16 @@ These should be sliced by pattern on Section.code
     </element>
     
     <!-- code B -->  
-    <element>
+    <element id="Composition.section:procedure">
       <path value="Composition.section"/>
       <sliceName value="procedure"/>
     </element>
-    <element>
+    <element id="Composition.section:procedure.title">
       <path value="Composition.section.title"/>
       <min value="1"/>
       <fixedString value="Procedures Performed"/>
     </element>
-    <element>
+    <element id="Composition.section:procedure.code">
       <path value="Composition.section.code"/>
       <min value="1"/>
       <patternCodeableConcept>
@@ -63,16 +63,16 @@ These should be sliced by pattern on Section.code
     </element>
     
     <!-- code A -->  
-    <element>
+    <element id="Composition.section:medications">
       <path value="Composition.section"/>
       <sliceName value="medications"/>
     </element>
-    <element>
+    <element id="Composition.section:medications.title">
       <path value="Composition.section.title"/>
       <min value="1"/>
       <fixedString value="Medications Administered"/>
     </element>
-    <element>
+    <element id="Composition.section:medications.code">
       <path value="Composition.section.code"/>
       <min value="1"/>
       <patternCodeableConcept>
@@ -85,16 +85,16 @@ These should be sliced by pattern on Section.code
     </element>
     
     <!-- code C -->  
-    <element>
+    <element id="Composition.section:plan">
       <path value="Composition.section"/>
       <sliceName value="plan"/>
     </element>
-    <element>
+    <element id="Composition.section:plan.title">
       <path value="Composition.section.title"/>
       <min value="1"/>
       <fixedString value="Discharge Treatment Plan"/>
     </element>
-    <element>
+    <element id="Composition.section:plan.code">
       <path value="Composition.section.code"/>
       <min value="1"/>
       <patternCodeableConcept>
