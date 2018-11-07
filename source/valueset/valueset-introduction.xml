@@ -32,7 +32,7 @@ check whether a given code or concept is in the value set in a particular contex
 Value Sets are used by many resources:
 </p>
 <ul>
- <li>Value sets use <a href="codesystem.html">CodeSystem</a> resources by referring to them via their canonical URL.</li>
+ <li>Value sets use <a href="codesystem.html">CodeSystem</a> resources by referring to them via their canonical reference.</li>
  <li>Value sets are used in <a href="structuredefinition.html">StructureDefinition</a>,  
    <a href="operationdefinition.html#OperationDefinition">OperationDefinition</a>, <a href="questionnaire.html">Questionnaire</a>, and other resources 
    to specify the allowable contents for coded elements, or business rules for data processing</li>

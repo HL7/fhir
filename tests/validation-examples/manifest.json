@@ -387,6 +387,30 @@
       "patient-lang3.xml" : {
         "errorCount": 0,
         "warningCount": 1
+      },
+      "document-good.xml" : {
+        "errorCount": 0,
+        "profiles" : ["document-section-library.xml"],
+        "profile" : {
+          "source" : "document-structure.xml", 
+          "errorCount": 0
+        }
+      },
+      "document-bad-no-sections.xml" : {
+        "errorCount": 0,
+        "profiles" : ["document-section-library.xml"],
+        "profile" : {
+          "source" : "document-structure.xml", 
+          "errorCount": 2
+        }
+      },
+      "document-bad-bad-sections.xml" : {
+        "errorCount": 0,
+        "profiles" : ["document-section-library.xml"],
+        "profile" : {
+          "source" : "document-structure.xml", 
+          "errorCount": 3
+        }
       }
 		}
 	}

@@ -197,7 +197,9 @@ public class InstantType extends BaseDateTimeType {
 
 	@Override
 	public InstantType copy() {
-		return new InstantType(getValueAsString());
+		InstantType ret = new InstantType(getValueAsString());
+    copyValues(ret);
+    return ret;
 	}
 
 	/**

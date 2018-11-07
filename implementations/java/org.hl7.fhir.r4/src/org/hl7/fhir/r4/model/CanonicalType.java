@@ -68,7 +68,9 @@ public class CanonicalType extends UriType {
 	 */
 	@Override
 	public CanonicalType copy() {
-		return new CanonicalType(getValue());
+		CanonicalType ret = new CanonicalType(getValue());
+    copyValues(ret);
+    return ret;
 	}
 
 	public String fhirType() {
