@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
+// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -217,7 +217,7 @@ into another (possibly the same) biological entity.
          */
         CHARGEITEMDEFINITION, 
         /**
-         * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
+         * A provider issued list of professional services and products which have been provided, or to be provided, to a patient which is sent to an insurer for reimbursement.
          */
         CLAIM, 
         /**
@@ -309,7 +309,7 @@ into another (possibly the same) biological entity.
          */
         DOCUMENTMANIFEST, 
         /**
-         * A reference to a document.
+         * A reference to a document of any kind for any purpose. Provides metadata about the document so that the document can be discovered and managed. The scope of a document is any seralized object with a mime-type, so includes formal patient centric documents (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.
          */
         DOCUMENTREFERENCE, 
         /**
@@ -333,7 +333,7 @@ into another (possibly the same) biological entity.
          */
         ENROLLMENTREQUEST, 
         /**
-         * This resource provides enrollment and plan details from the processing of an Enrollment resource.
+         * This resource provides enrollment and plan details from the processing of an EnrollmentRequest resource.
          */
         ENROLLMENTRESPONSE, 
         /**
@@ -569,7 +569,7 @@ into another (possibly the same) biological entity.
          */
         PAYMENTNOTICE, 
         /**
-         * This resource provides payment details and claim references supporting a bulk payment.
+         * This resource provides the details including amount of a payment and allocates the payment items being paid.
          */
         PAYMENTRECONCILIATION, 
         /**
@@ -592,14 +592,6 @@ into another (possibly the same) biological entity.
          * An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
          */
         PROCEDURE, 
-        /**
-         * This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
-         */
-        PROCESSREQUEST, 
-        /**
-         * This resource provides processing status, errors and notes from the processing of a resource.
-         */
-        PROCESSRESPONSE, 
         /**
          * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
@@ -979,10 +971,6 @@ into another (possibly the same) biological entity.
           return PRACTITIONERROLE;
         if ("Procedure".equals(codeString))
           return PROCEDURE;
-        if ("ProcessRequest".equals(codeString))
-          return PROCESSREQUEST;
-        if ("ProcessResponse".equals(codeString))
-          return PROCESSRESPONSE;
         if ("Provenance".equals(codeString))
           return PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -1176,8 +1164,6 @@ into another (possibly the same) biological entity.
             case PRACTITIONER: return "Practitioner";
             case PRACTITIONERROLE: return "PractitionerRole";
             case PROCEDURE: return "Procedure";
-            case PROCESSREQUEST: return "ProcessRequest";
-            case PROCESSRESPONSE: return "ProcessResponse";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -1332,8 +1318,6 @@ into another (possibly the same) biological entity.
             case PRACTITIONER: return "http://hl7.org/fhir/resource-types";
             case PRACTITIONERROLE: return "http://hl7.org/fhir/resource-types";
             case PROCEDURE: return "http://hl7.org/fhir/resource-types";
-            case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
-            case PROCESSRESPONSE: return "http://hl7.org/fhir/resource-types";
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -1394,7 +1378,7 @@ into another (possibly the same) biological entity.
             case CATALOGENTRY: return "Catalog entries are wrappers that contextualize items included in a catalog.";
             case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
             case CHARGEITEMDEFINITION: return "The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.";
-            case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
+            case CLAIM: return "A provider issued list of professional services and products which have been provided, or to be provided, to a patient which is sent to an insurer for reimbursement.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
             case CODESYSTEM: return "The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.";
@@ -1417,13 +1401,13 @@ into another (possibly the same) biological entity.
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
             case DOCUMENTMANIFEST: return "A collection of documents compiled for a purpose together with metadata that applies to the collection.";
-            case DOCUMENTREFERENCE: return "A reference to a document.";
+            case DOCUMENTREFERENCE: return "A reference to a document of any kind for any purpose. Provides metadata about the document so that the document can be discovered and managed. The scope of a document is any seralized object with a mime-type, so includes formal patient centric documents (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
             case EFFECTEVIDENCESYNTHESIS: return "The EffectEvidenceSynthesis resource describes the difference in an outcome between exposures states in a population where the effect estimate is derived from a combination of research studies.";
             case ENCOUNTER: return "An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.";
             case ENDPOINT: return "The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.";
             case ENROLLMENTREQUEST: return "This resource provides the insurance enrollment details to the insurer regarding a specified coverage.";
-            case ENROLLMENTRESPONSE: return "This resource provides enrollment and plan details from the processing of an Enrollment resource.";
+            case ENROLLMENTRESPONSE: return "This resource provides enrollment and plan details from the processing of an EnrollmentRequest resource.";
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EVENTDEFINITION: return "The EventDefinition resource provides a reusable description of when a particular event can occur.";
             case EVIDENCE: return "The Evidence resource describes the conditional state (population and any exposures being compared within the population) and outcome (if specified) that the knowledge (evidence, assertion, recommendation) is about.";
@@ -1482,14 +1466,12 @@ into another (possibly the same) biological entity.
             case PARAMETERS: return "This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
-            case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
+            case PAYMENTRECONCILIATION: return "This resource provides the details including amount of a payment and allocates the payment items being paid.";
             case PERSON: return "Demographics and administrative information about a person independent of a specific health-related context.";
             case PLANDEFINITION: return "This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.";
-            case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
-            case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.";
@@ -1644,8 +1626,6 @@ into another (possibly the same) biological entity.
             case PRACTITIONER: return "Practitioner";
             case PRACTITIONERROLE: return "PractitionerRole";
             case PROCEDURE: return "Procedure";
-            case PROCESSREQUEST: return "ProcessRequest";
-            case PROCESSRESPONSE: return "ProcessResponse";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -1917,10 +1897,6 @@ into another (possibly the same) biological entity.
           return FHIRResourceType.PRACTITIONERROLE;
         if ("Procedure".equals(codeString))
           return FHIRResourceType.PROCEDURE;
-        if ("ProcessRequest".equals(codeString))
-          return FHIRResourceType.PROCESSREQUEST;
-        if ("ProcessResponse".equals(codeString))
-          return FHIRResourceType.PROCESSRESPONSE;
         if ("Provenance".equals(codeString))
           return FHIRResourceType.PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -2229,10 +2205,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PRACTITIONERROLE);
         if ("Procedure".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PROCEDURE);
-        if ("ProcessRequest".equals(codeString))
-          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PROCESSREQUEST);
-        if ("ProcessResponse".equals(codeString))
-          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PROCESSRESPONSE);
         if ("Provenance".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PROVENANCE);
         if ("Questionnaire".equals(codeString))
@@ -2534,10 +2506,6 @@ into another (possibly the same) biological entity.
         return "PractitionerRole";
       if (code == FHIRResourceType.PROCEDURE)
         return "Procedure";
-      if (code == FHIRResourceType.PROCESSREQUEST)
-        return "ProcessRequest";
-      if (code == FHIRResourceType.PROCESSRESPONSE)
-        return "ProcessResponse";
       if (code == FHIRResourceType.PROVENANCE)
         return "Provenance";
       if (code == FHIRResourceType.QUESTIONNAIRE)
