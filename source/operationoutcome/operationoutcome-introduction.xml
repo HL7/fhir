@@ -12,7 +12,7 @@ They are provided as a direct system response, or component of one, and provide 
 The OperationOutcome resource is used in the following circumstances:
 </p>
 <ul>
- <li>When an <a href="http.html#operations">RESTful operation</a> fails</li>
+ <li>When a <a href="http.html#operations">RESTful interaction</a> or <a href="operations.html">operation</a> fails</li>
  <li>As the response on a <a href="http.html#validate">validation operation</a> to provide information about the outcome</li>
  <li>As part of a message response, usually when the message has not been processed correctly</li>
  <li>As the response to a batch/transaction, when requested</li>
