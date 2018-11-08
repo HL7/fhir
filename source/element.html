@@ -327,8 +327,9 @@ The exact use of this pattern is <a href="json.html#primitive">described here</a
 <p>
 The <code>id</code> property of the element is defined to allow implementers
 to build implementation functionality that makes use of internal references
-inside the resource. This specification does not use the internal id on the
-element in any way.
+inside the resource. This specification does not define any general use for 
+the internal id, though some resources (e.g. <a href="elementdefinition.html#id">StructureDefinition</a>) and
+extensions (e.g. <a href="extension-originaltext.html">originalText</a>, <a href="extension-narrativelink.html">narrativeLink</a>) make use of it.
 </p>
 <p>
 The internal id is unique within the scope of the resource that contains it.
