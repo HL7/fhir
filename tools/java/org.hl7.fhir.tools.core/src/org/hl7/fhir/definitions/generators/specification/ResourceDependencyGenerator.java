@@ -68,7 +68,7 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
     row.getCells().add(gc);
     if (e.getStandardsStatus() != null) {
       gc.addPiece(gen.new Piece(null, " ", null));
-      gc.addStyledText("Ballot Status = "+e.getStandardsStatus().toDisplay(), e.getStandardsStatus().getAbbrev(), "black", e.getStandardsStatus().getColor(), prefix+"versions.html#std-process", true);
+      gc.addStyledText("Publication Status = "+e.getStandardsStatus().toDisplay(), e.getStandardsStatus().getAbbrev(), "black", e.getStandardsStatus().getColor(), prefix+"versions.html#std-process", true);
     }
        
     Cell dc;

@@ -188,7 +188,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
   private void buildV3CodeSystem(VSPack vp, String id, String date, Element e, String csOid, String vsOid, Element nl) throws Exception {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
@@ -235,7 +235,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
       vs.setDescription("**** MISSING DEFINITIONS ****");
 
     CodeSystem cs = new CodeSystem();
-    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0");
+    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     cs.setUrl("http://terminology.hl7.org/CodeSystem/v3-" + id);
     cs.setId("v3-"+FormatUtilities.makeId(id));
     CodeSystemUtilities.setOID(cs, "urn:oid:"+csOid);
@@ -489,7 +489,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 
   private ValueSet buildV3ValueSetAsCodeSystem(String id, Element e, String csname) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
 
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
@@ -540,7 +540,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 
   private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, CodeSystem> codesystems, IniFile vsini) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setUserData("path", Utilities.path("v3", id, "vs.html"));

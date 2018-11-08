@@ -4904,6 +4904,7 @@
     <Cell><Data ss:Type="String">Example.Response</Data></Cell>
     <Cell><Data ss:Type="String">Standards-Status</Data></Cell>
     <Cell><Data ss:Type="String">fmm</Data></Cell>
+    <Cell><Data ss:Type="String">Normative-Version</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="285">
     <Cell ss:StyleID="s116"><Data ss:Type="String">lookup</Data></Cell>
@@ -4918,6 +4919,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="String">Note that the $lookup operation is more than just a code system search  - the server finds the concept, and gathers the return information from the underlying code system definitions.</Data></Cell>
     <Cell><Data ss:Type="String">$lookup-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$lookup-response.txt</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s116"><Data ss:Type="String">lookup.code</Data></Cell>
@@ -5193,6 +5195,7 @@
     <Cell ss:StyleID="s130"/>
     <Cell><Data ss:Type="String">$validate-code-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$validate-code-response.txt</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s116"><Data ss:Type="String">validate-code.url</Data></Cell>
@@ -5378,6 +5381,7 @@
     <Cell ss:StyleID="s130"/>
     <Cell><Data ss:Type="String">$subsumes-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$subsumes-response.txt</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s116"><Data ss:Type="String">subsumes.codeA</Data></Cell>
@@ -6080,9 +6084,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>31</TopRowBottomPane>
+   <TopRowBottomPane>59</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

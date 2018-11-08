@@ -16,8 +16,8 @@
 
 <a name="root"></a>
 <h1>Resource Formats</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+[%normative page%]
 <p>
 
 This page documents how the content of the resources are described.
@@ -143,11 +143,11 @@ Here's an example:
 <p>Key to Flags</p>
 <ul>
  <li><code>?!</code>: This element is a modifying element - see <a href="conformance-rules.html#isModifier">Modifier Elements</a></li>
- <li><code>S</code>: This element is an element that must be supported - see <a href="conformance-rules.html#mustSupport">Must-Support Elements</a></li>
+ <li><code>S</code>: This element is an element that must be supported - see <a href="conformance-rules.html#mustSupport">MustSupport Elements</a></li>
  <li><code>Σ</code>: This element is an element that is part of the summary set - see <a href="search.html#summary">Summary Searches</a></li>
  <li><code>I</code>: This element defines or is affected by constraints - see <a href="conformance-rules.html#constraints">Constraints</a></li>
  <li><code>NE</code>: This element cannot have extensions (some infrastructural elements only)</li>
- <li><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #ffe6e6" href="versions.html#std-process">TU</a>: This element has a <a href="versions.html#std-process">standards status of Trial Use</a> (for discussion about mixing ballot status in a resource, see <a href="ballot-intro.html#mixed">Mixed Normative content</a>)</li>
+ <li><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #ffe6e6" href="versions.html#std-process">TU</a>: This element has a <a href="versions.html#std-process">standards status of Trial Use</a> (for discussion about mixing standards status in a resource, see <a href="versions.html#std-process">Mixed Normative content</a>)</li>
  <li><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #e6ffe6" href="versions.html#std-process">N</a>: This element has a <a href="versions.html#std-process">standards status of Normative</a></li>
  <li><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #efefef" href="versions.html#std-process">D</a>: This element has a <a href="versions.html#std-process">standards status of Draft</a></li>
 </ul>
@@ -207,15 +207,10 @@ element with a data type chosen from among the list of permitted data types.
 <p>
 Note: In object-orientated based implementations, this is naturally represented as a polymorphic property.
 However this is not necessary and the correct implementation varies according to the particular features
-of the language. In XML schema, these become an xs:choice of element.
+of the language. In XML schema, these become an xs:choice of element. To help with code generation, <a href="choice-elements.json">a list
+of choice elements</a> is published.
 </p>
 
-<p>
-The following elements have a choice of types:
-</p>
-<ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
-  [%choice-elements%]
-</ul>
 
 <a name="uml"></a>
 <h3>UML</h3>

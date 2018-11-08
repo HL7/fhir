@@ -21,9 +21,9 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="root"></a>
 <h2>XML Representation of Resources</h2>
 
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
-[%normative page infrastructure%]
+[%normative page%]
 
 <p>
 The XML representation for a resource is described using this format: 
@@ -48,7 +48,7 @@ Using this format:
  <li>Elements must always appear in the order documented</li>
  <li>When an element is allowed to repeat, the elements are ordered, and the technical infrastructure needs to be able to access the items in the right order (see also <a href="conformance-rules.html#cardinality">Cardinality Rules</a> for a further description of elements with cardinality &gt; 1)</li>
  <li>A few properties are represented as attributes: values of primitive types in a <code>value</code> attribute, extension URLs in the <code>url</code> attribute on an extension, and the <code>id</code> property on elements (but not on resources, where the resource id is an element)</li>
- <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#id">the target of an internal reference</a>. The id attribute is not shown in this format</li>
+ <li>Any of the XML elements may have an id attribute to serve as <a href="narrative.html#internal">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
    The only other namespace that occurs in FHIR resources is the XHTML namespace - <a href="narrative.html">XHTML is found in most resources</a></li>
  <li>Infrastructural elements must appear prior to any other defined child elements in the following order:
@@ -83,7 +83,8 @@ includes, there is <a href="fhir-single.xsd">a single schema</a> that contains e
 </p>
 <p>
 In addition to the w3c schema files, this specification also provides Schematron files that
-enforce the various constraints defined for the datatypes and resources.  These are packaged
+enforce most of the constraints defined for the datatypes and resources, though some are only 
+expressible and validatable using <a href="fhirpath.html">FHIRPath</a>. These are packaged
 as files for each resource.
 </p>
 <p>

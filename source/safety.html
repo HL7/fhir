@@ -14,7 +14,7 @@
 
 
 <h2>Clinical Safety</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
 This specification defines data elements, resources, formats, methods and APIs for
@@ -49,7 +49,7 @@ list underlying assumptions about deployment
  <li><input type="checkbox"/> Production exchange of patient or other sensitive data will always use some form of <a href="security.html#http">encryption on the wire</a></li>
  <li><input type="checkbox"/> For each resource that my system handles, I've reviewed the <a href="conformance-rules.html#isModifier">Modifier elements</a></li>
  <li><input type="checkbox"/> My system checks for <a href="extensibility.html#modifierExtension">modifierExtension</a> elements</li>
- <li><input type="checkbox"/> My system supports <a href="conformance-rules.html#mustSupport">elements labeled as "must-support"</a> in the <a href="profiling.html">profiles</a> that apply to my system</li>
+ <li><input type="checkbox"/> My system supports <a href="conformance-rules.html#mustSupport">elements labeled as "MustSupport"</a> in the <a href="profiling.html">profiles</a> that apply to my system</li>
  <li><input type="checkbox"/> All resources in use are <a href="validation.html">valid</a> against the base specification and the <a href="profiling.html">profiles</a> that apply to my system (see note about the <a href="validation.html#correct-use">correct run-time use of validation</a>)</li>
  <li><input type="checkbox"/> For each resource that my system handles, my system handles the full <a href="lifecycle.html">Life cycle</a> (status codes, currency issues, and erroneous entry status)</li>
  <li><b>Deleting Records</b> 
@@ -64,17 +64,29 @@ list underlying assumptions about deployment
  <li><input type="checkbox"/> My system manages lists of <a href="lifecycle.html#current">current resources</a> correctly</li>
  <li><input type="checkbox"/> My system makes the right <a href="provenance.html">Provenance</a> statements and <a href="auditevent.html">AuditEvent</a> logs, and uses the right <a href="security-labels.html#core">security labels</a> where appropriate</li>
  <li><input type="checkbox"/> My system checks that the right <a href="consent.html">Patient consent</a> has been granted (where applicable)</li>
- <li><input type="checkbox"/> When other systems <a href="http.html#summary">return http errors from the RESTful API</a> and <a href="operations.html">Operations</a> (perhaps using <a href="operationoutcome.html">Operation Outcome</a>), my system checks for them and handles them appropriately
-   <ul><li><input type="checkbox"/> For search, my system will display warnings returned by the server to the user</li></ul>
+ <li><input type="checkbox"/> When other systems <a href="http.html#summary">return http errors from the RESTful API</a> and <a href="operations.html">Operations</a> (perhaps using <a href="operationoutcome.html">Operation Outcome</a>), my system checks for them and handles them appropriately </li>
+ <a name="search"> </a>
+ <li><b>Search (For clients)</b> 
+   <ol style="list-style-type: lower-alpha">
+     <li><input type="checkbox"/> My system will display warnings returned by the server to the user</li>
+     <li><input type="checkbox"/> My system checks whether the server processed all the requested search parameter, and is safe if servers ignore parameters (typically, either filters locally or warns the user)</li>
+   </ol>
  </li>
- <li><input type="checkbox"/> My system caters for <a href="search.html#missing">parameters that have missing values</a> when doing search operations, and responds correctly to the client with regard to <a href="search.html#errors">erroneous search parameters</a></li>
+ <li><b>Search (For Servers)</b> 
+   <ol style="list-style-type: lower-alpha">
+     <li><input type="checkbox"/> My system caters for <a href="search.html#missing">parameters that have missing values</a> when doing search operations, and responds correctly to the client with regard to <a href="search.html#errors">erroneous search parameters</a></li>
+     <li><input type="checkbox"/> My system includes appropriate default filters when searching based on patient context - e.g. filtering out entered-in-error records, filtering to only include active, living patients if appropriate, and clearly documents these 
+       (preferably including them in the self link for a search</li>
+   </ol>
+ </li>
  <li><input type="checkbox"/> My system ensures that system clocks are synchronized using a protocol like NTP or SNTP, or my server is robust against clients that have the wrong clock set</li>
  <li><input type="checkbox"/> My system ensures checks for patient links (and/or merges) and handles data that is linked to patients accordingly</li>
  <li><input type="checkbox"/> My system publishes a <a href="capabilitystatement.html">Capability Statement</a> with <a href="structuredefinition.html">StructureDefinitions</a>, <a href="valueset.html">ValueSets</a>, and <a href="operationdefinition.html">OperationDefinitions</a>, etc., so other implementers know how the system functions</li>
  <li><input type="checkbox"/> My system checks for timezones, and adjusts times appropriately. (note: timezones are extremely difficult to get correct - see <a href="https://www.w3.org/TR/timezone/">W3C Timezone Advice</a>, and note that some fields should be timezone corrected, and others should not be)</li>
  <li><input type="checkbox"/> My system renders dates safely for changes in culture and language (the date formats D-M-Y and M-D-Y are not differentiated for many dates, and this is a well known source of confusion. Systems should use the month name, or otherwise be specific for each date when rendering, unless
    there is solid confidence that such confusion cannot arise, even in the future when information/narrative from resources will be shared much more widely)</li>
- <li><input type="checkbox"/> I've reviewed the <a href="observation.html">Observation</a> resource, and understand how <code>focus</code> is a mechanism for observations to be about someone or something other than the pateint or subject of record.</li>
+ <li><input type="checkbox"/> I've reviewed the <a href="observation.html">Observation</a> resource, and understand how <code>focus</code> is a mechanism for observations to be about someone or something other than the patient or subject of record.</li>
+ <li><input type="checkbox"/> My system takes care to ensure that clients can (for servers) or will (for clients) find the information they need when content that might reasonably be exposed using more than one FHIR resource. Possible patterns: Support a single search across the applicable resources, or expose data through each applicable resource. See discussion on <a href="http://wiki.hl7.org/index.php?title=FHIR_Managing_Overlap_between_Resources">Wiki Page</a> for further information</li>
 </ol>
 <p>
 Obviously this list is only a small part of the overall safety check list for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc.

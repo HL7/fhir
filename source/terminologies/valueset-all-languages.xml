@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="All Languages"/>
+  <name value="AllLanguages"/>
+  <title value="All Languages"/>
   <status value="draft"/>
   <publisher value="HL7 International - FHIR-Infrastructure"/>
   <contact>

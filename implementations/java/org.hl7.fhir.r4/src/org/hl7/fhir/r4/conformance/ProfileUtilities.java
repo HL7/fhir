@@ -2037,6 +2037,17 @@ public class ProfileUtilities extends TranslatingUtilities {
       b.append(" ");
       b.append(ec.getExpression());
     }
+    if (ext.hasContextInvariant()) {
+      b.append(", with <a href=\"structuredefinition-definitions.html#StructureDefinition.contextInvariant\">Context Invariant</a> = ");
+      boolean first = true;
+      for (StringType s : ext.getContextInvariant()) {
+        if (first)
+          first = false;
+        else
+          b.append(", ");
+        b.append("<code>"+s.getValue()+"</code>");
+      }
+    }
     return b.toString(); 
   }
 

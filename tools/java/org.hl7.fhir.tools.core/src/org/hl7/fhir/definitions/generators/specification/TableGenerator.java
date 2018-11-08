@@ -61,9 +61,9 @@ public class TableGenerator extends BaseGenerator {
     if (!e.getInvariants().isEmpty() || !e.getStatedInvariants().isEmpty()) 
       gc.addStyledText("This element has or is affected by some invariants", "I", null, null, prefix+"conformance-rules.html#constraints", false);
     if (rootStatus != null)
-      gc.addStyledText("Ballot Status = "+rootStatus.toDisplay(), rootStatus.getAbbrev(), "black", rootStatus.getColor(), prefix+"versions.html#std-process", true);
+      gc.addStyledText("Standards Status = "+rootStatus.toDisplay(), rootStatus.getAbbrev(), "black", rootStatus.getColor(), prefix+"versions.html#std-process", true);
     else if (e.getStandardsStatus() != null)
-      gc.addStyledText("Ballot Status = "+e.getStandardsStatus().toDisplay(), e.getStandardsStatus().getAbbrev(), "black", e.getStandardsStatus().getColor(), prefix+"versions.html#std-process", true);
+      gc.addStyledText("Standards Status = "+e.getStandardsStatus().toDisplay(), e.getStandardsStatus().getAbbrev(), "black", e.getStandardsStatus().getColor(), prefix+"versions.html#std-process", true);
     if (resource) {
       row.getCells().add(gen.new Cell()); 
   
