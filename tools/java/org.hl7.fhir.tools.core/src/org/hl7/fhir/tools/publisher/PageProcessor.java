@@ -3705,12 +3705,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String generateValueSetUsage(ValueSet vs, String prefix, boolean addTitle) throws Exception {
-    StringBuilder b = new StringBuilder();
+    List<String> items = new ArrayList<>();
     if (vs.hasUrl()) {
       for (CodeSystem cs : getCodeSystems().values()) {
         if (cs != null) {
           if (vs.getUrl().equals(cs.getValueSet())) {
-            b.append(" <li>CodeSystem: This value set is the designated 'entire code system' value set for <a href=\"").append(prefix+cs.getUserString("path")).append("\">").append(cs.getName()).append("</a> ").append("</li>\r\n");
+            addItem(items, "<li>CodeSystem: This value set is the designated 'entire code system' value set for <a href=\""+ prefix+cs.getUserString("path") + "\">"+cs.getName()+"</a> "+"</li>\r\n");
           }
         }
       }
@@ -3718,43 +3718,43 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     for (ConceptMap cm : getConceptMaps().values()) {
       if (cm.hasSourceUriType() && cm.getSourceUriType().equals(vs.getUrl())) {
-        b.append(" <li>ConceptMap: Translation source in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.present()).append("</a> ").append("</li>\r\n");
+        addItem(items, "<li>ConceptMap: Translation source in <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.present()+"</a> "+"</li>\r\n");
       } else if (cm.hasSourceCanonicalType() && (cm.getSourceCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getSourceCanonicalType().getValue()))) {
-        b.append(" <li>ConceptMap: Translation source in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+        addItem(items, "<li>ConceptMap: Translation source in <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.getName()+"</a> "+"</li>\r\n");
       }
     }
     for (ConceptMap cm : getConceptMaps().values()) {
       if (cm.hasTargetUriType() && cm.getTargetUriType().equals(vs.getUrl())) {
-        b.append(" <li>ConceptMap: Translation target in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.present()).append("</a> ").append("</li>\r\n");
+        addItem(items, "<li>ConceptMap: Translation target in <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.present()+"</a> "+"</li>\r\n");
       } else if (cm.hasTargetCanonicalType() && (cm.getTargetCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getTargetCanonicalType().getValue()))) {
-        b.append(" <li>ConceptMap: Translation target ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+        addItem(items, "<li>ConceptMap: Translation target ConceptMap <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.getName()+"</a> "+"</li>\r\n");
       }
     }
 
     for (ResourceDefn r : definitions.getBaseResources().values()) {
-      scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+"-definitions.html", prefix);
-      scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operation-", prefix);
-      scanForProfileUsage(b, vs, r, prefix);
+      scanForUsage(items, vs, r.getRoot(), r.getName().toLowerCase()+"-definitions.html", prefix);
+      scanForOperationUsage(items, vs, r, r.getName().toLowerCase()+"-operation-", prefix);
+      scanForProfileUsage(items, vs, r, prefix);
     }
     for (ResourceDefn r : definitions.getResources().values()) {
-      scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+"-definitions.html", prefix);
-      scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operation-", prefix);
-      scanForProfileUsage(b, vs, r, prefix);
+      scanForUsage(items, vs, r.getRoot(), r.getName().toLowerCase()+"-definitions.html", prefix);
+      scanForOperationUsage(items, vs, r, r.getName().toLowerCase()+"-operation-", prefix);
+      scanForProfileUsage(items, vs, r, prefix);
     }
     for (ElementDefn e : definitions.getInfrastructure().values()) {
-        scanForUsage(b, vs, e, definitions.getSrcFile(e.getName())+"-definitions.html", prefix);
+        scanForUsage(items, vs, e, definitions.getSrcFile(e.getName())+"-definitions.html", prefix);
     }
     for (ElementDefn e : definitions.getTypes().values())
       if (!definitions.dataTypeIsSharedInfo(e.getName())) {
-        scanForUsage(b, vs, e, definitions.getSrcFile(e.getName())+"-definitions.html", prefix);
+        scanForUsage(items, vs, e, definitions.getSrcFile(e.getName())+"-definitions.html", prefix);
       }
     for (ElementDefn e : definitions.getStructures().values())
       if (!definitions.dataTypeIsSharedInfo(e.getName()))
-        scanForUsage(b, vs, e, definitions.getSrcFile(e.getName())+"-definitions.html", prefix);
+        scanForUsage(items, vs, e, definitions.getSrcFile(e.getName())+"-definitions.html", prefix);
 
 
     for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
-      scanForUsage(b, vs, sd, sd.getUserString("path"), prefix);
+      scanForUsage(items, vs, sd, sd.getUserString("path"), prefix);
     }
 
     for (ValueSet vsi : definitions.getValuesets().values()) {
@@ -3763,67 +3763,70 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         for (ConceptSetComponent t : vs.getCompose().getInclude()) {
           for (UriType uri : t.getValueSet()) {
             if (uri.getValue().equals(vs.getUrl()))
-              b.append(" <li>ValueSet: Included in <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.present())).append("</a></li>\r\n");
+              addItem(items, "<li>ValueSet: Included in <a href=\""+prefix+path+"\">"+Utilities.escapeXml(vs.present())+"</a></li>\r\n");
           }
         }
         for (ConceptSetComponent t : vs.getCompose().getExclude()) {
           for (UriType uri : t.getValueSet()) {
             if (uri.getValue().equals(vs.getUrl()))
-              b.append(" <li>ValueSet: Excluded from  <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.present())).append("</a></li>\r\n");
+              addItem(items, "<li>ValueSet: Excluded from  <a href=\""+prefix+path+"\">"+Utilities.escapeXml(vs.present())+"</a></li>\r\n");
           }
         }
 //        for (ConceptSetComponent t : vsi.getCompose().getInclude()) {
 //          if (vs.hasCodeSystem() && t.getSystem().equals(vs.getCodeSystem().getSystem()))
-//            b.append(" <li>Included in Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
+//            b.append(" <li>Included in Valueset <a href=\""+prefix+path+"\">"+Utilities.escapeXml(vs.getName())+"</a></li>\r\n");
 //        }
 //        for (ConceptSetComponent t : vsi.getCompose().getExclude()) {
 //          if (vs.hasCodeSystem() && t.getSystem().equals(vs.getCodeSystem().getSystem()))
-//            b.append(" <li>Excluded in Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
+//            b.append(" <li>Excluded in Valueset <a href=\""+prefix+path+"\">"+Utilities.escapeXml(vs.getName())+"</a></li>\r\n");
 //        }
       }
     }
     if (ini.getPropertyNames(vs.getUrl()) != null) {
-      for (String n : ini.getPropertyNames(vs.getUrl())) {
-        b.append(" <li>");
-        b.append(ini.getStringProperty(vs.getUrl(), n));
-        b.append("</li>\r\n");
-      }
+      for (String n : ini.getPropertyNames(vs.getUrl()))
+        addItem(items, "<li>"+ini.getStringProperty(vs.getUrl(), n)+"</li>\r\n");
     }
-    if (b.length() == 0)
+    if (items.size() == 0)
       return "<p>\r\nThis value set is not currently used\r\n</p>\r\n";
-    else
+    else {
+      StringBuilder b = new StringBuilder();
+      for (String s : items)
+        b.append(" " +s);
       return (addTitle ? "<p>\r\nThis value set is used in the following places:\r\n</p>\r\n" : "")+"<ul>\r\n"+b.toString()+"</ul>\r\n";
+    }
   }
 
-  private void scanForUsage(StringBuilder b, ValueSet vs, StructureDefinition exd, String path, String prefix) {
+  private void addItem(List<String> items, String value) {
+    if (!items.contains(value))
+      items.add(value);
+  }
+
+  private void scanForUsage(List<String> items, ValueSet vs, StructureDefinition exd, String path, String prefix) {
     for (ElementDefinition ed : exd.getSnapshot().getElement()) {
       if (ed.hasBinding()) {
         if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
-          b.append(" <li>Extension: <a href=\"").append(prefix).append(path).append("\">")
-          .append(exd.getUrl()).append(": ").append(Utilities.escapeXml(exd.getName())).append("</a> ("+ed.typeSummary()+" / ").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
+          addItem(items, "<li>Extension: <a href=\""+prefix+path+"\">"+exd.getUrl()+": "+Utilities.escapeXml(exd.getName())+"</a> ("+ed.typeSummary()+" / "+getBindingTypeDesc(ed.getBinding(), prefix)+")</li>\r\n");
       }
     }
   }
 
-  private void scanForOperationUsage(StringBuilder b, ValueSet vs, ResourceDefn r, String page, String prefix) {
+  private void scanForOperationUsage(List<String> items, ValueSet vs, ResourceDefn r, String page, String prefix) {
     for (Operation op : r.getOperations()) {
       for (OperationParameter p : op.getParameters()) {
         if (p.getBs() != null && p.getBs().getValueSet() == vs) {
-          b.append(" <li>Operation: <a href=\"").append(prefix+page).append(op.getName()).append(".html").append("\"> Parameter $")
-          .append(op.getName()).append(".").append(p.getName()).append("</a> ("+p.getFhirType()+" /: ").append(getBindingTypeDesc(p.getBs(), prefix)).append(")</li>\r\n");
+          addItem(items, "<li>Operation: <a href=\""+prefix+page+op.getName()+".html"+"\"> Parameter $"+op.getName()+"."+p.getName()+"</a> ("+p.getFhirType()+" /: "+getBindingTypeDesc(p.getBs(), prefix)+")</li>\r\n");
         }
       }
     }
   }
 
-  private void scanForProfileUsage(StringBuilder b, ValueSet vs, ResourceDefn r, String prefix) {
+  private void scanForProfileUsage(List<String> items, ValueSet vs, ResourceDefn r, String prefix) {
     for (Profile ap : r.getConformancePackages()) {
       for (ConstraintStructure p : ap.getProfiles()) {
         for (ElementDefinition ed : p.getResource().getSnapshot().getElement()) {
           if (ed.hasBinding()) {
             if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
-              b.append(" <li>Profile: <a href=\"").append(prefix+p.getId()).append(".html\"> ")
-              .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> ("+ed.typeSummary()+" / ").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
+              addItem(items, "<li>Profile: <a href=\""+prefix+p.getId()+".html\"> "+p.getTitle()+": "+ed.getPath()+"</a> ("+ed.typeSummary()+" / "+getBindingTypeDesc(ed.getBinding(), prefix)+")</li>\r\n");
           }
         }
       }
@@ -3852,21 +3855,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "(<a href=\""+prefix+"terminologies.html#"+binding.getStrength().toCode()+"\">"+binding.getStrength().getDisplay()+"</a>)";
   }
 
-  private void scanForUsage(StringBuilder b, ValueSet vs, ElementDefn e, String ref, String prefix) {
-    scanForUsage(b, vs, e, "", ref, prefix);
+  private void scanForUsage(List<String> items, ValueSet vs, ElementDefn e, String ref, String prefix) {
+    scanForUsage(items, vs, e, "", ref, prefix);
 
   }
 
-  private void scanForUsage(StringBuilder b, ValueSet vs, ElementDefn e, String path, String ref, String prefix) {
+  private void scanForUsage(List<String> items, ValueSet vs, ElementDefn e, String path, String ref, String prefix) {
     path = path.equals("") ? e.getName() : path+"."+e.getName();
     if (e.hasBinding() && e.getBinding().getValueSet() == vs) {
-      b.append(" <li>Resource: <a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e, e.getBinding(), prefix)).append("</li>\r\n");
+      addItem(items, "<li>Resource: <a href=\""+prefix+ref+"#"+path+"\">"+path+"</a> "+getBSTypeDesc(e, e.getBinding(), prefix)+"</li>\r\n");
     }
     if (e.hasBinding() && e.getBinding().getMaxValueSet() == vs) {
-      b.append(" <li>Max ValueSet: <a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e, e.getBinding(), prefix)).append("</li>\r\n");
+      addItem(items, "<li>Max ValueSet: <a href=\""+prefix+ref+"#"+path+"\">"+path+"</a> "+getBSTypeDesc(e, e.getBinding(), prefix)+"</li>\r\n");
     }
     for (ElementDefn c : e.getElements()) {
-      scanForUsage(b, vs, c, path, ref, prefix);
+      scanForUsage(items, vs, c, path, ref, prefix);
     }
   }
 
