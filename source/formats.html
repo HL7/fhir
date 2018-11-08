@@ -168,6 +168,29 @@ Notes:
  <li>Infrastructural elements that are common to all resources are not shown in the logical representation. These are described in the common base classes <a href="resource.html">Resource</a>, and <a href="domainresource.html">DomainResource</a></li>
 </ul>
 
+<p>
+The data type for a particular element is typically expressed as the name of the specified type with a hyperlink to its definition.  However, there are two exceptions:
+</p>
+<ul>
+<li>If the element supports multiple types (name ends with [x]), then the type will be a list of data type options, each separated by "|"</li>
+<li>If one of the types is <a href="references.html">Reference</a> or <a href="datatypes.html#canonical">canonical</a>, the data type might be followed by a list of allowed targets the reference is allowed to be.  These might be resource names, data type names, or profile URLs, depending on the context.  As well, the following symbols may appear that represent expectations of where the referenced resource is located: 
+  <ul>
+    <li><code>b</code>: Resource must appear within the same <a href="bundle.html">Bundle</a>;</li>
+    <li><code>c</code>: Resource must be sent as a <a href="references.html">contained</a> resource;</li>
+    <li><code>r</code>: Resource is a non-contained reference - i.e. to a resource within the same Bundle or to an external resource</li>
+  </ul>
+</ul>
+<p>
+In profiles, references to types may be profiled - i.e. Instances of the element must comply with a specified profile or one of a list of profiles.  The canonical URLs of any applicable profiles are listed inside {}.
+</p>
+
+<p>
+Where an element can have a choice of data types, or is a <a href="references.html">Reference</a> these are
+represented by showing the common type (<code>Reference</code> or <code>Type</code>), and then showing the applicable data type names or
+resource types in a stereotype, separated by the <code>|</code> character. <code>Type</code> is not formally otherwise defined by
+this specification, but is a super type of all the data types.
+</p>
+
 <a name="choice"></a>
 <h3>Choice of Data Types</h3>
 <p>
@@ -248,12 +271,6 @@ The elements and the data types are hyperlinks to the formal definitions of the 
 vocabulary bindings.  These are hyperlinks to the value set details.
 </p>
 <a name="umlchoice"></a>
-<p>
-Where an element can have a choice of data types, or is a <a href="references.html">Reference</a> these are
-represented by showing the common type (<code>Reference</code> or <code>Type</code>), and then showing the applicable data type names or
-resource types in a stereotype, separated by the <code>|</code> character. <code>Type</code> is not formally otherwise defined by
-this specification, but is a super type of all the data types.
-</p>
 <p>
 The actual order of the elements in XML cannot be determined from the diagram, nor whether a UML property becomes an element or an attribute in the XML representation.
 </p>
