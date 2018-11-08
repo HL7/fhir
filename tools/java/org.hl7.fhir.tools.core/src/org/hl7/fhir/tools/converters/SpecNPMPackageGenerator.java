@@ -192,7 +192,8 @@ public class SpecNPMPackageGenerator {
 
   private void addToResList(String folder, List<ResourceEntry> reslist, String version) {
     for (File f : new File(folder).listFiles()) {
-      if (f.getName().endsWith(".json") && !f.getName().endsWith(".diff.json") && !f.getName().endsWith(".schema.json") && !f.getName().equals("package.json")  && !f.getName().equals("backbone-elements.json")) {
+      if (f.getName().endsWith(".json") && !f.getName().endsWith(".diff.json") && !f.getName().endsWith(".schema.json") && !f.getName().equals("package.json") 
+          && !f.getName().equals("backbone-elements.json")&& !f.getName().equals("choice-elements.json")) {
         try {
           byte[] b = TextFile.fileToBytes(f.getAbsolutePath());
           loadFile(reslist, b, f.getName());

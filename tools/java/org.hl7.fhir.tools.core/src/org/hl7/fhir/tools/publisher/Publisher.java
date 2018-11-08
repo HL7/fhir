@@ -2192,7 +2192,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
     }
     
-    TextFile.stringToFile(page.genBackboneelementJson(), Utilities.path(page.getFolders().dstDir, "backbone-elements.json"));
+    TextFile.stringToFile(page.genBackboneElementsJson(), Utilities.path(page.getFolders().dstDir, "backbone-elements.json"));
+    TextFile.stringToFile(page.genChoiceElementsJson(), Utilities.path(page.getFolders().dstDir, "choice-elements.json"));
     if (buildFlags.get("all")) {
       for (PlatformGenerator gen : page.getReferenceImplementations()) {
         page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);

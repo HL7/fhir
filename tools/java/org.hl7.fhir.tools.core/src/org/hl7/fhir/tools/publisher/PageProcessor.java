@@ -1313,8 +1313,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildResListByCommittee()+s3;
       else if (com[0].equals("wglist"))
         src = s1+buildCommitteeList()+s3;
-      else if (com[0].equals("choice-elements"))
-        src = s1+buildChoiceElementList()+s3;
       else if (com[0].equals("opName"))
         src = s1+((Operation) object).getName()+s3;
       else if (com[0].equals("rName"))
@@ -1586,33 +1584,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return false;
   }
 
-  private String buildChoiceElementList() throws Exception {
-    StringBuilder b = new StringBuilder();
-    for (String s : sorted(definitions.getTypes().keySet())) {
-      ElementDefn t = definitions.getTypes().get(s);
-      buildChoiceElementList(b, s, t);
-    }
-    
-    for (String s : sorted(definitions.getResources().keySet())) {
-      ResourceDefn t = definitions.getResources().get(s);
-      buildChoiceElementList(b, s, t.getRoot());
-    }
-
-    return b.toString();
-  }
-
   private void buildChoiceElementList(StringBuilder b, String s, ElementDefn t) throws Exception {
     if (t.getName().contains("[x]")) {
-      boolean normative = false;
-      if (definitions.hasResource(s))
-        normative = definitions.getResourceByName(s).getStatus() == StandardsStatus.NORMATIVE;
-      else if (definitions.hasElementDefn(s))
-        normative = definitions.getElementDefn(s).getStandardsStatus() == StandardsStatus.NORMATIVE;
-      String ns = normative ? " <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>" : "";
-      if (definitions.getTypes().containsKey(s))
-        b.append("<li><a href=\"datatypes-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a>"+ns+"</li>");
-      else
-        b.append("<li><a href=\""+s.toLowerCase()+"-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a>"+ns+"</li>");
+      if (b.length() > 0)
+        b.append(",\r\n");
+      b.append("    ");
+      b.append("\""+t.getPath()+"\": [");
+      boolean first = true;
+      for (TypeRef tt : t.getTypes()) {
+        if (first)
+          first = false;
+        else
+          b.append(", ");
+        b.append("\"");
+        b.append(tt.getName());
+        b.append("\"");
+      }
+      b.append("]");
     }
     for (ElementDefn e : t.getElements())
       buildChoiceElementList(b, s, e);    
@@ -2126,7 +2114,22 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return wg == null ? "??" : "<a _target=\"blank\" href=\""+wg.getUrl()+"\">"+wg.getName()+"</a> Work Group";
   }
 
-  public String genBackboneelementJson() throws Exception {
+  public String genChoiceElementsJson() throws Exception {
+    StringBuilder b = new StringBuilder();
+    for (String s : sorted(definitions.getTypes().keySet())) {
+      ElementDefn t = definitions.getTypes().get(s);
+      buildChoiceElementList(b, s, t);
+    }
+    
+    for (String s : sorted(definitions.getResources().keySet())) {
+      ResourceDefn t = definitions.getResources().get(s);
+      buildChoiceElementList(b, s, t.getRoot());
+    }
+
+    return "{\r\n  \"elements\" : {\r\n"+b.toString()+"\r\n  }\r\n}\r\n";
+  }
+  
+  public String genBackboneElementsJson() throws Exception {
     List<String> classes = new ArrayList<String>();
     listAllbackboneClasses(classes);
 
@@ -2493,11 +2496,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     s.append("<table class=\"list\">\r\n");
     s.append("<tr>");
-    s.append("<td><b>id</b></td>");
-    s.append("<td><b>Description</b></td>");
+    s.append("<td><b>Identity</b></td>");
     s.append("<td><b><a href=\"defining-extensions.html#cardinality\">Conf.</a></b></td>");
     s.append("<td><b>Type</b></td>");
-    s.append("<td><b>Context</b></td>");
+    s.append("<td><b><a href=\"defining-extensions.html#context\">Context</a></b></td>");
     s.append("<td><b><a href=\"versions.html#maturity\">FMM</a></b></td>");
     s.append("</tr>");
 
@@ -2508,16 +2510,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     Set<StructureDefinition> processed = new HashSet<StructureDefinition>();
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (ig.isCore()) {
-        boolean started = false;
         for (String n : names) {
           StructureDefinition ed = workerContext.fetchResource(StructureDefinition.class, n);
           if (!processed.contains(ed)) {
             processed.add(ed);
             if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
-              if (!started) {
-                started = true;
-                genStructureExampleCategory(s, ig.getName(), "6");
-              }
               genExtensionRow(ig, s, ed);
             }
           }
@@ -2530,8 +2527,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private void genExtensionRow(ImplementationGuideDefn ig, StringBuilder s, StructureDefinition ed) throws Exception {
     s.append("<tr>");
-    s.append("<td><a href=\""+ed.getUserString("path")+"\">"+ed.getId()+"</a></td>");
-    s.append("<td>"+Utilities.escapeXml(ed.getName())+"</td>");
+    s.append("<td><a href=\""+ed.getUserString("path")+"\" title=\""+Utilities.escapeXml(ed.getDescription())+"\">"+ed.getId()+"</a></td>");
     s.append("<td>"+displayExtensionCardinality(ed)+"</td>");
     s.append("<td>"+determineExtensionType(ed)+"</td>");
     s.append("<td>");
@@ -2568,7 +2564,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     ElementDefinition e = ed.getSnapshot().getElementFirstRep();
     String m = "";
     if (ed.getSnapshot().getElementFirstRep().getIsModifier())
-      m = " <b>M</b>";
+      m = " <b title=\"This is a modifier extension\">M</b>";
 
     return Integer.toString(e.getMin())+".."+e.getMax()+m;
   }
@@ -5905,8 +5901,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildResListByCommittee()+s3;
       else if (com[0].equals("wglist"))
         src = s1+buildCommitteeList()+s3;
-      else if (com[0].equals("choice-elements"))
-        src = s1+buildChoiceElementList()+s3;
       else if (com[0].equals("structure-list-index"))
         src = s1+genStructureList()+s3;
       else if (com[0].equals("best-practice-list"))
@@ -8005,7 +7999,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("<tr>");
     s.append("<td colspan=\""+span+"\"><b>"+Utilities.escapeXml(heading)+"</b></td>");
     s.append("</tr>");
-
   }
 
   private void genStructureExample(StringBuilder s, String link, String fmtlink, String basename, String description) {
