@@ -190,7 +190,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("Element Id", null, d.getId());
     tableRowNE("Definition", null, page.processMarkdown(profile.getName(), d.getDefinition(), prefix));
     tableRowNE("Note", null, businessIdWarning(profile.getName(), tail(d.getPath())));
-    tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
+    tableRow("Cardinality", "conformance-rules.html#cardinality", describeCardinality(d) + summariseConditions(d.getCondition()));
     tableRowNE("Terminology Binding", "terminologies.html", describeBinding(d));
     if (d.hasContentReference())
       tableRow("Type", null, "See "+d.getContentReference().substring(1));
@@ -510,7 +510,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("Element Id", null, e.getPath());
     tableRowNE("Definition", null, page.processMarkdown(path, e.getDefinition(), prefix));
     tableRowNE("Note", null, businessIdWarning(resourceName, e.getName()));
-		tableRow("Control", "conformance-rules.html#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
+		tableRow("Cardinality", "conformance-rules.html#cardinality", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
 		tableRowNE("Terminology Binding", "terminologies.html", describeBinding(path, e));
 		if (!path.contains("."))
       tableRowNE("Type", "datatypes.html", type);
