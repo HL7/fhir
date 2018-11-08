@@ -47,7 +47,8 @@
     <publish>true</publish>
 	</space>
 	<space>
-		<url>http://snomed.info/sct</url>
+		<url>http://snomed.org/attributebinding</url>
+    <link>http://snomed.org/attributebinding</link>
 		<columnName>SNOMED CT Attribute</columnName>
 		<title>SNOMED CT Attribute Binding</title>
 		<id>sct-attr</id>
@@ -66,6 +67,7 @@
 	</space>
 	<space>
 		<url>http://snomed.info/conceptdomain</url>
+    <link>http://snomed.info/conceptdomain</link>
 		<columnName>SNOMED CT Concept Domain</columnName>
 		<title>SNOMED CT Concept Domain Binding</title>
 		<id>sct-concept</id>
