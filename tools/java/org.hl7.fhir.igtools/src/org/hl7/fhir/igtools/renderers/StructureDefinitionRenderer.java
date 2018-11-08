@@ -642,7 +642,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
   private String businessIdWarning(String resource, String name) {
     if (name.equals("identifier"))
-      return ""+translate("sd.dict", "This is a business identifer, not a resource identifier (see %sdiscussion%s)", "<a href=\""+prefix+"resource.html#identifiers\">", "</a>");
+      return ""+translate("sd.dict", "This is a business identifier, not a resource identifier (see %sdiscussion%s)", "<a href=\""+prefix+"resource.html#identifiers\">", "</a>");
     if (name.equals("version")) // && !resource.equals("Device"))
       return ""+translate("sd.dict", "This is a business versionId, not a resource version id (see %sdiscussion%s)", "<a href=\""+prefix+"resource.html#versions\">", "</a>");
     return null;

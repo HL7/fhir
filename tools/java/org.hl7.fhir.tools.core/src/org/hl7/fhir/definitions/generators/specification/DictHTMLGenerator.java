@@ -243,7 +243,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
   private String businessIdWarning(String resource, String name) {
     if (name.equals("identifier"))
-      return "This is a business identifer, not a resource identifier (see <a href=\""+prefix+"resource.html#identifiers\">discussion</a>)";
+      return "This is a business identifier, not a resource identifier (see <a href=\""+prefix+"resource.html#identifiers\">discussion</a>)";
     if (name.equals("version")) // && !resource.equals("Device"))
       return "This is a business versionId, not a resource version id (see <a href=\""+prefix+"resource.html#versions\">discussion</a>)";
     return null;

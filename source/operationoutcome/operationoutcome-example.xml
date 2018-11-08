@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <OperationOutcome xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/operationoutcome.xsd">
   <id value="101"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>The code &quot;W&quot; is not known and not legal Person.gender.</p>
+      <p>The code &quot;W&quot; is not known and not legal Patient.gender.</p>
     </div>
   </text>
   <issue>
@@ -14,7 +14,7 @@
       <text value="The code &quot;W&quot; is not known and not legal in this context"/>    
     </details>
     <diagnostics value="Acme.Interop.FHIRProcessors.Patient.processGender line 2453"/>
-    <location value="/f:Person/f:gender"/>
-    <expression value="Person.gender"/>
+    <location value="/f:Patient/f:gender"/>
+    <expression value="Patient.gender"/>
   </issue>
 </OperationOutcome>
