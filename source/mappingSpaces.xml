@@ -13,7 +13,7 @@
 		<url>http://hl7.org/fhir/fivews</url>
     <link>http://hl7.org/fhir/fivews.html</link>
 		<columnName>[w5]</columnName>
-		<title>FiveWs Pattern</title>
+		<title>FiveWs Pattern Mapping</title>
 		<id>w5</id>
 		<sort>-1</sort>
 		<publish>true</publish>
@@ -295,7 +295,7 @@
 		<url>http://hl7.org/fhir/auditevent</url>
     <link>http://hl7.org/fhir/auditevent.html</link>
 		<columnName>Auditevent Mapping</columnName>
-		<title>FHIR AuditEvent</title>
+		<title>FHIR AuditEvent Mapping</title>
 		<id>fhirauditevent</id>
 		<sort>26</sort>
 		<publish>true</publish>
@@ -304,7 +304,7 @@
 		<url>http://hl7.org/fhir/provenance</url>
     <link>http://hl7.org/fhir/provenance.html</link>
 		<columnName>Provenance Mapping</columnName>
-		<title>FHIR Provenance</title>
+		<title>FHIR Provenance Mapping</title>
 		<id>fhirprovenance</id>
 		<sort>27</sort>
 		<publish>true</publish>
@@ -313,7 +313,7 @@
 		<url>http://hl7.org/qidam</url>
 		<link>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378</link>
 		<columnName>QIDAM Mapping</columnName>
-		<title>Quality Improvement Domain Analysis Model</title>
+		<title>Mapping to Quality Improvement Domain Analysis Model</title>
 		<id>qidam</id>
 		<sort>28</sort>
 		<publish>true</publish>
@@ -322,7 +322,7 @@
 		<url>http://cap.org/ecc</url>
 		<link>https://www.cap.org/laboratory-improvement/proficiency-testing/cap-ecc</link>
 		<columnName>CAP Code</columnName>
-		<title>CAP Code</title>
+		<title>Equivalent CAP Code</title>
 		<id>cap</id>
 		<sort>29</sort>
 		<publish>true</publish>
@@ -354,7 +354,7 @@
 		<url>http://github.com/MDMI/ReferentIndexContent</url>
 		<link>http://github.com/MDMI/ReferentIndexContent</link>
 		<columnName>MDMI Referent</columnName>
-		<title>MDMI Referent Index</title>
+		<title>MDMI Referent Index Mapping</title>
 		<id>mdmi</id>
 		<sort>32</sort>
     <publish>true</publish>

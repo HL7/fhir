@@ -84,7 +84,7 @@ public class MappingsGenerator {
       StringBuilder s = new StringBuilder();
       for (StructureDefinitionMappingComponent map : profile.getMapping()) {
 
-        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
+        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>"+map.getName()+" ("+map.getUri()+")</h3>");
         if (map.hasComment())
           s.append("<p>"+Utilities.escapeXml(map.getComment())+"</p>");
         else if (definitions.getMapTypes().containsKey(map.getUri())) {   
@@ -119,7 +119,7 @@ public class MappingsGenerator {
       StringBuilder s = new StringBuilder();
       for (StructureDefinitionMappingComponent map : ed.getMapping()) {
 
-        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
+        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>"+map.getName()+" ("+map.getUri()+")</h3>");
         if (map.hasComment())
           s.append("<p>"+Utilities.escapeXml(map.getComment())+"</p>");
         else if (definitions.getMapTypes().containsKey(map.getUri())) {  
@@ -199,9 +199,9 @@ public class MappingsGenerator {
 			s.append("<a name=\""+m+"\"> </a><a name=\""+ms.getId()+"\"> </a>");
 
 			if (!Utilities.noString(ms.getLink()))
-		    s.append("<h3>Mappings for "+ms.getTitle()+" (<a href=\""+ms.getLink()+"\">"+m+"</a>)</h3>");
+		    s.append("<h3>"+ms.getTitle()+" (<a href=\""+ms.getLink()+"\">"+m+"</a>)</h3>");
 			else
-			  s.append("<h3>Mappings for "+ms.getTitle()+" ("+m+")</h3>");
+			  s.append("<h3>"+ms.getTitle()+" ("+m+")</h3>");
 			
 			XhtmlNode pre = ms.getPreamble();
 			if (pre != null)
@@ -238,7 +238,7 @@ public class MappingsGenerator {
 			list.append("|"+definitions.getMapTypes().get(m).getTitle() + "#"+m);
       s.append("<a name=\""+m+"\"> </a>\r\n");
       s.append("<a name=\""+definitions.getMapTypes().get(m).getId()+"\"> </a>\r\n");
-			s.append("<h3>Mappings for "+definitions.getMapTypes().get(m).getTitle()+" ("+m+")</h3>\r\n");
+			s.append("<h3>"+definitions.getMapTypes().get(m).getTitle()+" ("+m+")</h3>\r\n");
 			s.append("<table class=\"grid\">\r\n");
 			for (ElementDefn e : elements) 
 				if (elementHasMapping(e, m)) {
