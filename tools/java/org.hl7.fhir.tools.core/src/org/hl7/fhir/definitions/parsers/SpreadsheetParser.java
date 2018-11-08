@@ -547,7 +547,8 @@ public class SpreadsheetParser {
 	          }
 	          Operation op = new Operation(name, system, istype, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, 
 	              sheet.getColumn(row, "Footer"), examples, parseBoolean(sheet.getColumn(row, "Idempotent"), row,  false));
-	          op.setStandardsStatus(StandardsStatus.fromCode(sheet.getColumn(row, "Standards-Status")));
+            op.setStandardsStatus(StandardsStatus.fromCode(sheet.getColumn(row, "Standards-Status")));
+            op.setNormativeVersion(sheet.getColumn(row, "Normative-Version"));
             op.setFooter2(sheet.getColumn(row, "Footer2"));
             op.setFmm(sheet.getColumn(row, "fmm"));
 	          op.getExamples2().addAll(examples2);
@@ -1716,6 +1717,7 @@ public class SpreadsheetParser {
 		}
 
     e.setStandardsStatus(StandardsStatus.fromCode(sheet.getColumn(row, "Standards-Status")));
+    e.setNormativeVersion(sheet.getColumn(row, "Normative-Version"));
 
 		if (e.getName().startsWith("@")) {
 		  e.setName(e.getName().substring(1));

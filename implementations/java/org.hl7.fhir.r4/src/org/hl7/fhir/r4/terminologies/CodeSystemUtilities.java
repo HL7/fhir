@@ -192,7 +192,7 @@ public class CodeSystemUtilities {
     return null;
   }
 
-  public static void markStatus(CodeSystem cs, String wg, StandardsStatus status, String pckage, String fmm) throws FHIRException {
+  public static void markStatus(CodeSystem cs, String wg, StandardsStatus status, String pckage, String fmm, String normativeVersion) throws FHIRException {
     if (wg != null) {
       if (!ToolingExtensions.hasExtension(cs, ToolingExtensions.EXT_WORKGROUP) || 
           (Utilities.existsInList(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_WORKGROUP), "fhir", "vocab") && !Utilities.existsInList(wg, "fhir", "vocab"))) {
@@ -202,7 +202,7 @@ public class CodeSystemUtilities {
     if (status != null) {
       StandardsStatus ss = ToolingExtensions.getStandardsStatus(cs);
       if (ss == null || ss.isLowerThan(status)) 
-        ToolingExtensions.setStandardsStatus(cs, status);
+        ToolingExtensions.setStandardsStatus(cs, status, normativeVersion);
       if (pckage != null) {
         if (!cs.hasUserData("ballot.package"))
           cs.setUserData("ballot.package", pckage);

@@ -678,6 +678,8 @@ public class ElementDefn {
 
     private boolean fromTemplate;
 
+    private String normativeVersion;
+
     public boolean hasComments() {
       return comments != null && !"".equals(comments);
     }
@@ -1010,6 +1012,23 @@ public class ElementDefn {
     this.hierarchy = hierarchy;
   }	
   
+  
+  public String getNormativeVersion() {
+    return normativeVersion;
+  }
+
+  public void setNormativeVersion(String normativeVersion) {
+    this.normativeVersion = normativeVersion;
+  }
+
+  public String getNormativeVersion(ResourceDefn rd) {
+    if (standardsStatus != null && standardsStatus != StandardsStatus.NORMATIVE)
+      return null;
+    else if (normativeVersion != null)
+      return normativeVersion;
+    else
+      return rd.getNormativeVersion();
+  }
   
   
 }

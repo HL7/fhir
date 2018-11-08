@@ -484,9 +484,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   public void generate(ElementDefn root) throws Exception
 	{
 		write("<table class=\"dict\">\r\n");
-		writeEntry(root.getName(), "0..*", describeType(root), null, root, root.getName());
+		writeEntry(root.getName(), "0..*", describeType(root), null, root, root.getName(), true);
 		for (ElementDefn e : root.getElements()) {
-		   generateElement(root.getName(), e, root.getName());
+		   generateElement(root.getName(), e, root.getName(), false);
 		}
 		write("</table>\r\n");
 		write("\r\n");
@@ -494,19 +494,19 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		close();
 	}
 
-	private void generateElement(String name, ElementDefn e, String resourceName) throws Exception {
-		writeEntry(name+"."+e.getName(), e.describeCardinality(), describeType(e), e.getBinding(), e, resourceName);
+	private void generateElement(String name, ElementDefn e, String resourceName, boolean root) throws Exception {
+		writeEntry(name+"."+e.getName(), e.describeCardinality(), describeType(e), e.getBinding(), e, resourceName, root);
 		for (ElementDefn c : e.getElements())	{
-		   generateElement(name+"."+e.getName(), c, resourceName);
+		   generateElement(name+"."+e.getName(), c, resourceName, false);
 		}
 	}
 
-	private void writeEntry(String path, String cardinality, String type, BindingSpecification bs, ElementDefn e, String resourceName) throws Exception {
+	private void writeEntry(String path, String cardinality, String type, BindingSpecification bs, ElementDefn e, String resourceName, boolean root) throws Exception {
 		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"> </a><b>"+path+"</b></td></tr>\r\n");
 		if (e.getStandardsStatus() != null && !path.contains("."))
-      tableRowStyled("Standards Status", "versions.html#std-process", getStandardsStatusNote(e.getStandardsStatus()), getStandardsStatusStyle(e.getStandardsStatus()));
+      tableRowStyled("Standards Status", "versions.html#std-process", getStandardsStatusNote(e.getStandardsStatus(), root), getStandardsStatusStyle(e.getStandardsStatus()));
     if (e.getStandardsStatus() == StandardsStatus.DEPRECATED && path.contains("."))
-      tableRowStyled("Standards Status", "versions.html#std-process", getStandardsStatusNote(e.getStandardsStatus()), getStandardsStatusStyle(e.getStandardsStatus()));
+      tableRowStyled("Standards Status", "versions.html#std-process", getStandardsStatusNote(e.getStandardsStatus(), root), getStandardsStatusStyle(e.getStandardsStatus()));
     tableRow("Element Id", null, e.getPath());
     tableRowNE("Definition", null, page.processMarkdown(path, e.getDefinition(), prefix));
     tableRowNE("Note", null, businessIdWarning(resourceName, e.getName()));
@@ -545,8 +545,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     return "background-color: "+status.getColor();
   }
 
-  private String getStandardsStatusNote(StandardsStatus status) {
-    return "This element has a standards status of \""+status.toDisplay()+"\" which is different from the status of the whole resource";  
+  private String getStandardsStatusNote(StandardsStatus status, boolean root) {
+    return "This element has a standards status of \""+status.toDisplay()+"\""+ (!root ? " which is different from the status of the whole resource" : "");  
   }
 
   private String tasks(List<String> tasks) {

@@ -256,7 +256,7 @@ public class ProfileGenerator {
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
     p.setVersion(version.toCode());
-    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
+    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE, "4.0.0");
 
     
     ToolResourceUtilities.updateUsage(p, "core");
@@ -403,7 +403,7 @@ public class ProfileGenerator {
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
     p.setVersion(version.toCode());
-    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
+    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE, "4.0.0");
 
     
     ToolResourceUtilities.updateUsage(p, "core");
@@ -529,7 +529,7 @@ public class ProfileGenerator {
     p.setUserData("path", "datatypes.html#"+type.getCode());
     p.setFhirVersion(version);
     p.setVersion(version.toCode());
-    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
+    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE, "4.0.0");
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
@@ -653,7 +653,7 @@ public class ProfileGenerator {
     p.setType(t.getName());
     p.setFhirVersion(version);
     p.setVersion(version.toCode());
-    ToolingExtensions.setStandardsStatus(p, t.getStandardsStatus());
+    ToolingExtensions.setStandardsStatus(p, t.getStandardsStatus(), t.getNormativeVersion());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(t.getName());
@@ -708,7 +708,7 @@ public class ProfileGenerator {
     p.setUserData("path", "datatypes.html#"+pt.getName());
     p.setFhirVersion(version);
     p.setVersion(version.toCode());
-    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
+    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE, "4.0.0");
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(pt.getName());
@@ -858,7 +858,7 @@ public class ProfileGenerator {
     p.setTitle(pack.metadata("display"));
     p.setFhirVersion(version);
     p.setVersion(version.toCode());
-    ToolingExtensions.setStandardsStatus(p, r.getStatus());
+    ToolingExtensions.setStandardsStatus(p, r.getStatus(), r.getNormativeVersion());
 
     if (r.getFmmLevel() != null)
       ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(r.getFmmLevel()));
@@ -1000,9 +1000,9 @@ public class ProfileGenerator {
     else if (baseResource != null && baseResource.getWg() != null) 
       ToolingExtensions.setCodeExtension(p, ToolingExtensions.EXT_WORKGROUP, baseResource.getWg().getCode());      
     if (pack.hasMetadata("Standards-Status")) 
-      ToolingExtensions.setStandardsStatus(p, StandardsStatus.fromCode(pack.metadata("Standards-Status")));
+      ToolingExtensions.setStandardsStatus(p, StandardsStatus.fromCode(pack.metadata("Standards-Status")), null);
     else
-      ToolingExtensions.setStandardsStatus(p, resource.getStatus());
+      ToolingExtensions.setStandardsStatus(p, resource.getStatus(), null);
     
     if (pack.hasMetadata("status")) 
       p.setStatus(PublicationStatus.fromCode(pack.metadata("status")));
@@ -1108,7 +1108,7 @@ public class ProfileGenerator {
       sp.setStatus(p.getStatus());
       StandardsStatus sst = ToolingExtensions.getStandardsStatus(sp);
       if (sst == null || (spd.getStandardsStatus() == null && spd.getStandardsStatus().isLowerThan(sst)))
-        ToolingExtensions.setStandardsStatus(sp, spd.getStandardsStatus());
+        ToolingExtensions.setStandardsStatus(sp, spd.getStandardsStatus(), spd.getNormativeVersion());
       sp.setExperimental(p.getExperimental());
       sp.setName(spd.getCode());
       sp.setCode(spd.getCode());
@@ -1389,7 +1389,7 @@ public class ProfileGenerator {
 //    todo ce.setId(path.substring(path.indexOf(".")+1));
 
     if (e.getStandardsStatus() != null)
-      ToolingExtensions.setStandardsStatus(ce, e.getStandardsStatus());
+      ToolingExtensions.setStandardsStatus(ce, e.getStandardsStatus(), e.getNormativeVersion());
 
     ce.setId(path);
     ce.setPath(path);
@@ -2044,7 +2044,7 @@ public class ProfileGenerator {
       ToolingExtensions.addIntegerExtension(opd, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(rd.getFmmLevel()));
     else
       ToolingExtensions.addIntegerExtension(opd, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(op.getFmm()));
-    ToolingExtensions.setStandardsStatus(opd, op.getStandardsStatus() == null ? rd.getStatus() : op.getStandardsStatus());
+    ToolingExtensions.setStandardsStatus(opd, op.getStandardsStatus() == null ? rd.getStatus() : op.getStandardsStatus(), op.getNormativeVersion());
     opd.setId(FormatUtilities.makeId(id));
     opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+id);
     opd.setName(op.getTitle());
@@ -2144,7 +2144,7 @@ public class ProfileGenerator {
     p.setTitle(r.getName());
     p.setFhirVersion(version);
     p.setVersion(version.toCode());
-    ToolingExtensions.setStandardsStatus(p, r.getStatus());
+    ToolingExtensions.setStandardsStatus(p, r.getStatus(), null);
 
     ToolResourceUtilities.updateUsage(p, igd.getCode());
     p.setName(r.getRoot().getName());

@@ -186,4 +186,13 @@ public class Operation {
     this.fmm = fmm;
   }
 
+  String normativeVersion;
+
+  public String getNormativeVersion() {
+    return normativeVersion;
+  }
+
+  public void setNormativeVersion(String normativeVersion) {
+    this.normativeVersion = normativeVersion;
+  }
 }

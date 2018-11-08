@@ -415,6 +415,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private Bundle resourceBundle;
   private JsonObject r3r4Outcomes;
   private Map<String, Map<String, PageInfo>> normativePackages = new HashMap<String, Map<String, PageInfo>>();
+  private List<String> normativePages = new ArrayList<String>();
   private MarkDownProcessor processor = new MarkDownProcessor(Dialect.COMMON_MARK);
 
   private Map<String, String> macros = new HashMap<String, String>();
@@ -829,7 +830,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
           if (ss == null)
             ss = StandardsStatus.INFORMATIVE;
-          src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">"+ss.toDisplay()+"</a>"+s3;
+          if (ss == StandardsStatus.NORMATIVE && ToolingExtensions.hasExtension((DomainResource) resource, ToolingExtensions.EXT_NORMATIVE_VERSION))
+            src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">"+ss.toDisplay()+"</a> (from v"+ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_NORMATIVE_VERSION)+")"+s3;
+          else
+            src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">"+ss.toDisplay()+"</a>"+s3;
         } else
           src = s1+getStandardsStatus(com[1])+s3;
       } else if (com[0].equals("wg")) {
@@ -871,10 +875,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
         src = s1+fmmBarColorStyle(ss, fmm)+s3;
       } else if (com[0].equals("fmm")) {
-        String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
+        String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1], false) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
         StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
         if (StandardsStatus.EXTERNAL == ss)
           src = s1+getFmmFromlevel(genlevel(level), "N/A")+s3;
+        else if (StandardsStatus.NORMATIVE == ss)
+          src = s1+getFmmFromlevel(genlevel(level), "<a href=\""+genlevel(level)+"versions.html#std-process\">N</a>")+s3;
         else
           src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("fmmna")) {
@@ -905,7 +911,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         }
         src = s1+(p == null ? "" : getMixedNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
       } else if (com[0].equals("normative")) {
-        String p = object instanceof Object ? rd.getNormativePackage() : null;
+        String p = object instanceof Object ? rd.getNormativeBallotPackage() : null;
         String wt = object instanceof Object ? rd.getName()+" Operation " + ((Operation) object).getName() : workingTitle; 
         if (com.length >= 3) {
           if (!com[2].equals("%check"))
@@ -914,17 +920,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             p = resource.getUserString("ballot.package");
             wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).present();
           }
-        }
-        src = s1+(p == null ? "" : getNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
+        } 
+        src = s1+(p == null && com.length != 2 ? "" : getNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
       } else if (com[0].equals("normative-op")) {
-        String p = rd.getNormativePackage();
+        String p = rd.getNormativeBallotPackage();
         String wt = rd.getName()+" Operation " + ((Operation) object).getName(); 
         StandardsStatus st = ((Operation) object).getStandardsStatus();
         if (st == null)
           st = ToolingExtensions.getStandardsStatus((DomainResource) resource);
         src = s1+(st == StandardsStatus.NORMATIVE ? getNormativeNote(genlevel(level), p, com[1], wt, file) : "")+s3;
       } else if (com[0].equals("fmmshort")) {
-        String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
+        String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1], true) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
         String npr = resource == null || !(resource instanceof MetadataResource) ? getNormativePackageRef(com[1]) : "";
         src = s1+getFmmShortFromlevel(genlevel(level), fmm)+npr+s3;
       } else if (com[0].equals("normative-pages")) {
@@ -946,7 +952,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String t = s2.substring(com[0].length()+com[1].length()+2);
         src = s1+"<a href=\""+p1+"\">"+t+"</a> <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+p2+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pd+"\" no-external=\"true\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>"+s3;
       } else if (com[0].equals("StandardsStatus")) {
-        src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com[3])+s3;
+        src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com.length == 4 ? com[3] : null)+s3;
       } else if (com[0].equals("circular-references")) {
         src = s1+buildCircularReferenceList(com[1].equals("null") ? null : Boolean.valueOf(com[1]))+s3;
       } else if (com[0].equals("shortparameterlist")) {
@@ -1331,7 +1337,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">"+com[0]+"</a>"+s3;      
       else if (com[0].equals("operation")) {
         Operation op = (Operation) object;
-        src = s1+genOperation(op, rd.getName(), rd.getName().toLowerCase(), false, rd.getStatus(), genlevel(level), rd.getNormativePackage())+s3;
+        src = s1+genOperation(op, rd.getName(), rd.getName().toLowerCase(), false, rd.getStatus(), genlevel(level), rd.getNormativeBallotPackage())+s3;
       } else if (com[0].equals("past-narrative-link")) {
        if (object == null || !(object instanceof Boolean))  
          src = s1 + s3;
@@ -1614,11 +1620,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       "Normative Candidate Note: This "+type.replace("_", " ")+" is not normative - it is still undergoing Trial Use while more experience is gathered.\r\n" + 
       "</p>\r\n";
     case NORMATIVE:
-
-      return "<p style=\"border: 1px black solid; background-color: "+ss.getColor()+"; padding: 5px\">\r\n" + 
-      "Normative Candidate Note: This "+type.replace("_", " ")+" is candidate normative content as part of the overall resource for R4 in the <a href=\""+prefix+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-      "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
-      "</p>\r\n";
+      if (pack == null)
+        return "<p style=\"border: 1px black solid; background-color: "+ss.getColor()+"; padding: 5px\">\r\n" + 
+          "Normative Note: This "+type.replace("_", " ")+" is normative content. <a href=\"versions.html#change\">Breaking changes</a> will no longer be made.\r\n" + 
+          "</p>\r\n";
+      else
+        return "<p style=\"border: 1px black solid; background-color: "+ss.getColor()+"; padding: 5px\">\r\n" + 
+          "Normative Candidate Note: This "+type.replace("_", " ")+" is candidate normative content as part of the overall resource for R4 in the <a href=\""+prefix+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
+          "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
+          "</p>\r\n";
     }
     throw new Error("Not done yet");
   }
@@ -1710,11 +1720,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String getNormativeNote(String genlevel, String pack, String type, String title, String filename) throws Exception {
     if (!filename.contains("-definitions")) {
       Map<String, PageInfo> map = normativePackages.get(pack);
-      if (map == null)
-        throw new Exception("Unable to find infrastructure package '"+pack+"'");
+      if (map == null) {
+        normativePages.add(filename);
+        return "";
+      }
       map.put(filename, new PageInfo(PageInfoType.fromCode(type), filename, title));
     }
-    return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
+    if (pack == null)
+      return null;
+    else
+      return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
         "Normative Candidate Note: This page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
         "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
         "</p>\r\n" + 
@@ -1724,8 +1739,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String getMixedNormativeNote(String genlevel, String pack, String type, String title, String filename) throws Exception {
     if (!filename.contains("-definitions") && !filename.contains("-operations")) {
       Map<String, PageInfo> map = normativePackages.get(pack);
-      if (map == null)
-        throw new Exception("Unable to find infrastructure package '"+pack+"'");
+      if (map == null) {
+        normativePages.add(filename);
+        return "";
+      }
       map.put(filename, new PageInfo(PageInfoType.fromCode(type), filename,  title));
     }
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
@@ -1738,8 +1755,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String getMostlyNormativeNote(String genlevel, String pack, String type, String title, String filename) throws Exception {
     if (!filename.contains("-definitions") && !filename.contains("-operations")) {
       Map<String, PageInfo> map = normativePackages.get(pack);
-      if (map == null)
-        throw new Exception("Unable to find infrastructure package '"+pack+"'");
+      if (map == null) {
+        normativePages.add(filename);
+        return "";
+      }
       map.put(filename, new PageInfo(PageInfoType.fromCode(type), filename,  title));
     }
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
@@ -1770,8 +1789,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (String rn : res) {
       ResourceDefn rd = definitions.getResourceByName(rn);
       if (rd.getApproval() == state)
-        if (rd.getNormativePackage() != null)
-          b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
+        if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null)
+          b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a> <a href=\"versions.html#std-process\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
         else
           b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a></li>\r\n");
     }
@@ -1795,8 +1814,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (rn.startsWith(Integer.toString(i))) {
           String r = rn.substring(2);
           ResourceDefn rd = definitions.getResourceByName(r);
-          if (rd.getNormativePackage() != null)
-            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
+          if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null)
+            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"versions.html#std-process\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
           else
             b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
         }
@@ -1820,8 +1839,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (rn.startsWith(Integer.toString(i))) {
           String r = rn.substring(2);
           ResourceDefn rd = definitions.getResourceByName(r);
-          if (rd.getNormativePackage() != null)
-            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
+          if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null)
+            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"versions.html#std-process\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
           else
             b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
         }
@@ -1865,8 +1884,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             b.append("</b></p>\r\n<ul style=\"width: 90%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
             first = false;
           }
-          if (rd.getNormativePackage() != null)
-            b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
+          if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null)
+            b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a> <a href=\"versions.html#std-process\" title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
           else
             b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a></li>\r\n");
         }
@@ -3613,7 +3632,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           row.getCells().add(cell);
           if (np != null) {
             cell.addPiece(gen.new Piece(null, " ", null));
-            cell.addPiece(gen.new Piece("ballot-intro.html#"+np, "(Normative / "+Utilities.capitalize(np)+")", null).addStyle("color: #008000"));
+            cell.addPiece(gen.new Piece("versions.html#std-process", "basic".equals(np) ?  "(Normative)" : "(Normative / "+Utilities.capitalize(np)+")", null).addStyle("color: #008000"));
             if (np.equals("infrastructure"))
               row.setIcon("icon_page_n_i.gif", null);
             else if (np.equals("conformance"))
@@ -3626,7 +3645,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
               row.setIcon("icon_page_n.gif", null);
           } else {            
             cell.addPiece(gen.new Piece(null, " ", null));
-            cell.addPiece(gen.new Piece("ballot-intro.html#stu", "(Trial Use)", null).addStyle("color: #b3b3b3"));
+            cell.addPiece(gen.new Piece("versions.html#std-process", "(Trial Use)", null).addStyle("color: #b3b3b3"));
           }
           if (stack.isEmpty())
             model.getRows().add(row);
@@ -3647,6 +3666,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           return pn;
       }
     }
+    if (normativePages.contains(page))
+      return "basic";
     return null;
   }
 
@@ -4750,7 +4771,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           String path = ae.hasUserData("external.url") ? ae.getUserString("external.url") : pathTail(Utilities.changeFileExt(ae.getUserString("path"), ".html"));
           s.append(" <tr><td><a href=\""+path+"\">"+n+"</a>");
           if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus(vs))
-            s.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
+            s.append(" <a href=\"versions.html#std-process\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           s.append("</td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
           if (hasId)
             s.append("<td>"+Utilities.oidTail(ValueSetUtilities.getOID(ae))+"</td>");
@@ -5597,7 +5618,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("xcmchk")) {
         src = s1+getXcmChk(com[1])+s3;
       } else if (com[0].equals("fmm")) {
-        src = s1+getFmm(com[1])+s3;
+        src = s1+getFmm(com[1], false)+s3;
       } else if (com[0].equals("fmmshort")) {
         src = s1+getFmmShort(com[1])+s3;
       } else if (com[0].equals("sstatus")) {
@@ -5650,7 +5671,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("mixednormative")) {
         src = s1+s3;
       } else if (com[0].equals("StandardsStatus")) {
-        src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com[3])+s3;
+        src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com.length == 4 ? com[3] : null)+s3;
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -6273,14 +6294,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
                 mixed = true;
             }
           }
-          if (st != null && resource.getNormativePackage() != null) {
+          if (st != null && (resource.getNormativeBallotPackage() != null || resource.getNormativeVersion() != null)) {
             if (mixed)
-              np = getMixedNormativeNote(genlevel(level), resource.getNormativePackage(), com[1], workingTitle, name+".html")+s3;
+              np = getMixedNormativeNote(genlevel(level), resource.getNormativeBallotPackage(), com[1], workingTitle, name+".html")+s3;
             else
-              np = getNormativeNote(genlevel(level), resource.getNormativePackage(), com[1], workingTitle, name+".html")+s3;
+              np = getNormativeNote(genlevel(level), resource.getNormativeBallotPackage(), com[1], workingTitle, name+".html")+s3;
           }
         } else 
-          np = getNormativeNote(genlevel(level), resource.getNormativePackage(), com[1], workingTitle, name+".html");
+          np = getNormativeNote(genlevel(level), resource.getNormativeBallotPackage(), com[1], workingTitle, name+".html");
         if (np == null)  
           src = s1+s3;
         else
@@ -6332,7 +6353,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("wgt"))
         src = s1+(resource.getWg() == null ?  "null" : resource.getWg().getName())+s3;
       else if (com[0].equals("fmm"))
-        src = s1+"<a href=\"versions.html#maturity\">Maturity Level</a>: "+resource.getFmmLevel()+s3;
+        if (resource.getNormativeVersion() != null)
+          src = s1+"<a href=\"versions.html#maturity\">Maturity Level</a>: <a href=\"versions.html#std-process\">N</a>"+s3;
+        else
+          src = s1+"<a href=\"versions.html#maturity\">Maturity Level</a>: "+resource.getFmmLevel()+""+s3;
       else if (com[0].equals("sec-cat"))
         src = s1+(resource.getSecurityCategorization() == null ? "" : "<a href=\"security.html#SecPrivConsiderations\">Security Category</a>: "+resource.getSecurityCategorization().toDisplay())+s3;
       else if (com[0].equals("sstatus")) 
@@ -6419,7 +6443,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
               mixed = true;
           }
         }
-        src = s1 + genOperations(oplist, n, id, mixed, resource.getStatus(), "", resource.getNormativePackage()) + s3;
+        src = s1 + genOperations(oplist, n, id, mixed, resource.getStatus(), "", resource.getNormativeBallotPackage()) + s3;
       } else if (com[0].equals("operations-summary"))
         src = s1 + genOperationsSummary(resource.getOperations(), resource) + s3;
       else if (com[0].equals("opcount"))
@@ -6782,7 +6806,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
 
   private String fmmBarColorStyle(ResourceDefn resource) {
-    if (resource.getNormativePackage() != null)
+    if (resource.getNormativeBallotPackage() != null || resource.getNormativeVersion() != null)
       return "colsn";
     else {
     return fmmBarColorStyle(resource.getStatus(), resource.getFmmLevel());
@@ -7297,7 +7321,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String makeStandardsStatusRef(StandardsStatus ss) {
     if (ss == null)
       return "";
-    return " <a href=\"ballot-intro.html#std-process\" title=\""+ss.toDisplay()+" Content\" style=\"padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: "+ss.getColor()+"\">"+ss.getAbbrev()+"</a>";
+    return " <a href=\"versions.html#std-process\" title=\""+ss.toDisplay()+" Content\" style=\"padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: "+ss.getColor()+"\">"+ss.getAbbrev()+"</a>";
   }
 
   private String getCompositeExpression(SearchParameterDefn p) {
@@ -8349,7 +8373,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         StandardsStatus ss = ToolingExtensions.getStandardsStatus(profile.getResource());
         if (ss == null)
           ss = StandardsStatus.INFORMATIVE;
-        src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">"+ss.toDisplay()+"</a>"+s3;
+        if (ss == StandardsStatus.NORMATIVE && ToolingExtensions.hasExtension(profile.getResource(), ToolingExtensions.EXT_NORMATIVE_VERSION))
+          src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">"+ss.toDisplay()+"</a> (from v"+ToolingExtensions.readStringExtension(profile.getResource(), ToolingExtensions.EXT_NORMATIVE_VERSION)+")"+s3;
+        else
+          src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">"+ss.toDisplay()+"</a>"+s3;
       } else if (com[0].equals("past-narrative-link")) {
         if (hasNarrative)  
           src = s1 + s3;
@@ -8790,7 +8817,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("pubdetails")) {
         src = s1+"Extension maintained by: " +Utilities.escapeXml(ed.getPublisher())+s3;
       } else if (com[0].equals("extref"))
-        src = s1+"<p>usage info: insert a list of places where this extension is used</p>"+s3;
+        src = s1+""+s3;
       else if (com[0].equals("context-info"))
         src = s1+describeExtensionContext(ed)+s3;
       else if (com[0].equals("ext-name"))
@@ -8813,6 +8840,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         StandardsStatus ss = ToolingExtensions.getStandardsStatus(ed);
         if (StandardsStatus.EXTERNAL == ss)
           src = s1+getFmmFromlevel(genlevel(level), "N/A")+s3;
+        else if (StandardsStatus.NORMATIVE == ss)
+          src = s1+getFmmFromlevel(genlevel(level), "<a href=\""+genlevel(level)+"versions.html#std-process\">N</a>")+s3;
         else
           src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("sstatus")) {
@@ -10068,33 +10097,42 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new FHIRException("unable to find resource '"+resourceName+"'");
-    if (rd.getNormativePackage() != null)
-      return "&nbsp;<a href=\"versions.html#std-process\" title=\"Maturity Level\">Normative</a>";
-    else
-      return "&nbsp;<a href=\"versions.html#std-process\" title=\"Maturity Level\">"+rd.getStatus().toDisplay()+"</a>";
+    if (rd.getNormativeVersion() != null)
+      return "&nbsp;<a href=\"versions.html#std-process\" title=\"Standard Status\">Normative</a> (from v"+rd.getNormativeVersion()+")";
+    else if (rd.getNormativeBallotPackage() != null) {
+      return "&nbsp;<a href=\"versions.html#std-process\" title=\"Standard Status\">Normative</a>";
+    } else
+      return "&nbsp;<a href=\"versions.html#std-process\" title=\"Standard Status\">"+rd.getStatus().toDisplay()+"</a>";
   }
-  private String getFmm(String resourceName) throws Exception {
+  private String getFmm(String resourceName, boolean hideNormative) throws Exception {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new Exception("unable to find resource '"+resourceName+"'");
-    return "&nbsp;<a href=\"versions.html#maturity\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
+    if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null) {
+      if (hideNormative)
+        return "n/a";
+      else
+        return "&nbsp;<a href=\"versions.html#maturity\" title=\"Maturity Level\">Normative</a>";
+    } else
+      return "&nbsp;<a href=\"versions.html#maturity\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }
+  
   private String getNormativePackageRef(String resourceName) throws Exception {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new Exception("unable to find resource '"+resourceName+"'");
-    if (rd.getNormativePackage() == null)
+    if (rd.getNormativeBallotPackage() == null && rd.getNormativeVersion() == null)
       return "";
     else
-      return " <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" title=\"Normative Content\" class=\"normative-flag\">N</a>";
+      return " <a href=\"versions.html#std-process\" title=\"Normative Content\" class=\"normative-flag\">N</a>";
   }
   private String getFmmShort(String resourceName) throws Exception {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new Exception("unable to find resource '"+resourceName+"'");
-    if (rd.getNormativePackage() != null)
+    if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null)
       return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>"+
-       "<a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" title=\"Normative Content\" class=\"normative-flag\">N</a>";
+        "<a href=\"versions.html#std-process\" title=\"Normative Content\" class=\"normative-flag\">N</a>";
     else
       return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }
@@ -10103,7 +10141,10 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   }
 
   private String getFmmShortFromlevel(String prefix, String level) throws Exception {
-    return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+(Utilities.noString(level) ? "0" : level)+"</a>";
+    if (level == "n/a")
+      return "";
+    else
+      return "<a href=\""+prefix+"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+(Utilities.noString(level) ? "0" : level)+"</a>";
   }
 
   private String getXcm(String param) {
@@ -10146,7 +10187,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
           b.append("  <tr>\r\n");
           b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getName()+"</a>");
           if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus(cs))
-            b.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
+            b.append(" <a href=\"versions.html#std-process\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");
           b.append("    <td>"+(cs.hasTitle() ? cs.getTitle()+": " : "")+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
           String oid = CodeSystemUtilities.getOID(cs);
@@ -10170,7 +10211,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
           b.append("  <tr>\r\n");
           b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getName()+"</a>");
           if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus(cs))
-            b.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
+            b.append(" <a href=\"versions.html#std-process\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");
           b.append("    <td>"+(cs.hasTitle() ? cs.getTitle()+": " : "")+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
           String oid = CodeSystemUtilities.getOID(cs);
