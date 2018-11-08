@@ -395,6 +395,10 @@ trial. There are 3 data items to collect:
 </table>
 
 <p>
+NOTE: This extension is included for example purposes only.  In most cases, participation in clinical trials would be handled using the <a href="researchstudy.html">ResearchStudy</a> resource, possibly referenced via the <a href="extension-workflow-researchstudy.html">workflow-researchstudy</a> extension.
+</p>
+
+<p>
 Like simple extensions, the first thing to do is to assign a URI to the
 extension. Since this one is part of the FHIR publication, it is assigned
 a URI where it will be published: http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial.
@@ -549,7 +553,7 @@ With complex extensions, only the first URL is an absolute URL:
     &lt;/extension&gt;
     &lt;extension url=&quot;reason&quot; &gt;
       &lt;valueCodeableConcept&gt;
-        &lt;text value=&quot;NCT00000419&quot;/&gt;
+        &lt;text value=&quot;healthy-volunteer&quot;/&gt;
       &lt;/valueCodeableConcept&gt;
     &lt;/extension&gt;
   &lt;/extension&gt;
