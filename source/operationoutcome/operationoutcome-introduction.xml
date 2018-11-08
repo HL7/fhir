@@ -18,10 +18,6 @@ The OperationOutcome resource is used in the following circumstances:
  <li>As the response to a batch/transaction, when requested</li>
  <li>As part of a search's Bundle response containing information about the search</li>
 </ul>
-<p>
-This resource is referenced by <a href="guidanceresponse.html">GuidanceResponse</a> and <a href="messageheader.html">MessageHeader</a>. 
-The reference from GuidanceResponse indicates that there is an additional use context that needs to be addressed in the scope.
-</p>
 </div>
 
 
