@@ -7774,7 +7774,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return produceStructureDefinitionExamples(resource);
     } else {
       StringBuilder s = new StringBuilder();
-      s.append("<p>Example List:</p>\r\n<table class=\"list\">\r\n");
+      s.append("<table class=\"list\">\r\n");
+      s.append("<tr><td><b>Example Name</b></td><td><b>id</b></td><td colspan=\"4\"><b>Format</b></td></tr>\r\n");
       for (Example e: resource.getExamples()) {
         if (e.isRegistered() && Utilities.noString(e.getIg()))
           produceExampleListEntry(s, e, null, null);
