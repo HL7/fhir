@@ -6805,7 +6805,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">Fulfilled</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">This appointment has completed and may have resulted in an encounter.</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">The planning stages of the appointment are now complete, the encounter resource will exist and will track further status changes. Note that an encounter may exist before the appointment status is fulfilled for many reasons.</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">The encounter may still be inprogress, however this status is managed by the Encounter</Data></Cell>
