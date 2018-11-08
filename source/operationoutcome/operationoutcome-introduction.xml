@@ -26,7 +26,7 @@ The OperationOutcome resource is used in the following circumstances:
 <h2>Boundaries and Relationships</h2>
 <p>
 This resource is not used for reporting clinical or workflow issues associated with a proposed or ongoing action; 
-these would be handled using <a href="detectedissue.html">DetectedIssue</a> or other resources. The resource  
+these would be handled using <a href="detectedissue.html">DetectedIssue</a> or other resources. OperationOutcome  
 is not designed to be persisted or referenced from other parts of the workflow. 
 </p>
 <p>
