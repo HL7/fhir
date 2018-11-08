@@ -336,7 +336,7 @@ things:
  <li>Ask for a human to check the modifier extension before proceeding to process the data</li>
  <li>carry a warning concerning the data along with any action or output that results from processing the data to inform users that it has not fully understood the source information</li>
 </ol>
-
+<a name="processing"> </a>
 
 <p>
 Processing the data of a resource typically means
@@ -499,7 +499,7 @@ of these situations easier, but it cannot resolve them.
  <li>If a system modifies a resource it SHOULD remove any extensions that it does not understand from the
 modified element and its descendants, because it cannot know whether the modifications it has made
 might invalidate the value of the unknown extension</li>
- <li>Systems that drop existing elements are considered to be "processing the resource"</li>
+ <li>Systems that drop existing elements are considered to be "<a href="#processing">processing the containing element</a>"</li>
  <li>A system SHALL NOT modify a resource or element that contains "modifier" extensions it doesn't understand</li>
  <li>Applications SHOULD ignore extensions that they do not recognize if they are not "modifier" extensions</li>
 </ul>
