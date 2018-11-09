@@ -16,10 +16,15 @@ This is the logical combination of the Claim, ClaimResponse and some Coverage ac
  to whom, and optionally the coverage allowed under the policy and the amounts used to date.
 </p>
 <p>
+Typically the EOB is only used to convey Claim (use=claim) and the associated ClaimResponse information to patients or subscribers. It may also be 
+ used to convey consolidated predetermination and preauthorization request and response information to patients or subscribers. An EOB will never 
+ be created for patient or subscriber information exchange if an error was detected in the Claim. 
+</p>
+<p>
 It is also recognized that "EOB" is a term that carries additional meaning in certain areas of the industry. When the resource was originally
  being developed there was substantial discussion about the adoption of an alternative name for the resource but after much discussion it was
  resolved that the ExplanationOfBenefit name has the advantage of familiarity that has been proven through the early adoption of the resource
- for multiple purposes.
+ for multiple purposes. 
 </p>
 <p><b>Note:</b> when creating profiles for EOB as a patient focused information exchange the payment details, other than date, should be excluded if
  the payee is the provider as that would leak business confidential information.</p>
