@@ -46,7 +46,7 @@ the provider will settle the claim and potentially recover costs against specifi
 <li><a href="financial-module.html#batch">Batches</a>: how eClaims may handle batches of eligibility, claims and responses.</li>
 <li><a href="financial-module.html#attachments">Attachments and Supporting Information</a>: how eClaims may handle the provision of supporting
  information, whether provided by content or reference, within the eClaim resource when submitted to the payor or later in a resource which refers
- to the subject eClaim resource. This includes how payors how request additional supporting information from providers.</li>
+ to the subject eClaim resource. This also includes how payors may request additional supporting information from providers.</li>
 </ul>
 	</div>
 
@@ -73,6 +73,12 @@ the provider will settle the claim and potentially recover costs against specifi
 			<tr>
 				<td>Claim</td>
 				<td>A suite of goods and services and insurances coverages under which adjudication or authorization is requested.</td>
+			</tr>
+			<tr>
+				<td><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></td>
+				<td>A request to a payor to: ascertain whether a coverage is in-force at the current or at a specified time; list the table of benefits;
+				determine whether coverage is provided for specified categories or specific services; and whether preauthorization is required, and if so
+				what supporting information would be required.</td>
 			</tr>
 			<tr>
 				<td><a href="claimresponse.html">ClaimResponse</a></td>
