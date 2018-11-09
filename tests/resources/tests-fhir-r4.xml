@@ -170,39 +170,39 @@
 			<output type="boolean">true</output>
 		</test>
 
-    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>1.isInteger()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>0.isInteger()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>-1.isInteger()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>-1.isInteger()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>2147483647.isInteger()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>1.convertsToInteger()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>0.convertsToInteger()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>-1.convertsToInteger()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>-1.convertsToInteger()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>2147483647.convertsToInteger()</expression><output type="boolean">true</output></test>
 
-    <test name="testLiteralString" inputfile="patient-example.xml"><expression>'test'.isString()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralString" inputfile="patient-example.xml"><expression>'\\\/\f\r\n\t\"\"\'\u002a'.isString()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralString" inputfile="patient-example.xml"><expression>'test'.convertsToString()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralString" inputfile="patient-example.xml"><expression>'\\\/\f\r\n\t\"\"\'\u002a'.convertsToString()</expression><output type="boolean">true</output></test>
 
-    <test name="testLiteralBoolean" inputfile="patient-example.xml"><expression>true.isBoolean()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralBoolean" inputfile="patient-example.xml"><expression>false.isBoolean()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralBoolean" inputfile="patient-example.xml"><expression>true.convertsToBoolean()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralBoolean" inputfile="patient-example.xml"><expression>false.convertsToBoolean()</expression><output type="boolean">true</output></test>
 
-    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>1.0.isDecimal()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>0.1.isDecimal()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>0.0.isDecimal()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>-0.1.isDecimal()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>1234567890987654321.0.isDecimal()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>0.000000000000000000000000000001.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>1.0.convertsToDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>0.1.convertsToDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>0.0.convertsToDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>-0.1.convertsToDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>1234567890987654321.0.convertsToDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>0.000000000000000000000000000001.convertsToDecimal()</expression><output type="boolean">true</output></test>
     
-    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04.isDateTime()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28.isDateTime()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28.123.isDateTime()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28Z.isDateTime()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28+10:00.isDateTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04.convertsToDateTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28.convertsToDateTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28.123.convertsToDateTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28Z.convertsToDateTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28+10:00.convertsToDateTime()</expression><output type="boolean">true</output></test>
 
-    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28.isTime()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28.123.isTime()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28Z.isTime()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28+10:00.isTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28.convertsToTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28.123.convertsToTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28Z.convertsToTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28+10:00.convertsToTime()</expression><output type="boolean">true</output></test>
 
-    <test name="testLiteralQuantity" inputfile="patient-example.xml"><expression>10.1 'mg'.isQuantity()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralQuantity" inputfile="patient-example.xml"><expression>10 'mg'.isQuantity()</expression><output type="boolean">true</output></test>
-    <test name="testLiteralQuantity" inputfile="patient-example.xml"><expression>4 days.isQuantity()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralQuantity" inputfile="patient-example.xml"><expression>10.1 'mg'.convertsToQuantity()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralQuantity" inputfile="patient-example.xml"><expression>10 'mg'.convertsToQuantity()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralQuantity" inputfile="patient-example.xml"><expression>4 days.convertsToQuantity()</expression><output type="boolean">true</output></test>
 
 		<test name="testLiteralInteger" inputfile="patient-example.xml"><expression>-3 != 3</expression><output type="boolean">true</output></test>
 		<test name="testLiteralInteger" inputfile="patient-example.xml"><expression>Patient.name.given.count() = 5</expression><output type="boolean">true</output></test>
@@ -258,14 +258,14 @@
 	</group>
 
   <group name="testTypes">
-    <test name="test" inputfile="patient-example.xml"><expression>1.isInteger()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.convertsToInteger()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>1.is(Integer)</expression><output type="boolean">true</output></test>
 <!--    <test name="test" inputfile="patient-example.xml"><expression>1.is(System.Integer)</expression><output type="boolean">true</output></test> -->
-    <test name="test" inputfile="patient-example.xml"><expression>'1'.isInteger()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'a'.isInteger().not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.isInteger().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1'.convertsToInteger()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'a'.convertsToInteger().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.convertsToInteger().not()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>'1'.is(Integer).not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>true.isInteger()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.convertsToInteger()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>true.is(Integer).not()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>@2013-04-05.is(Integer).not()</expression><output type="boolean">true</output></test>
 
@@ -274,16 +274,16 @@
     <test name="test" inputfile="patient-example.xml"><expression>'1.1'.toInteger() = {}</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>true.toInteger() = 1</expression><output type="boolean">true</output></test>
 
-    <test name="test" inputfile="patient-example.xml"><expression>1.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.convertsToDecimal()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>1.is(Decimal).not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>1.0.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.convertsToDecimal()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>1.0.is(Decimal)</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'1'.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1'.convertsToDecimal()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>'1'.is(Decimal).not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'1.a'.isDecimal().not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.a'.convertsToDecimal().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.convertsToDecimal()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>'1.0'.is(Decimal).not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>true.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.convertsToDecimal()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>true.is(Decimal).not()</expression><output type="boolean">true</output></test>
 
     <test name="test" inputfile="patient-example.xml"><expression>1.toDecimal() != 1.0</expression><output type="boolean">true</output></test>
@@ -292,19 +292,19 @@
     <test name="test" inputfile="patient-example.xml"><expression>'1.1'.toDecimal() = 1.1</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>true.toDecimal() = 1</expression><output type="boolean">true</output></test>
 
-    <test name="test" inputfile="patient-example.xml"><expression>1.isQuantity()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.convertsToQuantity()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>1.is(Quantity).not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>1.0.isQuantity()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.convertsToQuantity()</expression><output type="boolean">true</output></test>
 <!--    <test name="test" inputfile="patient-example.xml"><expression>1.0.is(System.Quantity)</expression><output type="boolean">true</output></test> -->
-    <test name="test" inputfile="patient-example.xml"><expression>'1'.isQuantity()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1'.convertsToQuantity()</expression><output type="boolean">true</output></test>
 <!--    <test name="test" inputfile="patient-example.xml"><expression>'1'.is(System.Quantity).not()</expression><output type="boolean">true</output></test> -->
-    <test name="test" inputfile="patient-example.xml"><expression>'1 day'.isQuantity()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'1 \'wk\''.isQuantity()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'1 wk'.isQuantity().not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'1.a'.isQuantity().not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.isQuantity()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1 day'.convertsToQuantity()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1 \'wk\''.convertsToQuantity()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1 wk'.convertsToQuantity().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.a'.convertsToQuantity().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.convertsToQuantity()</expression><output type="boolean">true</output></test>
 <!--    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.is(System.Quantity).not()</expression><output type="boolean">true</output></test> -->
-    <test name="test" inputfile="patient-example.xml"><expression>true.isQuantity()</expression><output type="boolean">false</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.convertsToQuantity()</expression><output type="boolean">false</output></test>
 <!--    <test name="test" inputfile="patient-example.xml"><expression>true.is(System.Quantity).not()</expression><output type="boolean">true</output></test> -->
 
     <test name="test" inputfile="patient-example.xml"><expression>1.toQuantity() = 1 '1'</expression><output type="boolean">true</output></test>
@@ -315,16 +315,16 @@
     <test name="test" inputfile="patient-example.xml"><expression>'1 \'wk\''.toQuantity() = 1 week</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>'1.0'.toQuantity() ~ 1 '1'</expression><output type="boolean">true</output></test>
 
-    <test name="test" inputfile="patient-example.xml"><expression>1.isBoolean()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>2.isBoolean()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>-1.isBoolean().not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>0.isBoolean()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>1.0.isBoolean().not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'true'.isBoolean()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'false'.isBoolean()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'False'.isBoolean().not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>true.isBoolean()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>false.isBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.convertsToBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>2.convertsToBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>-1.convertsToBoolean().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>0.convertsToBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.convertsToBoolean().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'true'.convertsToBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'false'.convertsToBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'False'.convertsToBoolean().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.convertsToBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>false.convertsToBoolean()</expression><output type="boolean">true</output></test>
 
     <test name="test" inputfile="patient-example.xml"><expression>1.toBoolean()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>2.toBoolean()</expression><output type="boolean">true</output></test>
@@ -332,13 +332,13 @@
     <test name="test" inputfile="patient-example.xml"><expression>'true'.toBoolean()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>'false'.toBoolean()</expression><output type="boolean">false</output></test>
 
-    <test name="test" inputfile="patient-example.xml"><expression>1.isString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.convertsToString()</expression><output type="boolean">true</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>1.is(String).not()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>-1.isString()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>1.0.isString()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>'true'.isString()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>true.isString()</expression><output type="boolean">true</output></test>
-    <test name="test" inputfile="patient-example.xml"><expression>1 'wk'.isString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>-1.convertsToString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.convertsToString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'true'.convertsToString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.convertsToString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1 'wk'.convertsToString()</expression><output type="boolean">true</output></test>
 
     <test name="test" inputfile="patient-example.xml"><expression>1.toString()</expression><output type="string">1</output></test>
     <test name="test" inputfile="patient-example.xml"><expression>-1.toString()</expression><output type="string">-1</output></test>
