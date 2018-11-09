@@ -32,6 +32,22 @@ The Claim also supports:
 at <a href="http://wiki.hl7.org/index.php?title=Financial_Management_FHIR_Resource_Development">http://wiki.hl7.org/index.php?title=Financial_Management_FHIR_Resource_Development</a>.
 Mappings to other specifications may be made available where IP restrictions permit.  
 		</p>
+<h3>Additional Information</h3>
+<p>
+Additional information regarding electronic claims content and usage may be found at:
+</p>		
+<ul>
+<li><a href="financial-module.html#resource-status">Financial Resource Status Lifecycle</a>: how .status is used in the financial resources.</li>
+<li><a href="financial-module.html#secondary-use">Secondary Use of Resources</a>: how resources such as Claim and ExplanationOfBenefit may used for 
+		reporting and data exchange for analytics, not just for eClaims exchange between providers and payors.</li>
+<li><a href="financial-module.html#subrogation">Subrogation</a>: how eClaims may handle patient insurance coverages when another insurer rather than 
+the provider will settle the claim and potentially recover costs against specified coverages.</li>
+<li><a href="financial-module.html#cob">Coordination of Benefit</a>: how eClaims may handle multiple patient insurance coverages.</li>
+<li><a href="financial-module.html#batch">Batches</a>: how eClaims may handle batches of eligibility, claims and responses.</li>
+<li><a href="financial-module.html#attachments">Attachments and Supporting Information</a>: how eClaims may handle the provision of supporting
+ information, whether provided by content or reference, within the eClaim resource when submitted to the payor or later in a resource which refers
+ to the subject eClaim resource. This includes how payors how request additional supporting information from providers.</li>
+</ul>
 	</div>
 
 	<div>
