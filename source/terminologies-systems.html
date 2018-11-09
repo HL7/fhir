@@ -37,7 +37,7 @@ Additional identifier systems may be registered on the HL7 FHIR registry at <a h
 </p>
 <ul>
  <li>This list of names is incomplete and subject to change. Some values may be dropped and others will likely be added in the coming months as HL7 institutes formal processes around URIs in vocabulary</li>
-<li>Note that some of the URNs in this list follow the URN specification in <a href="http://tools.ietf.org/html/rfc5141">RFC 5141</a> for referring to 
+<li>Note that some of the URNs in this list follow the URN specification in <a href="http://tools.ietf.org/html/rfc5141">RFC 5141</a> for referring to
 standards published by ISO, such as urn:iso:std:iso:11073:10101. Where ISO standards define codes with meanings, and there is no entry in the list above,
 and they are not registered in the HL7 OID registry, the default URN for the code system is that defined by the RFC 5141.</li>
 <li>For several of the code systems in this list, multiple systems are given. This means that the variants identified are different code systems, not just variants of the same code system</li>
@@ -51,8 +51,8 @@ the External code systems.
 <p>
 <b>UMLS Note</b>: The <a href="https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html">UMLS</a> includes many code systems that do
 not have an entry in the table below, or in the HL7 OID registry, or on http://registry.fhir.org. Until these code systems
-are registered, implementers may use the pattern <code>http://www.nlm.nih.gov/research/umls/[SAB]</code>, where [SAB] is the lowercase of 
-abbreviation of the code  system as provided by UMLS. e.g. The system for "Multum MediSource Lexicon" would then be 
+are registered, implementers may use the pattern <code>http://www.nlm.nih.gov/research/umls/[SAB]</code>, where [SAB] is the lowercase of
+abbreviation of the code  system as provided by UMLS. e.g. The system for "Multum MediSource Lexicon" would then be
 <code>http://www.nlm.nih.gov/research/umls/mmsl</code>. Implementers choosing to use this pattern should be aware that very
 often, when the code system is registered, it will use a different system.
 </p>
@@ -79,7 +79,7 @@ often, when the code system is registered, it will use a different system.
  </tr>
  <tr>
    <td colspan="4" style="background: #EFEFEF"><b>Externally Published code systems</b> <a name="external"></a></td>
- </tr>  
+ </tr>
 
  <tr>
    <td width="80">http://snomed.info/sct <a name="http://snomed.info/sct"></a></td>
@@ -158,13 +158,13 @@ often, when the code system is registered, it will use a different system.
    <td><a href="http://www.nubc.org">NUBC</a> code system for Patient Discharge Status</td>
    <td>National Uniform Billing Committee, manual UB-04, UB form locator 17</td>
    <td style="color : DarkGrey">2.16.840.1.113883.6.301.5</td>
- </tr> 
+ </tr>
  <tr>
    <td>http://www.radlex.org <a name="http://www.radlex.org"></a></td>
    <td><a href="http://www.radlex.org">RadLex</a></td>
    <td>(Includes <a name="http://playbook.radlex.org">play book</a> codes)</td>
    <td style="color : DarkGrey">2.16.840.1.113883.6.256 </td>
- </tr> 
+ </tr>
  <tr>
    <td>
      ICD-9, ICD-10
@@ -203,7 +203,7 @@ often, when the code system is registered, it will use a different system.
    <td><a href="terminologies-v2.html">Version 2 tables</a></td>
    <td>[X] is the 4 digit identifier for a table; e.g. http://terminology.hl7.org/CodeSystem/v2-0203<br/>
      Note: only <a href="terminologies-v2.html">some tables</a> may be treated in this fashion.
-     For some tables, the meaning of the code is version dependent, and so additional information 
+     For some tables, the meaning of the code is version dependent, and so additional information
      must be included in the namespace, e.g. http://terminology.hl7.org/CodeSystem/v2-0123/2.3+, as defined in the <a href="terminologies-v2.html">v2 table namespace list</a>.
      Version 2 codes are case sensitive.</td>
    <td style="color : DarkGrey">2.16.840.1.113883.12.[X]</td>
@@ -219,57 +219,57 @@ often, when the code system is registered, it will use a different system.
    <td>Anatomical Therapeutic Chemical Classification System (<a href="http://www.whocc.no/atc/structure_and_principles/">WHO</a>)</td>
    <td></td>
    <td style="color : DarkGrey">2.16.840.1.113883.6.73</td>
- </tr> 
+ </tr>
  <tr>
    <td>urn:ietf:bcp:47 <a name="urn:ietf:bcp:47"></a></td>
    <td>IETF language (see <a href="http://tools.ietf.org/html/bcp47">Tags for Identifying Languages - BCP 47</a>)</td>
    <td>This is used for identifying language throughout FHIR. Note that usually these codes are in a <code>code</code> and the system is assumed</td>
    <td></td>
- </tr> 
+ </tr>
  <tr>
    <td>urn:ietf:bcp:13 <a name="urn:ietf:bcp:47"></a></td>
    <td>Mime Types (see <a href="http://tools.ietf.org/html/bcp13">Multipurpose Internet Mail Extensions (MIME) Part Four - BCP 13</a>)</td>
-   <td>This is used for identifying the mime type system throughout FHIR. Note that these codes are in a <code>code</code> (e.g. <a href="datatypes.html#Attachment">Attachment.contentType</a> 
+   <td>This is used for identifying the mime type system throughout FHIR. Note that these codes are in a <code>code</code> (e.g. <a href="datatypes.html#Attachment">Attachment.contentType</a>
    and in these elements the system is assumed). This system is defined for when constructing value sets of mime type codes</td>
    <td></td>
- </tr> 
+ </tr>
  <tr>
    <td>urn:iso:std:iso:11073:10101 <a name="urn:iso:std:iso:11073:10101"></a></td>
    <td>Medical Device Codes (<a href="https://www.iso.org/standard/37890.html">ISO 11073-10101</a>)</td>
    <td>See <a href="mdc.html">Using MDC Codes with FHIR</a></td>
    <td style="color : DarkGrey">2.16.840.1.113883.6.24</td>
- </tr> 
+ </tr>
  <tr>
    <td><a href="codesystem-dicom-dcim.html">http://dicom.nema.org/resources/ontology/DCM</a> <a name="http://dicom.nema.org/resources/ontology/DCM"></a></td>
    <td>DICOM Code Definitions</td>
    <td>The meanings of codes defined in DICOM, either explicitly or by reference to another part of DICOM or an external reference document or standard</td>
    <td>1.2.840.10008.2.16.4</td>
- </tr> 
- <tr> 
+ </tr>
+ <tr>
    <td>http://hl7.org/fhir/sid/ca-hc-din <a name="http://hl7.org/fhir/NamingSystem/ca-hc-din"></a></td>
    <td><a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/activit/fs-fi/dinfs_fd-eng.php">Health Canada Drug Identification Number</a></td>
    <td>
-     <p>A computer-generated eight digit number assigned by Health Canada to a drug product prior to being marketed in Canada. 
-       <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/databasdon/index-eng.php">Canada Health Drug Product Database</a> contains 
+     <p>A computer-generated eight digit number assigned by Health Canada to a drug product prior to being marketed in Canada.
+       <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/databasdon/index-eng.php">Canada Health Drug Product Database</a> contains
        product specific information on drugs approved for use in Canada.
       </p>
     </td>
    <td style="color : DarkGrey">2.16.840.1.113883.5.1105</td>
- </tr> 
- <tr> 
+ </tr>
+ <tr>
    <td>http://hl7.org/fhir/sid/ca-hc-npn <a name="http://hl7.org/fhir/NamingSystem/ca-hc-npn"></a></td>
    <td><a href="https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription/applications-submissions/product-licensing/licensed-natural-health-products-database.html">Health Canada Natural Product Number</a></td>
    <td>
-     <p>A computer-generated number assigned by Health Canada to a natural health products prior to being marketed in Canada. 
+     <p>A computer-generated number assigned by Health Canada to a natural health products prior to being marketed in Canada.
       </p>
     </td>
    <td style="color : DarkGrey">2.16.840.1.113883.5.1105</td>
- </tr> 
- <tr> 
+ </tr>
+ <tr>
    <td>http://nucc.org/provider-taxonomy <a name="http://nucc.org/provider-taxonomy"></a></td>
    <td><a href="http://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57">NUCC Provider Taxonomy</a></td>
    <td>
-     <p>The Health Care Provider Taxonomy code is a unique alphanumeric code, ten characters in length. The code set is structured into 
+     <p>The Health Care Provider Taxonomy code is a unique alphanumeric code, ten characters in length. The code set is structured into
      three distinct "Levels" including Provider Type, Classification, and Area of Specialization.</p>
      <p>Copyright statement for NUCC value sets: </p>
      <blockquote>
@@ -277,10 +277,10 @@ often, when the code system is registered, it will use a different system.
      </blockquote>
    </td>
    <td style="color : DarkGrey">2.16.840.1.113883.6.101</td>
- </tr> 
+ </tr>
  <tr>
    <td colspan="4" style="background: #EFEFEF"><b>Code Systems for Genetics</b> <a name="genetics"></a></td>
- </tr>  
+ </tr>
  <tr>
    <td>http://www.genenames.org<a name="http://www.genenames.org"> </a></td>
    <td><a href="http://www.genenames.org">HGNC: Human Gene Nomenclature Committee</a></td>
@@ -295,12 +295,12 @@ often, when the code system is registered, it will use a different system.
  </tr>
  <tr>
    <td>http://www.ncbi.nlm.nih.gov/refseq/<a name="http://www.ncbi.nlm.nih.gov/refseq/"> </a></td>
-   <td><a href="https://www.ncbi.nlm.nih.gov/refseq/">REFSEQ : National Center for Biotechnology Information (NCBI) Reference Sequences</a></td>
+   <td><a href="https://www.ncbi.nlm.nih.gov/refseq/">RefSeq: National Center for Biotechnology Information (NCBI) Reference Sequences</a></td>
    <td></td>
    <td style="color : DarkGrey">2.16.840.1.113883.6.280</td>
  </tr>
  <tr>
-   <td>http://www.ncbi.nlm.nih.gov/clinvar/varId<a name="http://www.ncbi.nlm.nih.gov/clinvar/varId"> </a></td>
+   <td>http://www.ncbi.nlm.nih.gov/clinvar/<a name="http://www.ncbi.nlm.nih.gov/clinvar/"> </a></td>
    <td><a href="http://www.ncbi.nlm.nih.gov/clinvar">ClinVar Variant ID</a></td>
    <td>NCBI central repository for curating pathogenicity of potentially clinically relevant variants</td>
    <td style="color: #777777"><i>not assigned yet</i></td>
@@ -366,7 +366,7 @@ often, when the code system is registered, it will use a different system.
    <td style="color : DarkGrey">2.16.840.1.113883.6.341</td>
  </tr>
 </table>
-  
+
   </div>
   <div id="tabs-fhir">
 
@@ -380,7 +380,7 @@ often, when the code system is registered, it will use a different system.
 
 </table>
 
-  
+
   </div>
   <div id="tabs-fhirx">
 
@@ -394,27 +394,27 @@ often, when the code system is registered, it will use a different system.
 
 </table>
 
-  
+
   </div>
   <div id="tabs-v3">
-  
+
 <%v3Index-cs%>
 
   </div>
   <div id="tabs-v2">
-  
+
   <p>
   Note: V2 code systems may or may not be case sensitive. V2 Code systems will have the <code>CodeSystem.caseSensitive</code> correctly populated in a future version of this specification.
   </p>
  <%v2Index%>
- 
+
   </div>
 </div>
 </div>
 
 	[%file newfooter%]
-    
-    
+
+
 
 <script src="external/jquery/jquery.js"> </script>
 <script src="jquery-ui.min.js"> </script>
@@ -422,7 +422,7 @@ often, when the code system is registered, it will use a different system.
 try {
   var currentTabIndex = sessionStorage.getItem('fhir-codesystem-tab-index');
 }
-catch(exception){ 
+catch(exception){
 }
 
 if (!currentTabIndex)
@@ -437,7 +437,7 @@ $( '#tabs' ).tabs({
              try {
                sessionStorage.setItem('fhir-codesystem-tab-index', currentTabIndex);
              }
-             catch(exception){ 
+             catch(exception){
              }
          }
      });
