@@ -65,7 +65,7 @@ public class FHIRPathTests {
 
     @Override
     public FunctionDetails resolveFunction(String functionName) {
-      throw new NotImplementedException("Not done yet (FHIRPathTestEvaluationServices.resolveFunction), when item is element");
+      throw new NotImplementedException("Not done yet (FHIRPathTestEvaluationServices.resolveFunction), when item is element (for "+functionName+")");
     }
 
     @Override

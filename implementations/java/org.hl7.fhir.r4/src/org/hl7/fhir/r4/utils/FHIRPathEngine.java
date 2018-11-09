@@ -1019,13 +1019,13 @@ public class FHIRPathEngine {
     case ToBoolean: return checkParamCount(lexer, location, exp, 0);
     case ToDateTime: return checkParamCount(lexer, location, exp, 0);
     case ToTime: return checkParamCount(lexer, location, exp, 0);
-    case IsInteger: return checkParamCount(lexer, location, exp, 0);
-    case IsDecimal: return checkParamCount(lexer, location, exp, 0);
-    case IsString: return checkParamCount(lexer, location, exp, 0);
-    case IsQuantity: return checkParamCount(lexer, location, exp, 0);
-    case IsBoolean: return checkParamCount(lexer, location, exp, 0);
-    case IsDateTime: return checkParamCount(lexer, location, exp, 0);
-    case IsTime: return checkParamCount(lexer, location, exp, 0);
+    case ConvertsToInteger: return checkParamCount(lexer, location, exp, 0);
+    case ConvertsToDecimal: return checkParamCount(lexer, location, exp, 0);
+    case ConvertsToString: return checkParamCount(lexer, location, exp, 0);
+    case ConvertsToQuantity: return checkParamCount(lexer, location, exp, 0);
+    case ConvertsToBoolean: return checkParamCount(lexer, location, exp, 0);
+    case ConvertsToDateTime: return checkParamCount(lexer, location, exp, 0);
+    case ConvertsToTime: return checkParamCount(lexer, location, exp, 0);
     case ConformsTo: return checkParamCount(lexer, location, exp, 1);
     case Custom: return checkParamCount(lexer, location, exp, details.getMinParameters(), details.getMaxParameters());
     }
@@ -2345,16 +2345,16 @@ public class FHIRPathEngine {
       checkContextPrimitive(focus, "toBoolean", false);
       return new TypeDetails(CollectionStatus.SINGLETON, TypeDetails.FP_Time);
     }
-    case IsString : 
-    case IsQuantity :{
+    case ConvertsToString : 
+    case ConvertsToQuantity :{
       checkContextPrimitive(focus, exp.getFunction().toCode(), true);
       return new TypeDetails(CollectionStatus.SINGLETON, TypeDetails.FP_Boolean);
     } 
-    case IsInteger : 
-    case IsDecimal : 
-    case IsDateTime : 
-    case IsTime : 
-    case IsBoolean : {
+    case ConvertsToInteger : 
+    case ConvertsToDecimal : 
+    case ConvertsToDateTime : 
+    case ConvertsToTime : 
+    case ConvertsToBoolean : {
       checkContextPrimitive(focus, exp.getFunction().toCode(), false);
       return new TypeDetails(CollectionStatus.SINGLETON, TypeDetails.FP_Boolean);
     }
@@ -2494,13 +2494,13 @@ public class FHIRPathEngine {
     case ToQuantity : return funcToQuantity(context, focus, exp);
     case ToDateTime : return funcToDateTime(context, focus, exp);
     case ToTime : return funcToTime(context, focus, exp);
-    case IsInteger : return funcIsInteger(context, focus, exp);
-    case IsDecimal : return funcIsDecimal(context, focus, exp);
-    case IsString : return funcIsString(context, focus, exp);
-    case IsBoolean : return funcIsBoolean(context, focus, exp);
-    case IsQuantity : return funcIsQuantity(context, focus, exp);
-    case IsDateTime : return funcIsDateTime(context, focus, exp);
-    case IsTime : return funcIsTime(context, focus, exp);
+    case ConvertsToInteger : return funcIsInteger(context, focus, exp);
+    case ConvertsToDecimal : return funcIsDecimal(context, focus, exp);
+    case ConvertsToString : return funcIsString(context, focus, exp);
+    case ConvertsToBoolean : return funcIsBoolean(context, focus, exp);
+    case ConvertsToQuantity : return funcIsQuantity(context, focus, exp);
+    case ConvertsToDateTime : return funcIsDateTime(context, focus, exp);
+    case ConvertsToTime : return funcIsTime(context, focus, exp);
     case ConformsTo : return funcConformsTo(context, focus, exp); 
     case Custom: { 
       List<List<Base>> params = new ArrayList<List<Base>>();
