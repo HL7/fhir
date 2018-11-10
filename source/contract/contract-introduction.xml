@@ -55,9 +55,9 @@ Implementers should be familiar with legal concepts, <a href="http://iang.org/pa
   This Resource supports tracking of the progress of a Contract instance during its lifecycle as a 'legal instrument' from inception as a draft, possibly based on a definitional contract template to negotiations and the various permutation on term elements that may occur, on to execution.  Then it follows the Contract as enforceable obligations, which may be breached, disputed, or modified, until the Contract reaches renewal, termination, or revocation.   This is flow is orthogonal to the Contract.status, which tracks the progress of the documentation of the Contract whether it is definitional, a derivative, or an instance.  The legal state value set specifies the characteristics of these states based on legal definitions.
    
 </p>
-
-<img alt="Legal State Machine" src="Legal_state_machine_final.png" width="550" height="750" style="float: none; clear: both"/>
-
+<div>
+<img alt="Legal State Machine" src="legal_state_machine_final.png" width="550" height="750" style="float: none; clear: both"/>
+</div>
 </div>
 
 </div>
