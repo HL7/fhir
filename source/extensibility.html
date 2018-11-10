@@ -17,8 +17,8 @@
 
 <a name="root"></a>
 <h1>Extensibility</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+[%normative page%]
 
 <p>
 This exchange specification is based on generally agreed common
@@ -239,6 +239,10 @@ or in JSON:
   }]
 }
 </pre>
+<p>
+Note that this passport number extension is shown here as an example defined
+by a fake organization, and not appropriate for re-use by implementers.
+</p>
 </div>
 
 <a name="mustUnderstand"></a>
@@ -251,7 +255,7 @@ of the element that contains it. Typically, this means information that qualifie
 negates the primary meaning of the element that contains it. Some examples:
 </p>
 <ul>
- <li>An anti-prescription: recording an instruction <b>not</b> to take a medication</li>
+ <li>A flag on a [Patient.contact] indicating they are <b>not</b> to be contacted - i.e. a next of kin for record-keeping purposes only</li>
  <li>Using the <a href="condition.html">Condition</a> resource to record an assertion that a patient has a family history of the condition rather than the condition itself</li>
  <li>Asserting that a performer was <b>not</b> actually involved in a <a href="procedure.html">Procedure</a></li>
  <li>Asserting an additional subsumption relationship on a concept in a <a href="valueset.html">value set</a></li>
@@ -259,7 +263,7 @@ negates the primary meaning of the element that contains it. Some examples:
 <p>
 Such extensions are known as "modifier extensions". For further information, see <a href="conformance-rules.html#modifier">the definition of what makes an element - or 
 an extension - a modifier</a>.
-If modifier extensions are present, an application cannot safely process the resource unless it knows
+If modifier extensions are present, an application is restricted in its ability to safely process the resource unless it knows
 what the extension means for its own use of the data.
 </p>
 <p>
@@ -285,7 +289,7 @@ because the impact of the modifier element is expected to be known by applicatio
 </p>
 <p>
 Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
-Any modifierExtension defined outside an extension cannot be placed in another extension.
+Is-modifier elements not defined as part of an extension's definition cannot be conveyed.
 </p>
 
 <p>
@@ -336,7 +340,7 @@ things:
  <li>Ask for a human to check the modifier extension before proceeding to process the data</li>
  <li>carry a warning concerning the data along with any action or output that results from processing the data to inform users that it has not fully understood the source information</li>
 </ol>
-
+<a name="processing"> </a>
 
 <p>
 Processing the data of a resource typically means
@@ -348,9 +352,11 @@ are not "processing the data of the resource", and therefore these applications
 are not required to check for unknown modifier extensions.
 </p>
 <p>
-<b>#1</b>: When an application understands this extension, it means that some developer
-has provided appropriate instructions for what to do with the data contained
-in it because of the existence of the modifier extension.
+<b>#1</b>: When an application understands this extension, it means that some developer has 
+provided appropriate instructions for what to do with the data contained in it because of 
+the existence of the modifier extension or has determined that the modifier does not impact 
+on the system's computational functions.  Note that this assessment needs to be repeated each 
+time a system's computational behavior changes
 </p>
 <p><b>#2</b>:
 This means that implementations are not inherently required to "support"
@@ -483,7 +489,7 @@ that surround the information.
 <p>
 For this reason, local requirements that manifest as extensions are an obstacle to
 integration and interoperability. The more the requirements are shared (i.e. regional or national scale),
-the less of an obstacle they will represent. The consistent representation, definition and registration of
+the less of an obstacle the extensions (and the requirements they represent) will represent. The consistent representation, definition and registration of
 extensions that this specification defines cannot resolve that problem - it only provides a framework
 within which such local variations can be handled more easily.
 </p>
@@ -499,7 +505,7 @@ of these situations easier, but it cannot resolve them.
  <li>If a system modifies a resource it SHOULD remove any extensions that it does not understand from the
 modified element and its descendants, because it cannot know whether the modifications it has made
 might invalidate the value of the unknown extension</li>
- <li>Systems that drop existing elements are considered to be "processing the resource"</li>
+ <li>Systems that drop existing elements are considered to be "<a href="#processing">processing the containing element</a>"</li>
  <li>A system SHALL NOT modify a resource or element that contains "modifier" extensions it doesn't understand</li>
  <li>Applications SHOULD ignore extensions that they do not recognize if they are not "modifier" extensions</li>
 </ul>

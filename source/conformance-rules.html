@@ -14,8 +14,8 @@
 
 <a name="conformance"></a>
 <h2>Conformance</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a><!--!ns!--></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a><!--!ns!--></td></tr></table>
+[%normative page%]
 
 <p>
 The FHIR specification describes a set of <a href="resource.html">resources</a>
@@ -96,7 +96,7 @@ properties defined below.
 
 <p>
 Data elements defined in resources and data types have 3 properties that are
-directly related to conformance: Cardinality, Is-Modifier, and Must-Support.
+directly related to conformance: Cardinality, Is-Modifier, and MustSupport.
 These interact to place conformance requirements on implementations.
 </p>
 
@@ -272,15 +272,15 @@ Other modifiers are defined:
 </ul>
 
 <a name="mustSupport"></a>
-<h3>Must-Support</h3>
+<h3>MustSupport</h3>
 <p>
-Labeling an element Must-Support means that implementations that produce or consume resources SHALL
+Labeling an element MustSupport means that implementations that produce or consume resources SHALL
 provide "support" for the element in some meaningful way. Because the base FHIR specification is intended
-to be independent of any particular implementation context, no elements are flagged as "must-support" as
+to be independent of any particular implementation context, no elements are flagged as <code>mustSupport</code>=true as
 part of the base specification. This flag is intended for use in profiles that have a defined implementation context.
 </p>
 <p>
-For this reason, the specification itself never labels any elements as must-support.
+For this reason, the specification itself never labels any elements as MustSupport.
 This is done in <a href="profiling.html#mustsupport">StructureDefinitions</a>, where the profile
 labels an element as mustSupport=true. When a profile does this, it SHALL also make clear
 exactly what kind of "support" is required, as this could involve expectations around what 

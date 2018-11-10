@@ -14,7 +14,7 @@ in order to support consistent definitions for schema and UML derived code.
 [%file newnavbar%]
 
 <div class="col-12">
-<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg fm%]">[%wgt fm%]</a> </td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg fm%]">[%wgt fm%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
 <h2>Financial Module</h2>
@@ -329,7 +329,7 @@ of the targeted resource.
  </table>
  </p>
 
- <a name="resource-status"></a>
+<a name="resource-status"></a>
 <h3>Resource Status Life-cycle</h3>
 <p>
 Financial resources, such as claim and eligibility resources, begin with the status 'draft' and continue with this status during the 
@@ -347,8 +347,14 @@ the resource may be required to halt any processing or reverse any effects of th
 <a name="secondary-use"></a>
 <h3>Secondary Uses</h3>
 <p>
-In addition to their primary use of conveying patient billing information to insurers for reimbursement either to the subscriber or the provider (assignment of benefit), many of the
-financial resources, such as <a href="claim.html">Claim</a> and <a href="explanationofbenefit.html">ExplanationOfBenefit</a>, may be used to export data to other agencies to support reporting and analytics.
+In addition to their primary use of conveying patient billing information to insurers for reimbursement either to the subscriber or the provider (
+assignment of benefit), many of the financial resources, such as <a href="claim.html">Claim</a> and 
+<a href="explanationofbenefit.html">ExplanationOfBenefit</a>, may be used to export data to other agencies to support reporting and analytics. 
+Consequently the cardinalities of many elements are set to optional, '0..', to support reporting, for example of partial adjudications, where the 
+cardinality for a normal claim profile or claim response profile would expect the cardinality to required, '1..'. </p>
+<p>Profiles will usually be necessary 
+to set tight constraints on cardinalities, require jurisdictional terminologies, and eliminate or introduce elements require to support various
+business needs and discipline requirements.  
 </p>
 
 <a name="attachments"></a>
@@ -359,15 +365,90 @@ and/or to confirm that the good or service was authorized or rendered.
 This information may be in many forms, including: scanned documents, PDFs, word processing files, XRays, images, CDAs and FHIR Resources.
 </p>
 <p>
-Supporting information may be provided, as a reference or the actual material, to support the <a href="claim.html">Claim</a> (complete claim or Pre-Authorization) or <a href="explanationofbenefit.html">ExplanationOfBenefit</a> in a variety of manners:
+Supporting information may be provided, as a reference or the actual material, to support the <a href="claim.html">Claim</a> (complete claim or Preauthorization) or <a href="explanationofbenefit.html">ExplanationOfBenefit</a> in a variety of manners:
 </p>
 <ul>
-<li><b>Included</b>: in the <i>{resource}</i>.information section;</li>
+<li><b>Included</b>: in the <i>{resource}</i>.supportingInfo section;</li>
 <li><b>Unsolicited</b>: in a <a href="communication.html">Communication</a> which refers to the Claim or Explanation Of Benefit; or</li>
 <li><b>Solicited</b>: in a <a href="communication.html">Communication</a> in response to a <a href="communicationrequest.html">CommunicationRequest</a> from the insurer requesting more information; or</li>
 <li><b>Input</b>: in the input parameters of a FHIR operation or Task.input element if a <a href="task.html">Task</a> resource is used.</li>
 </ul>
 
+<a name="subrogation"></a>
+<h3>Subrogation - Insurers recovering costs from other insurers</h3>
+<p>
+It is not always appropriate to send a Claim, or other eClaim requests such as eligibility or preauthorizations, to some insurers. This may be due to 
+jurisdictional rules, for example the national health program may pay for workplace accident claims then recover costs directly against that program, 
+or there may be no direct relationship between the provider and the insurer, for example for injury caused by another party or covered under
+property or accident insurance, the patient's primary health insurer may pay for services then recover a portion of their costs from that other insurer.
+</p>
+<p>To support the downstream recovery of costs from the appropriate insurer it is necessary to supply the insurance coverage information for all logically 
+potentially applicable coverages and to flag those which are provided for subrogation so that both the provider and payor systems know whether to expect to
+submit eClaims requests to or expect eClaims responses from these insurers. In the specific case of the Claim resource (claim, predetermination, 
+preauthorization) the provider would list all insurance coverages, including only work or accident related if appropriate, but send Claims only 
+to non-subrogation coverages (Coverage.subrogation=false) and not include ClaimResponses, nor would payors expect ClaimResponses to be provided, for 
+subrogated coverages.
+</p>
+
+<a name="cob"></a>
+<h3>Coordination of Benefit - Handling multiple insurance coverages</h3>
+<p>
+When a patient has multiple <a href="coverage.html">Coverages</a> there will generally be agreement within the jurisdiction as to the order of
+ application of claims recovery against the coverages which is referred to as the Coordination of Benefit (COB) order. This would also be the order
+ used to request preauthorization and predeterminations. Coverage eligibility is typically independent of the COB order as it is coverage specific.  
+</p>
+<p>
+While the jurisdiction rules must be consulted for COB specifics, generally: risk specific polices apply before risk-general policies; 
+ national policies will apply before personal or top-up policies; 
+ coverage obtained with full-time employment applies before coverage obtained with part-time employment; policies where the patient is the 
+ subscriber apply before a spouse's policy; and, there will be some understanding as to the order of application for policies which apply to
+ dependents, for example, birthday order of the subscribers. 
+</p>
+<p>
+When sending Claims down the COB order all logically applicable policies will be listed, so that insurers may confirm adherence to the COB order,
+ and, aside from subrogated coverages, will include the <a href="claimresponse.html">ClaimResponses</a> from any coverages appearing earlier in
+ the COB order so that each insurer may correctly calculate their portion of the overall cost of products and services supplied. The claims 
+ work their way through the COB order until the order is exhausted or their is no further outstanding balance, whichever comes first.
+</p>
+<p>
+While it is most common, it is not always the case that all claims originate with the provider. In some jurisdictions, in some or all cases,
+ the primary health insurer takes or is assigned responsibility to obtain the <a href="claimresponse.html">ClaimResponses</a> from downstream
+ insurers and to return the suite of <a href="claimresponse.html">ClaimResponses</a> to the provider. This is similar to subrogation in that
+ it removes the claim-cycle work from the provider but unlike subrogation the individual insurers still make their payments to the provider, if 
+ Assignment of Benefit is agreed, and a reversal of the base claim often requires the provider to handle reversal of the downstream claims as well.
+</p>
+
+<a name="batch"></a>
+<h3>Batches - Handling multiple eClaim requests or responses within a single exchange</h3>
+<p>
+eClaims request and response resources may be exchanged between providers and payors individually or via batches. eClaim requests, individual and batches, 
+ may be created on a payor system via FHIR REST or sent to the payor, either synchronously via FHIR operations or another request-response protocol such as:
+ WSI Web Services, a SOA exchange, MLLP, etc. 
+</p>
+<h4>Individual eClaim Requests and Responses</h4>
+<p>An individual eClaim request or response, for example a <a href="claim.html">Claim</a> (use=claim), may be either a simple Claim resource which refers to or contains
+ any supporting resources or <a href="bundle.html">Bundle</a> resource containing a single request, e.g. a <a href="claim.html">Claim</a>, 
+ and any associated resources (Patient, Practitioner, Organization, Coverage, etc.). 
+</p>
+<h4>eClaim Batches</h4>
+<p>A batch of eClaim requests or responses is a (<a href="bundle.html">FHIR Bundle</a>) containing one or more eClaim requests or responses, as above.
+The batch is simply a 'bag' of request or responses, typically of a consistent type of request or response, for example: all eligibility, preauthorizations,
+ claim, payment notifications, etc. There is no assurance provided that when receiving a batch of 100 claim responses that they relate to the 100 claim 
+ just submitted. 
+</p> 
+<a name="real-time"></a>
+<h3>Real-time eClaims Exchange</h3>
+<p>
+The eClaims resources are intended to support the real-time exchange of eClaim request and responses. While certain eligibility, claims, preauthorizations
+ and predeterminations may be processed in real-time there are many cases where they cannot due to the complexity of the material submitted, the
+ maturity of the jurisdictional styles and insurer processing systems, and the inclusion or requirements for supporting information which tends to
+ require manual review. Therefore, in some cases the eClaim response will only indicate the receipt and typically validation that the request is 
+ processable (or that it contain errors which inhibit processing).
+</p>
+<p>
+Deferred responses, those which could not be returned in real-time, and those returned asynchronously may be obtained either by FHIR REST 
+ (a GET or SEARCH) or via a <a href="#poll">Poll</a> depending upon the style of information exchange supported.
+</p>
 
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
@@ -380,7 +461,7 @@ Financial Claims and Reimbursement (FICR) - insurance information, enrollment, e
 </p>
 <p>
 To date FM has been focusing on the resources required to support the exchange of claims and related information between health care providers and insurers. The first draft of this work
-is nearing completion with the release of the first Financial Standard for Trial Use in STU3 of FHIR. Over the next year further refinements will be expected as we begin developing regional profiles
+is nearing completion with the release of the first Financial Standard for Trial Use in STU4 of FHIR. Over the next year further refinements will be expected as implementers begin developing regional profiles
 and begin live pilots with resources.
 </p>
 <p>
@@ -391,7 +472,7 @@ Once the above is well underway FM can then look to developing the Enrollment-re
 <h3>Terminology</h3>
 <p>
 In many cases an <b>example</b> valueset has been provided in this release. Financial Management will be devoting effort in the
-preparation to Release 4 of FHIR to develop more representative example sets and to determine where global codesets exist such
+preparation to Release 5 of FHIR to develop more representative example sets and to determine where global codesets exist such
 that some of the valuesets may be elevated in strength to extensible or required.
 </p>
 </div>

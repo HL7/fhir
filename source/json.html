@@ -14,9 +14,9 @@
 
 <a name="json"></a>
 <h2>JSON Representation of Resources</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
-[%normative page infrastructure%]
+[%normative page%]
 
 <p>
 The JSON representation for a resource is based on the <a href="https://www.rfc-editor.org/info/std90">JSON format described in STD 90 (RFC 8259)</a>, and is described using this format:
@@ -257,7 +257,7 @@ converted to JSON member values, in the same manner as described for primitives.
     &lt;status value="generated" /&gt;
     &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
   &lt;/text&gt;
-  &lt;name&gt;
+  &lt;name id="f2"&gt;
     &lt;use value="official" /&gt;
     &lt;given value="Karen" /&gt;
     &lt;family id="a2" value="Van" /&gt;
@@ -268,6 +268,7 @@ converted to JSON member values, in the same manner as described for primitives.
 <pre class="json" fragment="Patient">
 {
   "name" : [{
+    "id" : "f2",
     "use" : "official" ,
     "given" : [ "Karen" ],
     "family" :  "Van",
@@ -282,7 +283,7 @@ converted to JSON member values, in the same manner as described for primitives.
 <p>Things to note here are:</p>
 <ul>
 <li>Both given is a repeating XML elements, so it is serialized as an Array, whether or not it repeats in this instance</li>
-<li>In the family part of <code>name</code>, the <code>id</code> is added represented in <code>_family</code> as described above</li>
+<li>In the family part of <code>name</code>, the <code>id</code> is added represented in <code>_family</code> as described above, while the <code>id</code> on the name itself is represented as just another property</li>
 <li>The XHTML content in the <code>div</code> element which is in the Narrative element <code>text</code> is represented
   as an escaped string in the value property in JSON. The xhtml root element needs to be a &lt;div&gt; in the xhtml namespace</li>
 </ul>

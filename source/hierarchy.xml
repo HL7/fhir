@@ -26,12 +26,11 @@ signatures.html
       <page title="Namespace List" filename="ns.html"/>
       <page title="Workgroup List" filename="wglist.html"/>
       <page title="Getting Started" filename="modules.html"/>
-      <page title="Ballot Introduction" filename="ballot-intro.html"/> 
+<!--      <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
     </page>
 
     <!-- foundation - quite a lot of documentation -->
     <page title="Foundation" filename="foundation-module.html" icon="foundation.png">
-      <!--			<page title="Ballot Intro" filename="ballot-intro.html"/> -->
       <page title="Conformance" filename="conformance-rules.html">
         <page title="Best Practices" filename="best-practices.html"/>
       </page>

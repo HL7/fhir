@@ -15,7 +15,7 @@
 <%extheader examples%>
 
 <h2>Extensibility Examples</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
 In order to use an extension, there is a three-step process:
@@ -81,7 +81,7 @@ From this table, we can build a formal extension definition. In this case, it lo
   &lt;!-- snip other metadata -->
   &lt;kind value="complex-type"/&gt;
   &lt;context&gt;
-    &lt;type value="fhirpath"/&gt;
+    &lt;type value="element"/&gt;
     &lt;expression value="Patient"/&gt;
   &lt;/context&gt;
   &lt;type value="Extension"/&gt;
@@ -125,7 +125,7 @@ Note that usually one would build the actual profile using a tool. This example 
 <p>
 This means the profile shown above that defines the extension is placed on the web somewhere.
 By preference, it will be hosted at a FHIR Profile endpoint, and the best location of all
-is the <a href="http://hl7.org/fhir/registry">HL7 Profile registry</a>.
+is the <a href="http://hl7.org/fhir/registry">HL7 FHIR Registry</a>.
 </p>
 <p>
 For this example, we assume that it has been uploaded to the PHR provider's own website at
@@ -134,9 +134,8 @@ http://example.org/phr/documents/fhir/extensions.
 
 <h4>Use it in the instance</h4>
 <p>
-To use the extension in an instance, the extension is placed in the root of the resource.
-Note that the URL of the extension refers to the registered location, with the id of the extension as a
-fragment identifier.
+To use the extension in an instance, the extension is placed in the root of the resource, because that was the declared context for the extension.
+Note that the URL of the extension refers to the registered location.
 
 </p>
 <pre class="xml" fragment="Patient">
@@ -194,7 +193,7 @@ will use this resource, a StructureDefinition on the patient resource is used:
     &lt;!-- now, the slice that contains our extension --&gt;
     &lt;element&gt;
       &lt;path value=&quot;Patient.extension&quot;/&gt;
-      &lt;sliceName value=&quot;base-extension&quot;/&gt;
+      &lt;sliceName value=&quot;agreement&quot;/&gt;
       &lt;!-- clone information from the extension definition.
         duplicative, but this duplication makes it simpler overall --&gt;
       &lt;short value=&quot;Agreed agreement/policy&quot;/&gt;
@@ -208,7 +207,7 @@ will use this resource, a StructureDefinition on the patient resource is used:
         &lt;code value=&quot;Extension&quot;/&gt;
         &lt;!-- and here is the link to the extension definition:
           this extension has to conform to the rules laid down in its definition --&gt;
-        &lt;profile value=&quot;http://example.org/phr/documents/fhir/extensions#participation-agreement&quot;/&gt;
+        &lt;profile value=&quot;http://example.org/phr/documents/fhir/StructureDefinition/participation-agreement&quot;/&gt;
       &lt;/type&gt;
       &lt;isModifier value=&quot;false&quot;/&gt;
     &lt;/element&gt;
@@ -230,16 +229,17 @@ Note - this step is optional.
 <p>
 ISO 21090 (Healthcare Data Types) defines a concept called a "name part qualifier" that contains extra
 information about how a particular name part should be used or interpreted. In practice, this field
-is used rarely, except in particular cultural contexts, where certain part qualifiers are used as a
+is used rarely except in particular cultural contexts, where certain part qualifiers are used as a
 matter of practice. Following the <a href="extensibility.html">FHIR design policy</a>, such a field
 is not included in the overall definition of the core name data type, instead is it added as an
 extension.
 </p>
 
 <p>
-In practice, for cases such as these in ISO 21090, HL7 provides common extensions, and these
-are defined at [location still to be finalized].
+In practice, for cases such as these in ISO 21090, HL7 defines common extensions, and these
+are defined either in <a href="iso-21090.html">this specification</a>, or in the <a href="http://hl7.org/fhir/registry">FHIR registry</a>.
 </p>
+
 <h4>Define the Extension</h4>
 <p>
 For each extension, the first thing to do is to fill out the <a href="extensibility.html#define">definitional properties of the
@@ -258,7 +258,7 @@ extension</a>:
  <tr><td>Is Modifier</td><td>No (Qualifiers do not change the fact that the part is a given or family name)</td></tr>
  <tr><td>RIM Mapping</td><td>ENXP.qualifier</td></tr>
  <tr><td>v2 Mapping</td><td>N/A</td></tr>
- <tr><td>Binding</td><td>Bound to a subset of the codes specified for  <a href="http://www.hl7.org/v3ballot/html/infrastructure/vocabulary/EntityNamePartQualifierR2.html">EntityNamePartQualifierR2 in ISO 21090</a> </td></tr>
+ <tr><td>Binding</td><td>Bound to a subset of the codes specified for  <a href="v3/EntityNamePartQualifierR2/cs.html">EntityNamePartQualifierR2 in ISO 21090</a> </td></tr>
 </table>
 <p>
 Not all the codes of the EntityNamePartQualifierR2 are required in this context,
@@ -266,7 +266,7 @@ because prefix and suffix are explicitly part of the name types. Rather than
 simply refer to the OID for EntityNamePartQualifierR2 (2.16.840.1.113883.5.1122),
 in this case we enumerate the available codes, and set the type of the extension to
 code. The type of "code" is only allowed if the profile itself defines the codes that
-can be used. Here is a table of the codes (see the <a href="http://www.hl7.org/v3ballot/html/infrastructure/vocabulary/EntityNamePartQualifierR2.html">EntityNamePartQualifierR2</a> reference for the full definitions):
+can be used. Here is a table of the codes (see the <a href="v3/EntityNamePartQualifierR2/cs.html">EntityNamePartQualifierR2</a> reference for the full definitions):
 </p>
 <table class="codes">
 <tr><td>LS</td><td>Legal status </td><td>For organizations, a suffix...</td></tr>
@@ -362,8 +362,7 @@ This is the URL that will appear in the definition element when the extension is
 <h4>Use it in the instance</h4>
 <p>
 To use the extension in an instance, the extension is nested within the attribute that is extended.
-Note that the URL of the extension refers to the registered location, with the id of the extension as a
-fragment identifier.
+Note that the URL of the extension refers to the registered location.
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
@@ -400,11 +399,10 @@ NOTE: This extension is included for example purposes only.  In most cases, part
 
 <p>
 Like simple extensions, the first thing to do is to assign a URI to the
-extension. Since this one is part of the FHIR publication, it is assigned
-a URI where it will be published: http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial.
+extension, e.g.: <code>http://example.org/fhir/StructureDefinition/patient-clinicalTrial</code>.
 </p>
 <p>
-Internally, in the extension, the cardinality of the value[x] element is set to 0 since it
+Internally, in the extension, the maximum cardinality of the value[x] element is set to 0 since it
 will not (and cannot) be used. The Extension.extension element is sliced by URL,
 and 3 slices are defined, each with a fixed relative URI which is the code from the table above.
 The relevant parts of the definition of this extension are as follows:
@@ -412,7 +410,7 @@ The relevant parts of the definition of this extension are as follows:
 <pre class="xml">
 &lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;!-- metadata - setting up the base definition --&gt;
-  &lt;url value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
+  &lt;url value=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
   &lt;name value=&quot;ClinicalTrialParticipation&quot;/&gt;
   &lt;title value=&quot;The patient's participation in clinical trials&quot;/&gt;
   &lt;context&gt;
@@ -523,7 +521,7 @@ The relevant parts of the definition of this extension are as follows:
     &lt;!-- last (for order reasons): the fixed URI --&gt;
     &lt;element&gt;
       &lt;path value=&quot;Extension.url&quot;/&gt;
-      &lt;fixedUri value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
+      &lt;fixedUri value=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
     &lt;/element&gt;
     &lt;!-- and no value in the root --&gt;
     &lt;element&gt;
@@ -541,7 +539,7 @@ With complex extensions, only the first URL is an absolute URL:
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient xmlns="http://hl7.org/fhir"&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot; &gt;
+  &lt;extension url=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot; &gt;
     &lt;extension url=&quot;NCT&quot; &gt;
       &lt;valueString value=&quot;NCT00000419&quot;/&gt;
     &lt;/extension&gt;
@@ -609,7 +607,7 @@ This is the same as for a simple extension:
         &lt;code value=&quot;Extension&quot;/&gt;
         &lt;!-- and here is the link to the extension definition:
           this extension has to conform to the rules laid down in its definition --&gt;
-        &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
+        &lt;profile value=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
 

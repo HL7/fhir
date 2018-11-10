@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ValueSet/container-material"/>
+  <name value="ContainerMaterials"/>
+  <title value="Types of material for specimen containers"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes SNOMED CT codes for materials that specimen containers are made of"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <compose>
+    <include>
+    <!--   all lab codes. TODO: can we get just the panel ones?   -->
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="32039001"/>
+        <display value="glass"/>
+      </concept>
+      <concept>
+        <code value="61088005"/>
+        <display value="plastic"/>
+      </concept>
+      <concept>
+        <code value="425620007"/>
+        <display value="metal"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

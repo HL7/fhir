@@ -91,6 +91,7 @@ public class SearchParameterDefn {
   // operational tracking
   private String xPath;
   private boolean works; // marked by the testing routines if this search parameter yields results for any of the examples
+  private String normativeVersion;
   
   public String getCode() {
     return code;
@@ -286,5 +287,18 @@ public class SearchParameterDefn {
   public void setUrl(String url) {
     this.url = url;
   }
-  
+
+
+  public String getNormativeVersion() {
+    return normativeVersion;
+  }
+
+  public void setNormativeVersion(String normativeVersion) {
+    this.normativeVersion = normativeVersion;
+  }
+
+  public void setStandardsStatus(StandardsStatus standardsStatus, String normativeVersion) {
+    this.standardsStatus = standardsStatus;
+    this.normativeVersion = normativeVersion;    
+  }
 }

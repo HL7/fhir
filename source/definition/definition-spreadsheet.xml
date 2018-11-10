@@ -19,7 +19,6 @@
   
   
   <TabRatio>735</TabRatio>
-  <ActiveSheet>9</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -778,12 +777,9 @@
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s160">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s161">
    <Alignment ss:Horizontal="Center" ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s163">
+  <Style ss:ID="s161">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
@@ -791,7 +787,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s164" ss:Parent="s63">
+  <Style ss:ID="s162" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
@@ -801,7 +797,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s165">
+  <Style ss:ID="s163">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
@@ -809,7 +805,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s166" ss:Parent="s63">
+  <Style ss:ID="s164" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
@@ -842,6 +838,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4204,11 +4201,11 @@
     <Cell><Data ss:Type="String">The definition should no longer be used</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.aborted</Data></Cell>
    </Row>
-   <Row ss:Height="120" ss:StyleID="s160">
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">unknown</Data></Cell>
-    <Cell ss:StyleID="s161"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">The authoring/source system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which.</Data></Cell>
+    <Cell><Data ss:Type="String">The authoring/source system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which.</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=NullFlavor.unknown</Data></Cell>
    </Row>
   </Table>
@@ -4218,8 +4215,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4248,15 +4243,15 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s163"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s164"/>
-    <Cell ss:StyleID="s164"/>
-    <Cell ss:StyleID="s164"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s149"/>
@@ -4779,9 +4774,9 @@
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s166"/>
-    <Cell ss:StyleID="s166"/>
-    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s164"/>
+    <Cell ss:StyleID="s164"/>
+    <Cell ss:StyleID="s164"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s153"/>

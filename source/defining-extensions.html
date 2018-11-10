@@ -17,8 +17,8 @@
 
 <a name="root"></a>
 <h2>Defining Extensions</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+[%normative page%]
 
 <p>
 All extensions used in resources require a formal published definition that can be used
@@ -28,7 +28,7 @@ into the healthcare process they support.
 <p>
 Every extension in a resource refers directly to its definition, which is made available
 as a <a href="structuredefinition.html">StructureDefinition</a>. A resource can
-be <a href="profiling.html">profiled</a> to specify where particular extensions are used.
+be <a href="profiling.html">profiled</a> to to specify where particular extensions are required or expected.
 </p>
 <p>
 Whenever resources containing extensions are exchanged, the definitions of the extensions
@@ -105,7 +105,7 @@ apply to any contexts where the extension is used.
 </p>
 <p><b>Minimum Cardinality</b></p>
 <p>
-If the Extension minimum cardinality is 0, then the extension is
+If the Extension minimum cardinality is 0, then the extension is, by default,
 optional anywhere it appears. A <a href="profiling.html#resource">profile</a> that
 defines the use of an extension may make the minimum cardinality any number up
 to the maximum cardinality of the extension itself. Example: 

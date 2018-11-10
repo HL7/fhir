@@ -3,7 +3,7 @@
 <a name="search"></a>
 <h2>Searching Extensions</h2>
 <p>
-To search for extensions, define a search parameter for the extension. 
+To search for extensions, define a <a href="searchparameter.html">SearchParameter</a> for the extension. 
 All other search parameters are named aliases for existing content in
 the resource. In some cases, though not all, the search parameter name
 is the same as the element that it searches, but this is not required. 

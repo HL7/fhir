@@ -155,7 +155,8 @@ public class ResourceValidator extends BaseValidator {
     fakeParent.setWg(definitions.getWorkgroups().get("fhir"));
     fakeParent.setFmmLevel(fakeParent.getRoot().getFmmLevel());
     fakeParent.setStatus(fakeParent.getRoot().getStandardsStatus());
-    fakeParent.setNormativePackage("infrastructure");
+    if (fakeParent.getStatus() == StandardsStatus.NORMATIVE)
+     fakeParent.setNormativeVersion("4.0.0");
     checkElement(errors, structure.getName(), structure, fakeParent, null, true, false, hasSummary(structure), new ArrayList<String>(), true, structure.getStandardsStatus());
   }
   
@@ -631,7 +632,8 @@ public class ResourceValidator extends BaseValidator {
 		  if (definitions.hasElementDefn(e.typeCode())) {
 		    TypeDefn t = definitions.getElementDefn(e.typeCode());
 		    if (t != null && t.getStandardsStatus() != StandardsStatus.NORMATIVE)
-		      e.setStandardsStatus(t.getStandardsStatus());
+          e.setStandardsStatus(t.getStandardsStatus());
+        e.setNormativeVersion(null);
 		  }
 		}
     if (!hasSummary)
@@ -746,15 +748,15 @@ public class ResourceValidator extends BaseValidator {
 			  check(errors, path, cd, sd, e);
 			  if (cd.getValueSet() != null) {
 			    if (e.getBinding().getStrength() == BindingStrength.EXAMPLE)
-	          ValueSetUtilities.markStatus(cd.getValueSet(), parent == null ? "fhir" : parent.getWg().getCode(), StandardsStatus.DRAFT, null, "1", context);
+	          ValueSetUtilities.markStatus(cd.getValueSet(), parent == null ? "fhir" : parent.getWg().getCode(), StandardsStatus.DRAFT, null, "1", context, null);
 			    else if (parent == null)
-            ValueSetUtilities.markStatus(cd.getValueSet(), "fhir", StandardsStatus.DRAFT, null, "0", context);
+            ValueSetUtilities.markStatus(cd.getValueSet(), "fhir", StandardsStatus.DRAFT, null, "0", context, null);
           else if (e.getBinding().getStrength() == BindingStrength.PREFERRED)
-            ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), null, null, null, context);
+            ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), null, null, null, context, null);
           else 
-			      ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativePackage(), parent.getFmmLevel(), context);
+			      ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativeBallotPackage(), parent.getFmmLevel(), context, parent.getNormativeVersion());
 			    if (cd.getMaxValueSet() != null) {
-            ValueSetUtilities.markStatus(cd.getMaxValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativePackage(), parent.getFmmLevel(), context);
+            ValueSetUtilities.markStatus(cd.getMaxValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativeBallotPackage(), parent.getFmmLevel(), context, parent.getNormativeVersion());
 			    }
 			    Integer w = (Integer) cd.getValueSet().getUserData("warnings");
 			    if (w != null && w > 0 && !vsWarns.contains(cd.getValueSet().getId())) {
