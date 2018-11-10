@@ -61,7 +61,7 @@ Feedback is welcome on two issues related to Composition:
  <li>A client can ask a server to generate a fully bundled document from a Composition resource using the $snapshot operation. This operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question.</li>
 </ul>
 <p>
-Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+Feedback <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
 
 </div>

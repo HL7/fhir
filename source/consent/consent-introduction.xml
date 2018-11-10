@@ -117,7 +117,7 @@ reference can be one of several things:
 <ul>
  <li>A reference to another consent resource from which this limited statement was derived</li>
  <li>A reference to a document format for the original source (e.g. PDF or CDA - see the 
- <a href="http://gforge.hl7.org/gf/project/cbcc/frs/?action=FrsReleaseView&amp;release_id=732">HL7 CDAR2 ConsentDirective Implementation Guide</a>, 
+ <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=280">HL7 CDAR2 ConsentDirective Implementation Guide</a>, 
  which incorporated the <a href="http://wiki.ihe.net/index.php?title=Basic_Patient_Privacy_Consents">IHE Basic Patient Privacy Consents (BPPC)</a> ), either directly, or in a reference</li>
  <li>The source can be included in the consent as an attachment</li>
 </ul>

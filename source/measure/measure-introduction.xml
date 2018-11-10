@@ -8,7 +8,7 @@
       <a name="dstu">
       </a>
       <p>
-        <b>Note to balloters</b> The Clinical Quality Information workgroup is seeking feedback on the name of this resource, as discussed in the <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=11305">GF#11305</a>. Specifically, the committee is seeking implementer community feedback on whether the resource should be named Measure or MeasureDefinition. The committee believes that the name Measure is a reasonable description of what the resource is doing, and the suggested name change to MeasureDefinition will likely not have much if any positive impact on the usability of the resource. The documentation for the resource is much more important in terms of communicating the intended use.</p>
+        <b>Note to balloters</b> The Clinical Quality Information workgroup is seeking feedback on the name of this resource, as discussed in the <a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-11305">GF#11305</a>. Specifically, the committee is seeking implementer community feedback on whether the resource should be named Measure or MeasureDefinition. The committee believes that the name Measure is a reasonable description of what the resource is doing, and the suggested name change to MeasureDefinition will likely not have much if any positive impact on the usability of the resource. The documentation for the resource is much more important in terms of communicating the intended use.</p>
     </blockquote>
 <h2>Scope and Usage</h2>
 <p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
