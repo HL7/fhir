@@ -475,7 +475,7 @@ Implementer feedback is sought on the values for Appointment.priority and how in
 Using an extension to record a CodeableConcept for named values may be tested at a future Connectathon.
 </p>
 <p>
-Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+Feedback <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
   
 </div>

@@ -35,10 +35,10 @@ a value - instead, the value must be understood from the Condition.code.
 <a name="dstu-1"></a>
 [%stu-note%]
 There are two primary ways of reporting "no known problems" in the current specification: using the CodeableConcept,
-as described above, or using the <a href="list.html">List</a> resource with emptyReason. During the STU period, <a href="http://gforge.hl7.org/gf/project/fhir/tracker/">feedback</a> is sought regarding the preferred approach.
+as described above, or using the <a href="list.html">List</a> resource with emptyReason. During the STU period, <a href="http://hl7.org/fhir-issues">feedback</a> is sought regarding the preferred approach.
 </p>
 <p>
-Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+Provide feedback <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
 
   <p>

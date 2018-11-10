@@ -38,7 +38,7 @@ draw the attention of reviewers and implementers to the following issues:
  <li>Investigations - the specification needs a good value set for the code for the group, and will be considering the name "investigations" further</li>
 </ul> 
 <p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
 
 </div>
@@ -61,7 +61,7 @@ during the assessment process.
 <a name="bnc"></a>
 <h2>Background and Context</h2>
 <p>
-An important background to understanding this resource is <a href="http://wiki.hl7.org/index.php?title=Clinical_Assessment">the FHIR wiki page for clinical assessment</a>. In particular,
+An important background to understanding this resource is <a href="https://confluence.hl7.org/display/PC/Clinical+Assessment">the FHIR Confluence page for clinical assessment</a>. In particular,
 the storyboards there drove the design of the resource, and will be the basis for all examples created.
 </p>
 <p>

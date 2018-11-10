@@ -729,8 +729,8 @@
 				</Cell>
 			</Row>
 			<Row ss:AutoFitHeight="0">
-				<Cell ss:HRef="http://wiki.hl7.org/?title=FHIR_Spreadsheet_Authoring" ss:StyleID="s67">
-					<Data ss:Type="String">http://wiki.hl7.org?title=FHIR_Spreadsheet_Authoring</Data>
+				<Cell ss:HRef="https://confluence.hl7.org/display/FHIR/FHIR+Spreadsheet+Authoring" ss:StyleID="s67">
+					<Data ss:Type="String">https://confluence.hl7.org/display/FHIR/FHIR+Spreadsheet+Authoring</Data>
 				</Cell>
 			</Row>
 			<Row ss:AutoFitHeight="0">
@@ -739,8 +739,8 @@
 				</Cell>
 			</Row>
 			<Row ss:AutoFitHeight="0">
-				<Cell ss:HRef="http://wiki.hl7.org/?title=FHIR_Spreadsheet_Profile_Authoring" ss:StyleID="s62">
-					<Data ss:Type="String">http://wiki.hl7.org?title=FHIR_Spreadsheet_Profile_Authoring</Data>
+				<Cell ss:HRef="https://confluence.hl7.org/display/FHIR/FHIR+Spreadsheet+Profile+Authoring" ss:StyleID="s62">
+					<Data ss:Type="String">https://confluence.hl7.org/display/FHIR/FHIR+Spreadsheet+Profile+Authoring</Data>
 				</Cell>
 			</Row>
 		</Table>
@@ -927,7 +927,7 @@
 					<Data ss:Type="String">Profile Name</Data>
 					<Comment ss:Author="">
 						<Data>
-							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The name of an element for the purposes of this profile (used for slicing, code generation, etc.&#10;(see wiki for more details)</Font>
+							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The name of an element for the purposes of this profile (used for slicing, code generation, etc.&#10;(see Confluence for more details)</Font>
 						</Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -936,7 +936,7 @@
 					<Data ss:Type="String">Discriminator</Data>
 					<Comment ss:Author="">
 						<Data>
-							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">relative path | ordered? (true/false) | rules (open/openAtEnd/closed)&#10;See wiki</Font>
+							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">relative path | ordered? (true/false) | rules (open/openAtEnd/closed)&#10;See Confluence</Font>
 						</Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -990,7 +990,7 @@
 					<Data ss:Type="String">Type</Data>
 					<Comment ss:Author="">
 						<Data>
-							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see the wiki</Font>
+							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font>
 						</Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -1125,7 +1125,7 @@
 					<Data ss:Type="String">Display Hint</Data>
 					<Comment ss:Author="">
 						<Data>
-							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Provides guidance to narrative auto-generator.  Check Wiki documentation</Font>
+							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Provides guidance to narrative auto-generator.  Check Confluence documentation</Font>
 						</Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -7159,7 +7159,7 @@
 					<Data ss:Type="String">XPath</Data>
 					<Comment ss:Author="">
 						<Data>
-							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">XPath 2 expression.  See wiki or make Lloyd do it :&gt;</Font>
+							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">XPath 2 expression.  See Confluence or make Lloyd do it :&gt;</Font>
 						</Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -7735,7 +7735,7 @@
 					<Data ss:Type="String">Type</Data>
 					<Comment ss:Author="">
 						<Data>
-							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see the wiki</Font>
+							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font>
 						</Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -7861,7 +7861,7 @@
 					<Data ss:Type="String">Display Hint</Data>
 					<Comment ss:Author="">
 						<Data>
-							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Provides guidance to narrative auto-generator.  Check Wiki documentation</Font>
+							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Provides guidance to narrative auto-generator.  Check Confluence documentation</Font>
 						</Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -11322,7 +11322,7 @@
 					<Data ss:Type="String">v2</Data>
 					<Comment ss:Author="">
 						<Data>
-							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v2 codes - See wiki for syntax</Font>
+							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v2 codes - See Confluence for syntax</Font>
 						</Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -11331,7 +11331,7 @@
 					<Data ss:Type="String">v3</Data>
 					<Comment ss:Author="">
 						<Data>
-							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See wiki for syntax</Font>
+							<Font xmlns="http://www.w3.org/TR/REC-html40" html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See Confluence for syntax</Font>
 						</Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
