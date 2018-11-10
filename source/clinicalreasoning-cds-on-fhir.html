@@ -187,11 +187,11 @@
 <p>In general, a CDS Hooks Response can be captured as a single GuidanceResponse that represents the overall response from the CDS Service, and a single RequestGroup containing the cards and suggestions, as illustrated by the following object-level mappings:</p>
 
 <table>
-	<tr><th><b>CDS Hooks Object</b></th><th><b>FHIR Resource Mapping</b></th><th><b>Description</b></th></tr>
-	<tr><td>Response</td><td>GuidanceResponse and RequestGroup</td><td>A CDS Hooks Response is 1 to 1 with a GuidanceResponse and an associated RequestGroup</td></tr>
-	<tr><td>Card</td><td>RequestGroup.action</td><td>Each Card in the response is represented as a top level action in the RequestGroup. The selectionBehavior of the action (i.e. among suggestions on the card) is specified by the selectionBehavior element of the card.</td></tr>
-	<tr><td>Suggestion</td><td>RequestGroup.action.action</td><td>Each suggestion on a card is represented as a nested action within the action for the card. The selectionBehavior of the action (i.e. among the actions described in the suggestion) is <code>all</code>, because CDS Hooks specifies that when a suggestion is accepted, all the actions on the suggestion are performed.</td></tr>
-	<tr><td>Action</td><td>RequestGroup.action.action.action</td><td>Each CDS Hooks Action on a card is represented as a nested action within the RequestGroup action for the suggestion, and the resource in the CDS Hooks Action populates the resource element of the RequestGroup action.</td></tr>
+  <tr><th><b>CDS Hooks Object</b></th><th><b>FHIR Resource Mapping</b></th><th><b>Description</b></th></tr>
+  <tr><td>Response</td><td>GuidanceResponse and RequestGroup</td><td>A CDS Hooks Response is 1 to 1 with a GuidanceResponse and an associated RequestGroup</td></tr>
+  <tr><td>Card</td><td>RequestGroup.action</td><td>Each Card in the response is represented as a top level action in the RequestGroup. The selectionBehavior of the action (i.e. among suggestions on the card) is specified by the selectionBehavior element of the card.</td></tr>
+  <tr><td>Suggestion</td><td>RequestGroup.action.action</td><td>Each suggestion on a card is represented as a nested action within the action for the card. The selectionBehavior of the action (i.e. among the actions described in the suggestion) is <code>all</code>, because CDS Hooks specifies that when a suggestion is accepted, all the actions on the suggestion are performed.</td></tr>
+  <tr><td>Action</td><td>RequestGroup.action.action.action</td><td>Each CDS Hooks Action on a card is represented as a nested action within the RequestGroup action for the suggestion, and the resource in the CDS Hooks Action populates the resource element of the RequestGroup action.</td></tr>
 </table>
 
 <p>And the following table lists the element-level mappings:</p>
@@ -204,7 +204,7 @@
   <tr><td>Request Patient</td><td>GuidanceResponse.subject &amp; RequestGroup.subject</td></tr>
   <tr><td>Request time</td><td>GuidanceResponse.occurrenceDateTime &amp; RequestGroup.authoredOn</td></tr>
   <tr><td>Request service</td><td>GuidanceResponse.performer &amp; RequestGroup.author (as a Device)</td></tr>
-	<tr><td>Response.card</td><td>RequestGroup.action</td></tr>
+  <tr><td>Response.card</td><td>RequestGroup.action</td></tr>
   <tr><td>Response.card.summary</td><td>RequestGroup.action.title</td></tr>
   <tr><td>Response.card.detail</td><td>RequestGroup.action.description</td></tr>
   <tr><td>Response.card.indicator</td><td>RequestGroup.priority | RequestGroup.action.resource.priority, using the mapping specified <a href="conceptmap-cdshooks-indicator.html">here</a></td></tr>
@@ -213,7 +213,7 @@
   <tr><td>Response.card.suggestion</td><td>RequestGroup.action.action</td></tr>
   <tr><td>Response.card.suggestion.label</td><td>RequestGroup.action.action.title</td></tr>
   <tr><td>Response.card.suggestion.uuid</td><td>RequestGroup.action.action.id</td></tr>
-	<tr><td>Response.card.suggestion.action</td><td>RequestGroup.action.action.action<td></tr>
+  <tr><td>Response.card.suggestion.action</td><td>RequestGroup.action.action.action</td></tr>
   <tr><td>Response.card.suggestion.action.type</td><td>RequestGroup.action.action.action.type</td></tr>
   <tr><td>Response.card.suggestion.action.description</td><td>RequestGroup.action.action.action.description</td></tr>
   <tr><td>Response.card.suggestion.action.resource</td><td>RequestGroup.action.action.action.resource</td></tr>
