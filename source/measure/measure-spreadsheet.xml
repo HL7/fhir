@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5971,7 +5971,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6594,13 +6593,13 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">HIV Indicators</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example of Measure to define public health reporting data elements</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">hiv-indicators</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">measure-hiv-indicators.xml</Data></Cell>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"/>
@@ -6898,6 +6897,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
