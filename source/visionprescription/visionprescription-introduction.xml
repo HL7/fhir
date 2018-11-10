@@ -1,22 +1,59 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<div>
-<h2>Scope and Usage</h2>
-<p>
-This resource covers all prescriptions for glasses and contact lenses for a patient.  
-</p>
-</div>
+	<div>
+		<h2>Scope and Usage</h2>
+		<p>
+The VisionPrescription resource is intended to support the information requirements for a prescription for glasses and contact lenses for a patient.
+Corrective optical lenses are considered a controlled substance and therefore a prescription is typically required for the provision of 
+patient-specific lenses.  
+		</p>
+		<p>
+Vision prescriptions may only be issued by providers who have optical diagnosis within their scope of practice, typically ophthalmologists  
+and optometrists. The prescription is a time-limited, typically two years, authorization for the provision of an unlimited number of lenses, 
+glasses or contacts, which conform to the authorized specification by providers which have lens provision within their scope of practice, typically ophthalmologists  
+, optometrists and opticians. 
+		</p>
+		<p>Health insurers typically require a copy of the prescription to ensure that a vision professional has examined the patient and that the
+ power of the lenses exceeds some minimum, such as +- 0.75 diopters, to qualify for reimbursement under the insurance coverage.</p>
+		<p>The VisionPrescription resource is an "request" resource from a FHIR workflow perspective - see <a href="workflow.html#request">Workflow Request.</a></p>
+		<h3>Additional Information</h3>
+		<p>
+Additional information regarding resources conveying electronic claims content and usage may be found at:
+		</p>		
+		<ul>
+			<li><a href="financial-module.html#resource-status">Financial Resource Status Lifecycle</a>: how .status is used in the financial resources.</li>
+		</ul>
+	</div>
+	<div>
+		<a name="bnr"></a>
+		<h2>Boundaries and Relationships</h2>
 
-<div>
-<h2>Boundaries and Relationships</h2>
-<!--
-<p>
-<b>The Vision domain includes a number of related resources</b>
-</p>
-<table border="1" cellpadding="1" cellspacing="2" frame="box">
+		<p>The VisionPrescription resource is used to provide the authorized specification of lenses for glasses and contacts which 
+		have well known and internationally consistent requirements, which is distinct from other types of health care authorizations detailed below.
+		</p>
+		<b>The health care domain includes a number of related resources</b>
 
-</table>
--->
-</div>
+		<table border="1" cellpadding="1" cellspacing="2" frame="box">
+			<tr>
+				<td>VisionPrescription</td>
+				<td>The VisionPrescription resource is used to provide the authorized specification of lenses for glasses and contacts.</td>
+			</tr>
+			<tr>
+				<td><a href="devicerequest.html">DeviceRequest</a></td>
+				<td>This resource is used to prescribe, authorize, and request provision of a health care device such as a halter monitor or a wheelchair services.
+				</td>
+			</tr>			
+			<tr>
+				<td><a href="medicationrequest.html">MedicationRequest</a></td>
+				<td>This resource is used to prescribe, authorize, and request provision of medications such a pharmaceuticals and vaccines.
+				</td>
+			</tr>			
+			<tr>
+				<td><a href="servicerequest.html">ServiceRequest</a></td>
+				<td>This resource is used to prescribe, authorize, and request provision of health care services such as consultative or rehabilitative services.
+				</td>
+			</tr>			
+		</table>
 
-</div>
+	</div>
+</div>	
