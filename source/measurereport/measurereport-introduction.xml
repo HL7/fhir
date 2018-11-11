@@ -4,8 +4,6 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 
-<p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#event">Event</a>.</p>
-
 <p>
 The MeasureReport resource represents the results of calculating a measure for a specific subject or group of subjects. The <code>$evaluate-measure</code> operation of the <a href="measure.html">Measure</a> resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: individual, subject-list, and summary.
 </p>
