@@ -546,6 +546,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
         generateSnapshot(p);
       } catch (Exception e) {
         // not sure what to do in this case?
+        System.out.println("Unable to generate snapshot for "+uri+": "+e.getMessage());
       }
     }
     return r;
