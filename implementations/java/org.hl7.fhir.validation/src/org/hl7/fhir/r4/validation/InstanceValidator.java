@@ -2035,7 +2035,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return extensionDomains;
   }
 
-  private Element getFromBundle(Element bundle, String ref, String fullUrl, List<ValidationMessage> errors, String path) {
+  private Element getFromBundle(Element bundle, String ref, String fullUrl, List<ValidationMessage> errors, String path, String type) {
     String targetUrl = null;
     String version = "";
     if (ref.startsWith("http") || ref.startsWith("urn")) {
@@ -2048,7 +2048,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     } else if (fullUrl == null) {
       //This isn't a problem for signatures - if it's a signature, we won't have a resolution for a relative reference.  For anything else, this is an error
-      rule(errors, IssueType.REQUIRED, -1, -1, path, path.startsWith("Bundle.signature"), "Relative Reference appears inside Bundle whose entry is missing a fullUrl");
+      // but this rule doesn't apply for batches or transactions
+      rule(errors, IssueType.REQUIRED, -1, -1, path, Utilities.existsInList(type, "batch-response", "transaction-response") || path.startsWith("Bundle.signature"), "Relative Reference appears inside Bundle whose entry is missing a fullUrl");
       return null;
 
     } else if (ref.split("/").length!=2 && ref.split("/").length!=4) {
@@ -2290,12 +2291,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       String fullUrl = null; // we're going to try to work this out as we go up
       while (stack != null && stack.getElement() != null) {
         if (stack.getElement().getSpecial() == SpecialElement.BUNDLE_ENTRY && fullUrl==null && stack.parent.getElement().getName().equals("entry")) {
+          String type = stack.parent.parent.element.getChildValue("type");
           fullUrl = stack.parent.getElement().getChildValue("fullUrl"); // we don't try to resolve contained references across this boundary
-          if (fullUrl==null)
-            rule(errors, IssueType.REQUIRED, stack.parent.getElement().line(), stack.parent.getElement().col(), stack.parent.getLiteralPath(), fullUrl!=null, "Bundle entry missing fullUrl");
+          if (fullUrl==null) 
+            rule(errors, IssueType.REQUIRED, stack.parent.getElement().line(), stack.parent.getElement().col(), stack.parent.getLiteralPath(), 
+                Utilities.existsInList(type, "batch-response", "transaction-response") || fullUrl!=null, "Bundle entry missing fullUrl");
         }
         if ("Bundle".equals(stack.getElement().getType())) {
-          Element res = getFromBundle(stack.getElement(), ref, fullUrl, errors, path);
+          String type = stack.getElement().getChildValue("type");
+          Element res = getFromBundle(stack.getElement(), ref, fullUrl, errors, path, type);
           return res;
         }
         stack = stack.parent;
@@ -3324,10 +3328,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     visitedResources.put(entry.getNamedChildValue("fullUrl"), resource);
 
+    String type = null;
     List<String> references = findReferences(resource);
     for (String reference: references) {
       // We don't want errors when just retrieving the element as they will be caught (with better path info) in subsequent processing
-      Element r = getFromBundle(stack.getElement(), reference, entry.getChildValue("fullUrl"), new ArrayList<ValidationMessage>(), stack.addToLiteralPath("entry[" + candidateResources.indexOf(resource) + "]"));
+      Element r = getFromBundle(stack.getElement(), reference, entry.getChildValue("fullUrl"), new ArrayList<ValidationMessage>(), stack.addToLiteralPath("entry[" + candidateResources.indexOf(resource) + "]"), type);
       if (r!=null && !visitedResources.containsValue(r)) {
         followResourceLinks(candidateEntries.get(r), visitedResources, candidateEntries, candidateResources, errors, stack, depth+1);
       }

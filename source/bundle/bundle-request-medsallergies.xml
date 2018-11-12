@@ -25,7 +25,7 @@
   <entry>
     <request>
       <method value="GET"/>
-      <url value="/AllergyIntolernce?patient=example&amp;_list=$current-allergies"/>
+      <url value="/AllergyIntolerance?patient=example&amp;_list=$current-allergies"/>
     </request>
   </entry>
   <!-- This request will retrieve the current Conditions for the patient
