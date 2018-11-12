@@ -12449,6 +12449,10 @@
     <display value="Chlorthalidone 50mg tablet"/>
     <display value="Chlorthalidone 50mg"/>
   </concept>
+  <concept id="32039001" display="Glass">
+    <display value="Glass"/>
+    <display value="Glass (substance)"/>
+  </concept>
   <concept id="32074000" display="Long term care hospital">
     <display value="Long term care hospital"/>
     <display value="Long term care hospital (environment)"/>
@@ -14284,6 +14288,10 @@
     <display value="Review of care plan (procedure)"/>
     <display value="Review of care plan"/>
   </concept>
+  <concept id="425620007" display="Metal">
+    <display value="Metal (substance)"/>
+    <display value="Metal"/>
+  </concept>
   <concept id="42602001" display="Minorca chicken">
     <display value="Minorca chicken"/>
     <display value="Minorca chicken (organism)"/>
@@ -15384,6 +15392,12 @@
     <display value="Minnesota pig"/>
     <display value="Minnesota pig (organism)"/>
   </concept>
+  <concept id="61088005" display="Plastic">
+    <display value="Plastic"/>
+    <display value="Plastic compound"/>
+    <display value="Plastic substance"/>
+    <display value="Plastic (substance)"/>
+  </concept>
   <concept id="6112002" display="Meusse-Rhine-Ijssel cattle">
     <display value="Meusse-Rhine-Ijssel cattle breed (organism)"/>
     <display value="Meusse-Rhine-Ijssel cattle"/>
@@ -15661,6 +15675,10 @@
     <display value="Cubalaya chicken"/>
     <display value="Cubalaya chicken (organism)"/>
   </concept>
+  <concept id="703763000" display="Precondition value">
+    <display value="Precondition value (qualifier value)"/>
+    <display value="Precondition value"/>
+  </concept>
   <concept id="70429002" display="Game chicken">
     <display value="Game chicken"/>
     <display value="Game chicken (organism)"/>
@@ -15676,6 +15694,10 @@
   <concept id="705383004" display="Eating/Drinking assistive device">
     <display value="Eating/Drinking assistive device"/>
     <display value="Eating/Drinking assistive device (physical object)"/>
+  </concept>
+  <concept id="706041008" display="Device for body fluid and tissue collection/transfer/processing">
+    <display value="Device for body fluid and tissue collection/transfer/processing (physical object)"/>
+    <display value="Device for body fluid and tissue collection/transfer/processing"/>
   </concept>
   <concept id="70777001" display="Urine specimen collection, catheterized">
     <display value="Urine specimen collection, catheterized"/>

@@ -595,7 +595,7 @@
       <definition value="Nested group of Consent Directive Provision."/>
       <min value="0"/>
       <max value="*"/>
-      <contentReference value="#term"/>
+      <contentReference value="#Contract.term"/>
     </element>
     <element>
       <path value="Contract.signer"/>

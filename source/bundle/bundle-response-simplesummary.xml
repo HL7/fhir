@@ -1,6 +1,444 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="bundle-response-simplesummary"/>
-	<type value="batch-response"/>
-	<!-- todo: regenerate this during QA -->
+<Bundle xmlns="http://hl7.org/fhir">
+    <id value="bundle-response-simplesummary"/>
+    <type value="batch-response"/>
+    <entry>
+        <resource>
+            <Patient>
+                <id value="example"/>
+                <meta>
+                    <versionId value="1"/>
+                    <lastUpdated value="2018-11-12T03:35:20.715Z"/>
+                </meta>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Peter James 
+                                        <b>Chalmers</b> ("Jim")
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>534 Erewhon, Pleasantville, Vic, 3999</td>
+                                </tr>
+                                <tr>
+                                    <td>Contacts</td>
+                                    <td>Home: unknown. Work: (03) 5555 6473</td>
+                                </tr>
+                                <tr>
+                                    <td>Id</td>
+                                    <td>MRN: 12345 (Acme Healthcare)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </text>
+                <identifier>
+                    <use value="usual"/>
+                    <type>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+                            <code value="MR"/>
+                        </coding>
+                    </type>
+                    <system value="urn:oid:1.2.36.146.595.217.0.1"/>
+                    <value value="12345"/>
+                    <period>
+                        <start value="2001-05-06"/>
+                    </period>
+                    <assigner>
+                        <display value="Acme Healthcare"/>
+                    </assigner>
+                </identifier>
+                <active value="true"/>
+                <name>
+                    <use value="official"/>
+                    <family value="Chalmers"/>
+                    <given value="Peter"/>
+                    <given value="James"/>
+                </name>
+                <name>
+                    <use value="usual"/>
+                    <given value="Jim"/>
+                </name>
+                <name>
+                    <use value="maiden"/>
+                    <family value="Windsor"/>
+                    <given value="Peter"/>
+                    <given value="James"/>
+                    <period>
+                        <end value="2002"/>
+                    </period>
+                </name>
+                <telecom>
+                    <use value="home"/>
+                </telecom>
+                <telecom>
+                    <system value="phone"/>
+                    <value value="(03) 5555 6473"/>
+                    <use value="work"/>
+                    <rank value="1"/>
+                </telecom>
+                <telecom>
+                    <system value="phone"/>
+                    <value value="(03) 3410 5613"/>
+                    <use value="mobile"/>
+                    <rank value="2"/>
+                </telecom>
+                <telecom>
+                    <system value="phone"/>
+                    <value value="(03) 5555 8834"/>
+                    <use value="old"/>
+                    <period>
+                        <end value="2014"/>
+                    </period>
+                </telecom>
+                <gender value="male"/>
+                <birthDate value="1974-12-25">
+                    <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+                        <valueDateTime value="1974-12-25T14:35:45-05:00"/>
+                    </extension>
+                </birthDate>
+                <deceasedBoolean value="false"/>
+                <address>
+                    <use value="home"/>
+                    <type value="both"/>
+                    <text value="534 Erewhon St PeasantVille, Rainbow, Vic  3999"/>
+                    <line value="534 Erewhon St"/>
+                    <city value="PleasantVille"/>
+                    <district value="Rainbow"/>
+                    <state value="Vic"/>
+                    <postalCode value="3999"/>
+                    <period>
+                        <start value="1974-12-25"/>
+                    </period>
+                </address>
+                <contact>
+                    <relationship>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/v2-0131"/>
+                            <code value="N"/>
+                        </coding>
+                    </relationship>
+                    <name>
+                        <family value="du March&#233;">
+                            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+                                <valueString value="VV"/>
+                            </extension>
+                        </family>
+                        <given value="B&#233;n&#233;dicte"/>
+                    </name>
+                    <telecom>
+                        <system value="phone"/>
+                        <value value="+33 (237) 998327"/>
+                    </telecom>
+                    <address>
+                        <use value="home"/>
+                        <type value="both"/>
+                        <line value="534 Erewhon St"/>
+                        <city value="PleasantVille"/>
+                        <district value="Rainbow"/>
+                        <state value="Vic"/>
+                        <postalCode value="3999"/>
+                        <period>
+                            <start value="1974-12-25"/>
+                        </period>
+                    </address>
+                    <gender value="female"/>
+                    <period>
+                        <start value="2012"/>
+                    </period>
+                </contact>
+                <managingOrganization>
+                    <reference value="Organization/1"/>
+                </managingOrganization>
+            </Patient>
+        </resource>
+        <response>
+            <status value="200"/>
+            <etag value="W/1"/>
+            <lastModified value="2018-11-12T03:35:20.717Z"/>
+        </response>
+    </entry>
+    <entry>
+        <resource>
+            <Bundle>
+                <id value="2c2fb771-6c4b-4df8-89b2-47a1178e7c"/>
+                <meta>
+                    <lastUpdated value="2018-11-12T05:42:49.445Z"/>
+                </meta>
+                <type value="searchset"/>
+                <total value="4"/>
+                <link>
+                    <relation value="self"/>
+                    <url value="http://local.fhir.org:960/r4/Condition?_format=application/fhir+xml&amp;search-id=36aac5c3-a9f6-4c3a-bf94-24d32ed604&amp;&amp;patient=example&amp;_sort=_id"/>
+                </link>
+                <entry>
+                    <fullUrl value="http://local.fhir.org:960/r4/Condition/example"/>
+                    <resource>
+                        <Condition xmlns="http://hl7.org/fhir">
+                            <id value="example"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2018-11-12T03:34:46.552Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div xmlns="http://www.w3.org/1999/xhtml">Severe burn of left ear (Date: 24-May 2012)</div>
+                            </text>
+                            <clinicalStatus>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
+                                    <code value="active"/>
+                                </coding>
+                            </clinicalStatus>
+                            <verificationStatus>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-ver-status"/>
+                                    <code value="confirmed"/>
+                                </coding>
+                            </verificationStatus>
+                            <category>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+                                    <code value="encounter-diagnosis"/>
+                                    <display value="Encounter Diagnosis"/>
+                                </coding>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="439401001"/>
+                                    <display value="Diagnosis"/>
+                                </coding>
+                            </category>
+                            <severity>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="24484000"/>
+                                    <display value="Severe"/>
+                                </coding>
+                            </severity>
+                            <code>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="39065001"/>
+                                    <display value="Burn of ear"/>
+                                </coding>
+                                <text value="Burnt Ear"/>
+                            </code>
+                            <bodySite>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="49521004"/>
+                                    <display value="Left external ear structure"/>
+                                </coding>
+                                <text value="Left Ear"/>
+                            </bodySite>
+                            <subject>
+                                <reference value="Patient/example"/>
+                            </subject>
+                            <onsetDateTime value="2012-05-24"/>
+                        </Condition>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.fhir.org:960/r4/Condition/example2"/>
+                    <resource>
+                        <Condition xmlns="http://hl7.org/fhir">
+                            <id value="example2"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2018-11-12T03:34:46.626Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div xmlns="http://www.w3.org/1999/xhtml">Mild Asthma (Date: 12-Nov 2012)</div>
+                            </text>
+                            <clinicalStatus>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
+                                    <code value="active"/>
+                                </coding>
+                            </clinicalStatus>
+                            <verificationStatus>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-ver-status"/>
+                                    <code value="confirmed"/>
+                                </coding>
+                            </verificationStatus>
+                            <category>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+                                    <code value="problem-list-item"/>
+                                    <display value="Problem List Item"/>
+                                </coding>
+                            </category>
+                            <severity>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="255604002"/>
+                                    <display value="Mild"/>
+                                </coding>
+                            </severity>
+                            <code>
+                                <text value="Asthma"/>
+                            </code>
+                            <subject>
+                                <reference value="Patient/example"/>
+                            </subject>
+                            <onsetString value="approximately November 2012"/>
+                        </Condition>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.fhir.org:960/r4/Condition/family-history"/>
+                    <resource>
+                        <Condition xmlns="http://hl7.org/fhir">
+                            <id value="family-history"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2018-11-12T03:34:47.274Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div xmlns="http://www.w3.org/1999/xhtml">Family history of cancer of colon</div>
+                            </text>
+                            <clinicalStatus>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
+                                    <code value="active"/>
+                                </coding>
+                            </clinicalStatus>
+                            <category>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+                                    <code value="problem-list-item"/>
+                                    <display value="Problem List Item"/>
+                                </coding>
+                            </category>
+                            <code>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="312824007"/>
+                                    <display value="Family history of cancer of colon"/>
+                                </coding>
+                            </code>
+                            <subject>
+                                <reference value="Patient/example"/>
+                            </subject>
+                        </Condition>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+                <entry>
+                    <fullUrl value="http://local.fhir.org:960/r4/Condition/stroke"/>
+                    <resource>
+                        <Condition xmlns="http://hl7.org/fhir">
+                            <id value="stroke"/>
+                            <meta>
+                                <versionId value="1"/>
+                                <lastUpdated value="2018-11-12T03:34:47.337Z"/>
+                            </meta>
+                            <text>
+                                <status value="generated"/>
+                                <div xmlns="http://www.w3.org/1999/xhtml">Ischemic stroke, July 18, 2010</div>
+                            </text>
+                            <clinicalStatus>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
+                                    <code value="active"/>
+                                </coding>
+                            </clinicalStatus>
+                            <verificationStatus>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-ver-status"/>
+                                    <code value="confirmed"/>
+                                </coding>
+                            </verificationStatus>
+                            <category>
+                                <coding>
+                                    <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+                                    <code value="encounter-diagnosis"/>
+                                    <display value="Encounter Diagnosis"/>
+                                </coding>
+                            </category>
+                            <code>
+                                <coding>
+                                    <system value="http://snomed.info/sct"/>
+                                    <code value="422504002"/>
+                                    <display value="Ischemic stroke (disorder)"/>
+                                </coding>
+                                <text value="Stroke"/>
+                            </code>
+                            <subject>
+                                <reference value="Patient/example"/>
+                            </subject>
+                            <onsetDateTime value="2010-07-18"/>
+                        </Condition>
+                    </resource>
+                    <search>
+                        <mode value="match"/>
+                    </search>
+                </entry>
+            </Bundle>
+        </resource>
+        <response>
+            <status value="200"/>
+            <etag value="W/1"/>
+            <lastModified value="2018-11-12T03:35:20.717Z"/>
+        </response>
+    </entry>
+    <entry>
+        <resource>
+            <Bundle>
+                <id value="86846953-60dd-47ba-b37a-7e7d7e3312"/>
+                <meta>
+                    <lastUpdated value="2018-11-12T05:42:49.476Z"/>
+                </meta>
+                <type value="searchset"/>
+                <total value="0"/>
+                <link>
+                    <relation value="self"/>
+                    <url value="http://local.fhir.org:960/r4/MedicationStatement?_format=application/fhir+xml&amp;search-id=0f08b401-5120-4444-9a83-3fd21d33df&amp;&amp;patient=example&amp;_sort=_id"/>
+                </link>
+            </Bundle>
+        </resource>
+        <response>
+            <status value="200"/>
+            <etag value="W/1"/>
+            <lastModified value="2018-11-12T03:35:20.717Z"/>
+        </response>
+    </entry>
+    <entry>
+        <resource>
+            <Bundle>
+                <id value="4bafe9c4-ba53-4d7b-89d0-d92ee0859a"/>
+                <meta>
+                    <lastUpdated value="2018-11-12T05:42:49.498Z"/>
+                </meta>
+                <type value="searchset"/>
+                <total value="0"/>
+                <link>
+                    <relation value="self"/>
+                    <url value="http://local.fhir.org:960/r4/Observation?_format=application/fhir+xml&amp;search-id=50df0414-1375-48a4-ba1e-66f580360a&amp;&amp;patient=example&amp;code=http%3A//loinc.org%7C55284%2D4&amp;date=ge2015%2D01%2D01&amp;_sort=_id"/>
+                </link>
+            </Bundle>
+        </resource>
+        <response>
+            <status value="200"/>
+            <etag value="W/1"/>
+            <lastModified value="2018-11-12T03:35:20.717Z"/>
+        </response>
+    </entry>
 </Bundle>
