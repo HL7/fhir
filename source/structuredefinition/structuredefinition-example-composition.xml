@@ -9,7 +9,7 @@ with a different code:
  -->
 <StructureDefinition xmlns="http://hl7.org/fhir"> 
   <id value="example-composition"/>
-  <url value="http://hl7.org/test/StructureDefinition/example-composition"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/example-composition"/>
   <name value="DocumentStructure"/>
   <title value="Document Structure (For testing section templates)"/>
   <status value="active"/>
@@ -45,7 +45,7 @@ with a different code:
       <min value="1"/>
       <type>
         <code value="BackboneElement"/> 
-        <profile value="http://hl7.org/fhir/test/StructureDefinition/document-section-library">
+        <profile value="http://hl7.org/fhir/StructureDefinition/document-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
             <valueString value="Composition.section:procedure"/>
           </extension>
