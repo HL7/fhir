@@ -2070,8 +2070,7 @@ public class FHIRPathEngine {
 	private List<Base> execute(ExecutionContext context, Base item, ExpressionNode exp, boolean atEntry) throws FHIRException {
     List<Base> result = new ArrayList<Base>(); 
     if (atEntry && context.appInfo != null && hostServices != null) {
-      // well, we didn't get a match on the name - we'll see if the name matches a constant known by the context.
-      // (if the name does match, and the user wants to get the constant value, they'll have to try harder...
+      // we'll see if the name matches a constant known by the context.
       Base temp = hostServices.resolveConstant(context.appInfo, exp.getName(), true);
       if (temp != null) {
         result.add(temp);
@@ -2083,7 +2082,7 @@ public class FHIRPathEngine {
         result.add(item);
     } else 
       getChildrenByName(item, exp.getName(), result);
-    if (atEntry && context.appInfo != null && hostServices != null) {
+    if (atEntry && context.appInfo != null && hostServices != null && result.isEmpty()) {
       // well, we didn't get a match on the name - we'll see if the name matches a constant known by the context.
       // (if the name does match, and the user wants to get the constant value, they'll have to try harder...
       Base temp = hostServices.resolveConstant(context.appInfo, exp.getName(), false);

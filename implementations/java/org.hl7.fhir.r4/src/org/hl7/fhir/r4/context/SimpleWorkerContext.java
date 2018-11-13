@@ -448,6 +448,11 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     Set<StructureDefinition> set = new HashSet<StructureDefinition>();
     for (StructureDefinition sd : listStructures()) {
       if (!set.contains(sd)) {
+        try {
+          generateSnapshot(sd);
+        } catch (Exception e) {
+          System.out.println("Unable to generate snapshot for "+sd.getUrl()+" because "+e.getMessage());
+        }
         result.add(sd);
         set.add(sd);
       }
