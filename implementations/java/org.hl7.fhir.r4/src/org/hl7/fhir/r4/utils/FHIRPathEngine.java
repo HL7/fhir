@@ -3762,7 +3762,7 @@ public class FHIRPathEngine {
       return tail.startsWith(d.substring(0, d.indexOf('[')));
     else if (tail.equals(d))
       return true;
-    else if (t.getType().size()==1 && t.getPath().toUpperCase().endsWith(t.getType().get(0).getCode().toUpperCase()))
+    else if (t.getType().size() == 1 && t.getType().get(0).getCode() != null && t.getPath() != null && t.getPath().toUpperCase().endsWith(t.getType().get(0).getCode().toUpperCase()))
       return tail.startsWith(d);
     
     return false;
