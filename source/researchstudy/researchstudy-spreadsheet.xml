@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Julie Evans</LastAuthor>
@@ -15,8 +15,9 @@
   
   
   <TabRatio>663</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>11</ActiveSheet>
   <Calculation>ManualCalculation</Calculation>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4127,7 +4128,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6091,7 +6091,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Administratively Completed</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">Study is completed prematurely and will not resume; patients are no longer examined nor treated.&#10;Tagged</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Study is completed prematurely and will not resume; patients are no longer examined nor treated.&#10;</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:Index="9" ss:StyleID="s151"/>
    </Row>
@@ -6635,6 +6635,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
