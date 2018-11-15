@@ -1,5 +1,6 @@
 {
   "description" : "test case for FHIR Liquid Support",
+  "spec" : "http://wiki.hl7.org/index.php?title=FHIR_Liquid_Profile",
   "fhir-version" : "4.0.0",
   "tests" : [{
     "name" : "constant",
@@ -29,7 +30,7 @@
   },{
     "name" : "if",
     "focus" : "Patient/example",
-    "template" : "{% if Patient.id = ''example''%} yes {%else%} no {%endif%}",
+    "template" : "{% if Patient.id = 'example'%} yes {%else%} no {%endif%}",
     "output" : " yes "
   },{
     "name" : "loop",
@@ -39,10 +40,10 @@
   },{
     "name" : "include",
     "focus" : "Patient/example",
-    "template" : "{%loop name in Patient.name%}{%include humanname.html name=name pat=''patient'' %}{%endloop%}",
+    "template" : "{%loop name in Patient.name%}{%include humanname.html name=name pat='patient' %}{%endloop%}",
     "output" : "ChalmersWindsor",
-    "includes" : [{
+    "includes" : {
       "humanname.html" : "{{include.name.family}}"
-    }]
+    }
   }]
 }
