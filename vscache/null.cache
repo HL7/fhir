@@ -217,6 +217,24 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "coding" : [{
+    "code" : "cohort"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known; The code provided (#cohort) is not  valid in the value set MeasureScoring"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
     "code" : "create"
   }]
 }, "valueSet" :{
