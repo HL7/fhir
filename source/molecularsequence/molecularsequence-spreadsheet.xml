@@ -4,7 +4,7 @@
   <LastAuthor>Microsoft Office User</LastAuthor>
   <LastPrinted>2015-12-03T17:50:33Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-11-01T15:12:11Z</LastSaved>
+  <LastSaved>2018-11-16T21:58:01Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -4432,7 +4432,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="20" ss:StyleID="s123" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="24" ss:StyleID="s123" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="116.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="57.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="110.0"/>
@@ -4440,10 +4440,10 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="463.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s123" ss:Width="559.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="31" ss:StyleID="s124">
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">Unique name for search parameter - required, lower-case, dash-delimited string    </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type for parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="10" x:Family="Swiss">Unique name for search parameter - required, lower-case, dash-delimited string    </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type for parameter</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">Target Types</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Comma delimited list of target resources</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Corresponding resource element.  E.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Corresponding resource element.  E.g. ResourceName.node1.node2</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Description</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Expression</Data></Cell>
    </Row>
@@ -4462,34 +4462,64 @@
     <Cell ss:StyleID="s128"><Data ss:Type="String">Reference Sequence of the sequence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"><Data ss:Type="String">start</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">window-start</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">number</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s130"><Data ss:Type="String">MolecularSequence.referenceSeq.windowStart</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"><Data ss:Type="String">end</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">window-end</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">number</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s130"><Data ss:Type="String">MolecularSequence.referenceSeq.windowEnd</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="21">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">chromosome-coordinate</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">composite</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">variant-start</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">number</Data></Cell>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">chromosome &amp; start &amp; end</Data></Cell>
-    <Cell ss:StyleID="s105"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">Search parameter for region of the chromosome sequence string. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font html:Color="#000000">1-based system</Font></B><Font html:Color="#000000">. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource on chromosome 1 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Font></ss:Data></Cell>
-    <Cell><Data ss:Type="String">MolecularSequence; referenceSeq.chromosome; variant.start; variant.end</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">MolecularSequence.variant.start</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the variant.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="21">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">referenceseqid-coordinate</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">variant-end</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">number</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">MolecularSequence.variant.end</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the variant.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="130">
+    <Cell ss:StyleID="s105"><Data ss:Type="String">chromosome-variant-coordinate</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">composite</Data></Cell>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">referenceseqid &amp; start &amp; end</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Search parameter for region of the reference sequence. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource on NC_000001.11 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Data></Cell>
-    <Cell><Data ss:Type="String">MolecularSequence; referenceSeq.referenceSeqId; variant.start; variant.end</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">chromosome &amp; variant-start &amp; variant-end</Data></Cell>
+    <Cell ss:StyleID="s105"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">Search parameter by chromosome and variant coordinate. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font html:Color="#000000">1-based system</Font></B><Font html:Color="#000000">. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-variant-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with variants on chromosome 1 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">MolecularSequence.variant; %resource.referenceSeq.chromosome; start; end</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="151">
+    <Cell ss:StyleID="s105"><Data ss:Type="String">referenceseqid-variant-coordinate</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">composite</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">referenceseqid  &amp; variant-start &amp; variant-end</Data></Cell>
+    <Cell ss:StyleID="s105"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">Search parameter by reference sequence and variant coordinate. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font html:Color="#000000">1-based system</Font></B><Font html:Color="#000000">. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-variant-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with variants on NC_000001.11 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">MolecularSequence.variant; %resource.referenceSeq.referenceSeqId; start; end</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="130">
+    <Cell ss:StyleID="s105"><Data ss:Type="String">chromosome-window-coordinate</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">composite</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">chromosome &amp; window-start &amp; window-end</Data></Cell>
+    <Cell ss:StyleID="s105"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">Search parameter by chromosome and window. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font html:Color="#000000">1-based system</Font></B><Font html:Color="#000000">. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-window-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on chromosome 1 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">MolecularSequence.referenceSeq; chromosome; start; end</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="151">
+    <Cell ss:StyleID="s105"><Data ss:Type="String">referenceseqid-window-coordinate</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">composite</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">referenceseqid  &amp; window-start &amp; window-end</Data></Cell>
+    <Cell ss:StyleID="s105"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">Search parameter by reference sequence and window. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font html:Color="#000000">1-based system</Font></B><Font html:Color="#000000">. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-window-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on NC_000001.11 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">MolecularSequence.referenceSeq; referenceSeqId; start; end</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s105"><Data ss:Type="String">type</Data></Cell>
@@ -4592,7 +4622,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
