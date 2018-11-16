@@ -151,6 +151,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
         ByteArrayOutputStream bso = new ByteArrayOutputStream();
         new org.hl7.fhir.r4.elementmodel.JsonParser(contextR3).compose(r3, bso, OutputStyle.PRETTY, null);
         cnt = bso.toByteArray();
+        Utilities.createDirectory(Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "test-output"));
         TextFile.bytesToFile(cnt, Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "test-output", tn+"-"+workingid+".input.json"));
       }
 
