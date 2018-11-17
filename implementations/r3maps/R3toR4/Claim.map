@@ -59,6 +59,12 @@ group Claim(source src : ClaimR3, target tgt : Claim) extends DomainResource <<t
     vs.preAuthRef -> vt.preAuthRef;
     vs.claimResponse -> vt.claimResponse;
   };
+  src.accident as vs -> tgt.accident as vt then {
+    vs.date -> vt.date;
+    vs.type -> vt.type;
+    vs.location : Address as vs0 -> vt.location = create("Address") as vt0 then Address(vs0, vt0);
+    vs.location : Reference as vs0 -> vt.location = create("Reference") as vt0 then Reference(vs0, vt0);
+  };
   src.item as vs -> tgt.item as vt then {
     vs.sequence -> vt.sequence;
     vs.careTeamLinkId -> vt.careTeamSequence;

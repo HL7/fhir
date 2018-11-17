@@ -54,9 +54,15 @@ group Claim(source src : Claim, target tgt : ClaimR3) extends DomainResource <<t
     vs.sequence -> vt.sequence;
     vs.focal -> vt.focal;
     vs.coverage -> vt.coverage;
-    vs.businessArrangement -> vs.businessArrangement;
+    vs.businessArrangement -> vt.businessArrangement;
     vs.preAuthRef -> vt.preAuthRef;
     vs.claimResponse -> vt.claimResponse;
+  };
+  src.accident as vs -> tgt.accident as vt then {
+    vs.date -> vt.date;
+    vs.type -> vt.type;
+    vs.location : Address as vs0 -> vt.location = create("Address") as vt0 then Address(vs0, vt0);
+    vs.location : Reference as vs0 -> vt.location = create("Reference") as vt0 then Reference(vs0, vt0);
   };
   src.item as vs -> tgt.item as vt then {
     vs.sequence -> vt.sequence;
@@ -82,7 +88,7 @@ group Claim(source src : Claim, target tgt : ClaimR3) extends DomainResource <<t
     vs.bodySite -> vt.bodySite;
     vs.subSite -> vt.subSite;
     vs.encounter -> vt.encounter;
-    vs.detail as vsd -> vt.detail as vtd then {
+    vs.detail as vsd -> vt.detail as vst then {
       vsd.sequence -> vst.sequence;
       vsd.revenue -> vst.revenue;
       vsd.category -> vst.category;
