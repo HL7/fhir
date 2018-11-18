@@ -322,26 +322,28 @@ each logical model is aligned with LOINC's RDF representation
   &lt;copyright value=&quot;This content LOINC&reg; is copyright &copy; 1995 Regenstrief Institute, Inc.
       and the LOINC Committee, and available at no cost under the license at 
       http://loinc.org/terms-of-use&quot;/&gt;
-  &lt;element&gt;
-    &lt;path value=&quot;[LOINC code]&quot;/&gt;
-    &lt;short value=&quot;[display]&quot;/&gt;
-    &lt;definition value=&quot;[definition]&quot;/&gt;
-    &lt;min value=&quot;0&quot;/&gt;
-    &lt;max value=&quot;1&quot;/&gt;
-    &lt;type&gt;
-      &lt;code value=&quot;[mapped type - see below]&quot;/&gt;
-    &lt;/type&gt;
-    &lt;!-- if this is a LOINC question with linked answers --&gt;
-    &lt;binding&gt;
-      &lt;strength value=&quot;required&quot;/&gt;
-      &lt;valueSetUri value=&quot;http://loinc.org/vs/[linked answer list code]&quot;/&gt;
-    &lt;/binding&gt;
-  &lt;/element&gt;
+  &lt;differential&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;[LOINC code]&quot;/&gt;
+      &lt;short value=&quot;[display]&quot;/&gt;
+      &lt;definition value=&quot;[definition]&quot;/&gt;
+      &lt;min value=&quot;0&quot;/&gt;
+      &lt;max value=&quot;1&quot;/&gt;
+      &lt;type&gt;
+        &lt;code value=&quot;[mapped type - see below]&quot;/&gt;
+      &lt;/type&gt;
+      &lt;!-- if this is a LOINC question with linked answers --&gt;
+      &lt;binding&gt;
+        &lt;strength value=&quot;required&quot;/&gt;
+        &lt;valueSetUri value=&quot;http://loinc.org/vs/[linked answer list code]&quot;/&gt;
+      &lt;/binding&gt;
+    &lt;/element&gt;
+  &lt;/differential&gt;
 &lt;/StructureDefinition&gt;
 </pre>
 
 <p>
-The canonical URL <code>http://loinc.org/fhir/DataElement/[LOINC code]</code> can be used to refer to Data Elements 
+The canonical URL <code>http://loinc.org/rdf#[LOINC code]</code> can be used to refer to logical model elements 
 defined by LOINC such as e.g. in <a href="questionnaire.html">Questionnaire.item.definition</a>.
 </p>
 <p>
