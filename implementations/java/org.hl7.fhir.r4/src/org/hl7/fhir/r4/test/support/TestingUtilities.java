@@ -1,6 +1,7 @@
 package org.hl7.fhir.r4.test.support;
 
 import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -213,7 +214,12 @@ public class TestingUtilities {
   public static String checkJsonSrcIsSame(String s1, String s2, boolean showDiff) throws JsonSyntaxException, FileNotFoundException, IOException {
     String result = compareJsonSrc(s1, s2);
     if (result != null && SHOW_DIFF && showDiff) {
-      String diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge", "WinMergeU.exe");
+      
+      String diff = null; 
+      if (System.getProperty("os.name").contains("win"))
+        diff = Utilities.path("usr", "bin", "meld");
+      else
+        diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge", "WinMergeU.exe");
       List<String> command = new ArrayList<String>();
       String f1 = Utilities.path("[tmp]", "input.json");
       String f2 = Utilities.path("[tmp]", "output.json");
