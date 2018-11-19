@@ -300,6 +300,52 @@ multi-axial hierarchy:
 </pre>
 
 <a name="dataelements"></a>
+<h4>LOINC and Data Elements</h4>
+
+<p>
+LOINC codes and their properties are describing a data element that can have a value. Functionally, 
+this overlaps with FHIR's notion of a <a href="structuredefinition.html#logical">Logical Data Model</a>.  A
+logical data model can be created for each LOINC code based on their properties.  The representation of
+each logical model is aligned with LOINC's RDF representation
+</p>
+<pre fragment="StructureDefinition" class="xml">
+&lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt; 
+  &lt;id value=&quot;[LOINC code]&quot;/&gt;
+  &lt;url value=&quot;http://loinc.org/owl#[LOINC code]&quot;/&gt;
+  &lt;version value=&quot;{LOINC version number]&quot;/&gt;  &lt;!-- though this is not required --&gt;
+  &lt;name value=&quot;[display - adjusted]&quot;/&gt; &lt;!-- converted to meet regex by removing spaces, non-supported characters --&gt;
+  &lt;title value=&quot;[display]&quot;/&gt;
+  &lt;status value=&quot;[derived from STATUS]&quot;/&gt;
+  &lt;experimental value=&quot;false&quot;/&gt;
+  &lt;date value=&quot;[last changed date]&quot;/&gt;
+  &lt;publisher value=&quot;http://loinc.org&quot;/&gt;
+  &lt;copyright value=&quot;This content LOINC&reg; is copyright &copy; 1995 Regenstrief Institute, Inc.
+      and the LOINC Committee, and available at no cost under the license at 
+      http://loinc.org/terms-of-use&quot;/&gt;
+  &lt;differential&gt;
+    &lt;element&gt;
+      &lt;path value=&quot;[LOINC code]&quot;/&gt;
+      &lt;short value=&quot;[display]&quot;/&gt;
+      &lt;definition value=&quot;[definition]&quot;/&gt;
+      &lt;min value=&quot;0&quot;/&gt;
+      &lt;max value=&quot;1&quot;/&gt;
+      &lt;type&gt;
+        &lt;code value=&quot;[mapped type - see below]&quot;/&gt;
+      &lt;/type&gt;
+      &lt;!-- if this is a LOINC question with linked answers --&gt;
+      &lt;binding&gt;
+        &lt;strength value=&quot;required&quot;/&gt;
+        &lt;valueSet value=&quot;http://loinc.org/vs/[linked answer list code]&quot;/&gt;
+      &lt;/binding&gt;
+    &lt;/element&gt;
+  &lt;/differential&gt;
+&lt;/StructureDefinition&gt;
+</pre>
+
+<p>
+The canonical URL <code>http://loinc.org/rdf#[LOINC code]</code> can be used to refer to logical model elements 
+defined by LOINC such as e.g. in <a href="questionnaire.html">Questionnaire.item.definition</a>.
+</p>
 <p>
 The appropriate type is determined by mapping from the LOINC specified SCALE_TYP for v3 to FHIR
 using this table:
