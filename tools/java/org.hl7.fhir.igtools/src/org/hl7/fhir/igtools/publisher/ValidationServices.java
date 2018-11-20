@@ -58,7 +58,7 @@ public class ValidationServices implements IValidatorResourceFetcher {
         if (ber != null) {
           if (be.getChildByName("fullUrl").equals(url))
             return ber;
-          if (parts.length == 2 && ber.fhirType().equals(parts[0]) && ber.getChildValue("id").equals(parts[1])) 
+          if (parts.length == 2 && ber.fhirType().equals(parts[0]) && ber.hasChild("id") && ber.getChildValue("id").equals(parts[1])) 
             return ber;
         }        
       }
