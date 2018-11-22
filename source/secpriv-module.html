@@ -130,7 +130,7 @@ These security frameworks include prioritized lists of most important concerns.
 <p>
 
 Privacy in FHIR includes the set of considerations required to ensure that
-individual data are treated according to an individual's Privacy Principles. FHIR
+individual data are treated according to an individual's Privacy Principles and Privacy-By-Design. FHIR
 includes implementation guidance to ensure that:
 
 </p>
@@ -184,10 +184,13 @@ For further details, see <a href="security.html#binding">Security: Authorization
 <p>
 <em>Use-Case:</em> When a user has restricted rights but attempts to do a query they do not have rights to, they should not be given the data. Policy should be used to determine if the user query should result in an error, zero data, or the data one would get after removing the non-authorized parameters.
 </p><p>
+<em>Approach:</em> Enforcement is by local enforcement methods. Note that community efforts are underway to explore a variety of
+approaches to enforcement. 
+</p><p>
 <em>Example:</em> Using _include or _revinc to get at resources beyond those authorized. Ignoring (removing) the _include parameter would give some results, just not the _include Resources. This could be silently handled and thus give some results, or it could be returned as error.
 </p>
 
-<a name="User Identity and Access Context"></a>
+<a name="user"></a>
 <h4>
 User Identity and Access Context
 </h4>
@@ -295,7 +298,7 @@ use by FHIR clients and servers to record the full provenance details: who, what
 A Provenance resource can record details for Create, Update, and Delete; or any other activity. 
 Generally, Read operations would be recorded using  <a href="auditevent.html">AuditEvent</a>. 
 Many Resources include these elements within; this is done when that provenance element is critical to the use of that Resource. 
-This <a href="w5.html">overlap is expected and cross-referenced on the W5 report</a>.
+This <a href="fivews.html">overlap is expected and cross-referenced on the Five Ws pattern</a>.
 
 For details, see
 <a href="provenance.html">Provenance Resource</a>.
@@ -378,13 +381,13 @@ need to be consistent with each other.
 </p><p>
 Some identifiers in Observation Resource:
 <ul>
-<li>Direct Identifiers: .identifier, .subject, . performer, .text, .specimen, .device, .related, .text, .comment</li>
-<li>Indirect Identifiers: .issued, .component</li>
+<li>Direct Identifiers: .identifier, .subject, .performer, .encounter, .focus, .note, .specimen, .basedOn</li>
+<li>Indirect Identifiers: .category, .code, .issued, .effective[x], .method, .bodySite, .interpretation, .value[x], .component</li>
 </ul>
 </p>
 <p>
-<em>Emphasis:</em> The .specimen is a direct identifier of a particular specimen; and would be an indirect identifier of a particular person. 
-There is a ramification of having the specimen identifier. 
+<em>Emphasis:</em> The .specimen is a direct identifier of a particular specimen; and would be a direct identifier of a particular patient. 
+This is a ramification of having the specimen identifier. 
 One solution is to create pseudo specimen resources that will stand-in for the original specimen resource. 
 This pseudo specimen management is supplied by a trusted-third-party that maintains a database of pseudo-identifiers with authorized reversibility.
 </p><p>
@@ -404,7 +407,7 @@ Further Standards:
 </p>
 
 
-<a name="TestData"></a>
+<a name="testData"></a>
 <h4>Using FHIR to publish test data</h4>
 <p>
 Use-Case: There are times when test data is needed. Test data are data that is not associated with any real patient. Test data are usually representative of expected data that is published for the purpose of testing. Test data may be fully fabricated, synthetic, or derived from use-cases that had previously caused failures.
@@ -418,12 +421,12 @@ Use-Case: There are times when test data is needed. Test data are data that is n
 Test data could be isolated in a server specific to test data.
 </p><p>
 Test data could be intermingled with real-patient data using one or both of the following methods:
-</p><p>
+</p>
 <ul>
 <li>Security-label -- All test data Resources could be tagged with PurposeOfUse HTEST</li>
 <li>Test Patient -- The Patient that the data is associated with could be a clear indication of a test patient. (For example, in the USA the SSN starting with "666-" will never be issued so is commonly used as an indicator of a test patient)</li>
 </ul>
-</p><p>
+<p>
 <em>Considerations:</em> Note there is a risk when co-mingling test data with real patient data that someone will accidentally use test data without realizing it is test data. 
 </p>
 
@@ -456,6 +459,9 @@ XML and JSON during processing),
 </li>
 <li>
 more detailed Consent management, including support for specific consent use cases.
+</li>
+<li>
+guidance and methods to support GDPR or other emerging Privacy regulations.
 </li>
 </ul>
 
