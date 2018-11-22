@@ -279,6 +279,39 @@ public class FHIRPathEngine {
     return result;    
   }
 
+  public static class ExpressionNodeWithOffset {
+    private int offset;
+    private ExpressionNode node;
+    public ExpressionNodeWithOffset(int offset, ExpressionNode node) {
+      super();
+      this.offset = offset;
+      this.node = node;
+    }
+    public int getOffset() {
+      return offset;
+    }
+    public ExpressionNode getNode() {
+      return node;
+    }
+    
+  }
+  /**
+   * Parse a path for later use using execute
+   * 
+   * @param path
+   * @return
+   * @throws PathEngineException 
+   * @throws Exception
+   */
+  public ExpressionNodeWithOffset parsePartial(String path, int i) throws FHIRLexerException {
+    FHIRLexer lexer = new FHIRLexer(path, i);
+    if (lexer.done())
+      throw lexer.error("Path cannot be empty");
+    ExpressionNode result = parseExpression(lexer, true);
+    result.check();
+    return new ExpressionNodeWithOffset(lexer.getCurrentStart(), result);    
+  }
+
   /**
    * Parse a path that is part of some other syntax
    *  
