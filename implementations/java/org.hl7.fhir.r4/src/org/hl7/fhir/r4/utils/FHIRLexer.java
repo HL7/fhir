@@ -42,6 +42,12 @@ public class FHIRLexer {
     currentLocation = new SourceLocation(1, 1);
     next();
   }
+  public FHIRLexer(String source, int i) throws FHIRLexerException {
+    this.source = source;
+    this.cursor = i;
+    currentLocation = new SourceLocation(1, 1);
+    next();
+  }
   public String getCurrent() {
     return current;
   }
@@ -344,6 +350,9 @@ public class FHIRLexer {
   void skipComments() throws FHIRLexerException {
     while (!done() && hasComment())
       next();
+  }
+  public int getCurrentStart() {
+    return currentStart;
   }
 
 }
