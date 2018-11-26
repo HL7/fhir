@@ -7,8 +7,8 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 group AllergyIntolerance(source src : AllergyIntoleranceR3, target tgt : AllergyIntolerance) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.clinicalStatus -> tgt.clinicalStatus;
-  src.verificationStatus -> tgt.verificationStatus;
+  src.clinicalStatus: code as vs -> tgt.clinicalStatus = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+  src.verificationStatus: code as vs -> tgt.verificationStatus = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
   src.type -> tgt.type;
   src.criticality -> tgt.criticality;
   src.code -> tgt.code;

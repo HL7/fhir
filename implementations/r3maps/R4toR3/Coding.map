@@ -13,3 +13,6 @@ group Coding(source src : Coding, target tgt : CodingR3) extends Element <<type+
   src.userSelected -> tgt.userSelected;
 }
 
+group Coding2code(source src : Coding, target tgt : codeR3) extends Element <<type+>> {
+  src.code as vs0 then code(vs0, tgt);
+}
