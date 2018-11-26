@@ -14,12 +14,13 @@ group Organization(source src : Organization, target tgt : OrganizationR3) exten
   src.telecom -> tgt.telecom;
   src.address -> tgt.address;
   src.partOf -> tgt.partOf;
-  src.contact as vs0 -> tgt.contact as vt0 then {
-    vs0.purpose -> vt0.purpose;
-    vs0.name -> vt0.name;
-    vs0.telecom -> vt0.telecom;
-    vs0.address -> vt0.address;
-  };
+  src.contact as vs0 -> tgt.contact as vt0 then contact(vs0, vt0);
   src.endpoint -> tgt.endpoint;
 }
 
+group contact(source src, target tgt) extends BackboneElement {
+  src.purpose -> tgt.purpose;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+}

@@ -5,9 +5,10 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Contributor" alias Contributor
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Contributor(source src : Contributor, target tgt : ContributorR3) extends Element <<type+>> {
-  src.type -> tgt.type;
-  src.name -> tgt.name;
-  src.contact -> tgt.contact;
+group Contributor(source src : ContactDetail, target tgt : ContributorR3)  {
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34ContributerName' then {
+    e.value -> tgt.name;
+  };
+  src -> tgt.contact as vt then ContactDetail(src, vt);
 }
 

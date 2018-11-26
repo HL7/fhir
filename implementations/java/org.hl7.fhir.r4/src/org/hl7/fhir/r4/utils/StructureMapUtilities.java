@@ -714,8 +714,8 @@ public class StructureMapUtilities {
 		b.append(doco.replace("\r\n", " ").replace("\r", " ").replace("\n", " "));
 	}
 
-	public StructureMap parse(String text) throws FHIRException {
-		FHIRLexer lexer = new FHIRLexer(text);
+	public StructureMap parse(String text, String srcName) throws FHIRException {
+		FHIRLexer lexer = new FHIRLexer(text, srcName);
 		if (lexer.done())
 			throw lexer.error("Map Input cannot be empty");
 		lexer.skipComments();
@@ -1369,7 +1369,7 @@ public class StructureMapUtilities {
 	}
 
 	private void executeGroup(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, boolean atRoot) throws FHIRException {
-		log(indent+"Group : "+group.getName());
+		log(indent+"Group : "+group.getName()+"; vars = "+vars.summary());
     // todo: check inputs
 		if (group.hasExtends()) {
 		  ResolvedGroup rg = resolveGroupReference(map, group, group.getExtends());
@@ -1386,7 +1386,7 @@ public class StructureMapUtilities {
 		Variables srcVars = vars.copy();
 		if (rule.getSource().size() != 1)
 			throw new FHIRException("Rule \""+rule.getName()+"\": not handled yet");
-		List<Variables> source = processSource(rule.getName(), context, srcVars, rule.getSource().get(0), map.getUrl());
+		List<Variables> source = processSource(rule.getName(), context, srcVars, rule.getSource().get(0), map.getUrl(), indent);
 		if (source != null) {
 			for (Variables v : source) {
 				for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
@@ -1665,7 +1665,7 @@ public class StructureMapUtilities {
     return res;
   }
 
-  private List<Variables> processSource(String ruleId, TransformContext context, Variables vars, StructureMapGroupRuleSourceComponent src, String pathForErrors) throws FHIRException {
+  private List<Variables> processSource(String ruleId, TransformContext context, Variables vars, StructureMapGroupRuleSourceComponent src, String pathForErrors, String indent) throws FHIRException {
     List<Base> items;
     if (src.getContext().equals("@search")) {
       ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_SEARCH_EXPRESSION);
@@ -1709,8 +1709,11 @@ public class StructureMapUtilities {
       }
       List<Base> remove = new ArrayList<Base>();
       for (Base item : items) {
-        if (!fpe.evaluateToBoolean(vars, null, item, expr))
+        if (!fpe.evaluateToBoolean(vars, null, item, expr)) {
+          log(indent+"  condition ["+src.getCondition()+"] for "+item.toString()+" : false");
           remove.add(item);
+        } else
+          log(indent+"  condition ["+src.getCondition()+"] for "+item.toString()+" : true");
       }
       items.removeAll(remove);
     }
@@ -2892,7 +2895,7 @@ public class StructureMapUtilities {
     b.append("\r\n");
     b.append(suffix);
     b.append("\r\n");
-    StructureMap map = parse(b.toString());
+    StructureMap map = parse(b.toString(), sd.getUrl());
     map.setId(tail(map.getUrl()));
     if (!map.hasStatus())
       map.setStatus(PublicationStatus.DRAFT);

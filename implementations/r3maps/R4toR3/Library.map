@@ -11,11 +11,9 @@ group Library(source src : LibraryR3, target tgt : Library) extends DomainResour
   src.version -> tgt.version;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.subtitle -> tgt.subtitle;
   src.status -> tgt.status;
   src.experimental -> tgt.experimental;
   src.type -> tgt.type;
-  src.subject -> tgt.subject;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
   src.contact -> tgt.contact;
@@ -29,7 +27,10 @@ group Library(source src : LibraryR3, target tgt : Library) extends DomainResour
   src.lastReviewDate -> tgt.lastReviewDate;
   src.effectivePeriod -> tgt.effectivePeriod;
   src.topic -> tgt.topic;
-  src.contributor -> tgt.contributor;
+  src.author as vs -> tgt.contributor as vt, vt.type = 'author' then Contributor(vs, vt);
+  src.editor as vs -> tgt.contributor as vt, vt.type = 'editor', vt.contact = vs;
+  src.reviewer as vs -> tgt.contributor as vt, vt.type = 'reviewer', vt.contact = vs;
+  src.endorser as vs -> tgt.contributor as vt, vt.type = 'endorser', vt.contact = vs;
   src.relatedArtifact -> tgt.relatedArtifact;
   src.parameter -> tgt.parameter;
   src.dataRequirement -> tgt.dataRequirement;

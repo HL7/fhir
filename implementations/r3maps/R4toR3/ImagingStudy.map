@@ -6,11 +6,16 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ImagingStudy" alias ImagingStu
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group ImagingStudy(source src : ImagingStudyR3, target tgt : ImagingStudy) extends DomainResource <<type+>> {
-  src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
-  src.modality -> tgt.modality;
-  src.subject -> tgt.subject;
-  src.context -> tgt.context;
+  src.identifier as vs where system != 'urn:dicom:uid' -> tgt.identifier as vt then Identifier(vs, vt); 
+  src.identifier as vs where system = 'urn:dicom:uid' then {
+    vs.value -> tgt.uid;
+  };
+  src.status where value = 'registered' -> tgt.availability = 'OFFLINE';
+  src.status where value = 'available' -> tgt.availability = 'ONLINE';
+
+  src.modality -> tgt.modalityList;
+  src.subject -> tgt.patient;
+  src.encounter -> tgt.context;
   src.started -> tgt.started;
   src.basedOn -> tgt.basedOn;
   src.referrer -> tgt.referrer;
@@ -20,37 +25,36 @@ group ImagingStudy(source src : ImagingStudyR3, target tgt : ImagingStudy) exten
   src.numberOfInstances -> tgt.numberOfInstances;
   src.procedureReference -> tgt.procedureReference;
   src.procedureCode -> tgt.procedureCode;
-  src.location -> tgt.location;
-  src.reasonCode -> tgt.reasonCode;
-  src.reasonReference -> tgt.reasonReference;
-  src.note -> tgt.note;
-  src.series as s -> tgt.series as t then ImagingStudySeries(s, t);
+  src.reasonCode -> tgt.reason;
+  src.description -> tgt.description;
+  src.series as vs -> tgt.series as vt then series(vs, vt);
 }
 
-group ImagingStudySeries(source src : ImagingStudyR3, target tgt : ImagingStudy) extends BackboneElement <<type+>> {
-  src.identifier -> tgt.identifier;
+group series(source src, target tgt) extends BackboneElement {
+  src.uid -> tgt.uid;
   src.number -> tgt.number;
   src.modality -> tgt.modality;
   src.description -> tgt.description;
   src.numberOfInstances -> tgt.numberOfInstances;
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34ImagingStudyAvailability' then {
+    e.value -> tgt.availability;
+  };
   src.endpoint -> tgt.endpoint;
   src.bodySite -> tgt.bodySite;
   src.laterality -> tgt.laterality;
-  src.specimen -> tgt.specimen;
   src.started -> tgt.started;
-  src.performer as s -> tgt.performer as t then ImagingStudySeriesPerformer(s, t);
-  src.instance as s -> tgt.instance as t then ImagingStudySeriesInstance(s, t);
+  src.performer as vs where function.coding.where(system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code = 'PRF') then {
+    vs.actor -> tgt.performer;
+  };
+  src.instance as vs -> tgt.instance as vt then instance(vs, vt);
 }
 
-group ImagingStudySeriesPerformer(source src : ImagingStudyR3, target tgt : ImagingStudy) extends BackboneElement <<type+>> {
-  src.function -> tgt.function;
-  src.actor -> tgt.actor;
-}
-
-group ImagingStudySeriesInstance(source src : ImagingStudyR3, target tgt : ImagingStudy) extends BackboneElement <<type+>> {
-  src.identifier -> tgt.identifier;
+group instance(source src, target tgt) extends BackboneElement {
+  src.uid -> tgt.uid;
   src.number -> tgt.number;
-  src.sopClass -> tgt.sopClass;
+  src.sopClass as s where system = 'urn:ietf:rfc:3986' then {
+    s.code -> tgt.sopClass;
+  };
   src.title -> tgt.title;
 }
 

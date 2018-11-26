@@ -573,7 +573,7 @@ public class ValidationEngine {
     } catch (Exception e) {
     }
     try {
-      new StructureMapUtilities(context, null, null).parse(TextFile.streamToString(stream));
+      new StructureMapUtilities(context, null, null).parse(TextFile.streamToString(stream), null);
       return FhirFormat.TEXT;
     } catch (Exception e) {
     }
@@ -662,7 +662,7 @@ public class ValidationEngine {
             else if (fn.endsWith(".json") && !fn.endsWith("template.json"))
               r = new JsonParser().parse(new ByteArrayInputStream(t.getValue()));
             else if (fn.endsWith(".txt"))
-              r = new StructureMapUtilities(context, null, null).parse(TextFile.bytesToString(t.getValue()));
+              r = new StructureMapUtilities(context, null, null).parse(TextFile.bytesToString(t.getValue()), fn);
             else
               throw new Exception("Unsupported format for "+fn);
           } else

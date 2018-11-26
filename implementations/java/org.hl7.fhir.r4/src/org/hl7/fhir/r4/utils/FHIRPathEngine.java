@@ -269,7 +269,11 @@ public class FHIRPathEngine {
    * @throws Exception
    */
   public ExpressionNode parse(String path) throws FHIRLexerException {
-    FHIRLexer lexer = new FHIRLexer(path);
+    return parse(path, null);
+  }
+  
+  public ExpressionNode parse(String path, String name) throws FHIRLexerException {
+    FHIRLexer lexer = new FHIRLexer(path, name);
     if (lexer.done())
       throw lexer.error("Path cannot be empty");
     ExpressionNode result = parseExpression(lexer, true);
@@ -3161,8 +3165,13 @@ public class FHIRPathEngine {
     List<Base> result = new ArrayList<Base>();
     String sw = convertToString(execute(context, focus, exp.getParameters().get(0), true));
 
-    if (focus.size() == 1 && !Utilities.noString(sw))
-      result.add(new BooleanType(convertToString(focus.get(0)).startsWith(sw)).noExtensions());
+    if (focus.size() == 1 && !Utilities.noString(sw)) {
+      String s = convertToString(focus.get(0));
+      if (s == null)
+        result.add(new BooleanType(false).noExtensions());
+      else
+        result.add(new BooleanType(s.startsWith(sw)).noExtensions());
+    }
     else
       result.add(new BooleanType(false).noExtensions());
     return result;

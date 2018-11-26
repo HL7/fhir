@@ -158,7 +158,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
       // load the r3 to R4 map
       String mapFile = Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "R3toR4", r3.fhirType()+".map");
       if (new File(mapFile).exists()) {
-        StructureMap sm = smu4.parse(TextFile.fileToString(mapFile));
+        StructureMap sm = smu4.parse(TextFile.fileToString(mapFile), mapFile);
         tn = smu4.getTargetType(sm).getType();
 
         // convert from r3 to r4
@@ -186,7 +186,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
         //      mapFile = Utilities.path(root, "implementations", "r3maps", "R4toR3", r3.fhirType()+".map");
         //      s = sm.parse(TextFile.fileToString(mapFile));
         mapFile = Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "R4toR3", getMapFor(r4.fhirType(), r3.fhirType())+".map");
-        sm = smu3.parse(TextFile.fileToString(mapFile));
+        sm = smu3.parse(TextFile.fileToString(mapFile), mapFile);
 
         // convert to R3
         StructureDefinition sd = smu3.getTargetType(sm);
@@ -357,7 +357,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
     for (String s : new File(dir).list()) {
       String map = TextFile.fileToString(Utilities.path(dir, s));
       try {
-        StructureMap sm = smu.parse(map);
+        StructureMap sm = smu.parse(map, s);
         contextR3.cacheResource(sm);
         contextR4.cacheResource(sm);
         for (Resource r : sm.getContained()) {

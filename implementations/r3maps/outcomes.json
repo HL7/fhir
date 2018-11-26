@@ -2,11 +2,11 @@
   "Account": {
     "example": {
       "execution": true,
-      "round-trip": "properties differ at : missing property period"
+      "round-trip": "properties differ at : missing property active"
     },
     "ewg": {
       "execution": true,
-      "round-trip": "properties differ at : missing property period"
+      "round-trip": "properties differ at : missing property active"
     }
   },
   "StructureDefinition": {
@@ -3363,16 +3363,25 @@
   },
   "AllergyIntolerance": {
     "example": {
-      "execution": "No matches found for rule \u0027CodeableConcept2code\u0027. Reference found in http://hl7.org/fhir/StructureMap/AllergyIntolerance4to3",
+      "execution": true,
+      "round-trip": "properties differ at : missing property clinicalStatus",
       "r4.errors": [
         "ERROR @ AllergyIntolerance: AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error. [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()] (src \u003d InstanceValidator)"
       ]
     },
     "fishallergy": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/AllergyIntolerance3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true,
+      "round-trip": "properties differ at : missing property clinicalStatus",
+      "r4.errors": [
+        "ERROR @ AllergyIntolerance: AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error. [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medication": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/AllergyIntolerance3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true,
+      "round-trip": "properties differ at : missing property clinicalStatus",
+      "r4.errors": [
+        "ERROR @ AllergyIntolerance: AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error. [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()] (src \u003d InstanceValidator)"
+      ]
     }
   },
   "Appointment": {
@@ -17186,7 +17195,11 @@
   },
   "CareTeam": {
     "example": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type CareTeam"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ CareTeam.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CareTeam.participant[2].member.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     }
   },
   "ChargeItem": {
@@ -18335,10 +18348,22 @@
   },
   "ImagingStudy": {
     "example": {
-      "execution": "No matches found for rule for \u0027oid to Coding\u0027 from http://hl7.org/fhir/StructureMap/ImagingStudy3to4, from rule \u0027sopClass\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ImagingStudy: Profile http://hl7.org/fhir/StructureDefinition/ImagingStudy, Element \u0027ImagingStudy.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ ImagingStudy.series.uid: id value \u0027urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630\u0027 is not valid (src \u003d InstanceValidator)",
+        "ERROR @ ImagingStudy.series.instance.uid: id value \u0027urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903\u0027 is not valid (src \u003d InstanceValidator)"
+      ]
     },
     "example-xr": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type ImagingStudy"
+      "execution": true,
+      "round-trip": "properties differ at : missing property accession",
+      "r4.errors": [
+        "ERROR @ ImagingStudy.series.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ImagingStudyAvailability is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ ImagingStudy.series.uid: id value \u0027urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1\u0027 is not valid (src \u003d InstanceValidator)",
+        "ERROR @ ImagingStudy.series.instance[1].uid: id value \u0027urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.1\u0027 is not valid (src \u003d InstanceValidator)",
+        "ERROR @ ImagingStudy.series.instance[2].uid: id value \u0027urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.2\u0027 is not valid (src \u003d InstanceValidator)"
+      ]
     }
   },
   "Immunization": {
@@ -18396,63 +18421,75 @@
   },
   "Library": {
     "library-cms146-example": {
-      "execution": "No matches found for rule for \u0027code to Coding\u0027 from http://hl7.org/fhir/StructureMap/DataRequirement3to4, from rule \u0027\"code\"\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+      ]
     },
     "composition-example": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type Library",
+      "execution": true,
       "r4.errors": [
         "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
       ]
     },
     "example": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type Library",
+      "execution": true,
       "r4.errors": [
-        "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+        "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Library.dataRequirement.codeFilter.valueSet: URI values cannot have whitespace (src \u003d InstanceValidator)"
       ]
     },
     "library-exclusive-breastfeeding-cds-logic": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type Library",
+      "execution": true,
       "r4.errors": [
-        "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+        "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Library.dataRequirement.codeFilter.valueSet: URI values cannot have whitespace (src \u003d InstanceValidator)"
       ]
     },
     "library-exclusive-breastfeeding-cqm-logic": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type Library",
+      "execution": true,
       "r4.errors": [
-        "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+        "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Library.dataRequirement.codeFilter.valueSet: URI values cannot have whitespace (src \u003d InstanceValidator)"
       ]
     },
     "library-fhir-helpers": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type Library",
+      "execution": true,
       "r4.errors": [
         "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
       ]
     },
     "library-fhir-model-definition": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type Library",
+      "execution": true,
       "r4.errors": [
         "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
       ]
     },
     "suiciderisk-orderset-logic": {
-      "execution": "Exception executing transform tgt.contributor \u003d create() as vvv on Rule \"contributor\": Attempt to get types for an invalid property \u0027contributor\u0027 on type Library"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Library.author.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ContributerName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Library.dataRequirement.codeFilter.valueSet: URI values cannot have whitespace (src \u003d InstanceValidator)"
+      ]
     },
     "library-fhir-helpers-predecessor": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type Library",
+      "execution": true,
       "r4.errors": [
         "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
       ]
     },
     "library-quick-model-definition": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type Library",
+      "execution": true,
       "r4.errors": [
         "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
       ]
     },
     "zika-virus-intervention-logic": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type Library",
+      "execution": true,
       "r4.errors": [
-        "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+        "WARNING @ Library: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Library.dataRequirement[2].codeFilter.valueSet: URI values cannot have whitespace (src \u003d InstanceValidator)",
+        "ERROR @ Library.dataRequirement[3].codeFilter.valueSet: URI values cannot have whitespace (src \u003d InstanceValidator)"
       ]
     }
   },
@@ -18553,16 +18590,28 @@
   },
   "Media": {
     "example": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Media3to4, from rule \u0027type\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Media: Profile http://hl7.org/fhir/StructureDefinition/Media, Element \u0027Media.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "1.2.840.11361907579238403408700.3.0.14.19970327150033": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Media3to4, from rule \u0027type\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Media: Profile http://hl7.org/fhir/StructureDefinition/Media, Element \u0027Media.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "sound": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Media3to4, from rule \u0027type\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Media: Profile http://hl7.org/fhir/StructureDefinition/Media, Element \u0027Media.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "xray": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Media3to4, from rule \u0027type\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Media: Profile http://hl7.org/fhir/StructureDefinition/Media, Element \u0027Media.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     }
   },
   "MedicationAdministration": {
@@ -20254,30 +20303,146 @@
   },
   "TestReport": {
     "testreport-example": {
-      "execution": "Exception executing transform tgt.setup \u003d create() as vvv on Rule \"setup\": Unknown Resource or Type Name \u0027BackboneElement\u0027"
+      "execution": true,
+      "round-trip": "properties differ at .test[0]: missing property id"
     }
   },
   "TestScript": {
     "testscript-example": {
-      "execution": "Exception executing transform tgt.metadata \u003d create() as vvv on Rule \"metadata\": Unknown Resource or Type Name \u0027BackboneElement\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ TestScript: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.metadata.capability: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.metadata.capability.validated\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[3].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[3].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[4].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[4].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[5].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[5].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[6].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[6].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[7].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[7].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[4].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[4].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[5].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[5].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[6].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[6].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[7].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[7].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[8].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[8].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[9].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[9].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.teardown.action.operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.teardown.action.operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "testscript-example-history": {
-      "execution": "Exception executing transform tgt.metadata \u003d create() as vvv on Rule \"metadata\": Unknown Resource or Type Name \u0027BackboneElement\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ TestScript: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.metadata.capability: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.metadata.capability.validated\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[3].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[3].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[4].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[4].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[5].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[5].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[6].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[6].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[3].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[3].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[4].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[4].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[5].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[5].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "testscript-example-multisystem": {
-      "execution": "Exception executing transform tgt.metadata \u003d create() as vvv on Rule \"metadata\": Unknown Resource or Type Name \u0027BackboneElement\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ TestScript: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[3].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[3].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[4].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[4].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[5].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[5].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[6].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[6].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[3].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[3].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[4].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[4].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[5].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[5].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "testscript-example-readtest": {
-      "execution": "Exception executing transform tgt.metadata \u003d create() as vvv on Rule \"metadata\": Unknown Resource or Type Name \u0027BackboneElement\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ TestScript: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.metadata.capability: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.metadata.capability.validated\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[3].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[3].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[5].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[5].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[6].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[6].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[3].action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[3].action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[3].action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[3].action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[4].action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[4].action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[4].action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[4].action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "testscript-example-rule": {
-      "execution": "Exception executing transform tgt.metadata \u003d create() as vvv on Rule \"metadata\": Unknown Resource or Type Name \u0027BackboneElement\u0027"
+      "execution": true,
+      "round-trip": "properties differ at : missing property rule",
+      "r4.errors": [
+        "WARNING @ TestScript: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.metadata.capability: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.metadata.capability.validated\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[3].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[3].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[4].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[4].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[3].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[3].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[5].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[5].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[6].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[6].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[7].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[7].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[8].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[8].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[9].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[9].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[10].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[10].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "testscript-example-search": {
-      "execution": "Exception executing transform tgt.metadata \u003d create() as vvv on Rule \"metadata\": Unknown Resource or Type Name \u0027BackboneElement\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ TestScript: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.metadata.capability: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.metadata.capability.validated\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.fixture: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.fixture.autocreate\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.fixture: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.fixture.autodelete\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[3].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[3].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[4].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[4].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[5].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[5].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[3].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[3].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[4].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[4].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[5].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[5].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[1].action[6].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[1].action[6].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[3].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[3].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[4].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[4].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[5].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[5].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[6].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[6].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test[2].action[7].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test[2].action[7].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "testscript-example-update": {
-      "execution": "Exception executing transform tgt.metadata \u003d create() as vvv on Rule \"metadata\": Unknown Resource or Type Name \u0027BackboneElement\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ TestScript: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.metadata.capability: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.metadata.capability.validated\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[3].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[3].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.setup.action[4].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.setup.action[4].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[1].operation: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[1].operation.encodeRequestUrl\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[2].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[2].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ TestScript.test.action[3].assert: Profile http://hl7.org/fhir/StructureDefinition/TestScript, Element \u0027TestScript.test.action[3].assert.warningOnly\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     }
   },
   "ValueSet": {

@@ -7,18 +7,28 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 group DataRequirement(source src : DataRequirementR3, target tgt : DataRequirement) extends Element <<type+>> {
   src.type -> tgt.type;
+  src.profile -> tgt.profile;
   src.mustSupport -> tgt.mustSupport;
-  src.codeFilter as vs0 -> tgt.codeFilter as vt0 then {
-    vs0.path -> vt0.path;
-    vs0.valueCode -> vt0.code "code";
-    vs0.valueCoding -> vt0.code "code";
-    vs0.valueCodeableConcept -> vt0.code "code";
+  src.codeFilter as vs0 -> tgt.codeFilter as vt0 then codeFiter(vs0, vt0);
+  src.dateFilter as vs0 -> tgt.dateFilter as vt0 then dateFilter(vs0, vt0);
+}
+
+group codeFiter(source src, target tgt) extends Element {
+  src.path -> tgt.path;
+  src.valueSet : string as vs -> tgt.valueSet = vs;
+  src.valueSet : Reference as vs then {
+    vs.referenced -> tgt.valueSet;
   };
-  src.dateFilter as vs0 -> tgt.dateFilter as vt0 then {
-    vs0.path -> vt0.path;
-    vs0.value : dateTime as vs -> vt0.value = create("dateTime") as vt then dateTime(vs, vt);
-    vs0.value : Period as vs -> vt0.value = create("Period") as vt then Period(vs, vt);
-    vs0.value : Duration as vs -> vt0.value = create("Duration") as vt then Duration(vs, vt);
+  src.valueCode as vs -> tgt.code as vt, vt.code = vs;
+  src.valueCoding -> tgt.code;
+  src.valueCodeableConcept as vs0 then {
+    vs0.coding -> tgt.code;
   };
 }
 
+group dateFilter(source src, target tgt) extends Element {
+  src.path -> tgt.path;
+  src.value : dateTime as vs -> tgt.value = create("dateTime") as vt then dateTime(vs, vt);
+  src.value : Period as vs -> tgt.value = create("Period") as vt then Period(vs, vt);
+  src.value : Duration as vs -> tgt.value = create("Duration") as vt then Duration(vs, vt);
+}
