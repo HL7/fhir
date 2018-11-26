@@ -254,7 +254,8 @@ public class Utilities {
   	throws IOException
   {
     if (!new CSFile(dir+file).exists()) {
-      errors.add("Unable to find "+purpose+" file "+file+" in "+dir);
+      if (errors != null)
+    	  errors.add("Unable to find "+purpose+" file "+file+" in "+dir);
       return false;
     } else {
       return true;
