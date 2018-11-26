@@ -15,8 +15,8 @@
 <%txheader%>
 
 <h1>Using Codes in Resources</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+[%normative page%]
 <a name="bindings"></a>
 <p>
 Many elements in the FHIR resources have a <b>coded value</b>: some fixed string
@@ -89,7 +89,7 @@ Notes:
 </p>
 <ul>
  <li>Generally, the choice of data type is dictated by the resource itself. When choosing a data type for an <a href="extensibility.html">extension</a>,
-see the FHIR wiki for <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to_Designing_Resources#Choice_of_coding_data_type">advice about data type choice</a>.</li>
+see the FHIR Confluence pages for <a href="https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#Choice+of+coding+data+type">advice about data type choice</a>.</li>
  <li><a href="#strings">See below</a> for more information about binding the types <a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a> to a value set.</li>
 </ul>
 
@@ -159,7 +159,7 @@ by working through the following list, in order:
 If a code system is not resolved by this list, and there is no publisher to consult, implementers
 must choose a URI to use. The priority should be to choose a unique value that won't
 accidentally be used by another implementer for a different purpose - or a very similar purpose
-with a different scope. See <a href="http://wiki.hl7.org/index.php?title=Process_for_registering_code_systems">Registering Code Systems</a> for further advice.
+with a different scope. See <a href="https://confluence.hl7.org/display/FHIR/Registering+Code+Systems">Registering Code Systems</a> for further advice.
 </p>
 <p>
 For publishers of code systems, the following considerations should be kept in mind when
@@ -246,7 +246,7 @@ There are a number of places in the specification where value sets are reference
 <table class="grid">
  <tr><td><a href="elementdefinition.html">ElementDefinition</a>.binding.valueSet</td><td>Used to bind a defined element to a value set</td></tr>
  <tr><td><a href="conceptmap.html">ConceptMap</a>.source[x] and .target[x]</td><td>Used to indicate the scope of the mapping in the Concept Map - from one value set to another</td></tr>
- <tr><td><a href="questionnaire.html">Questionnaire</a>.group.question.options</td><td>Indicates that answers to a set of questions come from a value set</td></tr>
+ <tr><td><a href="questionnaire.html">Questionnaire</a>.item.answerValueSet</td><td>Indicates that answers to a set of questions come from a value set</td></tr>
  <tr><td><a href="valueset.html">ValueSet</a>.compose.include.valueSet</td><td>The content of a value set includes the content in the imported value set too</td></tr>
  <tr><td><a href="operationdefinition.html">OperationDefinition</a>.parameter.binding.valueSet</td><td>Used to bind a defined parameter to a value set</td></tr>
  <tr><td><a href="extension-valueset-reference.html">ValueSet Reference Extension</a></td><td>Indicates that a particular coded value was chosen from the specified value set</td></tr>

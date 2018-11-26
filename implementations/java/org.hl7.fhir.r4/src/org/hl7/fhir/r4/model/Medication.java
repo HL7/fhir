@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
+// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -89,9 +89,9 @@ public class Medication extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ACTIVE: return "http://hl7.org/fhir/ValueSet/medication-status";
-            case INACTIVE: return "http://hl7.org/fhir/ValueSet/medication-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/ValueSet/medication-status";
+            case ACTIVE: return "http://hl7.org/fhir/CodeSystem/medication-status";
+            case INACTIVE: return "http://hl7.org/fhir/CodeSystem/medication-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/CodeSystem/medication-status";
             default: return "?";
           }
         }

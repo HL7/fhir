@@ -24,6 +24,7 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.JsonParser;
+import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Constants;
@@ -51,6 +52,7 @@ public class SpecNPMPackageGenerator {
     String canonical;
     boolean conf;
     byte[] json;
+    byte[] xml;
   }
 
   public static void main(String[] args) throws Exception {
@@ -158,6 +160,26 @@ public class SpecNPMPackageGenerator {
     }
     npm.finish();
     System.out.println(" .. Built");
+
+    System.out.println(" .. Building NPM Package (xml)");
+    ig.setId("fhir-xml");
+    ig.setUrl("http://hl7.org/fhir/ImplementationGuide/fhir-xml");
+    ig.setTitle("FHIR Core package (XML Conformance files)");
+    ig.setDescription("FHIR Core package - the NPM package that contains all the definitions for the base FHIR specification (XML)");
+    ig.setPackageId("hl7.fhir.core.xml");
+
+    npm = new NPMPackageGenerator(Utilities.path(folder, "package-xml.tgz"), "http://hl7.org/fhir", url, PackageType.CORE, ig, genDate);
+    bs = new ByteArrayOutputStream();
+    new org.hl7.fhir.r4.formats.XmlParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
+    npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());
+    addConvertedIgX(npm, ig, version.toCode());
+    for (ResourceEntry e : reslist) {
+      if (e.xml != null)
+        npm.addFile(Category.RESOURCE, e.type+"-"+e.id+".xml", e.xml);
+    }
+    npm.finish();
+    System.out.println(" .. Built");
+
   }
 
   private void addConvertedIg(NPMPackageGenerator npm, ImplementationGuide ig, String version) throws IOException, FHIRException {
@@ -190,9 +212,40 @@ public class SpecNPMPackageGenerator {
     npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".json", new org.hl7.fhir.dstu2.formats.JsonParser().composeBytes(res));
   }
 
+  private void addConvertedIgX(NPMPackageGenerator npm, ImplementationGuide ig, String version) throws IOException, FHIRException {
+    if (version.equals(Constants.VERSION))
+      addConvertedIg4X(npm, ig);
+    else if (version.equals("3.0.1"))
+      addConvertedIg3X(npm, ig);
+    else if (version.equals("1.4.0"))
+      addConvertedIg14X(npm, ig);
+    else if (version.equals("1.0.2"))
+      addConvertedIg10X(npm, ig);
+  }
+
+  private void addConvertedIg4X(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException {
+    npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".xml", new XmlParser().composeBytes(ig));
+  }
+
+  private void addConvertedIg3X(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException, FHIRException {
+    org.hl7.fhir.dstu3.model.Resource res = VersionConvertor_30_40.convertResource(ig, false);
+    npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".xml", new org.hl7.fhir.dstu3.formats.XmlParser().composeBytes(res));
+  }
+
+  private void addConvertedIg14X(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException, FHIRException {
+    org.hl7.fhir.dstu2016may.model.Resource res = VersionConvertor_14_40.convertResource(ig);
+    npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".xml", new org.hl7.fhir.dstu2016may.formats.XmlParser().composeBytes(res));
+  }
+
+  private void addConvertedIg10X(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException, FHIRException {
+    org.hl7.fhir.dstu2.model.Resource res = new VersionConvertor_10_40(null).convertResource(ig);
+    npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".xml", new org.hl7.fhir.dstu2.formats.XmlParser().composeBytes(res));
+  }
+
   private void addToResList(String folder, List<ResourceEntry> reslist, String version) {
     for (File f : new File(folder).listFiles()) {
-      if (f.getName().endsWith(".json") && !f.getName().endsWith(".diff.json") && !f.getName().endsWith(".schema.json") && !f.getName().equals("package.json")  && !f.getName().equals("backbone-elements.json")) {
+      if (f.getName().endsWith(".json") && !f.getName().endsWith(".diff.json") && !f.getName().endsWith(".schema.json") && !f.getName().equals("package.json") 
+          && !f.getName().equals("backbone-elements.json")&& !f.getName().equals("choice-elements.json")) {
         try {
           byte[] b = TextFile.fileToBytes(f.getAbsolutePath());
           loadFile(reslist, b, f.getName());
@@ -259,6 +312,7 @@ public class SpecNPMPackageGenerator {
             e.type = be.getResource().fhirType();
             e.id = be.getResource().getId();
             e.json = new org.hl7.fhir.r4.formats.JsonParser().composeBytes(be.getResource());
+            e.xml = new org.hl7.fhir.r4.formats.XmlParser().composeBytes(be.getResource());
             e.conf = true;
             if (be.getResource() instanceof org.hl7.fhir.r4.model.MetadataResource)
               e.canonical = ((org.hl7.fhir.r4.model.MetadataResource) be.getResource()).getUrl();
@@ -280,6 +334,7 @@ public class SpecNPMPackageGenerator {
             e.type = be.getResource().fhirType();
             e.id = be.getResource().getId();
             e.json = new org.hl7.fhir.dstu3.formats.JsonParser().composeBytes(be.getResource());
+            e.xml = new org.hl7.fhir.dstu3.formats.XmlParser().composeBytes(be.getResource());
             e.conf = true;
             if (be.getResource() instanceof org.hl7.fhir.dstu3.model.MetadataResource)
               e.canonical = ((org.hl7.fhir.dstu3.model.MetadataResource) be.getResource()).getUrl();
@@ -301,6 +356,7 @@ public class SpecNPMPackageGenerator {
             e.type = be.getResource().fhirType();
             e.id = be.getResource().getId();
             e.json = new org.hl7.fhir.dstu2016may.formats.JsonParser().composeBytes(be.getResource());
+            e.xml = new org.hl7.fhir.dstu2016may.formats.XmlParser().composeBytes(be.getResource());
             e.conf = true;
             if (be.getResource() instanceof org.hl7.fhir.dstu2016may.model.ValueSet)
               e.canonical = ((org.hl7.fhir.dstu2016may.model.ValueSet) be.getResource()).getUrl();
@@ -327,6 +383,7 @@ public class SpecNPMPackageGenerator {
           e.type = r.fhirType();
           e.id = r.getId();
           e.json = new org.hl7.fhir.dstu2.formats.JsonParser().composeBytes(r);
+          e.xml = new org.hl7.fhir.dstu2.formats.XmlParser().composeBytes(r);
           e.conf = true;
           if (r instanceof org.hl7.fhir.dstu2.model.StructureDefinition)
             e.canonical = ((org.hl7.fhir.dstu2.model.StructureDefinition) r).getUrl();

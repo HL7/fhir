@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Nov 5, 2018 09:03+1100 for FHIR v3.6.0
+// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -259,7 +259,7 @@ public class Narrative extends BaseNarrative implements INarrative {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Narrative.div");
         else if (Configuration.doAutoCreate())
-          this.div = new XhtmlNode(); // cc
+          this.div = new XhtmlNode(NodeType.Element, "div"); // cc
       return this.div;
     }
 
@@ -293,7 +293,7 @@ public class Narrative extends BaseNarrative implements INarrative {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<NarrativeStatus>
-        case 99473: /*div*/ return this.div == null ? new Base[0] : new Base[] {new StringType(new org.hl7.fhir.utilities.xhtml.XhtmlComposer(true).composeEx(this.div))}; // XhtmlNode
+        case 99473: /*div*/ return this.div == null ? new Base[0] : new Base[] {new XhtmlType(this)}; // XhtmlNode
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -308,7 +308,7 @@ public class Narrative extends BaseNarrative implements INarrative {
           return value;
         case 99473: // div
           this.div = castToXhtml(value); // XhtmlNode
-          return value;
+          return new XhtmlType(this);
         default: return super.setProperty(hash, name, value);
         }
 

@@ -1,0 +1,133 @@
+<MeasureReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/measurereport.xsd">
+  <id value="hiv-indicators"/>
+  <status value="complete"/>
+  <type value="summary"/>
+  <measure value="http://ohie.org/Measure/hiv-indicators"/>
+  <reporter>
+    <reference value="Organization/ZW01"/>
+  </reporter>
+  <period>
+    <start value="2018-01-01"/>
+    <end value="2018-01-31"/>
+  </period>
+  <!--Option 1: Mashup -->
+  <group>
+    <code><coding><code value="QRPH_ADX_ART1_N"/></coding></code>
+    <measureScore><value value="0"/></measureScore>
+    <stratifier>
+      <code><coding><code value="AGE_GROUP:SEX"/></coding></code>
+      <stratum>
+        <value><coding><code value="P0Y--P1Y:F"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <value><coding><code value="P0Y--P1Y:M"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <value><coding><code value="P1Y--P5Y:F"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <value><coding><code value="P1Y--P5Y:M"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <value><coding><code value="P10Y--P15Y:F"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <value><coding><code value="P10Y--P15Y:M"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <!--...-->
+    </stratifier>
+  </group>
+  <!--Option 2: Extensions -->
+  <group>
+    <code><coding><code value="QRPH_ADX_ART1_N"/></coding></code>
+    <measureScore><value value="0"/></measureScore>
+    <stratifier>
+      <code><coding><code value="AGE_GROUP:SEX"/></coding></code>
+      <stratum>
+        <value><coding><code value="P0Y--P1Y:F"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <value><coding><code value="P0Y--P1Y:M"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <value><coding><code value="P1Y--P5Y:F"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <value><coding><code value="P1Y--P5Y:M"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <value><coding><code value="P10Y--P15Y:F"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <value><coding><code value="P10Y--P15Y:M"/></coding></value>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <!--...-->
+    </stratifier>
+  </group>
+  <!--Option 3: Component Structures -->
+  <group>
+    <code><coding><code value="QRPH_ADX_ART1_N"/></coding></code>
+    <measureScore><value value="0"/></measureScore>
+    <stratifier>
+      <code><coding><code value="AGE_GROUP"/></coding></code>
+      <code><coding><code value="SEX"/></coding></code>
+      <stratum>
+        <component>
+          <code><coding><code value="AGE_GROUP"/></coding></code>
+          <value><coding><code value="P0Y--P1Y"/></coding></value>
+        </component>
+        <component>
+          <code><coding><code value="SEX"/></coding></code>
+          <value><coding><code value="F"/></coding></value>
+        </component>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <component>
+          <code><coding><code value="AGE_GROUP"/></coding></code>
+          <value><coding><code value="P0Y--P1Y"/></coding></value>
+        </component>
+        <component>
+          <code><coding><code value="SEX"/></coding></code>
+          <value><coding><code value="M"/></coding></value>
+        </component>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <component>
+          <code><coding><code value="AGE_GROUP"/></coding></code>
+          <value><coding><code value="P1Y--P5Y"/></coding></value>
+        </component>
+        <component>
+          <code><coding><code value="SEX"/></coding></code>
+          <value><coding><code value="F"/></coding></value>
+        </component>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <stratum>
+        <component>
+          <code><coding><code value="AGE_GROUP"/></coding></code>
+          <value><coding><code value="P1Y--P5Y"/></coding></value>
+        </component>
+        <component>
+          <code><coding><code value="SEX"/></coding></code>
+          <value><coding><code value="F"/></coding></value>
+        </component>
+        <measureScore><value value="0"/></measureScore>
+      </stratum>
+      <!--...-->
+    </stratifier>
+  </group>
+</MeasureReport>

@@ -363,7 +363,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
   private ValueSet buildV2ValueSet(String id, Element e) throws Exception {
     ValueSet vs = createValueSet(id);
     vs.setLanguage("en");
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
@@ -522,7 +522,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
   private void buildV2CodeSystem(VSPack vp, String id, Element e) throws Exception {
     ValueSet vs = createValueSet(id);
     vs.setLanguage("en");
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
@@ -545,7 +545,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
     CodeSystem cs = new CodeSystem();
     cs.setLanguage("en");
-    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0");
+    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     String desc = "";
     // we use the latest description of the table
     Element c = XMLUtil.getFirstChild(e);
@@ -694,7 +694,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     ValueSet vs = createValueSet(id+"."+version);
     vs.setLanguage("en");
     ValueSetUtilities.makeShareable(vs);
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
     vs.setUserData("path", Utilities.path("v2", id, version, "index.html"));
@@ -716,7 +716,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     cs.setLanguage("en");
     CodeSystemUtilities.makeShareable(cs);
     CodeSystemConvertor.populate(cs, vs);
-    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0");
+    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     cs.setUserData("spec.vs.cs", vs);
     cs.setContent(CodeSystemContentMode.COMPLETE);
 

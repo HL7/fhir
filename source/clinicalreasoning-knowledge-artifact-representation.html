@@ -10,10 +10,10 @@
 
 <div class="col-12">
 
+<table class="cols"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
+
 <a name="knowledge-artifact-representation"> </a>
 <h3>Representing Knowledge Artifacts</h3>
-<table class="cols"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
-
 
 <p>For the purposes of the Clinical Reasoning module, a Knowledge Artifact is a structured, computable, and shareable representation of clinical knowledge. A comprehensive definition of clinical knowledge is beyond the scope of this module, but we effectively mean any knowledge relevant to improving patient care. For example, "Patients with diabetes should have regular comprehensive foot examinations to identify risk factors predictive of ulcers and amputations" is a statement of clinical knowledge. A knowledge artifact would then be some representation that can be used to integrate that knowledge into existing healthcare delivery systems.</p>
 
@@ -38,13 +38,14 @@
 
 <a name="artifact-identity"> </a>
 <h5>Artifact Identity</h5>
-<p>As with any FHIR resource, the instance identity is specified by the <a href="resource-definitions.html#Resource.id">id</a> element. In addition, artifacts may have logical identifiers based on the content or behavior they provide, such as the CMS or NQF identifiers for measure content. These logical identifiers can be provided in the <code>identifier</code> element defined on each resource.</p>
+<p>As with any FHIR resource, the instance identity is specified by the <a href="resource-definitions.html#Resource.id">id</a> element. Knowledge artifacts also have a <a href="resource.html#canonical">canonical</a> identifier, specified by the <code>url</code> element that serves as the globally unique, "canonical URL" for the artifact that always identifes the resource. The canonical URL is a special kind of logical (or business) identifier, and artifacts may define any number of additional logical identifiers based on the content or behavior they provide, such as the CMS or NQF identifiers for measure content. These logical identifiers can be provided in the <code>identifier</code> element defined on each resource.</p>
 
 <p>In addition to identity, the <code>version</code> element can be used to specify a content version for the artifact. In general, version numbers are required for published, non-experimental artifacts, and optional otherwise.</p>
 
 <p>The following fragment shows the use of the logical identifier and version elements:</p>
 
-<pre><code>&lt;identifier&gt;
+<pre><code>&lt;url value=&quot;http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set&quot;/&gt;
+  &lt;identifier&gt;
   &lt;use value=&quot;official&quot;/&gt;
   &lt;system value=&quot;http://motivemi.com/artifacts&quot;/&gt;
   &lt;value value=&quot;mmi:low-suicide-risk-order-set&quot;/&gt;
@@ -630,7 +631,7 @@
 
 <p>As an example, the PHQ-9 Health Questionnaire contains a question that is answered by totaling the weights from the answers of each of the previous questions. The <a href="questionnaire-cqf-example.html">CQF Questionnaire</a> example illustrates the representation of this questionnaire with the required logic for computation.</p>
 
-<p>The following fragment taken from that example illustrates the use of the cqlExpression extension to calculate the TotalScore answer for a PHQ-9 Depression Assessment instrument:</p>
+<p>The following fragment taken from that example illustrates the use of the expression extension to calculate the TotalScore answer for a PHQ-9 Depression Assessment instrument:</p>
 
 <pre><code>&lt;item&gt;
   &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqf-expression&quot;&gt;

@@ -151,7 +151,7 @@ The Patient Care WG has voted to add "unknown" to the value set, but recommends 
 During the STU period feedback is solicited regarding (1) the need and desirability of adding the code "unknown" to the value set, vs. omitting the element if the certainty is not known; and (2) whether or not additional codes besides "unknown" should be added to the value set for the core specification, or whether additional codes, if needed, should be added in an extension/profile.
 </p>
 <p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
 </div>
 

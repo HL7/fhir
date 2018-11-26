@@ -10,9 +10,10 @@
 
 <div class="col-12">
 
+<table class="cols"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cqi%]">[%wgt cqi%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
+
 <a name="quality-reporting"> </a>
 <h3>Quality Reporting</h3>
-<table class="cols"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cqi%]">[%wgt cqi%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
 
 <a name="representing-quality-measures"> </a>
 <h4>Representing Quality Measures</h4>
@@ -66,7 +67,6 @@
 		<tr><td>Improvement Notation</td><td>0..1</td><td>improvementNotation</td><td>String, e.g. Higher score indicates better quality</td></tr>
 		<tr><td>Definition</td><td>0..1</td><td>definition</td><td>String (containing Markdown)</td></tr>
 		<tr><td>Guidance</td><td>0..1</td><td>guidance</td><td>String (containing Markdown)</td></tr>
-		<tr><td>Measure Set</td><td>0..1</td><td>set</td><td>String, e.g. Preventive Care and Screening</td></tr>
 	</tbody>
 </table>
 
@@ -80,7 +80,7 @@
 <a name="specifying-population-criteria"> </a>
 <h6>Specifying Population Criteria</h6>
 
-<p>A measure can specify various types of populations, depending on the type of measure scoring being used. The following table shows which population criteria types are required (R), optional (O), or not permitted (NP) for proportion, ratio, and continuous variable measures. This table is adapted from Table 1 from the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">HQMF DSTU Release 2.1</a> specification, and Table 2.1 from the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346">QDM-based HQMF IG</a>.</p>
+<p>A measure can specify various types of populations, depending on the type of measure scoring being used. The following table shows which population criteria types are required (R), optional (O), or not permitted (NP) for proportion, ratio, and continuous variable measures. This table is adapted from Table 1 from the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">HQMF Release 1 Normative</a> specification, and Table 2.1 from the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346">QDM-based HQMF IG</a>.</p>
 
 <table class="grid">
 	<thead>
@@ -224,7 +224,7 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 <a name="measure-report"> </a>
 <h4>Measure Report</h4>
 
-<p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represents both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in two flavors: <a href="http://wiki.hl7.org/index.php?title=Quality_Reporting_Document_Architecture_Category_1">Category I</a> for individual patient reports and <a href="http://wiki.hl7.org/index.php?title=Quality_Reporting_Document_Architecture_Category_3">Category III</a> for population reports.</p>
+<p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represents both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in two flavors: <a href="https://confluence.hl7.org/display/CQIWC/Quality+Reporting+Document+Architecture+Category+1">Category I</a> for individual patient reports and <a href="https://confluence.hl7.org/display/CQIWC/Quality+Reporting+Document+Architecture+Category+3">Category III</a> for population reports.</p>
 
 <p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="measure.html">Measure</a> resource, and the request is an <code>HTTP GET</code> conforming to the <a href="operationdefinition.html">OperationDefinition</a> described above. Meanwhile, the responses are represented as <a href="measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (subject-list), and Category III (population) reports.</p>
 

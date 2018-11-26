@@ -81,7 +81,7 @@ There are several good practices to follow when making use of the Basic resource
   specification can be addressed.</li>
   
   <li>If it is necessary to make use of the Basic resource, try to use one of the HL7-defined codes for
-  resource type or submit your requirement for a new type for inclusion in the HL7 vocabulary (using the <a target="_blank" href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677">Propose a change</a> link), as this will
+  resource type or submit your requirement for a new type for inclusion in the HL7 vocabulary (using the <a target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a> link), as this will
   increase the likelihood of interoperability.  Alternate code systems are conformant, but are less likely to
   be recognized or re-used across the healthcare implementation space.</li>
   

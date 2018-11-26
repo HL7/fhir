@@ -114,6 +114,7 @@ public class ToolingExtensions {
   public static final String EXT_OO_FILE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-file";
   public static final String EXT_WORKGROUP = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg";
   public static final String EXT_STANDARDS_STATUS = "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status";
+  public static final String EXT_NORMATIVE_VERSION = "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version";
   public static final String EXT_IGP_BASE = "http://hl7.org/fhir/StructureDefinition/igpublisher-res-base";
   public static final String EXT_IGP_DEFNS = "http://hl7.org/fhir/StructureDefinition/igpublisher-res-defns";
   public static final String EXT_IGP_FORMAT = "http://hl7.org/fhir/StructureDefinition/igpublisher-res-format";
@@ -124,6 +125,7 @@ public class ToolingExtensions {
   public static final String EXT_IGP_SPREADSHEET = "http://hl7.org/fhir/StructureDefinition/igpublisher-spreadsheet";
   public static final String EXT_IGP_BUNDLE = "http://hl7.org/fhir/StructureDefinition/igpublisher-bundle";
   public static final String EXT_MAX_VALUESET = "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet";
+  public static final String EXT_PROFILE_ELEMENT = "http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element";
 
 
   // specific extension helpers
@@ -649,18 +651,26 @@ public class ToolingExtensions {
     return StandardsStatus.fromCode(ToolingExtensions.readStringExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS));
   }
 
-  public static void setStandardsStatus(DomainResource dr, StandardsStatus status) {
+  public static void setStandardsStatus(DomainResource dr, StandardsStatus status, String normativeVersion) {
     if (status == null)
       ToolingExtensions.removeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS);
     else
       ToolingExtensions.setCodeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS, status.toCode());
+    if (normativeVersion == null)
+      ToolingExtensions.removeExtension(dr, ToolingExtensions.EXT_NORMATIVE_VERSION);
+    else
+      ToolingExtensions.setCodeExtension(dr, ToolingExtensions.EXT_NORMATIVE_VERSION, normativeVersion);
   }
 
-  public static void setStandardsStatus(Element dr, StandardsStatus status) {
+  public static void setStandardsStatus(Element dr, StandardsStatus status, String normativeVersion) {
     if (status == null)
       ToolingExtensions.removeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS);
     else
       ToolingExtensions.setCodeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS, status.toCode());
+    if (normativeVersion == null)
+      ToolingExtensions.removeExtension(dr, ToolingExtensions.EXT_NORMATIVE_VERSION);
+    else
+      ToolingExtensions.setCodeExtension(dr, ToolingExtensions.EXT_NORMATIVE_VERSION, normativeVersion);
   }
 
 //  public static boolean hasOID(ValueSet vs) {

@@ -13,16 +13,16 @@
   <concept>
     <code value="active"/>
     <display value="Active"/>
-    <definition value="An active record of a risk of a reaction to the identified substance."/> 
+    <definition value="The subject is currently experiencing or at risk of a reaction to the identified substance."/> 
   </concept>
   <concept>
     <code value="inactive"/>
     <display value="Inactive"/>
-    <definition value="An inactivated record of a risk of a reaction to the identified substance."/>
+    <definition value="The subject is no longer at risk of a reaction to the identified substance."/>
 	  <concept>
 		<code value="resolved"/>
 		<display value="Resolved"/>
-		<definition value="A reaction to the identified substance has been clinically reassessed by testing or re-exposure and considered to be resolved. Re-exposure could be accidental, unplanned, or outside of any clinical setting."/>
+		<definition value="A reaction to the identified substance has been clinically reassessed by testing or re-exposure and is considered no longer to be present. Re-exposure could be accidental, unplanned, or outside of any clinical setting."/>
 	  </concept>
    </concept>
 </CodeSystem>

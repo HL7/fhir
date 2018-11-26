@@ -16,8 +16,8 @@
 
 <a name="root"></a>
 <h1>Resource Formats</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+[%normative page%]
 <p>
 
 This page documents how the content of the resources are described.
@@ -40,7 +40,7 @@ The resources are described in several different ways:
  <li>a pseudo-Turtle syntax that provides a visual sense of what the end resource instances will look like in Turtle</li>
 </ul>
 <p>
-In addition to this descriptive syntax, other definitional forms are available, including W3C schema and Schematron, and the <a href="structuredefinition.html">StructureDefinition</a> syntax defined internally.
+In addition to this descriptive syntax, other definitional forms are available, including W3C schema, Schematron, JSON Schema, and the <a href="structuredefinition.html">StructureDefinition</a> syntax defined internally.
 </p>
 
 <a name="table"></a>
@@ -50,7 +50,7 @@ The Logical View shows the resources as a tree structure with the following colu
 </p>
 <table class="grid">
  <tr> <td><b>Column</b></td> <td><b>Content</b></td> </tr>
- <tr> <td>Name</td> <td>The name of the element in the resource (manifests as XML element name, or JSON property name. Some names finish with <code>[x]</code> - the meaning of this is discussed below. In addition, this column contains an icon that denotes the underlying type of the content. The icons are described below</td> </tr>
+ <tr> <td>Name</td> <td>The name of the element in the resource (manifests as XML element name or JSON or RDF property name). Some names finish with <code>[x]</code> - the meaning of this is discussed below. In addition, this column contains an icon that denotes the underlying type of the content. The icons are described below</td> </tr>
  <tr> <td>Flags</td> <td>A set of information about the element that impacts how implementers handle them. The flags are described below</td> </tr>
  <tr> <td>Card.</td> <td>Cardinality: the lower and upper bounds on how many times this element is allowed to appear in the resource</td> </tr>
  <tr> <td>Type</td> <td>The type of the element (hyperlinked to the definition of the type). Note that the type of the element has one of two meanings,
@@ -109,7 +109,7 @@ Here's an example:
 <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11.png)" class="hierarchy"><img alt="." class="hierarchy" src="tbl_spacer.png"/><img alt="." class="hierarchy" src="tbl_vjoin_end.png"/><img title="Element" style="background-color: white;" alt="." class="hierarchy" src="icon_element.gif"/> <a title="Definition" href="#">nameC</a></td>
 <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"></td>
 <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">1..*</td>
-<td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">Element</td>
+<td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">BackboneElement</td>
 <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">Definition</td>
 </tr>
 <tr style="border: 0px; padding:0px; vertical-align: top; background-color: white;">
@@ -123,7 +123,7 @@ Here's an example:
 </table>
 
 <a name="legend"></a>
-<p>Key to Type Icons and Flags</p>
+<p>Key to Type Icons</p>
 <ul>
  <li><img title="Resource" style="background-color: white;" alt="." class="hierarchy" src="icon_resource.png"/>: The base element for a resource (see <a href="resource.html">Resources</a>)</li>
  <li><img title="Element" style="background-color: white;" alt="." class="hierarchy" src="icon_element.gif"/>: An element that is part of the resource and has elements within it defined in the same resource or profile</li>
@@ -133,19 +133,21 @@ Here's an example:
  <li><img title="Reference to another Resource" style="background-color: white;" alt="." class="hierarchy" src="icon_reference.png"/>: An element that contains a reference to another resource (see <a href="references.html">references</a>)</li>
  <li><img title="Reference to another Element" style="background-color: white;" alt="." class="hierarchy" src="icon_reuse.png"/>: This element has the same content as another element defined within this resource or profile</li>
  <li><img title="Slice Definition" style="background-color: white;" alt="." class="hierarchy" src="icon_slice.png"/>: Introduction of a set of slices (see <a href="profiling.html#slicing">Slicing</a>)</li>
- <li><img title="Extension" style="background-color: white;" alt="." class="hierarchy" src="icon_extension.png"/>: An extension (see <a href="extensibility.html">Extensibility</a>)</li>
  <li><img title="Complex Extension" style="background-color: white;" alt="." class="hierarchy" src="icon_extension_complex.png"/>: A complex extension - one with nested extensions (see <a href="extensibility.html#complex">Extensibility</a>)</li>
  <li><img title="Simple Extension" style="background-color: white;" alt="." class="hierarchy" src="icon_extension_simple.png"/>: An extension that has a value and no nested extensions (see <a href="extensibility.html">Extensibility</a>)</li>
  <li><img title="Complex Modifier Extension" style="background-color: white;" alt="." class="hierarchy" src="icon_modifier_extension_complex.png"/>: A complex modifier extension - one with nested extensions (see <a href="extensibility.html#complex">Extensibility</a>)</li>
  <li><img title="Simple Modifier Extension" style="background-color: white;" alt="." class="hierarchy" src="icon_modifier_extension_simple.png"/>: A modifier extension that has a value and no nested extensions (see <a href="extensibility.html">Extensibility</a>)</li>
  <li><img title="Profile" style="background-color: white;" alt="." class="hierarchy" src="icon_profile.png"/>: The root of a logical profile</li>
 <!-- dont think this is used <li><img title="Text" style="background-color: white;" alt="." class="hierarchy" src="icon_text.png"/>: Plain text content</li> -->
+</ul>
+<p>Key to Flags</p>
+<ul>
  <li><code>?!</code>: This element is a modifying element - see <a href="conformance-rules.html#isModifier">Modifier Elements</a></li>
- <li><code>S</code>: This element is an element that must be supported - see <a href="conformance-rules.html#mustSupport">Must-Support Elements</a></li>
+ <li><code>S</code>: This element is an element that must be supported - see <a href="conformance-rules.html#mustSupport">MustSupport Elements</a></li>
  <li><code>Σ</code>: This element is an element that is part of the summary set - see <a href="search.html#summary">Summary Searches</a></li>
  <li><code>I</code>: This element defines or is affected by constraints - see <a href="conformance-rules.html#constraints">Constraints</a></li>
  <li><code>NE</code>: This element cannot have extensions (some infrastructural elements only)</li>
- <li><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #ffe6e6" href="versions.html#std-process">TU</a>: This element has a <a href="versions.html#std-process">standards status of Trial Use</a> (for discussion about mixing ballot status in a resource, see <a href="ballot-intro.html#mixed">Mixed Normative content</a>)</li>
+ <li><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #ffe6e6" href="versions.html#std-process">TU</a>: This element has a <a href="versions.html#std-process">standards status of Trial Use</a> (for discussion about mixing standards status in a resource, see <a href="versions.html#std-process">Mixed Normative content</a>)</li>
  <li><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #e6ffe6" href="versions.html#std-process">N</a>: This element has a <a href="versions.html#std-process">standards status of Normative</a></li>
  <li><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #efefef" href="versions.html#std-process">D</a>: This element has a <a href="versions.html#std-process">standards status of Draft</a></li>
 </ul>
@@ -166,6 +168,30 @@ Notes:
  <li>Infrastructural elements that are common to all resources are not shown in the logical representation. These are described in the common base classes <a href="resource.html">Resource</a>, and <a href="domainresource.html">DomainResource</a></li>
 </ul>
 
+<p>
+The data type for a particular element is typically expressed as the name of the specified type with a hyperlink to its definition.  However, there are two exceptions:
+</p>
+<ul>
+<li>If the element supports multiple types (name ends with [x]), then the type will be a list of data type options, each separated by "|"</li>
+<li>If one of the types is <a href="references.html">Reference</a> or <a href="datatypes.html#canonical">canonical</a>, the data type might be followed by a list of allowed targets the reference is allowed to be.  These might be resource names, data type names, or profile URLs, depending on the context.  As well, the following symbols may appear that represent expectations of where the referenced resource is located: 
+  <ul>
+    <li><code>b</code>: Resource must appear within the same <a href="bundle.html">Bundle</a>;</li>
+    <li><code>c</code>: Resource must be sent as a <a href="references.html">contained</a> resource;</li>
+    <li><code>r</code>: Resource is a non-contained reference - i.e. to a resource within the same Bundle or to an external resource</li>
+  </ul>
+</li>
+</ul>
+<p>
+In profiles, references to types may be profiled - i.e. Instances of the element must comply with a specified profile or one of a list of profiles.  The canonical URLs of any applicable profiles are listed inside {}.
+</p>
+
+<p>
+Where an element can have a choice of data types, or is a <a href="references.html">Reference</a> these are
+represented by showing the common type (<code>Reference</code> or <code>Type</code>), and then showing the applicable data type names or
+resource types in a stereotype, separated by the <code>|</code> character. <code>Type</code> is not formally otherwise defined by
+this specification, but is a super type of all the data types.
+</p>
+
 <a name="choice"></a>
 <h3>Choice of Data Types</h3>
 <p>
@@ -181,15 +207,10 @@ element with a data type chosen from among the list of permitted data types.
 <p>
 Note: In object-orientated based implementations, this is naturally represented as a polymorphic property.
 However this is not necessary and the correct implementation varies according to the particular features
-of the language. In XML schema, these become an xs:choice of element.
+of the language. In XML schema, these become an xs:choice of element. To help with code generation, <a href="choice-elements.json">a list
+of choice elements</a> is published.
 </p>
 
-<p>
-The following elements have a choice of types:
-</p>
-<ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
-  [%choice-elements%]
-</ul>
 
 <a name="uml"></a>
 <h3>UML</h3>
@@ -247,12 +268,6 @@ vocabulary bindings.  These are hyperlinks to the value set details.
 </p>
 <a name="umlchoice"></a>
 <p>
-Where an element can have a choice of data types, or is a <a href="references.html">Reference</a> these are
-represented by showing the common type (<code>Reference</code> or <code>Type</code>), and then showing the applicable data type names or
-resource types in a stereotype, separated by the <code>|</code> character. <code>Type</code> is not formally otherwise defined by
-this specification, but is a super type of all the data types.
-</p>
-<p>
 The actual order of the elements in XML cannot be determined from the diagram, nor whether a UML property becomes an element or an attribute in the XML representation.
 </p>
 <a name="binding"></a>
@@ -307,7 +322,7 @@ The XML and JSON formats are designed to support typical system process
 based data exchange uses. FHIR is also used to exchange large amounts 
 of data- 1000s of records, or more (up to billions). The formats above
 can be used for this, but more suitable formats exist. This specification
-documents the following formats:
+documents (or is exploring documenting) the following formats:
 </p>
 <ul>
  <li><a href="nd-json.html">ND-Json</a> (New line delimited JSON)</li>

@@ -14,16 +14,49 @@ group TestReport(source src : TestReport, target tgt : TestReportR3) extends Dom
   src.score -> tgt.score;
   src.tester -> tgt.tester;
   src.issued -> tgt.issued;
-  src.participant as vs0 -> tgt.participant as vt0 then {
-    vs0.type -> vt0.type;
-    vs0.uri -> vt0.uri;
-    vs0.display -> vt0.display;
-  };
-  src.setup -> tgt.setup;
-  src.test as vs0 -> tgt.test as vt0 then {
-    vs0.name -> vt0.name;
-    vs0.description -> vt0.description;
-  };
-  src.teardown -> tgt.teardown;
+  src.participant as vs0 -> tgt.participant as vt0 then participant(vs0, vt0);
+  src.setup as vs0 -> tgt.setup as vt0 then setup(vs0, vt0);
+  src.test as vs0 -> tgt.test as vt0 then test(vs0, vt0);
+  src.teardown as vs0 -> tgt.teardown as vt0 then teardown(vs0, vt0);
 }
 
+group participant(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.uri -> tgt.uri;
+  src.display -> tgt.display;
+}    
+
+group setup(source src, target tgt) extends BackboneElement {
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group teardown(source src, target tgt) extends BackboneElement {
+  src.action as vs0 -> tgt.action as vt0 then actionNA(vs0, vt0);
+}
+
+group test(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}    
+
+group action(source src, target tgt) extends BackboneElement {
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+  src.assert as vs0 -> tgt.assert as vt0 then assert(vs0, vt0);
+}
+
+group actionNA(source src, target tgt) extends BackboneElement {
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+}
+
+group operation(source src, target tgt) extends BackboneElement {
+  src.result -> tgt.result;
+  src.message -> tgt.message;
+  src.detail -> tgt.detail;
+}
+
+group assert(source src, target tgt) extends BackboneElement {
+  src.result -> tgt.result;
+  src.message -> tgt.message;
+  src.detail -> tgt.detail;
+}

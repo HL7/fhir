@@ -537,9 +537,9 @@ public class ProfileUtilities extends TranslatingUtilities {
           baseCursor++;
         } else if (diffMatches.size() == 1 && (slicingDone || !(diffMatches.get(0).hasSlicing() || (isExtension(diffMatches.get(0)) && diffMatches.get(0).hasSliceName())))) {// one matching element in the differential
           ElementDefinition template = null;
-          if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !diffMatches.get(0).getType().get(0).getCode().equals("Reference")) {
-            String p = diffMatches.get(0).getType().get(0).getProfile().get(0).getValue();
-            StructureDefinition sd = context.fetchResource(StructureDefinition.class, p);
+          if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !"Reference".equals(diffMatches.get(0).getType().get(0).getCode())) {
+            CanonicalType p = diffMatches.get(0).getType().get(0).getProfile().get(0);
+            StructureDefinition sd = context.fetchResource(StructureDefinition.class, p.getValue());
             if (sd != null) {
               if (!sd.hasSnapshot()) {
                 StructureDefinition sdb = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
@@ -547,10 +547,22 @@ public class ProfileUtilities extends TranslatingUtilities {
                   throw new DefinitionException("no base for "+sd.getBaseDefinition());
                 generateSnapshot(sdb, sd, sd.getUrl(), sd.getName());
               }
-              template = sd.getSnapshot().getElement().get(0).copy().setPath(currentBase.getPath());
+              ElementDefinition src;
+              if (p.hasExtension(ToolingExtensions.EXT_PROFILE_ELEMENT)) {
+                 src = null;
+                 String eid = p.getExtensionString(ToolingExtensions.EXT_PROFILE_ELEMENT);
+                 for (ElementDefinition t : sd.getSnapshot().getElement()) {
+                   if (eid.equals(t.getId()))
+                     src = t;
+                 }
+                 if (src == null)
+                   throw new DefinitionException("Unable to find element "+eid+" in "+p.getValue());
+              } else 
+                src = sd.getSnapshot().getElement().get(0);
+              template = src.copy().setPath(currentBase.getPath());
               template.setSliceName(null);
               // temporary work around
-              if (!diffMatches.get(0).getType().get(0).getCode().equals("Extension")) {
+              if (!"Extension".equals(diffMatches.get(0).getType().get(0).getCode())) {
                 template.setMin(currentBase.getMin());
                 template.setMax(currentBase.getMax());
               }
@@ -1532,17 +1544,29 @@ public class ProfileUtilities extends TranslatingUtilities {
         if (!Base.compareDeep(derived.getType(), base.getType(), false)) {
           if (base.hasType()) {
             for (TypeRefComponent ts : derived.getType()) {
+//              if (!ts.hasCode()) { // ommitted in the differential; copy it over....
+//                if (base.getType().size() > 1) 
+//                  throw new DefinitionException("StructureDefinition "+pn+" at "+derived.getPath()+": constrained type code must be present if there are multiple types ("+base.typeSummary()+")");
+//                if (base.getType().get(0).getCode() != null)
+//                  ts.setCode(base.getType().get(0).getCode());
+//              }
               boolean ok = false;
               CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+              String t = ts.getCode();
+              if (t == null && ts.getCodeElement().hasExtension(ToolingExtensions.EXT_XML_TYPE))
+                t = "*"; // 
               for (TypeRefComponent td : base.getType()) {;
-                b.append(td.getCode());
-                if (td.hasCode() && (td.getCode().equals(ts.getCode()) || td.getCode().equals("Extension") ||
-                    td.getCode().equals("Element") || td.getCode().equals("*") ||
-                    ((td.getCode().equals("Resource") || (td.getCode().equals("DomainResource")) && pkp.isResource(ts.getCode())))))
+                String tt = td.getCode();
+                if (tt == null && td.getCodeElement().hasExtension(ToolingExtensions.EXT_JSON_TYPE))
+                  tt = "*"; // 
+                b.append(tt);
+                if (td.hasCode() && (t.equals(tt) || "Extension".equals(tt) ||
+                    "Element".equals(tt) || "*".equals(tt) ||
+                    (("Resource".equals(tt) || ("DomainResource".equals(tt)) && pkp.isResource(t)))))
                   ok = true;
               }
               if (!ok)
-                throw new DefinitionException("StructureDefinition "+pn+" at "+derived.getPath()+": illegal constrained type "+ts.getCode()+" from "+b.toString());
+                throw new DefinitionException("StructureDefinition "+pn+" at "+derived.getPath()+": illegal constrained type "+t+" from "+b.toString());
             }
           }
           base.getType().clear();
@@ -2012,6 +2036,17 @@ public class ProfileUtilities extends TranslatingUtilities {
       b.append(ec.getType().getDisplay());
       b.append(" ");
       b.append(ec.getExpression());
+    }
+    if (ext.hasContextInvariant()) {
+      b.append(", with <a href=\"structuredefinition-definitions.html#StructureDefinition.contextInvariant\">Context Invariant</a> = ");
+      boolean first = true;
+      for (StringType s : ext.getContextInvariant()) {
+        if (first)
+          first = false;
+        else
+          b.append(", ");
+        b.append("<code>"+s.getValue()+"</code>");
+      }
     }
     return b.toString(); 
   }
@@ -3385,7 +3420,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       idMap.put(ed.hasId() ? ed.getId() : ed.getPath(), bs);
       ed.setId(bs);
       if (idList.containsKey(bs)) {
-        if (exception)
+        if (exception || messages == null)
           throw new DefinitionException("Same id '"+bs+"'on multiple elements "+idList.get(bs)+"/"+ed.getPath()+" in "+name);
         else
           messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, name+"."+bs, "Duplicate Element id "+bs, ValidationMessage.IssueSeverity.ERROR));

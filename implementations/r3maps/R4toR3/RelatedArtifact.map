@@ -9,6 +9,8 @@ group RelatedArtifact(source src : RelatedArtifact, target tgt : RelatedArtifact
   src.type -> tgt.type;
   src.display -> tgt.display;
   src.citation -> tgt.citation;
+  src.url -> tgt.url;
   src.document -> tgt.document;
+  src.resource -> tgt.resource;
 }
 

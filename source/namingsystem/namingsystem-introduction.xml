@@ -27,7 +27,7 @@ should only be one <code>CodeSystem</code> resource.
 <h2>Background and Context</h2>
 <p>
 For discussion of policy for creating well maintained OIDs and URIs for resources,
-see <a href="http://wiki.hl7.org/index.php?title=Migrating_OIDs_to_FHIR">The HL7 WIKI</a>.
+see <a href="https://confluence.hl7.org/display/FHIR/Migrating+OIDs+to+FHIR">The HL7 Confluence site</a>.
 </p>
 
 </div>

@@ -8,5 +8,6 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group Money(source src : Money, target tgt : MoneyR3) extends Element <<type+>> {
   src.value -> tgt.value;
   src.currency -> tgt.code "code";
+  src -> tgt.system as vt, vt.value = "urn:iso:std:iso:4217";
 }
 

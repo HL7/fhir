@@ -188,7 +188,7 @@ resource.  If this is done, DataElement will be treated as a type of logical mod
 </p>
 <p>Implementers wishing to 
 provide their feedback on the proposed change are invited to make comments on the associated 
-<a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=13094">Tracker item</a>.
+<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-13094">Tracker item</a>.
 [%end-note%]
 
 </div>

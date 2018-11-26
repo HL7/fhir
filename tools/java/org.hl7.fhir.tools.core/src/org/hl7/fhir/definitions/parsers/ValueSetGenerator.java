@@ -125,12 +125,12 @@ public class ValueSetGenerator {
   
   private void markSpecialStatus(ValueSet vs, CodeSystem cs) {
     ToolingExtensions.setStringExtension(vs, "http://hl7.org/fhir/StructureDefinition/valueset-special-status", SPECIAL_STATUS_NOTE.replaceAll("\\{name\\}", "Value Set"));
-    ToolingExtensions.setStandardsStatus(vs, StandardsStatus.NORMATIVE);
+    ToolingExtensions.setStandardsStatus(vs, StandardsStatus.NORMATIVE, "4.0.0");
     ToolingExtensions.addIntegerExtension(vs, ToolingExtensions.EXT_FMM_LEVEL, 5);
     ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_WORKGROUP, "fhir");
     if (cs != null) {
       ToolingExtensions.setStringExtension(cs, "http://hl7.org/fhir/StructureDefinition/valueset-special-status", SPECIAL_STATUS_NOTE.replaceAll("\\{name\\}", "Code System"));
-      ToolingExtensions.setStandardsStatus(cs, StandardsStatus.NORMATIVE);
+      ToolingExtensions.setStandardsStatus(cs, StandardsStatus.NORMATIVE, "4.0.0");
       ToolingExtensions.addIntegerExtension(cs, ToolingExtensions.EXT_FMM_LEVEL, 5);
       ToolingExtensions.setCodeExtension(cs, ToolingExtensions.EXT_WORKGROUP, "fhir");
     }    

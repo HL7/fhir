@@ -11,7 +11,7 @@ group Account(source src : AccountR3, target tgt : Account) extends DomainResour
   src.type -> tgt.type;
   src.name -> tgt.name;
   src.subject -> tgt.subject;
-  src.servicePeriod -> tgt.servicePeriod;
+  src.servicePeriod -> tgt.period;
   src.coverage as s -> tgt.coverage as t then AccountCoverage(s, t);
   src.owner -> tgt.owner;
   src.description -> tgt.description;

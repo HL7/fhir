@@ -11,8 +11,9 @@
   -->
 	<space>
 		<url>http://hl7.org/fhir/fivews</url>
+    <link>http://hl7.org/fhir/fivews.html</link>
 		<columnName>[w5]</columnName>
-		<title>FiveWs Pattern</title>
+		<title>FiveWs Pattern Mapping</title>
 		<id>w5</id>
 		<sort>-1</sort>
 		<publish>true</publish>
@@ -21,6 +22,7 @@
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/workflow</url>
+		<link>http://hl7.org/fhir/workflow-module.html</link>
 		<columnName>Workflow Mapping</columnName>
 		<title>Workflow Pattern</title>
 		<id>workflow</id>
@@ -31,7 +33,7 @@
 	</space>
 	<space>
 		<url>http://hl7.org/v2</url>
-    <link></link>
+    <link>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185</link>
 		<columnName>v2 Mapping</columnName>
 		<title>HL7 v2 Mapping</title>
 		<id>v2</id>
@@ -47,7 +49,8 @@
     <publish>true</publish>
 	</space>
 	<space>
-		<url>http://snomed.info/sct</url>
+		<url>http://snomed.org/attributebinding</url>
+    <link>http://snomed.org/attributebinding</link>
 		<columnName>SNOMED CT Attribute</columnName>
 		<title>SNOMED CT Attribute Binding</title>
 		<id>sct-attr</id>
@@ -66,6 +69,7 @@
 	</space>
 	<space>
 		<url>http://snomed.info/conceptdomain</url>
+    <link>http://snomed.info/conceptdomain</link>
 		<columnName>SNOMED CT Concept Domain</columnName>
 		<title>SNOMED CT Concept Domain Binding</title>
 		<id>sct-concept</id>
@@ -84,7 +88,7 @@
 	</space>
 	<space>
 		<url>http://hl7.org/v3/cda</url>
-    <link></link>
+    <link>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7</link>
 		<columnName>CDA Mapping</columnName>
 		<title>CDA (R2)</title>
 		<id>cda</id>
@@ -93,7 +97,7 @@
 	</space>
 	<space>
 		<url>http://hl7.org/v3</url>
-    <link></link>
+    <link>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=186</link>
 		<columnName>RIM Mapping</columnName>
 		<title>RIM Mapping</title>
 		<id>rim</id>
@@ -103,6 +107,7 @@
 	</space>
 	<space>
 		<url>http://nema.org/dicom</url>
+		<link>http://nema.org/dicom</link>
 		<columnName>DICOM Mapping</columnName>
 		<title>DICOM Tag Mapping</title>
 		<id>dicom</id>
@@ -111,6 +116,7 @@
 	</space>
 	<space>
 		<url>http://w3.org/vcard</url>
+    <link>https://tools.ietf.org/html/rfc6350</link>
 		<columnName>vCard Mapping</columnName>
 		<title>vCard Mapping</title>
 		<id>vcard</id>
@@ -128,6 +134,7 @@
 	</space>
 	<space>
 		<url>http://www.w3.org/ns/prov</url>
+		<link>http://www.w3.org/ns/prov</link>
 		<columnName>Prov Mapping</columnName>
 		<title>W3C PROV</title>
 		<id>w3c.prov</id>
@@ -159,6 +166,7 @@
 	</space>
 	<space>
 		<url>http://www.omg.org/spec/ServD/1.0/</url>
+		<link>http://www.omg.org/spec/ServD/1.0/</link>
 		<columnName>ServD Mapping</columnName>
 		<title>ServD</title>
 		<id>servd</id>
@@ -167,6 +175,7 @@
 	</space>
 	<space>
 		<url>http://metadata-standards.org/11179/</url>
+		<link>http://metadata-standards.org/11179/</link>
 		<columnName>11179 Mapping</columnName>
 		<title>ISO 11179</title>
 		<id>iso11179</id>
@@ -189,6 +198,7 @@
 	</space>
 	<space>
 		<url>http://openehr.org</url>
+		<link>http://openehr.org</link>
 		<columnName>OpenEHR mapping</columnName>
 		<title>Open EHR Archetype Mapping</title>
 		<id>openehr</id>
@@ -231,6 +241,7 @@
 	</space> -->
 	<space>
 		<url>http://www.cda-adc.ca/en/services/cdanet/</url>
+		<link>http://www.cda-adc.ca/en/services/cdanet/</link>
 		<columnName>CDAnet v4 Mapping</columnName>
 		<title>Canadian Dental Association eclaims standard</title>
 		<id>cdanetv4</id>
@@ -239,6 +250,7 @@
 	</space>
 	<space>
 		<url>http://www.pharmacists.ca/</url>
+		<link>http://www.pharmacists.ca/</link>
 		<columnName>CPhA3 (Pharmacy) Mapping</columnName>
 		<title>Canadian Pharmacy Associaiton eclaims standard</title>
 		<id>cpha3pharm</id>
@@ -247,6 +259,7 @@
 	</space>
 	<space>
 		<url>http://www.healthit.gov/quality-data-model</url>
+		<link>http://www.healthit.gov/quality-data-model</link>
 		<columnName>QDM Mapping</columnName>
 		<title>Quality Data Model</title>
 		<id>qdm</id>
@@ -255,7 +268,6 @@
 	</space>
 	<space>
 		<url>http://hl7.org/orim</url>
-    <link></link>
 		<columnName>ORIM Mapping</columnName>
 		<title>Ontological RIM Mapping</title>
 		<id>orim</id>
@@ -264,7 +276,7 @@
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/w5</url>
-    <link></link>
+    <link>http://hl7.org/fhir/fivews.html</link>
 		<columnName>...don't use...</columnName>
 		<title>W5 Mapping</title>
 		<id>w5</id>
@@ -281,18 +293,18 @@
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/auditevent</url>
-    <link></link>
+    <link>http://hl7.org/fhir/auditevent.html</link>
 		<columnName>Auditevent Mapping</columnName>
-		<title>FHIR AuditEvent</title>
+		<title>FHIR AuditEvent Mapping</title>
 		<id>fhirauditevent</id>
 		<sort>26</sort>
 		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/provenance</url>
-    <link></link>
+    <link>http://hl7.org/fhir/provenance.html</link>
 		<columnName>Provenance Mapping</columnName>
-		<title>FHIR Provenance</title>
+		<title>FHIR Provenance Mapping</title>
 		<id>fhirprovenance</id>
 		<sort>27</sort>
 		<publish>true</publish>
@@ -301,15 +313,16 @@
 		<url>http://hl7.org/qidam</url>
 		<link>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378</link>
 		<columnName>QIDAM Mapping</columnName>
-		<title>Quality Improvement Domain Analysis Model</title>
+		<title>Mapping to Quality Improvement Domain Analysis Model</title>
 		<id>qidam</id>
 		<sort>28</sort>
 		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://cap.org/ecc</url>
+		<link>https://www.cap.org/laboratory-improvement/proficiency-testing/cap-ecc</link>
 		<columnName>CAP Code</columnName>
-		<title>CAP Code</title>
+		<title>Equivalent CAP Code</title>
 		<id>cap</id>
 		<sort>29</sort>
 		<publish>true</publish>
@@ -339,14 +352,16 @@
 	</space>
 	<space>
 		<url>http://github.com/MDMI/ReferentIndexContent</url>
+		<link>http://github.com/MDMI/ReferentIndexContent</link>
 		<columnName>MDMI Referent</columnName>
-		<title>MDMI Referent Index</title>
+		<title>MDMI Referent Index Mapping</title>
 		<id>mdmi</id>
 		<sort>32</sort>
     <publish>true</publish>
 	</space>
 	<space>
 		<url>http://ncpdp.org/SCRIPT10_6</url>
+		<link>http://www.ncpdp.org/NCPDP/media/pdf/NCPDPEprescribing101.pdf</link>
 		<columnName>SCRIPT 10.6 Mapping</columnName>
 		<title>Mapping to NCPDP SCRIPT 10.6</title>
 		<id>script10.6</id>
@@ -355,6 +370,7 @@
 	</space>
 	<space>
 		<url>http://clinicaltrials.gov</url>
+		<link>http://clinicaltrials.gov</link>
 		<columnName>clinicaltrials.gov Mapping</columnName>
 		<title>ClinicalTrials.gov Mapping</title>
 		<id>clinicaltrials-gov</id>
@@ -379,7 +395,8 @@
 		<publish>true</publish>
 	</space>
 	<space>
-		<url>https://bridgmodel.nci.nih.gov/download-model/bridg-releases/release-51/release-package</url>
+		<url>https://bridgmodel.nci.nih.gov</url>
+		<link>https://bridgmodel.nci.nih.gov/download-model/bridg-releases/release-51/release-package</link>
 		<columnName>BRIDG 5.1 Mapping</columnName>
 		<title>BRIDG 5.1 Mapping</title>
 		<id>BRIDG5.1</id>
@@ -388,7 +405,7 @@
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/composition</url>
-    <link></link>
+    <link>http://hl7.org/fhir/composition.html</link>
 		<columnName>Composition Mapping</columnName>
 		<title>FHIR Composition</title>
 		<id>fhircomposition</id>
@@ -397,7 +414,7 @@
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/documentreference</url>
-    <link></link>
+    <link>http://hl7.org/fhir/documentreference.html</link>
 		<columnName>DocumentReference Mapping</columnName>
 		<title>FHIR DocumentReference</title>
 		<id>fhirdocumentreference</id>

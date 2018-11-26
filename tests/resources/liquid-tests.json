@@ -1,0 +1,49 @@
+{
+  "description" : "test case for FHIR Liquid Support",
+  "spec" : "http://wiki.hl7.org/index.php?title=FHIR_Liquid_Profile",
+  "fhir-version" : "4.0.0",
+  "tests" : [{
+    "name" : "constant",
+    "focus" : "Patient/example",
+    "template" : "test",
+    "output" : "test"
+  },{
+    "name" : "statement",
+    "focus" : "Patient/example",
+    "template" : "{{ Patient.id}}",
+    "output" : "example"
+  },{
+    "name" : "statement1",
+    "focus" : "Patient/example",
+    "template" : "{{ Patient.id }}",
+    "output" : "example"
+  },{
+    "name" : "statement2",
+    "focus" : "Patient/example",
+    "template" : "{{Patient.id}}",
+    "output" : "example"
+  },{
+    "name" : "mix1",
+    "focus" : "Patient/example",
+    "template" : "t{{Patient.id}}t",
+    "output" : "texamplet"
+  },{
+    "name" : "if",
+    "focus" : "Patient/example",
+    "template" : "{% if Patient.id = 'example'%} yes {%else%} no {%endif%}",
+    "output" : " yes "
+  },{
+    "name" : "loop",
+    "focus" : "Patient/example",
+    "template" : "{%loop name in Patient.name%}{{name.family}}{%endloop%}",
+    "output" : "ChalmersWindsor"
+  },{
+    "name" : "include",
+    "focus" : "Patient/example",
+    "template" : "{%loop name in Patient.name%}{%include humanname.html name=name pat='patient' %}{%endloop%}",
+    "output" : "ChalmersWindsor",
+    "includes" : {
+      "humanname.html" : "{{include.name.family}}"
+    }
+  }]
+}

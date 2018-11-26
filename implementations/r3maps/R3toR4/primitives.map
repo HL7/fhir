@@ -159,3 +159,15 @@ group uri2string(source src : uriR3, target tgt : string) extends Element <<type
   src.value as v -> tgt.value = v "code2uri-value";
 }
 
+group unsignedInt2decimal(source src : unsignedIntR3, target tgt : decimal) extends Element <<types>> {
+  src.value as v -> tgt.value = v "unsignedInt2decimal-value";
+}
+
+group oid2string(source src : oidR3, target tgt : string) extends Element <<type+>> {
+  src.value as v -> tgt.value = v;
+}
+
+group oid2id(source src : oidR3, target tgt : id) extends Element <<type+>> {
+  src.value as v -> tgt.value = v;
+}
+

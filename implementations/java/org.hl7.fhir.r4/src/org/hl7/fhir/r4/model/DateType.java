@@ -160,7 +160,9 @@ public class DateType extends BaseDateTimeType {
 
 	@Override
 	public DateType copy() {
-		return new DateType(getValueAsString());
+		DateType ret = new DateType(getValueAsString());
+    copyValues(ret);
+    return ret;
 	}
 	
 	public static InstantType today() {

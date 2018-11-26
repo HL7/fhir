@@ -37,7 +37,7 @@ There are two primary ways of reporting "no known allergies" in the current spec
 as described above, or using the <a href="list.html">List</a> resource with emptyReason. The third available option is using the substanceExposureRisk extension.  During the STU period, it is not recommended to use the <a href="list.html">List</a> resource for "no known allergies" reporting purposes. The principal reason for this is to allow all allergy or intolerance data to be found and to be consistently queryable from the single location of the AllergyIntolerance resource.
 </p>
 <p>
-Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+Provide feedback <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
 
 <div class="example">
@@ -142,7 +142,7 @@ the "reaction" structure and simply provide no date.
 Adverse Reaction, draft archetype, National eHealth Transition Authority [Internet]. NEHTA Clinical Knowledge Manager. Authored: 08 Nov 2010. Available at: <a href="http://dcm.nehta.org.au/ckm/OKM.html#showarchetype_1013.1.868_7">http://dcm.nehta.org.au/ckm/OKM.html#showarchetype_1013.1.868_7</a> (accessed Jan 16, 2012).
 </li>
 <li>
-Allergy and Intolerance Domain Analysis Model, Release 1, HL7 [Internet]. Publication pending, expected August 2014; Available at <a href="http://wiki.hl7.org/images/1/1b/Allergy_and_Intolerance_INFORM_2013_MAY.pdf">http://wiki.hl7.org/images/1/1b/Allergy_and_Intolerance_INFORM_2013_MAY.pdf</a> (accessed 06 July 2014). 
+Allergy and Intolerance Domain Analysis Model, Release 1, HL7 [Internet]. Publication pending, expected August 2014; Available at <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=308">http://www.hl7.org/implement/standards/product_brief.cfm?product_id=308</a> (accessed 06 July 2014). 
 </li>
 <li>
 Allergy, clinical element model, GE/Intermountain Healthcare. Clinical Element Model Search. Available at: <a href="http://intermountainhealthcare.org/cem/Pages/Detail.aspx?NCID=520861661&amp;k=allergy">http://intermountainhealthcare.org/cem/Pages/Detail.aspx?NCID=520861661&amp;k=allergy</a> (accessed Jan 16, 2012).

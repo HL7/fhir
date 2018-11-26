@@ -12,16 +12,12 @@ They are provided as a direct system response, or component of one, and provide 
 The OperationOutcome resource is used in the following circumstances:
 </p>
 <ul>
- <li>When an <a href="http.html#operations">RESTful operation</a> fails</li>
+ <li>When a <a href="http.html#operations">RESTful interaction</a> or <a href="operations.html">operation</a> fails</li>
  <li>As the response on a <a href="http.html#validate">validation operation</a> to provide information about the outcome</li>
  <li>As part of a message response, usually when the message has not been processed correctly</li>
  <li>As the response to a batch/transaction, when requested</li>
  <li>As part of a search's Bundle response containing information about the search</li>
 </ul>
-<p>
-This resource is referenced by <a href="guidanceresponse.html">GuidanceResponse</a> and <a href="messageheader.html">MessageHeader</a>. 
-The reference from GuidanceResponse indicates that there is an additional use context that needs to be addressed in the scope.
-</p>
 </div>
 
 
@@ -30,7 +26,7 @@ The reference from GuidanceResponse indicates that there is an additional use co
 <h2>Boundaries and Relationships</h2>
 <p>
 This resource is not used for reporting clinical or workflow issues associated with a proposed or ongoing action; 
-these would be handled using <a href="detectedissue.html">DetectedIssue</a> or other resources. The resource  
+these would be handled using <a href="detectedissue.html">DetectedIssue</a> or other resources. OperationOutcome  
 is not designed to be persisted or referenced from other parts of the workflow. 
 </p>
 <p>

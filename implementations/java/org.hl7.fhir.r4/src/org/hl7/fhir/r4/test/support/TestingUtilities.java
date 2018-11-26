@@ -1,6 +1,7 @@
 package org.hl7.fhir.r4.test.support;
 
 import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -213,16 +214,29 @@ public class TestingUtilities {
   public static String checkJsonSrcIsSame(String s1, String s2, boolean showDiff) throws JsonSyntaxException, FileNotFoundException, IOException {
     String result = compareJsonSrc(s1, s2);
     if (result != null && SHOW_DIFF && showDiff) {
-      String diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge", "WinMergeU.exe");
+      String diff = null; 
+      if (System.getProperty("os.name").contains("Linux"))
+        diff = Utilities.path("/", "usr", "bin", "meld");
+      else {
+    	if (Utilities.checkFile("WinMerge", Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge"), "\\WinMergeU.exe", null))
+    		diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge", "WinMergeU.exe");
+    	else if (Utilities.checkFile("WinMerge", Utilities.path(System.getenv("ProgramFiles(X86)"), "Meld"), "\\Meld.exe", null))
+    		diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "Meld", "Meld.exe");
+      }
+      if (diff == null || diff.isEmpty())
+    	  return result;
+      
       List<String> command = new ArrayList<String>();
-      String f1 = Utilities.path("[tmp]", "input.json");
-      String f2 = Utilities.path("[tmp]", "output.json");
+      String f1 = Utilities.path("[tmp]", "input" + s1.hashCode() + ".json");
+      String f2 = Utilities.path("[tmp]", "output" + s2.hashCode() + ".json");
       TextFile.stringToFile(s1, f1);
       TextFile.stringToFile(s2, f2);
-      command.add("\"" + diff + "\" \"" + f1 + "\" \"" + f2 + "\"");
+      command.add(diff);
+      command.add(f1);
+      command.add(f2);
 
       ProcessBuilder builder = new ProcessBuilder(command);
-      builder.directory(new CSFile("c:\\temp"));
+      builder.directory(new CSFile(Utilities.path("[tmp]")));
       builder.start();
       
     }

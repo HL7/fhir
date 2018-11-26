@@ -13,7 +13,7 @@
 
 <h1>Downloads</h1>
 
-<table class="colis"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colis"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <table class="lines">
 
@@ -92,12 +92,12 @@
 
   <tr>
     <td>Validator</td>
-    <td>The <a href="validator.zip">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information, or <a href="http://wiki.hl7.org/index.php?title=Using_the_FHIR_Validator">Using the FHIR Validator</a> for parameter documentation</td>
+    <td>The <a href="validator.zip">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information, or <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">Using the FHIR Validator</a> for parameter documentation</td>
   </tr>
 
   <tr>
     <td>IG Publisher</td>
-    <td>The <a href="org.hl7.fhir.igpublisher.jar">Implementation Guide Publishing Tool</a> (see <a href="http://wiki.hl7.org/index.php?title=IG_Publisher_Documentation">IG Publishing documentation</a>)</td>
+    <td>The <a href="org.hl7.fhir.igpublisher.jar">Implementation Guide Publishing Tool</a> (see <a href="https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation">IG Publishing documentation</a>)</td>
   </tr>
 
   <tr>
@@ -108,7 +108,7 @@
 
   <tr>
     <td>Translation File</td>
-    <td><a href="translations.xml">Translations of common FHIR names and messages</a> into multiple languages (see <a href="http://wiki.hl7.org/index.php?title=FHIR_Implementation_Page">wiki</a> for instructions on how to add to this)</td>
+    <td><a href="translations.xml">Translations of common FHIR names and messages</a> into multiple languages (see <a href="https://chat.fhir.org/#narrow/stream/10-translations">chat.fhir.org translations stream</a> for guidance on how to add to more)</td>
   </tr>
 
   <tr>
@@ -123,7 +123,7 @@
 
   <tr>
     <td>Code Generation Support</td>
-    <td>Value Set expansions for the value sets used in schema generation (<a href="expansions.xml">XML</a> or <a href="expansions.json">JSON</a>) + a list of all <a href="backbone-elements.json">backbone elements</a>.
+    <td>Value Set expansions for the value sets used in schema generation (<a href="expansions.xml">XML</a> or <a href="expansions.json">JSON</a>) + a list of all <a href="choice-elements.json">choice elements</a> &amp; <a href="backbone-elements.json">backbone elements</a>.
     Note that names relevant for code generation, including resource names, element &amp; slice names, codes etc may collide with reserved words in the relevant target language, and code generators will need to handle this</td>
   </tr>
 
@@ -168,9 +168,7 @@
   </tr>
   <tr>
    <td>Javascript</td>
-   <td>
-    <a href="https://github.com/FHIR/fhir.js">FHIR.js</a>:
-    Javascript Client and Utilities
+   <td>See the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations#Javascript">HL7 wiki for Javascript libraries</a> (Clients and Utilities for both servers and clients)
    </td>
   </tr>
   <tr>
@@ -193,7 +191,7 @@ conform to these, nor are they subject to the formal standards process.</span>
 <hr/>
 <p>
 Full blown open source implementations for FHIR, some of which use these reference implementations, are
-listed on the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 wiki</a>.
+listed on <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7 Confluence</a>.
 </p>
 <p>
 It is not necessary to use these particular implementations in order to be conformant. Any other approach

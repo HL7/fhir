@@ -2,20 +2,11 @@
 
 <div>
 <a name="bnc"></a>
-    <blockquote class="stu-note">
-      <a name="scope">
-      </a>
-      <a name="dstu">
-      </a>
-      <p>
-        <b>Note to balloters</b> The Clinical Quality Information workgroup is seeking feedback on the name of this resource, as discussed in the <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=11305">GF#11305</a>. Specifically, the committee is seeking implementer community feedback on whether the resource should be named Measure or MeasureDefinition. The committee believes that the name Measure is a reasonable description of what the resource is doing, and the suggested name change to MeasureDefinition will likely not have much if any positive impact on the usability of the resource. The documentation for the resource is much more important in terms of communicating the intended use.</p>
-    </blockquote>
 <h2>Scope and Usage</h2>
-<p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
 
 <p>The Measure resource represents a structured, computable definition of a health-related measure such as a clinical quality measure, public health indicator, or population analytics measure. A quality measure is a quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</p>
 
-<p>Note that the Measure itself does not contain any logic; rather a <a href="library.html">Library</a> resource is referenced that contains the logic required by the measure, and the various expression elements, such as population criteria, reference named expressions within that library (or libraries). In addition, if the Measure references multiple libraries, then any expression references within the resource must be qualified with the name of the library that contains the referenced expression.</p>
+<p>Note that the Measure itself does not typically contain any logic; rather a <a href="library.html">Library</a> resource is referenced that contains the logic required by the measure, and the various expression elements, such as population criteria, reference named expressions within that library (or libraries). In addition, if the Measure references multiple libraries, then any expression references within the resource must be qualified with the name of the library that contains the referenced expression.</p>
 
 <p>For a detailed discussion of how to use the Measure and MeasureReport resources, refer to the <a href="clinicalreasoning-quality-reporting.html">Quality Reporting</a> topic.</p>
 

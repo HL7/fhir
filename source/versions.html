@@ -11,8 +11,8 @@
 [%file newnavbar%]
 
 <div class="col-12">
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+[%normative page%]
 <h2>Version Management Policy</h2>
 
 <p>
@@ -163,7 +163,7 @@ have been well tested in a variety of environments.  Others have received relati
 considered to be more stable than the resources themselves.  In some cases, there are issues on which input is specifically requested during the 
 <a href="#stu">Trial Use</a> period
 (see the <a href="todo.html">Outstanding Issue List</a>, and known issues will arise after publication (refer to the 
-<a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse&amp;tracker_id=677">FHIR Change Request</a> tracker for details.)
+<a href="http://hl7.org/fhir-issues">FHIR Change Request</a> tracker for details.)
 Guidance from early implementation will help address these areas.
 </p>
 
@@ -175,7 +175,7 @@ The FMM level can be used by implementers to judge how advanced - and therefore 
  <tr><td>Draft (0)</td><td>the resource or profile (artifact) has been published on the current build.  This level is synonymous with <i>Draft</i></td></tr>
  <tr><td><b>FMM 1</b></td><td>PLUS the artifact produces no warnings during the build process and the responsible WG has indicated that they consider the artifact substantially complete and ready for implementation. For resources, profiles and implementation guides, the FHIR Management Group has approved the underlying resource/profile/IG proposal</td></tr>
  <tr><td><b>FMM 2</b></td><td>PLUS the artifact has been tested and successfully supports interoperability among at least three independently developed systems leveraging most of the scope (e.g. at least 80% of the core data elements) using semi-realistic data and scenarios based on at least one of the declared scopes of the artifact (e.g. at a connectathon). These interoperability results must have been reported to and accepted by the FMG</td></tr>
- <tr><td><b>FMM 3</b></td><td>PLUS + the artifact has been verified by the work group as meeting the <a href="http://wiki.hl7.org/index.php?title=FHIR_Conformance_QA_Criteria">Conformance Resource Quality Guidelines</a>; has been subject to a round of formal balloting; has at least 10 distinct implementer comments recorded in the tracker drawn from at least 3 organizations resulting in at least one substantive change</td></tr>
+ <tr><td><b>FMM 3</b></td><td>PLUS + the artifact has been verified by the work group as meeting the <a href="https://confluence.hl7.org/display/FHIR/Conformance+QA+Criteria">Conformance Resource Quality Guidelines</a>; has been subject to a round of formal balloting; has at least 10 distinct implementer comments recorded in the tracker drawn from at least 3 organizations resulting in at least one substantive change</td></tr>
  <tr><td><b>FMM 4</b></td><td>PLUS the artifact has been tested across its scope (see below), published in a formal publication (e.g. <code>Trial-Use</code>), and implemented in multiple prototype projects. As well, the responsible work group agrees the artifact is sufficiently stable to require implementer consultation for subsequent non-backward compatible changes</td></tr>
  <tr><td><b>FMM 5</b></td><td> the artifact has been published in two formal publication release cycles at FMM1+ (i.e. Trial-Use level) and has been implemented in at least 5 independent production systems in more than one country</td></tr>
  <tr><td><b>Normative</b></td><td>the artifact is now considered stable</td></tr>
@@ -183,12 +183,12 @@ The FMM level can be used by implementers to judge how advanced - and therefore 
 
 <p>Tested across scope means:</p>
 <ul>
-  <li>The <a href="http://wiki.hl7.org/index.php?title=FHIR_Management_Group">FMG</a> has signed off on the list of "example contexts" defined for the artifact</li>
+  <li>The <a href="https://confluence.hl7.org/display/FMG">FMG</a> has signed off on the list of "example contexts" defined for the artifact</li>
   <li>For each example context, the artifact has either been: reviewed and approved by a domain expert for that scope area, mapped to an existing implemented scope-area-specific standard or tested in an implementation</li>
 </ul>
 <p>
 The Maturity level is strongly related to stability; the higher the maturity level, the more controls are enforced to restrict breaking changes to the resource.
-For further information, and discussion, see the <a href="http://wiki.hl7.org/index.php?title=FHIR_Maturity_Model">FHIR Wiki</a>.
+For further information, and discussion, see the <a href="https://confluence.hl7.org/display/FHIR/FHIR+Maturity+Model">FHIR Confluence page</a>.
 </p>
 <p>
 The maturity model is significantly influenced by the degree and type of implementation activity using an artifact.
@@ -265,7 +265,7 @@ Each FHIR version is identified by a string composed from 4 parts: publication.m
        <li>Incremented any time a change is made to the specification</li>
        <li>At present, this is the SVN version number (this allows anyone to reconstruct the source from which the version was built)</li>
        <li>Changes are made numerous times a day, generally driven by 
-       <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse&amp;tracker_id=677">change requests</a> submitted by the implementation community</li>
+       <a href="http://hl7.org/fhir-issues">change requests</a> submitted by the implementation community</li>
      </ul>
    </td>
   </tr>
@@ -562,7 +562,7 @@ The following artefacts are deprecated in this version of FHIR:
 <hr/>
 <p>
 Additional discussion on inter-versioning issues can be found here:
-<a href="http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility">http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility</a>.
+<a href="https://confluence.hl7.org/display/FHIR/Interversion+Compatibility">https://confluence.hl7.org/display/FHIR/Interversion+Compatibility</a>.
 </p>
 
 
@@ -586,8 +586,8 @@ Furthermore, such implementers should architect their solutions to be tolerant o
 manage interoperability with systems that may be using different versions of the specification or different local adaptations.
 </p>
 <p>
-During the <i>Trial Use</i> period, requests for change may be submitted using the HL7 gForge tracker which can be found  
-<a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse&amp;tracker_id=677">here</a>.  Where possible, updates to the 
+During the <i>Trial Use</i> period, requests for change may be submitted using the HL7 issue tracker which can be found  
+<a href="http://hl7.org/fhir-issues">here</a>.  Where possible, updates to the 
 "development" version of the specification will be made in a timely fashion.  Implementers should be aware that the changes are not 
 considered "official" until such time as they are balloted and approved as part of a subsequent <i>Trial Use</i> or <i>Normative</i> publication.  
 Change requests might be fixes to allow implementation, clarifications or enhancements.  In addition, HL7 will be developing and 
@@ -736,7 +736,7 @@ Note for balloters: these packages will be created when R4 is finalized. Until t
 <p>
 While implementation of this <i>Trial Use</i> release is occurring, development will be progressing on the next release.  
 This next release will include additional resources, profiles and quality enhancements over the current release.  
-It will also incorporate fixes for issues raised with the <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse&amp;tracker_id=677">FHIR change tracker</a>.  It may be useful for implementers
+It will also incorporate fixes for issues raised with the <a href="http://hl7.org/fhir-issues">FHIR issue tracker</a>.  It may be useful for implementers
 of the STU to review the development release to get a sense of what changes are likely coming and perhaps to find more robust definitions and guidance than
 are available in the first release.  The FHIR development release can be found at <a href="http://build.fhir.org/">build.fhir.org</a>.  Some implementers
 who are dependent on content that exists in a draft release may choose to implement based on a particular snapshot of the development release, though in doing so, they

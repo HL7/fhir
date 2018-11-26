@@ -57,7 +57,7 @@ group resource(source src, target tgt) extends BackboneElement {
   src.reference as vs0 where extension('http://hl7.org/fhir/StructureDefinition/X34-basetype').exists() -> tgt.source = create("uri") as vt0 then {
     vs0.reference as vs1 then uri(vs1, vt0) "source2a";
   } "source2";
-  src.example : canonical as vs0 ->  tgt.example = true,  tgt.exampleFor as vt0 then Canonical2Reference(vs0, vt0) "exampleFor";
+  src.example : canonical as vs0 ->  tgt.example = true,  tgt.exampleFor as vt0 then canonical2Reference(vs0, vt0) "exampleFor";
 }
 
 group page(source src, target tgt) extends BackboneElement {

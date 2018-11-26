@@ -13,7 +13,7 @@ group Reference(source src : ReferenceR3, target tgt : Reference) extends Elemen
 
 group Reference2Canonical(source src : ReferenceR3, target tgt : canonical) extends Element <<types>> {
   src.reference as vs then uri2Canonical(vs, tgt);
-  src.display ->  tgt.extension as vt,  vt.url as "http://hl7.org/fhir/StructureDefinition/rendered-value",  vt.value as v;
+  src.display as v ->  tgt.extension as vt,  vt.url = "http://hl7.org/fhir/StructureDefinition/rendered-value",  vt.value = v;
 }
 
 group Identifier2Reference(source src : IdentifierR3, target tgt : Reference) extends Element <<types>> {

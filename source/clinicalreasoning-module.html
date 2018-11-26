@@ -14,14 +14,14 @@ in order to support consistent definitions for schema and UML derived code.
 [%file newnavbar%]
 
 <div class="col-12">
-<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a> &amp; <a _target="blank" href="[%wg cqi%]">[%wgt cqi%]</a> </td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a> &amp; <a _target="blank" href="[%wg cqi%]">[%wgt cqi%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
 <h2>Clinical Reasoning</h2>
 
 <a name="intro"></a>
 <h3>Introduction</h3>
-<p>The Clinical Reasoning module provides resources and operations to enable the representation, distribution, and evaluation of clinical knowledge artifacts such as clinical decision support rules, quality measures, order sets, and clinical protocols. In addition, the module describes how expression languages can be used throughout the specification to provide dynamic capabilities.</p>
+<p>The Clinical Reasoning module provides resources and operations to enable the representation, distribution, and evaluation of clinical knowledge artifacts such as clinical decision support rules, quality measures, public health indicators, order sets, and clinical protocols. In addition, the module describes how expression languages can be used throughout the specification to provide dynamic capabilities.</p>
 
 <p>Clinical Reasoning involves the ability to represent and encode clinical knowledge in a very broad sense so that it can be integrated into clinical systems. This encoding may be as simple as controlling whether or not a particular section of an order set appears based on the conditions that a patient has, or it may be as complex as representing the care pathway for a patient with multiple conditions.</p>
 
@@ -37,7 +37,7 @@ in order to support consistent definitions for schema and UML derived code.
 <p>To enable these use cases, the module defines several components that can each be used independently, or combined to enable more complex functionality. These components are:</p>
 
 <ul>
-	<li><b>Expression Logic</b> - the representation of logic using languages such as FHIRPath and Clinical Quality Language (CQL).</li>
+	<li><b>Expression Logic</b> - the representation of logic using languages such as <a href="http://hl7.org/fhirpath">FHIRPath</a> and <a href="http://cql.hl7.org">Clinical Quality Language (CQL)</a>.</li>
 	<li><b>Definitional Resources</b> - resources that are not defined on any specific patient, but are used to define the actions to be performed as part of a clinical knowledge artifact such as an order set or decision support rule. These resources can be used directly, or with profiles to provide intended structure for specific types of resources.</li>
 	<li><b>Knowledge Artifacts</b> - representation of clinical knowledge such as decision support rules and clinical quality measures.</li>
 </ul>
@@ -66,7 +66,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>From the perspective of a Knowledge Content Provider, this module defines search functionality for using a FHIR server as a knowledge artifact repository.</p>
 
-<p>From the perspective of a Knowledge Evaluation Service Provider, this module defines operations and profiles in support of evaluating quality measures, and defining a service for guidance request and response, consistent with the approach taken by the current <a href="https://cds-hooks.org/">CDS Hooks</a> specification.</p>
+<p>From the perspective of a Knowledge Evaluation Service Provider, this module defines operations and profiles in support of evaluating quality measures, and defining and using <a href="https://cds-hooks.hl7.org/">CDS Hooks</a> services.</p>
 
 <p>And finally, from the perspective of a Knowledge Evaluation Service Consumer, this module defines the expected available operations and behavior of a knowledge evaluation service.</p>
 
@@ -119,8 +119,44 @@ in order to support consistent definitions for schema and UML derived code.
 	</thead>
 	<tbody>
 		<tr>
+			<td><a href="activitydefinition-shareable.html">Shareable ActivityDefinition</a></td>
+			<td>Enforces the minimum information set for the activity definition metadata required by HL7 and other organizations that share and publish activity definitions.</td>
+		</tr>
+		<tr>
 			<td><a href="cqf-questionnaire.html">CQF-Questionnaire</a></td>
 			<td>Defines extensions to the base Questionnaire that allow it to be used as a DocumentationTemplate with behavior specified via logic in CQL libraries.</td>
+		</tr>
+		<tr>
+			<td><a href="guidanceresponse-cdshooks.html">CDS Hooks GuidanceResponse</a></td>
+			<td>Defines a GuidanceResponse that represents the response container for a CDS Hooks response</td>
+		</tr>
+		<tr>
+			<td><a href="library-shareable.html">Shareable Library</a></td>
+			<td>Enforces the minimum information set for the library metadata required by HL7 and other organizations that share and publish libraries</td>
+		</tr>
+		<tr>
+			<td><a href="library-cql.html">CQL Library</a></td>
+			<td>Represents a CQL logic library</td>
+		</tr>
+		<tr>
+			<td><a href="measure-shareable.html">Shareable Measure</a></td>
+			<td>Enforces the minimum information set for the measure metadata required by HL7 and other organizations that share and publish measures</td>
+		</tr>
+		<tr>
+			<td><a href="plandefinition-shareable.html">Shareable PlanDefinition</a></td>
+			<td>Enforces the minimum information set for the plan definition metadata required by HL7 and other organizations that share and publish plan definitions</td>
+		</tr>
+		<tr>
+			<td><a href="plandefinition-computable.html">Computable PlanDefinition</a></td>
+			<td>Defines a computable PlanDefinition that specifies a single library and requires all expressions referenced from the PlanDefinition to be definitions in that single library</td>
+		</tr>
+		<tr>
+			<td><a href="plandefinition-cdshooks-service.html"></a>CDS Hooks PlanDefinition</td>
+			<td>Defines a PlanDefinition that implements the behavior for a CDS Hooks service</td>
+		</tr>
+		<tr>
+			<td><a href="requestgroup-cdshooks.html">CDS Hooks RequestGroup</a></td>
+			<td>Defines a RequestGroup that can represent a CDS Hooks response</td>
 		</tr>
 	</tbody>
 </table>
@@ -192,6 +228,8 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>In particular, the use of Clinical Quality Language (CQL) as a foundational mechanism for representing clinical quality logic enables decision support and quality measurement artifacts to share common definitions. For example, a Chlamydia Screening measure and related decision support artifacts focused on improving the measure can share a common library that describes the criteria for detecting when Chlamydia Screening is required in a patient. The decision support rule applies these criteria to determine when and how to impact a workflow, while the quality measure uses these same criteria to determine whether the screening goal has been met for a patient or population. In addition, the resources defined in this module use common patterns for describing the structure of artifacts and their associated metadata, enabling a consistent approach to the sharing and distribution of clinical knowledge artifacts.</p>
 
+<p>Over the past year of trial use, the Clinical Reasoning module has been used in both the quality measurement and decision support domains to represent, exchange, and evaluate knowledge artifacts. This usage has generated feedback resulting in the addition of several new profiles, as well as guidance for using the Clincal Reasoning module with CDS Hooks and for quality reporting. Although this feedback resulted in some substantive changes, there were comparatively few, and the goals of the module for the next year are to push towards higher maturity levels and continue to seek implementation feedback.</p>
+
 <p>The goals of the module over the next year are to provide a stable basis for implementation of the sharing use case, as well as unification with the CDS Hooks specification in support of the evaluation use case. The Clinical Quality Framework Initiative will use these resources as the basis for implementation projects, targeting an FMM level of 3 or 4 for all module resources within a year.</p>
 
 <a name="crm-feedback"></a>
@@ -199,16 +237,17 @@ in order to support consistent definitions for schema and UML derived code.
 We are actively seeking comments on all areas of the module, with particular focus on supporting the following scenarios:
 </p>
 <ul>
-	<li>The use of FHIRPath and CQL to provide dynamic functionality throughout FHIR</li>
 	<li>FHIR-Based Knowledge Artifact Repository</li>
 	<li>FHIR-Based Clinical Decision Support Service</li>
 	<li>FHIR-Based Quality Measure Evaluation and Reporting</li>
 	<li>FHIR-Based Order Set Catalog/Ordering Services</li>
-	<li>The use of FHIR operations as the protocol for defining artifact evaluation requests and responses. In particular, the ability to bundle multiple requests into a single operation, as well as the use of a generic FHIR operation for any service module evaluation, versus defining an evaluation specific to a given knowledge artifact.</li>
+	<li>The use of Measure and MeasureReport for public health indicator reporting</li>
+	<li>Enabling population level query</li>
+	<li>The use of FHIR Bulk Data as a mechanism to enable population-level quality reporting</li>
 	<li>The use of FHIR interactions in general as a mechanism for enabling knowledge artifact repository and distribution functionality.</li>
 </ul>
 <p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
 
 <a name="background"></a>
@@ -216,9 +255,9 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 
 <p>The FHIR Clinical Reasoning module is sponsored by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure and Service Oriented Architecture HL7 Work Groups.</p>
 
-<p>The guidance in this module is prepared as a Universal Realm Specification with support from the <a href="http://cqframework.info">Clinical Quality Framework (CQF) initiative</a>, which is a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S. Office of the National Coordinator for Health Information Technology (ONC) to identify, develop, and harmonize standards for clinical decision support and electronic clinical quality measurement.</p>
+<p>The guidance in this module was prepared as a Universal Realm Specification with support from the <a href="https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home">Clinical Quality Framework (CQF) initiative</a>, which was a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S. Office of the National Coordinator for Health Information Technology (ONC) to identify, develop, and harmonize standards for clinical decision support and electronic clinical quality measurement. The <a href="https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework">Clinical Quality Framework</a> effort transitioned to HL7's Clinical Quality Information (CQI) and Clinical Decision Support (CDS) Work Groups in 2016.</p>
 
-<p>The Clinical Quality Framework initiative has focused on harmonizing the historically disjointed specifications used by the Clinical Quality Measurement and Clinical Decision Support communities. Specifically, the initiative has focused on the specifications used to represent knowledge artifacts within the two communities. The strategy employed has been to break the conceptual content of knowledge artifacts into three core components, to define common standards for these core components, and to re-use these common standards for both clinical decision support and clinical quality measurement:</p>
+<p>The Clinical Quality Framework is focused on harmonizing the historically disjointed specifications used by the Clinical Quality Measurement and Clinical Decision Support communities. Specifically, the initiative has focused on the specifications used to represent knowledge artifacts within the two communities. The strategy employed has been to break the conceptual content of knowledge artifacts into three core components, to define common standards for these core components, and to re-use these common standards for both clinical decision support and clinical quality measurement:</p>
 
 <ul>
 	<li>Metadata - Descriptive information about the artifact and its content</li>

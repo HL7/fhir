@@ -1,40 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-  <blockquote class="stu-note">
-
-    <a name="dstu">
-    </a>
-
-
-    <p><strong>Note to balloters</strong> The Orders and Observations work-group has considerably changed this resource and wants to draw the attention of reviewers and implementers.</p>
-    <ul>
-    <li><p><strong>Device is an "instance", DeviceDefinition is a "kind"</strong></p>
-    <p>Previously, the Device resource represented both an ‘instance’ of a device (e.g., an IM pin with serial number 123) and a ‘kind’ of device (e.g.,  3ml syringes). To differentiate the kind of device from the instance of a device, several proposals have been put forth:</p>
-    <ol>
-    <li><strong>Create separate resources for kind vs instance of Device</strong> (current choice)</li>
-    <li>Create a Device profile to represent a Device Kind</li>
-    <li>Reorder the elements and group by kind and instance within the Device resource. </li>
-    </ol>
-     <p>More details on these options can be found <a href="http://confluence.hl7.org:8090/display/OO/Device+Resource+Harmonization">here</a>.</p>
-
-    </li>
-    </ul>
-    <ul>
-    <li><p><strong>Representation multipart devices including UDI</strong></p>
-    <p>Both Device and DeviceDefinition resources allow nesting of parts, each of them having a UDI representation.</p>
-    <ol>
-    <li>Change Device to support a device that has zero to one DIs (represent type) with multiple UDIs (instance). </li>
-    <li>In addition to option 2 above, add an element to Device to be able reference other Devices resources. This would allow representation of a number of inter-related devices within a device system.  This option is similar to the Device harmonization discussion below.</li>
-    </ol>
-    </li>
-    <li><p><strong>Harmonization between Personal Healthcare Devices (PHD) with Point of Care Device (POCD)</strong></p>
-    <p>  These resources aim to harmonize the representation of simpler Personal Healthcare Devices (PHD) with Point of Care Device (POCD) by merging DeviceComponent within Device and allow multiple component Devices reference the 'parent' device.</p>
-    </li>
-    </ul>
-
-
-  </blockquote>
 
 <a name="scope"></a>
 <h2>Scope and Usage</h2>

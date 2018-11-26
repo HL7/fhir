@@ -32,7 +32,7 @@ check whether a given code or concept is in the value set in a particular contex
 Value Sets are used by many resources:
 </p>
 <ul>
- <li>Value sets use <a href="codesystem.html">CodeSystem</a> resources by referring to them via their canonical URL.</li>
+ <li>Value sets use <a href="codesystem.html">CodeSystem</a> resources by referring to them via their canonical reference.</li>
  <li>Value sets are used in <a href="structuredefinition.html">StructureDefinition</a>,  
    <a href="operationdefinition.html#OperationDefinition">OperationDefinition</a>, <a href="questionnaire.html">Questionnaire</a>, and other resources 
    to specify the allowable contents for coded elements, or business rules for data processing</li>
@@ -49,7 +49,7 @@ The Characteristics of the <code>ValueSet</code> resource are derived from Forma
  <li>The ValueSet resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification, along 
  with metadata in the HL7 Value Set Definition specification. Value set resources can be converted to CTS2 
  value set or code system instances.</li>
- <li>The value set resource is aligned with the <a href="http://wiki.hl7.org/index.php?title=Value_Set_Definition_Standard_Project">Value Set Definition</a> (VSD) project. 
+ <li>The value set resource is aligned with the <a href="https://confluence.hl7.org/display/VOC/Characteristics+of+a+Value+Set+Definition+%28VSD%29+Project">Value Set Definition</a> (VSD) project. 
  Not all of the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">ValueSet Extensions</a>.
  In the ValueSet resource, the <code>compose</code> element is the VSD "Content Logical definition".</li>
 </ul>

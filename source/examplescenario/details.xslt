@@ -297,7 +297,7 @@
 									<a rel="license" style="color: #81BEF7" href="license.html">
 										<img src="cc0.png" alt="CC0" style="border-style: none;"/>
 									</a> | 
-									<a style="color: #81BEF7" href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677" target="_blank">Propose a change <img src="external.png" style="text-align: baseline"/>
+									<a style="color: #81BEF7" href="http://hl7.org/fhir-issues" target="_blank">Propose a change <img src="external.png" style="text-align: baseline"/>
 									</a>   
 								</span>
 							</p>
