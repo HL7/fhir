@@ -44,6 +44,19 @@ group Claim(source src : ClaimR3, target tgt : Claim) extends DomainResource <<t
     vs.role -> vt.role;
     vs.qualification -> vt.qualification;
   };
+  src.information as vs -> tgt.supportingInfo as vt then {
+    vs.sequence -> vt.sequence;
+    vs.category -> vt.category;
+    vs.code -> vt.code;
+    vs.timing : date as vs0 -> vt.timing = create("date") as vt0 then date(vs0, vt0);
+    vs.timing : Period as vs0 -> vt.timing as vt0 then Period(vs0, vt0);
+    vs.value : boolean as vs0 -> vt.value = create("boolean") as vt0 then boolean(vs0, vt0);
+    vs.value : string as vs0 -> vt.value = create("string") as vt0 then string(vs0, vt0);
+    vs.value : Quantity as vs0 -> vt.value = create("Quantity") as vt0 then Quantity(vs0, vt0);
+    vs.value : Attachment as vs0 -> vt.value = create("Attachment") as vt0 then Attachment(vs0, vt0);
+    vs.value : Reference as vs0 -> vt.value = create("Reference") as vt0 then Reference(vs0, vt0);
+    vs.reason -> vt.reason;
+  };
   src.diagnosis as vs -> tgt.diagnosis as vt then {
     vs.sequence -> vt.sequence;
     vs.diagnosis : Reference as vs0 -> vt.diagnosis = create("Reference") as vt0 then Reference(vs0, vt0);
@@ -89,7 +102,7 @@ group Claim(source src : ClaimR3, target tgt : Claim) extends DomainResource <<t
     vs.bodySite -> vt.bodySite;
     vs.subSite -> vt.subSite;
     vs.encounter -> vt.encounter;
-    vs.detail as vsd -> vt.detail as vtd then {
+    vs.detail as vsd -> vt.detail as vst then {
       vsd.sequence -> vst.sequence;
       vsd.revenue -> vst.revenue;
       vsd.category -> vst.category;
@@ -101,7 +114,7 @@ group Claim(source src : ClaimR3, target tgt : Claim) extends DomainResource <<t
       vsd.factor -> vst.factor;
       vsd.net -> vst.net;
       vsd.udi -> vst.udi;
-      vsd.subDetail as vsds -> vst.detail as vsts then {
+      vsd.subDetail as vsds -> vst.subDetail as vsts then {
         vsds.sequence -> vsts.sequence;
         vsds.revenue -> vsts.revenue;
         vsds.category -> vsts.category;
