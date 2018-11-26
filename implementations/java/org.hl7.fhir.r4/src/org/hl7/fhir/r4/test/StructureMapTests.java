@@ -33,7 +33,7 @@ public class StructureMapTests {
     	TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.content(), "definitions.xml.zip"));
     
     StructureMapUtilities scm = new StructureMapUtilities(TestingUtilities.context, null, null);
-    StructureMap map = scm.parse(TextFile.fileToString(Utilities.path(TestingUtilities.home(), path)));
+    StructureMap map = scm.parse(TextFile.fileToString(Utilities.path(TestingUtilities.home(), path)), path);
     TextFile.stringToFile(scm.render(map, false), Utilities.path(TestingUtilities.home(), path+".out"));
   }
   

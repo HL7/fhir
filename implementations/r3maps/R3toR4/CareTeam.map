@@ -11,17 +11,19 @@ group CareTeam(source src : CareTeamR3, target tgt : CareTeam) extends DomainRes
   src.category -> tgt.category;
   src.name -> tgt.name;
   src.subject -> tgt.subject;
-  src.context -> tgt.context;
+  src.context -> tgt.encounter;
   src.period -> tgt.period;
-  src.participant as vs0 -> tgt.participant as vt0 then {
-    vs0.role -> vt0.role;
-    vs0.member -> vt0.member;
-    vs0.onBehalfOf -> vt0.onBehalfOf;
-    vs0.period -> vt0.period;
-  };
+  src.participant as vs0 -> tgt.participant as vt0 then participant(vs0, vt0);
   src.reasonCode -> tgt.reasonCode;
   src.reasonReference -> tgt.reasonReference;
   src.managingOrganization -> tgt.managingOrganization;
   src.note -> tgt.note;
 }
 
+
+group participant(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.role;
+  src.member -> tgt.member;
+  src.onBehalfOf -> tgt.onBehalfOf;
+  src.period -> tgt.period;
+}

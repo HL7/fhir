@@ -1962,12 +1962,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     String fwdsStatus =  "";
     String bcksStatus =  "";
     try {
-      new StructureMapUtilities(workerContext).parse(fwds);
+      new StructureMapUtilities(workerContext).parse(fwds, r3nameForResource(name)+".map");
     } catch (FHIRException e) {
       fwdsStatus = "<p style=\"background-color: #ffb3b3; border:1px solid maroon; padding: 5px;\">This script does not compile: "+e.getMessage()+"</p>\r\n";
     }
     try {
-      new StructureMapUtilities(workerContext).parse(bcks);
+      new StructureMapUtilities(workerContext).parse(bcks, name+".map");
     } catch (FHIRException e) {
       bcksStatus = "<p style=\"background-color: #ffb3b3; border:1px solid maroon; padding: 5px;\">This script does not compile: "+e.getMessage()+"</p>\r\n";
     }

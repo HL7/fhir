@@ -50,6 +50,6 @@ group parameter(source src, target tgt) extends BackboneElement {
 group binding(source src, target tgt) extends BackboneElement {
   src.strength -> tgt.strength;
   src.valueSet as vs0 where value.startsWith('http://hl7.org').not() -> tgt.valueSet = create("uri") as vt0 then canonical2Uri(vs0, vt0) "valueSetU";
-  src.valueSet as vs0 where value.startsWith('http://hl7.org') -> tgt.valueSet = create("Reference") as vt0 then Canonical2Reference(vs0, vt0) "valueSetR";
+  src.valueSet as vs0 where value.startsWith('http://hl7.org') -> tgt.valueSet = create("Reference") as vt0 then canonical2Reference(vs0, vt0) "valueSetR";
 }
 

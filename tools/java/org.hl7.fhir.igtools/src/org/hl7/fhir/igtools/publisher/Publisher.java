@@ -2661,7 +2661,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       try {
         ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
         if (n == null) {
-          n = fpe.parse(inv.getExpression());
+          n = fpe.parse(inv.getExpression(), sd.getUrl()+"#"+ed.getId()+" / "+inv.getKey());
           inv.setUserData("validator.expression.cache", n);
         }
         fpe.check(null, sd, ed.getPath(), n);

@@ -22,9 +22,9 @@ group ConceptMap(source src : ConceptMap, target tgt : ConceptMapR3) extends Dom
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
   src.source : uri as vs0 -> tgt.source = create("uri") as vt0 then uri(vs0, vt0);
-  src.source : canonical as vs0 -> tgt.source = create("Reference") as vt0 then Canonical2Reference(vs0, vt0);
+  src.source : canonical as vs0 -> tgt.source = create("Reference") as vt0 then canonical2Reference(vs0, vt0);
   src.target : uri as vs0 -> tgt.target = create("uri") as vt0 then uri(vs0, vt0) "targetU";
-  src.target : canonical as vs0 -> tgt.target = create("Reference") as vt0 then Canonical2Reference(vs0, vt0);
+  src.target : canonical as vs0 -> tgt.target = create("Reference") as vt0 then canonical2Reference(vs0, vt0);
   src.group as vs0 -> tgt.group as vt0 then group(vs0, vt0);
 }
 

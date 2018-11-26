@@ -3062,12 +3062,12 @@ public class Publisher implements URIResolver, SectionNumberer {
     values.put("bcks-status", "");
     values.put("r3errs", Utilities.escapeXml(page.getR3R4ValidationErrors(name)));
     try {
-      new StructureMapUtilities(page.getWorkerContext()).parse(fwds);
+      new StructureMapUtilities(page.getWorkerContext()).parse(fwds, page.r3nameForResource(name)+".map");
     } catch (FHIRException e) {
       values.put("fwds-status", "<p style=\"background-color: #ffb3b3; border:1px solid maroon; padding: 5px;\">This script does not compile: "+e.getMessage()+"</p>\r\n");
     }
     try {
-      new StructureMapUtilities(page.getWorkerContext()).parse(bcks);
+      new StructureMapUtilities(page.getWorkerContext()).parse(bcks, name+".map");
     } catch (FHIRException e) {
       values.put("bcks-status", "<p style=\"background-color: #ffb3b3; border:1px solid maroon; padding: 5px;\">This script does not compile: "+e.getMessage()+"</p>\r\n");
     }

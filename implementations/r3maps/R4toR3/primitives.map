@@ -159,3 +159,24 @@ group string2uri(source src : string, target tgt : uriR3) extends Element <<type
   src.value as v -> tgt.value = v "code2uri-value";
 }
 
+group decimal2unsignedInt(source src : decimal, target tgt : unsignedIntR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "unsignedInt2decimal-value";
+}
+
+group canonical2string(source src : canonical, target tgt : stringR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2uri-value";
+}
+
+group oid2string(source src : string, target tgt : oidR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v;
+}
+
+group id2oid(source src : id, target tgt : oidR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v;
+}
+
+group code2oid(source src : code, target tgt : oidR3) extends Element <<type+>> {
+  src.value as v -> tgt.value = v;
+}
+
+
