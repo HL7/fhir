@@ -17166,28 +17166,28 @@
       "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
     },
     "f001": {
-      "execution": "Exception executing transform tgt.status \u003d create() as vvv on Rule \"status\": Attempt to get types for an invalid property \u0027status\u0027 on type Goal"
+      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
     },
     "f002": {
-      "execution": "Exception executing transform tgt.status \u003d create() as vvv on Rule \"status\": Attempt to get types for an invalid property \u0027status\u0027 on type Goal"
+      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
     },
     "f003": {
-      "execution": "Exception executing transform tgt.status \u003d create() as vvv on Rule \"status\": Attempt to get types for an invalid property \u0027status\u0027 on type Goal"
+      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
     },
     "f201": {
-      "execution": "Exception executing transform tgt.status \u003d create() as vvv on Rule \"status\": Attempt to get types for an invalid property \u0027status\u0027 on type Goal"
+      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
     },
     "f202": {
-      "execution": "Exception executing transform tgt.status \u003d create() as vvv on Rule \"status\": Attempt to get types for an invalid property \u0027status\u0027 on type Goal"
+      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
     },
     "f203": {
-      "execution": "Exception executing transform tgt.status \u003d create() as vvv on Rule \"status\": Attempt to get types for an invalid property \u0027status\u0027 on type Goal"
+      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
     },
     "integrate": {
       "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
     },
     "obesity-narrative": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type CarePlan"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R4toR3\\CarePlan.map at 53, 4: Found \"src\" expecting \";\""
     },
     "preg": {
       "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
@@ -18301,18 +18301,18 @@
   },
   "Flag": {
     "example": {
-      "execution": "Attempt to read invalid property \u0027categoryFirstRep\u0027 on type Flag"
+      "execution": true
     },
     "example-encounter": {
-      "execution": "Attempt to read invalid property \u0027categoryFirstRep\u0027 on type Flag"
+      "execution": true
     }
   },
   "Goal": {
     "example": {
-      "execution": "Exception executing transform tgt.status \u003d create() as vvv on Rule \"status\": Attempt to get types for an invalid property \u0027status\u0027 on type Goal"
+      "execution": true
     },
     "stop-smoking": {
-      "execution": "Exception executing transform tgt.status \u003d create() as vvv on Rule \"status\": Attempt to get types for an invalid property \u0027status\u0027 on type Goal"
+      "execution": true
     }
   },
   "GraphDefinition": {
