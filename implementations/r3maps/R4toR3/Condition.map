@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Condition" alias ConditionR3 a
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Condition(source src : ConditionR3, target tgt : Condition) extends DomainResource <<type+>> {
+group Condition(source src : Condition, target tgt : ConditionR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.clinicalStatus as vs then {
     vs.coding as c where system = 'http://terminology.hl7.org/CodeSystem/condition-clinical' then {

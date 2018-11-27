@@ -9,10 +9,11 @@ group Goal(source src : Goal, target tgt : GoalR3) extends DomainResource <<type
   src.identifier -> tgt.identifier;
   src.lifecycleStatus where value in 'proposed' | 'planned' | 'accepted' | 'on-hold' | 'cancelled' | 'entered-in-error' | 'rejected' -> tgt.status;
   src.lifecycleStatus where value = 'completed' -> tgt.status = 'achieved';
-  src.achievementStatus where value in 'in-progress' | 'sustaining' -> tgt.status;
-  src.achievementStatus where value = 'sustaining' -> tgt.status = 'on-target';
-  src.achievementStatus where value = 'improving' -> tgt.status = 'ahead-of-target';
-  src.achievementStatus where value = 'worsening' -> tgt.status = 'behind-target';
+  src.achievementStatus where coding.where(system = 'http://terminology.hl7.org/CodeSystem/goal-achievement' and code = 'in-progress').exists() -> tgt.status = 'in-progress';
+  src.achievementStatus where coding.where(system = 'http://terminology.hl7.org/CodeSystem/goal-achievement' and code = 'sustaining').exists() -> tgt.status = 'sustaining';
+  src.achievementStatus where coding.where(system = 'http://terminology.hl7.org/CodeSystem/goal-achievement' and code = 'sustaining') -> tgt.status = 'on-target';
+  src.achievementStatus where coding.where(system = 'http://terminology.hl7.org/CodeSystem/goal-achievement' and code = 'improving') -> tgt.status = 'ahead-of-target';
+  src.achievementStatus where coding.where(system = 'http://terminology.hl7.org/CodeSystem/goal-achievement' and code = 'worsening') -> tgt.status = 'behind-target';
   src.category -> tgt.category;
   src.priority -> tgt.priority;
   src.description -> tgt.description;

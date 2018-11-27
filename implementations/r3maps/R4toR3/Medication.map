@@ -32,7 +32,7 @@ group ingredient(source src, target tgt) extends BackboneElement {
   src.strength -> tgt.amount;
 }
 
-group package(source src, target tgt) extends BackboneElement {
+group package(source src, target tgt) {
   src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MedicationContainer' then {
     e.value -> tgt.container;
   };

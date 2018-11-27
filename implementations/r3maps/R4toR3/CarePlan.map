@@ -48,7 +48,7 @@ group detail(source src, target tgt) extends BackboneElement {
   src.goal -> tgt.goal;
   src.status -> tgt.status;
   src.statusReason as s then {
-    s.texts -> tgt.statusReason;
+    s.text -> tgt.statusReason;
   };
   src.doNotPerform -> tgt.prohibited;
   src.scheduled : Timing as s -> tgt.scheduled = create('Timing') as t then Timing(s, t);

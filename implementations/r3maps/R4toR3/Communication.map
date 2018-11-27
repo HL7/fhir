@@ -7,31 +7,32 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group Communication(source src : CommunicationR3, target tgt : Communication) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.instantiatesCanonical -> tgt.instantiatesCanonical;
-  src.instantiatesUri -> tgt.instantiatesUri;
+  src.instantiatesCanonical -> tgt.definition;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
-  src.inResponseTo -> tgt.inResponseTo;
-  src.status -> tgt.status;
-  src.statusReason -> tgt.statusReason;
+  src.status where value != 'not-done' -> tgt.status;
+  src.status as v where value = 'not-done' -> tgt.status = 'completed', tgt.notDone = v;
+  src.statusReason where src.status = 'not-done'  -> tgt.notDoneReason;  
   src.category -> tgt.category;
-  src.priority -> tgt.priority;
   src.medium -> tgt.medium;
   src.subject -> tgt.subject;
-  src.topic -> tgt.topic;
-  src.about -> tgt.about;
-  src.context -> tgt.context;
+  src.recipient -> tgt.recipient;
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34CommunicationTopic' then {
+    e.value -> tgt.topic;
+  };
+  src.encounter -> tgt.context;
   src.sent -> tgt.sent;
   src.received -> tgt.received;
-  src.recipient -> tgt.recipient;
   src.sender -> tgt.sender;
   src.reasonCode -> tgt.reasonCode;
   src.reasonReference -> tgt.reasonReference;
-  src.payload as s -> tgt.payload as t then CommunicationPayload(s, t);
+  src.payload as s -> tgt.payload as t then payload(s, t);
   src.note -> tgt.note;
 }
 
-group CommunicationPayload(source src : CommunicationR3, target tgt : Communication) extends BackboneElement <<type+>> {
-  src.content -> tgt.content;
+group payload(source src, target tgt) extends BackboneElement {
+  src.content : string as s -> tgt.content = create('string') as t then string(s, t);
+  src.content : Attachment as s -> tgt.content = create('Attachment') as t then Attachment(s, t);
+  src.content : Reference as s -> tgt.content = create('Reference') as t then Reference(s, t);
 }
 

@@ -17160,7 +17160,7 @@
   },
   "CarePlan": {
     "example": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/Condition",
+      "execution": true,
       "r4.errors": [
         "WARNING @ CarePlan.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ CarePlan.addresses.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
@@ -17168,7 +17168,7 @@
       ]
     },
     "gpvisit": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/Condition",
+      "execution": true,
       "r4.errors": [
         "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
@@ -17222,7 +17222,7 @@
       ]
     },
     "f202": {
-      "execution": "Attempt to read invalid property \u0027amount\u0027 on type Medication.ingredient",
+      "execution": true,
       "r4.errors": [
         "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
@@ -17250,7 +17250,7 @@
       ]
     },
     "integrate": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/Condition",
+      "execution": true,
       "r4.errors": [
         "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
@@ -17286,7 +17286,7 @@
       "execution": true
     },
     "preg": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/Condition",
+      "execution": true,
       "r4.errors": [
         "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
@@ -17478,21 +17478,40 @@
   },
   "Communication": {
     "example": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Communication"
+      "execution": true
     },
     "fm-attachment": {
-      "execution": "No matches found for rule for \u0027Reference to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Communication3to4, from rule \u0027topic\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Communication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34CommunicationTopic is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Communication.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34CommunicationTopic is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "fm-solicited": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027CommunicationRequest\u0027 in http://hl7.org/fhir/StructureMap/CommunicationRequest3to4 (CommunicationRequest) and http://hl7.org/fhir/StructureMap/CommunicationRequest3to4 (CommunicationRequestPayload)"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Communication.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Communication.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Communication.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Communication.recipient.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Communication.sender.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     }
   },
   "CommunicationRequest": {
     "example": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type CommunicationRequest"
+      "execution": true
     },
     "fm-solicit": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type CommunicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ CommunicationRequest.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CommunicationRequest.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CommunicationRequest.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CommunicationRequest.requester.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CommunicationRequest.recipient.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CommunicationRequest.sender.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     }
   },
   "CompartmentDefinition": {
@@ -18755,7 +18774,6 @@
     },
     "medadmin0305": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0].package: missing property id",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ MedicationAdministration.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -18792,7 +18810,6 @@
     },
     "medadmin0309": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0].package: missing property id",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ MedicationAdministration.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -18855,7 +18872,6 @@
     },
     "meddisp0302": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0].package: missing property id",
       "r4.errors": [
         "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -18990,7 +19006,6 @@
     },
     "meddisp0317": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0].package: missing property id",
       "r4.errors": [
         "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19018,7 +19033,6 @@
     },
     "meddisp0320": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0].package: missing property id",
       "r4.errors": [
         "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19112,7 +19126,6 @@
   "Medication": {
     "med0301": {
       "execution": true,
-      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19136,7 +19149,6 @@
     },
     "med0303": {
       "execution": true,
-      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19149,7 +19161,6 @@
     },
     "med0304": {
       "execution": true,
-      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19162,7 +19173,6 @@
     },
     "med0305": {
       "execution": true,
-      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19175,7 +19185,6 @@
     },
     "med0306": {
       "execution": true,
-      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19185,7 +19194,6 @@
     },
     "med0307": {
       "execution": true,
-      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19198,7 +19206,6 @@
     },
     "med0308": {
       "execution": true,
-      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "WARNING @ Medication.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ Medication.contained[1].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19213,7 +19220,6 @@
     },
     "med0309": {
       "execution": true,
-      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19278,7 +19284,6 @@
     },
     "med0318": {
       "execution": true,
-      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)"
@@ -19311,7 +19316,6 @@
     },
     "medexample015": {
       "execution": true,
-      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "WARNING @ Medication.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ Medication.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
@@ -19435,7 +19439,6 @@
     },
     "medrx0316": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0].package: missing property id",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19479,7 +19482,6 @@
     },
     "medrx0321": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0].package: missing property id",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19506,7 +19508,6 @@
     },
     "medrx0323": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0].package: missing property id",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19627,7 +19628,7 @@
   "MedicationStatement": {
     "example001": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0].package: missing property id",
+      "round-trip": "properties differ at : missing property reasonCode",
       "r4.errors": [
         "WARNING @ MedicationStatement.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ MedicationStatement.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19639,7 +19640,6 @@
     },
     "example002": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0].package: missing property id",
       "r4.errors": [
         "WARNING @ MedicationStatement.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ MedicationStatement.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
