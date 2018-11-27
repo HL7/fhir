@@ -7,8 +7,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group CarePlan(source src : CarePlanR3, target tgt : CarePlan) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.instantiatesCanonical -> tgt.instantiatesCanonical;
-  src.instantiatesUri -> tgt.instantiatesUri;
+  src.instantiatesCanonical -> tgt.definition;
   src.basedOn -> tgt.basedOn;
   src.replaces -> tgt.replaces;
   src.partOf -> tgt.partOf;
@@ -18,42 +17,47 @@ group CarePlan(source src : CarePlanR3, target tgt : CarePlan) extends DomainRes
   src.title -> tgt.title;
   src.description -> tgt.description;
   src.subject -> tgt.subject;
-  src.context -> tgt.context;
+  src.encounter -> tgt.context;
   src.period -> tgt.period;
-  src.created -> tgt.created;
   src.author -> tgt.author;
   src.contributor -> tgt.contributor;
   src.careTeam -> tgt.careTeam;
   src.addresses -> tgt.addresses;
   src.supportingInfo -> tgt.supportingInfo;
   src.goal -> tgt.goal;
-  src.activity as s -> tgt.activity as t then CarePlanActivity(s, t);
+  src.activity as vs -> tgt.activity as vt then activity(vs, vt);
   src.note -> tgt.note;
 }
 
-group CarePlanActivity(source src : CarePlanR3, target tgt : CarePlan) extends BackboneElement <<type+>> {
+group activity(source src, target tgt) extends BackboneElement {
   src.outcomeCodeableConcept -> tgt.outcomeCodeableConcept;
   src.outcomeReference -> tgt.outcomeReference;
   src.progress -> tgt.progress;
   src.reference -> tgt.reference;
-  src.detail as s -> tgt.detail as t then CarePlanActivityDetail(s, t);
+  src.detail as vs -> tgt.detail as vt then detail(vs, vt);
 }
 
-group CarePlanActivityDetail(source src : CarePlanR3, target tgt : CarePlan) extends BackboneElement <<type+>> {
-  src.kind -> tgt.kind;
-  src.instantiatesCanonical -> tgt.instantiatesCanonical;
-  src.instantiatesUri -> tgt.instantiatesUri;
+group detail(source src, target tgt) extends BackboneElement {
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34GoalCategory' then {
+    e.value -> tgt.category;
+  };
+  src.instantiatesCanonical -> tgt.definition;
   src.code -> tgt.code;
   src.reasonCode -> tgt.reasonCode;
   src.reasonReference -> tgt.reasonReference;
   src.goal -> tgt.goal;
   src.status -> tgt.status;
-  src.statusReason -> tgt.statusReason;
-  src.doNotPerform -> tgt.doNotPerform;
-  src.scheduled -> tgt.scheduled;
+  src.statusReason as s then {
+    s.texts -> tgt.statusReason;
+  };
+  src.doNotPerform -> tgt.prohibited;
+  src.scheduled : Timing as s -> tgt.scheduled = create('Timing') as t then Timing(s, t);
+  src.scheduled : Period as s -> tgt.scheduled = create('Period') as t then Period(s, t);
+  src.scheduled : string as s -> tgt.scheduled = create('string') as t then string(s, t);
   src.location -> tgt.location;
   src.performer -> tgt.performer;
-  src.product -> tgt.product;
+  src.product : CodeableConcept as s -> tgt.product = create('CodeableConcept') as t then CodeableConcept(s, t);
+  src.product : Reference as s -> tgt.product = create('Reference') as t then Reference(s, t);
   src.dailyAmount -> tgt.dailyAmount;
   src.quantity -> tgt.quantity;
   src.description -> tgt.description;

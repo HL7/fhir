@@ -7,14 +7,14 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 group Condition(source src : ConditionR3, target tgt : Condition) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.clinicalStatus -> tgt.clinicalStatus;
-  src.verificationStatus -> tgt.verificationStatus;
+  src.clinicalStatus as vs -> tgt.clinicalStatus as vt, vt.coding as c, c.system = 'http://terminology.hl7.org/CodeSystem/condition-clinical', c.code = vs;
+  src.verificationStatus as vs -> tgt.verificationStatus as vt, vt.coding as c, c.system = 'http://terminology.hl7.org/CodeSystem/condition-ver-status', c.code = vs;
   src.category -> tgt.category;
   src.severity -> tgt.severity;
   src.code -> tgt.code;
   src.bodySite -> tgt.bodySite;
   src.subject -> tgt.subject;
-  src.context -> tgt.context;
+  src.context -> tgt.encounter;
   src.onset : dateTime as vs -> tgt.onset = create("dateTime") as vt then dateTime(vs, vt);
   src.onset : Age as vs -> tgt.onset = create("Age") as vt then Age(vs, vt);
   src.onset : Period as vs -> tgt.onset = create("Period") as vt then Period(vs, vt);
@@ -25,16 +25,21 @@ group Condition(source src : ConditionR3, target tgt : Condition) extends Domain
   src.abatement : Period as vs -> tgt.abatement = create("Period") as vt then Period(vs, vt);
   src.abatement : Range as vs -> tgt.abatement = create("Range") as vt then Range(vs, vt);
   src.abatement : string as vs -> tgt.abatement = create("string") as vt then string(vs, vt);
-  src.assertedDate -> tgt.recordedDate "recordedDate";
+  src.assertedDate -> tgt.recordedDate;
   src.asserter -> tgt.asserter;
-  src.stage as vs0 -> tgt.stage as vt0 then {
-    vs0.summary -> vt0.summary;
-    vs0.assessment -> vt0.assessment;
-  };
-  src.evidence as vs0 -> tgt.evidence as vt0 then {
-    vs0.code -> vt0.code;
-    vs0.detail -> vt0.detail;
-  };
+  src.stage as s -> tgt.stage as t then stage(s, t);
+  src.evidence as s -> tgt.evidence as t then evidence(s, t);
   src.note -> tgt.note;
+}
+
+group stage(source src, target tgt) extends BackboneElement {
+  src.summary -> tgt.summary;
+  src.assessment -> tgt.assessment;
+  src.type -> tgt.type;
+}
+
+group evidence(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.detail -> tgt.detail;
 }
 

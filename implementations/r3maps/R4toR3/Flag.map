@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group Flag(source src : Flag, target tgt : FlagR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
-  src.categoryFirstRep -> tgt.category "category";
+  src.category -> tgt.category;
   src.code -> tgt.code;
   src.subject -> tgt.subject;
   src.period -> tgt.period;

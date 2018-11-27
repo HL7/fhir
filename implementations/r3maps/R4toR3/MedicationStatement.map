@@ -10,7 +10,9 @@ group MedicationStatement(source src : MedicationStatement, target tgt : Medicat
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
   src.context -> tgt.context;
-  src.status -> tgt.status;
+    // 2 conversion methods: R3 round-trip, and non-R3 sourced
+  src where src.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus').exists() then statusR3(src, tgt);
+  src where src.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus').empty() then statusNR3(src, tgt);
   src.category -> tgt.category;
   src.medication : CodeableConcept as vs -> tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
   src.medication : Reference as vs -> tgt.medication = create("Reference") as vt then Reference(vs, vt);
@@ -20,9 +22,24 @@ group MedicationStatement(source src : MedicationStatement, target tgt : Medicat
   src.informationSource -> tgt.informationSource;
   src.subject -> tgt.subject;
   src.derivedFrom -> tgt.derivedFrom;
-  src.reasonCode -> tgt.reasonCode;
+  src.reasonCode where src.status = 'not-taken' -> tgt.reasonNotTaken;
+  src.reasonCode where src.status != 'not-taken'  -> tgt.reasonCode;
   src.reasonReference -> tgt.reasonReference;
   src.note -> tgt.note;
   src.dosage -> tgt.dosage;
 }
 
+group statusR3(source src, target tgt) {
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MedStatementTaken' then {
+    e.value -> tgt.taken;
+  };
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus' then {
+    e.value -> tgt.status;
+  };
+}
+
+group statusNR3(source src, target tgt) {
+  src.status where (value in 'not-taken' | 'unknown').not()  -> tgt.status;
+  src.status where value = 'not-taken' -> tgt.status = 'completed', tgt.taken = 'n';
+  src.status where value = 'unknown' -> tgt.status = 'completed', tgt.taken = 'unk';
+}
