@@ -10,11 +10,11 @@ The ClaimResponse resource provides application level adjudication results, or a
  processing system recognizes as a Claim resource.
  </p>
  <p>
- This is the adjudicated response to a Claim, Predetermination or PreAuthorization. The strength 
+ This is the adjudicated response to a Claim, Predetermination or Preauthorization. The strength 
  of the payment aspect of the response is matching to the strength of the original request. For a 
  Claim the adjudication indicates payment which is intended to be made. For Preauthorization no payment will
  actually be made however funds may be reserved to settle a claim submitted later. For 
- Preaetermination no payment will  actually be made and no assurance is given that the adjudication of a claim submitted later will
+ Predetermination no payment will  actually be made and no assurance is given that the adjudication of a claim submitted later will
  match the adjudication provided, for example funds may have been exhausted in the interim. 
  Only an actual claim may be expected to result in actual payment.
  </p>
@@ -29,7 +29,8 @@ Additional information regarding electronic claims content and usage may be foun
 </p>		
 <ul>
 <li><a href="financial-module.html#resource-status">Financial Resource Status Lifecycle</a>: how .status is used in the financial resources.</li>
-<li><a href="financial-module.html#secondary-use">Secondary Use of Resources</a>: how resources such as Claim, ClaimResponse and ExplanationOfBenefit may used for 
+<li><a href="financial-module.html#secondary-use">Secondary Use of Resources</a>: how resources such as Claim, ClaimResponse and ExplanationOfBenefit 
+may be used for 
 		reporting and data exchange for analytics, not just for eClaims exchange between providers and payors.</li>
 <li><a href="financial-module.html#subrogation">Subrogation</a>: how eClaims may handle patient insurance coverages when another insurer rather than 
 the provider will settle the claim and potentially recover costs against specified coverages.</li>
