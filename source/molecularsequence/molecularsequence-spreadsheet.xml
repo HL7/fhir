@@ -4,7 +4,7 @@
   <LastAuthor>Microsoft Office User</LastAuthor>
   <LastPrinted>2015-12-03T17:50:33Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-11-16T21:58:01Z</LastSaved>
+  <LastSaved>2018-11-27T16:25:04Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -4511,7 +4511,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">chromosome &amp; window-start &amp; window-end</Data></Cell>
     <Cell ss:StyleID="s105"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">Search parameter by chromosome and window. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font html:Color="#000000">1-based system</Font></B><Font html:Color="#000000">. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-window-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on chromosome 1 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Font></ss:Data></Cell>
-    <Cell><Data ss:Type="String">MolecularSequence.referenceSeq; chromosome; start; end</Data></Cell>
+    <Cell><Data ss:Type="String">MolecularSequence.referenceSeq; chromosome; windowStart; windowEnd</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="151">
     <Cell ss:StyleID="s105"><Data ss:Type="String">referenceseqid-window-coordinate</Data></Cell>
@@ -4519,7 +4519,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">referenceseqid  &amp; window-start &amp; window-end</Data></Cell>
     <Cell ss:StyleID="s105"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">Search parameter by reference sequence and window. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font html:Color="#000000">1-based system</Font></B><Font html:Color="#000000">. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-window-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on NC_000001.11 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Font></ss:Data></Cell>
-    <Cell><Data ss:Type="String">MolecularSequence.referenceSeq; referenceSeqId; start; end</Data></Cell>
+    <Cell><Data ss:Type="String">MolecularSequence.referenceSeq; referenceSeqId; windowStart; windowEnd</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s105"><Data ss:Type="String">type</Data></Cell>
@@ -4624,7 +4624,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
