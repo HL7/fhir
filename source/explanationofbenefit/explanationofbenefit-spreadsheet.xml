@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1444,7 +1444,7 @@
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String">Explanation of Benefit resource&#10;<B><Font html:Color="#FF0000">Remember to uncomment ProcedureType</Font></B></ss:Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Explanation of Benefit resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3185,7 +3185,7 @@
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="58" ss:StyleID="s104">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">!ExplanationOfBenefit.procedure.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">ExplanationOfBenefit.procedure.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -10032,13 +10032,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>189</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -14217,7 +14216,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s139" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s139" ss:Width="167.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="13" ss:StyleID="s139" ss:Width="107.0"/>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="29">
     <Cell ss:StyleID="s127"><Data ss:Type="String">Binding Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique name across all resources</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Formal description of the types of codes allowed for elements with this binding</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Binding</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">How is the set of codes defined?</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -14232,7 +14231,7 @@
     <Cell ss:StyleID="s128"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">uri of v3 value set mapped to</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unpublished notes</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ICD10</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">ICD10 Diagnostic codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14247,7 +14246,7 @@
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s144"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="43">
     <Cell ss:StyleID="s237"><Data ss:Type="String">Conditions</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication. </Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14262,7 +14261,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">Exception</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Factors which may influence the applicability of coverage.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14277,7 +14276,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s239"><Data ss:Type="String">AccidentType</Data></Cell>
     <Cell ss:StyleID="s142"><Data ss:Type="String">Type of accident: work place, auto, etc.</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
@@ -14292,7 +14291,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ItemType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Service, Product, Rx Dispense, Rx Compound etc.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14307,7 +14306,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">Intervention</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Intervention and exception codes (Pharm)</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14322,7 +14321,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ServiceProduct</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Allowable service and product codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14337,7 +14336,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ServicePlace</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Place where the service is rendered</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14352,7 +14351,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">UDI</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The GUDID (FDA), or other, UDI repository.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14367,7 +14366,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">OralSites</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The code for the teeth, quadrant, sextant and arch</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14382,7 +14381,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">Surface</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The code for the tooth surface and surface combinations</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14397,7 +14396,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="43">
     <Cell ss:StyleID="s237"><Data ss:Type="String">Modifiers</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14412,7 +14411,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">Adjudication</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The adjudication codes.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14427,7 +14426,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">AdjudicationReason</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Adjudication reason codes.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14442,7 +14441,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">PaymentAdjustmentReason</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Payment Adjustment reason codes.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14457,7 +14456,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">OralProsthoMaterial</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Material of the prior denture or bridge prosthesis. (Oral)</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14472,7 +14471,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">Tooth</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The codes for the teeth, subset of OralSites</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14487,7 +14486,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">MissingReason</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Reason codes for the missing teeth</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14502,7 +14501,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s240">
+   <Row ss:Height="29" ss:StyleID="s240">
     <Cell ss:StyleID="s241"><Data ss:Type="String">BenefitCategory</Data></Cell>
     <Cell ss:StyleID="s242"><Data ss:Type="String">Benefit categories such as: oral, medical, vision, oral-basic etc.</Data></Cell>
     <Cell ss:StyleID="s243"><Data ss:Type="String">value set</Data></Cell>
@@ -14517,7 +14516,7 @@
     <Cell ss:StyleID="s243"/>
     <Cell ss:StyleID="s245"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s240">
+   <Row ss:StyleID="s240">
     <Cell ss:StyleID="s241"><Data ss:Type="String">!BenefitCategory</Data></Cell>
     <Cell ss:StyleID="s242"><Data ss:Type="String">Benefit categories such as: oral, medical, vision etc.</Data></Cell>
     <Cell ss:StyleID="s243"><Data ss:Type="String">value set</Data></Cell>
@@ -14532,7 +14531,7 @@
     <Cell ss:StyleID="s243"/>
     <Cell ss:StyleID="s245"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s240">
+   <Row ss:StyleID="s240">
     <Cell ss:StyleID="s241"><Data ss:Type="String">!BenefitSubCategory</Data></Cell>
     <Cell ss:StyleID="s242"><Data ss:Type="String">Benefit subcategories such as: oral-basic, major, glasses</Data></Cell>
     <Cell ss:StyleID="s243"><Data ss:Type="String">value set</Data></Cell>
@@ -14547,7 +14546,7 @@
     <Cell ss:StyleID="s243"/>
     <Cell ss:StyleID="s245"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">BenefitType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Deductable, visits, co-pay, etc.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14562,7 +14561,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">BenefitNetwork</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Code to classify in or out of network services</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14577,7 +14576,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">BenefitUnit</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Unit covered/serviced - individual or family</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14592,7 +14591,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">BenefitTerm</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Coverage unit - annual, lifetime</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14607,7 +14606,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">!ClaimSubType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">A more granular claim typecode</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14622,7 +14621,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">RelatedClaimRelationship</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Relationship of this claim to a related Claim</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14637,7 +14636,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">!OccurrenceCodes</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Occurrence codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14652,7 +14651,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">!OccurrenceSpanCodes</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Occurrence Span codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14667,7 +14666,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">!ValueCodes</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Value code</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14682,7 +14681,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ProviderQualification</Data></Cell>
     <Cell><Data ss:Type="String">Provider professional qualifications</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14697,7 +14696,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ServiceModifiers</Data></Cell>
     <Cell><Data ss:Type="String">Factors which may influce adjudication of services</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14712,7 +14711,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="29">
     <Cell ss:StyleID="s237"><Data ss:Type="String">ICD10_Procedures</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">ICD10 Procedure codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14726,7 +14725,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"><Data ss:Type="String">http://hl7.org/fhir/sid/icd-10</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ProgramCode</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Program specific reason codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14741,7 +14740,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">OnsetType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Condition related start, end  and period codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14756,7 +14755,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">InformationCode</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The valuset used for additional information codes.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14771,7 +14770,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">InformationCategory</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The valuset used for additional information category codes.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14786,7 +14785,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">InformationReason</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Reason codes for the missing teeth</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14801,7 +14800,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">PayeeResourceType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The type of payee Resource</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">code list</Data></Cell>
@@ -14816,7 +14815,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">CareTeamRole</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The role codes for the care team members.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14831,21 +14830,21 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s247"><Data ss:Type="String">DiagnosisRelatedGroup</Data></Cell>
     <Cell><Data ss:Type="String">The DRG codes associated with the diagnosis</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s247"><Data ss:Type="String">DiagnosisType</Data></Cell>
     <Cell><Data ss:Type="String">The type of the diagnosis: admitting, principal, discharge</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">http://hl7.org/fhir/ValueSet/ex-diagnosistype</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s146"><Data ss:Type="String">RemittanceOutcome</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The result of the claim processing</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14860,7 +14859,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">PaymentType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The type (partial, complete) of the payment</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14875,7 +14874,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s250">
+   <Row ss:StyleID="s250">
     <Cell ss:StyleID="s237"><Data ss:Type="String">ClaimType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The type or discipline-style of the claim</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14890,7 +14889,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s250">
+   <Row ss:StyleID="s250">
     <Cell ss:StyleID="s237"><Data ss:Type="String">ExplanationOfBenefitStatus</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">A code specifying the state of the resource instance.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">code list</Data></Cell>
@@ -14905,7 +14904,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="29">
     <Cell ss:StyleID="s146"><Data ss:Type="String">RevenueCenter</Data></Cell>
     <Cell><Data ss:Type="String">Codes for the revenue or cost centers supplying the service and/or products.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14920,7 +14919,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s250">
+   <Row ss:StyleID="s250">
     <Cell ss:StyleID="s237"><Data ss:Type="String">Use</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Complete, proposed, exploratory, other</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14935,7 +14934,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s253"><Data ss:Type="String">ClaimSubType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">A more granular claim typecode</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14950,7 +14949,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="15">
     <Cell ss:StyleID="s146"><Data ss:Type="String">DiagnosisOnAdmission</Data></Cell>
     <Cell><Data ss:Type="String">Present on admission</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14965,7 +14964,7 @@
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s152"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="29">
     <Cell ss:StyleID="s237"><Data ss:Type="String">ProcessPriority</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The timeliness with which processing is required: stat, normal, deferred</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14980,8 +14979,8 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s146"><Data ss:Type="String">!ProcedureType</Data></Cell>
+   <Row>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">ProcedureType</Data></Cell>
     <Cell><Data ss:Type="String">Example procedure type codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">example</Data></Cell>
@@ -14995,8 +14994,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0"/>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Index="55">
     <Cell ss:Index="4" ss:StyleID="s254"/>
     <Cell><Data ss:Type="String">Who made this change, should be example</Data></Cell>
    </Row>
@@ -15012,6 +15010,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
