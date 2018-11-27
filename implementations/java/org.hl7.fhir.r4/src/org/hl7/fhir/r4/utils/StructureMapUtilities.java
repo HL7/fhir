@@ -947,6 +947,8 @@ public class StructureMapUtilities {
 		  }
 		}
 		lexer.next();
+		if (newFmt && lexer.hasToken(";"))
+	    lexer.next();
 		lexer.skipComments();
 	}
 

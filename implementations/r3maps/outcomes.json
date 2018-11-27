@@ -5644,7 +5644,7 @@
       ]
     },
     "3ad0687e-f477-468c-afd5-fcc2bf897819": {
-      "execution": "Attempt to read invalid property \u0027typeFirstRep\u0027 on type Location"
+      "execution": true
     },
     "10bb101f-a121-4264-a920-67be9cb82c74": {
       "execution": true,
@@ -18316,61 +18316,55 @@
   },
   "Encounter": {
     "example": {
-      "execution": "Attempt to read invalid property \u0027reason\u0027 on type Encounter"
+      "execution": true
     },
     "emerg": {
-      "execution": "Attempt to read invalid property \u0027reason\u0027 on type Encounter"
+      "execution": true
     },
     "f001": {
-      "execution": "Exception executing transform tgt.reason \u003d create() as vvv on Rule \"reason\": Attempt to get types for an invalid property \u0027reason\u0027 on type Encounter"
+      "execution": true
     },
     "f002": {
-      "execution": "Exception executing transform tgt.reason \u003d create() as vvv on Rule \"reason\": Attempt to get types for an invalid property \u0027reason\u0027 on type Encounter"
+      "execution": true
     },
     "f003": {
-      "execution": "Exception executing transform tgt.reason \u003d create() as vvv on Rule \"reason\": Attempt to get types for an invalid property \u0027reason\u0027 on type Encounter"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Encounter.reasonCode.extension: The extension http://hl7.org/fhir/StructureDefinition/encounter-primaryDiagnosis is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "f201": {
-      "execution": "Exception executing transform tgt.reason \u003d create() as vvv on Rule \"reason\": Attempt to get types for an invalid property \u0027reason\u0027 on type Encounter"
+      "execution": true
     },
     "f202": {
-      "execution": "Exception executing transform tgt.reason \u003d create() as vvv on Rule \"reason\": Attempt to get types for an invalid property \u0027reason\u0027 on type Encounter"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Encounter.reasonCode.extension: The extension http://hl7.org/fhir/StructureDefinition/encounter-primaryDiagnosis is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "f203": {
-      "execution": "Exception executing transform tgt.reason \u003d create() as vvv on Rule \"reason\": Attempt to get types for an invalid property \u0027reason\u0027 on type Encounter"
+      "execution": true
     },
     "home": {
-      "execution": "Attempt to read invalid property \u0027typeFirstRep\u0027 on type Location",
+      "execution": true,
       "r4.errors": [
         "WARNING @ Encounter.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ Encounter.location.location.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
     "xcda": {
-      "execution": "Exception executing transform tgt.reason \u003d create() as vvv on Rule \"reason\": Attempt to get types for an invalid property \u0027reason\u0027 on type Encounter"
+      "execution": true
     }
   },
   "Endpoint": {
     "example": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property address",
-      "r4.errors": [
-        "ERROR @ Endpoint: Profile http://hl7.org/fhir/StructureDefinition/Endpoint, Element \u0027Endpoint.address\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": true
     },
     "example-iid": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property address",
-      "r4.errors": [
-        "ERROR @ Endpoint: Profile http://hl7.org/fhir/StructureDefinition/Endpoint, Element \u0027Endpoint.address\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": true
     },
     "example-wadors": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property address",
-      "r4.errors": [
-        "ERROR @ Endpoint: Profile http://hl7.org/fhir/StructureDefinition/Endpoint, Element \u0027Endpoint.address\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": true
     }
   },
   "EnrollmentRequest": {
@@ -18386,8 +18380,7 @@
   },
   "EpisodeOfCare": {
     "example": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property diagnosis"
+      "execution": true
     }
   },
   "ExpansionProfile": {
@@ -18641,26 +18634,26 @@
   },
   "Location": {
     "1": {
-      "execution": "Attempt to read invalid property \u0027typeFirstRep\u0027 on type Location",
+      "execution": true,
       "r4.errors": [
         "ERROR @ Location.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/location-alias is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Location.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/location-alias is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "amb": {
-      "execution": "Attempt to read invalid property \u0027typeFirstRep\u0027 on type Location"
+      "execution": true
     },
     "hl7": {
-      "execution": "Attempt to read invalid property \u0027typeFirstRep\u0027 on type Location"
+      "execution": true
     },
     "ph": {
-      "execution": "Attempt to read invalid property \u0027typeFirstRep\u0027 on type Location"
+      "execution": true
     },
     "2": {
-      "execution": "Attempt to read invalid property \u0027typeFirstRep\u0027 on type Location"
+      "execution": true
     },
     "ukp": {
-      "execution": "Attempt to read invalid property \u0027typeFirstRep\u0027 on type Location"
+      "execution": true
     }
   },
   "Measure": {
