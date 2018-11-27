@@ -9,10 +9,10 @@ group Goal(source src : GoalR3, target tgt : Goal) extends DomainResource <<type
   src.identifier -> tgt.identifier;
   src.status where value in 'proposed' | 'planned' | 'accepted' | 'on-hold' | 'cancelled' | 'entered-in-error' | 'rejected' -> tgt.lifecycleStatus;
   src.status where value = 'achieved' -> tgt.lifecycleStatus = 'completed';
-  src.status as s where value in 'in-progress' | 'sustaining' -> tgt.lifecycleStatus = 'active', tgt.achievementStatus = s;
-  src.status where value = 'on-target' -> tgt.lifecycleStatus = 'active', tgt.achievementStatus = 'sustaining';
-  src.status where value = 'ahead-of-target' -> tgt.lifecycleStatus = 'active', tgt.achievementStatus = 'improving';
-  src.status where value = 'behind-target' -> tgt.lifecycleStatus = 'active', tgt.achievementStatus = 'worsening';
+  src.status as s where value in 'in-progress' | 'sustaining' -> tgt.lifecycleStatus = 'active', tgt.achievementStatus as cc, cc.coding as c, c.system = 'http://terminology.hl7.org/CodeSystem/goal-achievement', c.code = s;
+  src.status where value = 'on-target' -> tgt.lifecycleStatus = 'active', tgt.achievementStatus as cc, cc.coding as c, c.system = 'http://terminology.hl7.org/CodeSystem/goal-achievement', c.code = 'sustaining';
+  src.status where value = 'ahead-of-target' -> tgt.lifecycleStatus = 'active', tgt.achievementStatus as cc, cc.coding as c, c.system = 'http://terminology.hl7.org/CodeSystem/goal-achievement', c.code = 'improving';
+  src.status where value = 'behind-target' -> tgt.lifecycleStatus = 'active', tgt.achievementStatus as cc, cc.coding as c, c.system = 'http://terminology.hl7.org/CodeSystem/goal-achievement', c.code = 'worsening';
   src.category -> tgt.category;
   src.priority -> tgt.priority;
   src.description -> tgt.description;

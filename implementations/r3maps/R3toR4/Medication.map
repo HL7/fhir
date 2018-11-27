@@ -24,7 +24,7 @@ group ingredient(source src, target tgt) extends BackboneElement {
   src.amount -> tgt.strength;
 }
 
-group package(source src, target tgt) extends BackboneElement {
+group package(source src, target tgt)  {
   src.container as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedicationContainer', vt.value = v;
   src.content as vs0 -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedicationContent' then content(vs0, vt);
   src.batch as vs0 -> tgt.batch as vt0 then batch(vs0, vt0);

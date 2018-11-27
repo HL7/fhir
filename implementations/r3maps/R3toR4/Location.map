@@ -17,13 +17,15 @@ group Location(source src : LocationR3, target tgt : Location) extends DomainRes
   src.telecom -> tgt.telecom;
   src.address -> tgt.address;
   src.physicalType -> tgt.physicalType;
-  src.position as vs0 -> tgt.position as vt0 then {
-    vs0.longitude -> vt0.longitude;
-    vs0.latitude -> vt0.latitude;
-    vs0.altitude -> vt0.altitude;
-  };
+  src.position as vs0 -> tgt.position as vt0 then position(vs0, vt0);
   src.managingOrganization -> tgt.managingOrganization;
   src.partOf -> tgt.partOf;
   src.endpoint -> tgt.endpoint;
 }
+
+group position(source src, target tgt) extends BackboneElement {
+  src.longitude -> tgt.longitude;
+  src.latitude -> tgt.latitude;
+  src.altitude -> tgt.altitude;
+};
 
