@@ -16,8 +16,16 @@ group Dosage(source src : DosageR3, target tgt : Dosage) extends BackboneElement
   src.site -> tgt.site;
   src.route -> tgt.route;
   src.method -> tgt.method;
+  src where dose.exists() or rate.exists() -> tgt.doseAndRate as vt0 then doseAndRate(src, vt0);
   src.maxDosePerPeriod -> tgt.maxDosePerPeriod;
   src.maxDosePerAdministration -> tgt.maxDosePerAdministration;
   src.maxDosePerLifetime -> tgt.maxDosePerLifetime;
 }
 
+group doseAndRate(source src, target tgt) {
+  src.dose : Range as vs -> tgt.dose = create("Range") as vt then Range(vs, vt);
+  src.dose : Quantity as vs -> tgt.dose = create("Quantity") as vt then Quantity(vs, vt);
+  src.rate : Ratio as vs -> tgt.rate = create("Ratio") as vt then Ratio(vs, vt);
+  src.rate : Range as vs -> tgt.rate = create("Range") as vt then Range(vs, vt);
+  src.rate : Quantity as vs -> tgt.rate = create("Quantity") as vt then Quantity(vs, vt);
+}

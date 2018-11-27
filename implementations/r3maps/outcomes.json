@@ -3316,7 +3316,7 @@
       "execution": "Exception executing transform tgt.contributor \u003d create() as vvv on Rule \"contributor\": Attempt to get types for an invalid property \u0027contributor\u0027 on type ActivityDefinition"
     },
     "citalopramPrescription": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": "Exception executing transform tgt.contributor \u003d create() as vvv on Rule \"contributor\": Attempt to get types for an invalid property \u0027contributor\u0027 on type ActivityDefinition"
     },
     "serum-dengue-virus-igm": {
       "execution": "Attempt to read invalid property \u0027contributor\u0027 on type ActivityDefinition",
@@ -17160,37 +17160,148 @@
   },
   "CarePlan": {
     "example": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/Condition",
+      "r4.errors": [
+        "WARNING @ CarePlan.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.addresses.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity.detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "gpvisit": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/Condition",
+      "r4.errors": [
+        "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.careTeam.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.addresses.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[1].detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[2].detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "f001": {
-      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.careTeam.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity.detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "f002": {
-      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.careTeam.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity.detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "f003": {
-      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.careTeam.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity.detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "f201": {
-      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.careTeam.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[1].detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[2].detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "f202": {
-      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
+      "execution": "Attempt to read invalid property \u0027amount\u0027 on type Medication.ingredient",
+      "r4.errors": [
+        "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[4]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[4].ingredient[1].itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[4].ingredient[2].itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[4].ingredient[3].itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[5]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[6]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.careTeam.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity.detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.activity.detail.productReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "f203": {
-      "execution": "Rule \u0027activity\u0027 INPUT variable \u0027src\u0027 named as \u0027s\u0027 has no value (vars \u003d source variables [src: CarePlan, vs: BackboneElement], target variables [tgt: CarePlan, vt: CarePlan.activity])"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.careTeam.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity.detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "integrate": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/Condition",
+      "r4.errors": [
+        "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[4]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[5]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[6]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[7]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[8]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.addresses[1].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.addresses[2].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.addresses[3].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal[1].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal[2].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal[3].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal[4].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal[5].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[1].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[2].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[3].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[4].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[5].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[6].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[7].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[8].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[9].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[10].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[11].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[12].detail.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "obesity-narrative": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R4toR3\\CarePlan.map at 53, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "preg": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/Condition",
+      "r4.errors": [
+        "WARNING @ CarePlan.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[4]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[4].participant[1].member.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[4].participant[2].member.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.contained[5]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.careTeam.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.addresses.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ CarePlan.goal.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[2].detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[3].detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ CarePlan.activity[4].detail.extension: The extension http://hl7.org/fhir/StructureDefinition/X34GoalCategory is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     }
   },
   "CareTeam": {
@@ -17298,12 +17409,7 @@
     },
     "760151": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "860150": {
       "execution": true,
@@ -17679,40 +17785,43 @@
   },
   "Condition": {
     "example": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     },
     "f001": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     },
     "f002": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     },
     "f003": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     },
     "f201": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     },
     "f202": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     },
     "f203": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     },
     "f204": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Condition: If condition is abated, then clinicalStatus must be either inactive, resolved, or remission [abatement.empty() or clinicalStatus.coding.where(system\u003d\u0027http://terminology.hl7.org/CodeSystem/condition-clinical\u0027 and (code\u003d\u0027resolved\u0027 or code\u003d\u0027remission\u0027 or code\u003d\u0027inactive\u0027)).exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "f205": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     },
     "family-history": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     },
     "stroke": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     },
     "example2": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Condition3to4, from rule \u0027clinicalStatus\u0027"
+      "execution": true
     }
   },
   "Consent": {
@@ -18617,407 +18726,973 @@
   "MedicationAdministration": {
     "medadmin0301": {
       "execution": true,
-      "round-trip": "properties differ at : missing property prescription",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.eventHistory.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
     "medadmin0302": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medadmin0303": {
       "execution": true,
-      "round-trip": "properties differ at : missing property prescription",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.dosage.text: value should not start or finish with whitespace (src \u003d InstanceValidator)"
       ]
     },
     "medadmin0304": {
       "execution": true,
-      "round-trip": "properties differ at : missing property prescription",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
     "medadmin0305": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0]: missing property isBrand",
+      "round-trip": "properties differ at .contained[0].package: missing property id",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)"
       ]
     },
     "medadmin0306": {
       "execution": true,
-      "round-trip": "properties differ at : missing property prescription",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
     "medadmin0307": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
-    },
-    "medadmin0308": {
-      "execution": "Exception executing transform tgt.medication \u003d create() as vvv on Rule \"medication\": Multiple possible matches for default rule for \u0027CodeableConcept\u0027 in http://hl7.org/fhir/StructureMap/CodeableConcept4to3 (CodeableConcept) and http://hl7.org/fhir/StructureMap/CodeableConcept4to3 (CodeableConcept2Coding)"
-    },
-    "medadmin0309": {
-      "execution": "Attempt to read invalid property \u0027amount\u0027 on type Medication.ingredient",
+      "execution": true,
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+        "ERROR @ MedicationAdministration.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "medadmin0308": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "medadmin0309": {
+      "execution": true,
+      "round-trip": "properties differ at .contained[0].package: missing property id",
+      "r4.errors": [
+        "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.medicationReference.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.medicationReference.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "medadmin0310": {
       "execution": true,
-      "round-trip": "properties differ at : missing property prescription",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
     "medadmin0311": {
       "execution": true,
-      "round-trip": "properties differ at : missing property prescription",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
     "medadmin0312": {
-      "execution": "Exception executing transform tgt.medication \u003d create() as vvv on Rule \"medication\": Multiple possible matches for default rule for \u0027CodeableConcept\u0027 in http://hl7.org/fhir/StructureMap/CodeableConcept4to3 (CodeableConcept) and http://hl7.org/fhir/StructureMap/CodeableConcept4to3 (CodeableConcept2Coding)"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medadmin0313": {
-      "execution": "Exception executing transform tgt.medication \u003d create() as vvv on Rule \"medication\": Multiple possible matches for default rule for \u0027CodeableConcept\u0027 in http://hl7.org/fhir/StructureMap/CodeableConcept4to3 (CodeableConcept) and http://hl7.org/fhir/StructureMap/CodeableConcept4to3 (CodeableConcept2Coding)"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medadminexample03": {
       "execution": true,
-      "round-trip": "properties differ at : missing property notGiven",
+      "round-trip": "properties differ at : missing property reasonNotGiven",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedAdminNotGiven is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     }
   },
   "MedicationDispense": {
     "meddisp0301": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.eventHistory.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0302": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .contained[0].package: missing property id",
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension[3].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension[3].extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34Amount is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension[3].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension[3].extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34Amount is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0303": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseNotDone is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseNotDoneReason is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0304": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0305": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0306": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0307": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0308": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.subject.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0309": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.subject.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0310": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.subject.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0311": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0312": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0313": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0314": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.subject.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0315": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.subject.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0316": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.subject.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0317": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027count\u0027"
+      "execution": true,
+      "round-trip": "properties differ at .contained[0].package: missing property id",
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.subject.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0318": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0319": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0320": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "round-trip": "properties differ at .contained[0].package: missing property id",
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0321": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.medicationCodeableConcept.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0322": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0324": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0325": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0326": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0327": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0328": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0329": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0330": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp0331": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "meddisp008": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     }
   },
   "Medication": {
     "med0301": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .package: missing property id",
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationOTC is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[4]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[5]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[5].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[5].extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34Amount is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[6]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationImage is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0302": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0303": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .package: missing property id",
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34Amount is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0304": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .package: missing property id",
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34Amount is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0305": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .package: missing property id",
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34Amount is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0306": {
       "execution": true,
-      "round-trip": "properties differ at : missing property isBrand",
+      "round-trip": "properties differ at .package: missing property id",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ Medication.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)"
       ]
     },
     "med0307": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .package: missing property id",
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34Amount is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0308": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .package: missing property id",
+      "r4.errors": [
+        "WARNING @ Medication.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.contained[1].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34Amount is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0309": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .package: missing property id",
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0310": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0311": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0312": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0313": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "med0314": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "med0315": {
       "execution": true,
-      "round-trip": "properties differ at : missing property isBrand"
+      "r4.errors": [
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "med0316": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0317": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "med0318": {
-      "execution": "Attempt to read invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .package: missing property id",
+      "r4.errors": [
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "med0319": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "med0320": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med0321": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medicationexample1": {
       "execution": true
     },
     "medexample015": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .package: missing property id",
+      "r4.errors": [
+        "WARNING @ Medication.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Medication.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[3].extension: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     }
   },
   "MedicationRequest": {
     "medrx0301": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.eventHistory.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0302": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0303": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0304": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0305": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0306": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0307": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0308": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0309": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0310": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0312": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0313": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0314": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0315": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0316": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "round-trip": "properties differ at .contained[0].package: missing property id",
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0317": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0318": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0319": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.dosageInstruction.text: value should not start or finish with whitespace (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0320": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0321": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .contained[0].package: missing property id",
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension[3].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension[3].extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34Amount is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContent is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension[3].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34Content is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension[3].extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34Amount is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0322": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0323": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "round-trip": "properties differ at .contained[0].package: missing property id",
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationContainer is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0324": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0325": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0326": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0327": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0328": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0329": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0330": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0331": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0332": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0333": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0334": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0335": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx0311": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "medrx002": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type MedicationRequest"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     }
   },
   "MedicationStatement": {
     "example001": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .contained[0].package: missing property id",
+      "r4.errors": [
+        "WARNING @ MedicationStatement.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementTaken is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationStatement.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "example002": {
-      "execution": "Exception executing transform vt0.amount \u003d create() as vvv on Rule \"amount\": Attempt to get types for an invalid property \u0027amount\u0027 on type Medication.ingredient"
+      "execution": true,
+      "round-trip": "properties differ at .contained[0].package: missing property id",
+      "r4.errors": [
+        "WARNING @ MedicationStatement.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementTaken is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationStatement.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "example003": {
       "execution": true,
-      "round-trip": "properties differ at : missing property taken"
+      "r4.errors": [
+        "ERROR @ MedicationStatement.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementTaken is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "example004": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ MedicationStatement.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementTaken is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "example005": {
       "execution": true,
-      "round-trip": "properties differ at : missing property taken"
+      "r4.errors": [
+        "ERROR @ MedicationStatement.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementTaken is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "example006": {
       "execution": true,
-      "round-trip": "properties differ at : missing property taken"
+      "r4.errors": [
+        "ERROR @ MedicationStatement.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementTaken is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "example007": {
       "execution": true,
-      "round-trip": "properties differ at .contained[0]: missing property isBrand",
       "r4.errors": [
         "WARNING @ MedicationStatement.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "WARNING @ MedicationStatement.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+        "ERROR @ MedicationStatement.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementTaken is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ MedicationStatement.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.medicationReference.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedicationBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     }
   },

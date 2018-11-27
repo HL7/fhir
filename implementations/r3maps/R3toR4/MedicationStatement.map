@@ -5,12 +5,17 @@ uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias Medicat
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+// challenge around taken: taken has been collapsed into status, but in R3, status is independent. That matters if you want to round-trip, so we put both R3 status and taken in extensions
 group MedicationStatement(source src : MedicationStatementR3, target tgt : MedicationStatement) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
   src.context -> tgt.context;
-  src.status -> tgt.status;
+  src.status as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus', vt.value = v;
+  src.taken as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedStatementTaken', vt.value = v;
+  src.status where (src.taken in 'n' | 'unk').not() -> tgt.status;
+  src.taken where value = 'n' -> tgt.status = 'not-taken';
+  src.taken where value = 'unk' -> tgt.status = 'unknown';
   src.category -> tgt.category;
   src.medication : CodeableConcept as vs -> tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
   src.medication : Reference as vs -> tgt.medication = create("Reference") as vt then Reference(vs, vt);
@@ -20,6 +25,7 @@ group MedicationStatement(source src : MedicationStatementR3, target tgt : Medic
   src.informationSource -> tgt.informationSource;
   src.subject -> tgt.subject;
   src.derivedFrom -> tgt.derivedFrom;
+  src.reasonNotTaken -> tgt.reasonCode;
   src.reasonCode -> tgt.reasonCode;
   src.reasonReference -> tgt.reasonReference;
   src.note -> tgt.note;
