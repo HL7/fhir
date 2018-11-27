@@ -8,10 +8,13 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group AdverseEvent(source src : AdverseEventR3, target tgt : AdverseEvent) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.actuality -> tgt.actuality;
-  src.category -> tgt.category;
-  src.event -> tgt.event;
+  src.category as vs then {
+   vs.coding as c where system = 'http://terminology.hl7.org/CodeSystem/adverse-event-category' then {
+     c.code -> tgt.category;
+   };
+  };
+  src.event -> tgt.type;
   src.subject -> tgt.subject;
-  src.context -> tgt.context;
   src.date -> tgt.date;
   src.detected -> tgt.detected;
   src.recordedDate -> tgt.recordedDate;
