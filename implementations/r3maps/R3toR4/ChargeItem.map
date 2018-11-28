@@ -7,14 +7,14 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 group ChargeItem(source src : ChargeItemR3, target tgt : ChargeItem) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.definition -> tgt.definition;
+  src.definition -> tgt.definitionUri;
   src.status -> tgt.status;
   src.partOf -> tgt.partOf;
   src.code -> tgt.code;
   src.subject -> tgt.subject;
   src.context -> tgt.context;
   src.occurrence -> tgt.occurrence;
-  src.performer as s -> tgt.performer as t then ChargeItemPerformer(s, t);
+  src.participant as s -> tgt.performer as t then ChargeItemPerformer(s, t);
   src.performingOrganization -> tgt.performingOrganization;
   src.requestingOrganization -> tgt.requestingOrganization;
   src.costCenter -> tgt.costCenter;
@@ -34,7 +34,7 @@ group ChargeItem(source src : ChargeItemR3, target tgt : ChargeItem) extends Dom
 }
 
 group ChargeItemPerformer(source src : ChargeItemR3, target tgt : ChargeItem) extends BackboneElement <<type+>> {
-  src.function -> tgt.function;
+  src.role -> tgt.function;
   src.actor -> tgt.actor;
 }
 
