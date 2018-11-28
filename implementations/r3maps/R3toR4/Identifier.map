@@ -14,3 +14,11 @@ group Identifier(source src : IdentifierR3, target tgt : Identifier) extends Ele
   src.assigner -> tgt.assigner;
 }
 
+group Identifier2Codeable(source src, target tgt) extends Element {
+  src -> tgt.coding as c then {
+    src.system -> c.system;
+    src.value -> c.code;
+  };
+}
+
+
