@@ -11,10 +11,8 @@ group Measure(source src : MeasureR3, target tgt : Measure) extends DomainResour
   src.version -> tgt.version;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.subtitle -> tgt.subtitle;
   src.status -> tgt.status;
   src.experimental -> tgt.experimental;
-  src.subject -> tgt.subject;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
   src.contact -> tgt.contact;
@@ -28,7 +26,10 @@ group Measure(source src : MeasureR3, target tgt : Measure) extends DomainResour
   src.lastReviewDate -> tgt.lastReviewDate;
   src.effectivePeriod -> tgt.effectivePeriod;
   src.topic -> tgt.topic;
-  src.contributor -> tgt.contributor;
+  src.contributor as vs where type = 'author' -> tgt.author as vt then Contributor(vs, vt);
+  src.contributor as vs where type = 'editor' -> tgt.editor as vt then Contributor(vs, vt);
+  src.contributor as vs where type = 'reviewer' -> tgt.reviewer as vt then Contributor(vs, vt);
+  src.contributor as vs where type = 'endorser' -> tgt.endorser as vt then Contributor(vs, vt);
   src.relatedArtifact -> tgt.relatedArtifact;
   src.library -> tgt.library;
   src.disclaimer -> tgt.disclaimer;
@@ -39,39 +40,41 @@ group Measure(source src : MeasureR3, target tgt : Measure) extends DomainResour
   src.rateAggregation -> tgt.rateAggregation;
   src.rationale -> tgt.rationale;
   src.clinicalRecommendationStatement -> tgt.clinicalRecommendationStatement;
-  src.improvementNotation -> tgt.improvementNotation;
+  src.improvementNotation as s -> tgt.improvementNotation as cc, cc.text = s;
   src.definition -> tgt.definition;
   src.guidance -> tgt.guidance;
-  src.set -> tgt.set;
-  src.group as s -> tgt.group as t then MeasureGroup(s, t);
-  src.supplementalData as s -> tgt.supplementalData as t then MeasureSupplementalData(s, t);
+  src.set as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureSet', vt.value = v;
+  src.group as s -> tgt.group as t then group(s, t);
+  src.supplementalData as s -> tgt.supplementalData as t then supplementalData(s, t);
 }
 
-group Measuregroup(source src : MeasureR3, target tgt : Measure) extends BackboneElement <<type+>> {
-  src.code -> tgt.code;
+group group(source src : MeasureR3, target tgt : Measure) extends BackboneElement <<type+>> {
+  src.identifier as vs -> tgt.code as vt then Identifier2Codeable(vs, vt);
+  src.name as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureName', vt.value = v;
   src.description -> tgt.description;
-  src.population as s -> tgt.population as t then MeasureGroupPopulation(s, t);
-  src.stratifier as s -> tgt.stratifier as t then MeasureGroupStratifier(s, t);
+  src.population as s -> tgt.population as t then population(s, t);
+  src.stratifier as s -> tgt.stratifier as t then stratifier(s, t);
 }
 
-group MeasureGroupPopulation(source src : MeasureR3, target tgt : Measure) extends BackboneElement <<type+>> {
+group population(source src : MeasureR3, target tgt : Measure) extends BackboneElement <<type+>> {
+  src.identifier as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier', vt.value = v;
   src.code -> tgt.code;
+  src.name as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureName', vt.value = v;
   src.description -> tgt.description;
-  src.criteria -> tgt.criteria;
+  src.criteria as s -> tgt.criteria as t, t.expression = s;
 }
 
-group MeasureGroupStratifier(source src : MeasureR3, target tgt : Measure) extends BackboneElement <<type+>> {
-  src.code -> tgt.code;
-  src.description -> tgt.description;
-  src.criteria -> tgt.criteria;
-  src.path -> tgt.path;
+group stratifier(source src : MeasureR3, target tgt : Measure) extends BackboneElement <<type+>> {
+  src.identifier as vs -> tgt.code as vt then Identifier2Codeable(vs, vt);
+  src.criteria as s -> tgt.criteria as t, t.expression = s;
+  src.path as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasurePath', vt.value = v;
 }
 
-group MeasureSupplementalData(source src : MeasureR3, target tgt : Measure) extends BackboneElement <<type+>> {
-  src.code -> tgt.code;
+group supplementalData(source src : MeasureR3, target tgt : Measure) extends BackboneElement <<type+>> {
+  src.identifier as vs -> tgt.code as vt then Identifier2Codeable(vs, vt);
   src.usage -> tgt.usage;
   src.description -> tgt.description;
-  src.criteria -> tgt.criteria;
-  src.path -> tgt.path;
+  src.criteria as s -> tgt.criteria as t, t.expression = s;
+  src.path as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasurePath', vt.value = v;
 }
 

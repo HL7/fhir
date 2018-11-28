@@ -16,31 +16,34 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 group ClinicalImpression(source src : ClinicalImpressionR3, target tgt : ClinicalImpression) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, "#Clinical Impression Status", "code");
+  src.status as v -> tgt.status = translate(v, "#ClinicalImpressionStatus", "code");
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.subject -> tgt.subject;
-  src.context -> tgt.context;
+  src.context -> tgt.encounter;
   src.effective : dateTime as vs -> tgt.effective = create("dateTime") as vt then dateTime(vs, vt);
   src.effective : Period as vs -> tgt.effective = create("Period") as vt then Period(vs, vt);
   src.date -> tgt.date;
   src.assessor -> tgt.assessor;
   src.previous -> tgt.previous;
   src.problem -> tgt.problem;
-  src.investigation as vs0 -> tgt.investigation as vt0 then {
-    vs0.code -> vt0.code;
-    vs0.item -> vt0.item;
-  };
+  src.investigation as vs0 -> tgt.investigation as vt0 then investigation(vs0, vt0);
   src.protocol -> tgt.protocol;
   src.summary -> tgt.summary;
-  src.finding as vs0 -> tgt.finding as vt0 then {
-    vs0.itemCodeableConcept -> vt0.itemCodeableConcept;
-    vs0.itemReference -> vt0.itemReference;
-    vs0.basis -> vt0.basis;
-  };
+  src.finding as vs0 -> tgt.finding as vt0 then finding(vs0, vt0);
   src.prognosisCodeableConcept -> tgt.prognosisCodeableConcept;
   src.prognosisReference -> tgt.prognosisReference;
-  src.action -> tgt.action;
+  src.action as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34ClinicalImpressionAction', vt.value = v;
   src.note -> tgt.note;
 }
 
+group investigation(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.item -> tgt.item;
+};
+
+group finding(source src, target tgt) extends BackboneElement {
+  src.item : CodeableConcept as vs -> tgt.itemCodeableConcept as vt then CodeableConcept(vs, vt);
+  src.item : Reference as vs -> tgt.itemReference as vt then Reference(vs, vt);
+  src.basis -> tgt.basis;
+};

@@ -17449,7 +17449,7 @@
   },
   "ClinicalImpression": {
     "example": {
-      "execution": "Exception executing transform tgt.status \u003d translate(v, \"#Clinical Impression Status\", \"code\") on Rule \"status\": Unable to translate - cannot find map #Clinical Impression Status"
+      "execution": true
     }
   },
   "CodeSystem": {
@@ -18677,36 +18677,116 @@
   },
   "Measure": {
     "measure-cms146-example": {
-      "execution": "Exception executing transform tgt.contributor \u003d create() as vvv on Rule \"contributor\": Attempt to get types for an invalid property \u0027contributor\u0027 on type Measure"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Measure.author.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ContributerName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[1].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[1].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.population[1].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[2].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[2].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.population[2].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[3].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[3].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.population[3].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[4].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[4].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.population[4].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.stratifier[1].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.stratifier[1].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.stratifier[2].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.stratifier[2].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.stratifier[3].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasurePath is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.supplementalData[1]: Profile http://hl7.org/fhir/StructureDefinition/Measure, Element \u0027Measure.supplementalData[1].criteria\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.supplementalData[1].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasurePath is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.supplementalData[2]: Profile http://hl7.org/fhir/StructureDefinition/Measure, Element \u0027Measure.supplementalData[2].criteria\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.supplementalData[2].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasurePath is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "component-a-example": {
-      "execution": "No matches found for rule \u0027MeasureGroup\u0027. Reference found in http://hl7.org/fhir/StructureMap/Measure3to4"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Measure: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[1].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.population[1].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[2].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.population[2].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[3].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.population[3].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "component-b-example": {
-      "execution": "No matches found for rule \u0027MeasureGroup\u0027. Reference found in http://hl7.org/fhir/StructureMap/Measure3to4"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Measure: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[1].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.population[1].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[2].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.population[2].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group.population[3].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group.population[3].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "composite-example": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type Measure",
+      "execution": true,
       "r4.errors": [
         "WARNING @ Measure: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
       ]
     },
     "measure-exclusive-breastfeeding": {
-      "execution": "No matches found for rule for \u0027string to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Measure3to4, from rule \u0027improvementNotation\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Measure: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[1].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[1].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[1].population[1].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[2].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[2].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[1].population[2].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[3].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[3].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[1].population[3].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[4].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[4].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[1].population[4].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[1].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[1].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[2].population[1].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[2].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[2].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[2].population[2].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[3].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[3].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[2].population[3].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[4].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[4].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[2].population[4].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "measure-predecessor-example": {
-      "execution": "No matches found for rule for \u0027string to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Measure3to4, from rule \u0027improvementNotation\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Measure: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[1].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[1].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[1].population[1].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[2].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[2].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[1].population[2].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[3].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[3].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[1].population[3].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[4].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[1].population[4].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[1].population[4].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[1].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[1].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[2].population[1].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[2].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[2].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[2].population[2].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[3].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[3].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[2].population[3].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[4].extension: The extension http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Measure.group[2].population[4].criteria: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027Measure.group[2].population[4].criteria.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     }
   },
   "MeasureReport": {
     "measurereport-cms146-cat1-example": {
-      "execution": "No matches found for rule \u0027MeasureReportGroup\u0027. Reference found in http://hl7.org/fhir/StructureMap/MeasureReport3to4"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MeasureReport.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MeasureReport.reporter.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "measurereport-cms146-cat2-example": {
-      "execution": "Unknown MeasureReportType code \u0027patient-list\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MeasureReport.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MeasureReport.reporter.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "measurereport-cms146-cat3-example": {
-      "execution": "No matches found for rule \u0027MeasureReportGroup\u0027. Reference found in http://hl7.org/fhir/StructureMap/MeasureReport3to4"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ MeasureReport.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ MeasureReport.reporter.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     }
   },
   "Media": {
