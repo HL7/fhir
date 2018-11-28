@@ -22,4 +22,29 @@ group link(source src, target tgt) extends BackboneElement {
 group entry(source src, target tgt) extends BackboneElement {
   src.fullUrl -> tgt.fullUrl;
   src.resource -> tgt.resource;
+  src.search as vs0 -> tgt.search as vt0 then search(vs0, vt0);
+  src.request as vs0 -> tgt.request as vt0 then request(vs0, vt0);
+  src.response as vs0 -> tgt.response as vt0 then response(vs0, vt0);
+}
+
+group search(source src, target tgt) extends BackboneElement {
+  src.mode -> tgt.mode;
+  src.score -> tgt.score;
+}
+
+group request(source src, target tgt) extends BackboneElement {
+  src.method -> tgt.method;
+  src.url -> tgt.url;
+  src.ifNoneMatch -> tgt.ifNoneMatch;
+  src.ifModifiedSince -> tgt.ifModifiedSince;
+  src.ifMatch -> tgt.ifMatch;
+  src.ifNoneExist -> tgt.ifNoneExist;
+}
+
+group response(source src, target tgt) extends BackboneElement {
+  src.status -> tgt.status;
+  src.location -> tgt.location;
+  src.etag -> tgt.etag;
+  src.lastModified -> tgt.lastModified;
+  src.outcome -> tgt.outcome;
 }

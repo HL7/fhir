@@ -6180,7 +6180,76 @@
       ]
     },
     "ussg-fht": {
-      "execution": "Exception executing transform tgt.resource \u003d create() as vvv on Rule \"resource\": Multiple possible matches for default rule for \u0027Questionnaire\u0027 in http://hl7.org/fhir/StructureMap/Questionnaire3to4 (Questionnaire) and http://hl7.org/fhir/StructureMap/Questionnaire3to4 (QuestionnaireItem)"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Bundle.entry[1].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[1].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[1].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[2].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[2].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[3].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[3].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[4].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[4].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[5].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[5].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[6].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[6].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[7].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[7].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[8].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[8].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[9].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[9].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[10].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[10].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[11].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[11].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[12].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[12].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[13].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[13].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[14].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[14].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[15].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[15].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[16].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[16].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[17].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[17].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[18].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[18].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[19].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[19].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[20].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[20].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[21].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[21].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[22].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[22].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[23].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[23].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[24].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[24].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[25].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[25].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[1].resource.group.element[26].target: Profile http://hl7.org/fhir/StructureDefinition/ConceptMap, Element \u0027Bundle.entry[1].resource.group.element[26].target.equivalence\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[2].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[2].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[2].resource.contained[1].meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[2].resource.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[2].resource.contained[1]: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[2].resource.contained[1].extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[2].resource.contained[2].meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[2].resource.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[2].resource.contained[2]: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[2].resource.contained[2].extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[3].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[3].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[3].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[4].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[4].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[4].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[5].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[5].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[5].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[6].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[6].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[6].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[7].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[7].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[7].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[8].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[8].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[8].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[9].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[9].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[9].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[10].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[10].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[10].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[11].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[11].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[11].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[12].resource.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset\" could not be resolved (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[12].resource: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[12].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34-vs-extensible is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "searchParams": {
       "execution": true,
@@ -20766,7 +20835,6 @@
   "Questionnaire": {
     "questionnaire-cqif-example": {
       "execution": true,
-      "round-trip": "properties differ at .item[0]: missing property options",
       "r4.errors": [
         "WARNING @ Questionnaire.meta.profile[0]: StructureDefinition reference \"http://hl7.org/fhir/StructureDefinition/cqif-questionnaire\" could not be resolved (src \u003d InstanceValidator)",
         "WARNING @ Questionnaire: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
@@ -20775,19 +20843,26 @@
       ]
     },
     "3141": {
-      "execution": "Exception executing transform tgt.item \u003d create() as vvv on Rule \"item\": Unknown Resource or Type Name \u0027@Questionnaire.item\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Questionnaire: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+      ]
     },
     "bb": {
-      "execution": "Exception executing transform tgt.item \u003d create() as vvv on Rule \"item\": Unknown Resource or Type Name \u0027@Questionnaire.item\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Questionnaire: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+      ]
     },
     "f201": {
-      "execution": "Exception executing transform tgt.item \u003d create() as vvv on Rule \"item\": Unknown Resource or Type Name \u0027@Questionnaire.item\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Questionnaire: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+      ]
     },
     "gcs": {
       "execution": true,
-      "round-trip": "properties differ at .item[0]: missing property options",
       "r4.errors": [
-        "ERROR @ Questionnaire: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource ( (unmatched: motor,verbal,eye)) [contained.where(((\u0027#\u0027+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference \u003d \u0027#\u0027).exists() or descendants().where(as(canonical) \u003d \u0027#\u0027).exists() or descendants().where(as(canonical) \u003d \u0027#\u0027).exists()).not()).trace(\u0027unmatched\u0027, id).empty()] (src \u003d InstanceValidator)",
         "WARNING @ Questionnaire: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
         "WARNING @ Questionnaire.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ Questionnaire.contained[1]: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
@@ -20798,14 +20873,7 @@
       ]
     },
     "zika-virus-exposure-assessment": {
-      "execution": true,
-      "r4.errors": [
-        "ERROR @ Questionnaire.item[2].enableWhen: Profile http://hl7.org/fhir/StructureDefinition/Questionnaire, Element \u0027Questionnaire.item[2].enableWhen.operator\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Questionnaire.item[3].enableWhen: Profile http://hl7.org/fhir/StructureDefinition/Questionnaire, Element \u0027Questionnaire.item[3].enableWhen.operator\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Questionnaire.item[4].enableWhen: Profile http://hl7.org/fhir/StructureDefinition/Questionnaire, Element \u0027Questionnaire.item[4].enableWhen.operator\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Questionnaire.item[5].enableWhen: Profile http://hl7.org/fhir/StructureDefinition/Questionnaire, Element \u0027Questionnaire.item[5].enableWhen.operator\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Questionnaire.item[6].enableWhen: Profile http://hl7.org/fhir/StructureDefinition/Questionnaire, Element \u0027Questionnaire.item[6].enableWhen.operator\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": true
     }
   },
   "QuestionnaireResponse": {
@@ -20813,25 +20881,32 @@
       "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": No matches found for default rule for \u0027ReferralRequest\u0027 from http://hl7.org/fhir/StructureMap/DomainResource3to4"
     },
     "bb": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type QuestionnaireResponse",
+      "execution": true,
       "r4.errors": [
         "INFORMATION @ QuestionnaireResponse: No questionnaire is identified, so no validation can be performed against the base questionnaire (src \u003d InstanceValidator)"
       ]
     },
     "f201": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type QuestionnaireResponse",
+      "execution": true,
       "r4.errors": [
         "INFORMATION @ QuestionnaireResponse: No questionnaire is identified, so no validation can be performed against the base questionnaire (src \u003d InstanceValidator)"
       ]
     },
     "gcs": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type QuestionnaireResponse",
+      "execution": true,
       "r4.errors": [
-        "INFORMATION @ QuestionnaireResponse: No questionnaire is identified, so no validation can be performed against the base questionnaire (src \u003d InstanceValidator)"
+        "ERROR @ QuestionnaireResponse.item[1].answer.valueCoding.extension: The extension http://hl7.org/fhir/StructureDefinition/iso21090-CO-value is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ QuestionnaireResponse.item[2].answer.valueCoding.extension: The extension http://hl7.org/fhir/StructureDefinition/iso21090-CO-value is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ QuestionnaireResponse.item[3].answer.valueCoding.extension: The extension http://hl7.org/fhir/StructureDefinition/iso21090-CO-value is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ QuestionnaireResponse: The questionnaire \"Questionnaire/gcs\" could not be resolved, so no validation can be performed against the base questionnaire (src \u003d InstanceValidator)"
       ]
     },
     "ussg-fht-answers": {
-      "execution": "Exception executing transform vt0.subject \u003d create() as vvv on Rule \"subject\": Attempt to get types for an invalid property \u0027subject\u0027 on type QuestionnaireResponse.item"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ QuestionnaireResponse.item[3].extension: The extension http://hl7.org/fhir/StructureDefinition/X34QRSubject is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ QuestionnaireResponse: The questionnaire \"Questionnaire/ussg-fht\" could not be resolved, so no validation can be performed against the base questionnaire (src \u003d InstanceValidator)"
+      ]
     }
   },
   "ReferralRequest": {
