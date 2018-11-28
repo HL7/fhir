@@ -11,56 +11,53 @@ group Questionnaire(source src : QuestionnaireR3, target tgt : Questionnaire) ex
   src.version -> tgt.version;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.derivedFrom -> tgt.derivedFrom;
   src.status -> tgt.status;
   src.experimental -> tgt.experimental;
-  src.subjectType -> tgt.subjectType;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
-  src.contact -> tgt.contact;
   src.description -> tgt.description;
-  src.useContext -> tgt.useContext;
-  src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
-  src.copyright -> tgt.copyright;
   src.approvalDate -> tgt.approvalDate;
   src.lastReviewDate -> tgt.lastReviewDate;
   src.effectivePeriod -> tgt.effectivePeriod;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.contact -> tgt.contact;
+  src.copyright -> tgt.copyright;
   src.code -> tgt.code;
-  src.item as s -> tgt.item as t then QuestionnaireItem(s, t);
+  src.subjectType -> tgt.subjectType;
+  src.item as s -> tgt.item as t then item(s, t);
 }
 
-group QuestionnaireItem(source src : QuestionnaireR3, target tgt : Questionnaire) extends BackboneElement <<type+>> {
+group item(source src, target tgt) extends BackboneElement {
   src.linkId -> tgt.linkId;
   src.definition -> tgt.definition;
   src.code -> tgt.code;
   src.prefix -> tgt.prefix;
   src.text -> tgt.text;
   src.type -> tgt.type;
-  src.enableWhen as s -> tgt.enableWhen as t then QuestionnaireItemEnableWhen(s, t);
-  src.enableBehavior -> tgt.enableBehavior;
+  src.enableWhen as s -> tgt.enableWhen as t then enableWhen(s, t);
   src.required -> tgt.required;
   src.repeats -> tgt.repeats;
   src.readOnly -> tgt.readOnly;
   src.maxLength -> tgt.maxLength;
-  src.answerValueSet -> tgt.answerValueSet;
-  src.answerOption as s -> tgt.answerOption as t then QuestionnaireItemAnswerOption(s, t);
-  src.initial as s -> tgt.initial as t then QuestionnaireItemInitial(s, t);
-  src.item -> tgt.item;
+  src.options -> tgt.answerValueSet;
+  src.option as s -> tgt.answerOption as t then option(s, t);
+  src.initial -> tgt.initial as t then initial(src, t);
+  src.item as s -> tgt.item as t then item(s, t);
 }
 
-group QuestionnaireItemEnableWhen(source src : QuestionnaireR3, target tgt : Questionnaire) extends BackboneElement <<type+>> {
+group enableWhen(source src, target tgt) extends BackboneElement {
   src.question -> tgt.question;
-  src.operator -> tgt.operator;
-  src.answer -> tgt.answer;
+  src.hasAnswer as v where src.answer.empty() -> tgt.operator = 'exists', tgt.answer = v;
+  src.answer as v -> tgt.answer = v, tgt.operator = '=';
 }
 
-group QuestionnaireItemAnswerOption(source src : QuestionnaireR3, target tgt : Questionnaire) extends BackboneElement <<type+>> {
+group option(source src, target tgt) extends BackboneElement {
   src.value -> tgt.value;
-  src.initialSelected -> tgt.initialSelected;
 }
 
-group QuestionnaireItemInitial(source src : QuestionnaireR3, target tgt : Questionnaire) extends BackboneElement <<type+>> {
-  src.value -> tgt.value;
+group initial(source src, target tgt) extends BackboneElement {
+  src.initial -> tgt.value;
 }
 

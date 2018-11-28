@@ -8,18 +8,29 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group QuestionnaireResponse(source src : QuestionnaireResponse, target tgt : QuestionnaireResponseR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
-  src.partOf -> tgt.parent "parent";
+  src.partOf -> tgt.parent;
+  src.questionnaire -> tgt.questionnaire;
   src.status -> tgt.status;
   src.subject -> tgt.subject;
-  src.context -> tgt.context;
+  src.encounter -> tgt.context;
   src.authored -> tgt.authored;
   src.author -> tgt.author;
   src.source -> tgt.source;
-  src.item as vs0 -> tgt.item as vt0 then {
-    vs0.linkId -> vt0.linkId;
-    vs0.definition -> vt0.definition;
-    vs0.text -> vt0.text;
-    vs0.subject -> vt0.subject;
-  };
+  src.item as vs0 -> tgt.item as vt0 then item(vs0, vt0);
 }
 
+group item(source src, target tgt) extends BackboneElement {
+  src.linkId -> tgt.linkId;
+  src.definition -> tgt.definition;
+  src.text -> tgt.text;
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34QRSubject' then {
+    e.value -> tgt.subject;
+  };
+  src.answer as vs0 -> tgt.answer as vt0 then answer(vs0, vt0);
+  src.item as vs0 -> tgt.item as vt0 then item(vs0, vt0);
+};
+
+group answer(source src, target tgt) extends BackboneElement {
+  src.value -> tgt.value;
+  src.item as vs0 -> tgt.item as vt0 then item(vs0, vt0);
+}

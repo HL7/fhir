@@ -167,11 +167,11 @@ group canonical2string(source src : canonical, target tgt : stringR3) extends El
   src.value as v -> tgt.value = v "code2uri-value";
 }
 
-group oid2string(source src : string, target tgt : oidR3) extends Element <<type+>> {
+group oid2string(source src : string, target tgt : oidR3) extends Element <<types>> {
   src.value as v -> tgt.value = v;
 }
 
-group id2oid(source src : id, target tgt : oidR3) extends Element <<type+>> {
+group id2oid(source src : id, target tgt : oidR3) extends Element <<types>> {
   src.value as v -> tgt.value = v;
 }
 
