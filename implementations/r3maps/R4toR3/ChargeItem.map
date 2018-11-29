@@ -33,7 +33,7 @@ group ChargeItem(source src : ChargeItemR3, target tgt : ChargeItem) extends Dom
   src.supportingInformation -> tgt.supportingInformation;
 }
 
-group ChargeItemPerformer(source src : ChargeItemR3, target tgt : ChargeItem) extends BackboneElement <<type+>> {
+group ChargeItemPerformer(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }

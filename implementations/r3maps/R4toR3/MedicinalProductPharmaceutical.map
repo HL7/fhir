@@ -15,12 +15,12 @@ group MedicinalProductPharmaceutical(source src : MedicinalProductPharmaceutical
   src.routeOfAdministration as s -> tgt.routeOfAdministration as t then MedicinalProductPharmaceuticalRouteOfAdministration(s, t);
 }
 
-group MedicinalProductPharmaceuticalCharacteristics(source src : MedicinalProductPharmaceuticalR3, target tgt : MedicinalProductPharmaceutical) extends BackboneElement <<type+>> {
+group MedicinalProductPharmaceuticalCharacteristics(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.status -> tgt.status;
 }
 
-group MedicinalProductPharmaceuticalRouteOfAdministration(source src : MedicinalProductPharmaceuticalR3, target tgt : MedicinalProductPharmaceutical) extends BackboneElement <<type+>> {
+group MedicinalProductPharmaceuticalRouteOfAdministration(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.firstDose -> tgt.firstDose;
   src.maxSingleDose -> tgt.maxSingleDose;
@@ -30,12 +30,12 @@ group MedicinalProductPharmaceuticalRouteOfAdministration(source src : Medicinal
   src.targetSpecies as s -> tgt.targetSpecies as t then MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(s, t);
 }
 
-group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(source src : MedicinalProductPharmaceuticalR3, target tgt : MedicinalProductPharmaceutical) extends BackboneElement <<type+>> {
+group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.withdrawalPeriod as s -> tgt.withdrawalPeriod as t then MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod(s, t);
 }
 
-group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod(source src : MedicinalProductPharmaceuticalR3, target tgt : MedicinalProductPharmaceutical) extends BackboneElement <<type+>> {
+group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod(source src, target tgt) extends BackboneElement {
   src.tissue -> tgt.tissue;
   src.value -> tgt.value;
   src.supportingInformation -> tgt.supportingInformation;

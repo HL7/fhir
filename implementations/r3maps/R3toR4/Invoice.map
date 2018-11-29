@@ -24,18 +24,18 @@ group Invoice(source src : InvoiceR3, target tgt : Invoice) extends DomainResour
   src.note -> tgt.note;
 }
 
-group InvoiceParticipant(source src : InvoiceR3, target tgt : Invoice) extends BackboneElement <<type+>> {
+group InvoiceParticipant(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.actor -> tgt.actor;
 }
 
-group InvoiceLineItem(source src : InvoiceR3, target tgt : Invoice) extends BackboneElement <<type+>> {
+group InvoiceLineItem(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.chargeItem -> tgt.chargeItem;
   src.priceComponent as s -> tgt.priceComponent as t then InvoiceLineItemPriceComponent(s, t);
 }
 
-group InvoiceLineItemPriceComponent(source src : InvoiceR3, target tgt : Invoice) extends BackboneElement <<type+>> {
+group InvoiceLineItemPriceComponent(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.code -> tgt.code;
   src.factor -> tgt.factor;

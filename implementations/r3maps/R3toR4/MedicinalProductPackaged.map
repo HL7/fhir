@@ -13,12 +13,12 @@ group MedicinalProductPackaged(source src : MedicinalProductPackagedR3, target t
   src.packageItem as s -> tgt.packageItem as t then MedicinalProductPackagedPackageItem(s, t);
 }
 
-group MedicinalProductPackagedBatchIdentifier(source src : MedicinalProductPackagedR3, target tgt : MedicinalProductPackaged) extends BackboneElement <<type+>> {
+group MedicinalProductPackagedBatchIdentifier(source src, target tgt) extends BackboneElement {
   src.outerPackaging -> tgt.outerPackaging;
   src.immediatePackaging -> tgt.immediatePackaging;
 }
 
-group MedicinalProductPackagedPackageItem(source src : MedicinalProductPackagedR3, target tgt : MedicinalProductPackaged) extends BackboneElement <<type+>> {
+group MedicinalProductPackagedPackageItem(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.quantity -> tgt.quantity;
@@ -33,7 +33,7 @@ group MedicinalProductPackagedPackageItem(source src : MedicinalProductPackagedR
   src.shelfLifeStorage -> tgt.shelfLifeStorage;
 }
 
-group MedicinalProductPackagedPackageItemManufacturedItem(source src : MedicinalProductPackagedR3, target tgt : MedicinalProductPackaged) extends BackboneElement <<type+>> {
+group MedicinalProductPackagedPackageItemManufacturedItem(source src, target tgt) extends BackboneElement {
   src.manufacturedDoseForm -> tgt.manufacturedDoseForm;
   src.unitOfPresentation -> tgt.unitOfPresentation;
   src.quantity -> tgt.quantity;

@@ -18483,10 +18483,13 @@
   },
   "FamilyMemberHistory": {
     "father": {
-      "execution": "Exception executing transform tgt.gender \u003d create() as vvv on Rule \"gender\": Attempt to get types for an invalid property \u0027gender\u0027 on type FamilyMemberHistory"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ FamilyMemberHistory.extension: The extension http://hl7.org/fhir/StructureDefinition/X34FMHNotDone is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "mother": {
-      "execution": "Attempt to read invalid property \u0027gender\u0027 on type FamilyMemberHistory"
+      "execution": true
     }
   },
   "Flag": {
@@ -18699,19 +18702,70 @@
       "execution": true
     },
     "example-double-cousin-relationship": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027FamilyMemberHistory\u0027 in http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to4 (FamilyMemberHistory) and http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to4 (FamilyMemberHistoryCondition)"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ List.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[4]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[5]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[6]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "example-empty": {
       "execution": true
     },
     "f201": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027FamilyMemberHistory\u0027 in http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to4 (FamilyMemberHistory) and http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to4 (FamilyMemberHistoryCondition)"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ List.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "genetic": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027FamilyMemberHistory\u0027 in http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to4 (FamilyMemberHistory) and http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to4 (FamilyMemberHistoryCondition)"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ List.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[4]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[5]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[6]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[7]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[8]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "prognosis": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027FamilyMemberHistory\u0027 in http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to4 (FamilyMemberHistory) and http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to4 (FamilyMemberHistoryCondition)"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ List.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[4]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[5]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[6]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[7]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[8]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[9]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[10]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[11]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[12]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[12].extension[1].extension[2].valueReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[12].extension[2].extension[2].valueReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[13]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[14]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[15]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[15].extension[1].extension[2].valueReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[15].extension[2].extension[2].valueReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[16]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[17]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[18]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[19]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[20]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[21]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[21].extension[1].extension[2].valueReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[21].extension[2].extension[2].valueReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ List.contained[22]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "med-list": {
       "execution": true

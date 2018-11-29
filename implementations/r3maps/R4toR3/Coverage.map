@@ -24,13 +24,13 @@ group Coverage(source src : CoverageR3, target tgt : Coverage) extends DomainRes
   src.contract -> tgt.contract;
 }
 
-group CoverageClass(source src : CoverageR3, target tgt : Coverage) extends BackboneElement <<type+>> {
+group CoverageClass(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value -> tgt.value;
   src.name -> tgt.name;
 }
 
-group CoverageCopay(source src : CoverageR3, target tgt : Coverage) extends BackboneElement <<type+>> {
+group CoverageCopay(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value -> tgt.value;
 }

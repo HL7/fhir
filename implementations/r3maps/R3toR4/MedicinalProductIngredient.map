@@ -14,14 +14,14 @@ group MedicinalProductIngredient(source src : MedicinalProductIngredientR3, targ
   src.substance as s -> tgt.substance as t then MedicinalProductIngredientSubstance(s, t);
 }
 
-group MedicinalProductIngredientSpecifiedSubstance(source src : MedicinalProductIngredientR3, target tgt : MedicinalProductIngredient) extends BackboneElement <<type+>> {
+group MedicinalProductIngredientSpecifiedSubstance(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.group -> tgt.group;
   src.confidentiality -> tgt.confidentiality;
   src.strength as s -> tgt.strength as t then MedicinalProductIngredientSpecifiedSubstanceStrength(s, t);
 }
 
-group MedicinalProductIngredientSpecifiedSubstanceStrength(source src : MedicinalProductIngredientR3, target tgt : MedicinalProductIngredient) extends BackboneElement <<type+>> {
+group MedicinalProductIngredientSpecifiedSubstanceStrength(source src, target tgt) extends BackboneElement {
   src.presentation -> tgt.presentation;
   src.concentration -> tgt.concentration;
   src.measurementPoint -> tgt.measurementPoint;
@@ -29,14 +29,14 @@ group MedicinalProductIngredientSpecifiedSubstanceStrength(source src : Medicina
   src.referenceStrength as s -> tgt.referenceStrength as t then MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(s, t);
 }
 
-group MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(source src : MedicinalProductIngredientR3, target tgt : MedicinalProductIngredient) extends BackboneElement <<type+>> {
+group MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(source src, target tgt) extends BackboneElement {
   src.substance -> tgt.substance;
   src.strength -> tgt.strength;
   src.measurementPoint -> tgt.measurementPoint;
   src.country -> tgt.country;
 }
 
-group MedicinalProductIngredientSubstance(source src : MedicinalProductIngredientR3, target tgt : MedicinalProductIngredient) extends BackboneElement <<type+>> {
+group MedicinalProductIngredientSubstance(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.strength -> tgt.strength;
 }

@@ -16,7 +16,7 @@ group VisionPrescription(source src : VisionPrescriptionR3, target tgt : VisionP
   src.dispense as s -> tgt.dispense as t then VisionPrescriptionDispense(s, t);
 }
 
-group VisionPrescriptionDispense(source src : VisionPrescriptionR3, target tgt : VisionPrescription) extends BackboneElement <<type+>> {
+group VisionPrescriptionDispense(source src, target tgt) extends BackboneElement {
   src.product -> tgt.product;
   src.eye -> tgt.eye;
   src.sphere -> tgt.sphere;
@@ -33,7 +33,7 @@ group VisionPrescriptionDispense(source src : VisionPrescriptionR3, target tgt :
   src.note -> tgt.note;
 }
 
-group VisionPrescriptionDispensePrism(source src : VisionPrescriptionR3, target tgt : VisionPrescription) extends BackboneElement <<type+>> {
+group VisionPrescriptionDispensePrism(source src, target tgt) extends BackboneElement {
   src.amount -> tgt.amount;
   src.base -> tgt.base;
 }

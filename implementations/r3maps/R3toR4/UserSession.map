@@ -16,12 +16,12 @@ group UserSession(source src : UserSessionR3, target tgt : UserSession) extends 
   src.context as s -> tgt.context as t then UserSessionContext(s, t);
 }
 
-group UserSessionStatus(source src : UserSessionR3, target tgt : UserSession) extends BackboneElement <<type+>> {
+group UserSessionStatus(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.source -> tgt.source;
 }
 
-group UserSessionContext(source src : UserSessionR3, target tgt : UserSession) extends BackboneElement <<type+>> {
+group UserSessionContext(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value -> tgt.value;
 }

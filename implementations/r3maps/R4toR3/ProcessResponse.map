@@ -20,7 +20,7 @@ group ProcessResponse(source src : ProcessResponseR3, target tgt : ProcessRespon
   src.communicationRequest -> tgt.communicationRequest;
 }
 
-group ProcessResponseProcessNote(source src : ProcessResponseR3, target tgt : ProcessResponse) extends BackboneElement <<type+>> {
+group ProcessResponseProcessNote(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.text -> tgt.text;
 }

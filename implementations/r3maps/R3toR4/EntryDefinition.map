@@ -20,7 +20,7 @@ group EntryDefinition(source src : EntryDefinitionR3, target tgt : EntryDefiniti
   src.relatedEntry as s -> tgt.relatedEntry as t then EntryDefinitionRelatedEntry(s, t);
 }
 
-group EntryDefinitionRelatedEntry(source src : EntryDefinitionR3, target tgt : EntryDefinition) extends BackboneElement <<type+>> {
+group EntryDefinitionRelatedEntry(source src, target tgt) extends BackboneElement {
   src.relationtype -> tgt.relationtype;
   src.item -> tgt.item;
 }

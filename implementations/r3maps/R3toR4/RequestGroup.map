@@ -26,7 +26,7 @@ group Requestgroup(source src : RequestGroupR3, target tgt : Requestgroup) exten
   src.action as s -> tgt.action as t then RequestGroupAction(s, t);
 }
 
-group RequestGroupAction(source src : RequestGroupR3, target tgt : Requestgroup) extends BackboneElement <<type+>> {
+group RequestGroupAction(source src, target tgt) extends BackboneElement {
   src.prefix -> tgt.prefix;
   src.title -> tgt.title;
   src.description -> tgt.description;
@@ -47,14 +47,14 @@ group RequestGroupAction(source src : RequestGroupR3, target tgt : Requestgroup)
   src.action -> tgt.action;
 }
 
-group RequestGroupActionCondition(source src : RequestGroupR3, target tgt : Requestgroup) extends BackboneElement <<type+>> {
+group RequestGroupActionCondition(source src, target tgt) extends BackboneElement {
   src.kind -> tgt.kind;
   src.description -> tgt.description;
   src.language -> tgt.language;
   src.expression -> tgt.expression;
 }
 
-group RequestGroupActionRelatedAction(source src : RequestGroupR3, target tgt : Requestgroup) extends BackboneElement <<type+>> {
+group RequestGroupActionRelatedAction(source src, target tgt) extends BackboneElement {
   src.actionId -> tgt.actionId;
   src.relationship -> tgt.relationship;
   src.offset -> tgt.offset;

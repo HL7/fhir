@@ -23,14 +23,14 @@ group EligibilityResponse(source src : EligibilityResponseR3, target tgt : Eligi
   src.error as s -> tgt.error as t then EligibilityResponseError(s, t);
 }
 
-group EligibilityResponseInsurance(source src : EligibilityResponseR3, target tgt : EligibilityResponse) extends BackboneElement <<type+>> {
+group EligibilityResponseInsurance(source src, target tgt) extends BackboneElement {
   src.coverage -> tgt.coverage;
   src.contract -> tgt.contract;
   src.inforce -> tgt.inforce;
   src.detail as s -> tgt.detail as t then EligibilityResponseInsuranceDetail(s, t);
 }
 
-group EligibilityResponseInsuranceDetail(source src : EligibilityResponseR3, target tgt : EligibilityResponse) extends BackboneElement <<type+>> {
+group EligibilityResponseInsuranceDetail(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.service -> tgt.service;
   src.modifier -> tgt.modifier;
@@ -47,13 +47,13 @@ group EligibilityResponseInsuranceDetail(source src : EligibilityResponseR3, tar
   src.authorizationUrl -> tgt.authorizationUrl;
 }
 
-group EligibilityResponseInsuranceDetailBenefit(source src : EligibilityResponseR3, target tgt : EligibilityResponse) extends BackboneElement <<type+>> {
+group EligibilityResponseInsuranceDetailBenefit(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.allowed -> tgt.allowed;
   src.used -> tgt.used;
 }
 
-group EligibilityResponseError(source src : EligibilityResponseR3, target tgt : EligibilityResponse) extends BackboneElement <<type+>> {
+group EligibilityResponseError(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
 }
 

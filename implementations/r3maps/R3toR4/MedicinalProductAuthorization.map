@@ -24,7 +24,7 @@ group MedicinalProductAuthorization(source src : MedicinalProductAuthorizationR3
   src.marketingStatus -> tgt.marketingStatus;
 }
 
-group MedicinalProductAuthorizationJurisdictionalAuthorization(source src : MedicinalProductAuthorizationR3, target tgt : MedicinalProductAuthorization) extends BackboneElement <<type+>> {
+group MedicinalProductAuthorizationJurisdictionalAuthorization(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.country -> tgt.country;
   src.jurisdiction -> tgt.jurisdiction;
@@ -32,7 +32,7 @@ group MedicinalProductAuthorizationJurisdictionalAuthorization(source src : Medi
   src.validityPeriod -> tgt.validityPeriod;
 }
 
-group MedicinalProductAuthorizationProcedure(source src : MedicinalProductAuthorizationR3, target tgt : MedicinalProductAuthorization) extends BackboneElement <<type+>> {
+group MedicinalProductAuthorizationProcedure(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.date -> tgt.date;

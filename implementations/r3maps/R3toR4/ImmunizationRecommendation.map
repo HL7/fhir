@@ -13,7 +13,7 @@ group ImmunizationRecommendation(source src : ImmunizationRecommendationR3, targ
   src.recommendation as s -> tgt.recommendation as t then ImmunizationRecommendationRecommendation(s, t);
 }
 
-group ImmunizationRecommendationRecommendation(source src : ImmunizationRecommendationR3, target tgt : ImmunizationRecommendation) extends BackboneElement <<type+>> {
+group ImmunizationRecommendationRecommendation(source src, target tgt) extends BackboneElement {
   src.vaccineCode -> tgt.vaccineCode;
   src.targetDisease -> tgt.targetDisease;
   src.contraindicatedVaccineCode -> tgt.contraindicatedVaccineCode;
@@ -28,7 +28,7 @@ group ImmunizationRecommendationRecommendation(source src : ImmunizationRecommen
   src.supportingPatientInformation -> tgt.supportingPatientInformation;
 }
 
-group ImmunizationRecommendationRecommendationDateCriterion(source src : ImmunizationRecommendationR3, target tgt : ImmunizationRecommendation) extends BackboneElement <<type+>> {
+group ImmunizationRecommendationRecommendationDateCriterion(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value -> tgt.value;
 }

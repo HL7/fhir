@@ -32,13 +32,13 @@ group ResearchStudy(source src : ResearchStudyR3, target tgt : ResearchStudy) ex
   src.objective as s -> tgt.objective as t then ResearchStudyObjective(s, t);
 }
 
-group ResearchStudyArm(source src : ResearchStudyR3, target tgt : ResearchStudy) extends BackboneElement <<type+>> {
+group ResearchStudyArm(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.type -> tgt.type;
   src.description -> tgt.description;
 }
 
-group ResearchStudyObjective(source src : ResearchStudyR3, target tgt : ResearchStudy) extends BackboneElement <<type+>> {
+group ResearchStudyObjective(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.type -> tgt.type;
 }

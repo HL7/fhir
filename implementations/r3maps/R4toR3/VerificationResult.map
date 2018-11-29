@@ -22,7 +22,7 @@ group VerificationResult(source src : VerificationResultR3, target tgt : Verific
   src.validator as s -> tgt.validator as t then VerificationResultValidator(s, t);
 }
 
-group VerificationResultPrimarySource(source src : VerificationResultR3, target tgt : VerificationResult) extends BackboneElement <<type+>> {
+group VerificationResultPrimarySource(source src, target tgt) extends BackboneElement {
   src.organization -> tgt.organization;
   src.type -> tgt.type;
   src.validationProcess -> tgt.validationProcess;
@@ -32,7 +32,7 @@ group VerificationResultPrimarySource(source src : VerificationResultR3, target 
   src.pushTypeAvailable -> tgt.pushTypeAvailable;
 }
 
-group VerificationResultAttestation(source src : VerificationResultR3, target tgt : VerificationResult) extends BackboneElement <<type+>> {
+group VerificationResultAttestation(source src, target tgt) extends BackboneElement {
   src.source -> tgt.source;
   src.organization -> tgt.organization;
   src.method -> tgt.method;
@@ -43,7 +43,7 @@ group VerificationResultAttestation(source src : VerificationResultR3, target tg
   src.signedSourceAttestation -> tgt.signedSourceAttestation;
 }
 
-group VerificationResultValidator(source src : VerificationResultR3, target tgt : VerificationResult) extends BackboneElement <<type+>> {
+group VerificationResultValidator(source src, target tgt) extends BackboneElement {
   src.organization -> tgt.organization;
   src.identityCertificate -> tgt.identityCertificate;
   src.signedValidatorAttestation -> tgt.signedValidatorAttestation;

@@ -21,7 +21,7 @@ group PaymentReconciliation(source src : PaymentReconciliationR3, target tgt : P
   src.processNote as s -> tgt.processNote as t then PaymentReconciliationProcessNote(s, t);
 }
 
-group PaymentReconciliationDetail(source src : PaymentReconciliationR3, target tgt : PaymentReconciliation) extends BackboneElement <<type+>> {
+group PaymentReconciliationDetail(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.request -> tgt.request;
   src.response -> tgt.response;
@@ -31,7 +31,7 @@ group PaymentReconciliationDetail(source src : PaymentReconciliationR3, target t
   src.amount -> tgt.amount;
 }
 
-group PaymentReconciliationProcessNote(source src : PaymentReconciliationR3, target tgt : PaymentReconciliation) extends BackboneElement <<type+>> {
+group PaymentReconciliationProcessNote(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.text -> tgt.text;
 }

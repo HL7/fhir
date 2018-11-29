@@ -19,19 +19,19 @@ group OccupationalData(source src : OccupationalDataR3, target tgt : Occupationa
   src.pastOrPresentJob as s -> tgt.pastOrPresentJob as t then OccupationalDataPastOrPresentJob(s, t);
 }
 
-group OccupationalDataEmploymentStatus(source src : OccupationalDataR3, target tgt : OccupationalData) extends BackboneElement <<type+>> {
+group OccupationalDataEmploymentStatus(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.effective -> tgt.effective;
 }
 
-group OccupationalDataUsualWork(source src : OccupationalDataR3, target tgt : OccupationalData) extends BackboneElement <<type+>> {
+group OccupationalDataUsualWork(source src, target tgt) extends BackboneElement {
   src.occupation -> tgt.occupation;
   src.industry -> tgt.industry;
   src.start -> tgt.start;
   src.duration -> tgt.duration;
 }
 
-group OccupationalDataPastOrPresentJob(source src : OccupationalDataR3, target tgt : OccupationalData) extends BackboneElement <<type+>> {
+group OccupationalDataPastOrPresentJob(source src, target tgt) extends BackboneElement {
   src.occupation -> tgt.occupation;
   src.industry -> tgt.industry;
   src.effective -> tgt.effective;
@@ -43,7 +43,7 @@ group OccupationalDataPastOrPresentJob(source src : OccupationalDataR3, target t
   src.workSchedule as s -> tgt.workSchedule as t then OccupationalDataPastOrPresentJobWorkSchedule(s, t);
 }
 
-group OccupationalDataPastOrPresentJobWorkSchedule(source src : OccupationalDataR3, target tgt : OccupationalData) extends BackboneElement <<type+>> {
+group OccupationalDataPastOrPresentJobWorkSchedule(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.weeklyWorkDays -> tgt.weeklyWorkDays;
   src.dailyWorkHours -> tgt.dailyWorkHours;

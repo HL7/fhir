@@ -24,7 +24,7 @@ group MedicinalProductDeviceSpec(source src : MedicinalProductDeviceSpecR3, targ
   src.material as s -> tgt.material as t then MedicinalProductDeviceSpecMaterial(s, t);
 }
 
-group MedicinalProductDeviceSpecMaterial(source src : MedicinalProductDeviceSpecR3, target tgt : MedicinalProductDeviceSpec) extends BackboneElement <<type+>> {
+group MedicinalProductDeviceSpecMaterial(source src, target tgt) extends BackboneElement {
   src.substance -> tgt.substance;
   src.alternate -> tgt.alternate;
   src.allergenicIndicator -> tgt.allergenicIndicator;

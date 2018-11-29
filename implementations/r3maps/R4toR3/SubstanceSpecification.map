@@ -21,7 +21,7 @@ group SubstanceSpecification(source src : SubstanceSpecificationR3, target tgt :
   src.polymer -> tgt.polymer;
 }
 
-group SubstanceSpecificationMoiety(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+group SubstanceSpecificationMoiety(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.identifier -> tgt.identifier;
   src.name -> tgt.name;
@@ -31,7 +31,7 @@ group SubstanceSpecificationMoiety(source src : SubstanceSpecificationR3, target
   src.amount -> tgt.amount;
 }
 
-group SubstanceSpecificationProperty(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+group SubstanceSpecificationProperty(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.name -> tgt.name;
   src.parameters -> tgt.parameters;
@@ -40,7 +40,7 @@ group SubstanceSpecificationProperty(source src : SubstanceSpecificationR3, targ
   src.amount -> tgt.amount;
 }
 
-group SubstanceSpecificationStructure(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+group SubstanceSpecificationStructure(source src, target tgt) extends BackboneElement {
   src.stereochemistry -> tgt.stereochemistry;
   src.opticalActivity -> tgt.opticalActivity;
   src.molecularFormula -> tgt.molecularFormula;
@@ -51,7 +51,7 @@ group SubstanceSpecificationStructure(source src : SubstanceSpecificationR3, tar
   src.structuralRepresentation as s -> tgt.structuralRepresentation as t then SubstanceSpecificationStructureStructuralRepresentation(s, t);
 }
 
-group SubstanceSpecificationStructureIsotope(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+group SubstanceSpecificationStructureIsotope(source src, target tgt) extends BackboneElement {
   src.nuclideId -> tgt.nuclideId;
   src.nuclideName -> tgt.nuclideName;
   src.substitutionType -> tgt.substitutionType;
@@ -60,19 +60,19 @@ group SubstanceSpecificationStructureIsotope(source src : SubstanceSpecification
   src.molecularWeight as s -> tgt.molecularWeight as t then SubstanceSpecificationStructureIsotopeMolecularWeight(s, t);
 }
 
-group SubstanceSpecificationStructureIsotopeMolecularWeight(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+group SubstanceSpecificationStructureIsotopeMolecularWeight(source src, target tgt) extends BackboneElement {
   src.method -> tgt.method;
   src.type -> tgt.type;
   src.amount -> tgt.amount;
 }
 
-group SubstanceSpecificationStructureStructuralRepresentation(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+group SubstanceSpecificationStructureStructuralRepresentation(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.representation -> tgt.representation;
   src.attachment -> tgt.attachment;
 }
 
-group SubstanceSpecificationSubstanceCode(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+group SubstanceSpecificationSubstanceCode(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.status -> tgt.status;
   src.statusDate -> tgt.statusDate;
@@ -80,7 +80,7 @@ group SubstanceSpecificationSubstanceCode(source src : SubstanceSpecificationR3,
   src.referenceSource -> tgt.referenceSource;
 }
 
-group SubstanceSpecificationSubstanceName(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+group SubstanceSpecificationSubstanceName(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.type -> tgt.type;
   src.language -> tgt.language;
@@ -90,7 +90,7 @@ group SubstanceSpecificationSubstanceName(source src : SubstanceSpecificationR3,
   src.referenceSource -> tgt.referenceSource;
 }
 
-group SubstanceSpecificationSubstanceNameOfficialName(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+group SubstanceSpecificationSubstanceNameOfficialName(source src, target tgt) extends BackboneElement {
   src.authority -> tgt.authority;
   src.status -> tgt.status;
   src.date -> tgt.date;

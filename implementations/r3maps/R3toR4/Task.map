@@ -37,18 +37,18 @@ group Task(source src : TaskR3, target tgt : Task) extends DomainResource <<type
   src.output as s -> tgt.output as t then TaskOutput(s, t);
 }
 
-group TaskRestriction(source src : TaskR3, target tgt : Task) extends BackboneElement <<type+>> {
+group TaskRestriction(source src, target tgt) extends BackboneElement {
   src.repetitions -> tgt.repetitions;
   src.period -> tgt.period;
   src.recipient -> tgt.recipient;
 }
 
-group TaskInput(source src : TaskR3, target tgt : Task) extends BackboneElement <<type+>> {
+group TaskInput(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value -> tgt.value;
 }
 
-group TaskOutput(source src : TaskR3, target tgt : Task) extends BackboneElement <<type+>> {
+group TaskOutput(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value -> tgt.value;
 }
