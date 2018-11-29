@@ -27,7 +27,7 @@
 -->
 <Consent xmlns="http://hl7.org/fhir">
   <id value="consent-example-smartonfhir"/>
-  <status value="in-progress"/>
+  <status value="active"/>
   <scope>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>

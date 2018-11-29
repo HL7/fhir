@@ -14,7 +14,7 @@
    </p>
    </div>
   </text>
-  <status value="in-progress"/>
+  <status value="active"/>
   <scope>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>

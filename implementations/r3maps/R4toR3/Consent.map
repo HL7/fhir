@@ -1,18 +1,5 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Consent4to3" = "R4 to R3 Conversion for Consent"
 
-conceptmap "ConsentStatus" {
-  prefix s = "http://hl7.org/fhir/event-status"
-  prefix t = "http://hl7.org/fhir/consent-state-codes"
-
-  s:preparation - t:draft
-  s:"in-progress" - t:proposed
-  s:completed - t:active
-  s:stopped - t:rejected
-  s:"on-hold" - t:inactive
-  s:"entered-in-error" - t:"entered-in-error"
-}
-
-
 uses "http://hl7.org/fhir/StructureDefinition/Consent" alias Consent as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Consent" alias ConsentR3 as target
 
@@ -20,7 +7,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, "#ConsentStatus", "code");
+  src.status -> tgt.status;
   src.category -> tgt.category;
   src.patient -> tgt.patient;
   src.dateTime -> tgt.dateTime;
