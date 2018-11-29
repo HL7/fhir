@@ -23,7 +23,7 @@ group NutritionOrder(source src : NutritionOrderR3, target tgt : NutritionOrder)
   src.note -> tgt.note;
 }
 
-group NutritionOrderOralDiet(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+group NutritionOrderOralDiet(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.schedule -> tgt.schedule;
   src.nutrient as s -> tgt.nutrient as t then NutritionOrderOralDietNutrient(s, t);
@@ -32,17 +32,17 @@ group NutritionOrderOralDiet(source src : NutritionOrderR3, target tgt : Nutriti
   src.instruction -> tgt.instruction;
 }
 
-group NutritionOrderOralDietNutrient(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+group NutritionOrderOralDietNutrient(source src, target tgt) extends BackboneElement {
   src.modifier -> tgt.modifier;
   src.amount -> tgt.amount;
 }
 
-group NutritionOrderOralDietTexture(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+group NutritionOrderOralDietTexture(source src, target tgt) extends BackboneElement {
   src.modifier -> tgt.modifier;
   src.foodType -> tgt.foodType;
 }
 
-group NutritionOrderSupplement(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+group NutritionOrderSupplement(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.productName -> tgt.productName;
   src.schedule -> tgt.schedule;
@@ -50,7 +50,7 @@ group NutritionOrderSupplement(source src : NutritionOrderR3, target tgt : Nutri
   src.instruction -> tgt.instruction;
 }
 
-group NutritionOrderEnteralFormula(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+group NutritionOrderEnteralFormula(source src, target tgt) extends BackboneElement {
   src.baseFormulaType -> tgt.baseFormulaType;
   src.baseFormulaProductName -> tgt.baseFormulaProductName;
   src.additiveType -> tgt.additiveType;
@@ -62,7 +62,7 @@ group NutritionOrderEnteralFormula(source src : NutritionOrderR3, target tgt : N
   src.administrationInstruction -> tgt.administrationInstruction;
 }
 
-group NutritionOrderEnteralFormulaAdministration(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+group NutritionOrderEnteralFormulaAdministration(source src, target tgt) extends BackboneElement {
   src.schedule -> tgt.schedule;
   src.quantity -> tgt.quantity;
   src.rate -> tgt.rate;

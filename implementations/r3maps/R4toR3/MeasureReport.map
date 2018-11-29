@@ -28,14 +28,14 @@ group MeasureReport(source src : MeasureReportR3, target tgt : MeasureReport) ex
   src.evaluatedResource -> tgt.evaluatedResources;
 }
 
-group group(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+group group(source src, target tgt) extends BackboneElement {
   src.code as vs -> tgt.identifier as vt then Codeable2Identifier(vs, vt);
   src.population as s -> tgt.population as t then population(s, t);
   src.measureScore -> tgt.measureScore;
   src.stratifier as s -> tgt.stratifier as t then stratifier(s, t);
 }
 
-group population(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+group population(source src, target tgt) extends BackboneElement {
   src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier' then {
     e.value -> tgt.identifier;
   };
@@ -44,12 +44,12 @@ group population(source src : MeasureReportR3, target tgt : MeasureReport) exten
   src.subjectResults -> tgt.patients;
 }
 
-group stratifier(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+group stratifier(source src, target tgt) extends BackboneElement {
   src.code as vs -> tgt.identifier as vt then Codeable2Identifier(vs, vt);
   src.stratum as s -> tgt.stratum as t then stratum(s, t);
 }
 
-group stratum(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+group stratum(source src, target tgt) extends BackboneElement {
   src.value as cc then {
     cc.text -> tgt.value;
   };
@@ -57,7 +57,7 @@ group stratum(source src : MeasureReportR3, target tgt : MeasureReport) extends 
   src.measureScore -> tgt.measureScore;
 }
 
-group population2(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+group population2(source src, target tgt) extends BackboneElement {
   src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier' then {
     e.value -> tgt.identifier;
   };

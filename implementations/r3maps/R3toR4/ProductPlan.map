@@ -22,31 +22,31 @@ group ProductPlan(source src : ProductPlanR3, target tgt : ProductPlan) extends 
   src.plan as s -> tgt.plan as t then ProductPlanPlan(s, t);
 }
 
-group ProductPlanContact(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+group ProductPlanContact(source src, target tgt) extends BackboneElement {
   src.purpose -> tgt.purpose;
   src.name -> tgt.name;
   src.telecom -> tgt.telecom;
   src.address -> tgt.address;
 }
 
-group ProductPlanCoverage(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+group ProductPlanCoverage(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.network -> tgt.network;
   src.benefit as s -> tgt.benefit as t then ProductPlanCoverageBenefit(s, t);
 }
 
-group ProductPlanCoverageBenefit(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+group ProductPlanCoverageBenefit(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.requirement -> tgt.requirement;
   src.limit as s -> tgt.limit as t then ProductPlanCoverageBenefitLimit(s, t);
 }
 
-group ProductPlanCoverageBenefitLimit(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+group ProductPlanCoverageBenefitLimit(source src, target tgt) extends BackboneElement {
   src.value -> tgt.value;
   src.code -> tgt.code;
 }
 
-group ProductPlanPlan(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+group ProductPlanPlan(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.coverageArea -> tgt.coverageArea;
@@ -55,24 +55,24 @@ group ProductPlanPlan(source src : ProductPlanR3, target tgt : ProductPlan) exte
   src.specificCost as s -> tgt.specificCost as t then ProductPlanPlanSpecificCost(s, t);
 }
 
-group ProductPlanPlanGeneralCost(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+group ProductPlanPlanGeneralCost(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.groupSize -> tgt.groupSize;
   src.cost -> tgt.cost;
   src.comment -> tgt.comment;
 }
 
-group ProductPlanPlanSpecificCost(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+group ProductPlanPlanSpecificCost(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.benefit as s -> tgt.benefit as t then ProductPlanPlanSpecificCostBenefit(s, t);
 }
 
-group ProductPlanPlanSpecificCostBenefit(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+group ProductPlanPlanSpecificCostBenefit(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.cost as s -> tgt.cost as t then ProductPlanPlanSpecificCostBenefitCost(s, t);
 }
 
-group ProductPlanPlanSpecificCostBenefitCost(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+group ProductPlanPlanSpecificCostBenefitCost(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.applicability -> tgt.applicability;
   src.qualifiers -> tgt.qualifiers;

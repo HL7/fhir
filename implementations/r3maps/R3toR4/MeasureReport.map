@@ -42,18 +42,18 @@ group population(source src, target tgt) extends BackboneElement {
   src.patients -> tgt.subjectResults;
 }
 
-group stratifier(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+group stratifier(source src, target tgt) extends BackboneElement {
   src.identifier as vs -> tgt.code as vt then Identifier2Codeable(vs, vt);
   src.stratum as s -> tgt.stratum as t then stratum(s, t);
 }
 
-group stratum(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+group stratum(source src, target tgt) extends BackboneElement {
   src.value as s -> tgt.value as cc, cc.text = s;
   src.population as s -> tgt.population as t then population2(s, t);
   src.measureScore -> tgt.measureScore;
 }
 
-group population2(source src : MeasureReportR3, target tgt : MeasureReport) extends BackboneElement <<type+>> {
+group population2(source src, target tgt) extends BackboneElement {
   src.identifier as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier', vt.value = v;
   src.code -> tgt.code;
   src.count -> tgt.count;

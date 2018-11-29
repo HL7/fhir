@@ -23,7 +23,7 @@ group SupplyRequest(source src : SupplyRequestR3, target tgt : SupplyRequest) ex
   src.deliverTo -> tgt.deliverTo;
 }
 
-group SupplyRequestParameter(source src : SupplyRequestR3, target tgt : SupplyRequest) extends BackboneElement <<type+>> {
+group SupplyRequestParameter(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value -> tgt.value;
 }

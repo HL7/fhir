@@ -52,13 +52,13 @@ group Procedure(source src : ProcedureR3, target tgt : Procedure) extends Domain
   src.usedCode -> tgt.usedCode;
 }
 
-group ProcedurePerformer(source src : ProcedureR3, target tgt : Procedure) extends BackboneElement <<type+>> {
+group ProcedurePerformer(source src, target tgt) extends BackboneElement {
   src.function -> tgt.role;
   src.actor -> tgt.actor;
   src.onBehalfOf -> tgt.onBehalfOf;
 }
 
-group ProcedureFocalDevice(source src : ProcedureR3, target tgt : Procedure) extends BackboneElement <<type+>> {
+group ProcedureFocalDevice(source src, target tgt) extends BackboneElement {
   src.action -> tgt.action;
   src.manipulated -> tgt.manipulated;
 }

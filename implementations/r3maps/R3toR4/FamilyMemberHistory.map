@@ -7,29 +7,40 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 group FamilyMemberHistory(source src : FamilyMemberHistoryR3, target tgt : FamilyMemberHistory) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.instantiatesCanonical -> tgt.instantiatesCanonical;
-  src.instantiatesUri -> tgt.instantiatesUri;
+  src.definition -> tgt.instantiatesCanonical;
   src.status -> tgt.status;
-  src.dataAbsentReason -> tgt.dataAbsentReason;
+  src.notDone as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34FMHNotDone', vt.value = v;
+  src.notDoneReason -> tgt.dataAbsentReason;
   src.patient -> tgt.patient;
   src.date -> tgt.date;
   src.name -> tgt.name;
   src.relationship -> tgt.relationship;
-  src.gender -> tgt.gender;
-  src.born -> tgt.born;
-  src.age -> tgt.age;
+  src.gender as v -> tgt.sex as cc, cc.coding as c, c.system = "http://hl7.org/fhir/administrative-gender", c.code = v;
+  src.born : Period as vs -> tgt.born = create("Period") as vt then Period(vs, vt);
+  src.born : Date as vs -> tgt.born = create("Date") as vt then Date(vs, vt);
+  src.born : string as vs -> tgt.born = create("string") as vt then string(vs, vt);
+  src.age : Age as vs -> tgt.age = create("Age") as vt then Age(vs, vt);
+  src.age : Range as vs -> tgt.age = create("Range") as vt then Range(vs, vt);
+  src.age : string as vs -> tgt.age = create("string") as vt then string(vs, vt);
   src.estimatedAge -> tgt.estimatedAge;
-  src.deceased -> tgt.deceased;
+  src.deceased : boolean as vs -> tgt.deceased = create("boolean") as vt then boolean(vs, vt);
+  src.deceased : Age as vs -> tgt.deceased = create("Age") as vt then Age(vs, vt);
+  src.deceased : Range as vs -> tgt.deceased = create("Range") as vt then Range(vs, vt);
+  src.deceased : Date as vs -> tgt.deceased = create("Date") as vt then Date(vs, vt);
+  src.deceased : string as vs -> tgt.deceased = create("string") as vt then string(vs, vt);
   src.reasonCode -> tgt.reasonCode;
   src.reasonReference -> tgt.reasonReference;
   src.note -> tgt.note;
-  src.condition as s -> tgt.condition as t then FamilyMemberHistoryCondition(s, t);
+  src.condition as s -> tgt.condition as t then condition(s, t);
 }
 
-group FamilyMemberHistoryCondition(source src : FamilyMemberHistoryR3, target tgt : FamilyMemberHistory) extends BackboneElement <<type+>> {
+group condition(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.outcome -> tgt.outcome;
-  src.onset -> tgt.onset;
+  src.onset : string as vs -> tgt.onset = create("string") as vt then string(vs, vt);
+  src.onset : Age as vs -> tgt.onset = create("Age") as vt then Age(vs, vt);
+  src.onset : Range as vs -> tgt.onset = create("Range") as vt then Range(vs, vt);
+  src.onset : Period as vs -> tgt.onset = create("Period") as vt then Period(vs, vt);
   src.note -> tgt.note;
 }
 

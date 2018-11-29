@@ -19,12 +19,12 @@ group Account(source src : AccountR3, target tgt : Account) extends DomainResour
   src.partOf -> tgt.partOf;
 }
 
-group AccountCoverage(source src : AccountR3, target tgt : Account) extends BackboneElement <<type+>> {
+group AccountCoverage(source src, target tgt) extends BackboneElement {
   src.coverage -> tgt.coverage;
   src.priority -> tgt.priority;
 }
 
-group AccountGuarantor(source src : AccountR3, target tgt : Account) extends BackboneElement <<type+>> {
+group AccountGuarantor(source src, target tgt) extends BackboneElement {
   src.party -> tgt.party;
   src.onHold -> tgt.onHold;
   src.period -> tgt.period;

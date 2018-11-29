@@ -43,19 +43,19 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : Exp
   src.benefitBalance as s -> tgt.benefitBalance as t then ExplanationOfBenefitBenefitBalance(s, t);
 }
 
-group ExplanationOfBenefitRelated(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitRelated(source src, target tgt) extends BackboneElement {
   src.claim -> tgt.claim;
   src.relationship -> tgt.relationship;
   src.reference -> tgt.reference;
 }
 
-group ExplanationOfBenefitPayee(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitPayee(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.resource -> tgt.resource;
   src.party -> tgt.party;
 }
 
-group ExplanationOfBenefitInformation(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitInformation(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.category -> tgt.category;
   src.code -> tgt.code;
@@ -64,7 +64,7 @@ group ExplanationOfBenefitInformation(source src : ExplanationOfBenefitR3, targe
   src.reason -> tgt.reason;
 }
 
-group ExplanationOfBenefitCareTeam(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitCareTeam(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.provider -> tgt.provider;
   src.responsible -> tgt.responsible;
@@ -72,31 +72,31 @@ group ExplanationOfBenefitCareTeam(source src : ExplanationOfBenefitR3, target t
   src.qualification -> tgt.qualification;
 }
 
-group ExplanationOfBenefitDiagnosis(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitDiagnosis(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.diagnosis -> tgt.diagnosis;
   src.type -> tgt.type;
   src.packageCode -> tgt.packageCode;
 }
 
-group ExplanationOfBenefitProcedure(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitProcedure(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.date -> tgt.date;
   src.procedure -> tgt.procedure;
 }
 
-group ExplanationOfBenefitInsurance(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitInsurance(source src, target tgt) extends BackboneElement {
   src.coverage -> tgt.coverage;
   src.preAuthRef -> tgt.preAuthRef;
 }
 
-group ExplanationOfBenefitAccident(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitAccident(source src, target tgt) extends BackboneElement {
   src.date -> tgt.date;
   src.type -> tgt.type;
   src.location -> tgt.location;
 }
 
-group ExplanationOfBenefitItem(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitItem(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.careTeamSequence -> tgt.careTeamSequence;
   src.diagnosisSequence -> tgt.diagnosisSequence;
@@ -122,14 +122,14 @@ group ExplanationOfBenefitItem(source src : ExplanationOfBenefitR3, target tgt :
   src.detail as s -> tgt.detail as t then ExplanationOfBenefitItemDetail(s, t);
 }
 
-group ExplanationOfBenefitItemAdjudication(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitItemAdjudication(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.reason -> tgt.reason;
   src.amount -> tgt.amount;
   src.value -> tgt.value;
 }
 
-group ExplanationOfBenefitItemDetail(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitItemDetail(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.revenue -> tgt.revenue;
   src.category -> tgt.category;
@@ -146,7 +146,7 @@ group ExplanationOfBenefitItemDetail(source src : ExplanationOfBenefitR3, target
   src.subDetail as s -> tgt.subDetail as t then ExplanationOfBenefitItemDetailSubDetail(s, t);
 }
 
-group ExplanationOfBenefitItemDetailSubDetail(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitItemDetailSubDetail(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.revenue -> tgt.revenue;
   src.category -> tgt.category;
@@ -162,7 +162,7 @@ group ExplanationOfBenefitItemDetailSubDetail(source src : ExplanationOfBenefitR
   src.adjudication -> tgt.adjudication;
 }
 
-group ExplanationOfBenefitAddItem(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitAddItem(source src, target tgt) extends BackboneElement {
   src.itemSequence -> tgt.itemSequence;
   src.detailSequence -> tgt.detailSequence;
   src.subDetailSequence -> tgt.subDetailSequence;
@@ -182,7 +182,7 @@ group ExplanationOfBenefitAddItem(source src : ExplanationOfBenefitR3, target tg
   src.detail as s -> tgt.detail as t then ExplanationOfBenefitAddItemDetail(s, t);
 }
 
-group ExplanationOfBenefitAddItemDetail(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitAddItemDetail(source src, target tgt) extends BackboneElement {
   src.service -> tgt.service;
   src.modifier -> tgt.modifier;
   src.programCode -> tgt.programCode;
@@ -195,7 +195,7 @@ group ExplanationOfBenefitAddItemDetail(source src : ExplanationOfBenefitR3, tar
   src.subDetail as s -> tgt.subDetail as t then ExplanationOfBenefitAddItemDetailSubDetail(s, t);
 }
 
-group ExplanationOfBenefitAddItemDetailSubDetail(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitAddItemDetailSubDetail(source src, target tgt) extends BackboneElement {
   src.service -> tgt.service;
   src.modifier -> tgt.modifier;
   src.programCode -> tgt.programCode;
@@ -207,12 +207,12 @@ group ExplanationOfBenefitAddItemDetailSubDetail(source src : ExplanationOfBenef
   src.adjudication -> tgt.adjudication;
 }
 
-group ExplanationOfBenefitTotal(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitTotal(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.amount -> tgt.amount;
 }
 
-group ExplanationOfBenefitPayment(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitPayment(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.adjustment -> tgt.adjustment;
   src.adjustmentReason -> tgt.adjustmentReason;
@@ -221,14 +221,14 @@ group ExplanationOfBenefitPayment(source src : ExplanationOfBenefitR3, target tg
   src.identifier -> tgt.identifier;
 }
 
-group ExplanationOfBenefitProcessNote(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitProcessNote(source src, target tgt) extends BackboneElement {
   src.number -> tgt.number;
   src.type -> tgt.type;
   src.text -> tgt.text;
   src.language -> tgt.language;
 }
 
-group ExplanationOfBenefitBenefitBalance(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitBenefitBalance(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.excluded -> tgt.excluded;
   src.name -> tgt.name;
@@ -239,7 +239,7 @@ group ExplanationOfBenefitBenefitBalance(source src : ExplanationOfBenefitR3, ta
   src.financial as s -> tgt.financial as t then ExplanationOfBenefitBenefitBalanceFinancial(s, t);
 }
 
-group ExplanationOfBenefitBenefitBalanceFinancial(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends BackboneElement <<type+>> {
+group ExplanationOfBenefitBenefitBalanceFinancial(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.allowed -> tgt.allowed;
   src.used -> tgt.used;

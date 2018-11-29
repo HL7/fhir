@@ -30,86 +30,86 @@ group MedicationKnowledge(source src : MedicationKnowledgeR3, target tgt : Medic
   src.kinetics as s -> tgt.kinetics as t then MedicationKnowledgeKinetics(s, t);
 }
 
-group MedicationKnowledgeRelatedMedicationKnowledge(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeRelatedMedicationKnowledge(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.reference -> tgt.reference;
 }
 
-group MedicationKnowledgeMonograph(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeMonograph(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.source -> tgt.source;
 }
 
-group MedicationKnowledgeIngredient(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeIngredient(source src, target tgt) extends BackboneElement {
   src.item -> tgt.item;
   src.isActive -> tgt.isActive;
   src.strength -> tgt.strength;
 }
 
-group MedicationKnowledgeCost(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeCost(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.source -> tgt.source;
   src.cost -> tgt.cost;
 }
 
-group MedicationKnowledgeMonitoringProgram(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeMonitoringProgram(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.name -> tgt.name;
 }
 
-group MedicationKnowledgeAdministrationGuidelines(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeAdministrationGuidelines(source src, target tgt) extends BackboneElement {
   src.dosage as s -> tgt.dosage as t then MedicationKnowledgeAdministrationGuidelinesDosage(s, t);
   src.indication -> tgt.indication;
   src.patientCharacteristics as s -> tgt.patientCharacteristics as t then MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(s, t);
 }
 
-group MedicationKnowledgeAdministrationGuidelinesDosage(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeAdministrationGuidelinesDosage(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.dosage -> tgt.dosage;
 }
 
-group MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(source src, target tgt) extends BackboneElement {
   src.characteristic -> tgt.characteristic;
   src.value -> tgt.value;
 }
 
-group MedicationKnowledgeMedicineClassification(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeMedicineClassification(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.classification -> tgt.classification;
 }
 
-group MedicationKnowledgePackaging(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgePackaging(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.quantity -> tgt.quantity;
 }
 
-group MedicationKnowledgeDrugCharacteristic(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeDrugCharacteristic(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value -> tgt.value;
 }
 
-group MedicationKnowledgeRegulatory(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeRegulatory(source src, target tgt) extends BackboneElement {
   src.substitution as s -> tgt.substitution as t then MedicationKnowledgeRegulatorySubstitution(s, t);
   src.schedule as s -> tgt.schedule as t then MedicationKnowledgeRegulatorySchedule(s, t);
   src.maxDispense as s -> tgt.maxDispense as t then MedicationKnowledgeRegulatoryMaxDispense(s, t);
 }
 
-group MedicationKnowledgeRegulatorySubstitution(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeRegulatorySubstitution(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.allowed -> tgt.allowed;
 }
 
-group MedicationKnowledgeRegulatorySchedule(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeRegulatorySchedule(source src, target tgt) extends BackboneElement {
   src.jurisdiction -> tgt.jurisdiction;
   src.schedule -> tgt.schedule;
 }
 
-group MedicationKnowledgeRegulatoryMaxDispense(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeRegulatoryMaxDispense(source src, target tgt) extends BackboneElement {
   src.quantity -> tgt.quantity;
   src.period -> tgt.period;
 }
 
-group MedicationKnowledgeKinetics(source src : MedicationKnowledgeR3, target tgt : MedicationKnowledge) extends BackboneElement <<type+>> {
+group MedicationKnowledgeKinetics(source src, target tgt) extends BackboneElement {
   src.areaUnderCurve -> tgt.areaUnderCurve;
   src.lethalDose50 -> tgt.lethalDose50;
   src.halfLifePeriod -> tgt.halfLifePeriod;

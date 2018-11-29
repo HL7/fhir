@@ -20,14 +20,14 @@ group ObservationDefinition(source src : ObservationDefinitionR3, target tgt : O
   src.criticalCodedValueSet -> tgt.criticalCodedValueSet;
 }
 
-group ObservationDefinitionQuantitativeDetails(source src : ObservationDefinitionR3, target tgt : ObservationDefinition) extends BackboneElement <<type+>> {
+group ObservationDefinitionQuantitativeDetails(source src, target tgt) extends BackboneElement {
   src.customaryUnit -> tgt.customaryUnit;
   src.unit -> tgt.unit;
   src.conversionFactor -> tgt.conversionFactor;
   src.decimalPrecision -> tgt.decimalPrecision;
 }
 
-group ObservationDefinitionQualifiedInterval(source src : ObservationDefinitionR3, target tgt : ObservationDefinition) extends BackboneElement <<type+>> {
+group ObservationDefinitionQualifiedInterval(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.range -> tgt.range;
   src.type -> tgt.type;

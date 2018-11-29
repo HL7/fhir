@@ -31,18 +31,18 @@ group ChargeItemDefinition(source src : ChargeItemDefinitionR3, target tgt : Cha
   src.propertyGroup as s -> tgt.propertyGroup as t then ChargeItemDefinitionPropertyGroup(s, t);
 }
 
-group ChargeItemDefinitionApplicability(source src : ChargeItemDefinitionR3, target tgt : ChargeItemDefinition) extends BackboneElement <<type+>> {
+group ChargeItemDefinitionApplicability(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.language -> tgt.language;
   src.expression -> tgt.expression;
 }
 
-group ChargeItemDefinitionPropertyGroup(source src : ChargeItemDefinitionR3, target tgt : ChargeItemDefinition) extends BackboneElement <<type+>> {
+group ChargeItemDefinitionPropertyGroup(source src, target tgt) extends BackboneElement {
   src.applicability -> tgt.applicability;
   src.priceComponent as s -> tgt.priceComponent as t then ChargeItemDefinitionPropertyGroupPriceComponent(s, t);
 }
 
-group ChargeItemDefinitionPropertyGroupPriceComponent(source src : ChargeItemDefinitionR3, target tgt : ChargeItemDefinition) extends BackboneElement <<type+>> {
+group ChargeItemDefinitionPropertyGroupPriceComponent(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.code -> tgt.code;
   src.factor -> tgt.factor;

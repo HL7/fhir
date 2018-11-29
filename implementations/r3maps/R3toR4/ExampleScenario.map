@@ -25,14 +25,14 @@ group ExampleScenario(source src : ExampleScenarioR3, target tgt : ExampleScenar
   src.workflow -> tgt.workflow;
 }
 
-group ExampleScenarioActor(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+group ExampleScenarioActor(source src, target tgt) extends BackboneElement {
   src.actorId -> tgt.actorId;
   src.type -> tgt.type;
   src.name -> tgt.name;
   src.description -> tgt.description;
 }
 
-group ExampleScenarioInstance(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+group ExampleScenarioInstance(source src, target tgt) extends BackboneElement {
   src.resourceId -> tgt.resourceId;
   src.resourceType -> tgt.resourceType;
   src.name -> tgt.name;
@@ -41,17 +41,17 @@ group ExampleScenarioInstance(source src : ExampleScenarioR3, target tgt : Examp
   src.containedInstance as s -> tgt.containedInstance as t then ExampleScenarioInstanceContainedInstance(s, t);
 }
 
-group ExampleScenarioInstanceVersion(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+group ExampleScenarioInstanceVersion(source src, target tgt) extends BackboneElement {
   src.versionId -> tgt.versionId;
   src.description -> tgt.description;
 }
 
-group ExampleScenarioInstanceContainedInstance(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+group ExampleScenarioInstanceContainedInstance(source src, target tgt) extends BackboneElement {
   src.resourceId -> tgt.resourceId;
   src.versionId -> tgt.versionId;
 }
 
-group ExampleScenarioProcess(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+group ExampleScenarioProcess(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.description -> tgt.description;
   src.preConditions -> tgt.preConditions;
@@ -59,14 +59,14 @@ group ExampleScenarioProcess(source src : ExampleScenarioR3, target tgt : Exampl
   src.step as s -> tgt.step as t then ExampleScenarioProcessStep(s, t);
 }
 
-group ExampleScenarioProcessStep(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+group ExampleScenarioProcessStep(source src, target tgt) extends BackboneElement {
   src.process -> tgt.process;
   src.pause -> tgt.pause;
   src.operation as s -> tgt.operation as t then ExampleScenarioProcessStepOperation(s, t);
   src.alternative as s -> tgt.alternative as t then ExampleScenarioProcessStepAlternative(s, t);
 }
 
-group ExampleScenarioProcessStepOperation(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+group ExampleScenarioProcessStepOperation(source src, target tgt) extends BackboneElement {
   src.number -> tgt.number;
   src.type -> tgt.type;
   src.name -> tgt.name;
@@ -79,12 +79,12 @@ group ExampleScenarioProcessStepOperation(source src : ExampleScenarioR3, target
   src.response -> tgt.response;
 }
 
-group ExampleScenarioProcessStepAlternative(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+group ExampleScenarioProcessStepAlternative(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.option as s -> tgt.option as t then ExampleScenarioProcessStepAlternativeOption(s, t);
 }
 
-group ExampleScenarioProcessStepAlternativeOption(source src : ExampleScenarioR3, target tgt : ExampleScenario) extends BackboneElement <<type+>> {
+group ExampleScenarioProcessStepAlternativeOption(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.step -> tgt.step;
   src.pause -> tgt.pause;

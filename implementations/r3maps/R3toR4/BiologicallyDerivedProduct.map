@@ -19,25 +19,25 @@ group BiologicallyDerivedProduct(source src : BiologicallyDerivedProductR3, targ
   src.storage as s -> tgt.storage as t then BiologicallyDerivedProductStorage(s, t);
 }
 
-group BiologicallyDerivedProductCollection(source src : BiologicallyDerivedProductR3, target tgt : BiologicallyDerivedProduct) extends BackboneElement <<type+>> {
+group BiologicallyDerivedProductCollection(source src, target tgt) extends BackboneElement {
   src.collector -> tgt.collector;
   src.source -> tgt.source;
   src.collected -> tgt.collected;
 }
 
-group BiologicallyDerivedProductProcessing(source src : BiologicallyDerivedProductR3, target tgt : BiologicallyDerivedProduct) extends BackboneElement <<type+>> {
+group BiologicallyDerivedProductProcessing(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.procedure -> tgt.procedure;
   src.additive -> tgt.additive;
   src.time -> tgt.time;
 }
 
-group BiologicallyDerivedProductManipulation(source src : BiologicallyDerivedProductR3, target tgt : BiologicallyDerivedProduct) extends BackboneElement <<type+>> {
+group BiologicallyDerivedProductManipulation(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.time -> tgt.time;
 }
 
-group BiologicallyDerivedProductStorage(source src : BiologicallyDerivedProductR3, target tgt : BiologicallyDerivedProduct) extends BackboneElement <<type+>> {
+group BiologicallyDerivedProductStorage(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.temperature -> tgt.temperature;
   src.scale -> tgt.scale;

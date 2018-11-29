@@ -14,26 +14,26 @@ group SubstanceReferenceInformation(source src : SubstanceReferenceInformationR3
   src.target as s -> tgt.target as t then SubstanceReferenceInformationTarget(s, t);
 }
 
-group SubstanceReferenceInformationGene(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends BackboneElement <<type+>> {
+group SubstanceReferenceInformationGene(source src, target tgt) extends BackboneElement {
   src.geneSequenceOrigin -> tgt.geneSequenceOrigin;
   src.gene -> tgt.gene;
   src.source -> tgt.source;
 }
 
-group SubstanceReferenceInformationGeneElement(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends BackboneElement <<type+>> {
+group SubstanceReferenceInformationGeneElement(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.element -> tgt.element;
   src.source -> tgt.source;
 }
 
-group SubstanceReferenceInformationClassification(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends BackboneElement <<type+>> {
+group SubstanceReferenceInformationClassification(source src, target tgt) extends BackboneElement {
   src.domain -> tgt.domain;
   src.classification -> tgt.classification;
   src.subtype -> tgt.subtype;
   src.source -> tgt.source;
 }
 
-group SubstanceReferenceInformationRelationship(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends BackboneElement <<type+>> {
+group SubstanceReferenceInformationRelationship(source src, target tgt) extends BackboneElement {
   src.substance -> tgt.substance;
   src.relationship -> tgt.relationship;
   src.interaction -> tgt.interaction;
@@ -44,7 +44,7 @@ group SubstanceReferenceInformationRelationship(source src : SubstanceReferenceI
   src.source -> tgt.source;
 }
 
-group SubstanceReferenceInformationTarget(source src : SubstanceReferenceInformationR3, target tgt : SubstanceReferenceInformation) extends BackboneElement <<type+>> {
+group SubstanceReferenceInformationTarget(source src, target tgt) extends BackboneElement {
   src.target -> tgt.target;
   src.type -> tgt.type;
   src.interaction -> tgt.interaction;

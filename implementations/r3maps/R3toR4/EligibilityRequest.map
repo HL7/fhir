@@ -21,13 +21,13 @@ group EligibilityRequest(source src : EligibilityRequestR3, target tgt : Eligibi
   src.detail as s -> tgt.detail as t then EligibilityRequestDetail(s, t);
 }
 
-group EligibilityRequestInsurance(source src : EligibilityRequestR3, target tgt : EligibilityRequest) extends BackboneElement <<type+>> {
+group EligibilityRequestInsurance(source src, target tgt) extends BackboneElement {
   src.focal -> tgt.focal;
   src.coverage -> tgt.coverage;
   src.businessArrangement -> tgt.businessArrangement;
 }
 
-group EligibilityRequestDetail(source src : EligibilityRequestR3, target tgt : EligibilityRequest) extends BackboneElement <<type+>> {
+group EligibilityRequestDetail(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.service -> tgt.service;
   src.modifier -> tgt.modifier;
@@ -38,7 +38,7 @@ group EligibilityRequestDetail(source src : EligibilityRequestR3, target tgt : E
   src.diagnosis as s -> tgt.diagnosis as t then EligibilityRequestDetailDiagnosis(s, t);
 }
 
-group EligibilityRequestDetailDiagnosis(source src : EligibilityRequestR3, target tgt : EligibilityRequest) extends BackboneElement <<type+>> {
+group EligibilityRequestDetailDiagnosis(source src, target tgt) extends BackboneElement {
   src.diagnosis -> tgt.diagnosis;
 }
 

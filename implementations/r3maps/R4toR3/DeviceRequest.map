@@ -31,7 +31,7 @@ group DeviceRequest(source src : DeviceRequestR3, target tgt : DeviceRequest) ex
   src.relevantHistory -> tgt.relevantHistory;
 }
 
-group DeviceRequestParameter(source src : DeviceRequestR3, target tgt : DeviceRequest) extends BackboneElement <<type+>> {
+group DeviceRequestParameter(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value -> tgt.value;
 }

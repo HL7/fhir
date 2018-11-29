@@ -31,34 +31,34 @@ group ClaimResponse(source src : ClaimResponseR3, target tgt : ClaimResponse) ex
   src.insurance as s -> tgt.insurance as t then ClaimResponseInsurance(s, t);
 }
 
-group ClaimResponseItem(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseItem(source src, target tgt) extends BackboneElement {
   src.itemSequence -> tgt.itemSequence;
   src.noteNumber -> tgt.noteNumber;
   src.adjudication as s -> tgt.adjudication as t then ClaimResponseItemAdjudication(s, t);
   src.detail as s -> tgt.detail as t then ClaimResponseItemDetail(s, t);
 }
 
-group ClaimResponseItemAdjudication(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseItemAdjudication(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.reason -> tgt.reason;
   src.amount -> tgt.amount;
   src.value -> tgt.value;
 }
 
-group ClaimResponseItemDetail(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseItemDetail(source src, target tgt) extends BackboneElement {
   src.detailSequence -> tgt.detailSequence;
   src.noteNumber -> tgt.noteNumber;
   src.adjudication -> tgt.adjudication;
   src.subDetail as s -> tgt.subDetail as t then ClaimResponseItemDetailSubDetail(s, t);
 }
 
-group ClaimResponseItemDetailSubDetail(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseItemDetailSubDetail(source src, target tgt) extends BackboneElement {
   src.subDetailSequence -> tgt.subDetailSequence;
   src.noteNumber -> tgt.noteNumber;
   src.adjudication -> tgt.adjudication;
 }
 
-group ClaimResponseAddItem(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseAddItem(source src, target tgt) extends BackboneElement {
   src.itemSequence -> tgt.itemSequence;
   src.detailSequence -> tgt.detailSequence;
   src.subdetailSequence -> tgt.subdetailSequence;
@@ -78,7 +78,7 @@ group ClaimResponseAddItem(source src : ClaimResponseR3, target tgt : ClaimRespo
   src.detail as s -> tgt.detail as t then ClaimResponseAddItemDetail(s, t);
 }
 
-group ClaimResponseAddItemDetail(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseAddItemDetail(source src, target tgt) extends BackboneElement {
   src.service -> tgt.service;
   src.modifier -> tgt.modifier;
   src.programCode -> tgt.programCode;
@@ -91,7 +91,7 @@ group ClaimResponseAddItemDetail(source src : ClaimResponseR3, target tgt : Clai
   src.subDetail as s -> tgt.subDetail as t then ClaimResponseAddItemDetailSubDetail(s, t);
 }
 
-group ClaimResponseAddItemDetailSubDetail(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseAddItemDetailSubDetail(source src, target tgt) extends BackboneElement {
   src.service -> tgt.service;
   src.modifier -> tgt.modifier;
   src.programCode -> tgt.programCode;
@@ -103,19 +103,19 @@ group ClaimResponseAddItemDetailSubDetail(source src : ClaimResponseR3, target t
   src.adjudication -> tgt.adjudication;
 }
 
-group ClaimResponseError(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseError(source src, target tgt) extends BackboneElement {
   src.itemSequence -> tgt.itemSequence;
   src.detailSequence -> tgt.detailSequence;
   src.subDetailSequence -> tgt.subDetailSequence;
   src.code -> tgt.code;
 }
 
-group ClaimResponseTotal(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseTotal(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.amount -> tgt.amount;
 }
 
-group ClaimResponsePayment(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponsePayment(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.adjustment -> tgt.adjustment;
   src.adjustmentReason -> tgt.adjustmentReason;
@@ -124,14 +124,14 @@ group ClaimResponsePayment(source src : ClaimResponseR3, target tgt : ClaimRespo
   src.identifier -> tgt.identifier;
 }
 
-group ClaimResponseProcessNote(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseProcessNote(source src, target tgt) extends BackboneElement {
   src.number -> tgt.number;
   src.type -> tgt.type;
   src.text -> tgt.text;
   src.language -> tgt.language;
 }
 
-group ClaimResponseInsurance(source src : ClaimResponseR3, target tgt : ClaimResponse) extends BackboneElement <<type+>> {
+group ClaimResponseInsurance(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.focal -> tgt.focal;
   src.coverage -> tgt.coverage;

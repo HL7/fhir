@@ -46,12 +46,12 @@ group ActivityDefinition(source src : ActivityDefinitionR3, target tgt : Activit
   src.dynamicValue as s -> tgt.dynamicValue as t then ActivityDefinitionDynamicValue(s, t);
 }
 
-group ActivityDefinitionParticipant(source src : ActivityDefinitionR3, target tgt : ActivityDefinition) extends BackboneElement <<type+>> {
+group ActivityDefinitionParticipant(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.role -> tgt.role;
 }
 
-group ActivityDefinitionDynamicValue(source src : ActivityDefinitionR3, target tgt : ActivityDefinition) extends BackboneElement <<type+>> {
+group ActivityDefinitionDynamicValue(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.path -> tgt.path;
   src.language -> tgt.language;

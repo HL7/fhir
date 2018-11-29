@@ -23,14 +23,14 @@ group OrganizationRole(source src : OrganizationRoleR3, target tgt : Organizatio
   src.endpoint -> tgt.endpoint;
 }
 
-group OrganizationRoleAvailableTime(source src : OrganizationRoleR3, target tgt : OrganizationRole) extends BackboneElement <<type+>> {
+group OrganizationRoleAvailableTime(source src, target tgt) extends BackboneElement {
   src.daysOfWeek -> tgt.daysOfWeek;
   src.allDay -> tgt.allDay;
   src.availableStartTime -> tgt.availableStartTime;
   src.availableEndTime -> tgt.availableEndTime;
 }
 
-group OrganizationRoleNotAvailable(source src : OrganizationRoleR3, target tgt : OrganizationRole) extends BackboneElement <<type+>> {
+group OrganizationRoleNotAvailable(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.during -> tgt.during;
 }

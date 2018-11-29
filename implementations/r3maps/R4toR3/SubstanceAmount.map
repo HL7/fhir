@@ -12,7 +12,7 @@ group SubstanceAmount(source src : SubstanceAmountR3, target tgt : SubstanceAmou
   src.referenceRange as s -> tgt.referenceRange as t then SubstanceAmountReferenceRange(s, t);
 }
 
-group SubstanceAmountReferenceRange(source src : SubstanceAmountR3, target tgt : SubstanceAmount) extends Element <<type+>> {
+group SubstanceAmountReferenceRange(source src, target tgt) extends Element {
   src.lowLimit -> tgt.lowLimit;
   src.highLimit -> tgt.highLimit;
 }
