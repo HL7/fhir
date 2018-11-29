@@ -17,6 +17,7 @@ group PractitionerRole(source src : PractitionerRole, target tgt : PractitionerR
   src.healthcareService -> tgt.healthcareService;
   src.telecom -> tgt.telecom;
   src.availableTime as vs0 -> tgt.availableTime as vt0 then {
+    vs0.daysOfWeek -> vt0.daysOfWeek;
     vs0.allDay -> vt0.allDay;
     vs0.availableStartTime -> vt0.availableStartTime;
     vs0.availableEndTime -> vt0.availableEndTime;
