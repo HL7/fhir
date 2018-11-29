@@ -28,10 +28,23 @@ group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResour
   src.organization -> tgt.organization;
   src.source -> tgt.source;
   src.policy as vs -> tgt.policy as vt then policy(vs, vt);
-  src.policyRule -> tgt.policyRule;
-   
-  src.provision as vs where id = '514625a1-2b11-4aff-b7fd-b4d8c78fa47e' then provision(vs, tgt);
-  src.provision as vs where id != '514625a1-2b11-4aff-b7fd-b4d8c78fa47e' -> tgt.provision as vt then provision(vs, vt);
+  src.policyRule as cc then {
+    cc.coding as c where system = 'urn:ietf:rfc:3986' then {
+      c.code -> tgt.policyRule;
+    };
+  };   
+  src.provision as vs then baseProvision(vs, tgt);
+}
+
+group baseProvision(source src, target tgt) {
+  src.period -> tgt.period;
+  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
+  src.action -> tgt.action;
+  src.securityLabel -> tgt.securityLabel;
+  src.purpose -> tgt.purpose;
+  src.dataPeriod -> tgt.dataPeriod;
+  src.data as vs -> tgt.data as vt then data(vs, vt);
+  src.provision as vs -> tgt.except as vt then provision(vs, vt);
 }
 
 group policy(source src, target tgt) extends BackboneElement {
@@ -61,5 +74,4 @@ group data(source src, target tgt) extends BackboneElement {
   src.meaning -> tgt.meaning;
   src.reference -> tgt.reference;
 }
-
 

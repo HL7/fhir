@@ -151,8 +151,8 @@ group uri2url(source src : uriR3, target tgt : url) extends Element <<types>> {
   src.value as v -> tgt.value = v "code2uri-value";
 }
 
-group id2string(source src : idR3, target tgt : string) extends Element <<types>> {
-  src.value as v -> tgt.value = v "code2uri-value";
+group id2string(source src : idR3, target tgt : string) extends Element <<type+>> {
+  src.value as v -> tgt.value = v;
 }
 
 group uri2string(source src : uriR3, target tgt : string) extends Element <<types>> {
@@ -177,10 +177,6 @@ group positiveInt2integer(source src : positiveIntR3, target tgt : integer) exte
 
 group integer2positiveInt(source src : integerR3, target tgt : positiveInt) extends Element <<types>> {
   src.value as v -> tgt.value = v "unsignedInt2decimal-value";
-}
-
-group id2string(source src : idR3, target tgt : string) extends Element <<type+>> {
-  src.value as v -> tgt.value = v;
 }
 
 group positiveInt2unsignedInt(source src : positiveIntR3, target tgt : unsignedInt) extends Element <<types>> {

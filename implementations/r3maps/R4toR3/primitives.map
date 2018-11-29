@@ -195,4 +195,7 @@ group unsignedInt2positiveInt(source src : unsignedInt, target tgt : positiveInt
   src.value as v -> tgt.value = v;
 }
 
+group code2uri(source src : code, target tgt : uriR3) extends Element <<types>> {
+  src.value as v -> tgt.value = v;
+}
 

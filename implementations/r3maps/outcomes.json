@@ -3739,7 +3739,7 @@
       "execution": "Exception executing transform tgt.resource \u003d create() as vvv on Rule \"resource\": No matches found for default rule for \u0027DataElement\u0027 from http://hl7.org/fhir/StructureMap/Bundle3to4"
     },
     "72ac8493-52ac-41bd-8d5d-7258c289b5ea": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type DiagnosticReport",
+      "execution": true,
       "r4.errors": [
         "WARNING @ Bundle.entry[1].resource.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ Bundle.entry[1].resource.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
@@ -4474,7 +4474,140 @@
       ]
     },
     "hla-1": {
-      "execution": "Exception executing transform tgt.resource \u003d create() as vvv on Rule \"resource\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/Sequence"
+      "execution": true,
+      "r4.errors": [
+        "INFORMATION @ Bundle.entry[1].resource.extension[2].extension[2]: This element does not match any known slice for the profile http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[1].resource.basedOn: URN reference is not locally contained within the bundle ProcedureRequest/123 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[1].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[1].resource.performer: URN reference is not locally contained within the bundle Organization/68 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[1].resource.specimen: URN reference is not locally contained within the bundle Specimen/67 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[2].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[2].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[3].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[3].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[4].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[4].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[5].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[5].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[6].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[6].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[7].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[7].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[8].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[8].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[9].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[9].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[10].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[10].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[11].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[11].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[12].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[12].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[13].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[13].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[14].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[14].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[14].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[14].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[14].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[14].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[14].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[14].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[14].resource.derivedFrom[1].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[14].resource.derivedFrom[1].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[14].resource.derivedFrom[2].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[14].resource.derivedFrom[2].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[15].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[15].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[15].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[15].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[15].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[15].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[15].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[15].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[15].resource.derivedFrom[1].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[15].resource.derivedFrom[1].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[15].resource.derivedFrom[2].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[15].resource.derivedFrom[2].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[16].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[16].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[16].resource.derivedFrom[1].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[16].resource.derivedFrom[1].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[16].resource.derivedFrom[1].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[16].resource.derivedFrom[1].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[16].resource.derivedFrom[1].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[16].resource.derivedFrom[1].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[16].resource.derivedFrom[1].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[16].resource.derivedFrom[1].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[16].resource.derivedFrom[2].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[16].resource.derivedFrom[2].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[16].resource.derivedFrom[2].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[16].resource.derivedFrom[2].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[16].resource.derivedFrom[2].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[16].resource.derivedFrom[2].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[16].resource.derivedFrom[2].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[16].resource.derivedFrom[2].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[17].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[17].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[17].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[17].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[17].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[17].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[17].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[17].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[17].resource.derivedFrom[1].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[17].resource.derivedFrom[1].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[17].resource.derivedFrom[2].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[17].resource.derivedFrom[2].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[18].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[18].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[18].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[18].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[18].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[18].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[18].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[18].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[18].resource.derivedFrom[1].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[18].resource.derivedFrom[1].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[18].resource.derivedFrom[2].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[18].resource.derivedFrom[2].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[19].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[19].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[19].resource.derivedFrom[1].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[19].resource.derivedFrom[1].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[19].resource.derivedFrom[1].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[19].resource.derivedFrom[1].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[19].resource.derivedFrom[1].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[19].resource.derivedFrom[1].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[19].resource.derivedFrom[1].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[19].resource.derivedFrom[1].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[19].resource.derivedFrom[2].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[19].resource.derivedFrom[2].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[19].resource.derivedFrom[2].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[19].resource.derivedFrom[2].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[19].resource.derivedFrom[2].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[19].resource.derivedFrom[2].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[19].resource.derivedFrom[2].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[19].resource.derivedFrom[2].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[20].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[20].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[20].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[20].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[20].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[20].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[20].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[20].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[20].resource.derivedFrom[1].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[20].resource.derivedFrom[1].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[20].resource.derivedFrom[2].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[20].resource.derivedFrom[2].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[21].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[21].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[21].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[21].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[21].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[21].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[21].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[21].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[21].resource.derivedFrom[1].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[21].resource.derivedFrom[1].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[21].resource.derivedFrom[2].resource.patient: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[21].resource.derivedFrom[2].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[22].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[22].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[22].resource.derivedFrom[1].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[22].resource.derivedFrom[1].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[22].resource.derivedFrom[1].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[22].resource.derivedFrom[1].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[22].resource.derivedFrom[1].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[22].resource.derivedFrom[1].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[22].resource.derivedFrom[1].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[22].resource.derivedFrom[1].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[22].resource.derivedFrom[2].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[22].resource.derivedFrom[2].resource.extension[4][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet\u0027 definition allows for the types [] but found type uri (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[22].resource.derivedFrom[2].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[22].resource.derivedFrom[2].resource.extension[4].extension[MolecularSequence]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[22].resource.derivedFrom[2].resource.extension[4]: Profile http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet, Element \u0027Bundle.entry[22].resource.derivedFrom[2].resource.extension[4].value[x]\u0027: max allowed \u003d 0, but found 1 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[22].resource.derivedFrom[2].resource.subject: URN reference is not locally contained within the bundle Patient/119 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[22].resource.derivedFrom[2].resource.specimen: URN reference is not locally contained within the bundle Specimen/120 (src \u003d InstanceValidator)"
+      ]
     },
     "father": {
       "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
@@ -17914,40 +18047,87 @@
   },
   "Consent": {
     "consent-example-basic": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-Emergency": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-Out": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-grantor": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-notAuthor": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-notOrg": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-notThem": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-notThis": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-notTime": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-pkb": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-signature": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "consent-example-smartonfhir": {
-      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     }
   },
   "Contract": {
@@ -17998,46 +18178,46 @@
       "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
     },
     "sequence-complex-variant": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "example": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "example-TPMT-one": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "example-TPMT-two": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "fda-example": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "fda-vcf-comparison": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "fda-vcfeval-comparison": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "example-pgx-1": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "example-pgx-2": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "graphic-example-1": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "graphic-example-2": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "graphic-example-3": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "graphic-example-4": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     },
     "graphic-example-5": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
     }
   },
   "Coverage": {
@@ -18133,22 +18313,73 @@
   },
   "DiagnosticReport": {
     "101": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type DiagnosticReport"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ DiagnosticReport.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[4]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[5]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[6]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[7]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[8]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[9]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[10]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[11]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[12]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[13]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[14]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[15]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[16]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[17]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[1].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[2].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[3].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[4].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[5].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[6].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[7].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[8].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[9].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[10].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[11].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[12].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[13].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[14].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[15].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[16].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result[17].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "102": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type DiagnosticReport"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ DiagnosticReport.performer.extension: The extension http://hl7.org/fhir/StructureDefinition/X34DiagnosticReportRole is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "f001": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": No matches found for default rule for \u0027ProcedureRequest\u0027 from http://hl7.org/fhir/StructureMap/DomainResource3to4"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ DiagnosticReport.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ DiagnosticReport.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.basedOn.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ DiagnosticReport.basedOn.contained.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "f201": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type DiagnosticReport"
+      "execution": true
     },
     "f202": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": No matches found for default rule for \u0027ProcedureRequest\u0027 from http://hl7.org/fhir/StructureMap/DomainResource3to4"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ DiagnosticReport.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ DiagnosticReport.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.basedOn.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ DiagnosticReport.basedOn.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "ghp": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type DiagnosticReport",
+      "execution": true,
       "r4.errors": [
         "WARNING @ DiagnosticReport.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ DiagnosticReport.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
@@ -18213,10 +18444,10 @@
       ]
     },
     "gingival-mass": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type DiagnosticReport"
+      "execution": true
     },
     "lipids": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type DiagnosticReport",
+      "execution": true,
       "r4.errors": [
         "WARNING @ DiagnosticReport.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ DiagnosticReport.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
@@ -18229,16 +18460,16 @@
       ]
     },
     "pap": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type DiagnosticReport"
+      "execution": true
     },
     "example-pgx": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type DiagnosticReport"
+      "execution": true
     },
     "ultrasound": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type DiagnosticReport"
+      "execution": true
     },
     "report": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type DiagnosticReport",
+      "execution": true,
       "r4.errors": [
         "WARNING @ DiagnosticReport.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ DiagnosticReport.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
@@ -18269,10 +18500,70 @@
       ]
     },
     "dg2": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027FamilyMemberHistory\u0027 in http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to4 (FamilyMemberHistory) and http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to4 (FamilyMemberHistoryCondition)"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ DiagnosticReport.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.extension.valueReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "micro": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": No matches found for default rule for \u0027ProcedureRequest\u0027 from http://hl7.org/fhir/StructureMap/DomainResource3to4"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ DiagnosticReport.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[4]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[5]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[6]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[7]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[8]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[9]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[10]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[11]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[12]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[13]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[14]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[15]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[16]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[17]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[18]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[19]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[20]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[21]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[22]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[1].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[2].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[3].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[4].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[5].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[6].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[7].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[8].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[9].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[10].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[11].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[12].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[13].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[14].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[15].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[16].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[17].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[18].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[23].hasMember[19].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[24]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[24].hasMember.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[25]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[25].hasMember[1].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[25].hasMember[2].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[25].hasMember[3].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[25].hasMember[4].contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.contained[26]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ DiagnosticReport.contained[26].extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.basedOn.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ DiagnosticReport.basedOn.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ DiagnosticReport.result.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     }
   },
   "DocumentManifest": {
@@ -18478,33 +18769,29 @@
   "Immunization": {
     "example": {
       "execution": true,
-      "round-trip": "properties differ at : missing property notGiven",
       "r4.errors": [
-        "ERROR @ Immunization: Profile http://hl7.org/fhir/StructureDefinition/Immunization, Element \u0027Immunization.occurrence[x]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+        "ERROR @ Immunization.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ImmunizationNotGiven is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Immunization.protocolApplied.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34ImmunizationDescription is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Immunization.protocolApplied.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34ImmunizationDoseStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Immunization.protocolApplied.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/X34ImmunizationDoseStatusReason is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "historical": {
       "execution": true,
-      "round-trip": "properties differ at : missing property notGiven",
       "r4.errors": [
-        "ERROR @ Immunization: Profile http://hl7.org/fhir/StructureDefinition/Immunization, Element \u0027Immunization.occurrence[x]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+        "ERROR @ Immunization.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ImmunizationNotGiven is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "notGiven": {
       "execution": true,
-      "round-trip": "properties differ at : missing property notGiven",
       "r4.errors": [
-        "ERROR @ Immunization: Profile http://hl7.org/fhir/StructureDefinition/Immunization, Element \u0027Immunization.occurrence[x]\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+        "ERROR @ Immunization.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ImmunizationNotGiven is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     }
   },
   "ImmunizationRecommendation": {
     "example": {
-      "execution": true,
-      "round-trip": "properties differ at .recommendation[0]: missing property date",
-      "r4.errors": [
-        "ERROR @ ImmunizationRecommendation: Profile http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation, Element \u0027ImmunizationRecommendation.date\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": true
     }
   },
   "ImplementationGuide": {
@@ -20530,58 +20817,64 @@
   },
   "PlanDefinition": {
     "chlamydia-screening-intervention": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type PlanDefinition",
+      "execution": true,
       "r4.errors": [
-        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.condition.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.condition.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.dynamicValue.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.dynamicValue.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "low-suicide-risk-order-set": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027ActivityDefinition\u0027 in http://hl7.org/fhir/StructureMap/ActivityDefinition3to4 (ActivityDefinition) and http://hl7.org/fhir/StructureMap/ActivityDefinition3to4 (ActivityDefinitionParticipant)"
+      "execution": "No matches found for rule for \u0027string to Expression\u0027 from http://hl7.org/fhir/StructureMap/ActivityDefinition3to4, from rule \u0027expression\u0027"
     },
     "KDN5": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027ActivityDefinition\u0027 in http://hl7.org/fhir/StructureMap/ActivityDefinition3to4 (ActivityDefinition) and http://hl7.org/fhir/StructureMap/ActivityDefinition3to4 (ActivityDefinitionParticipant)"
+      "execution": "Rule \"definition\": target context not known: src"
     },
     "exclusive-breastfeeding-intervention-01": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type PlanDefinition",
+      "execution": true,
       "r4.errors": [
-        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.condition.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.condition.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.action[1].dynamicValue.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.action[1].dynamicValue.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.action[2].dynamicValue.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.action[2].dynamicValue.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "exclusive-breastfeeding-intervention-02": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type PlanDefinition",
+      "execution": true,
       "r4.errors": [
-        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.condition.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.condition.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.action.dynamicValue.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.action.dynamicValue.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "exclusive-breastfeeding-intervention-03": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type PlanDefinition",
+      "execution": true,
       "r4.errors": [
-        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.condition.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.condition.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.action[1].dynamicValue.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.action[1].dynamicValue.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.action[2].dynamicValue.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.action[2].dynamicValue.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "exclusive-breastfeeding-intervention-04": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type PlanDefinition",
+      "execution": true,
       "r4.errors": [
-        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
+        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.condition.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.condition.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ PlanDefinition.action.action.dynamicValue.expression: Profile http://hl7.org/fhir/StructureDefinition/Expression, Element \u0027PlanDefinition.action.action.dynamicValue.expression.language\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "options-example": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027ActivityDefinition\u0027 in http://hl7.org/fhir/StructureMap/ActivityDefinition3to4 (ActivityDefinition) and http://hl7.org/fhir/StructureMap/ActivityDefinition3to4 (ActivityDefinitionParticipant)"
+      "execution": "Rule \"definition\": target context not known: src"
     },
     "zika-virus-intervention-initial": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type PlanDefinition",
-      "r4.errors": [
-        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
-      ]
+      "execution": "Rule \"definition\": target context not known: src"
     },
     "protocol-example": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027ActivityDefinition\u0027 in http://hl7.org/fhir/StructureMap/ActivityDefinition3to4 (ActivityDefinition) and http://hl7.org/fhir/StructureMap/ActivityDefinition3to4 (ActivityDefinitionParticipant)"
+      "execution": "Rule \"definition\": target context not known: src"
     },
     "zika-virus-intervention": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type PlanDefinition",
-      "r4.errors": [
-        "WARNING @ PlanDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
-      ]
+      "execution": "Rule \"definition\": target context not known: src"
     }
   },
   "Practitioner": {
@@ -21317,6 +21610,172 @@
     },
     "33124": {
       "execution": "Exception executing transform tgt.reason \u003d create() as vvv on Rule \"reason\": Attempt to get types for an invalid property \u0027reason\u0027 on type VisionPrescription"
+    }
+  },
+  "MolecularSequence": {
+    "sequence-complex-variant": {
+      "execution": true
+    },
+    "example": {
+      "execution": true
+    },
+    "example-TPMT-one": {
+      "execution": true
+    },
+    "example-TPMT-two": {
+      "execution": true
+    },
+    "fda-example": {
+      "execution": true
+    },
+    "fda-vcf-comparison": {
+      "execution": true
+    },
+    "fda-vcfeval-comparison": {
+      "execution": true
+    },
+    "example-pgx-1": {
+      "execution": true
+    },
+    "example-pgx-2": {
+      "execution": true
+    },
+    "graphic-example-1": {
+      "execution": true
+    },
+    "graphic-example-2": {
+      "execution": true
+    },
+    "graphic-example-3": {
+      "execution": true
+    },
+    "graphic-example-4": {
+      "execution": true
+    },
+    "graphic-example-5": {
+      "execution": true
+    }
+  },
+  "ServiceRequest": {
+    "example": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "ambulation": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "appendectomy-narrative": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "colonoscopy": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "colon-biopsy": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "di": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "education": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "ft4": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "example-implant": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "lipid": {
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ ServiceRequest.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ ServiceRequest.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ ServiceRequest.requester.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestOnBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ ServiceRequest.specimen.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
+    },
+    "ob": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "example-pgx": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "physical-therapy": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ ServiceRequest.requester.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestOnBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "subrequest": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "physiotherapy": {
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ ServiceRequest.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ ServiceRequest.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ ServiceRequest.code.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
+        "ERROR @ ServiceRequest.requester.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestOnBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ ServiceRequest.reasonReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ ServiceRequest.relevantHistory.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
+    },
+    "do-not-turn": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
+    },
+    "benchpress": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ ServiceRequest.code.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)"
+      ]
+    },
+    "og-example1": {
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     }
   }
 }

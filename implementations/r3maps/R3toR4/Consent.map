@@ -27,11 +27,20 @@ group Consent(source src : ConsentR3, target tgt : Consent) extends DomainResour
   src.organization -> tgt.organization;
   src.source -> tgt.source;
   src.policy as vs -> tgt.policy as vt then policy(vs, vt);
-  src.policyRule -> tgt.policyRule;
+  src.policyRule as v -> tgt.policyRule as cc, cc.coding as c, c.system = 'urn:ietf:rfc:3986', c.code = v;
 
-  src where securityLabel.exists() or period.exists() or securityLabel.exists() or actor.exists() or action.exists() 
-    or purpose.exists() or dataPeriod.exists() or data.exists() -> tgt.provision as vt then specialProvision(src, vt);
-    
+  src where securityLabel.exists() or period.exists() or actor.exists() or action.exists() 
+    or purpose.exists() or dataPeriod.exists() or data.exists() or except.exists() -> tgt.provision as vt then base(src, vt);    
+}
+
+group base(source src, target tgt) {
+  src.period -> tgt.period;
+  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
+  src.action -> tgt.action;
+  src.securityLabel -> tgt.securityLabel;
+  src.purpose -> tgt.purpose;
+  src.dataPeriod -> tgt.dataPeriod;
+  src.data as vs -> tgt.data as vt then data(vs, vt);
   src.except as vs -> tgt.provision as vt then provision(vs, vt);
 }
 
@@ -63,6 +72,3 @@ group data(source src, target tgt) extends BackboneElement {
   src.reference -> tgt.reference;
 }
 
-group specialProvision(source src, target tgt) extends provision {
-  src -> tgt.id = '514625a1-2b11-4aff-b7fd-b4d8c78fa47e';
-}
