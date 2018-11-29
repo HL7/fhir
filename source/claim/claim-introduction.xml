@@ -57,7 +57,7 @@ the provider will settle the claim and potentially recover costs against specifi
 	to request what the adjudication would be for a supplied set of goods or services should they be actually supplied to the patient.</p>
 
 		<p>When requesting whether the patient's coverage is inforce, whether it is valid at this or a specified date, or requesting the benefit details or preauthorization requirements 
-	associated with a coverage <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a> should be used instead.</p>
+	associated with a coverage, then <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a> should be used instead.</p>
 
 		<p>When using the resources for reporting and transferring claims data, which may have originated in some standard other than FHIR, the Claim resource is useful if only the
 	request side of the information exchange is of interest. If, however, both the request and the adjudication information is to be reported then the 

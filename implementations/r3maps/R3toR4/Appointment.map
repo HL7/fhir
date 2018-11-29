@@ -12,8 +12,8 @@ group Appointment(source src : AppointmentR3, target tgt : Appointment) extends 
   src.serviceType -> tgt.serviceType;
   src.specialty -> tgt.specialty;
   src.appointmentType -> tgt.appointmentType;
-  src.reason -> tgt.reason;
-  src.indication -> tgt.indication;
+  src.reason -> tgt.reasonCode;
+  src.indication -> tgt.reasonReference;
   src.priority -> tgt.priority;
   src.description -> tgt.description;
   src.supportingInformation -> tgt.supportingInformation;
