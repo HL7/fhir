@@ -11,7 +11,7 @@
     <p>Communication.sender allows Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson | HealthcareService and Communication.recipient allows Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson | Group | CareTeam | HealthcareService - but it is not unusual to have a communication target - even a defined one - where it is unknown what kind of role the person is playing.
     </p>
     <p>
-        If the communication is to or from an individual, whose role is not known (practitioner, patient or related person), -
-        for example, only email address is captured in the system; then RelatedPerson should be used by default.
+        If the communication is to or from an individual whose role is not known (practitioner, patient or related person) -
+        for example, only email address is captured in the system - then RelatedPerson should be used by default.
     </p>
 </div>
