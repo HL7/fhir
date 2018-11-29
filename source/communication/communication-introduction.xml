@@ -13,7 +13,7 @@ The sender and receivers may be patients, practitioners, related persons, organi
 </p>
 <ul>
 <li>A reminder or alert delivered to a responsible provider</li>
-<li>A recorded notification from the nurse to the on call physician (or any other specified person) that a patient's temperature exceeds a value</li>
+<li>A recorded notification from the nurse to the on-call physician (or any other specified person) that a patient's temperature exceeds a value</li>
 <li>A notification to a public health agency of a patient presenting with a communicable disease reportable to the public health agency</li>
 <li>Patient educational material sent by a provider to a patient</li>
 <li>Unable to deliver lab results to ordering physician</li>
@@ -35,7 +35,7 @@ Non-patient specific communication use cases may include:
 This resource is a record of a communication that has occurred. It does not represent the actual flow of communication.
 While <a href="auditevent.html">AuditEvent</a> can track electronic disclosures of information, it cannot track conversations,
 phone calls, letters and other interactions that are not system-to-system.  And even for system-to-system communications, the
-specific end recipients might not be known.  As well, <a href="auditevent.html">AuditEvents</a> are not considered to be "part"
+specific end recipients might not be known.  Furthermore, <a href="auditevent.html">AuditEvents</a> are not considered to be "part"
 of the patient record, while <b>Communication</b> instances are.  The <b>Communication</b> resource is not used as a general
 audit mechanism to track every disclosure of every record.  Rather, it is used when a clinician or other user wants to ensure
 a record of a particular communication is itself maintained as part of the reviewable health record.
