@@ -100,6 +100,9 @@
 			<value value="135.57"/>
 			<currency value="USD"/> 
 		</net> 
+		<udi>
+			<reference value="Device/example"/>
+		</udi>
 		<encounter>
 			<reference value="Encounter/example"/>
 		</encounter>
@@ -133,6 +136,108 @@
 				<currency value="USD"/> 
 			</amount> 
 		</adjudication>
+	</item>
+
+	<item>
+		<sequence value="2"/>
+		<careTeamSequence value="1"/>
+		<productOrService>
+			<coding>
+				<code value="group"/>
+			</coding>
+		</productOrService>
+		<servicedDate value="2014-08-16"/>
+		<net>
+			<value value="200.00"/>
+			<currency value="USD"/> 
+		</net> 
+		<adjudication>
+			<category>
+				<coding>
+					<code value="benefit"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="180.00"/>
+				<currency value="USD"/> 
+			</amount> 
+		</adjudication>
+		<detail>
+			<sequence value="1"/>
+			<productOrService>
+				<coding>
+					<code value="group"/>
+				</coding>
+			</productOrService>
+			<net>
+				<value value="200.00"/>
+				<currency value="USD"/> 
+			</net> 
+			<udi>
+				<reference value="Device/example"/>
+			</udi>
+			<adjudication>
+				<category>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="180.00"/>
+					<currency value="USD"/> 
+				</amount> 
+			</adjudication>
+			<subDetail>
+				<sequence value="1"/>
+				<productOrService>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/ex-USCLS"/>
+						<code value="1205"/>
+					</coding>
+				</productOrService>
+				<unitPrice>
+					<value value="200.00"/>
+					<currency value="USD"/> 
+				</unitPrice> 
+				<net>
+					<value value="200.00"/>
+					<currency value="USD"/> 
+				</net> 
+				<udi>
+					<reference value="Device/example"/>
+				</udi>
+				<adjudication>
+					<category>
+						<coding>
+							<code value="eligible"/>
+						</coding>
+					</category>
+					<amount>
+						<value value="200.00"/>
+						<currency value="USD"/> 
+					</amount> 
+				</adjudication>
+				<adjudication>
+					<category>
+						<coding>
+							<code value="eligpercent"/>
+						</coding>
+					</category>
+					<value value="0.90"/>
+				</adjudication>
+				<adjudication>
+					<category>
+						<coding>
+							<code value="benefit"/>
+						</coding>
+					</category>
+					<amount>
+						<value value="180.00"/>
+						<currency value="USD"/> 
+					</amount> 
+				</adjudication>
+			</subDetail>
+		</detail>
 	</item>
 
 	<total>
