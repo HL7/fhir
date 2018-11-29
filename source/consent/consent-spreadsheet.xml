@@ -15,6 +15,7 @@
   
   
   <ActiveSheet>1</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -952,7 +953,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">draft | proposed | active | rejected | inactive | entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Indicates the current state of this consent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">The Consent Directive that is pointed to might be in various lifecycle states, e.g., a revoked Consent Directive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5335,9 +5336,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s156"><Data ss:Type="String">ConsentState</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Indicates the state of the consent</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/event-status</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">#consent-state-codes</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s135"/>
    </Row>

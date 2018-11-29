@@ -218,7 +218,12 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
   }
 
   private String getMapFor(String r4, String r3) {
-    return r4;
+    if (!r4.equals("ServiceRequest"))
+      return r4;
+    if (r3.equals("ReferralRequest"))
+      return "ServiceRequestRR";
+//    if (r3.equals("ProcedureRequest"))
+      return "ServiceRequestPR";
   }
 
   private void updateOutcomes(String tn, String id, Exception executionError, List<ValidationMessage> r4validationErrors, String roundTripError) throws IOException {
