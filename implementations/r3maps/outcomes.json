@@ -17914,124 +17914,40 @@
   },
   "Consent": {
     "consent-example-basic": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-Emergency": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-Out": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-grantor": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-notAuthor": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-notOrg": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-notThem": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-notThis": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-notTime": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-pkb": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-signature": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property identifier",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     },
     "consent-example-smartonfhir": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property status",
-      "r4.errors": [
-        "ERROR @ Consent: Either a Policy or PolicyRule [policy.exists() or policyRule.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.scope\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Consent: Profile http://hl7.org/fhir/StructureDefinition/Consent, Element \u0027Consent.category\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule for \u0027uri to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/Consent3to4, from rule \u0027policyRule\u0027"
     }
   },
   "Contract": {
