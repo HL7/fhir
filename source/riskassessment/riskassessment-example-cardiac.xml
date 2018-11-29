@@ -81,9 +81,9 @@
   <subject>
     <reference value="Patient/pat2"/>
   </subject>
-  <context>
+  <encounter>
     <reference value="Encounter/example"/>
-  </context>
+  </encounter>
   <occurrenceDateTime value="2014-07-19T16:04:00Z"/>
   <performer>
     <display value="http://cvdrisk.nhlbi.nih.gov/#cholesterol"/>
