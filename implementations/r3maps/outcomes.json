@@ -18244,16 +18244,16 @@
   },
   "DetectedIssue": {
     "ddi": {
-      "execution": "Exception executing transform tgt.category \u003d create() as vvv on Rule \"category\": Attempt to get types for an invalid property \u0027category\u0027 on type DetectedIssue"
+      "execution": true
     },
     "allergy": {
-      "execution": "Attempt to read invalid property \u0027identifierFirstRep\u0027 on type DetectedIssue"
+      "execution": true
     },
     "duplicate": {
-      "execution": "Exception executing transform tgt.category \u003d create() as vvv on Rule \"category\": Attempt to get types for an invalid property \u0027category\u0027 on type DetectedIssue"
+      "execution": true
     },
     "lab": {
-      "execution": "Attempt to read invalid property \u0027identifierFirstRep\u0027 on type DetectedIssue"
+      "execution": true
     }
   },
   "Device": {
@@ -21776,6 +21776,17 @@
       "r4.errors": [
         "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
+    }
+  },
+  "BodyStructure": {
+    "fetus": {
+      "execution": true
+    },
+    "skin-patch": {
+      "execution": true
+    },
+    "tumor": {
+      "execution": true
     }
   }
 }
