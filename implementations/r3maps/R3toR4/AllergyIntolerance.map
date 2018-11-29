@@ -7,9 +7,10 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 group AllergyIntolerance(source src : AllergyIntoleranceR3, target tgt : AllergyIntolerance) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.clinicalStatus: code as vs -> tgt.clinicalStatus = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
-  src.verificationStatus: code as vs -> tgt.verificationStatus = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+  src.clinicalStatus as vs -> tgt.clinicalStatus as vt, vt.coding as c, c.system = 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical', c.code = vs;
+  src.verificationStatus as vs -> tgt.verificationStatus as vt, vt.coding as c, c.system = 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification', c.code = vs;
   src.type -> tgt.type;
+  src.category -> tgt.category;
   src.criticality -> tgt.criticality;
   src.code -> tgt.code;
   src.patient -> tgt.patient;

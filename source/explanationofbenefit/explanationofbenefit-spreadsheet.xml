@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-11-04T06:45:14Z</LastSaved>
+  <LastSaved>2018-11-27T11:20:41Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,9 +14,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1445,7 +1444,7 @@
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String">Explanation of Benefit resource&#10;<B><Font html:Color="#FF0000">Remember to uncomment ProcedureType</Font></B></ss:Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Explanation of Benefit resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1565,7 +1564,7 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Category or discipline</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">The category of claim, e.g, oral, pharmacy, vision, institutional, professional.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The category of claim, e.g. oral, pharmacy, vision, institutional, professional.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Claim type determine the general sets of business rules applied for information requirements and adjudication. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The majority of jurisdictions use: oral, pharmacy, vision, professional and institutional, or variants on those terms, as the general styles of claims. The valueset is extensible to accommodate other jurisdictional requirements.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1686,7 +1685,7 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The recipient of the products and services</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimburement is sought.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The patient must be supplied to the insurer so that confirmation of coverage and service history may be considered as part of the authorization and/or adjudiction.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1869,7 +1868,7 @@
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Desired processing ugency</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Desired processing urgency</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The provider-required urgency of processing the request. Typical values include: stat, routine deferred.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The provider may need to indicate their processing requirements so that the processor can indicate if they are unable to comply.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">If a claim processor is unable to complete the processing as per the priority then they should generate and error and not process the request.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2041,7 +2040,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">File or case reference</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">An alternate organizational reference to the case or file to which this particular claim pertains.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">In cases where an event-triggered claim is being submitted to an insurer which requires a reference number to be specified on all exchanges.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, Property/Casualty insurer claim # or Workers Compensation case # .</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, Property/Casualty insurer claim number or Workers Compensation case number.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">11.b</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2164,7 +2163,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Recipient of benefits payable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The party to be reimbursed for cost of the products and services according to the terms of the policy.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider are choose to pay the subscriber instead.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and may choose to pay the subscriber instead.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2839,7 +2838,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Data to be provided</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">To convey the data content to be provided when the information is more than a simple code or period.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Could be used to provide references to other resources, document. For example could contain a PDF in an Attachment of the Police Report for an Accident.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Could be used to provide references to other resources, document. For example, could contain a PDF in an Attachment of the Police Report for an Accident.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3082,7 +3081,7 @@
     <Cell ss:StyleID="s81"><Data ss:Type="String">Package billing code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Required to relate the current  diagnosis to a package billing code that is then referenced on the individual claim items which are specific to the health condition covered by the package code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example DRG (Diagnosis Related Group) or a bundled billing code. A patient may have a diagnosis of a Myocardio-infarction and a DRG for HeartAttack would assigned. The Claim item (and possible subsequent claims) would refer to the DRG for those line items that were for services related to the heart attack event.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, DRG (Diagnosis Related Group) or a bundled billing code. A patient may have a diagnosis of a Myocardio-infarction and a DRG for HeartAttack would assigned. The Claim item (and possible subsequent claims) would refer to the DRG for those line items that were for services related to the heart attack event.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3186,7 +3185,7 @@
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="58" ss:StyleID="s104">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">!ExplanationOfBenefit.procedure.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">ExplanationOfBenefit.procedure.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3199,7 +3198,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">TBD</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Category of Procedure</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">When the condition was observed or the relative ranking.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Often required to capture a particular diagnosis, for example: primary or discharge.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3414,7 +3413,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Coverage to be used for adjudication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">To identify which coverage in the list is being used to adjudicate this claim.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">A patient may (will) have multiple insurance policies which provide reimburement for healthcare services and products. For example a person may also be covered by their spouse's policy and both appear in the list (and may be from the same insurer). This flag will be set to true for only one of the listed policies and that policy will be used for adjudicating this claim. Other claims would be created to request adjudication against the other listed policies. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">A patient may (will) have multiple insurance policies which provide reimbursement for healthcare services and products. For example, a person may also be covered by their spouse's policy and both appear in the list (and may be from the same insurer). This flag will be set to true for only one of the listed policies and that policy will be used for adjudicating this claim. Other claims would be created to request adjudication against the other listed policies. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3566,7 +3565,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">When the incident occurred</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Date of an accident event  related to the products and services contained in the claim.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Required for audit purposes and adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The date of the accident has to preceed the dates of the products and services but within a reasonable timeframe.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The date of the accident has to precede the dates of the products and services but within a reasonable timeframe.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21" ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">F02</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3775,8 +3774,8 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Applicable careteam members</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">CareTeam members related to this service or product.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Applicable care team members</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Care team members related to this service or product.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Need to identify the individuals and their roles in the provision of the product or service.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3992,7 +3991,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Product or service billing modifiers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Item typification or modifiers codes to convey additional context for the product or service.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">To support inclusion of the item for adjudication or to charge an elevated fee.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">24.C, 24.D mods</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4176,7 +4175,7 @@
     <Cell ss:StyleID="s81"><Data ss:Type="String">Price scaling factor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% Senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4479,9 +4478,9 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Type of adjudication information</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Needed to enable understanding of the context of the other information in the adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4511,7 +4510,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Explanation of adjudication outcome</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A code supporting the understanding of the adjudication result and explaining variance from expected amount.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">To support understanding of variance from adjudication expectations.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example may indicate that the funds for this benefit type have been exhausted.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, may indicate that the funds for this benefit type have been exhausted.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4541,7 +4540,7 @@
     <Cell ss:StyleID="s81"><Data ss:Type="String">Monetary amount</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Monetary amount associated with the category.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Most adjuciation categories convey a monetary amount.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example: amount submitted, eligible amount, co-payment, and benefit payable.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, amount submitted, eligible amount, co-payment, and benefit payable.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4754,7 +4753,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Benefit classification </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Code to identify the general type of benefits under which products and services are provided.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Needed in the processing of institutional claims as this allows the insurer to determine whether a facial X-Ray is for dental, orthopedic, or facial surgery purposes.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Examples include Medical Care, Periodontics, Renal Dialysis, Vision Coverage </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Examples include: Medical Care, Periodontics, Renal Dialysis, Vision Coverage </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">24.D</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4815,7 +4814,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Service/Product billing modifiers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Item typification or modifiers codes to convey additional context for the product or service.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">To support inclusion of the item for adjudication or to charge an elevated fee.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">24.C, 24.D mods</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4938,7 +4937,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Price scaling factor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% Senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5305,7 +5304,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Service/Product billing modifiers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Item typification or modifiers codes to convey additional context for the product or service.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">To support inclusion of the item for adjudication or to charge an elevated fee.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or outside of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">24.C, 24.D mods</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5428,7 +5427,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Price scaling factor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% Senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5788,7 +5787,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Service/Product billing modifiers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Item typification or modifiers codes to convey additional context for the product or service.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">To support inclusion of the item for adjudication or to charge an elevated fee.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">24.C, 24.D mods</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5973,7 +5972,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Price scaling factor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% Senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6035,7 +6034,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Anatomical location</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Physical service site on the patient (limb, tooth, etc.).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Allows insurer to validate specific procedures.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example: Providing a tooth code, allows an insurer to identify a provider performing a filling on a tooth that was previously removed.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, providing a tooth code allows an insurer to identify a provider performing a filling on a tooth that was previously removed.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6217,7 +6216,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Service/Product billing modifiers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Item typification or modifiers codes to convey additional context for the product or service.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">To support inclusion of the item for adjudication or to charge an elevated fee.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">24.C, 24.D mods</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6310,7 +6309,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Price scaling factor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% Senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6492,7 +6491,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Service/Product billing modifiers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Item typification or modifiers codes to convey additional context for the product or service.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">To support inclusion of the item for adjudication or to charge an elevated fee.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">24.C, 24.D mods</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6585,7 +6584,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Price scaling factor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% Senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6795,9 +6794,9 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Type of adjudication information</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Needed to convey the type of total provided.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7198,7 +7197,7 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Note explanitory text</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Note explanatory text</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The explanation or description associated with the processing.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Required to provide human readable explanation.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7230,7 +7229,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Language of the text</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A code to define the language used in the text of the note.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Note text may vary from the resource defined language.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Only requred if the language is different from the resource language.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Only required if the language is different from the resource language.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7428,7 +7427,7 @@
     <Cell ss:StyleID="s81"><Data ss:Type="String">Description of the benefit or services covered</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A richer description of the benefit or services covered.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Needed for human readable reference.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">For example 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">For example, 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -10033,13 +10032,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>178</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
-   <LeftColumnRightPane>21</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -14218,7 +14216,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s139" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s139" ss:Width="167.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="13" ss:StyleID="s139" ss:Width="107.0"/>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="29">
     <Cell ss:StyleID="s127"><Data ss:Type="String">Binding Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique name across all resources</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Formal description of the types of codes allowed for elements with this binding</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Binding</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">How is the set of codes defined?</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -14233,7 +14231,7 @@
     <Cell ss:StyleID="s128"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">uri of v3 value set mapped to</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unpublished notes</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ICD10</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">ICD10 Diagnostic codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14248,7 +14246,7 @@
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s144"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="43">
     <Cell ss:StyleID="s237"><Data ss:Type="String">Conditions</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication. </Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14263,7 +14261,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">Exception</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Factors which may influence the applicability of coverage.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14278,7 +14276,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s239"><Data ss:Type="String">AccidentType</Data></Cell>
     <Cell ss:StyleID="s142"><Data ss:Type="String">Type of accident: work place, auto, etc.</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
@@ -14293,7 +14291,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ItemType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Service, Product, Rx Dispense, Rx Compound etc.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14308,7 +14306,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">Intervention</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Intervention and exception codes (Pharm)</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14323,7 +14321,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ServiceProduct</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Allowable service and product codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14338,7 +14336,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ServicePlace</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Place where the service is rendered</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14353,7 +14351,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">UDI</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The GUDID (FDA), or other, UDI repository.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14368,7 +14366,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">OralSites</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The code for the teeth, quadrant, sextant and arch</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14383,7 +14381,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">Surface</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The code for the tooth surface and surface combinations</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14398,7 +14396,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="43">
     <Cell ss:StyleID="s237"><Data ss:Type="String">Modifiers</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14413,7 +14411,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">Adjudication</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The adjudication codes.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14428,7 +14426,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">AdjudicationReason</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Adjudication reason codes.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14443,7 +14441,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">PaymentAdjustmentReason</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Payment Adjustment reason codes.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14458,7 +14456,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">OralProsthoMaterial</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Material of the prior denture or bridge prosthesis. (Oral)</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14473,7 +14471,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">Tooth</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The codes for the teeth, subset of OralSites</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14488,7 +14486,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">MissingReason</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Reason codes for the missing teeth</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14503,7 +14501,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s240">
+   <Row ss:Height="29" ss:StyleID="s240">
     <Cell ss:StyleID="s241"><Data ss:Type="String">BenefitCategory</Data></Cell>
     <Cell ss:StyleID="s242"><Data ss:Type="String">Benefit categories such as: oral, medical, vision, oral-basic etc.</Data></Cell>
     <Cell ss:StyleID="s243"><Data ss:Type="String">value set</Data></Cell>
@@ -14518,7 +14516,7 @@
     <Cell ss:StyleID="s243"/>
     <Cell ss:StyleID="s245"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s240">
+   <Row ss:StyleID="s240">
     <Cell ss:StyleID="s241"><Data ss:Type="String">!BenefitCategory</Data></Cell>
     <Cell ss:StyleID="s242"><Data ss:Type="String">Benefit categories such as: oral, medical, vision etc.</Data></Cell>
     <Cell ss:StyleID="s243"><Data ss:Type="String">value set</Data></Cell>
@@ -14533,7 +14531,7 @@
     <Cell ss:StyleID="s243"/>
     <Cell ss:StyleID="s245"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s240">
+   <Row ss:StyleID="s240">
     <Cell ss:StyleID="s241"><Data ss:Type="String">!BenefitSubCategory</Data></Cell>
     <Cell ss:StyleID="s242"><Data ss:Type="String">Benefit subcategories such as: oral-basic, major, glasses</Data></Cell>
     <Cell ss:StyleID="s243"><Data ss:Type="String">value set</Data></Cell>
@@ -14548,7 +14546,7 @@
     <Cell ss:StyleID="s243"/>
     <Cell ss:StyleID="s245"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">BenefitType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Deductable, visits, co-pay, etc.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14563,7 +14561,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">BenefitNetwork</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Code to classify in or out of network services</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14578,7 +14576,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">BenefitUnit</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Unit covered/serviced - individual or family</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14593,7 +14591,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">BenefitTerm</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Coverage unit - annual, lifetime</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14608,7 +14606,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">!ClaimSubType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">A more granular claim typecode</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14623,7 +14621,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">RelatedClaimRelationship</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Relationship of this claim to a related Claim</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14638,7 +14636,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">!OccurrenceCodes</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Occurrence codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14653,7 +14651,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">!OccurrenceSpanCodes</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Occurrence Span codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14668,7 +14666,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">!ValueCodes</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Value code</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14683,7 +14681,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ProviderQualification</Data></Cell>
     <Cell><Data ss:Type="String">Provider professional qualifications</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14698,7 +14696,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ServiceModifiers</Data></Cell>
     <Cell><Data ss:Type="String">Factors which may influce adjudication of services</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14713,7 +14711,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="29">
     <Cell ss:StyleID="s237"><Data ss:Type="String">ICD10_Procedures</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">ICD10 Procedure codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14727,7 +14725,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"><Data ss:Type="String">http://hl7.org/fhir/sid/icd-10</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">ProgramCode</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Program specific reason codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14742,7 +14740,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">OnsetType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Condition related start, end  and period codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14757,7 +14755,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">InformationCode</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The valuset used for additional information codes.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14772,7 +14770,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">InformationCategory</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The valuset used for additional information category codes.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14787,7 +14785,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">InformationReason</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Reason codes for the missing teeth</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14802,7 +14800,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">PayeeResourceType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The type of payee Resource</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">code list</Data></Cell>
@@ -14817,7 +14815,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">CareTeamRole</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The role codes for the care team members.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14832,21 +14830,21 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s247"><Data ss:Type="String">DiagnosisRelatedGroup</Data></Cell>
     <Cell><Data ss:Type="String">The DRG codes associated with the diagnosis</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s247"><Data ss:Type="String">DiagnosisType</Data></Cell>
     <Cell><Data ss:Type="String">The type of the diagnosis: admitting, principal, discharge</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">http://hl7.org/fhir/ValueSet/ex-diagnosistype</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s146"><Data ss:Type="String">RemittanceOutcome</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The result of the claim processing</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14861,7 +14859,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s237"><Data ss:Type="String">PaymentType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The type (partial, complete) of the payment</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14876,7 +14874,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s250">
+   <Row ss:StyleID="s250">
     <Cell ss:StyleID="s237"><Data ss:Type="String">ClaimType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The type or discipline-style of the claim</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14891,7 +14889,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s250">
+   <Row ss:StyleID="s250">
     <Cell ss:StyleID="s237"><Data ss:Type="String">ExplanationOfBenefitStatus</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">A code specifying the state of the resource instance.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">code list</Data></Cell>
@@ -14906,7 +14904,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="29">
     <Cell ss:StyleID="s146"><Data ss:Type="String">RevenueCenter</Data></Cell>
     <Cell><Data ss:Type="String">Codes for the revenue or cost centers supplying the service and/or products.</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14921,7 +14919,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s250">
+   <Row ss:StyleID="s250">
     <Cell ss:StyleID="s237"><Data ss:Type="String">Use</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Complete, proposed, exploratory, other</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14936,7 +14934,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s253"><Data ss:Type="String">ClaimSubType</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">A more granular claim typecode</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14951,7 +14949,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="15">
     <Cell ss:StyleID="s146"><Data ss:Type="String">DiagnosisOnAdmission</Data></Cell>
     <Cell><Data ss:Type="String">Present on admission</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14966,7 +14964,7 @@
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s152"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="29">
     <Cell ss:StyleID="s237"><Data ss:Type="String">ProcessPriority</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">The timeliness with which processing is required: stat, normal, deferred</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
@@ -14981,8 +14979,8 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s146"><Data ss:Type="String">!ProcedureType</Data></Cell>
+   <Row>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">ProcedureType</Data></Cell>
     <Cell><Data ss:Type="String">Example procedure type codes</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">example</Data></Cell>
@@ -14996,8 +14994,7 @@
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"/>
    </Row>
-   <Row ss:AutoFitHeight="0"/>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Index="55">
     <Cell ss:Index="4" ss:StyleID="s254"/>
     <Cell><Data ss:Type="String">Who made this change, should be example</Data></Cell>
    </Row>
@@ -15013,6 +15010,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
