@@ -28,7 +28,7 @@
 	</provider>
 
 	<payment>
-		<reference value="PaymentReconciliation/1"/>
+		<reference value="PaymentReconciliation/ER2500"/>
 	</payment>
 
 	<paymentDate value="2014-08-15"/>

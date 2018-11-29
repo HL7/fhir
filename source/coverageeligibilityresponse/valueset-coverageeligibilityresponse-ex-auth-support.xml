@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="CoverageEligibilityResponseAuthSupportCodes"/>
+  <title value="CoverageEligibilityResponse Auth Support Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes CoverageEligibilityResponse Auth Support codes."/>
+  <copyright value="HL7 Inc."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/coverageeligibilityresponse-ex-auth-support"/>
+    </include>
+  </compose>
+</ValueSet>

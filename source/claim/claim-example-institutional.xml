@@ -88,6 +88,25 @@
 		</diagnosisCodeableConcept>
 	</diagnosis>
 
+	<procedure>
+		<sequence value="1"/>
+		<type>
+			<coding>
+				<code value="primary"/>
+			</coding>
+		</type>	
+		<date value="2014-08-16"/>
+		<procedureCodeableConcept>
+			<coding>
+				<code value="SDI9901"/>
+			</coding>
+			<text value="Subcutaneous diagnostic implant"/>
+		</procedureCodeableConcept>
+		<udi>
+			<reference value="Device/example"/>
+		</udi>
+	</procedure>
+
 	<insurance>
 		<sequence value="1"/>
 		<focal value="true"/>
