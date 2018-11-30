@@ -13,7 +13,7 @@ group RiskAssessment(source src : RiskAssessment, target tgt : RiskAssessmentR3)
   src.method -> tgt.method;
   src.code -> tgt.code;
   src.subject -> tgt.subject;
-  src.context -> tgt.context;
+  src.encounter -> tgt.context;
   src.occurrence : dateTime as vs -> tgt.occurrence = create("dateTime") as vt then dateTime(vs, vt);
   src.occurrence : Period as vs -> tgt.occurrence = create("Period") as vt then Period(vs, vt);
   src.condition -> tgt.condition;
