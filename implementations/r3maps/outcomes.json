@@ -2729,7 +2729,16 @@
       ]
     },
     "ResearchSubject": {
-      "execution": "No matches found for rule \u0027Resource\u0027. Reference found in http://hl7.org/fhir/StructureMap/DomainResource3to4"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ StructureDefinition.snapshot: All snapshot elements must have a base definition [element.all(base.exists())] (src \u003d InstanceValidator)",
+        "ERROR @ StructureDefinition.snapshot.element[4]: Must have a modifier reason if isModifier \u003d true [isModifier implies isModifierReason.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ StructureDefinition.snapshot.element[5].binding.extension[1][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet\u0027 definition allows for the types [canonical, uri] but found type Reference (src \u003d InstanceValidator)",
+        "ERROR @ StructureDefinition.snapshot.element[5].binding.extension[1]: The type of element valueReference is not known, which is illegal. Valid types at this point are uri, canonical (src \u003d InstanceValidator)",
+        "ERROR @ StructureDefinition.snapshot.element[9]: Must have a modifier reason if isModifier \u003d true [isModifier implies isModifierReason.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ StructureDefinition.snapshot.element[11]: Must have a modifier reason if isModifier \u003d true [isModifier implies isModifierReason.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ StructureDefinition.differential.element[3]: Must have a modifier reason if isModifier \u003d true [isModifier implies isModifierReason.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "Resource": {
       "execution": true,
@@ -3297,51 +3306,67 @@
   },
   "ActivityDefinition": {
     "administer-zika-virus-exposure-assessment": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type ActivityDefinition",
+      "execution": true,
       "r4.errors": [
         "WARNING @ ActivityDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
         "ERROR @ ActivityDefinition.timingTiming.event.extension: The extension http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "referralPrimaryCareMentalHealth": {
-      "execution": "Exception executing transform tgt.contributor \u003d create() as vvv on Rule \"contributor\": Attempt to get types for an invalid property \u0027contributor\u0027 on type ActivityDefinition"
+      "execution": true,
+      "round-trip": "string property values differ at .kind: type ReferralRequest/ProcedureRequest",
+      "r4.errors": [
+        "ERROR @ ActivityDefinition.author.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ContributerName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ ActivityDefinition.timingTiming.event.extension: The extension http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "citalopramPrescription": {
-      "execution": "Exception executing transform tgt.contributor \u003d create() as vvv on Rule \"contributor\": Attempt to get types for an invalid property \u0027contributor\u0027 on type ActivityDefinition"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ ActivityDefinition.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ ActivityDefinition.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ ActivityDefinition.author.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ContributerName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ ActivityDefinition.productReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "serum-dengue-virus-igm": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type ActivityDefinition",
+      "execution": true,
       "r4.errors": [
         "WARNING @ ActivityDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
         "ERROR @ ActivityDefinition.timingTiming.event.extension: The extension http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "serum-zika-dengue-virus-igm": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type ActivityDefinition",
+      "execution": true,
       "r4.errors": [
         "WARNING @ ActivityDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
         "ERROR @ ActivityDefinition.timingTiming.event.extension: The extension http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "referralPrimaryCareMentalHealth-initial": {
-      "execution": "Exception executing transform tgt.contributor \u003d create() as vvv on Rule \"contributor\": Attempt to get types for an invalid property \u0027contributor\u0027 on type ActivityDefinition"
+      "execution": true,
+      "round-trip": "string property values differ at .kind: type ReferralRequest/ProcedureRequest",
+      "r4.errors": [
+        "ERROR @ ActivityDefinition.author.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ContributerName is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ ActivityDefinition.timingTiming.event.extension: The extension http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "heart-valve-replacement": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type ActivityDefinition",
+      "execution": true,
       "r4.errors": [
         "WARNING @ ActivityDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
         "ERROR @ ActivityDefinition.timingTiming.event.extension: The extension http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "provide-mosquito-prevention-advice": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type ActivityDefinition",
+      "execution": true,
       "r4.errors": [
         "WARNING @ ActivityDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)",
         "ERROR @ ActivityDefinition.timingTiming.event.extension: The extension http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "blood-tubes-supply": {
-      "execution": "Attempt to read invalid property \u0027contributor\u0027 on type ActivityDefinition",
+      "execution": true,
       "r4.errors": [
         "WARNING @ ActivityDefinition: Name should be usable as an identifier for the module by machine processing applications such as code generation [name.matches(\u0027[A-Z]([A-Za-z0-9_]){0,254}\u0027)] (src \u003d InstanceValidator)"
       ]
@@ -3349,41 +3374,33 @@
   },
   "AdverseEvent": {
     "example": {
-      "execution": "No matches found for rule for \u0027code to CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/AdverseEvent3to4, from rule \u0027category\u0027"
+      "execution": true,
+      "round-trip": "properties differ at : missing property description",
+      "r4.errors": [
+        "ERROR @ AdverseEvent: Profile http://hl7.org/fhir/StructureDefinition/AdverseEvent, Element \u0027AdverseEvent.actuality\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     }
   },
   "AllergyIntolerance": {
     "example": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property clinicalStatus",
-      "r4.errors": [
-        "ERROR @ AllergyIntolerance: AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error. [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()] (src \u003d InstanceValidator)"
-      ]
+      "execution": true
     },
     "fishallergy": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property clinicalStatus",
-      "r4.errors": [
-        "ERROR @ AllergyIntolerance: AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error. [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()] (src \u003d InstanceValidator)"
-      ]
+      "execution": true
     },
     "medication": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property clinicalStatus",
-      "r4.errors": [
-        "ERROR @ AllergyIntolerance: AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error. [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()] (src \u003d InstanceValidator)"
-      ]
+      "execution": true
     }
   },
   "Appointment": {
     "example": {
-      "execution": "Exception executing transform tgt.indication \u003d create() as vvv on Rule \"indication\": Attempt to get types for an invalid property \u0027indication\u0027 on type Appointment"
+      "execution": true
     },
     "examplereq": {
-      "execution": "Exception executing transform tgt.reason \u003d create() as vvv on Rule \"reason\": Attempt to get types for an invalid property \u0027reason\u0027 on type Appointment"
+      "execution": true
     },
     "2docs": {
-      "execution": "Attempt to read invalid property \u0027serviceCategoryFirstRep\u0027 on type Appointment"
+      "execution": true
     }
   },
   "AppointmentResponse": {
@@ -3452,21 +3469,22 @@
   },
   "Bundle": {
     "bundle-example": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type MedicationRequest",
+      "execution": true,
       "r4.errors": [
         "ERROR @ Bundle.entry[1].resource: Profile http://hl7.org/fhir/StructureDefinition/MedicationRequest, Element \u0027Bundle.entry[1].resource.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "bundle-request-medsallergies": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property entry"
+      "execution": true
     },
     "bundle-request-simplesummary": {
-      "execution": true,
-      "round-trip": "properties differ at : missing property entry"
+      "execution": true
     },
     "bundle-response": {
-      "execution": "java.io.IOException: Error parsing JSON source: Unexpected JSON syntax at Line 1 (path\u003d[//entry[]1974-12-25])"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ Bundle.entry[1].response.outcome: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "bundle-response-medsallergies": {
       "execution": true
@@ -3475,7 +3493,7 @@
       "execution": true
     },
     "bundle-transaction": {
-      "execution": "java.io.IOException: Error parsing JSON source: Unexpected JSON syntax at Line 1 (path\u003d[//entry[]1974-12-25])"
+      "execution": true
     },
     "conceptmaps": {
       "execution": true,
@@ -4601,7 +4619,15 @@
       ]
     },
     "father": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Bundle.entry[6].resource: Profile http://hl7.org/fhir/StructureDefinition/MedicationRequest, Element \u0027Bundle.entry[6].resource.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[6].resource.extension: The extension http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[6].resource.extension.valueReference: URN reference is not locally contained within the bundle Organization/f002 (src \u003d InstanceValidator)",
+        "WARNING @ Bundle.entry[6].resource.requester: URN reference is not locally contained within the bundle Practitioner/example (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[7].resource.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementStatus is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Bundle.entry[7].resource.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34MedStatementTaken is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "b0a5e4277-83c4-4adb-87e2-e3efe3369b6f": {
       "execution": true
@@ -17508,97 +17534,67 @@
   },
   "ChargeItem": {
     "example": {
-      "execution": "Exception executing transform tgt.definition \u003d create() as vvv on Rule \"definition\": Attempt to get types for an invalid property \u0027definition\u0027 on type ChargeItem"
+      "execution": true
     }
   },
   "Claim": {
     "100150": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "960150": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "960151": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "100151": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "100156": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": No matches found for default rule for \u0027ReferralRequest\u0027 from http://hl7.org/fhir/StructureMap/DomainResource3to4"
+      "execution": "Attempt to write to invalid property \u0027diagnosis\u0027 on type Claim.item"
     },
     "100152": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027Coverage\u0027 in http://hl7.org/fhir/StructureMap/Coverage3to4 (Coverage) and http://hl7.org/fhir/StructureMap/Coverage3to4 (CoverageClass)"
+      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/Coverage",
+      "r4.errors": [
+        "WARNING @ Claim.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.contained[4]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.contained[5]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.contained[5].subscriber.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.insurer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.provider.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.careTeam.provider.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.insurance.coverage.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "100155": {
       "execution": true,
       "round-trip": "properties differ at : missing property organization",
       "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
         "WARNING @ Claim.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ Claim.patient.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
     "100154": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "100153": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "760150": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "760152": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "760151": {
       "execution": true,
@@ -17606,33 +17602,40 @@
     },
     "860150": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "660150": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "660151": {
       "execution": true,
-      "round-trip": "properties differ at : missing property organization",
-      "r4.errors": [
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.provider\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.priority\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
-        "ERROR @ Claim: Profile http://hl7.org/fhir/StructureDefinition/Claim, Element \u0027Claim.insurance\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
-      ]
+      "round-trip": "properties differ at : missing property organization"
     },
     "660152": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Multiple possible matches for default rule for \u0027ClaimResponse\u0027 in http://hl7.org/fhir/StructureMap/ClaimResponse3to4 (ClaimResponse) and http://hl7.org/fhir/StructureMap/ClaimResponse3to4 (ClaimResponseItem)"
+      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": Unable to resolve structure http://hl7.org/fhir/StructureDefinition/ClaimResponse",
+      "r4.errors": [
+        "WARNING @ Claim.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Claim.contained[1]: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.contained[1].status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.contained[1]: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.contained[1].type\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.contained[1]: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.contained[1].use\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.contained[1]: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.contained[1].patient\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.contained[1]: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.contained[1].created\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.contained[1]: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.contained[1].insurer\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.contained[1]: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.contained[1].outcome\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "WARNING @ Claim.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.insurance[1].claimResponse.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ Claim.insurance[1].claimResponse.contained: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.insurance[1].claimResponse.contained.status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.insurance[1].claimResponse.contained: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.insurance[1].claimResponse.contained.type\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.insurance[1].claimResponse.contained: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.insurance[1].claimResponse.contained.use\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.insurance[1].claimResponse.contained: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.insurance[1].claimResponse.contained.patient\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.insurance[1].claimResponse.contained: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.insurance[1].claimResponse.contained.created\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.insurance[1].claimResponse.contained: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.insurance[1].claimResponse.contained.insurer\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ Claim.insurance[1].claimResponse.contained: Profile http://hl7.org/fhir/StructureDefinition/ClaimResponse, Element \u0027Claim.insurance[1].claimResponse.contained.outcome\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "WARNING @ Claim.item.detail[1].udi.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Claim.item.detail[2].subDetail[1].udi.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     }
   },
   "ClaimResponse": {
@@ -18163,52 +18166,52 @@
   },
   "Sequence": {
     "coord-0-base": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": true
     },
     "coord-1-base": {
-      "execution": "Unable to find http://hl7.org/fhir/StructureDefinition/Sequence referenced from map http://hl7.org/fhir/StructureMap/Sequence3to4"
+      "execution": true
     },
     "sequence-complex-variant": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "example": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "example-TPMT-one": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "example-TPMT-two": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "fda-example": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "fda-vcf-comparison": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "fda-vcfeval-comparison": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "example-pgx-1": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "example-pgx-2": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "graphic-example-1": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "graphic-example-2": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "graphic-example-3": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "graphic-example-4": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     },
     "graphic-example-5": {
-      "execution": "Error in C:\\work\\org.hl7.fhir\\build\\implementations\\r3maps\\R3toR4\\Sequence.map at 23, 4: Found \"src\" expecting \";\""
+      "execution": true
     }
   },
   "Coverage": {
@@ -18249,31 +18252,34 @@
   },
   "Device": {
     "example": {
-      "execution": "Exception executing transform tgt.model \u003d create() as vvv on Rule \"model\": Attempt to get types for an invalid property \u0027model\u0027 on type Device"
+      "execution": true
     },
     "f001": {
-      "execution": "Attempt to read invalid property \u0027udi\u0027 on type Device"
+      "execution": true
     },
     "ihe-pcd": {
-      "execution": "Exception executing transform tgt.model \u003d create() as vvv on Rule \"model\": Attempt to get types for an invalid property \u0027model\u0027 on type Device"
+      "execution": true
     },
     "example-pacemaker": {
-      "execution": "Exception executing transform tgt.model \u003d create() as vvv on Rule \"model\": Attempt to get types for an invalid property \u0027model\u0027 on type Device"
+      "execution": true
     },
     "software": {
-      "execution": "org.hl7.fhir.r4.model.StringType cannot be cast to org.hl7.fhir.r4.model.Device$DeviceVersionComponent"
+      "execution": true
     },
     "example-udi1": {
-      "execution": "Attempt to make an invalid property \u0027udi\u0027 on type Device"
+      "execution": true
     },
     "example-udi2": {
-      "execution": "Attempt to make an invalid property \u0027udi\u0027 on type Device"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ Device.extension: The extension http://hl7.org/fhir/StructureDefinition/device-din is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     },
     "example-udi3": {
-      "execution": "Attempt to make an invalid property \u0027udi\u0027 on type Device"
+      "execution": true
     },
     "example-udi4": {
-      "execution": "Attempt to make an invalid property \u0027udi\u0027 on type Device"
+      "execution": true
     }
   },
   "DeviceComponent": {
@@ -18286,15 +18292,20 @@
   },
   "DeviceMetric": {
     "example": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": true
     }
   },
   "DeviceRequest": {
     "example": {
-      "execution": "No matches found for rule for \u0027CodeableConcept to code\u0027 from http://hl7.org/fhir/StructureMap/DeviceRequest3to4, from rule \u0027intent\u0027"
+      "execution": true,
+      "round-trip": "properties differ at .intent.coding[0]: missing property system"
     },
     "insulinpump": {
-      "execution": "No matches found for rule for \u0027CodeableConcept to code\u0027 from http://hl7.org/fhir/StructureMap/DeviceRequest3to4, from rule \u0027intent\u0027"
+      "execution": true,
+      "round-trip": "properties differ at : missing property definition",
+      "r4.errors": [
+        "ERROR @ DeviceRequest: Profile http://hl7.org/fhir/StructureDefinition/DeviceRequest, Element \u0027DeviceRequest.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     }
   },
   "DeviceUseStatement": {
@@ -20144,16 +20155,29 @@
       ]
     },
     "diabeticdiet": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "r4.errors": [
+        "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "diabeticsupplement": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "r4.errors": [
+        "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "energysupplement": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "r4.errors": [
+        "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "enteralbolus": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "r4.errors": [
+        "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "WARNING @ NutritionOrder.enteralFormula.administrationInstruction: value should not start or finish with whitespace (src \u003d InstanceValidator)"
+      ]
     },
     "enteralcontinuous": {
       "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
@@ -20163,10 +20187,16 @@
       ]
     },
     "fiberrestricteddiet": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "r4.errors": [
+        "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "infantenteral": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "r4.errors": [
+        "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "proteinsupplement": {
       "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
@@ -20175,16 +20205,28 @@
       ]
     },
     "pureeddiet": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "r4.errors": [
+        "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "pureeddiet-simple": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "r4.errors": [
+        "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "renaldiet": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "r4.errors": [
+        "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "texturemodified": {
-      "execution": "No matches found for rule for \u0027integer to positiveInt\u0027 from http://hl7.org/fhir/StructureMap/Timing3to4, from rule \u0027frequency\u0027"
+      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "r4.errors": [
+        "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     }
   },
   "Observation": {
@@ -20820,7 +20862,7 @@
       ]
     },
     "low-suicide-risk-order-set": {
-      "execution": "No matches found for rule for \u0027string to Expression\u0027 from http://hl7.org/fhir/StructureMap/ActivityDefinition3to4, from rule \u0027expression\u0027"
+      "execution": "Rule \"definition\": target context not known: src"
     },
     "KDN5": {
       "execution": "Rule \"definition\": target context not known: src"
@@ -20918,55 +20960,60 @@
   },
   "PractitionerRole": {
     "example": {
-      "execution": true,
-      "round-trip": "properties differ at .availableTime[0]: missing property daysOfWeek"
+      "execution": true
     }
   },
   "Procedure": {
     "example": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "ambulation": {
-      "execution": "Unknown ProcedureStatus code \u0027suspended\u0027"
+      "execution": true,
+      "round-trip": "properties differ at : missing property definition",
+      "r4.errors": [
+        "WARNING @ Procedure.statusReason.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)"
+      ]
     },
     "appendectomy-narrative": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "biopsy": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "colon-biopsy": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type Procedure"
+      "execution": true,
+      "round-trip": "properties differ at : missing property notDone"
     },
     "colonoscopy": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type Procedure"
+      "execution": true,
+      "round-trip": "properties differ at : missing property notDone"
     },
     "education": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "f001": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "f002": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "f003": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "f004": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "f201": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "example-implant": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "ob": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     },
     "physical-therapy": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type Procedure"
+      "execution": true
     }
   },
   "ProcedureRequest": {
@@ -21136,7 +21183,19 @@
   },
   "QuestionnaireResponse": {
     "3141": {
-      "execution": "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"contained\": No matches found for default rule for \u0027ReferralRequest\u0027 from http://hl7.org/fhir/StructureMap/DomainResource3to4"
+      "execution": true,
+      "round-trip": "string property values differ at .contained[1].resourceType: type ReferralRequest/ProcedureRequest",
+      "r4.errors": [
+        "WARNING @ QuestionnaireResponse.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ QuestionnaireResponse.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ QuestionnaireResponse.contained[2].extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ QuestionnaireResponse.contained[2].subject.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ QuestionnaireResponse.contained[3]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ QuestionnaireResponse.basedOn.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ QuestionnaireResponse.basedOn.contained.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "WARNING @ QuestionnaireResponse.author.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "INFORMATION @ QuestionnaireResponse: No questionnaire is identified, so no validation can be performed against the base questionnaire (src \u003d InstanceValidator)"
+      ]
     },
     "bb": {
       "execution": true,
@@ -21376,28 +21435,34 @@
   },
   "Task": {
     "example1": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Task"
+      "execution": true,
+      "round-trip": "properties differ at .requester: missing property onBehalfOf",
+      "r4.errors": [
+        "WARNING @ Task.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ Task.relevantHistory.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     },
     "example2": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Task"
+      "execution": true
     },
     "example3": {
-      "execution": "No matches found for rule for \u0027BackboneElement to Reference\u0027 from http://hl7.org/fhir/StructureMap/Task3to4, from rule \u0027requester\u0027"
+      "execution": true
     },
     "example4": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Task"
+      "execution": true
     },
     "example5": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Task"
+      "execution": true,
+      "round-trip": "properties differ at .requester: missing property onBehalfOf"
     },
     "example6": {
-      "execution": "Exception executing transform tgt.context \u003d create() as vvv on Rule \"context\": Attempt to get types for an invalid property \u0027context\u0027 on type Task"
+      "execution": true,
+      "round-trip": "properties differ at .requester: missing property onBehalfOf"
     }
   },
   "TestReport": {
     "testreport-example": {
-      "execution": true,
-      "round-trip": "properties differ at .test[0]: missing property id"
+      "execution": true
     }
   },
   "TestScript": {
@@ -21667,7 +21732,8 @@
     "example": {
       "execution": true,
       "r4.errors": [
-        "ERROR @ ServiceRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ ServiceRequest.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ ServiceRequest.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/X34ReferralRequestDescription is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "ambulation": {

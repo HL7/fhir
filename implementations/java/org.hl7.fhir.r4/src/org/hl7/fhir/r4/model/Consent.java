@@ -51,37 +51,29 @@ public class Consent extends DomainResource {
 
     public enum ConsentState {
         /**
-         * The core event has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes.
+         * The consent is in development or awaiting use but is not yet intended to be acted upon.
          */
-        PREPARATION, 
+        DRAFT, 
         /**
-         * The event is currently occurring.
+         * The consent has been proposed but not yet agreed to by all parties. The negotiation stage.
          */
-        INPROGRESS, 
+        PROPOSED, 
         /**
-         * The event was terminated prior to any activity beyond preparation.  I.e. The 'main' activity has not yet begun.  The boundary between preparatory and the 'main' activity is context-specific.
+         * The consent is to be followed and enforced.
          */
-        NOTDONE, 
+        ACTIVE, 
         /**
-         * The event has been temporarily stopped but is expected to resume in the future.
+         * The consent has been rejected by one or more of the parties.
          */
-        ONHOLD, 
+        REJECTED, 
         /**
-         * The event was terminated prior to the full completion of the intended activity but after at least some of the 'main' activity (beyond preparation) has occurred.
+         * The consent is terminated or replaced.
          */
-        STOPPED, 
+        INACTIVE, 
         /**
-         * The event has now concluded.
-         */
-        COMPLETED, 
-        /**
-         * This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".).
+         * The consent was created wrongly (e.g. wrong patient) and should be ignored.
          */
         ENTEREDINERROR, 
-        /**
-         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
-         */
-        UNKNOWN, 
         /**
          * added to help the parsers with the generic types
          */
@@ -89,22 +81,18 @@ public class Consent extends DomainResource {
         public static ConsentState fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("preparation".equals(codeString))
-          return PREPARATION;
-        if ("in-progress".equals(codeString))
-          return INPROGRESS;
-        if ("not-done".equals(codeString))
-          return NOTDONE;
-        if ("on-hold".equals(codeString))
-          return ONHOLD;
-        if ("stopped".equals(codeString))
-          return STOPPED;
-        if ("completed".equals(codeString))
-          return COMPLETED;
+        if ("draft".equals(codeString))
+          return DRAFT;
+        if ("proposed".equals(codeString))
+          return PROPOSED;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("rejected".equals(codeString))
+          return REJECTED;
+        if ("inactive".equals(codeString))
+          return INACTIVE;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
-        if ("unknown".equals(codeString))
-          return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -112,53 +100,45 @@ public class Consent extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case PREPARATION: return "preparation";
-            case INPROGRESS: return "in-progress";
-            case NOTDONE: return "not-done";
-            case ONHOLD: return "on-hold";
-            case STOPPED: return "stopped";
-            case COMPLETED: return "completed";
+            case DRAFT: return "draft";
+            case PROPOSED: return "proposed";
+            case ACTIVE: return "active";
+            case REJECTED: return "rejected";
+            case INACTIVE: return "inactive";
             case ENTEREDINERROR: return "entered-in-error";
-            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case PREPARATION: return "http://hl7.org/fhir/event-status";
-            case INPROGRESS: return "http://hl7.org/fhir/event-status";
-            case NOTDONE: return "http://hl7.org/fhir/event-status";
-            case ONHOLD: return "http://hl7.org/fhir/event-status";
-            case STOPPED: return "http://hl7.org/fhir/event-status";
-            case COMPLETED: return "http://hl7.org/fhir/event-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/event-status";
-            case UNKNOWN: return "http://hl7.org/fhir/event-status";
+            case DRAFT: return "http://hl7.org/fhir/consent-state-codes";
+            case PROPOSED: return "http://hl7.org/fhir/consent-state-codes";
+            case ACTIVE: return "http://hl7.org/fhir/consent-state-codes";
+            case REJECTED: return "http://hl7.org/fhir/consent-state-codes";
+            case INACTIVE: return "http://hl7.org/fhir/consent-state-codes";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/consent-state-codes";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case PREPARATION: return "The core event has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes.";
-            case INPROGRESS: return "The event is currently occurring.";
-            case NOTDONE: return "The event was terminated prior to any activity beyond preparation.  I.e. The 'main' activity has not yet begun.  The boundary between preparatory and the 'main' activity is context-specific.";
-            case ONHOLD: return "The event has been temporarily stopped but is expected to resume in the future.";
-            case STOPPED: return "The event was terminated prior to the full completion of the intended activity but after at least some of the 'main' activity (beyond preparation) has occurred.";
-            case COMPLETED: return "The event has now concluded.";
-            case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".).";
-            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
+            case DRAFT: return "The consent is in development or awaiting use but is not yet intended to be acted upon.";
+            case PROPOSED: return "The consent has been proposed but not yet agreed to by all parties. The negotiation stage.";
+            case ACTIVE: return "The consent is to be followed and enforced.";
+            case REJECTED: return "The consent has been rejected by one or more of the parties.";
+            case INACTIVE: return "The consent is terminated or replaced.";
+            case ENTEREDINERROR: return "The consent was created wrongly (e.g. wrong patient) and should be ignored.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case PREPARATION: return "Preparation";
-            case INPROGRESS: return "In Progress";
-            case NOTDONE: return "Not Done";
-            case ONHOLD: return "On Hold";
-            case STOPPED: return "Stopped";
-            case COMPLETED: return "Completed";
+            case DRAFT: return "Pending";
+            case PROPOSED: return "Proposed";
+            case ACTIVE: return "Active";
+            case REJECTED: return "Rejected";
+            case INACTIVE: return "Inactive";
             case ENTEREDINERROR: return "Entered in Error";
-            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -169,22 +149,18 @@ public class Consent extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("preparation".equals(codeString))
-          return ConsentState.PREPARATION;
-        if ("in-progress".equals(codeString))
-          return ConsentState.INPROGRESS;
-        if ("not-done".equals(codeString))
-          return ConsentState.NOTDONE;
-        if ("on-hold".equals(codeString))
-          return ConsentState.ONHOLD;
-        if ("stopped".equals(codeString))
-          return ConsentState.STOPPED;
-        if ("completed".equals(codeString))
-          return ConsentState.COMPLETED;
+        if ("draft".equals(codeString))
+          return ConsentState.DRAFT;
+        if ("proposed".equals(codeString))
+          return ConsentState.PROPOSED;
+        if ("active".equals(codeString))
+          return ConsentState.ACTIVE;
+        if ("rejected".equals(codeString))
+          return ConsentState.REJECTED;
+        if ("inactive".equals(codeString))
+          return ConsentState.INACTIVE;
         if ("entered-in-error".equals(codeString))
           return ConsentState.ENTEREDINERROR;
-        if ("unknown".equals(codeString))
-          return ConsentState.UNKNOWN;
         throw new IllegalArgumentException("Unknown ConsentState code '"+codeString+"'");
         }
         public Enumeration<ConsentState> fromType(Base code) throws FHIRException {
@@ -195,41 +171,33 @@ public class Consent extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("preparation".equals(codeString))
-          return new Enumeration<ConsentState>(this, ConsentState.PREPARATION);
-        if ("in-progress".equals(codeString))
-          return new Enumeration<ConsentState>(this, ConsentState.INPROGRESS);
-        if ("not-done".equals(codeString))
-          return new Enumeration<ConsentState>(this, ConsentState.NOTDONE);
-        if ("on-hold".equals(codeString))
-          return new Enumeration<ConsentState>(this, ConsentState.ONHOLD);
-        if ("stopped".equals(codeString))
-          return new Enumeration<ConsentState>(this, ConsentState.STOPPED);
-        if ("completed".equals(codeString))
-          return new Enumeration<ConsentState>(this, ConsentState.COMPLETED);
+        if ("draft".equals(codeString))
+          return new Enumeration<ConsentState>(this, ConsentState.DRAFT);
+        if ("proposed".equals(codeString))
+          return new Enumeration<ConsentState>(this, ConsentState.PROPOSED);
+        if ("active".equals(codeString))
+          return new Enumeration<ConsentState>(this, ConsentState.ACTIVE);
+        if ("rejected".equals(codeString))
+          return new Enumeration<ConsentState>(this, ConsentState.REJECTED);
+        if ("inactive".equals(codeString))
+          return new Enumeration<ConsentState>(this, ConsentState.INACTIVE);
         if ("entered-in-error".equals(codeString))
           return new Enumeration<ConsentState>(this, ConsentState.ENTEREDINERROR);
-        if ("unknown".equals(codeString))
-          return new Enumeration<ConsentState>(this, ConsentState.UNKNOWN);
         throw new FHIRException("Unknown ConsentState code '"+codeString+"'");
         }
     public String toCode(ConsentState code) {
-      if (code == ConsentState.PREPARATION)
-        return "preparation";
-      if (code == ConsentState.INPROGRESS)
-        return "in-progress";
-      if (code == ConsentState.NOTDONE)
-        return "not-done";
-      if (code == ConsentState.ONHOLD)
-        return "on-hold";
-      if (code == ConsentState.STOPPED)
-        return "stopped";
-      if (code == ConsentState.COMPLETED)
-        return "completed";
+      if (code == ConsentState.DRAFT)
+        return "draft";
+      if (code == ConsentState.PROPOSED)
+        return "proposed";
+      if (code == ConsentState.ACTIVE)
+        return "active";
+      if (code == ConsentState.REJECTED)
+        return "rejected";
+      if (code == ConsentState.INACTIVE)
+        return "inactive";
       if (code == ConsentState.ENTEREDINERROR)
         return "entered-in-error";
-      if (code == ConsentState.UNKNOWN)
-        return "unknown";
       return "?";
       }
     public String toSystem(ConsentState code) {
@@ -2407,7 +2375,7 @@ public class Consent extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | proposed | active | rejected | inactive | entered-in-error", formalDefinition="Indicates the current state of this consent." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/event-status")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-state-codes")
     protected Enumeration<ConsentState> status;
 
     /**
