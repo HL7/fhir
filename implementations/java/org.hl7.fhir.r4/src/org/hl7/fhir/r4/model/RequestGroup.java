@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Sat, Dec 1, 2018 07:04+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -74,7 +74,7 @@ public class RequestGroup extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
-         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" . One of the listed statuses is presumed to apply,  but the system creating the request does not know.
+         * The authoring/source system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which.
          */
         UNKNOWN, 
         /**
@@ -135,7 +135,7 @@ public class RequestGroup extends DomainResource {
             case REVOKED: return "The request (and any implicit authorization to act) has been terminated prior to the known full completion of the intended actions.  No further activity should occur.";
             case COMPLETED: return "The activity described by the request has been fully performed.  No further activity will occur.";
             case ENTEREDINERROR: return "This request should never have existed and should be considered 'void'.  (It is possible that real-world decisions were based on it.  If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".).";
-            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" . One of the listed statuses is presumed to apply,  but the system creating the request does not know.";
+            case UNKNOWN: return "The authoring/source system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which.";
             default: return "?";
           }
         }
@@ -1492,7 +1492,7 @@ public class RequestGroup extends DomainResource {
         /**
          * The participant that should perform or be responsible for this action.
          */
-        @Child(name = "participant", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "participant", type = {Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class, Device.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Who should perform the action", formalDefinition="The participant that should perform or be responsible for this action." )
         protected List<Reference> participant;
         /**
@@ -2581,7 +2581,7 @@ public class RequestGroup extends DomainResource {
           children.add(new Property("condition", "", "An expression that describes applicability criteria, or start/stop conditions for the action.", 0, java.lang.Integer.MAX_VALUE, condition));
           children.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
           children.add(new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing));
-          children.add(new Property("participant", "Reference(Patient|Practitioner|RelatedPerson)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant));
+          children.add(new Property("participant", "Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Device)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant));
           children.add(new Property("type", "CodeableConcept", "The type of action to perform (create, update, remove).", 0, 1, type));
           children.add(new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, 1, groupingBehavior));
           children.add(new Property("selectionBehavior", "code", "Defines the selection behavior for the action and its children.", 0, 1, selectionBehavior));
@@ -2612,7 +2612,7 @@ public class RequestGroup extends DomainResource {
           case -1327253506: /*timingDuration*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
           case -710871277: /*timingRange*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
           case -497554124: /*timingTiming*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case 767422259: /*participant*/  return new Property("participant", "Reference(Patient|Practitioner|RelatedPerson)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant);
+          case 767422259: /*participant*/  return new Property("participant", "Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Device)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant);
           case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The type of action to perform (create, update, remove).", 0, 1, type);
           case 586678389: /*groupingBehavior*/  return new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, 1, groupingBehavior);
           case 168639486: /*selectionBehavior*/  return new Property("selectionBehavior", "code", "Defines the selection behavior for the action and its children.", 0, 1, selectionBehavior);
@@ -3021,27 +3021,13 @@ public class RequestGroup extends DomainResource {
         protected Enumeration<ActionConditionKind> kind;
 
         /**
-         * A brief, natural language description of the condition that effectively communicates the intended semantics.
-         */
-        @Child(name = "description", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Natural language description of the condition", formalDefinition="A brief, natural language description of the condition that effectively communicates the intended semantics." )
-        protected StringType description;
-
-        /**
-         * The media type of the language for the expression.
-         */
-        @Child(name = "language", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Language of the expression", formalDefinition="The media type of the language for the expression." )
-        protected StringType language;
-
-        /**
          * An expression that returns true or false, indicating whether or not the condition is satisfied.
          */
-        @Child(name = "expression", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "expression", type = {Expression.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Boolean-valued expression", formalDefinition="An expression that returns true or false, indicating whether or not the condition is satisfied." )
-        protected StringType expression;
+        protected Expression expression;
 
-        private static final long serialVersionUID = 944300105L;
+        private static final long serialVersionUID = -455150438L;
 
     /**
      * Constructor
@@ -3104,117 +3090,15 @@ public class RequestGroup extends DomainResource {
         }
 
         /**
-         * @return {@link #description} (A brief, natural language description of the condition that effectively communicates the intended semantics.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         * @return {@link #expression} (An expression that returns true or false, indicating whether or not the condition is satisfied.)
          */
-        public StringType getDescriptionElement() { 
-          if (this.description == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create RequestGroupActionConditionComponent.description");
-            else if (Configuration.doAutoCreate())
-              this.description = new StringType(); // bb
-          return this.description;
-        }
-
-        public boolean hasDescriptionElement() { 
-          return this.description != null && !this.description.isEmpty();
-        }
-
-        public boolean hasDescription() { 
-          return this.description != null && !this.description.isEmpty();
-        }
-
-        /**
-         * @param value {@link #description} (A brief, natural language description of the condition that effectively communicates the intended semantics.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-         */
-        public RequestGroupActionConditionComponent setDescriptionElement(StringType value) { 
-          this.description = value;
-          return this;
-        }
-
-        /**
-         * @return A brief, natural language description of the condition that effectively communicates the intended semantics.
-         */
-        public String getDescription() { 
-          return this.description == null ? null : this.description.getValue();
-        }
-
-        /**
-         * @param value A brief, natural language description of the condition that effectively communicates the intended semantics.
-         */
-        public RequestGroupActionConditionComponent setDescription(String value) { 
-          if (Utilities.noString(value))
-            this.description = null;
-          else {
-            if (this.description == null)
-              this.description = new StringType();
-            this.description.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
-         */
-        public StringType getLanguageElement() { 
-          if (this.language == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create RequestGroupActionConditionComponent.language");
-            else if (Configuration.doAutoCreate())
-              this.language = new StringType(); // bb
-          return this.language;
-        }
-
-        public boolean hasLanguageElement() { 
-          return this.language != null && !this.language.isEmpty();
-        }
-
-        public boolean hasLanguage() { 
-          return this.language != null && !this.language.isEmpty();
-        }
-
-        /**
-         * @param value {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
-         */
-        public RequestGroupActionConditionComponent setLanguageElement(StringType value) { 
-          this.language = value;
-          return this;
-        }
-
-        /**
-         * @return The media type of the language for the expression.
-         */
-        public String getLanguage() { 
-          return this.language == null ? null : this.language.getValue();
-        }
-
-        /**
-         * @param value The media type of the language for the expression.
-         */
-        public RequestGroupActionConditionComponent setLanguage(String value) { 
-          if (Utilities.noString(value))
-            this.language = null;
-          else {
-            if (this.language == null)
-              this.language = new StringType();
-            this.language.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #expression} (An expression that returns true or false, indicating whether or not the condition is satisfied.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
-         */
-        public StringType getExpressionElement() { 
+        public Expression getExpression() { 
           if (this.expression == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create RequestGroupActionConditionComponent.expression");
             else if (Configuration.doAutoCreate())
-              this.expression = new StringType(); // bb
+              this.expression = new Expression(); // cc
           return this.expression;
-        }
-
-        public boolean hasExpressionElement() { 
-          return this.expression != null && !this.expression.isEmpty();
         }
 
         public boolean hasExpression() { 
@@ -3222,49 +3106,24 @@ public class RequestGroup extends DomainResource {
         }
 
         /**
-         * @param value {@link #expression} (An expression that returns true or false, indicating whether or not the condition is satisfied.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         * @param value {@link #expression} (An expression that returns true or false, indicating whether or not the condition is satisfied.)
          */
-        public RequestGroupActionConditionComponent setExpressionElement(StringType value) { 
+        public RequestGroupActionConditionComponent setExpression(Expression value) { 
           this.expression = value;
-          return this;
-        }
-
-        /**
-         * @return An expression that returns true or false, indicating whether or not the condition is satisfied.
-         */
-        public String getExpression() { 
-          return this.expression == null ? null : this.expression.getValue();
-        }
-
-        /**
-         * @param value An expression that returns true or false, indicating whether or not the condition is satisfied.
-         */
-        public RequestGroupActionConditionComponent setExpression(String value) { 
-          if (Utilities.noString(value))
-            this.expression = null;
-          else {
-            if (this.expression == null)
-              this.expression = new StringType();
-            this.expression.setValue(value);
-          }
           return this;
         }
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("kind", "code", "The kind of condition.", 0, 1, kind));
-          children.add(new Property("description", "string", "A brief, natural language description of the condition that effectively communicates the intended semantics.", 0, 1, description));
-          children.add(new Property("language", "string", "The media type of the language for the expression.", 0, 1, language));
-          children.add(new Property("expression", "string", "An expression that returns true or false, indicating whether or not the condition is satisfied.", 0, 1, expression));
+          children.add(new Property("expression", "Expression", "An expression that returns true or false, indicating whether or not the condition is satisfied.", 0, 1, expression));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3292052: /*kind*/  return new Property("kind", "code", "The kind of condition.", 0, 1, kind);
-          case -1724546052: /*description*/  return new Property("description", "string", "A brief, natural language description of the condition that effectively communicates the intended semantics.", 0, 1, description);
-          case -1613589672: /*language*/  return new Property("language", "string", "The media type of the language for the expression.", 0, 1, language);
-          case -1795452264: /*expression*/  return new Property("expression", "string", "An expression that returns true or false, indicating whether or not the condition is satisfied.", 0, 1, expression);
+          case -1795452264: /*expression*/  return new Property("expression", "Expression", "An expression that returns true or false, indicating whether or not the condition is satisfied.", 0, 1, expression);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -3274,9 +3133,7 @@ public class RequestGroup extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<ActionConditionKind>
-        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // StringType
-        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
+        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // Expression
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3289,14 +3146,8 @@ public class RequestGroup extends DomainResource {
           value = new ActionConditionKindEnumFactory().fromType(castToCode(value));
           this.kind = (Enumeration) value; // Enumeration<ActionConditionKind>
           return value;
-        case -1724546052: // description
-          this.description = castToString(value); // StringType
-          return value;
-        case -1613589672: // language
-          this.language = castToString(value); // StringType
-          return value;
         case -1795452264: // expression
-          this.expression = castToString(value); // StringType
+          this.expression = castToExpression(value); // Expression
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -3308,12 +3159,8 @@ public class RequestGroup extends DomainResource {
         if (name.equals("kind")) {
           value = new ActionConditionKindEnumFactory().fromType(castToCode(value));
           this.kind = (Enumeration) value; // Enumeration<ActionConditionKind>
-        } else if (name.equals("description")) {
-          this.description = castToString(value); // StringType
-        } else if (name.equals("language")) {
-          this.language = castToString(value); // StringType
         } else if (name.equals("expression")) {
-          this.expression = castToString(value); // StringType
+          this.expression = castToExpression(value); // Expression
         } else
           return super.setProperty(name, value);
         return value;
@@ -3323,9 +3170,7 @@ public class RequestGroup extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3292052:  return getKindElement();
-        case -1724546052:  return getDescriptionElement();
-        case -1613589672:  return getLanguageElement();
-        case -1795452264:  return getExpressionElement();
+        case -1795452264:  return getExpression(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3335,9 +3180,7 @@ public class RequestGroup extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3292052: /*kind*/ return new String[] {"code"};
-        case -1724546052: /*description*/ return new String[] {"string"};
-        case -1613589672: /*language*/ return new String[] {"string"};
-        case -1795452264: /*expression*/ return new String[] {"string"};
+        case -1795452264: /*expression*/ return new String[] {"Expression"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -3348,14 +3191,9 @@ public class RequestGroup extends DomainResource {
         if (name.equals("kind")) {
           throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.kind");
         }
-        else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.description");
-        }
-        else if (name.equals("language")) {
-          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.language");
-        }
         else if (name.equals("expression")) {
-          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.expression");
+          this.expression = new Expression();
+          return this.expression;
         }
         else
           return super.addChild(name);
@@ -3365,8 +3203,6 @@ public class RequestGroup extends DomainResource {
         RequestGroupActionConditionComponent dst = new RequestGroupActionConditionComponent();
         copyValues(dst);
         dst.kind = kind == null ? null : kind.copy();
-        dst.description = description == null ? null : description.copy();
-        dst.language = language == null ? null : language.copy();
         dst.expression = expression == null ? null : expression.copy();
         return dst;
       }
@@ -3378,8 +3214,7 @@ public class RequestGroup extends DomainResource {
         if (!(other_ instanceof RequestGroupActionConditionComponent))
           return false;
         RequestGroupActionConditionComponent o = (RequestGroupActionConditionComponent) other_;
-        return compareDeep(kind, o.kind, true) && compareDeep(description, o.description, true) && compareDeep(language, o.language, true)
-           && compareDeep(expression, o.expression, true);
+        return compareDeep(kind, o.kind, true) && compareDeep(expression, o.expression, true);
       }
 
       @Override
@@ -3389,13 +3224,11 @@ public class RequestGroup extends DomainResource {
         if (!(other_ instanceof RequestGroupActionConditionComponent))
           return false;
         RequestGroupActionConditionComponent o = (RequestGroupActionConditionComponent) other_;
-        return compareValues(kind, o.kind, true) && compareValues(description, o.description, true) && compareValues(language, o.language, true)
-           && compareValues(expression, o.expression, true);
+        return compareValues(kind, o.kind, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, description, language
-          , expression);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, expression);
       }
 
   public String fhirType() {
@@ -3836,14 +3669,14 @@ public class RequestGroup extends DomainResource {
     /**
      * Describes the context of the request group, if any.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=11, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Encounter or Episode for the request group", formalDefinition="Describes the context of the request group, if any." )
-    protected Reference context;
+    @Child(name = "encounter", type = {Encounter.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Created as part of", formalDefinition="Describes the context of the request group, if any." )
+    protected Reference encounter;
 
     /**
      * The actual object that is the target of the reference (Describes the context of the request group, if any.)
      */
-    protected Resource contextTarget;
+    protected Encounter encounterTarget;
 
     /**
      * Indicates when the request group was created.
@@ -3855,7 +3688,7 @@ public class RequestGroup extends DomainResource {
     /**
      * Provides a reference to the author of the request group.
      */
-    @Child(name = "author", type = {Device.class, Practitioner.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "author", type = {Device.class, Practitioner.class, PractitionerRole.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Device or practitioner that authored the request group", formalDefinition="Provides a reference to the author of the request group." )
     protected Reference author;
 
@@ -3897,7 +3730,7 @@ public class RequestGroup extends DomainResource {
     @Description(shortDefinition="Proposed actions, if any", formalDefinition="The actions, if any, produced by the evaluation of the artifact." )
     protected List<RequestGroupActionComponent> action;
 
-    private static final long serialVersionUID = 1622280601L;
+    private static final long serialVersionUID = -2053492070L;
 
   /**
    * Constructor
@@ -4443,41 +4276,46 @@ public class RequestGroup extends DomainResource {
     }
 
     /**
-     * @return {@link #context} (Describes the context of the request group, if any.)
+     * @return {@link #encounter} (Describes the context of the request group, if any.)
      */
-    public Reference getContext() { 
-      if (this.context == null)
+    public Reference getEncounter() { 
+      if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create RequestGroup.context");
+          throw new Error("Attempt to auto-create RequestGroup.encounter");
         else if (Configuration.doAutoCreate())
-          this.context = new Reference(); // cc
-      return this.context;
+          this.encounter = new Reference(); // cc
+      return this.encounter;
     }
 
-    public boolean hasContext() { 
-      return this.context != null && !this.context.isEmpty();
+    public boolean hasEncounter() { 
+      return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
-     * @param value {@link #context} (Describes the context of the request group, if any.)
+     * @param value {@link #encounter} (Describes the context of the request group, if any.)
      */
-    public RequestGroup setContext(Reference value) { 
-      this.context = value;
+    public RequestGroup setEncounter(Reference value) { 
+      this.encounter = value;
       return this;
     }
 
     /**
-     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the context of the request group, if any.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the context of the request group, if any.)
      */
-    public Resource getContextTarget() { 
-      return this.contextTarget;
+    public Encounter getEncounterTarget() { 
+      if (this.encounterTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create RequestGroup.encounter");
+        else if (Configuration.doAutoCreate())
+          this.encounterTarget = new Encounter(); // aa
+      return this.encounterTarget;
     }
 
     /**
-     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the context of the request group, if any.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the context of the request group, if any.)
      */
-    public RequestGroup setContextTarget(Resource value) { 
-      this.contextTarget = value;
+    public RequestGroup setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
       return this;
     }
 
@@ -4804,9 +4642,9 @@ public class RequestGroup extends DomainResource {
         children.add(new Property("priority", "code", "Indicates how quickly the request should be addressed with respect to other requests.", 0, 1, priority));
         children.add(new Property("code", "CodeableConcept", "A code that identifies what the overall request group is.", 0, 1, code));
         children.add(new Property("subject", "Reference(Patient|Group)", "The subject for which the request group was created.", 0, 1, subject));
-        children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Describes the context of the request group, if any.", 0, 1, context));
+        children.add(new Property("encounter", "Reference(Encounter)", "Describes the context of the request group, if any.", 0, 1, encounter));
         children.add(new Property("authoredOn", "dateTime", "Indicates when the request group was created.", 0, 1, authoredOn));
-        children.add(new Property("author", "Reference(Device|Practitioner)", "Provides a reference to the author of the request group.", 0, 1, author));
+        children.add(new Property("author", "Reference(Device|Practitioner|PractitionerRole)", "Provides a reference to the author of the request group.", 0, 1, author));
         children.add(new Property("reasonCode", "CodeableConcept", "Describes the reason for the request group in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Indicates another resource whose existence justifies this request group.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         children.add(new Property("note", "Annotation", "Provides a mechanism to communicate additional information about the response.", 0, java.lang.Integer.MAX_VALUE, note));
@@ -4827,9 +4665,9 @@ public class RequestGroup extends DomainResource {
         case -1165461084: /*priority*/  return new Property("priority", "code", "Indicates how quickly the request should be addressed with respect to other requests.", 0, 1, priority);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that identifies what the overall request group is.", 0, 1, code);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group)", "The subject for which the request group was created.", 0, 1, subject);
-        case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "Describes the context of the request group, if any.", 0, 1, context);
+        case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "Describes the context of the request group, if any.", 0, 1, encounter);
         case -1500852503: /*authoredOn*/  return new Property("authoredOn", "dateTime", "Indicates when the request group was created.", 0, 1, authoredOn);
-        case -1406328437: /*author*/  return new Property("author", "Reference(Device|Practitioner)", "Provides a reference to the author of the request group.", 0, 1, author);
+        case -1406328437: /*author*/  return new Property("author", "Reference(Device|Practitioner|PractitionerRole)", "Provides a reference to the author of the request group.", 0, 1, author);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Describes the reason for the request group in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
         case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Indicates another resource whose existence justifies this request group.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Provides a mechanism to communicate additional information about the response.", 0, java.lang.Integer.MAX_VALUE, note);
@@ -4853,7 +4691,7 @@ public class RequestGroup extends DomainResource {
         case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<RequestPriority>
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case -1500852503: /*authoredOn*/ return this.authoredOn == null ? new Base[0] : new Base[] {this.authoredOn}; // DateTimeType
         case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
@@ -4904,8 +4742,8 @@ public class RequestGroup extends DomainResource {
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           return value;
-        case 951530927: // context
-          this.context = castToReference(value); // Reference
+        case 1524132147: // encounter
+          this.encounter = castToReference(value); // Reference
           return value;
         case -1500852503: // authoredOn
           this.authoredOn = castToDateTime(value); // DateTimeType
@@ -4957,8 +4795,8 @@ public class RequestGroup extends DomainResource {
           this.code = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        } else if (name.equals("context")) {
-          this.context = castToReference(value); // Reference
+        } else if (name.equals("encounter")) {
+          this.encounter = castToReference(value); // Reference
         } else if (name.equals("authoredOn")) {
           this.authoredOn = castToDateTime(value); // DateTimeType
         } else if (name.equals("author")) {
@@ -4990,7 +4828,7 @@ public class RequestGroup extends DomainResource {
         case -1165461084:  return getPriorityElement();
         case 3059181:  return getCode(); 
         case -1867885268:  return getSubject(); 
-        case 951530927:  return getContext(); 
+        case 1524132147:  return getEncounter(); 
         case -1500852503:  return getAuthoredOnElement();
         case -1406328437:  return getAuthor(); 
         case 722137681:  return addReasonCode(); 
@@ -5016,7 +4854,7 @@ public class RequestGroup extends DomainResource {
         case -1165461084: /*priority*/ return new String[] {"code"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
-        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case -1500852503: /*authoredOn*/ return new String[] {"dateTime"};
         case -1406328437: /*author*/ return new String[] {"Reference"};
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
@@ -5066,9 +4904,9 @@ public class RequestGroup extends DomainResource {
           this.subject = new Reference();
           return this.subject;
         }
-        else if (name.equals("context")) {
-          this.context = new Reference();
-          return this.context;
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
         }
         else if (name.equals("authoredOn")) {
           throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.authoredOn");
@@ -5132,7 +4970,7 @@ public class RequestGroup extends DomainResource {
         dst.priority = priority == null ? null : priority.copy();
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.context = context == null ? null : context.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
         dst.authoredOn = authoredOn == null ? null : authoredOn.copy();
         dst.author = author == null ? null : author.copy();
         if (reasonCode != null) {
@@ -5173,7 +5011,7 @@ public class RequestGroup extends DomainResource {
            && compareDeep(instantiatesUri, o.instantiatesUri, true) && compareDeep(basedOn, o.basedOn, true)
            && compareDeep(replaces, o.replaces, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true)
-           && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
+           && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true) && compareDeep(encounter, o.encounter, true)
            && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(author, o.author, true) && compareDeep(reasonCode, o.reasonCode, true)
            && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(note, o.note, true) && compareDeep(action, o.action, true)
           ;
@@ -5194,7 +5032,7 @@ public class RequestGroup extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiatesCanonical
           , instantiatesUri, basedOn, replaces, groupIdentifier, status, intent, priority
-          , code, subject, context, authoredOn, author, reasonCode, reasonReference, note
+          , code, subject, encounter, authoredOn, author, reasonCode, reasonReference, note
           , action);
       }
 
@@ -5297,7 +5135,7 @@ public class RequestGroup extends DomainResource {
    * Path: <b>RequestGroup.author</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="RequestGroup.author", description="The author of the request group", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Practitioner.class } )
+  @SearchParamDefinition(name="author", path="RequestGroup.author", description="The author of the request group", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Practitioner.class, PractitionerRole.class } )
   public static final String SP_AUTHOR = "author";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>author</b>
@@ -5346,17 +5184,17 @@ public class RequestGroup extends DomainResource {
    * <p>
    * Description: <b>The encounter the request group applies to</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>RequestGroup.context</b><br>
+   * Path: <b>RequestGroup.encounter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="RequestGroup.context.where(resolve() is Encounter)", description="The encounter the request group applies to", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
+  @SearchParamDefinition(name="encounter", path="RequestGroup.encounter.where(resolve() is Encounter)", description="The encounter the request group applies to", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
    * <p>
    * Description: <b>The encounter the request group applies to</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>RequestGroup.context</b><br>
+   * Path: <b>RequestGroup.encounter</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
@@ -5415,7 +5253,7 @@ public class RequestGroup extends DomainResource {
    * Path: <b>RequestGroup.action.participant</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="participant", path="RequestGroup.action.participant", description="The participant in the requests in the group", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="participant", path="RequestGroup.action.participant", description="The participant in the requests in the group", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_PARTICIPANT = "participant";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>participant</b>
@@ -5478,32 +5316,6 @@ public class RequestGroup extends DomainResource {
    * the path value of "<b>RequestGroup:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("RequestGroup:patient").toLocked();
-
- /**
-   * Search parameter: <b>context</b>
-   * <p>
-   * Description: <b>The context the request group applies to</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RequestGroup.context</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="context", path="RequestGroup.context", description="The context the request group applies to", type="reference", target={Encounter.class, EpisodeOfCare.class } )
-  public static final String SP_CONTEXT = "context";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>context</b>
-   * <p>
-   * Description: <b>The context the request group applies to</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RequestGroup.context</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>RequestGroup:context</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("RequestGroup:context").toLocked();
 
  /**
    * Search parameter: <b>instantiates-uri</b>

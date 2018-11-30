@@ -14,30 +14,35 @@ group Specimen(source src : Specimen, target tgt : SpecimenR3) extends DomainRes
   src.receivedTime -> tgt.receivedTime;
   src.parent -> tgt.parent;
   src.request -> tgt.request;
-  src.collection as vs0 -> tgt.collection as vt0 then {
-    vs0.collector -> vt0.collector;
-    vs0.collected : dateTime as vs -> vt0.collected = create("dateTime") as vt then dateTime(vs, vt);
-    vs0.collected : Period as vs -> vt0.collected = create("Period") as vt then Period(vs, vt);
-    vs0.quantity -> vt0.quantity;
-    vs0.method -> vt0.method;
-    vs0.bodySite -> vt0.bodySite;
-  };
-  src.processing as vs0 -> tgt.processing as vt0 then {
-    vs0.description -> vt0.description;
-    vs0.procedure -> vt0.procedure;
-    vs0.additive -> vt0.additive;
-    vs0.time : dateTime as vs -> vt0.time = create("dateTime") as vt then dateTime(vs, vt);
-    vs0.time : Period as vs -> vt0.time = create("Period") as vt then Period(vs, vt);
-  };
-  src.container as vs0 -> tgt.container as vt0 then {
-    vs0.identifier -> vt0.identifier;
-    vs0.description -> vt0.description;
-    vs0.type -> vt0.type;
-    vs0.capacity -> vt0.capacity;
-    vs0.specimenQuantity -> vt0.specimenQuantity;
-    vs0.additive : CodeableConcept as vs -> vt0.additive = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
-    vs0.additive : Reference as vs -> vt0.additive = create("Reference") as vt then Reference(vs, vt);
-  };
+  src.collection as vs0 -> tgt.collection as vt0 then collection(vs0, vt0);
+  src.processing as vs0 -> tgt.processing as vt0 then processing(vs0, vt0);
+  src.container as vs0 -> tgt.container as vt0 then container(vs0, vt0);
   src.note -> tgt.note;
 }
 
+group collection(source src, target tgt) extends BackboneElement {
+  src.collector -> tgt.collector;
+  src.collected : dateTime as vs -> tgt.collected = create("dateTime") as vt then dateTime(vs, vt);
+  src.collected : Period as vs -> tgt.collected = create("Period") as vt then Period(vs, vt);
+  src.quantity -> tgt.quantity;
+  src.method -> tgt.method;
+  src.bodySite -> tgt.bodySite;
+}
+
+group processing(source src, target tgt) extends BackboneElement {
+  src.description -> tgt.description;
+  src.procedure -> tgt.procedure;
+  src.additive -> tgt.additive;
+  src.time : dateTime as vs -> tgt.time = create("dateTime") as vt then dateTime(vs, vt);
+  src.time : Period as vs -> tgt.time = create("Period") as vt then Period(vs, vt);
+}
+
+group container(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.description -> tgt.description;
+  src.type -> tgt.type;
+  src.capacity -> tgt.capacity;
+  src.specimenQuantity -> tgt.specimenQuantity;
+  src.additive : CodeableConcept as vs -> tgt.additive = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+  src.additive : Reference as vs -> tgt.additive = create("Reference") as vt then Reference(vs, vt);
+}  

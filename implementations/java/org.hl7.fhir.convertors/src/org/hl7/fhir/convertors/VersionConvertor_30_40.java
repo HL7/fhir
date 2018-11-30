@@ -16320,7 +16320,7 @@ public class VersionConvertor_30_40 {
     if (src.hasSubject())
       tgt.setSubject(convertReference(src.getSubject()));
     if (src.hasContext())
-      tgt.setContext(convertReference(src.getContext()));
+      tgt.setEncounter(convertReference(src.getContext()));
     if (src.hasOccurrence())
       tgt.setOccurrence(convertType(src.getOccurrence()));
     if (src.hasCondition())
@@ -16364,8 +16364,8 @@ public class VersionConvertor_30_40 {
       tgt.setCode(convertCodeableConcept(src.getCode()));
     if (src.hasSubject())
       tgt.setSubject(convertReference(src.getSubject()));
-    if (src.hasContext())
-      tgt.setContext(convertReference(src.getContext()));
+    if (src.hasEncounter())
+      tgt.setContext(convertReference(src.getEncounter()));
     if (src.hasOccurrence())
       tgt.setOccurrence(convertType(src.getOccurrence()));
     if (src.hasCondition())

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Fri, Nov 30, 2018 17:31+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -1410,32 +1410,52 @@ public class ObservationDefinition extends DomainResource {
     /**
      * The set of valid coded results for the observations  conforming to this ObservationDefinition.
      */
-    @Child(name = "validCodedValueSet", type = {UriType.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "validCodedValueSet", type = {ValueSet.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Value set of valid coded values for the observations conforming to this ObservationDefinition", formalDefinition="The set of valid coded results for the observations  conforming to this ObservationDefinition." )
-    protected UriType validCodedValueSet;
+    protected Reference validCodedValueSet;
+
+    /**
+     * The actual object that is the target of the reference (The set of valid coded results for the observations  conforming to this ObservationDefinition.)
+     */
+    protected ValueSet validCodedValueSetTarget;
 
     /**
      * The set of normal coded results for the observations conforming to this ObservationDefinition.
      */
-    @Child(name = "normalCodedValueSet", type = {UriType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "normalCodedValueSet", type = {ValueSet.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Value set of normal coded values for the observations conforming to this ObservationDefinition", formalDefinition="The set of normal coded results for the observations conforming to this ObservationDefinition." )
-    protected UriType normalCodedValueSet;
+    protected Reference normalCodedValueSet;
+
+    /**
+     * The actual object that is the target of the reference (The set of normal coded results for the observations conforming to this ObservationDefinition.)
+     */
+    protected ValueSet normalCodedValueSetTarget;
 
     /**
      * The set of abnormal coded results for the observation conforming to this ObservationDefinition.
      */
-    @Child(name = "abnormalCodedValueSet", type = {UriType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "abnormalCodedValueSet", type = {ValueSet.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Value set of abnormal coded values for the observations conforming to this ObservationDefinition", formalDefinition="The set of abnormal coded results for the observation conforming to this ObservationDefinition." )
-    protected UriType abnormalCodedValueSet;
+    protected Reference abnormalCodedValueSet;
+
+    /**
+     * The actual object that is the target of the reference (The set of abnormal coded results for the observation conforming to this ObservationDefinition.)
+     */
+    protected ValueSet abnormalCodedValueSetTarget;
 
     /**
      * The set of critical coded results for the observation conforming to this ObservationDefinition.
      */
-    @Child(name = "criticalCodedValueSet", type = {UriType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "criticalCodedValueSet", type = {ValueSet.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Value set of critical coded values for the observations conforming to this ObservationDefinition", formalDefinition="The set of critical coded results for the observation conforming to this ObservationDefinition." )
-    protected UriType criticalCodedValueSet;
+    protected Reference criticalCodedValueSet;
 
-    private static final long serialVersionUID = 2038806287L;
+    /**
+     * The actual object that is the target of the reference (The set of critical coded results for the observation conforming to this ObservationDefinition.)
+     */
+    protected ValueSet criticalCodedValueSetTarget;
+
+    private static final long serialVersionUID = 2136752757L;
 
   /**
    * Constructor
@@ -1839,19 +1859,15 @@ public class ObservationDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #validCodedValueSet} (The set of valid coded results for the observations  conforming to this ObservationDefinition.). This is the underlying object with id, value and extensions. The accessor "getValidCodedValueSet" gives direct access to the value
+     * @return {@link #validCodedValueSet} (The set of valid coded results for the observations  conforming to this ObservationDefinition.)
      */
-    public UriType getValidCodedValueSetElement() { 
+    public Reference getValidCodedValueSet() { 
       if (this.validCodedValueSet == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ObservationDefinition.validCodedValueSet");
         else if (Configuration.doAutoCreate())
-          this.validCodedValueSet = new UriType(); // bb
+          this.validCodedValueSet = new Reference(); // cc
       return this.validCodedValueSet;
-    }
-
-    public boolean hasValidCodedValueSetElement() { 
-      return this.validCodedValueSet != null && !this.validCodedValueSet.isEmpty();
     }
 
     public boolean hasValidCodedValueSet() { 
@@ -1859,48 +1875,43 @@ public class ObservationDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #validCodedValueSet} (The set of valid coded results for the observations  conforming to this ObservationDefinition.). This is the underlying object with id, value and extensions. The accessor "getValidCodedValueSet" gives direct access to the value
+     * @param value {@link #validCodedValueSet} (The set of valid coded results for the observations  conforming to this ObservationDefinition.)
      */
-    public ObservationDefinition setValidCodedValueSetElement(UriType value) { 
+    public ObservationDefinition setValidCodedValueSet(Reference value) { 
       this.validCodedValueSet = value;
       return this;
     }
 
     /**
-     * @return The set of valid coded results for the observations  conforming to this ObservationDefinition.
+     * @return {@link #validCodedValueSet} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The set of valid coded results for the observations  conforming to this ObservationDefinition.)
      */
-    public String getValidCodedValueSet() { 
-      return this.validCodedValueSet == null ? null : this.validCodedValueSet.getValue();
+    public ValueSet getValidCodedValueSetTarget() { 
+      if (this.validCodedValueSetTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ObservationDefinition.validCodedValueSet");
+        else if (Configuration.doAutoCreate())
+          this.validCodedValueSetTarget = new ValueSet(); // aa
+      return this.validCodedValueSetTarget;
     }
 
     /**
-     * @param value The set of valid coded results for the observations  conforming to this ObservationDefinition.
+     * @param value {@link #validCodedValueSet} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The set of valid coded results for the observations  conforming to this ObservationDefinition.)
      */
-    public ObservationDefinition setValidCodedValueSet(String value) { 
-      if (Utilities.noString(value))
-        this.validCodedValueSet = null;
-      else {
-        if (this.validCodedValueSet == null)
-          this.validCodedValueSet = new UriType();
-        this.validCodedValueSet.setValue(value);
-      }
+    public ObservationDefinition setValidCodedValueSetTarget(ValueSet value) { 
+      this.validCodedValueSetTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #normalCodedValueSet} (The set of normal coded results for the observations conforming to this ObservationDefinition.). This is the underlying object with id, value and extensions. The accessor "getNormalCodedValueSet" gives direct access to the value
+     * @return {@link #normalCodedValueSet} (The set of normal coded results for the observations conforming to this ObservationDefinition.)
      */
-    public UriType getNormalCodedValueSetElement() { 
+    public Reference getNormalCodedValueSet() { 
       if (this.normalCodedValueSet == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ObservationDefinition.normalCodedValueSet");
         else if (Configuration.doAutoCreate())
-          this.normalCodedValueSet = new UriType(); // bb
+          this.normalCodedValueSet = new Reference(); // cc
       return this.normalCodedValueSet;
-    }
-
-    public boolean hasNormalCodedValueSetElement() { 
-      return this.normalCodedValueSet != null && !this.normalCodedValueSet.isEmpty();
     }
 
     public boolean hasNormalCodedValueSet() { 
@@ -1908,48 +1919,43 @@ public class ObservationDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #normalCodedValueSet} (The set of normal coded results for the observations conforming to this ObservationDefinition.). This is the underlying object with id, value and extensions. The accessor "getNormalCodedValueSet" gives direct access to the value
+     * @param value {@link #normalCodedValueSet} (The set of normal coded results for the observations conforming to this ObservationDefinition.)
      */
-    public ObservationDefinition setNormalCodedValueSetElement(UriType value) { 
+    public ObservationDefinition setNormalCodedValueSet(Reference value) { 
       this.normalCodedValueSet = value;
       return this;
     }
 
     /**
-     * @return The set of normal coded results for the observations conforming to this ObservationDefinition.
+     * @return {@link #normalCodedValueSet} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The set of normal coded results for the observations conforming to this ObservationDefinition.)
      */
-    public String getNormalCodedValueSet() { 
-      return this.normalCodedValueSet == null ? null : this.normalCodedValueSet.getValue();
+    public ValueSet getNormalCodedValueSetTarget() { 
+      if (this.normalCodedValueSetTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ObservationDefinition.normalCodedValueSet");
+        else if (Configuration.doAutoCreate())
+          this.normalCodedValueSetTarget = new ValueSet(); // aa
+      return this.normalCodedValueSetTarget;
     }
 
     /**
-     * @param value The set of normal coded results for the observations conforming to this ObservationDefinition.
+     * @param value {@link #normalCodedValueSet} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The set of normal coded results for the observations conforming to this ObservationDefinition.)
      */
-    public ObservationDefinition setNormalCodedValueSet(String value) { 
-      if (Utilities.noString(value))
-        this.normalCodedValueSet = null;
-      else {
-        if (this.normalCodedValueSet == null)
-          this.normalCodedValueSet = new UriType();
-        this.normalCodedValueSet.setValue(value);
-      }
+    public ObservationDefinition setNormalCodedValueSetTarget(ValueSet value) { 
+      this.normalCodedValueSetTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #abnormalCodedValueSet} (The set of abnormal coded results for the observation conforming to this ObservationDefinition.). This is the underlying object with id, value and extensions. The accessor "getAbnormalCodedValueSet" gives direct access to the value
+     * @return {@link #abnormalCodedValueSet} (The set of abnormal coded results for the observation conforming to this ObservationDefinition.)
      */
-    public UriType getAbnormalCodedValueSetElement() { 
+    public Reference getAbnormalCodedValueSet() { 
       if (this.abnormalCodedValueSet == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ObservationDefinition.abnormalCodedValueSet");
         else if (Configuration.doAutoCreate())
-          this.abnormalCodedValueSet = new UriType(); // bb
+          this.abnormalCodedValueSet = new Reference(); // cc
       return this.abnormalCodedValueSet;
-    }
-
-    public boolean hasAbnormalCodedValueSetElement() { 
-      return this.abnormalCodedValueSet != null && !this.abnormalCodedValueSet.isEmpty();
     }
 
     public boolean hasAbnormalCodedValueSet() { 
@@ -1957,48 +1963,43 @@ public class ObservationDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #abnormalCodedValueSet} (The set of abnormal coded results for the observation conforming to this ObservationDefinition.). This is the underlying object with id, value and extensions. The accessor "getAbnormalCodedValueSet" gives direct access to the value
+     * @param value {@link #abnormalCodedValueSet} (The set of abnormal coded results for the observation conforming to this ObservationDefinition.)
      */
-    public ObservationDefinition setAbnormalCodedValueSetElement(UriType value) { 
+    public ObservationDefinition setAbnormalCodedValueSet(Reference value) { 
       this.abnormalCodedValueSet = value;
       return this;
     }
 
     /**
-     * @return The set of abnormal coded results for the observation conforming to this ObservationDefinition.
+     * @return {@link #abnormalCodedValueSet} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The set of abnormal coded results for the observation conforming to this ObservationDefinition.)
      */
-    public String getAbnormalCodedValueSet() { 
-      return this.abnormalCodedValueSet == null ? null : this.abnormalCodedValueSet.getValue();
+    public ValueSet getAbnormalCodedValueSetTarget() { 
+      if (this.abnormalCodedValueSetTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ObservationDefinition.abnormalCodedValueSet");
+        else if (Configuration.doAutoCreate())
+          this.abnormalCodedValueSetTarget = new ValueSet(); // aa
+      return this.abnormalCodedValueSetTarget;
     }
 
     /**
-     * @param value The set of abnormal coded results for the observation conforming to this ObservationDefinition.
+     * @param value {@link #abnormalCodedValueSet} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The set of abnormal coded results for the observation conforming to this ObservationDefinition.)
      */
-    public ObservationDefinition setAbnormalCodedValueSet(String value) { 
-      if (Utilities.noString(value))
-        this.abnormalCodedValueSet = null;
-      else {
-        if (this.abnormalCodedValueSet == null)
-          this.abnormalCodedValueSet = new UriType();
-        this.abnormalCodedValueSet.setValue(value);
-      }
+    public ObservationDefinition setAbnormalCodedValueSetTarget(ValueSet value) { 
+      this.abnormalCodedValueSetTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #criticalCodedValueSet} (The set of critical coded results for the observation conforming to this ObservationDefinition.). This is the underlying object with id, value and extensions. The accessor "getCriticalCodedValueSet" gives direct access to the value
+     * @return {@link #criticalCodedValueSet} (The set of critical coded results for the observation conforming to this ObservationDefinition.)
      */
-    public UriType getCriticalCodedValueSetElement() { 
+    public Reference getCriticalCodedValueSet() { 
       if (this.criticalCodedValueSet == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ObservationDefinition.criticalCodedValueSet");
         else if (Configuration.doAutoCreate())
-          this.criticalCodedValueSet = new UriType(); // bb
+          this.criticalCodedValueSet = new Reference(); // cc
       return this.criticalCodedValueSet;
-    }
-
-    public boolean hasCriticalCodedValueSetElement() { 
-      return this.criticalCodedValueSet != null && !this.criticalCodedValueSet.isEmpty();
     }
 
     public boolean hasCriticalCodedValueSet() { 
@@ -2006,31 +2007,30 @@ public class ObservationDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #criticalCodedValueSet} (The set of critical coded results for the observation conforming to this ObservationDefinition.). This is the underlying object with id, value and extensions. The accessor "getCriticalCodedValueSet" gives direct access to the value
+     * @param value {@link #criticalCodedValueSet} (The set of critical coded results for the observation conforming to this ObservationDefinition.)
      */
-    public ObservationDefinition setCriticalCodedValueSetElement(UriType value) { 
+    public ObservationDefinition setCriticalCodedValueSet(Reference value) { 
       this.criticalCodedValueSet = value;
       return this;
     }
 
     /**
-     * @return The set of critical coded results for the observation conforming to this ObservationDefinition.
+     * @return {@link #criticalCodedValueSet} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The set of critical coded results for the observation conforming to this ObservationDefinition.)
      */
-    public String getCriticalCodedValueSet() { 
-      return this.criticalCodedValueSet == null ? null : this.criticalCodedValueSet.getValue();
+    public ValueSet getCriticalCodedValueSetTarget() { 
+      if (this.criticalCodedValueSetTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ObservationDefinition.criticalCodedValueSet");
+        else if (Configuration.doAutoCreate())
+          this.criticalCodedValueSetTarget = new ValueSet(); // aa
+      return this.criticalCodedValueSetTarget;
     }
 
     /**
-     * @param value The set of critical coded results for the observation conforming to this ObservationDefinition.
+     * @param value {@link #criticalCodedValueSet} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The set of critical coded results for the observation conforming to this ObservationDefinition.)
      */
-    public ObservationDefinition setCriticalCodedValueSet(String value) { 
-      if (Utilities.noString(value))
-        this.criticalCodedValueSet = null;
-      else {
-        if (this.criticalCodedValueSet == null)
-          this.criticalCodedValueSet = new UriType();
-        this.criticalCodedValueSet.setValue(value);
-      }
+    public ObservationDefinition setCriticalCodedValueSetTarget(ValueSet value) { 
+      this.criticalCodedValueSetTarget = value;
       return this;
     }
 
@@ -2045,10 +2045,10 @@ public class ObservationDefinition extends DomainResource {
         children.add(new Property("preferredReportName", "string", "The preferred name to be used when reporting the results of observations conforming to this ObservationDefinition.", 0, 1, preferredReportName));
         children.add(new Property("quantitativeDetails", "", "Characteristics for quantitative results of this observation.", 0, 1, quantitativeDetails));
         children.add(new Property("qualifiedInterval", "", "Multiple  ranges of results qualified by different contexts for ordinal or continuous observations conforming to this ObservationDefinition.", 0, java.lang.Integer.MAX_VALUE, qualifiedInterval));
-        children.add(new Property("validCodedValueSet", "uri", "The set of valid coded results for the observations  conforming to this ObservationDefinition.", 0, 1, validCodedValueSet));
-        children.add(new Property("normalCodedValueSet", "uri", "The set of normal coded results for the observations conforming to this ObservationDefinition.", 0, 1, normalCodedValueSet));
-        children.add(new Property("abnormalCodedValueSet", "uri", "The set of abnormal coded results for the observation conforming to this ObservationDefinition.", 0, 1, abnormalCodedValueSet));
-        children.add(new Property("criticalCodedValueSet", "uri", "The set of critical coded results for the observation conforming to this ObservationDefinition.", 0, 1, criticalCodedValueSet));
+        children.add(new Property("validCodedValueSet", "Reference(ValueSet)", "The set of valid coded results for the observations  conforming to this ObservationDefinition.", 0, 1, validCodedValueSet));
+        children.add(new Property("normalCodedValueSet", "Reference(ValueSet)", "The set of normal coded results for the observations conforming to this ObservationDefinition.", 0, 1, normalCodedValueSet));
+        children.add(new Property("abnormalCodedValueSet", "Reference(ValueSet)", "The set of abnormal coded results for the observation conforming to this ObservationDefinition.", 0, 1, abnormalCodedValueSet));
+        children.add(new Property("criticalCodedValueSet", "Reference(ValueSet)", "The set of critical coded results for the observation conforming to this ObservationDefinition.", 0, 1, criticalCodedValueSet));
       }
 
       @Override
@@ -2063,10 +2063,10 @@ public class ObservationDefinition extends DomainResource {
         case -1851030208: /*preferredReportName*/  return new Property("preferredReportName", "string", "The preferred name to be used when reporting the results of observations conforming to this ObservationDefinition.", 0, 1, preferredReportName);
         case 842150763: /*quantitativeDetails*/  return new Property("quantitativeDetails", "", "Characteristics for quantitative results of this observation.", 0, 1, quantitativeDetails);
         case 1882971521: /*qualifiedInterval*/  return new Property("qualifiedInterval", "", "Multiple  ranges of results qualified by different contexts for ordinal or continuous observations conforming to this ObservationDefinition.", 0, java.lang.Integer.MAX_VALUE, qualifiedInterval);
-        case 1374640076: /*validCodedValueSet*/  return new Property("validCodedValueSet", "uri", "The set of valid coded results for the observations  conforming to this ObservationDefinition.", 0, 1, validCodedValueSet);
-        case -837500735: /*normalCodedValueSet*/  return new Property("normalCodedValueSet", "uri", "The set of normal coded results for the observations conforming to this ObservationDefinition.", 0, 1, normalCodedValueSet);
-        case 1073600256: /*abnormalCodedValueSet*/  return new Property("abnormalCodedValueSet", "uri", "The set of abnormal coded results for the observation conforming to this ObservationDefinition.", 0, 1, abnormalCodedValueSet);
-        case 2568457: /*criticalCodedValueSet*/  return new Property("criticalCodedValueSet", "uri", "The set of critical coded results for the observation conforming to this ObservationDefinition.", 0, 1, criticalCodedValueSet);
+        case 1374640076: /*validCodedValueSet*/  return new Property("validCodedValueSet", "Reference(ValueSet)", "The set of valid coded results for the observations  conforming to this ObservationDefinition.", 0, 1, validCodedValueSet);
+        case -837500735: /*normalCodedValueSet*/  return new Property("normalCodedValueSet", "Reference(ValueSet)", "The set of normal coded results for the observations conforming to this ObservationDefinition.", 0, 1, normalCodedValueSet);
+        case 1073600256: /*abnormalCodedValueSet*/  return new Property("abnormalCodedValueSet", "Reference(ValueSet)", "The set of abnormal coded results for the observation conforming to this ObservationDefinition.", 0, 1, abnormalCodedValueSet);
+        case 2568457: /*criticalCodedValueSet*/  return new Property("criticalCodedValueSet", "Reference(ValueSet)", "The set of critical coded results for the observation conforming to this ObservationDefinition.", 0, 1, criticalCodedValueSet);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -2084,10 +2084,10 @@ public class ObservationDefinition extends DomainResource {
         case -1851030208: /*preferredReportName*/ return this.preferredReportName == null ? new Base[0] : new Base[] {this.preferredReportName}; // StringType
         case 842150763: /*quantitativeDetails*/ return this.quantitativeDetails == null ? new Base[0] : new Base[] {this.quantitativeDetails}; // ObservationDefinitionQuantitativeDetailsComponent
         case 1882971521: /*qualifiedInterval*/ return this.qualifiedInterval == null ? new Base[0] : this.qualifiedInterval.toArray(new Base[this.qualifiedInterval.size()]); // ObservationDefinitionQualifiedIntervalComponent
-        case 1374640076: /*validCodedValueSet*/ return this.validCodedValueSet == null ? new Base[0] : new Base[] {this.validCodedValueSet}; // UriType
-        case -837500735: /*normalCodedValueSet*/ return this.normalCodedValueSet == null ? new Base[0] : new Base[] {this.normalCodedValueSet}; // UriType
-        case 1073600256: /*abnormalCodedValueSet*/ return this.abnormalCodedValueSet == null ? new Base[0] : new Base[] {this.abnormalCodedValueSet}; // UriType
-        case 2568457: /*criticalCodedValueSet*/ return this.criticalCodedValueSet == null ? new Base[0] : new Base[] {this.criticalCodedValueSet}; // UriType
+        case 1374640076: /*validCodedValueSet*/ return this.validCodedValueSet == null ? new Base[0] : new Base[] {this.validCodedValueSet}; // Reference
+        case -837500735: /*normalCodedValueSet*/ return this.normalCodedValueSet == null ? new Base[0] : new Base[] {this.normalCodedValueSet}; // Reference
+        case 1073600256: /*abnormalCodedValueSet*/ return this.abnormalCodedValueSet == null ? new Base[0] : new Base[] {this.abnormalCodedValueSet}; // Reference
+        case 2568457: /*criticalCodedValueSet*/ return this.criticalCodedValueSet == null ? new Base[0] : new Base[] {this.criticalCodedValueSet}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2125,16 +2125,16 @@ public class ObservationDefinition extends DomainResource {
           this.getQualifiedInterval().add((ObservationDefinitionQualifiedIntervalComponent) value); // ObservationDefinitionQualifiedIntervalComponent
           return value;
         case 1374640076: // validCodedValueSet
-          this.validCodedValueSet = castToUri(value); // UriType
+          this.validCodedValueSet = castToReference(value); // Reference
           return value;
         case -837500735: // normalCodedValueSet
-          this.normalCodedValueSet = castToUri(value); // UriType
+          this.normalCodedValueSet = castToReference(value); // Reference
           return value;
         case 1073600256: // abnormalCodedValueSet
-          this.abnormalCodedValueSet = castToUri(value); // UriType
+          this.abnormalCodedValueSet = castToReference(value); // Reference
           return value;
         case 2568457: // criticalCodedValueSet
-          this.criticalCodedValueSet = castToUri(value); // UriType
+          this.criticalCodedValueSet = castToReference(value); // Reference
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2163,13 +2163,13 @@ public class ObservationDefinition extends DomainResource {
         } else if (name.equals("qualifiedInterval")) {
           this.getQualifiedInterval().add((ObservationDefinitionQualifiedIntervalComponent) value);
         } else if (name.equals("validCodedValueSet")) {
-          this.validCodedValueSet = castToUri(value); // UriType
+          this.validCodedValueSet = castToReference(value); // Reference
         } else if (name.equals("normalCodedValueSet")) {
-          this.normalCodedValueSet = castToUri(value); // UriType
+          this.normalCodedValueSet = castToReference(value); // Reference
         } else if (name.equals("abnormalCodedValueSet")) {
-          this.abnormalCodedValueSet = castToUri(value); // UriType
+          this.abnormalCodedValueSet = castToReference(value); // Reference
         } else if (name.equals("criticalCodedValueSet")) {
-          this.criticalCodedValueSet = castToUri(value); // UriType
+          this.criticalCodedValueSet = castToReference(value); // Reference
         } else
           return super.setProperty(name, value);
         return value;
@@ -2187,10 +2187,10 @@ public class ObservationDefinition extends DomainResource {
         case -1851030208:  return getPreferredReportNameElement();
         case 842150763:  return getQuantitativeDetails(); 
         case 1882971521:  return addQualifiedInterval(); 
-        case 1374640076:  return getValidCodedValueSetElement();
-        case -837500735:  return getNormalCodedValueSetElement();
-        case 1073600256:  return getAbnormalCodedValueSetElement();
-        case 2568457:  return getCriticalCodedValueSetElement();
+        case 1374640076:  return getValidCodedValueSet(); 
+        case -837500735:  return getNormalCodedValueSet(); 
+        case 1073600256:  return getAbnormalCodedValueSet(); 
+        case 2568457:  return getCriticalCodedValueSet(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2208,10 +2208,10 @@ public class ObservationDefinition extends DomainResource {
         case -1851030208: /*preferredReportName*/ return new String[] {"string"};
         case 842150763: /*quantitativeDetails*/ return new String[] {};
         case 1882971521: /*qualifiedInterval*/ return new String[] {};
-        case 1374640076: /*validCodedValueSet*/ return new String[] {"uri"};
-        case -837500735: /*normalCodedValueSet*/ return new String[] {"uri"};
-        case 1073600256: /*abnormalCodedValueSet*/ return new String[] {"uri"};
-        case 2568457: /*criticalCodedValueSet*/ return new String[] {"uri"};
+        case 1374640076: /*validCodedValueSet*/ return new String[] {"Reference"};
+        case -837500735: /*normalCodedValueSet*/ return new String[] {"Reference"};
+        case 1073600256: /*abnormalCodedValueSet*/ return new String[] {"Reference"};
+        case 2568457: /*criticalCodedValueSet*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2250,16 +2250,20 @@ public class ObservationDefinition extends DomainResource {
           return addQualifiedInterval();
         }
         else if (name.equals("validCodedValueSet")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ObservationDefinition.validCodedValueSet");
+          this.validCodedValueSet = new Reference();
+          return this.validCodedValueSet;
         }
         else if (name.equals("normalCodedValueSet")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ObservationDefinition.normalCodedValueSet");
+          this.normalCodedValueSet = new Reference();
+          return this.normalCodedValueSet;
         }
         else if (name.equals("abnormalCodedValueSet")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ObservationDefinition.abnormalCodedValueSet");
+          this.abnormalCodedValueSet = new Reference();
+          return this.abnormalCodedValueSet;
         }
         else if (name.equals("criticalCodedValueSet")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ObservationDefinition.criticalCodedValueSet");
+          this.criticalCodedValueSet = new Reference();
+          return this.criticalCodedValueSet;
         }
         else
           return super.addChild(name);
@@ -2333,9 +2337,7 @@ public class ObservationDefinition extends DomainResource {
           return false;
         ObservationDefinition o = (ObservationDefinition) other_;
         return compareValues(permittedDataType, o.permittedDataType, true) && compareValues(multipleResultsAllowed, o.multipleResultsAllowed, true)
-           && compareValues(preferredReportName, o.preferredReportName, true) && compareValues(validCodedValueSet, o.validCodedValueSet, true)
-           && compareValues(normalCodedValueSet, o.normalCodedValueSet, true) && compareValues(abnormalCodedValueSet, o.abnormalCodedValueSet, true)
-           && compareValues(criticalCodedValueSet, o.criticalCodedValueSet, true);
+           && compareValues(preferredReportName, o.preferredReportName, true);
       }
 
       public boolean isEmpty() {

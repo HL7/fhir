@@ -20,22 +20,30 @@ group HealthcareService(source src : HealthcareServiceR3, target tgt : Healthcar
   src.telecom -> tgt.telecom;
   src.coverageArea -> tgt.coverageArea;
   src.serviceProvisionCode -> tgt.serviceProvisionCode;
-  src.eligibility -> tgt.eligibility;
-  src.eligibilityNote -> tgt.eligibilityNote;
-  src.programName -> tgt.programName;
+  src.eligibility as vs -> tgt.eligibility as vt then eligibility(vs, vt, src);
+  src.programName as v -> tgt.program as cc, cc.text = v;
   src.characteristic -> tgt.characteristic;
   src.referralMethod -> tgt.referralMethod;
   src.appointmentRequired -> tgt.appointmentRequired;
-  src.availableTime as vs0 -> tgt.availableTime as vt0 then {
-    vs0.allDay -> vt0.allDay;
-    vs0.availableStartTime -> vt0.availableStartTime;
-    vs0.availableEndTime -> vt0.availableEndTime;
-  };
-  src.notAvailable as vs0 -> tgt.notAvailable as vt0 then {
-    vs0.description -> vt0.description;
-    vs0.during -> vt0.during;
-  };
+  src.availableTime as vs -> tgt.availableTime as vt then availableTime(vs, vt);
+  src.notAvailable as vs -> tgt.notAvailable as vt then notAvailable(vs, vt);
   src.availabilityExceptions -> tgt.availabilityExceptions;
   src.endpoint -> tgt.endpoint;
 }
 
+group eligibility(source src, target tgt, source res) {
+  src as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  res.eligibilityNote -> tgt.comment;
+}
+
+group availableTime(source src, target tgt) extends BackboneElement {
+  src.daysOfWeek -> tgt.daysOfWeek;
+  src.allDay -> tgt.allDay;
+  src.availableStartTime -> tgt.availableStartTime;
+  src.availableEndTime -> tgt.availableEndTime;
+}
+
+group notAvailable(source src, target tgt) extends BackboneElement {
+  src.description -> tgt.description;
+  src.during -> tgt.during;
+}

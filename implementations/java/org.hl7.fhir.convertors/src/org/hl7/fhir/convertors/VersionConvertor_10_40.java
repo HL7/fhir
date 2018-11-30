@@ -9958,7 +9958,7 @@ public class VersionConvertor_10_40 {
     tgt.setSubject(convertReference(src.getSubject()));
 //    tgt.setDate(src.getDate());
     tgt.setCondition(convertReference(src.getCondition()));
-    tgt.setContext(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setPerformer(convertReference(src.getPerformer()));
     tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
@@ -9978,7 +9978,7 @@ public class VersionConvertor_10_40 {
     tgt.setSubject(convertReference(src.getSubject()));
 //    tgt.setDateElement(src.getOccurrenceDateTimeType());
     tgt.setCondition(convertReference(src.getCondition()));
-    tgt.setEncounter(convertReference(src.getContext()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setPerformer(convertReference(src.getPerformer()));
     tgt.setIdentifier(convertIdentifier(src.getIdentifierFirstRep()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));

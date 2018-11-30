@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Fri, Nov 30, 2018 17:31+1100 for FHIR v3.6.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -11811,6 +11811,12 @@ public class JsonParser extends JsonParserBase {
       res.setSequenceElement(parsePositiveInt(json.get("sequence").getAsString()));
     if (json.has("_sequence"))
       parseElementProperties(json.getAsJsonObject("_sequence"), res.getSequenceElement());
+    if (json.has("type")) {
+      JsonArray array = json.getAsJsonArray("type");
+      for (int i = 0; i < array.size(); i++) {
+        res.getType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("date"))
       res.setDateElement(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
@@ -19174,21 +19180,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("validCodedValueSet"))
-      res.setValidCodedValueSetElement(parseUri(json.get("validCodedValueSet").getAsString()));
-    if (json.has("_validCodedValueSet"))
-      parseElementProperties(json.getAsJsonObject("_validCodedValueSet"), res.getValidCodedValueSetElement());
+      res.setValidCodedValueSet(parseReference(json.getAsJsonObject("validCodedValueSet")));
     if (json.has("normalCodedValueSet"))
-      res.setNormalCodedValueSetElement(parseUri(json.get("normalCodedValueSet").getAsString()));
-    if (json.has("_normalCodedValueSet"))
-      parseElementProperties(json.getAsJsonObject("_normalCodedValueSet"), res.getNormalCodedValueSetElement());
+      res.setNormalCodedValueSet(parseReference(json.getAsJsonObject("normalCodedValueSet")));
     if (json.has("abnormalCodedValueSet"))
-      res.setAbnormalCodedValueSetElement(parseUri(json.get("abnormalCodedValueSet").getAsString()));
-    if (json.has("_abnormalCodedValueSet"))
-      parseElementProperties(json.getAsJsonObject("_abnormalCodedValueSet"), res.getAbnormalCodedValueSetElement());
+      res.setAbnormalCodedValueSet(parseReference(json.getAsJsonObject("abnormalCodedValueSet")));
     if (json.has("criticalCodedValueSet"))
-      res.setCriticalCodedValueSetElement(parseUri(json.get("criticalCodedValueSet").getAsString()));
-    if (json.has("_criticalCodedValueSet"))
-      parseElementProperties(json.getAsJsonObject("_criticalCodedValueSet"), res.getCriticalCodedValueSetElement());
+      res.setCriticalCodedValueSet(parseReference(json.getAsJsonObject("criticalCodedValueSet")));
   }
 
   protected ObservationDefinition.ObservationDefinitionQuantitativeDetailsComponent parseObservationDefinitionObservationDefinitionQuantitativeDetailsComponent(JsonObject json, ObservationDefinition owner) throws IOException, FHIRFormatError {
@@ -21597,8 +21595,8 @@ public class JsonParser extends JsonParserBase {
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
-    if (json.has("context"))
-      res.setContext(parseReference(json.getAsJsonObject("context")));
+    if (json.has("encounter"))
+      res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("authoredOn"))
       res.setAuthoredOnElement(parseDateTime(json.get("authoredOn").getAsString()));
     if (json.has("_authoredOn"))
@@ -21736,18 +21734,8 @@ public class JsonParser extends JsonParserBase {
       res.setKindElement(parseEnumeration(json.get("kind").getAsString(), RequestGroup.ActionConditionKind.NULL, new RequestGroup.ActionConditionKindEnumFactory()));
     if (json.has("_kind"))
       parseElementProperties(json.getAsJsonObject("_kind"), res.getKindElement());
-    if (json.has("description"))
-      res.setDescriptionElement(parseString(json.get("description").getAsString()));
-    if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    if (json.has("language"))
-      res.setLanguageElement(parseString(json.get("language").getAsString()));
-    if (json.has("_language"))
-      parseElementProperties(json.getAsJsonObject("_language"), res.getLanguageElement());
     if (json.has("expression"))
-      res.setExpressionElement(parseString(json.get("expression").getAsString()));
-    if (json.has("_expression"))
-      parseElementProperties(json.getAsJsonObject("_expression"), res.getExpressionElement());
+      res.setExpression(parseExpression(json.getAsJsonObject("expression")));
   }
 
   protected RequestGroup.RequestGroupActionRelatedActionComponent parseRequestGroupRequestGroupActionRelatedActionComponent(JsonObject json, RequestGroup owner) throws IOException, FHIRFormatError {
@@ -22406,8 +22394,8 @@ public class JsonParser extends JsonParserBase {
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
-    if (json.has("context"))
-      res.setContext(parseReference(json.getAsJsonObject("context")));
+    if (json.has("encounter"))
+      res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     Type occurrence = parseType("occurrence", json);
     if (occurrence != null)
       res.setOccurrence(occurrence);
@@ -23399,10 +23387,12 @@ public class JsonParser extends JsonParserBase {
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("typeCollected"))
       res.setTypeCollected(parseCodeableConcept(json.getAsJsonObject("typeCollected")));
-    if (json.has("patientPreparation"))
-      res.setPatientPreparationElement(parseString(json.get("patientPreparation").getAsString()));
-    if (json.has("_patientPreparation"))
-      parseElementProperties(json.getAsJsonObject("_patientPreparation"), res.getPatientPreparationElement());
+    if (json.has("patientPreparation")) {
+      JsonArray array = json.getAsJsonArray("patientPreparation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPatientPreparation().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("timeAspect"))
       res.setTimeAspectElement(parseString(json.get("timeAspect").getAsString()));
     if (json.has("_timeAspect"))
@@ -23481,8 +23471,9 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
     if (json.has("capacity"))
       res.setCapacity(parseQuantity(json.getAsJsonObject("capacity")));
-    if (json.has("minimumVolume"))
-      res.setMinimumVolume(parseQuantity(json.getAsJsonObject("minimumVolume")));
+    Type minimumVolume = parseType("minimumVolume", json);
+    if (minimumVolume != null)
+      res.setMinimumVolume(minimumVolume);
     if (json.has("additive")) {
       JsonArray array = json.getAsJsonArray("additive");
       for (int i = 0; i < array.size(); i++) {
@@ -41268,6 +41259,12 @@ public class JsonParser extends JsonParserBase {
         composePositiveIntCore("sequence", element.getSequenceElement(), false);
         composePositiveIntExtras("sequence", element.getSequenceElement(), false);
       }
+      if (element.hasType()) {
+        openArray("type");
+        for (CodeableConcept e : element.getType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasDateElement()) {
         composeDateTimeCore("date", element.getDateElement(), false);
         composeDateTimeExtras("date", element.getDateElement(), false);
@@ -49246,21 +49243,17 @@ public class JsonParser extends JsonParserBase {
           composeObservationDefinitionObservationDefinitionQualifiedIntervalComponent(null, e);
         closeArray();
       };
-      if (element.hasValidCodedValueSetElement()) {
-        composeUriCore("validCodedValueSet", element.getValidCodedValueSetElement(), false);
-        composeUriExtras("validCodedValueSet", element.getValidCodedValueSetElement(), false);
+      if (element.hasValidCodedValueSet()) {
+        composeReference("validCodedValueSet", element.getValidCodedValueSet());
       }
-      if (element.hasNormalCodedValueSetElement()) {
-        composeUriCore("normalCodedValueSet", element.getNormalCodedValueSetElement(), false);
-        composeUriExtras("normalCodedValueSet", element.getNormalCodedValueSetElement(), false);
+      if (element.hasNormalCodedValueSet()) {
+        composeReference("normalCodedValueSet", element.getNormalCodedValueSet());
       }
-      if (element.hasAbnormalCodedValueSetElement()) {
-        composeUriCore("abnormalCodedValueSet", element.getAbnormalCodedValueSetElement(), false);
-        composeUriExtras("abnormalCodedValueSet", element.getAbnormalCodedValueSetElement(), false);
+      if (element.hasAbnormalCodedValueSet()) {
+        composeReference("abnormalCodedValueSet", element.getAbnormalCodedValueSet());
       }
-      if (element.hasCriticalCodedValueSetElement()) {
-        composeUriCore("criticalCodedValueSet", element.getCriticalCodedValueSetElement(), false);
-        composeUriExtras("criticalCodedValueSet", element.getCriticalCodedValueSetElement(), false);
+      if (element.hasCriticalCodedValueSet()) {
+        composeReference("criticalCodedValueSet", element.getCriticalCodedValueSet());
       }
   }
 
@@ -51810,8 +51803,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
       }
-      if (element.hasContext()) {
-        composeReference("context", element.getContext());
+      if (element.hasEncounter()) {
+        composeReference("encounter", element.getEncounter());
       }
       if (element.hasAuthoredOnElement()) {
         composeDateTimeCore("authoredOn", element.getAuthoredOnElement(), false);
@@ -51957,17 +51950,8 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("kind", element.getKindElement(), new RequestGroup.ActionConditionKindEnumFactory(), false);
         composeEnumerationExtras("kind", element.getKindElement(), new RequestGroup.ActionConditionKindEnumFactory(), false);
       }
-      if (element.hasDescriptionElement()) {
-        composeStringCore("description", element.getDescriptionElement(), false);
-        composeStringExtras("description", element.getDescriptionElement(), false);
-      }
-      if (element.hasLanguageElement()) {
-        composeStringCore("language", element.getLanguageElement(), false);
-        composeStringExtras("language", element.getLanguageElement(), false);
-      }
-      if (element.hasExpressionElement()) {
-        composeStringCore("expression", element.getExpressionElement(), false);
-        composeStringExtras("expression", element.getExpressionElement(), false);
+      if (element.hasExpression()) {
+        composeExpression("expression", element.getExpression());
       }
   }
 
@@ -52654,8 +52638,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
       }
-      if (element.hasContext()) {
-        composeReference("context", element.getContext());
+      if (element.hasEncounter()) {
+        composeReference("encounter", element.getEncounter());
       }
       if (element.hasOccurrence()) {
         composeType("occurrence", element.getOccurrence());
@@ -53694,10 +53678,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasTypeCollected()) {
         composeCodeableConcept("typeCollected", element.getTypeCollected());
       }
-      if (element.hasPatientPreparationElement()) {
-        composeStringCore("patientPreparation", element.getPatientPreparationElement(), false);
-        composeStringExtras("patientPreparation", element.getPatientPreparationElement(), false);
-      }
+      if (element.hasPatientPreparation()) {
+        openArray("patientPreparation");
+        for (CodeableConcept e : element.getPatientPreparation()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasTimeAspectElement()) {
         composeStringCore("timeAspect", element.getTimeAspectElement(), false);
         composeStringExtras("timeAspect", element.getTimeAspectElement(), false);
@@ -53788,7 +53774,7 @@ public class JsonParser extends JsonParserBase {
         composeQuantity("capacity", element.getCapacity());
       }
       if (element.hasMinimumVolume()) {
-        composeQuantity("minimumVolume", element.getMinimumVolume());
+        composeType("minimumVolume", element.getMinimumVolume());
       }
       if (element.hasAdditive()) {
         openArray("additive");

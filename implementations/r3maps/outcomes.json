@@ -2729,16 +2729,7 @@
       ]
     },
     "ResearchSubject": {
-      "execution": true,
-      "r4.errors": [
-        "ERROR @ StructureDefinition.snapshot: All snapshot elements must have a base definition [element.all(base.exists())] (src \u003d InstanceValidator)",
-        "ERROR @ StructureDefinition.snapshot.element[4]: Must have a modifier reason if isModifier \u003d true [isModifier implies isModifierReason.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ StructureDefinition.snapshot.element[5].binding.extension[1][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet\u0027 definition allows for the types [canonical, uri] but found type Reference (src \u003d InstanceValidator)",
-        "ERROR @ StructureDefinition.snapshot.element[5].binding.extension[1]: The type of element valueReference is not known, which is illegal. Valid types at this point are uri, canonical (src \u003d InstanceValidator)",
-        "ERROR @ StructureDefinition.snapshot.element[9]: Must have a modifier reason if isModifier \u003d true [isModifier implies isModifierReason.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ StructureDefinition.snapshot.element[11]: Must have a modifier reason if isModifier \u003d true [isModifier implies isModifierReason.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ StructureDefinition.differential.element[3]: Must have a modifier reason if isModifier \u003d true [isModifier implies isModifierReason.exists()] (src \u003d InstanceValidator)"
-      ]
+      "execution": "No matches found for rule \u0027Resource\u0027. Reference found in http://hl7.org/fhir/StructureMap/DomainResource3to4"
     },
     "Resource": {
       "execution": true,
@@ -18738,7 +18729,11 @@
   },
   "HealthcareService": {
     "example": {
-      "execution": "org.hl7.fhir.r4.model.CodeableConcept cannot be cast to org.hl7.fhir.r4.model.HealthcareService$HealthcareServiceEligibilityComponent"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ HealthcareService.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "WARNING @ HealthcareService.coverageArea.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
+      ]
     }
   },
   "ImagingManifest": {
@@ -21193,15 +21188,27 @@
   },
   "RequestGroup": {
     "example": {
-      "execution": "Exception executing transform tgt.action \u003d create() as vvv on Rule \"action\": Unknown Resource or Type Name \u0027@RequestGroup.action\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ RequestGroup.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ RequestGroup.contained[1]: Profile http://hl7.org/fhir/StructureDefinition/MedicationRequest, Element \u0027RequestGroup.contained[1].status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "WARNING @ RequestGroup.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ RequestGroup.contained[2]: Profile http://hl7.org/fhir/StructureDefinition/MedicationRequest, Element \u0027RequestGroup.contained[2].status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "kdn5-example": {
-      "execution": "Exception executing transform tgt.action \u003d create() as vvv on Rule \"action\": Unknown Resource or Type Name \u0027@RequestGroup.action\u0027"
+      "execution": true,
+      "r4.errors": [
+        "WARNING @ RequestGroup.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ RequestGroup.contained[1]: Profile http://hl7.org/fhir/StructureDefinition/MedicationRequest, Element \u0027RequestGroup.contained[1].status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "WARNING @ RequestGroup.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
+        "ERROR @ RequestGroup.contained[2]: Profile http://hl7.org/fhir/StructureDefinition/MedicationRequest, Element \u0027RequestGroup.contained[2].status\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     }
   },
   "ResearchStudy": {
     "example": {
-      "execution": "Unknown ResearchStudyStatus code \u0027draft\u0027"
+      "execution": true
     }
   },
   "ResearchSubject": {
@@ -21234,13 +21241,13 @@
   },
   "Schedule": {
     "example": {
-      "execution": "Attempt to read invalid property \u0027serviceCategoryFirstRep\u0027 on type Schedule"
+      "execution": true
     },
     "exampleloc1": {
-      "execution": "Attempt to read invalid property \u0027serviceCategoryFirstRep\u0027 on type Schedule"
+      "execution": true
     },
     "exampleloc2": {
-      "execution": "Attempt to read invalid property \u0027serviceCategoryFirstRep\u0027 on type Schedule"
+      "execution": true
     }
   },
   "SearchParameter": {
@@ -21273,16 +21280,16 @@
   },
   "Slot": {
     "example": {
-      "execution": "Attempt to read invalid property \u0027serviceCategoryFirstRep\u0027 on type Slot"
+      "execution": true
     },
     "1": {
-      "execution": "Attempt to read invalid property \u0027serviceCategoryFirstRep\u0027 on type Slot"
+      "execution": true
     },
     "2": {
-      "execution": "Attempt to read invalid property \u0027serviceCategoryFirstRep\u0027 on type Slot"
+      "execution": true
     },
     "3": {
-      "execution": "Attempt to read invalid property \u0027serviceCategoryFirstRep\u0027 on type Slot"
+      "execution": true
     }
   },
   "Specimen": {
