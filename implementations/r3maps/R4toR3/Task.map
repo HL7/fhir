@@ -7,7 +7,8 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group Task(source src : TaskR3, target tgt : Task) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.instantiates -> tgt.instantiates;
+  src.instantiatesUri -> tgt.definition;
+  src.instantiatesCanonical -> tgt.definition;
   src.basedOn -> tgt.basedOn;
   src.groupIdentifier -> tgt.groupIdentifier;
   src.partOf -> tgt.partOf;
@@ -20,16 +21,15 @@ group Task(source src : TaskR3, target tgt : Task) extends DomainResource <<type
   src.description -> tgt.description;
   src.focus -> tgt.focus;
   src.for -> tgt.for;
-  src.context -> tgt.context;
+  src.encounter -> tgt.context;
   src.executionPeriod -> tgt.executionPeriod;
   src.authoredOn -> tgt.authoredOn;
   src.lastModified -> tgt.lastModified;
-  src.requester -> tgt.requester;
+  src.requester as vs -> tgt.requester as vt, vt.agent = vs;
   src.performerType -> tgt.performerType;
   src.owner -> tgt.owner;
   src.location -> tgt.location;
-  src.reasonCode -> tgt.reasonCode;
-  src.reasonReference -> tgt.reasonReference;
+  src.reasonCode -> tgt.reason;
   src.note -> tgt.note;
   src.relevantHistory -> tgt.relevantHistory;
   src.restriction as s -> tgt.restriction as t then TaskRestriction(s, t);

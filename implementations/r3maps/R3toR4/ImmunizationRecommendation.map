@@ -8,27 +8,28 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 group ImmunizationRecommendation(source src : ImmunizationRecommendationR3, target tgt : ImmunizationRecommendation) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.patient -> tgt.patient;
-  src.date -> tgt.date;
-  src.authority -> tgt.authority;
-  src.recommendation as s -> tgt.recommendation as t then ImmunizationRecommendationRecommendation(s, t);
+  src.recommendation as s -> tgt.recommendation as t then recommendation(s, t, tgt);
 }
 
-group ImmunizationRecommendationRecommendation(source src, target tgt) extends BackboneElement {
+group recommendation(source src, target tgt, target res) extends BackboneElement {
+  src.date -> res.date;
   src.vaccineCode -> tgt.vaccineCode;
   src.targetDisease -> tgt.targetDisease;
-  src.contraindicatedVaccineCode -> tgt.contraindicatedVaccineCode;
+  src.doseNumber as vs -> tgt.doseNumber = create('positiveInt') as vt then positiveInt(vs, vt);
   src.forecastStatus -> tgt.forecastStatus;
-  src.forecastReason -> tgt.forecastReason;
-  src.dateCriterion as s -> tgt.dateCriterion as t then ImmunizationRecommendationRecommendationDateCriterion(s, t);
-  src.description -> tgt.description;
+  src.dateCriterion as s -> tgt.dateCriterion as t then dateCriterion(s, t);
+  src.protocol as s then {
+    s.description -> tgt.description;
+    s.doseSequence as vs -> tgt.seriesDoses = create('positiveInt') as vt then positiveInt(vs, vt);
+    s.authority -> res.authority;
+    s.series -> tgt.series;
+  };
   src.series -> tgt.series;
-  src.doseNumber -> tgt.doseNumber;
-  src.seriesDoses -> tgt.seriesDoses;
   src.supportingImmunization -> tgt.supportingImmunization;
   src.supportingPatientInformation -> tgt.supportingPatientInformation;
 }
 
-group ImmunizationRecommendationRecommendationDateCriterion(source src, target tgt) extends BackboneElement {
+group dateCriterion(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value -> tgt.value;
 }

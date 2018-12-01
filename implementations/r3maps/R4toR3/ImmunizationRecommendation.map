@@ -8,27 +8,25 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group ImmunizationRecommendation(source src : ImmunizationRecommendationR3, target tgt : ImmunizationRecommendation) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.patient -> tgt.patient;
-  src.date -> tgt.date;
-  src.authority -> tgt.authority;
-  src.recommendation as s -> tgt.recommendation as t then ImmunizationRecommendationRecommendation(s, t);
+  src.recommendation as s -> tgt.recommendation as t then recommendation(s, t, src);
 }
 
-group ImmunizationRecommendationRecommendation(source src, target tgt) extends BackboneElement {
+group recommendation(source src, target tgt, source res) extends BackboneElement {
+  res.date -> tgt.date;
   src.vaccineCode -> tgt.vaccineCode;
   src.targetDisease -> tgt.targetDisease;
-  src.contraindicatedVaccineCode -> tgt.contraindicatedVaccineCode;
+  src.doseNumber : positiveInt as vs -> tgt.doseNumber as vt then positiveInt(vs, vt);
   src.forecastStatus -> tgt.forecastStatus;
-  src.forecastReason -> tgt.forecastReason;
-  src.dateCriterion as s -> tgt.dateCriterion as t then ImmunizationRecommendationRecommendationDateCriterion(s, t);
-  src.description -> tgt.description;
-  src.series -> tgt.series;
-  src.doseNumber -> tgt.doseNumber;
-  src.seriesDoses -> tgt.seriesDoses;
+  src.dateCriterion as s -> tgt.dateCriterion as t then dateCriterion(s, t);
+  src.description as v -> tgt.protocol as t, t.description = v;
+  src.seriesDoses : positiveInt as v -> tgt.protocol as t, t.doseSequence = v;
+  res.authority as v -> tgt.protocol as t, t.authority = v;
+  src.series as v -> tgt.protocol as t, t.series = v;
   src.supportingImmunization -> tgt.supportingImmunization;
   src.supportingPatientInformation -> tgt.supportingPatientInformation;
 }
 
-group ImmunizationRecommendationRecommendationDateCriterion(source src, target tgt) extends BackboneElement {
+group dateCriterion(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value -> tgt.value;
 }

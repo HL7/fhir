@@ -424,6 +424,8 @@ private Map<String, Object> userData;
   public MarkdownType castToMarkdown(Base b) throws FHIRException {
 		if (b instanceof MarkdownType)
 			return (MarkdownType) b;
+    else if (b.hasPrimitiveValue())
+      return new MarkdownType(b.primitiveValue());
 		else
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Markdown");
 	}

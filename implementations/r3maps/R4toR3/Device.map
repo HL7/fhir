@@ -7,9 +7,8 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group Device(source src : Device, target tgt : DeviceR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.udi as vs0 -> tgt.udi as vt0 then {
+  src.udiCarrier as vs0 -> tgt.udi as vt0 then {
     vs0.deviceIdentifier -> vt0.deviceIdentifier;
-    vs0.name -> vt0.name;
     vs0.jurisdiction -> vt0.jurisdiction;
     vs0.carrierHRF -> vt0.carrierHRF;
     vs0.carrierAIDC -> vt0.carrierAIDC;
@@ -22,8 +21,13 @@ group Device(source src : Device, target tgt : DeviceR3) extends DomainResource 
   src.manufacturer -> tgt.manufacturer;
   src.manufactureDate -> tgt.manufactureDate;
   src.expirationDate -> tgt.expirationDate;
-  src.model -> tgt.model;
-  src.version -> tgt.version;
+  src.modelNumber -> tgt.model;
+  src.version as vs -> tgt as vt then {
+    vs.value -> tgt.version;
+  };
+  src.deviceName as vs -> tgt.udi as vt then {
+    vs.name -> vt.name;
+  };
   src.patient -> tgt.patient;
   src.owner -> tgt.owner;
   src.contact -> tgt.contact;

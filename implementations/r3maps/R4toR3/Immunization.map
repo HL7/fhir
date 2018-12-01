@@ -7,10 +7,15 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group Immunization(source src : Immunization, target tgt : ImmunizationR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status where value != 'not-done' -> tgt.status;
+  src.status where value = 'not-done' -> tgt.status = 'completed', tgt.notGiven = true;
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34ImmunizationNotGiven' then {
+    e.value -> tgt.notGiven;
+  };
   src.vaccineCode -> tgt.vaccineCode;
   src.patient -> tgt.patient;
   src.encounter -> tgt.encounter;
+  src.occurrence : dateTime as vs -> tgt.date as vt then dateTime(vs, vt);
   src.primarySource -> tgt.primarySource;
   src.reportOrigin -> tgt.reportOrigin;
   src.location -> tgt.location;
@@ -20,10 +25,38 @@ group Immunization(source src : Immunization, target tgt : ImmunizationR3) exten
   src.site -> tgt.site;
   src.route -> tgt.route;
   src.doseQuantity -> tgt.doseQuantity;
-  src.performer as vs0 -> tgt.practitioner as vt0 then {
-    vs0.function -> vt0.role "role";
-    vs0.actor -> vt0.actor;
-  } "practitioner";
+  src.performer as vs -> tgt.practitioner as vt then practitioner(vs, vt);
   src.note -> tgt.note;
+  src.reasonCode as vs where src.status != 'not-done' -> tgt.explanation as t, t.reason = vs;
+  src.reasonCode as vs where src.status = 'not-done' -> tgt.explanation as t, t.reasonNotGiven = vs;
+  src.reaction as vs -> tgt.reaction as vt then reaction(vs, vt);
+  src.protocolApplied	as vs -> tgt.vaccinationProtocol as vt then protocol(vs, vt);
 }
 
+group practitioner(source src, target tgt) extends BackboneElement {
+  src.function -> tgt.role;
+  src.actor -> tgt.actor;
+}
+
+group reaction(source src, target tgt) extends BackboneElement {
+  src.date -> tgt.date;
+  src.detail -> tgt.detail;
+  src.reported -> tgt.reported;
+}
+
+group protocol(source src, target tgt) extends BackboneElement {
+  src.doseNumber : positiveInt as vs -> tgt.doseSequence as vt then positiveInt(vs, vt);
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34ImmunizationDescription' then {
+    e.value -> tgt.description;
+  };
+  src.authority -> tgt.authority;
+  src.series -> tgt.series;
+  src.seriesDoses : positiveInt as vs -> tgt.seriesDoses as vt then positiveInt(vs, vt);
+  src.targetDisease -> tgt.targetDisease;
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34ImmunizationDoseStatus' then {
+    e.value -> tgt.doseStatus;
+  };
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34ImmunizationDoseStatusReason' then {
+    e.value -> tgt.doseStatusReason;
+  };
+}

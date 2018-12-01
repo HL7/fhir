@@ -11,6 +11,6 @@ group RelatedArtifact(source src : RelatedArtifact, target tgt : RelatedArtifact
   src.citation -> tgt.citation;
   src.url -> tgt.url;
   src.document -> tgt.document;
-  src.resource -> tgt.resource;
+  src.resource : canonical as vs0 -> tgt.resource = create("Reference") as vt0 then canonical2Reference(vs0, vt0);
 }
 

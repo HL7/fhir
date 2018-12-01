@@ -6,7 +6,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceMetric" alias DeviceMetr
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group DeviceMetric(source src : DeviceMetric, target tgt : DeviceMetricR3) extends DomainResource <<type+>> {
-  src.identifierFirstRep -> tgt.identifier "identifier";
+  src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.unit -> tgt.unit;
   src.source -> tgt.source;
