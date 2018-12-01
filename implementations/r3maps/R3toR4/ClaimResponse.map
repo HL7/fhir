@@ -14,17 +14,24 @@ group ClaimResponse(source src : ClaimResponseR3, target tgt : ClaimResponse) ex
   src.patient -> tgt.patient;
   src.created -> tgt.created;
   src.insurer -> tgt.insurer;
-  src.requestProvider -> tgt.requestProvider;
+  src.requestProvider -> tgt.requestor;
   src.request -> tgt.request;
-  src.outcome -> tgt.outcome;
+  src.outcome as vs then {
+   vs.coding as c then {
+     c.code where value in 'queued' | 'complete' | 'error' | 'partial' -> tgt.outcome;
+   };
+  };
   src.disposition -> tgt.disposition;
   src.payeeType -> tgt.payeeType;
   src.item as s -> tgt.item as t then ClaimResponseItem(s, t);
   src.addItem as s -> tgt.addItem as t then ClaimResponseAddItem(s, t);
   src.error as s -> tgt.error as t then ClaimResponseError(s, t);
-  src.total as s -> tgt.total as t then ClaimResponseTotal(s, t);
+  // src.totalCost as s -> tgt.total as t, t.amount = s;
+  src.totalCost as testvariable then {
+    testvariable -> tgt.total as t, t.amount = testvariable "set ClaimResponse.total.amount";
+  } "test rule";
   src.payment as s -> tgt.payment as t then ClaimResponsePayment(s, t);
-  src.reserved -> tgt.reserved;
+  src.reserved as vs -> tgt.fundsReserve as vt, vt.coding = vs;
   src.form -> tgt.form;
   src.processNote as s -> tgt.processNote as t then ClaimResponseProcessNote(s, t);
   src.communicationRequest -> tgt.communicationRequest;
@@ -32,7 +39,7 @@ group ClaimResponse(source src : ClaimResponseR3, target tgt : ClaimResponse) ex
 }
 
 group ClaimResponseItem(source src, target tgt) extends BackboneElement {
-  src.itemSequence -> tgt.itemSequence;
+  src.sequenceLinkId -> tgt.itemSequence;
   src.noteNumber -> tgt.noteNumber;
   src.adjudication as s -> tgt.adjudication as t then ClaimResponseItemAdjudication(s, t);
   src.detail as s -> tgt.detail as t then ClaimResponseItemDetail(s, t);
@@ -108,11 +115,6 @@ group ClaimResponseError(source src, target tgt) extends BackboneElement {
   src.detailSequence -> tgt.detailSequence;
   src.subDetailSequence -> tgt.subDetailSequence;
   src.code -> tgt.code;
-}
-
-group ClaimResponseTotal(source src, target tgt) extends BackboneElement {
-  src.category -> tgt.category;
-  src.amount -> tgt.amount;
 }
 
 group ClaimResponsePayment(source src, target tgt) extends BackboneElement {
