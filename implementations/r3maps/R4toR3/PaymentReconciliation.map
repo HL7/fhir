@@ -10,14 +10,14 @@ group PaymentReconciliation(source src : PaymentReconciliationR3, target tgt : P
   src.status -> tgt.status;
   src.period -> tgt.period;
   src.created -> tgt.created;
-  src.organization -> tgt.organization;
+  src.paymentIssuer -> tgt.organization;
   src.request -> tgt.request;
-  src.outcome -> tgt.outcome;
+  src.outcome as vs where value in 'complete' | 'error' | 'partial' -> tgt.outcome as vt, vt.coding as c, c.system = 'http://hl7.org/fhir/remittance-outcome', c.code = vs;
   src.disposition -> tgt.disposition;
-  src.requestProvider -> tgt.requestProvider;
+  src.requestor -> tgt.requestProvider;
   src.detail as s -> tgt.detail as t then PaymentReconciliationDetail(s, t);
-  src.form -> tgt.form;
-  src.total -> tgt.total;
+  src.formCode -> tgt.form;
+  src.paymentAmount -> tgt.total;
   src.processNote as s -> tgt.processNote as t then PaymentReconciliationProcessNote(s, t);
 }
 
@@ -32,7 +32,7 @@ group PaymentReconciliationDetail(source src, target tgt) extends BackboneElemen
 }
 
 group PaymentReconciliationProcessNote(source src, target tgt) extends BackboneElement {
-  src.type -> tgt.type;
+  src.type as vs -> tgt.type as vt, vt.coding as c, c.system = 'http://hl7.org/fhir/note-type', c.code = vs;
   src.text -> tgt.text;
 }
 
