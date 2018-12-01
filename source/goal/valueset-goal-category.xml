@@ -13,7 +13,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/"/>
     </telecom>
   </contact>
-  <description value="Example codes for grouping goals for filtering or presentation."/>
+  <description value="Example codes for grouping goals to use for filtering or presentation."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/goal-category"/>

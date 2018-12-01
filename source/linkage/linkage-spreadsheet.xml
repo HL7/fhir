@@ -14,9 +14,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3499,11 +3498,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>3</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6274,8 +6272,8 @@
     <Cell ss:StyleID="s129"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Source of truth</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The record represents the "source of truth" (from the perspective of this Linkage resource) for the underlying event/condition/etc.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Source of Truth</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The resource represents the "source of truth" (from the perspective of this Linkage resource) for the underlying event/condition/etc.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s141"/>
@@ -6285,8 +6283,8 @@
     <Cell ss:StyleID="s132"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Alternate record</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The record represents the alternative view of the underlying event/condition/etc.  The record may still be actively maintained, even though it is not considered to be the source of truth.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Alternate Record</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The resource represents an alternative view of the underlying event/condition/etc.  The resource may still be actively maintained, even though it is not considered to be the source of truth.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -6296,8 +6294,8 @@
     <Cell ss:StyleID="s132"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Historical/obsolete record</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The record represents an obsolete record of the underlying event/condition/etc.  It is not expected to be actively maintained.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Historical/Obsolete Record</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The resource represents an obsolete record of the underlying event/condition/etc.  It is not expected to be actively maintained.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -6816,6 +6814,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

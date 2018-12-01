@@ -14,9 +14,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -2956,11 +2955,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5095,7 +5093,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s145"><Data ss:Type="String">GoalLifecycleStatus</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates whether the goal has been met and is still being targeted</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Codes that reflect the current state of a goal and whether the goal is still being targeted</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">#goal-status</Data></Cell>
@@ -5466,6 +5464,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5582,7 +5581,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Entered In Error</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Entered in Error</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">The goal was entered in error and voided.&#10;</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>

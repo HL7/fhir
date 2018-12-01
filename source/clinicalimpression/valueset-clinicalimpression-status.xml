@@ -11,7 +11,7 @@
 			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
 		</telecom>
   </contact>
-  <description value="Codes identifying the lifecycle stage of a clinical impression"/>
+  <description value="Codes that reflect the current state of a clinical impression within its overall lifecycle."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/event-status"/>

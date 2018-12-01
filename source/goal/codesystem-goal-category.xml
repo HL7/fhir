@@ -5,7 +5,7 @@
   <name value="GoalCategory"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="Example codes for grouping goals for filtering or presentation."/>
+  <description value="Example codes for grouping goals to use for filtering or presentation."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
@@ -31,6 +31,6 @@
   <concept>
     <code value="physiotherapy"/>
     <display value="Physiotherapy"/>
-    <definition value="Goals related to the mobility and motor capability of the subject."/>
+    <definition value="Goals related to the mobility and/or motor capability of the subject."/>
   </concept>
 </CodeSystem>

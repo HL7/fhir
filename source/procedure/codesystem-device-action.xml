@@ -22,6 +22,6 @@
   <concept>
     <code value="manipulated"/>
     <display value="Manipulated"/>
-    <definition value="The device remains in that patient, but its location, settings, or functionality was changed."/>
+    <definition value="The device remains in the patient, but its location, settings, or functionality was changed."/>
   </concept>
 </CodeSystem>

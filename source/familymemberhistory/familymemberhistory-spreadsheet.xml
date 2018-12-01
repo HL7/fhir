@@ -22,8 +22,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>11</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3643,7 +3643,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7592,8 +7591,9 @@
    <Column ss:StyleID="s143" ss:Width="79.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s143" ss:Width="34.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s143" ss:Width="154.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s143" ss:Width="79.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s143" ss:Width="244.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s143" ss:Width="79.0"/>
+   <Column ss:StyleID="s143" ss:Width="83.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s143" ss:Width="411.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s143" ss:Width="84.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s143" ss:Width="241.0"/>
    <Row ss:AutoFitHeight="0">
@@ -7634,7 +7634,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">Entered in error</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Entered in Error</Data></Cell>
     <Cell ss:StyleID="s158"><Data ss:Type="String">This instance should not have been part of this patient's medical record.</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"><Data ss:Type="String">ActStatus.nullified</Data></Cell>
@@ -7645,8 +7645,8 @@
     <Cell ss:StyleID="s137"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">Health unknown</Data></Cell>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">Health information for this individual is unavailable/unknown.</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Health Unknown</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Health information for this family member is unavailable/unknown.</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s148"/>
@@ -8115,6 +8115,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

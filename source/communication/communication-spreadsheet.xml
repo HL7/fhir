@@ -23,7 +23,7 @@
   
   
   <TabRatio>845</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -869,6 +869,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -3778,16 +3779,16 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4321,6 +4322,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4553,6 +4555,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5155,6 +5158,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5412,6 +5416,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5685,6 +5690,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6070,6 +6076,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6135,7 +6142,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">CommunicationCategory</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for general categories of communications such as alerts, instruction, etc.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for general categories of communications such as alerts, instructions, etc.</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">#communication-category</Data></Cell>
@@ -6180,7 +6187,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s155"><Data ss:Type="String">CommunicationNotDoneReason</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for the reason why a communication was not done.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for the reason why a communication did not happen.</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">#communication-not-done-reason</Data></Cell>
@@ -6561,11 +6568,13 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6611,7 +6620,7 @@
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s161"><Data ss:Type="String">Prescription Refill Request</Data></Cell>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose of the communication is a prescription refill request.</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose or content of the communication is a prescription refill request.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s145"/>
@@ -6622,7 +6631,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"><Data ss:Type="String">Progress Update</Data></Cell>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose of the communication is a progress update.</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose or content of the communication is a progress update.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s146"/>
@@ -6633,7 +6642,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"><Data ss:Type="String">Report Labs</Data></Cell>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose of the communication is to report labs.</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose or content of the communication is to report labs.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s146"/>
@@ -6644,7 +6653,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"><Data ss:Type="String">Appointment Reminder</Data></Cell>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose of the communication is an appointment reminder.</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose or content of the communication is an appointment reminder.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s146"/>
@@ -6655,7 +6664,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"><Data ss:Type="String">Phone Consult</Data></Cell>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose of the communication is a phone consult.</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose or content of the communication is a phone consult.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s146"/>
@@ -6666,7 +6675,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"><Data ss:Type="String">Summary Report</Data></Cell>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose of the communication is a summary report.</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">The purpose or content of the communication is a summary report.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s146"/>
@@ -7130,6 +7139,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -7211,7 +7221,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"><Data ss:Type="String">Instruction</Data></Cell>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">The communication conveys instruction.</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">The communication conveys an instruction.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s146"/>
@@ -7697,6 +7707,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -8265,6 +8276,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
