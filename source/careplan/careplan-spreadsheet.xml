@@ -19,7 +19,7 @@
   
   
   <TabRatio>777</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3971,7 +3971,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6317,7 +6316,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s153"><Data ss:Type="String">CarePlanActivityStatus</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates where the activity is at in its overall life cycle.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes that reflect the current state of a care plan activity within its overall life cycle.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s118"/>
@@ -6763,7 +6762,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Not Started</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Activity is planned but no action has yet been taken.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">Care plan activity is planned but no action has yet been taken.</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s161"/>
@@ -6785,7 +6784,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">In Progress</Data></Cell>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">Activity has been started but is not yet complete.</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">Care plan activity has been started but is not yet complete.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s164"/>
@@ -6796,7 +6795,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">On Hold</Data></Cell>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">Activity was started but has temporarily ceased with an expectation of resumption at a future time.</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">Care plan activity was started but has temporarily ceased with an expectation of resumption at a future time.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s164"/>
@@ -6807,7 +6806,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">The activity has been completed (more or less) as planned.</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">Care plan activity has been completed (more or less) as planned.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s164"/>
@@ -6818,7 +6817,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Cancelled</Data></Cell>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">The planned activity has been withdrawn.</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">The planned care plan activity has been withdrawn.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s164"/>
@@ -6829,18 +6828,18 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">#6</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Stopped</Data></Cell>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">The planned activity has been ended prior to completion after the activity was started.</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">The planned care plan activity has been ended prior to completion after the activity was started.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s164"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="75">
     <Cell ss:StyleID="s162"><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell><Data ss:Type="String">The current state of the activity is not known.  Note: This concept is not to be used for "other".  </Data></Cell>
+    <Cell><Data ss:Type="String">The current state of the care plan activity is not known.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which one.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell><Data ss:Type="String">GF#10617</Data></Cell>
@@ -6850,8 +6849,8 @@
     <Cell ss:StyleID="s127"><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s163"/>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">Entered In Error</Data></Cell>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">The activity was entered in error and voided.</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">Entered in Error</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">Care plan activity was entered in error and voided.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s164"/>
@@ -7293,6 +7292,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

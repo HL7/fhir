@@ -15,8 +15,7 @@
   
   
   <TabRatio>761</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>9</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3469,7 +3468,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5732,7 +5730,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" ss:StyleID="s112" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s112" ss:Width="115.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="275.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="358.0"/>
    <Column ss:StyleID="s112" ss:Width="51.0"/>
    <Column ss:StyleID="s112" ss:Width="45.0"/>
    <Column ss:StyleID="s112" ss:Width="146.0"/>
@@ -5758,9 +5756,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">uri of v3 value set mapped to</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unpublished notes</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s146"><Data ss:Type="String">FlagStatus</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or entered in error.</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or was entered in error.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">#flag-status</Data></Cell>
@@ -6228,7 +6226,7 @@
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s137" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s137" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s137" ss:Width="35.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s137" ss:Width="155.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s137" ss:Width="73.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s137" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s137" ss:Width="245.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s137" ss:Width="84.0"/>
@@ -6250,7 +6248,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Active</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">A current flag that should be displayed to a user. A system may use the category to determine which roles should view the flag.</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">A current flag that should be displayed to a user. A system may use the category to determine which user roles should view the flag.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6261,7 +6259,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Inactive</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The flag does not need to be displayed any more.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The flag no longer needs to be displayed.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6272,7 +6270,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Entered in Error</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The flag was added in error, and should no longer be displayed.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The flag was added in error and should no longer be displayed.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6796,6 +6794,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

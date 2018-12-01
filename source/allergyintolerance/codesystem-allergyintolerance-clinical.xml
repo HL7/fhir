@@ -13,7 +13,7 @@
   <concept>
     <code value="active"/>
     <display value="Active"/>
-    <definition value="The subject is currently experiencing or at risk of a reaction to the identified substance."/> 
+    <definition value="The subject is currently experiencing, or is at risk of, a reaction to the identified substance."/> 
   </concept>
   <concept>
     <code value="inactive"/>

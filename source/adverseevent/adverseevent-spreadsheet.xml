@@ -4,7 +4,7 @@
   <LastAuthor>Miller,Michelle M</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-06-18T14:03:58Z</LastSaved>
+  <LastSaved>2018-12-01T20:15:16Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -16,7 +16,8 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -727,7 +728,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -758,7 +758,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="70.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="85.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="37.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="79.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="175.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="579.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="18" ss:StyleID="s69" ss:Width="151.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="25" ss:StyleID="s69" ss:Width="205.0"/>
@@ -911,7 +911,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s69"><Data ss:Type="String">AdverseEventSeverity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">mild | moderate | severe</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.serious - a severe rash might not be serious, but a mild heart problem is.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.seriousness - a severe rash might not be serious, but a mild heart problem is.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14" ss:StyleID="s78">
     <Cell ss:StyleID="s80"><Data ss:Type="String">AdverseEvent.outcome</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1041,7 +1041,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -1049,13 +1048,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -1532,7 +1530,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -1748,7 +1745,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -2339,7 +2335,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2598,7 +2593,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -2853,7 +2847,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3241,7 +3234,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3265,7 +3257,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="22" ss:StyleID="s98" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s98" ss:Width="184.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s98" ss:Width="292.0"/>
+   <Column ss:StyleID="s98" ss:Width="316.0"/>
    <Column ss:StyleID="s98" ss:Width="54.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s98" ss:Width="90.0"/>
    <Column ss:StyleID="s98" ss:Width="232.0"/>
@@ -3293,7 +3285,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s111">
     <Cell ss:StyleID="s140"><Data ss:Type="String">AdverseEventActuality</Data></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Overall nature of the event, e.g. real or potential</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Overall nature of the adverse event, e.g. real or potential</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">#adverse-event-actuality</Data></Cell>
@@ -3308,7 +3300,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s111">
     <Cell ss:StyleID="s140"><Data ss:Type="String">AdverseEventCategory</Data></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Overall categorization of the event, e.g. product related or situational</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Overall categorization of the event, e.g. product-related or situational</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">#adverse-event-category</Data></Cell>
@@ -3368,7 +3360,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">AdverseEventCausalityAssessment</Data></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Codes for the assessment of whether the entity caused the event</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">#adverse-event-causality-assess</Data></Cell>
@@ -3599,7 +3591,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4222,7 +4213,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Product Problem</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to a product problem</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4233,7 +4224,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Product Quality</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to product quality</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4244,7 +4235,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Product Use Error</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to a product use error</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4255,7 +4246,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">product-use-error</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Wrong Dose</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to a wrong dose</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4266,7 +4257,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">product-use-error</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Incorrect Prescribing Information</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to incorrect perscribing information</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4277,7 +4268,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">product-use-error</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Wrong Technique</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to a wrong technique</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4288,7 +4279,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">product-use-error</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Wrong Route of Administration</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to a wrong route of administration</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4299,7 +4290,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">product-use-error</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Wrong Rate</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to a wrong rate</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4310,7 +4301,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">product-use-error</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Wrong Duration</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to a wrong duration</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4321,7 +4312,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">product-use-error</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Wrong Time</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to a wrong time</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4332,7 +4323,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">product-use-error</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Expired Drug</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to an expired drug</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4343,7 +4334,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"><Data ss:Type="String">Medical Device Use Error</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to a medical device use error</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4354,7 +4345,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"><Data ss:Type="String">Problem with Different Manufacturer of Same Medicine</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to a problem with a different manufacturer of the same medication</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4365,7 +4356,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Unsafe Physical Environment</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The adverse event pertains to an unsafe physical environment</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -4821,12 +4812,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5421,7 +5412,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -5997,7 +5987,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6039,13 +6028,13 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See Confluence for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="131">
+   <Row ss:Height="135">
     <Cell ss:StyleID="s129"><Data ss:Type="String">Certain</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Certain</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Event or laboratory test abnormality, with plausible time relationship to drug intake ii) Cannot be explained by disease or other drugs iii) Response to withdrawal plausible (pharmacologically, pathologically) iv) Event definitive pharmacologically or phenomenologically (i.e. an objective and specific medical disorder or a recognized pharmacological phenomenon) v) Re-challenge satisfactory, if necessary</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Event or laboratory test abnormality, with plausible time relationship to drug intake; ii) Cannot be explained by disease or other drugs; iii) Response to withdrawal plausible (pharmacologically, pathologically); iv) Event definitive pharmacologically or phenomenologically (i.e. an objective and specific medical disorder or a recognized pharmacological phenomenon); or v) Re-challenge satisfactory, if necessary</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s132"/>
@@ -6056,7 +6045,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Probably/Likely</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">i) Event or laboratory test abnormality, with reasonable time relationship to drug intake ii) Unlikely to be attributed to disease or other drugs iii) Response to withdrawal clinically reasonable iv) Re-challenge not required</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">i) Event or laboratory test abnormality, with reasonable time relationship to drug intake; ii) Unlikely to be attributed to disease or other drugs; iii) Response to withdrawal clinically reasonable; or iv) Re-challenge not required</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -6067,7 +6056,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Possible</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">i) Event or laboratory test abnormality, with reasonable time relationship to drug intake ii) Could also be explained by disease or other drugs iii) Information on drug withdrawal may be lacking or unclear</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">i) Event or laboratory test abnormality, with reasonable time relationship to drug intake; ii) Could also be explained by disease or other drugs; or iii) Information on drug withdrawal may be lacking or unclear</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -6078,7 +6067,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Unlikely</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">i) Event or laboratory test abnormality, with a time to drug intake that makes a relationship improbable (but not impossible) ii) Disease or other drugs provide plausible explanations</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">i) Event or laboratory test abnormality, with a time to drug intake that makes a relationship improbable (but not impossible); or ii) Disease or other drugs provide plausible explanations</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -6089,7 +6078,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Conditional/Classified</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">i) Event or laboratory test abnormality ii) More data for proper assessment needed, or iii) Additional data under examination</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">i) Event or laboratory test abnormality; ii) More data for proper assessment needed; or iii) Additional data under examination</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -6100,7 +6089,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Unassessable/Unclassifiable</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">i) Report suggesting an adverse reaction ii) Cannot be judged because information is insufficient or contradictory iii) Data cannot be supplemented or verified</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">i) Report suggesting an adverse reaction; ii) Cannot be judged because information is insufficient or contradictory; or iii) Data cannot be supplemented or verified</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>
@@ -6586,7 +6575,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -6595,7 +6583,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>3</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7211,7 +7199,7 @@
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"><Data ss:Type="String">Adverse Event</Data></Cell>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">The adverse event actually happened regardless of whether anyone was affected or harmed</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s132"/>
@@ -7222,7 +7210,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"><Data ss:Type="String">Potential Adverse Event</Data></Cell>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">A potential adverse event</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s135"/>

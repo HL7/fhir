@@ -27,7 +27,7 @@
    </concept>
      <concept>
     <code value="entered-in-error"/>
-    <display value="Entered In Error"/>
+    <display value="Entered in Error"/>
     <definition value="The statement was entered in error and is not valid."/>
    </concept>
 </CodeSystem>

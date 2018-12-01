@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Miller,Michelle M</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-05-18T13:00:09Z</LastSaved>
+  <LastSaved>2018-12-01T19:18:42Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,8 @@
   
   
   
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4165,7 +4166,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6239,7 +6239,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Proposed</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The care team has been drafted and proposed, but not yet participating in the coordination and delivery of care.</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The care team has been drafted and proposed, but not yet participating in the coordination and delivery of patient care.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
@@ -6282,7 +6282,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">Entered In Error</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Entered in Error</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The care team should have never existed.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
@@ -6780,6 +6780,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

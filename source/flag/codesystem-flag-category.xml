@@ -32,7 +32,7 @@
   </concept>
   <concept>
     <code value="contact"/>
-    <display value="Subject contact"/>
+    <display value="Subject Contact"/>
     <definition value="Flags related to coming into contact with the patient."/>
   </concept>
   <concept>

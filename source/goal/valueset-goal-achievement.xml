@@ -14,7 +14,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/"/>
     </telecom>
   </contact>
-  <description value="Describes the progression, or lack thereof, towards the goal against the target ."/>
+  <description value="Describes the progression, or lack thereof, towards the goal against the target."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/goal-achievement"/>
