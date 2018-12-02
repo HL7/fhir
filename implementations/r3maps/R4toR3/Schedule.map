@@ -8,11 +8,10 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group Schedule(source src : Schedule, target tgt : ScheduleR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.active -> tgt.active;
-  src.serviceCategoryFirstRep -> tgt.serviceCategory "serviceCategory";
+  src.serviceCategory -> tgt.serviceCategory;
   src.serviceType -> tgt.serviceType;
   src.specialty -> tgt.specialty;
   src.actor -> tgt.actor;
   src.planningHorizon -> tgt.planningHorizon;
   src.comment -> tgt.comment;
 }
-

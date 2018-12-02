@@ -7,7 +7,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group Slot(source src : Slot, target tgt : SlotR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.serviceCategoryFirstRep -> tgt.serviceCategory "serviceCategory";
+  src.serviceCategory -> tgt.serviceCategory;
   src.serviceType -> tgt.serviceType;
   src.specialty -> tgt.specialty;
   src.appointmentType -> tgt.appointmentType;

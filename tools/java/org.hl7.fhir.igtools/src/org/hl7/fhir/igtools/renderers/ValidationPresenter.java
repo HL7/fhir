@@ -33,12 +33,14 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   int err = 0;
   int warn = 0;
   int info = 0;
+  private String root;
 
-  public ValidationPresenter(String statedVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider) {
+  public ValidationPresenter(String statedVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider, String root) {
     super();
     this.statedVersion = statedVersion;
     this.provider = provider;
     this.altProvider = altProvider;
+    this.root = root;
   }
 
   private List<FetchedFile> sorted(List<FetchedFile> files) {
@@ -59,8 +61,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
         else
           info++;
       }
-    }    
-    
+    }
     
     List<ValidationMessage> linkErrors = removeDupMessages(allErrors); 
     StringBuilder b = new StringBuilder();
@@ -359,7 +360,8 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
 
   
   private String makelink(FetchedFile f) {
-    return f.getName().replace("/", "_").replace("\\", "_").replace(":", "_");
+    String fn = f.getName().replace("/", "_").replace("\\", "_").replace(":", "_").replace("#", "_");
+    return fn;
   }
 
   private String errCount(List<ValidationMessage> list) {
@@ -384,14 +386,26 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     ST t = template(startTemplate);
     t.add("link", makelink(f));
     t.add("filename", f.getName());
-    t.add("path", f.getPath());
+    t.add("path", makeLocal(f.getPath()));
     String link = provider.getLinkFor(f.getResources().get(0));
     if (link==null) {
       link = altProvider.getLinkFor(f.getResources().get(0));
     }
+    if (link != null) { 
+      link = link.replace("{{[id]}}", f.getResources().get(0).getId());
+      link = link.replace("{{[type]}}", f.getResources().get(0).getElement().fhirType());
+    }
+    
     t.add("xlink", link);
     return t.render();
   }
+  
+  private String makeLocal(String path) {
+    if (path.startsWith(root))
+      return path.substring(root.length()+1);
+    return path;
+  }
+
   private String genStartInternal() {
     ST t = template(startTemplate);
     t.add("link", INTERNAL_LINK);
@@ -415,12 +429,12 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     ST t = template(startTemplateText);
     t.add("link", makelink(f));
     t.add("filename", f.getName());
-    t.add("path", f.getPath());
+    t.add("path", makeLocal(f.getPath()));
     return t.render();
   }
   private String genDetails(ValidationMessage vm) {
     ST t = template(vm.getLocationLink() != null ? detailsTemplateWithLink : vm.getTxLink() != null ? detailsTemplateTx : detailsTemplate);
-    t.add("path", vm.getLocation());
+    t.add("path", makeLocal(vm.getLocation()));
     t.add("pathlink", vm.getLocationLink());
     t.add("level", vm.getLevel().toCode());
     t.add("color", colorForLevel(vm.getLevel()));

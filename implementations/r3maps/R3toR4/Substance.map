@@ -11,15 +11,18 @@ group Substance(source src : SubstanceR3, target tgt : Substance) extends Domain
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.description -> tgt.description;
-  src.instance as vs0 -> tgt.instance as vt0 then {
-    vs0.identifier -> vt0.identifier;
-    vs0.expiry -> vt0.expiry;
-    vs0.quantity -> vt0.quantity;
-  };
-  src.ingredient as vs0 -> tgt.ingredient as vt0 then {
-    vs0.quantity -> vt0.quantity;
-    vs0.substance : CodeableConcept as vs -> vt0.substance = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
-    vs0.substance : Reference as vs -> vt0.substance = create("Reference") as vt then Reference(vs, vt);
-  };
+  src.instance as vs0 -> tgt.instance as vt0 then instance(vs0, vt0);
+  src.ingredient as vs0 -> tgt.ingredient as vt0 then ingredient(vs0, vt0);
 }
 
+group instance(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.expiry -> tgt.expiry;
+  src.quantity -> tgt.quantity;
+}
+  
+group ingredient(source src, target tgt) extends BackboneElement {
+  src.quantity -> tgt.quantity;
+  src.substance : CodeableConcept as vs -> tgt.substance = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+  src.substance : Reference as vs -> tgt.substance = create("Reference") as vt then Reference(vs, vt);
+}

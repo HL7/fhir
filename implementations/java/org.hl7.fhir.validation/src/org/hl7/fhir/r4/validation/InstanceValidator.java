@@ -3542,8 +3542,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           }
         }
 
-      if (!ToolingExtensions.readBoolExtension(profile, "http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-no-order"))
-        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last) || isXmlAttr, "As specified by profile " + profile.getUrl() + ", Element '"+ei.name+"' is out of order");
+      if (!ToolingExtensions.readBoolExtension(profile, "http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-no-order")) {
+        boolean ok = (ei.definition == null) || (ei.index >= last) || isXmlAttr;
+        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ok, "As specified by profile " + profile.getUrl() + ", Element '"+ei.name+"' is out of order");
+      }
       if (ei.slice != null && ei.index == last && ei.slice.getSlicing().getOrdered())
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.sliceindex >= lastSlice) || isXmlAttr, "As specified by profile " + profile.getUrl() + ", Element '"+ei.name+"' is out of order in ordered slice");
       if (ei.definition == null || !isXmlAttr)

@@ -7563,6 +7563,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "procedure", name, element, index);
     if (element.hasSequenceElement())
       composePositiveInt(t, "ExplanationOfBenefit", "sequence", element.getSequenceElement(), -1);
+    for (int i = 0; i < element.getType().size(); i++)
+      composeCodeableConcept(t, "ExplanationOfBenefit", "type", element.getType().get(i), i);
     if (element.hasDateElement())
       composeDateTime(t, "ExplanationOfBenefit", "date", element.getDateElement(), -1);
     if (element.hasProcedure())
@@ -12343,14 +12345,14 @@ public class RdfParser extends RdfParserBase {
       composeObservationDefinitionObservationDefinitionQuantitativeDetailsComponent(t, "ObservationDefinition", "quantitativeDetails", element.getQuantitativeDetails(), -1);
     for (int i = 0; i < element.getQualifiedInterval().size(); i++)
       composeObservationDefinitionObservationDefinitionQualifiedIntervalComponent(t, "ObservationDefinition", "qualifiedInterval", element.getQualifiedInterval().get(i), i);
-    if (element.hasValidCodedValueSetElement())
-      composeUri(t, "ObservationDefinition", "validCodedValueSet", element.getValidCodedValueSetElement(), -1);
-    if (element.hasNormalCodedValueSetElement())
-      composeUri(t, "ObservationDefinition", "normalCodedValueSet", element.getNormalCodedValueSetElement(), -1);
-    if (element.hasAbnormalCodedValueSetElement())
-      composeUri(t, "ObservationDefinition", "abnormalCodedValueSet", element.getAbnormalCodedValueSetElement(), -1);
-    if (element.hasCriticalCodedValueSetElement())
-      composeUri(t, "ObservationDefinition", "criticalCodedValueSet", element.getCriticalCodedValueSetElement(), -1);
+    if (element.hasValidCodedValueSet())
+      composeReference(t, "ObservationDefinition", "validCodedValueSet", element.getValidCodedValueSet(), -1);
+    if (element.hasNormalCodedValueSet())
+      composeReference(t, "ObservationDefinition", "normalCodedValueSet", element.getNormalCodedValueSet(), -1);
+    if (element.hasAbnormalCodedValueSet())
+      composeReference(t, "ObservationDefinition", "abnormalCodedValueSet", element.getAbnormalCodedValueSet(), -1);
+    if (element.hasCriticalCodedValueSet())
+      composeReference(t, "ObservationDefinition", "criticalCodedValueSet", element.getCriticalCodedValueSet(), -1);
   }
 
   protected void composeObservationDefinitionObservationDefinitionQuantitativeDetailsComponent(Complex parent, String parentType, String name, ObservationDefinition.ObservationDefinitionQuantitativeDetailsComponent element, int index) {
@@ -13803,8 +13805,8 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "RequestGroup", "code", element.getCode(), -1);
     if (element.hasSubject())
       composeReference(t, "RequestGroup", "subject", element.getSubject(), -1);
-    if (element.hasContext())
-      composeReference(t, "RequestGroup", "context", element.getContext(), -1);
+    if (element.hasEncounter())
+      composeReference(t, "RequestGroup", "encounter", element.getEncounter(), -1);
     if (element.hasAuthoredOnElement())
       composeDateTime(t, "RequestGroup", "authoredOn", element.getAuthoredOnElement(), -1);
     if (element.hasAuthor())
@@ -13881,12 +13883,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "condition", name, element, index);
     if (element.hasKindElement())
       composeEnum(t, "RequestGroup", "kind", element.getKindElement(), -1);
-    if (element.hasDescriptionElement())
-      composeString(t, "RequestGroup", "description", element.getDescriptionElement(), -1);
-    if (element.hasLanguageElement())
-      composeString(t, "RequestGroup", "language", element.getLanguageElement(), -1);
-    if (element.hasExpressionElement())
-      composeString(t, "RequestGroup", "expression", element.getExpressionElement(), -1);
+    if (element.hasExpression())
+      composeExpression(t, "RequestGroup", "expression", element.getExpression(), -1);
   }
 
   protected void composeRequestGroupRequestGroupActionRelatedActionComponent(Complex parent, String parentType, String name, RequestGroup.RequestGroupActionRelatedActionComponent element, int index) {
@@ -14247,8 +14245,8 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "RiskAssessment", "code", element.getCode(), -1);
     if (element.hasSubject())
       composeReference(t, "RiskAssessment", "subject", element.getSubject(), -1);
-    if (element.hasContext())
-      composeReference(t, "RiskAssessment", "context", element.getContext(), -1);
+    if (element.hasEncounter())
+      composeReference(t, "RiskAssessment", "encounter", element.getEncounter(), -1);
     if (element.hasOccurrence())
       composeType(t, "RiskAssessment", "occurrence", element.getOccurrence(), -1);
     if (element.hasCondition())
@@ -14809,8 +14807,8 @@ public class RdfParser extends RdfParserBase {
       composeIdentifier(t, "SpecimenDefinition", "identifier", element.getIdentifier(), -1);
     if (element.hasTypeCollected())
       composeCodeableConcept(t, "SpecimenDefinition", "typeCollected", element.getTypeCollected(), -1);
-    if (element.hasPatientPreparationElement())
-      composeString(t, "SpecimenDefinition", "patientPreparation", element.getPatientPreparationElement(), -1);
+    for (int i = 0; i < element.getPatientPreparation().size(); i++)
+      composeCodeableConcept(t, "SpecimenDefinition", "patientPreparation", element.getPatientPreparation().get(i), i);
     if (element.hasTimeAspectElement())
       composeString(t, "SpecimenDefinition", "timeAspect", element.getTimeAspectElement(), -1);
     for (int i = 0; i < element.getCollection().size(); i++)
@@ -14868,7 +14866,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasCapacity())
       composeQuantity(t, "SpecimenDefinition", "capacity", element.getCapacity(), -1);
     if (element.hasMinimumVolume())
-      composeQuantity(t, "SpecimenDefinition", "minimumVolume", element.getMinimumVolume(), -1);
+      composeType(t, "SpecimenDefinition", "minimumVolume", element.getMinimumVolume(), -1);
     for (int i = 0; i < element.getAdditive().size(); i++)
       composeSpecimenDefinitionSpecimenDefinitionTypeTestedContainerAdditiveComponent(t, "SpecimenDefinition", "additive", element.getAdditive().get(i), i);
     if (element.hasPreparationElement())

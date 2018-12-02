@@ -234,7 +234,7 @@ public class HTLMLInspector {
     if (x != null) {
       checkHtmlStructure(s, x, messages);
       listTargets(x, lf.getTargets());
-      if (forHL7) {
+      if (forHL7 & !isRedirect(x)) {
         checkTemplatePoints(x, messages, s);
       }
     }
@@ -259,6 +259,19 @@ public class HTLMLInspector {
 //    } catch (IOException e) {
 //      messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "failed security testing: "+e.getMessage(), IssueSeverity.ERROR));
 //    } 
+  }
+
+  private boolean isRedirect(XhtmlNode x) {
+    return !hasHTTPRedirect(x);
+  }
+
+  private boolean hasHTTPRedirect(XhtmlNode x) {
+    if ("meta".equals(x.getName()) && x.hasAttribute("http-equiv"))
+      return true;
+    for (XhtmlNode c : x.getChildNodes())
+      if (hasHTTPRedirect(c))
+        return true;
+    return false;
   }
 
   private void checkTemplatePoints(XhtmlNode x, List<ValidationMessage> messages, String s) {
@@ -423,9 +436,15 @@ public class HTLMLInspector {
     if (resolved) {
       return false;
     } else {
-      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path+(loc == null ? "" : " at "+loc.toString())), "The link '"+ref+"' for \""+text+"\" cannot be resolved"+tgtList, IssueSeverity.ERROR).setLocationLink(uuid == null ? null : filename+"#"+uuid));
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path+(loc == null ? "" : " at "+loc.toString())), "The link '"+ref+"' for \""+text+"\" cannot be resolved"+tgtList, IssueSeverity.ERROR).setLocationLink(uuid == null ? null : makeLocal(filename)+"#"+uuid));
       return true;
     } 
+  }
+
+  private String makeLocal(String filename) {
+    if (filename.startsWith(rootFolder))
+      return filename.substring(rootFolder.length()+1);
+    return filename;
   }
 
   private boolean checkResolveImageLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages, String uuid) throws IOException {
