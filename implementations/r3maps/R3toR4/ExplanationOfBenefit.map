@@ -21,13 +21,17 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : Exp
   src.facility -> tgt.facility;
   src.claim -> tgt.claim;
   src.claimResponse -> tgt.claimResponse;
-  src.outcome -> tgt.outcome;
+  src.outcome as vs then {
+   vs.coding as c where code in 'complete' | 'error' | 'partial' then {
+     c.code -> tgt.outcome;
+   };
+  };
   src.disposition -> tgt.disposition;
   src.related as s -> tgt.related as t then ExplanationOfBenefitRelated(s, t);
   src.prescription -> tgt.prescription;
   src.originalPrescription -> tgt.originalPrescription;
   src.payee as s -> tgt.payee as t then ExplanationOfBenefitPayee(s, t);
-  src.information as s -> tgt.information as t then ExplanationOfBenefitInformation(s, t);
+  src.information as s -> tgt.supportingInfo as t then ExplanationOfBenefitInformation(s, t);
   src.careTeam as s -> tgt.careTeam as t then ExplanationOfBenefitCareTeam(s, t);
   src.diagnosis as s -> tgt.diagnosis as t then ExplanationOfBenefitDiagnosis(s, t);
   src.procedure as s -> tgt.procedure as t then ExplanationOfBenefitProcedure(s, t);
@@ -36,7 +40,7 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : Exp
   src.accident as s -> tgt.accident as t then ExplanationOfBenefitAccident(s, t);
   src.item as s -> tgt.item as t then ExplanationOfBenefitItem(s, t);
   src.addItem as s -> tgt.addItem as t then ExplanationOfBenefitAddItem(s, t);
-  src.total as s -> tgt.total as t then ExplanationOfBenefitTotal(s, t);
+  src.totalCost as s -> tgt.total as t then ExplanationOfBenefitTotalCost(s, t);
   src.payment as s -> tgt.payment as t then ExplanationOfBenefitPayment(s, t);
   src.form -> tgt.form;
   src.processNote as s -> tgt.processNote as t then ExplanationOfBenefitProcessNote(s, t);
@@ -51,7 +55,6 @@ group ExplanationOfBenefitRelated(source src, target tgt) extends BackboneElemen
 
 group ExplanationOfBenefitPayee(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
-  src.resource -> tgt.resource;
   src.party -> tgt.party;
 }
 
@@ -98,13 +101,13 @@ group ExplanationOfBenefitAccident(source src, target tgt) extends BackboneEleme
 
 group ExplanationOfBenefitItem(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
-  src.careTeamSequence -> tgt.careTeamSequence;
-  src.diagnosisSequence -> tgt.diagnosisSequence;
-  src.procedureSequence -> tgt.procedureSequence;
-  src.informationSequence -> tgt.informationSequence;
+  src.careTeamLinkId -> tgt.careTeamSequence;
+  src.diagnosisLinkId -> tgt.diagnosisSequence;
+  src.procedureLinkId -> tgt.procedureSequence;
+  src.informationLinkId -> tgt.informationSequence;
   src.revenue -> tgt.revenue;
   src.category -> tgt.category;
-  src.service -> tgt.service;
+  src.service -> tgt.productOrService;
   src.modifier -> tgt.modifier;
   src.programCode -> tgt.programCode;
   src.serviced -> tgt.serviced;
@@ -207,9 +210,9 @@ group ExplanationOfBenefitAddItemDetailSubDetail(source src, target tgt) extends
   src.adjudication -> tgt.adjudication;
 }
 
-group ExplanationOfBenefitTotal(source src, target tgt) extends BackboneElement {
-  src.category -> tgt.category;
-  src.amount -> tgt.amount;
+group ExplanationOfBenefitTotalCost(source src, target tgt) extends BackboneElement {
+  // src.category -> tgt.category;
+  src as src -> tgt.amount = src "set total amount";
 }
 
 group ExplanationOfBenefitPayment(source src, target tgt) extends BackboneElement {
