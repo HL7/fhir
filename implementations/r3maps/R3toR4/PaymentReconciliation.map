@@ -10,14 +10,18 @@ group PaymentReconciliation(source src : PaymentReconciliationR3, target tgt : P
   src.status -> tgt.status;
   src.period -> tgt.period;
   src.created -> tgt.created;
-  src.organization -> tgt.organization;
+  src.organization -> tgt.paymentIssuer;
   src.request -> tgt.request;
-  src.outcome -> tgt.outcome;
+  src.outcome as vs then {
+   vs.coding as c where code in 'complete' | 'error' | 'partial' then {
+     c.code -> tgt.outcome;
+   };
+  };
   src.disposition -> tgt.disposition;
-  src.requestProvider -> tgt.requestProvider;
+  src.requestProvider -> tgt.requestor;
   src.detail as s -> tgt.detail as t then PaymentReconciliationDetail(s, t);
-  src.form -> tgt.form;
-  src.total -> tgt.total;
+  src.form -> tgt.formCode;
+  src.total -> tgt.paymentAmount;
   src.processNote as s -> tgt.processNote as t then PaymentReconciliationProcessNote(s, t);
 }
 
@@ -32,7 +36,11 @@ group PaymentReconciliationDetail(source src, target tgt) extends BackboneElemen
 }
 
 group PaymentReconciliationProcessNote(source src, target tgt) extends BackboneElement {
-  src.type -> tgt.type;
+  src.type as vs then {
+   vs.coding as c then {
+     c.code -> tgt.type;
+   };
+  };
   src.text -> tgt.text;
 }
 
