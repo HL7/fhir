@@ -9,7 +9,7 @@ group EnrollmentResponse(source src : EnrollmentResponseR3, target tgt : Enrollm
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.request -> tgt.request;
-  src.outcome -> tgt.outcome;
+  src.outcome as vs where value in 'complete' | 'error' | 'partial' -> tgt.outcome as vt, vt.coding as c, c.system = 'http://hl7.org/fhir/remittance-outcome', c.code = vs;
   src.disposition -> tgt.disposition;
   src.created -> tgt.created;
   src.organization -> tgt.organization;
