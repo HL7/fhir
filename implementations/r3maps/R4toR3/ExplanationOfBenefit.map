@@ -21,13 +21,13 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : Exp
   src.facility -> tgt.facility;
   src.claim -> tgt.claim;
   src.claimResponse -> tgt.claimResponse;
-  src.outcome -> tgt.outcome;
+  src.outcome as vs where value in 'complete' | 'error' | 'partial' -> tgt.outcome as vt, vt.coding as c, c.system = 'http://hl7.org/fhir/remittance-outcome', c.code = vs;
   src.disposition -> tgt.disposition;
   src.related as s -> tgt.related as t then ExplanationOfBenefitRelated(s, t);
   src.prescription -> tgt.prescription;
   src.originalPrescription -> tgt.originalPrescription;
   src.payee as s -> tgt.payee as t then ExplanationOfBenefitPayee(s, t);
-  src.information as s -> tgt.information as t then ExplanationOfBenefitInformation(s, t);
+  src.supportingInfo as s -> tgt.information as t then ExplanationOfBenefitInformation(s, t);
   src.careTeam as s -> tgt.careTeam as t then ExplanationOfBenefitCareTeam(s, t);
   src.diagnosis as s -> tgt.diagnosis as t then ExplanationOfBenefitDiagnosis(s, t);
   src.procedure as s -> tgt.procedure as t then ExplanationOfBenefitProcedure(s, t);
@@ -51,7 +51,6 @@ group ExplanationOfBenefitRelated(source src, target tgt) extends BackboneElemen
 
 group ExplanationOfBenefitPayee(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
-  src.resource -> tgt.resource;
   src.party -> tgt.party;
 }
 
@@ -98,13 +97,13 @@ group ExplanationOfBenefitAccident(source src, target tgt) extends BackboneEleme
 
 group ExplanationOfBenefitItem(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
-  src.careTeamSequence -> tgt.careTeamSequence;
-  src.diagnosisSequence -> tgt.diagnosisSequence;
-  src.procedureSequence -> tgt.procedureSequence;
-  src.informationSequence -> tgt.informationSequence;
+  src.careTeamSequence -> tgt.careTeamLinkId;
+  src.diagnosisSequence -> tgt.diagnosisLinkId;
+  src.procedureSequence -> tgt.procedureLinkId;
+  src.informationSequence -> tgt.informationLinkId;
   src.revenue -> tgt.revenue;
   src.category -> tgt.category;
-  src.service -> tgt.service;
+  src.productOrService -> tgt.service;
   src.modifier -> tgt.modifier;
   src.programCode -> tgt.programCode;
   src.serviced -> tgt.serviced;
