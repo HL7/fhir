@@ -11,7 +11,7 @@ group EnrollmentRequest(source src : EnrollmentRequestR3, target tgt : Enrollmen
   src.created -> tgt.created;
   src.insurer -> tgt.insurer;
   src.provider -> tgt.provider;
-  src.candidate -> tgt.candidate;
+  src.candidate -> tgt.subject;
   src.coverage -> tgt.coverage;
 }
 
