@@ -458,7 +458,11 @@
 			FHIR resource, there is only a single resource for both purposes. The placer is the actor that performs the
 			PUT or POST operation on the resource, and the filler is the actor that receives these resource messages and
 			processes the information and makes a decision if the appointment can be used.
-</li>
+		</li>
+		<li>Terminology - ServiceCategory, ServiceType and Specialty<br/>
+			The 3 core clinical terminologies associated with the appointment may have relationships with each other
+			through the terminology server, but not these might not be visible in the actual appointment resource or profile.
+		</li>
 		<li>Interaction with other Standards<br/>
 			The strong desire is that implementers of this resource should consider providing this resource
 			in the iCalendar format as an alternative representation. Many 3rd party applications and component providers
@@ -472,7 +476,9 @@
 <a name="dstu"> </a>
 [%stu-note%]
 Implementer feedback is sought on the values for Appointment.priority and how interoperable they are.
-Using an extension to record a CodeableConcept for named values may be tested at a future Connectathon.
+Using an extension to record a CodeableConcept for named values may be tested at a future Connectathon.<br/>
+Implementer feedback is also sought to clarify desired relationship linkages between ServiceCategory, 
+ServiceType and Specialty, along with how they have approached the definition.
 </p>
 <p>
 Feedback <a href="http://hl7.org/fhir-issues">here</a>.
