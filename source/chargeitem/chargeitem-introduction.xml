@@ -14,13 +14,13 @@ They are created as soon as the products are planned or provisioned, references 
 		<p>
 The target of ChargeItem.definition may provide information on the Charge code such as pricing and inclusion/exclusion rules as well as 
 factors that apply under certain conditions.
-In many cases however this information may been drawn from sources outside of FHIR depending on the distribution format of the code catalogue.
+In many cases however this information may have been drawn from sources outside of FHIR depending on the distribution format of the code catalogue.
 The ChargeItem assumes that such information is either implicitly known by the communicating systems or explicitly shared through the ChargeItem.definition. 
 Therefore explicit pricing information is not shared within the ChargeItem resource. 
 Also, the systems posting the ChargeItems are not expected to apply the rules associated with the charge codes as they may
  not know the whole context of the patient/encounter to evaluate such rules.
 
-It lies within the responsibity of a billing engine, to collect the ChargeItems in the context of an Account or Encounter at a certain point in time 
+It lies within the responsibility of a billing engine, to collect the ChargeItems in the context of an Account or Encounter at a certain point in time 
 (e.g. discharge of the patient) and to evaluate the associated rules resulting in some of the ChargeItems to be set to the status "not billable" 
 in case the rules exclude them from being billed, or to create financial transactions according to base price and factors. 
 Additional references to Encounter/EpisodeOfCare, Patient/Group and
@@ -33,7 +33,7 @@ Additional references to Encounter/EpisodeOfCare, Patient/Group and
 	<div>
 		<h2>Boundaries and Relationships</h2>
 		<p>
-This resource is not an actual financial transaction (such as an item on an invoice or any concise monetary amount being transferred from one Account to another), 
+This resource is not an actual financial transaction (such as an item on an invoice or any concise monetary amount being transferred from one Account to another) 
 but is the base administrative data that may be used by 
 a billing engine to create the financial transactions based on rules, factors and base prices associated with the charge code.</p>
 <p>

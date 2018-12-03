@@ -417,7 +417,7 @@
 			<!-- Appointment -->
 			<td>
 				status = waitlist<br/>
-				requestedPeriod = <i>(more convinient time period)</i>
+				requestedPeriod = <i>(more convenient time period)</i>
 			</td>
 			<!-- Appointment Waitlist -->
 		</tr>

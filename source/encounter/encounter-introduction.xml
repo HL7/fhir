@@ -40,7 +40,7 @@ encounter instance should be used to capture this information as a partOf this e
 <p>
 The Procedure and encounter have references to each other, and these should be to different procedures;
 one for the procedure that was performed during the encounter (stored in Procedure.encounter), and another for cases
-where an encounter is a result of another procedure (stored in Encounter.indication) such as a followup encounter to
+where an encounter is a result of another procedure (stored in Encounter.indication) such as a follow-up encounter to
 resolve complications from an earlier procedure.
 </p>
 
@@ -49,14 +49,14 @@ resolve complications from an earlier procedure.
 During the life-cycle of an encounter it will pass through many statuses. Typically these are in order or the
 organization's workflow: planned, in-progress, finished/cancelled.<br/>
 This status information is often used for other things, and often an analysis of the status history is required.
-This could be done by scanning through all the versions of the encounter and then checking the period of each,
-and doing some form of post processing. To ease the burden of this (or where a system doesn't support resource
+This could be done by scanning through all the versions of the encounter, checking the period of each,
+and then doing some form of post processing. To ease the burden of this (or where a system doesn't support resource
 histories) a status history component is included.
 </p>
 <p>
 There is no direct indication purely by the status field as to whether an encounter is considered "admitted".<br/>
 The context of the encounter and business practices/policies/workflows/types can influence this definition.
-(e.g., acute care facility, aged care center, outpatient clinic, emergency department, community based clinic).<br/>
+(e.g., acute care facility, aged care center, outpatient clinic, emergency department, community-based clinic).<br/>
 Statuses of "arrived", "triaged" or "in progress" could be considered the start of the admission, and also have the 
 presence of the hospitalization sub-component entered.
 </p>
