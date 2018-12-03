@@ -24,13 +24,13 @@ An invoice is a financial document issued by a healthcare provider to a patient 
 		<p>
 The existing Claim resource is constricted to use cases where Claims are sent to insurances for reimbursement, in a message-like style. It neither references ChargeItems nor Accounts.
 </p><p>
-Competing invoicing standards such as EDIFACT or X12 are aiming at inter-organisational exchange and do not offer human readable representations or traceable links to services rendered which is a requirement for invoicing towards patients.
+Competing invoicing standards such as EDIFACT or X12 are aiming at inter-organizational exchange and do not offer human readable representations or traceable links to services rendered which is a requirement for invoicing towards patients.
 
 This resource is used where existing ChargeItems in an Account are collected to create an Invoice to be sent out to Individuals or Organizations in a structured way.
 
-The invoice is the hospital’s view, whereas the Claim is the payer’s view on the performed services.</p>
+The invoice is the hospital's view, whereas the Claim is the payer's view on the performed services.</p>
 <p>
-Since the indiviual ChargeItem resources that make the line items of the Invoice do not carry any pricing information, ChargeItemDefinitions will have to be applied to the ChargeItems in order to calculate the price components for the Invoice depending on the context of the ChargeItem</p>
+Since the individual ChargeItem resources that make up the line items of the Invoice do not carry any pricing information, ChargeItemDefinitions will have to be applied to the ChargeItems in order to calculate the price components for the Invoice depending on the context of the ChargeItem</p>
 	
 </div>
 	<!-- (optional):
