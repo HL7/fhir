@@ -21,7 +21,7 @@
     <p></p>
     <h3>Multiple Organizations and Transfer of Care</h3>
     <p>
-      Many organizations can be involved in an episode of care, however each organization will have its own EpisodeOfCare resource instance
+      Many organizations can be involved in an EpisodeOfCare; however each organization will have its own EpisodeOfCare resource instance
       that tracks its responsibility with the patient.
     </p>
     <p>
