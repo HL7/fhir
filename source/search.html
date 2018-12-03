@@ -340,7 +340,7 @@ The modifiers are separated from the parameter name by a colon. Modifiers are:</
 <p>
 Server SHALL reject any search request that contains is suffixed by a modifier that the
 server does <b>not</b> support for that parameter. For example, if the server supports
-the <code>name</code> search param, but not the <code>:exact</code> modifier on the name, it should reject a
+the <code>name</code> search parameter, but not the <code>:exact</code> modifier on the name, it should reject a
 search with the parameter <code>name:exact=Bill</code>, using an HTTP <code>400</code> error with
 an <a href="operationoutcome.html">OperationOutcome</a> with a <a href="operationoutcome-example-searchfail.html">clear error message</a>.
 
@@ -462,7 +462,7 @@ Notes about searching on Numbers:
  <li>When a number search is used against a resource element that stores a simple integer (e.g. 
  <a href="immunizationrecommendation-definitions.html#ImmunizationRecommendation.recommendation.doseNumber_x_">ImmunizationRecommendation.recommendation.doseNumber</a>), and the search parameter
     is not expressed using the exponential forms, and does not include any non-zero digits after a decimal point, 
-    the signficance issues cancel out and searching is based on exact matches.  Note that if there are non-zero digits after a decimal point,
+    the significance issues cancel out and searching is based on exact matches.  Note that if there are non-zero digits after a decimal point,
     there cannot be any matches</li>
  <li>When a comparison prefix in the set <code>lgt, lt, ge, le, sa &amp; eb</code> is provided, the 
      implicit precision of the number is ignored, and they are treated as if they have arbitrarily high precision</li>
@@ -663,7 +663,7 @@ though only a few servers are expected to offer this facility.
 When a string search parameter refers to the types <a href="datatypes.html#HumanName">HumanName</a> and <a href="datatypes.html#Address">Address</a>,
 the search covers the elements of type string, and does not cover elements such as <code>use</code> and <code>period</code>.
 For robust search, servers should search the parts of a family name independently.
-E.g. Searching either Carreno or Quinones should match a family name of "Carreno Quinones".
+E.g. searching either "Carreno" or "Quinones" should match a family name of "Carreno Quinones".
 HL7 affiliates may make more specific recommendations about how search should work
 in their specific culture.
 </p>
@@ -673,7 +673,7 @@ and contact details to remove separator characters prior to matching in order
 to ensure more consistent behavior. For example, a server might remove all
 spaces and <code>-</code> characters from phone numbers. What is most appropriate varies
 depending on culture and context.
-A server may also use a free-text style searches on this property to achieve the best results
+A server may also use a free-text style searches on this property to achieve the best results.<br/>
 When searching whole names and addresses (not parts), servers may also use flexible match
 or a free-text style searches on names to achieve the best results.
 </p>
@@ -730,7 +730,7 @@ are always case sensitive. If the underlying data type is <code><a href="datatyp
 then the search is not case sensitive.
 </p>
 <p>
-<b>Note</b>: There are many challenging issues around case senstivity and token searches. Some 
+<b>Note</b>: There are many challenging issues around case sensitivity and token searches. Some 
 code systems are case sensitive (e.g. UCUM) while others are known not to be. For many code
 systems, it's ambiguous. Other kinds of values are also ambiguous. When in doubt, servers
 SHOULD treat tokens in a case-insensitive manner, on the grounds that including undesired
@@ -816,7 +816,7 @@ Token search parameters are used for the following data types:
   <td><a href="datatypes.html#string">string</a></td>
   <td>n/a</td>
   <td>string</td>
-  <td>Token is sometimes used for string to indicate that exact matching is the correct default search stategy</td>
+  <td>Token is sometimes used for string to indicate that exact matching is the correct default search strategy</td>
  </tr>
 </table>
 <p>
@@ -974,7 +974,7 @@ In order to allow the client to perform a search in these situations the type is
 </pre>
 <p>
 This searches for any observations where the subject refers to the patient resource with the
-logical identifier "23". A modifier is also defined to to allow the client to be explicit
+logical identifier "23". A modifier is also defined to allow the client to be explicit
 about the intended type:
 </p>
 <pre>
@@ -1252,7 +1252,7 @@ Examples of using composite parameters:
  <tr><td><pre> GET [base]/DiagnosticReport?result.code-value-quantity=http://loinc.org|2823-3$gt5.4|http://unitsofmeasure.org|mmol/L</pre></td><td>Search for all diagnostic reports that contain on observation with a potassium value of >5.4 mmol/L (UCUM)</td></tr>
  <tr><td><pre> GET [base]/Observation?component-code-value-quantity=http://loinc.org|8480-6$lt60</pre></td><td>Search for all the observations with a systolic blood pressure &lt; 60. Note that in this case, the unit is assumed (everyone uses mmHg)</td></tr>
  <tr><td><pre> GET [base]/Group?characteristic-value=gender$mixed</pre></td><td>Search for all groups that have a characteristic "gender" with a text value of "mixed"</td></tr>
- <tr><td><pre> GET [base]/Questionnaire?context-type-value=focus$http://snomed.info/sct|408934002</pre></td><td>Search for all questionnaires that have a cliical focus = "Substance abuse prevention assessment (procedure)"</td></tr>
+ <tr><td><pre> GET [base]/Questionnaire?context-type-value=focus$http://snomed.info/sct|408934002</pre></td><td>Search for all questionnaires that have a clinical focus = "Substance abuse prevention assessment (procedure)"</td></tr>
 </table>
 
 <a name="missing"></a>
@@ -1374,7 +1374,7 @@ for related words as well.
 </p>
 <p>
 Implementers could consider using the rules specified by the <a href="http://docs.oasis-open.org/odata/odata/v4.0/cs01/part1-protocol/odata-v4.0-cs01-part1-protocol.html#_The_$search_System">
-the OData specification for the $<code>search</code> parameter</a>. Typical implementations would use Lucene, Solr, an sql-based full text search, or some similar indexing service.
+OData specification for the $<code>search</code> parameter</a>. Typical implementations would use Lucene, Solr, an sql-based full text search, or some similar indexing service.
 </p>
 
 <a name="special"></a>
@@ -1901,7 +1901,7 @@ Servers are not obliged to return just a summary as requested. There are only
 a limited number of summary forms defined for resources in order to allow servers
 to store the summarized form(s) in advance. Servers SHOULD mark the resources with the
 tag <a href="v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
-to ensure that the incomplete resource is not acidentally used to overwrite
+to ensure that the incomplete resource is not accidentally used to overwrite
 a complete resource.
 </p>
 <p>
