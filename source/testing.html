@@ -71,7 +71,7 @@ systems adhere to the specification.
 <h4 id="workflow">Workflow</h4>
 <p><b>Pre-Processing</b></p>
 <p>
-  The TestScript execution workflow begins by determining if the test suite is appropriate for the server under test. This can be determined by evaluating if the interactions listed in the TestScript metadata "capabilities" section are supported by the server's conformance resource. If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under test’s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison.. See <a href="#howToSpecifiyCapabilities">How to specify metadata capabilities</a>.
+  The TestScript execution workflow begins by determining if the test suite is appropriate for the server under test. This can be determined by evaluating if the interactions listed in the TestScript metadata "capabilities" section are supported by the server's conformance resource. If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under testï¿½s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison.. See <a href="#howToSpecifiyCapabilities">How to specify metadata capabilities</a>.
 </p>
 <p>
   If the server supports the requirements of the TestScript instance, any specified fixtures are loaded or retrieved. If the fixtures are marked as 'autocreate' then they are automatically created on the server(s) under test using 'create' operations. If any of the autocreate operations fail, then the tests in the TestScript are skipped.
@@ -201,7 +201,7 @@ instance. Note: This is a security label because different access control rules 
 
 <a name="create"></a>
 <h4 id="howToTestCreate">Test create operation</h4>
-<p>To test if <a href="http.html#create">create</a> operation is properly supported on a server, run the operation as part of <a href="testscript-definitions.html#TestScript.test">TestScript.test</a>.</p>
+<p>To test if the <a href="http.html#create">create</a> operation is properly supported on a server, run the operation as part of <a href="testscript-definitions.html#TestScript.test">TestScript.test</a>.</p>
 <p>First, define the <a href="testscript-definitions.html#TestScript.fixture">fixture</a> as a <a href="references.html">reference</a> at the top of the test script. The fixture will hold the body of the POST request:</p>
 <div class="xmlCode"><xmp>
 <fixture id="example-patient">
@@ -1093,7 +1093,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 <hr/><!-- =========================================================================================================================================================== -->
 <a name="metadata"></a>
 <h4 id="howToSpecifiyCapabilities">How to specify metadata capabilities</h4>
-<p>If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under test’s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison..</p>
+<p>If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under testï¿½s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison..</p>
 <p>Here's how to specify that the test script requires the server to support Patient create and delete operations:</p>
 <div class="xmlCode"><xmp>
 <metadata>

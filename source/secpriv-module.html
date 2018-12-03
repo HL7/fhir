@@ -122,7 +122,7 @@ Full audit trails can be constructed and used to detect anomalous access pattern
 For general security considerations and principles, see <a href="security.html">Security</a>.
 Please leverage mature Security Frameworks covering device security, cloud security, big-data security, service-to-service security, etc.
 See <a href="https://nccoe.nist.gov/projects/building_blocks/mobile_device_security"> NIST Mobile Device Security</a>
-and <a href="https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10">OWASP Mobile Secuity</a>. 
+and <a href="https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10">OWASP Mobile Security</a>. 
 These security frameworks include prioritized lists of most important concerns.
 </p>
 <a name="privacy"></a>
@@ -248,13 +248,13 @@ For details, see
 <a name="AoD"></a>
 <h4>Accounting of Disclosures and/or Access Report</h4>
 <p>
-<em>Use case:</em> "A Patient should be offered a report that informs about how their data is Collected, Used, and Disclosed.".
+<em>Use case:</em> "A Patient should be offered a report that informs about how their data is Collected, Used, and Disclosed."
 </p><p>
 <em>Approach:</em> The AuditEvent resource can inform this report.
 </p><p>
 There are many motivations to provide a Patient with some report on how their data was used. There is a very restricted version of this in HIPAA as an "Accounting of Disclosures", there are others that would include more accesses. The result is a human readable report. The raw material used to create this report can be derived from a well recorded 'security audit log', specifically based on AuditEvent. The format of the report delivered to the Patient is not further discussed but might be: printed on paper, PDF, comma separated file, or FHIR Document made up of filtered and crafted AuditEvent Resources.  The report would indicate, to the best ability, Who accessed What data from Where at When for Why purpose. The 'best ability' recognizes that some events happen during emergent conditions where some knowledge is not knowable. The report usually does need to be careful not to abuse the Privacy rights of the individual that accessed the data (Who).  The report would describe the data that was accessed (What), not duplicate the data. 
 </p><p>
-Some events are known to be subject to the Accounting of Disclosures report when the event happens, thus can be recorded as an Accounting of Disclosures  - See <a href="auditevent-example-disclosure.html">example Accounting of Disclosures</a>.  Other events must be pulled from the security audit log. A security audit log will record ALL actions upon data regardless of if they are reportable to the Patient. This is true because the security audit log is used for many other purposes. - See <a href="security.html#audit">Audit Logging</a>. These recorded AuditEvents may need to be manipulated to protect organization or employee (provider) privacy constraints. GIven the large number of AuditEvents, there may be multiple records of the same actual access event, so the reporting will need to de-duplicate.
+Some events are known to be subject to the Accounting of Disclosures report when the event happens, thus can be recorded as an Accounting of Disclosures  - See <a href="auditevent-example-disclosure.html">example Accounting of Disclosures</a>.  Other events must be pulled from the security audit log. A security audit log will record ALL actions upon data regardless of if they are reportable to the Patient. This is true because the security audit log is used for many other purposes. - See <a href="security.html#audit">Audit Logging</a>. These recorded AuditEvents may need to be manipulated to protect organization or employee (provider) privacy constraints. Given the large number of AuditEvents, there may be multiple records of the same actual access event, so the reporting will need to de-duplicate.
 
 </p>
 
