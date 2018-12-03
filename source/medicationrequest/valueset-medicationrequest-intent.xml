@@ -5,7 +5,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/medicationrequest-intent"/>
-  <name value="medicationRequest Status"/>
+  <name value="medicationRequest Intent"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -14,7 +14,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="MedicationRequest Status Codes"/>
+  <description value="MedicationRequest Intent Codes"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/ValueSet/medicationrequest-intent"/>
