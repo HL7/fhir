@@ -96,9 +96,9 @@ robust choice as the primary data store. Clinical Data Repositories tend to beha
 like this.
 </p>
 <p>
-Most information systems fall somewhere between these 2 extremes, and determinming whether
+Most information systems fall somewhere between these 2 extremes, and determining whether
 to store resources directly is not straight forward. Some applications take a 
-hybrid approach – storing FHIR resources natively, and storing a well controlled 
+hybrid approach - storing FHIR resources natively, and storing a well-controlled 
 subset of information in some expressly designed persistent scheme. 
 The balance between these is driven by the stability of information requirements 
 for different parts of the system.
@@ -118,7 +118,7 @@ Typically, such systems have functional requirements that include some variation
 of these:
 </p>
 <ul>
- <li>The system must be able to make resources available in their original form for integritty/audit reasons</li>
+ <li>The system must be able to make resources available in their original form for integrity/audit reasons</li>
  <li>The system must present some unified view/analysis/process based on a coherent view of the information from resources with different FHIR versions</li>
 </ul>
 <p>
@@ -157,8 +157,8 @@ across all technologies.
 <p>
 Most applications that store resources natively find the way references work in FHIR 
 deserves particular focus. <a href="references.html">References</a> can be absolute 
-or relative URLs, they can be version specific or not, they may or many not follow 
-FHIR’s well defined RESTful interface pattern, and they may or might not resolve 
+or relative URLs, they can be version specific or not, they may or may not follow 
+FHIR's well defined RESTful interface pattern, and they may or might not resolve 
 in the local system. In addition, given the requirements consideration above, it's 
 not always possible to enforce referential integrity when storing resources directly. 
 </p>
@@ -167,7 +167,7 @@ All the flexibility is required in various exchange scenarios, but it can presen
 challenges for application design when building a coherent data store with resources.
 </p>
 <p>
-Applications that store resources natively may want to extending the storage 
+Applications that store resources natively may want to extend the storage 
 format with an element to capture the <code>resolved link</code> in addition 
 to the existing reference/identifier in the <a href="references.html">Reference</a> 
 and <a href="datatypes.html#canonical">canonical</a> data types. 
