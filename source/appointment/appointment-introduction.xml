@@ -95,7 +95,7 @@
 					If new time slots become available during the requestedPeriod, the scheduling system, or staff
 					at the scheduling organization, can notify the patient that a new time slot is available.  If the patient
 					chooses, the waitlisted appointment would then be booked into that specific slot, and the previously booked 
-					appointment would be canceled.  The specific business process for notifying patients of new availablity is not
+					appointment would be canceled.  The specific business process for notifying patients of new availability is not
 					specified, and is up to the implementing system to determine.					
 				</p>
 			</li>
@@ -170,7 +170,7 @@
     </p>
     <p>
       In an Emergency Room context, the appointment Resource is probably not appropriate to be used.
-      In these cases an Encounter should be created.
+      In these cases, an Encounter should be created.
     </p>
     <p>
       The Appointment request pattern used is different from the order-response pattern used elsewhere in FHIR.<br/>
