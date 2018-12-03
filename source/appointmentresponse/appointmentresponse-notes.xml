@@ -9,7 +9,7 @@
   <p>
     For example, if this was a time in Brisbane Australia, this time would be the same (in respect to its offset from UTC),
     however if this was for Melbourne Australia, during the daylight savings period Melbourne time zone becomes +11.
-    So without the additional information as to which time zone it was created in, scheduling a 9am appointment every
+    So, without the additional information as to which time zone it was created in, scheduling a 9am appointment every
     Wednesday would not be possible.
   </p>
 </div>
