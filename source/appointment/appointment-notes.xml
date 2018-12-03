@@ -461,7 +461,7 @@
 		</li>
 		<li>Terminology - ServiceCategory, ServiceType and Specialty<br/>
 			The 3 core clinical terminologies associated with the appointment may have relationships with each other
-			through the terminology server, but not these may not be visible in the actual appointment resource or profile.
+			through the terminology server, but not these might not be visible in the actual appointment resource or profile.
 		</li>
 		<li>Interaction with other Standards<br/>
 			The strong desire is that implementers of this resource should consider providing this resource
