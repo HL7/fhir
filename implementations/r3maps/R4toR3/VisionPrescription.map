@@ -5,24 +5,29 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/VisionPrescription" alias Visi
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group VisionPrescription(source src : VisionPrescriptionR3, target tgt : VisionPrescription) extends DomainResource <<type+>> {
+group VisionPrescription(source src : VisionPrescription, target tgt : VisionPrescriptionR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.patient -> tgt.patient;
   src.encounter -> tgt.encounter;
   src.dateWritten -> tgt.dateWritten;
   src.prescriber -> tgt.prescriber;
-  src.reason -> tgt.reason;
-  src.dispense as s -> tgt.dispense as t then VisionPrescriptionDispense(s, t);
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34VisionPrescriptionReason' then {
+    e.value -> tgt.reason;
+  };
+  src.lensSpecification as s -> tgt.dispense as t then dispense(s, t);
 }
 
-group VisionPrescriptionDispense(source src, target tgt) extends BackboneElement {
+group dispense(source src, target tgt) extends BackboneElement {
   src.product -> tgt.product;
   src.eye -> tgt.eye;
   src.sphere -> tgt.sphere;
   src.cylinder -> tgt.cylinder;
   src.axis -> tgt.axis;
-  src.prism as s -> tgt.prism as t then VisionPrescriptionDispensePrism(s, t);
+  src.prism as s then {
+    s.amount -> tgt.prism;
+    s.base -> tgt.base;
+  };
   src.add -> tgt.add;
   src.power -> tgt.power;
   src.backCurve -> tgt.backCurve;
@@ -32,9 +37,3 @@ group VisionPrescriptionDispense(source src, target tgt) extends BackboneElement
   src.brand -> tgt.brand;
   src.note -> tgt.note;
 }
-
-group VisionPrescriptionDispensePrism(source src, target tgt) extends BackboneElement {
-  src.amount -> tgt.amount;
-  src.base -> tgt.base;
-}
-

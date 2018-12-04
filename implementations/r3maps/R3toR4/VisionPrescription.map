@@ -12,17 +12,20 @@ group VisionPrescription(source src : VisionPrescriptionR3, target tgt : VisionP
   src.encounter -> tgt.encounter;
   src.dateWritten -> tgt.dateWritten;
   src.prescriber -> tgt.prescriber;
-  src.reason -> tgt.reason;
-  src.dispense as s -> tgt.dispense as t then VisionPrescriptionDispense(s, t);
+  src.reason as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34VisionPrescriptionReason', vt.value = v;
+  src.dispense as s -> tgt.lensSpecification as t then dispense(s, t);
 }
 
-group VisionPrescriptionDispense(source src, target tgt) extends BackboneElement {
+group dispense(source src, target tgt) extends BackboneElement {
   src.product -> tgt.product;
   src.eye -> tgt.eye;
   src.sphere -> tgt.sphere;
   src.cylinder -> tgt.cylinder;
   src.axis -> tgt.axis;
-  src.prism as s -> tgt.prism as t then VisionPrescriptionDispensePrism(s, t);
+  src where src.prism.exists() or src.base.exists() -> tgt.prism as t then {
+    src.prism -> t.amount;
+    src.base -> t.base;
+  };
   src.add -> tgt.add;
   src.power -> tgt.power;
   src.backCurve -> tgt.backCurve;
@@ -32,9 +35,3 @@ group VisionPrescriptionDispense(source src, target tgt) extends BackboneElement
   src.brand -> tgt.brand;
   src.note -> tgt.note;
 }
-
-group VisionPrescriptionDispensePrism(source src, target tgt) extends BackboneElement {
-  src.amount -> tgt.amount;
-  src.base -> tgt.base;
-}
-

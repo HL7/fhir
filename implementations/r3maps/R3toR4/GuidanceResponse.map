@@ -6,16 +6,16 @@ uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceRe
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 group GuidanceResponse(source src : GuidanceResponseR3, target tgt : GuidanceResponse) extends DomainResource <<type+>> {
-  src.requestId -> tgt.requestId;
+  src.requestId as v -> tgt.requestIdentifier as ii, ii.value = v;
   src.identifier -> tgt.identifier;
-  src.module -> tgt.module;
+  src.module as vs -> tgt.module = create('canonical') as vt then Reference2Canonical(vs, vt);
   src.status -> tgt.status;
   src.subject -> tgt.subject;
-  src.context -> tgt.context;
+  src.context -> tgt.encounter;
   src.occurrenceDateTime -> tgt.occurrenceDateTime;
   src.performer -> tgt.performer;
-  src.reasonCode -> tgt.reasonCode;
-  src.reasonReference -> tgt.reasonReference;
+  src.reason : CodeableConcept as vs -> tgt.reasonCode as vt then CodeableConcept(vs, vt);
+  src.reason : Reference as vs -> tgt.reasonReference as vt then Reference(vs, vt);
   src.note -> tgt.note;
   src.evaluationMessage -> tgt.evaluationMessage;
   src.outputParameters -> tgt.outputParameters;
