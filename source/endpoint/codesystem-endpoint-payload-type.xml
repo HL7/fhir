@@ -15,6 +15,6 @@
 	<concept>
 		<code value="none" />
 		<display value="None" />
-		<definition value="This endpoint does not require any content to be sent, simply connecting to the endpoint is enough notification. This can be used as a 'ping' to wakeup a service to retrieve content, which could be to ensure security considerations are correctly handled" />
+		<definition value="This endpoint does not require any content to be sent; simply connecting to the endpoint is enough notification. This can be used as a 'ping' to wakeup a service to retrieve content, which could be to ensure security considerations are correctly handled" />
 	</concept>
 </CodeSystem>

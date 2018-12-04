@@ -51,7 +51,7 @@
   <concept>
     <code value="rehab"/>
     <display value="From rehabilitation facility"/>
-    <definition value="The patient has been transferred from a rehabilitiation facility or clinic."/>
+    <definition value="The patient has been transferred from a rehabilitation facility or clinic."/>
   </concept>
   <concept>
     <code value="other"/>

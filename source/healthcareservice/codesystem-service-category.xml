@@ -39,7 +39,7 @@
     <concept><code value="25"/><display value="Respite/Carer Support"/><definition value="Respite/Carer Support"/></concept>
     <concept><code value="26"/><display value="Specialist Clinical Pathology"/><definition value="Specialist Clinical Pathology - requires referral"/></concept>
     <concept><code value="27"/><display value="Specialist Medical"/><definition value="Specialist Medical - requires referral"/></concept>
-    <concept><code value="28"/><display value="Specialist Obstetrics &amp; Gynaecology"/><definition value="Specialist Obstetrics &amp; Gynaecology - requires referral"/></concept>
+    <concept><code value="28"/><display value="Specialist Obstetrics &amp; Gynecology"/><definition value="Specialist Obstetrics &amp; Gynecology - requires referral"/></concept>
     <concept><code value="29"/><display value="Specialist Paediatric"/><definition value="Specialist Paediatric - requires referral"/></concept>
     <concept><code value="30"/><display value="Specialist Radiology/Imaging"/><definition value="Specialist Radiology/Imaging - requires referral"/></concept>
     <concept><code value="31"/><display value="Specialist Surgical"/><definition value="Specialist Surgical - requires referral"/></concept>
