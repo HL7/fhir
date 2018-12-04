@@ -41,6 +41,7 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : Exp
   src.item as s -> tgt.item as t then ExplanationOfBenefitItem(s, t);
   src.addItem as s -> tgt.addItem as t then ExplanationOfBenefitAddItem(s, t);
   src.totalCost as s -> tgt.total as t then ExplanationOfBenefitTotalCost(s, t);
+  src.totalBenefit as s -> tgt.total as t then ExplanationOfBenefitTotalBenefit(s, t);
   src.payment as s -> tgt.payment as t then ExplanationOfBenefitPayment(s, t);
   src.form -> tgt.form;
   src.processNote as s -> tgt.processNote as t then ExplanationOfBenefitProcessNote(s, t);
@@ -211,8 +212,13 @@ group ExplanationOfBenefitAddItemDetailSubDetail(source src, target tgt) extends
 }
 
 group ExplanationOfBenefitTotalCost(source src, target tgt) extends BackboneElement {
-  // src.category -> tgt.category;
-  src as src -> tgt.amount = src "set total amount";
+  src -> tgt.category as cc, cc.text = "Submitted Amount", cc.coding as coding, coding.code = "submitted", coding.system = "http://terminology.hl7.org/CodeSystem/adjudication";
+  src as vs -> tgt.amount as vt then Money(vs, vt);
+}
+
+group ExplanationOfBenefitTotalBenefit(source src, target tgt) extends BackboneElement {
+  src -> tgt.category as cc, cc.text = "Benefit Amount", cc.coding as coding, coding.code = "benefit", coding.system = "http://terminology.hl7.org/CodeSystem/adjudication";
+  src as vs -> tgt.amount as vt then Money(vs, vt);
 }
 
 group ExplanationOfBenefitPayment(source src, target tgt) extends BackboneElement {
