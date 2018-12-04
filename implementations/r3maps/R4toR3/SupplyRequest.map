@@ -10,21 +10,24 @@ group SupplyRequest(source src : SupplyRequestR3, target tgt : SupplyRequest) ex
   src.status -> tgt.status;
   src.category -> tgt.category;
   src.priority -> tgt.priority;
-  src.item -> tgt.item;
-  src.quantity -> tgt.quantity;
-  src.parameter as s -> tgt.parameter as t then SupplyRequestParameter(s, t);
-  src.occurrence -> tgt.occurrence;
+  src.item : CodeableConcept as vs -> tgt.orderedItem as t, t.item = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.item : Reference as vs -> tgt.orderedItem as t, t.item = create('Reference') as vt then Reference(vs, vt);
+  src.quantity as vs -> tgt.orderedItem as t, t.quantity as vt then Quantity(vs, vt);
+  src.occurrence : dateTime as vs -> tgt.occurrence = create('dateTime') as vt then dateTime(vs, vt);
+  src.occurrence : Period as vs -> tgt.occurrence = create('Period') as vt then Period(vs, vt);
+  src.occurrence : Timing as vs -> tgt.occurrence = create('Timing') as vt then Timing(vs, vt);
   src.authoredOn -> tgt.authoredOn;
-  src.requester -> tgt.requester;
+  src where requester.exists() or extension.where(url = 'http://hl7.org/fhir/StructureDefinition/X34SupplyRequestOnBehalf').exists()  -> tgt.requester as vt0 then agent(src, vt0);
   src.supplier -> tgt.supplier;
-  src.reasonCode -> tgt.reasonCode;
-  src.reasonReference -> tgt.reasonReference;
+  src.reasonCode as vs -> tgt.reason = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.reasonReference as vs -> tgt.reason = create('Reference') as vt then Reference(vs, vt);
   src.deliverFrom -> tgt.deliverFrom;
   src.deliverTo -> tgt.deliverTo;
 }
 
-group SupplyRequestParameter(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
-  src.value -> tgt.value;
+group agent(source src, target tgt) {
+  src.requester -> tgt.agent;
+  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34SupplyRequestOnBehalf' then {
+    e.value -> tgt.onBehalfOf;
+  };
 }
-

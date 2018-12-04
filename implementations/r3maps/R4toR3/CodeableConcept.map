@@ -16,10 +16,10 @@ group CodeableConceptNoExtensions(source src : CodeableConcept, target tgt : Cod
   src.text -> tgt.text;
 }
 
-group CodeableConcept2Coding(source src : CodeableConcept, target tgt : CodingR3) extends Element <<type+>> {
+group CodeableConcept2Coding(source src : CodeableConcept, target tgt : CodingR3) extends Element <<types>> {
   src.coding first as vs0 then Coding(vs0, tgt);
 }
 
-group CodeableConcept2code(source src : CodeableConcept, target tgt : codeR3) extends Element <<type+>> {
+group CodeableConcept2code(source src : CodeableConcept, target tgt : codeR3) extends Element <<types>> {
   src.coding first as vs0 -> tgt.code = create("code") as vt then Coding2code(vs0, vt) "CodeableConcept2code-coding";
 }

@@ -18735,7 +18735,7 @@
   },
   "GuidanceResponse": {
     "example": {
-      "execution": "Exception executing transform tgt.requestId \u003d create() as vvv on Rule \"requestId\": Attempt to get types for an invalid property \u0027requestId\u0027 on type GuidanceResponse"
+      "execution": true
     }
   },
   "HealthcareService": {
@@ -20149,81 +20149,81 @@
   },
   "NutritionOrder": {
     "cardiacdiet": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "diabeticdiet": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "diabeticsupplement": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "energysupplement": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "enteralbolus": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
         "WARNING @ NutritionOrder.enteralFormula.administrationInstruction: value should not start or finish with whitespace (src \u003d InstanceValidator)"
       ]
     },
     "enteralcontinuous": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
         "WARNING @ NutritionOrder.enteralFormula.baseFormulaProductName: value should not start or finish with whitespace (src \u003d InstanceValidator)"
       ]
     },
     "fiberrestricteddiet": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "infantenteral": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "proteinsupplement": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "pureeddiet": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "pureeddiet-simple": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "renaldiet": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
     },
     "texturemodified": {
-      "execution": "Attempt to read invalid property \u0027context\u0027 on type NutritionOrder",
+      "execution": true,
       "r4.errors": [
         "ERROR @ NutritionOrder: Profile http://hl7.org/fhir/StructureDefinition/NutritionOrder, Element \u0027NutritionOrder.intent\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
       ]
@@ -21422,15 +21422,18 @@
   },
   "SupplyDelivery": {
     "simpledelivery": {
-      "execution": "Attempt to read invalid property \u0027identifierFirstRep\u0027 on type SupplyDelivery"
+      "execution": true
     },
     "pumpdelivery": {
-      "execution": "Attempt to read invalid property \u0027identifierFirstRep\u0027 on type SupplyDelivery"
+      "execution": true
     }
   },
   "SupplyRequest": {
     "simpleorder": {
-      "execution": "No matches found for rule for \u0027BackboneElement to Reference\u0027 from http://hl7.org/fhir/StructureMap/SupplyRequest3to4, from rule \u0027requester\u0027"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ SupplyRequest.extension: The extension http://hl7.org/fhir/StructureDefinition/X34SupplyRequestOnBehalf is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     }
   },
   "Task": {
@@ -21678,10 +21681,17 @@
   },
   "VisionPrescription": {
     "33123": {
-      "execution": "Attempt to make an invalid property \u0027dispense\u0027 on type VisionPrescription"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ VisionPrescription: Profile http://hl7.org/fhir/StructureDefinition/VisionPrescription, Element \u0027VisionPrescription.created\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)"
+      ]
     },
     "33124": {
-      "execution": "Exception executing transform tgt.reason \u003d create() as vvv on Rule \"reason\": Attempt to get types for an invalid property \u0027reason\u0027 on type VisionPrescription"
+      "execution": true,
+      "r4.errors": [
+        "ERROR @ VisionPrescription: Profile http://hl7.org/fhir/StructureDefinition/VisionPrescription, Element \u0027VisionPrescription.created\u0027: minimum required \u003d 1, but only found 0 (src \u003d InstanceValidator)",
+        "ERROR @ VisionPrescription.extension: The extension http://hl7.org/fhir/StructureDefinition/X34VisionPrescriptionReason is unknown, and not allowed here (src \u003d InstanceValidator)"
+      ]
     }
   },
   "MolecularSequence": {
