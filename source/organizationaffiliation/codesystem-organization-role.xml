@@ -45,6 +45,6 @@
   <concept>
     <code value="member"/>
     <display value="Member"/>
-    <definition value="A type of non-ownership relationship between entities (encompassess partnerships, collaboration, joint ventures, etc.)"/>
+    <definition value="A type of non-ownership relationship between entities (encompasses partnerships, collaboration, joint ventures, etc.)"/>
   </concept>
 </CodeSystem>

@@ -36,7 +36,7 @@
   <concept>
     <code value="pay"/>
     <display value="Payer"/>
-    <definition value="A company, charity, or governmental organization which processes claims and/or issues payments to providers on behalf of patients or groups of patients."/>
+    <definition value="A company, charity, or governmental organization, which processes claims and/or issues payments to providers on behalf of patients or groups of patients."/>
   </concept>
   <concept>
     <code value="edu"/>

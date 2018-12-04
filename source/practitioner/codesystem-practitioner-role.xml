@@ -16,7 +16,7 @@
   <concept>
     <code value="nurse"/>
     <display value="Nurse"/>
-    <definition value="A practitoner with nursing experience that may be qualified/registered"/>
+    <definition value="A practitioner with nursing experience that may be qualified/registered"/>
   </concept>
   <concept>
     <code value="pharmacist"/>

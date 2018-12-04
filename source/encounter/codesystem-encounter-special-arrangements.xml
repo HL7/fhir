@@ -31,6 +31,6 @@
   <concept>
     <code value="dog"/>
     <display value="Guide dog"/>
-    <definition value="The patient has a guide-dog and the location used for the encounter should be able to support the presence of the service animal."/>
+    <definition value="The patient has a guide dog and the location used for the encounter should be able to support the presence of the service animal."/>
   </concept>
 </CodeSystem>

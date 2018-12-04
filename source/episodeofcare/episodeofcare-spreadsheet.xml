@@ -6575,7 +6575,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">On Hold</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">This episode of care is on hold, the organization has limited responsibility for the patient (such as while on respite).</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">This episode of care is on hold; the organization has limited responsibility for the patient (such as while on respite).</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
