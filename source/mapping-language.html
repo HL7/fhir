@@ -94,8 +94,7 @@ at the end of the line as a comment.
 </p>
 <p>
 All names defined by the map language - group, rule and variable names - must be valid
-<a href="datatypes.html#id">ids</a> (1-64 characters, upper and lowercase letters, numbers, dashes, dots and underscores),
-and must start with a letter. The special boolean values 'true' and 'false' are not allowed as variable names.
+<a href="datatypes.html#id">ids</a> (1-64 characters, upper and lowercase letters, numbers, dashes and underscores - but not dots) and must start with a letter. The special boolean values 'true' and 'false' are not allowed as variable names.
 </p>
 
 <a name="metadata"></a>
@@ -105,34 +104,35 @@ and must start with a letter. The special boolean values 'true' and 'false' are 
 The first part of the mapping syntax establishes the name of the mapping:
 </p>
 <pre>
-map "[url]" = "[name]"
+  map "http://hl7.org/fhir/StructureMap/CodeSystem3to4" = "R3 to R4 Conversions for CodeSystem"
 </pre>
 <p>
 The letters "map" are the first non-whitespace non-comment characters
 in the source. This is followed by the canonical URL that identifies
-the map uniquely, and then a human readable name for the map.
+the map uniquely, and then a human readable name for the map, quoted in strings.
 </p>
 <p>
-<i>todo: add additional metadata?</i>
+<i>todo: add additional metadata? Yes, maybe in comments like javadoc or C# xmldoc?</i>
 </p>
 
 <a name="typing"></a>
 <h3>Structure Definition References</h3>
 
 <p>
-The next section of the map references the set of structure definitions
-that are used or produced by this map.
+The next optional section of the map references the set of structure definitions
+that are used or produced by this map:
 </p>
 <pre>
-uses "[url]" (alias name) as [mode] // documentation
+  uses "http://hl7.org/fhir/3.0/StructureDefinition/CodeSystem" alias CodeSystemR3 as source
+  uses "http://hl7.org/fhir/StructureDefinition/CodeSystem" alias CodeSystem as target
 </pre>
 <p>
-This optional section lists one or more structure definitions that the
+This section lists one or more structure definitions that the
 map makes use of, and indicates for each structure definition, how it
-is used. It may also provide an Alias - a name used for the type inside
+is used. It may also provide an alias - a name used for the type inside
 the mapping language - this may be necessary when transforming from
 source to target where both source and target use overlapping type
-names (not unusual).
+names (not unusual). If no alias is given, the name for the type will default to the name given in the StructureDefinition (StructureDefinition.name).
 </p>
 <p>
 Any kind of structure definition may be referenced, including
@@ -155,8 +155,7 @@ application has content in one format, creates an empty instance of the target, 
 <p>
 However, many mappings are not so simple. For instance, converting from a single CDA document to FHIR typically
 creates a set of resources. In this case, there is a single target - a <a href="bundle.html">Bundle</a>, but it
-is also useful to specify a set of other structure definitions for resources that may be created as part of the bundle. Alternatively
-converting from one source model to another might involve looking up other information in other instances of data.
+is also useful to specify a set of other structure definitions for resources that may be created as part of the bundle. Alternatively, converting from one source model to another might involve looking up other information in other instances of data.
 </p>
 <p>
 It's also possible for a map not to specify any structure definition dependencies. A map that doesn't
@@ -167,31 +166,28 @@ and such maps typically require special development to integrate the execution o
 <a name="imports"></a>
 <h3>Map Imports</h3>
 <p>
-This section references additional maps that are used by this map:
+This next optional section references additional maps that are used by this map:
 </p>
 <pre>
-imports "[url]" // documentation
+  imports "http://hl7.org/fhir/StructureMap/*3to4"
 </pre>
 <p>
-Typically, maps that are imported are type based, such as a CDA --> FHIR map that makes
-use of a CD --> CodeableConcept map. How imported maps are actually used is discussed below.
+Maps can be broken up into several files, each containing a coherent set of groups. For example, when writing mappings for CDA to FHIR, one might have one file to map the main document, and another file containing the mappings for the datatypes (e.g. CD to CodeableConcept).
+
+How imported maps are actually used is discussed below.
 </p>
 <p>
-The [url] may contain a "*" as a wildcard character to include any matching maps
-that are available to the mapping engine.
+The url in the import statement may contain a "*" as a wildcard character (as shown above) to include any matching maps that are available to the mapping engine.
 </p>
 
 <a name="groups"></a>
 <h3>Groups</h3>
 <p>
-Each Mapping source contains one or more groups of rules. Each group
-defines a set of related mapping rules that take the same input and
-output variables, that define exactly which instances are passed to
-the mapping, and provides names by which they may be passed when invoking the map:
+Each Mapping source contains one or more groups, each containing one or more mapping rules. Each group
+declares a set of input and output variables that are shared by the rules. The in- and output variables define exactly which instances are passed to the mapping, and provides names by which they may be passed when invoking the map:
 </p>
 <pre>
-group (for type) [group-name] (extends [other-group])
-  input [name] : [type] as [mode] // documentation
+  group CodeSystem(source src : CodeSystemR3, target tgt : CodeSystem) extends DomainResource <<type+>> 
 </pre>
 <p>
 Each group has a name, which is how the mapping is invoked. The first group
