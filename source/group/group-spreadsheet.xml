@@ -4148,7 +4148,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Group.characteristic.value[x]</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell><Data ss:Type="String">Group.characteristic.value as CodeableConcept | Group.characteristic.value as boolean</Data></Cell>
+    <Cell><Data ss:Type="String">(Group.characteristic.value as CodeableConcept) | (Group.characteristic.value as boolean)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">exclude</Data></Cell>
