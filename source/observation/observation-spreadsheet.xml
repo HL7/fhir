@@ -5291,7 +5291,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">quantity</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Observation.value[x]</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Observation.value as Quantity | Observation.value as SampledData</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">(Observation.value as Quantity) | (Observation.value as SampledData)</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</Data></Cell>
     <Cell><Data ss:Type="String">5/15/2015:#7517,[#9734],[11087]</Data></Cell>
    </Row>
@@ -5300,7 +5300,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">quantity</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Observation.value[x]</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">Observation.value as Quantity | Observation.value as SampledData | Observation.component.value as Quantity | Observation.component.value as SampledData</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">(Observation.value as Quantity) | (Observation.value as SampledData) | (Observation.component.value as Quantity) | (Observation.component.value as SampledData)</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</Data></Cell>
     <Cell><Data ss:Type="String">5/15/2015:#7517,[#9734],[11087]</Data></Cell>
    </Row>
@@ -5309,7 +5309,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">quantity</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Observation.component.value[x]</Data></Cell>
-    <Cell><Data ss:Type="String">Observation.component.value as Quantity | Observation.component.value as SampledData</Data></Cell>
+    <Cell><Data ss:Type="String">(Observation.component.value as Quantity) | (Observation.component.value as SampledData)</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</Data></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">[#9734],[11087]</Data></Cell>
    </Row>
@@ -5366,7 +5366,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Observation.value[x]</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Observation.value as string | (Observation.value as CodeableConcept).text</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">(Observation.value as string) | (Observation.value as CodeableConcept).text</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">The value of the observation, if the value is a string, and also searches in CodeableConcept.text</Data></Cell>
     <Cell><Data ss:Type="String">5/15/2015:#7517,[#9734],[11087]</Data></Cell>
    </Row>
