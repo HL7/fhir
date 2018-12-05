@@ -82,3 +82,5 @@ pharmacy-medRequest
 /tests/ig30/resources/ig-validation-parameters.json
 
 /implementations/r3maps/test-output
+
+source/\.antlr/

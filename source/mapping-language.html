@@ -183,42 +183,43 @@ The url in the import statement may contain a "*" as a wildcard character (as sh
 <a name="groups"></a>
 <h3>Groups</h3>
 <p>
-Each Mapping source contains one or more groups, each containing one or more mapping rules. Each group
-declares a set of input and output variables that are shared by the rules. The in- and output variables define exactly which instances are passed to the mapping, and provides names by which they may be passed when invoking the map:
+Each Mapping source contains one or more groups, each containing one or more mapping rules. Each group declares a set of input and output variables that are shared by the rules. The in- and output variables define exactly which instances are passed to the mapping, and provides names by which they may be passed when invoking the map:
 </p>
 <pre>
   group CodeSystem(source src : CodeSystemR3, target tgt : CodeSystem) extends DomainResource <<type+>> 
+  {
+      // rules
+  }
 </pre>
 <p>
-Each group has a name, which is how the mapping is invoked. The first group
-is special, in that this is the group invoked if no name is provided (e.g.
-starting the mapping by a host application).
+Each group has a name, which is how the mapping is invoked. The first group is special, in that this is the group invoked if no name is provided (e.g. starting the mapping by a host application).
 </p>
 <p>
 The inputs of a group are also referred to (below) as its input parameters, or just as parameters; or as input variables.
 </p>
 <p>
 Each input to the group has a name. This is the name that applications use when passing the
-instance to the invocation engine, or that rules use when invoking the group. Inputs may have a type - and should have (see the
-discussion above), but are not required to. Input variables also have a mode,
-which may be one of source or target (see above). There must be at least two
-input variables (source and target) - else there's nothing to map.
-Maps may have additional input or output inputs, where that's necessary.
+instance to the invocation engine, or that rules use when invoking the group. 
 </p>
 <p>
-Groups may extend other groups, which means that the rules in the other group
-also apply (typically, this is used with specializing classes in an OO context).
-When a group extends another group, it SHALL have the same input parameters (by name, type and mode)
-though their order may differ, and it MAY have additional parameters.
+Inputs may have a type (separated from the name of the paramter by a ':' and the type identifier). Although optional it is recommended for all parameters
+to be typed (see the discussion above). Input variables also have a mode, which may be one of 'source' or 'target' (similar to the modes for the whole map - see above). 
+There must be at least two input variables (marked 'source' and 'target') - else there's nothing to map. Maps may have additional input or output inputs, where that's necessary.
 </p>
 <p>
-The key word <code>for</code> is used to indicate that this group provides a
-set of mappings that are intended to be used as the default way to map from
-source to target. There are 2 variants:
+Groups may optionally extend other groups, which means that the rules in the other group also apply (typically, this is used with specializing classes in an OO context).
+When a group extends another group, it SHALL have the same input parameters (by name, type and mode) though their order may differ, and it MAY have additional parameters.
+</p>
+<p>
+The stereotypes &lt;&lt;types&gt;&gt; or &lt;&lt;type+&gt;&gt; can be added to the end of the group declaration to indicate that this group provides a
+set of mappings that are intended to be used as the default way to map from source to target. 
+
+TODO: this section should be moved to one section at the end of the document describing automatic mapping. This is now too spread out over the page.
+There are 2 variants:
 </p>
 <ul>
- <li><code>for types</code>: Use this by default when a [source] of the specified type must be converted to a [target] of the specified type, and no specific dependent rules (see below) are specified. </li>
- <li><code>for type+types</code>: in addition, to the above use, when a [source] of the specified type must be converted to a [target] and the type of the target is not fixed, use this group</li>
+ <li><code>types</code>: Use this by default when a [source] of the specified type must be converted to a [target] of the specified type, and no specific dependent rules (see below) are specified. </li>
+ <li><code>type+</code>: in addition, to the above use, when a [source] of the specified type must be converted to a [target] and the type of the target is not fixed, use this group</li>
 </ul>
 <p>
 In both these cases, the group SHALL have 2 parameters, a source, and a target, in that order, and both SHALL have specified types for the inputs.
