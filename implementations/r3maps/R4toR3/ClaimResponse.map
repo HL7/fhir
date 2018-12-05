@@ -22,7 +22,24 @@ group ClaimResponse(source src : ClaimResponseR3, target tgt : ClaimResponse) ex
   src.item as s -> tgt.item as t then ClaimResponseItem(s, t);
   src.addItem as s -> tgt.addItem as t then ClaimResponseAddItem(s, t);
   src.error as s -> tgt.error as t then ClaimResponseError(s, t);
-  src.total as s -> tgt.total as t then ClaimResponseTotal(s, t);
+  src.total as total then {
+    total.category as vs then {
+      total.amount as va then {
+        vs.coding as c where code = 'submitted' then {
+          c -> tgt.totalCost as cost then Money(va, cost);
+        };
+      };
+    };
+  };
+  src.total as total then {
+    total.category as vs then {
+      total.amount as va then {
+        vs.coding as c where code = 'benefit' then {
+          c -> tgt.totalBenefit as cost then Money(va, cost);
+        };
+      };
+    };
+  };
   src.payment as s -> tgt.payment as t then ClaimResponsePayment(s, t);
   src.fundsReserve as vs then {
     vs.coding -> tgt.reserved;
@@ -110,11 +127,6 @@ group ClaimResponseError(source src, target tgt) extends BackboneElement {
   src.detailSequence -> tgt.detailSequence;
   src.subDetailSequence -> tgt.subDetailSequence;
   src.code -> tgt.code;
-}
-
-group ClaimResponseTotal(source src, target tgt) extends BackboneElement {
-  src.category -> tgt.category;
-  src.amount -> tgt.amount;
 }
 
 group ClaimResponsePayment(source src, target tgt) extends BackboneElement {
