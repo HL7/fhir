@@ -2945,7 +2945,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       gson = new GsonBuilder().setPrettyPrinting().create();
       File f = new CSFile(page.getFolders().dstDir);
       File[] files = f.listFiles();
-      String[] noExt = new String[] {".schema.json", ".canonical.json", ".diff.json", "expansions.json", "package.json"};
+      String[] noExt = new String[] {".schema.json", ".canonical.json", ".diff.json", "expansions.json", "package.json", "choice-elements.json", "backbone-elements.json"};
       for (int fi = 0; fi < files.length; fi++) {
         if (files[fi].isFile() && (files[fi].getName().endsWith(".json"))) {
           boolean ok = true;
