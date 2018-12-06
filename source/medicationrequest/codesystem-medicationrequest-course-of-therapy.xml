@@ -7,7 +7,7 @@
   <experimental value="false"/>
   <description value=""/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/valueSet/medicationrequest-course-of-therapy"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy"/>
   <content value="complete"/>
   <concept>
     <code value="continuous"/>
