@@ -69,7 +69,7 @@ Generally, it is assumed the invocation of the engine follows some pattern like 
 </p>
 <ul>
 <li>The host application creates the engine, and passes it a handle to the standard services</li>
-<li>The host application chooses the model map resource, and asks the engine to prepare it (load, check, cache-up etc.)</li>
+<li>The host application chooses the structure map resource, and asks the engine to prepare it (load, check, cache-up etc.)</li>
 <li>The host application asks the engine to execute and provides a set of resources that match defined inputs in the map</li>
 <li>Any created output will be created via the standard API</li>
 </ul>
@@ -85,7 +85,7 @@ order to manage the map execution process.
 <p>
 Mapping files are always plain text in Unicode. Whitespace is any Unicode whitespace, and the particular whitespace used
 is not significant, except that Unicode end of line characters terminate a
-comment. Comments are started by the characters "//".
+comment. Comments are started by the characters "//" and can be found anywhere.
 </p>
 <p>
 The abstract model includes documentation for each item. The canonical
@@ -190,8 +190,9 @@ output variables, that define exactly which instances are passed to
 the mapping, and provides names by which they may be passed when invoking the map:
 </p>
 <pre>
-group (for type) [group-name] (extends [other-group])
-  input [name] : [type] as [mode] // documentation
+group [group-name] (inputs) (extends [other-group]) (&lt;&lt;stereotype&gt;&gt;) { // documentation
+  .. rules ...
+}  
 </pre>
 <p>
 Each group has a name, which is how the mapping is invoked. The first group
@@ -199,30 +200,34 @@ is special, in that this is the group invoked if no name is provided (e.g.
 starting the mapping by a host application).
 </p>
 <p>
-The inputs of a group are also referred to (below) as its input parameters, or just as parameters; or as input variables.
+The inputs of a group are also referred to (below) as its input parameters, or just as parameters; or as input variables,
+and are a comma separated list where each items has the format:
 </p>
+<pre>
+  [mode] [name]( : [type])
+</pre>
 <p>
-Each input to the group has a name. This is the name that applications use when passing the
-instance to the invocation engine, or that rules use when invoking the group. Inputs may have a type - and should have (see the
-discussion above), but are not required to. Input variables also have a mode,
-which may be one of source or target (see above). There must be at least two
-input variables (source and target) - else there's nothing to map.
-Maps may have additional input or output inputs, where that's necessary.
+Each input to the group has a name.
+All input variables have a mode, which may be one of source or target (see above). 
+Inputs may have a type, but are not required to. There must be at least two
+input variables (source and target) - else there's nothing to map, except for
+the special case of the first group that may only have a single input. 
+Groups may have additional input or output inputs, where that's necessary.
 </p>
 <p>
 Groups may extend other groups, which means that the rules in the other group
 also apply (typically, this is used with specializing classes in an OO context).
-When a group extends another group, it SHALL have the same input parameters (by name, type and mode)
+When a group extends another group, it SHALL have the same input parameters (by mode, name, and type if specified)
 though their order may differ, and it MAY have additional parameters.
 </p>
 <p>
-The key word <code>for</code> is used to indicate that this group provides a
+The stereotype <code>&lt;&lt;stereotype&gt;&gt;</code> is used to indicate that this group provides a
 set of mappings that are intended to be used as the default way to map from
 source to target. There are 2 variants:
 </p>
 <ul>
- <li><code>for types</code>: Use this by default when a [source] of the specified type must be converted to a [target] of the specified type, and no specific dependent rules (see below) are specified. </li>
- <li><code>for type+types</code>: in addition, to the above use, when a [source] of the specified type must be converted to a [target] and the type of the target is not fixed, use this group</li>
+ <li><code>&lt;&lt;types&gt;&gt;</code>: Use this by default when a [source] of the specified type must be converted to a [target] of the specified type, and no specific dependent rules (see below) are specified. </li>
+ <li><code>&lt;&lt;type+&gt;&gt;</code>: in addition, to the above use, when a [source] of the specified type must be converted to a [target] and the type of the target is not fixed, use this group</li>
 </ul>
 <p>
 In both these cases, the group SHALL have 2 parameters, a source, and a target, in that order, and both SHALL have specified types for the inputs.
@@ -237,25 +242,28 @@ how source content is transformed into target content. The full format for a rul
 looks like this:
 </p>
 <pre>
-name_of_rule: for src_context.field as new_variable where condition make tgt_context.field as new_variable = create([type]) then [details].
+src_context.field as new_variable where condition -&gt; tgt_context.field = create([type]) as new_variable then [details] "name";
 </pre>
 <p>
 Each rule has 4 main sections:
 </p>
 <ul>
- <li><b>Name</b>: The identity of the rule, for logging/debugging</li>
  <li><b>Source Content</b>: One or more elements from the source that contribute to the mapping </li>
  <li><b>Target Transform</b>: One or more specifications of content to create in the target model </li>
  <li><b>Dependent Rules</b>: Specifies which - if any - rules or groups to apply within the scope of the rule</li>
+ <li><b>Name</b>: The identity of the rule, for logging/debugging, though this is usually inferred by the parser and not specified directly</li>
 </ul>
 <p>
-Rules in a group may be applied in any order; there is no sense of sequentially applying one rule after another.
+Rules in a group may be applied in any order; there is no sense of sequentially applying one rule after another. 
+Note that if two different rules specify a value for the same target element, the outcome is not specified,
+though this should not automatically be treated as an error. 
 </p>
 
 <h4>Name</h4>
 <p>
-Each rule is assigned a name. The name is used when specifying rule links, and in traces (a record generated by the conversion engine recording the transform process).
-Names must be unique within the context of the map.
+Each rule is assigned a name. The name is used in trace logs (a record generated by the conversion engine recording the transform process).
+Names must be unique within the context of the map. Typically, the name is trivial and can be safely and usefully generated by the 
+engine processing the map, so this is often left out. 
 </p>
 
 <h4>Source Content</h4>
@@ -265,7 +273,7 @@ when specifying target content, or re-used in subsequent transforms on the rule.
 separated by a comma, like this:
 </p>
 <pre>
-rule_name: for [source], [source], make ...
+ [source], [source] -&gt; ...
 </pre>
 <p>
 Each [source] contains the following items:
@@ -278,7 +286,7 @@ context.element { : type {min..max}} {default [value]} { list-option } as variab
  <li><b>element</b>: An optional name of a child element of the context. If this is not provided, the source is the context. If this is provided, the rule will apply once for each element on the context that matches this name. If the element name contains spaces (possible in some contexts) or other non-valid identifier characters, it can be quoted using &quot; </li>
  <li><b>type</b>: A type may be specified. If a type is specified, only elements that have the specified type are selected as part of the source</li>
  <li><b>min..max</b>: Specified cardinality. If a cardinality is specified, and the input document does not conform to the cardinality, the mapping engine raises an exception instead of completing the transformation</li>
- <li><b>default</b>: A default value, used if there is no source value found. If there's a default value on an item that can repeat, it will only be used once</li>
+ <li><b>default</b>: A default value, used if there is no source value found. If there's a default value on an item that can repeat, it will only be used once. Default values only apply to primitive types, and the value is a FHIRPath statement (usually a literal)</li>
  <li><b>list-option</b>: by default, the rule will apply once for each occurrence of the element in context. The list option can override this to specify only to apply the first, last, or not to those</li>
  <li><b>as variable</b>: if an element is specified, a variable must be assigned. This variable name may be used in the target statement, and may be re-used in other dependent rules (see below). There is one special case described below (simple form) where the variable name is provided explicitly</li>
  <li><b>where [condition]</b>: a FHIRPath (ref) expression that is evaluated to boolean on the context. If the expression returns false, the source element has no match</li>
@@ -319,11 +327,11 @@ Log statements are often used to note that some particular source element is not
 <h4>Target Transform</h4>
 <p>
 Each rule specifies zero or more elements to be created in the target structure. These targets can also be assigned to variables
-that can be used in subsequent transform rules. If no targets are specified, there are not created targets, just newly
+that can be used in subsequent transform rules. If no targets are specified (no -&gt;), there are no created targets, just newly
 defined source variables. Multiple target elements are separated by a comma, like this:
 </p>
 <pre>
-... make [target], [target] then by...
+... -&gt; [target], [target] then by...
 </pre>
 <p>
 Each [target] contains the following items:
@@ -422,13 +430,13 @@ If no dependent rules are specified, and if the is only one source and target, a
 they both specify a variable, the rule can be written in an abbreviated form:
 </p>
 <pre>
- "name" : for src.element make tgt.element
+ src.element -&gt; tgt.element;
 </pre>
 <p>
 This is implicitly the same as
 </p>
 <pre>
- "name" : for src.element as vvs make create([type]) tgt.element as vvt then [typeGroup](vvs, vvt)
+  src.element as vvs -&gt; create([type]) tgt.element as vvt then [typeGroup](vvs, vvt);
 </pre>
 <p>
 Where <code>type</code> and <code>typeGroup</code> are determined by the context of src.element
