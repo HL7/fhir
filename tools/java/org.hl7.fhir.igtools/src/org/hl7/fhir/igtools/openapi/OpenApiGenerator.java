@@ -138,7 +138,7 @@ public class OpenApiGenerator {
 
   private String specRef() {
     // todo: figure out which version we are running against
-    return "http://build.fhir.org";
+    return "http://hl7.org/fhir/STU3";
   }
 
   private boolean isJson() {
