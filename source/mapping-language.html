@@ -16,7 +16,7 @@
 <p>
 The FHIR Specification includes a mapping language. The mapping language has a concrete syntax, defined
 and described in this page, and an abstract syntax, which is found in the <a href="structuremap.html">StructureMap</a>
-resource (and there <i>will be</i> an ANTLR grammar for the concrete syntax). See also the <a href="mapping-tutorial.html">Tutorial</a>.
+resource. See also the <a href="mapping-tutorial.html">Tutorial</a>.
 </p>
 <p>
 The mapping language describes how one set of Directed Acyclic Graphs (an instance) is transformed to another set of
@@ -213,19 +213,11 @@ When a group extends another group, it SHALL have the same input parameters (by 
 </p>
 <p>
 The stereotypes &lt;&lt;types&gt;&gt; or &lt;&lt;type+&gt;&gt; can be added to the end of the group declaration to indicate that this group provides a
-set of mappings that are intended to be used as the default way to map from source to target. 
-
-TODO: this section should be moved to one section at the end of the document describing automatic mapping. This is now too spread out over the page.
-There are 2 variants:
-</p>
-<ul>
- <li><code>types</code>: Use this by default when a [source] of the specified type must be converted to a [target] of the specified type, and no specific dependent rules (see below) are specified. </li>
- <li><code>type+</code>: in addition, to the above use, when a [source] of the specified type must be converted to a [target] and the type of the target is not fixed, use this group</li>
-</ul>
+set of mappings that are intended to be used as the default way to map from source to target. For more information, see the section on "Default mapping groups" below.
 <p>
-In both these cases, the group SHALL have 2 parameters, a source, and a target, in that order, and both SHALL have specified types for the inputs.
+Default mapping groups SHALL have two parameters, a source, and a target, in that order, and both SHALL have specified types for the inputs.
 </p>
-
+    
 <a name="rules"></a>
 <h3>Transform Rules</h3>
 
@@ -255,7 +247,7 @@ Rules in a group may be applied in any order; there is no sense of sequentially 
 
 <h4>Source Content</h4>
 <p>
-The source content is formed by one or more source statements, which can be assigned a variable name and then be used when specifying target content, or re-used in subsequent transforms and dependent rules. Each source statement is separated by a comma and can contain the following items:
+The source content is formed by one or more source statements, which can be assigned a variable name and then be used when specifying target content, or re-used in subsequent transforms and dependent rules. Multiple source statement are separated by a comma and each statement can contain the following items:
 </p>
 <pre>
   src.value : integer 0..* default 10 first as vs0
@@ -263,7 +255,7 @@ The source content is formed by one or more source statements, which can be assi
     log value
 </pre>
 <ul>
- <li><b>context.element</b>: The fist part of the target transform consists of two parts: the <b>context</b> and the <b>element</b>. <p>The context is an identifier which is either declared as a source for the map or as a source parameter or any named variable within the group in which this rule is nested.</p>
+ <li><b>context.element</b>: The fist part of the source statement consists of two parts: the <b>context</b> and the <b>element</b>. <p>The context is an identifier which is either declared as a source for the map or as a source parameter or any named variable within the group in which this rule is nested.</p>
  <p>The element is an (optional) name of a child element of the context. If the name is not provided, the source is the context. If it is provided, the rule will apply once for each element on the context that matches this name.</p></li>
  <li><b>type</b>: A type may be specified. If a type is specified, only elements that have the specified type are selected as part of the source</li>
  <li><b>min..max</b>: Specified cardinality (may use '*' for the upper bound). If a cardinality is specified and the cardinality of the element in the source is not within the specified cardinality, the mapping engine raises an error instead of completing the transformation.</li>
@@ -305,43 +297,32 @@ Log statements are often used to note that some particular source element is not
 
 <h4>Target Transform</h4>
 <p>
-Each rule specifies zero or more elements to be created in the target structure. These targets can also be assigned to variables
-that can be used in subsequent transform rules. If no targets are specified, there are not created targets, just newly
-defined source variables. Multiple target elements are separated by a comma, like this:
+Each rule specifies zero or more target transformation statements, which specify how source content is used to create target content. These target statements can also be assigned to variables that can be used in subsequent transform rules. If no targets are specified, no transformation is done and there are no new  targets, just newly defined source variables, which can then be used in subsequent dependent rules. Multiple target statements are separated by a comma and each statement can contain the following items:
 </p>
-<pre>
-... make [target], [target] then by...
-</pre>
 <p>
-Each [target] contains the following items:
-</p>
 <pre>
-make context.element = transform_code(parameters...) as variable {list_modes}
+-> context.element = copy(parameter, ...) as vt1 first
 </pre>
 <ul>
- <li><b>context</b>: The name of a variable that is the context in which the content will be created. Variables must be declared elsewhere in
-   the map ('as variable' below, or in the input target variables)</li>
- <li><b>element</b>: The name of a child element that is valid in the context. The created value will be placed into the named element</li>
- <li><b>transform+parameters</b>: details how the content that is created is transformed from the source data. See below for possible transform codes. If no transform code is provided, then the element is autocreated. It is an error if auto-created elements are primitive types, or have more than one possible type</li>
+ <li><b>context.element</b>: The first part of the target statement consists of two parts: the <b>context</b> and the <b>element</b>. <p>The context is an identifier which is either declared as a target for the map, a taret parameter or any named variable within the group (including the variables from the source content) in which this rule is nested.</p>
+<p>The element is the name of a child element that is valid in the context. The created value will be placed into the named element</p></li>
+<li><b>transform(parameters)</b>: details how the content that is created is transformed from the source data using a specific transformation function. See below for the list of available functions. If no transform is provided, then the element is autocreated. It is an error if auto-created elements are primitive types, or have more than one possible type</li>
  <li><b>as variable</b>: a variable name may be assigned, which allows the created item to be re-used in the dependent rules</li>
- <li><b>list_modes</b>: control how elements that repeat are managed when the transform rule is evaluated</li>
+ <li><b>list_modes</b>: control how elements that repeat are managed when the transform rule is evaluated. Values can be 'first', 'share', 'last' and 'collate'. TODO: What do these do?</li>
 </ul>
 <p>
-Context and Element are optional as a pair. If no context/element is specified, then a variable must be defined, and the created value is only available in the variable.
+Transform statements may just contain an invocation of a transform function. In this case, a variable must be defined, and the created value is available in the variable for use in subsequent transformations.
 </p>
 <p>
-Each time the rule is applied, the engine determines the value from the transforms, considers the list mode, if required,
-and creates that specified content in the target instance. Within a given transform url, the targets are processed in order,
-so that a transform rule may refer to a variable defined by a prior transform rule.
+Each time the rule is applied, the engine determines the value from the transforms, considers the list mode, if required and creates that specified content in the target instance. Within a target transform, the target statements are processed in order, so that a transform statement may refer to a variable defined by a prior transform statement.
 </p>
-
 <p>
 The following list specifies that transforms that can be specified. Each transform takes one or more parameters:
 </p>
 <table class="grid">
  <tr><td><b>Name</b></td><td><b>parameters</b></td><td><b>Documentation</b></td></tr>
- <tr><td>copy</td> <td>source</td> <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types). In the concrete syntax, this is simply represented as the source variable</td></tr>
  <tr><td>create</td> <td>type</td> <td>use the standard API to create a new instance of data. Where structure definitions have been provided, the type parameter must be a string which is a known type of a root element. Where they haven't, the application must know the name somehow</td></tr>
+ <tr><td>copy</td> <td>source</td> <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types). In the concrete syntax, this is simply represented as the source variable, e.g. src.a = tgt.b</td></tr>
  <tr><td>truncate</td> <td>source, length</td> <td>source must be some stringy type that has some meaningful length property</td></tr>
  <tr><td>escape</td> <td>source, format1, format2</td> <td>Change the internal escaping of a string element. Note: this is not often needed, as mostly the escaping is done on the base format</td></tr>
  <tr><td>cast</td> <td>source, type?</td> <td>cast source from one type to another. target type can be left as implicit if there is one and only one target type known</td></tr>
@@ -367,14 +348,11 @@ TODO: explain how optional parameters work with transforms (append only?), docum
 <h4>Dependent Rules</h4>
 
 <p>
-Once the source elements are evaluated, and any specified targets created, the engine has a set of variables that represent source and target
-contexts in which further mapping may occur. The set of variables includes those provided to the group that contains the rule, and those
-created by the application of the rule. For some created elements that are primitive types, that's the end of the road - there's nothing more
-to do with them. But if either or both the source and target types are complex, there are usually additional mapping rules that need to apply
+Once the source elements are evaluated, and any specified targets created, the engine has a set of variables that represent source and target contexts in which further mapping may occur. The set of variables includes those provided to the group that contains the rule, and those created by the application of the rule. For some created elements that are primitive types, that's the end of the road - there's nothing more to do with them. But if either or both the source and target types are complex, there are usually additional mapping rules that need to apply
 to the newly created variables.
 </p>
 <p>
-Transform rules specify what additional rules are evaluated when the rule is complete, by containing other rules:,
+Dependent rules specify what additional rules are evaluated when the rule is complete:
 </p>
 <pre>
  .. then {
@@ -383,8 +361,7 @@ Transform rules specify what additional rules are evaluated when the rule is com
 </pre>
 <p>
 When a rule contains other rules, the variables from the containing rules are all available to the contained rules.
-Alternatively, a rule can nominate another group of rules from the same or an imported mapping. Each rule or group is listed by name,
-and then a set of parameters are provided.
+Alternatively, a rule can nominate another group of rules from the same or an imported mapping. Each rule or group is listed by name, and then a set of parameters are provided.
 </p>
 
 <pre>
@@ -403,42 +380,41 @@ of these maps.
 </p>
 
 <a name="simple"></a>
-<h3>Simple Form + Implicit Type Dependencies</h3>
+<h3>Simple Form</h3>
 <p>
 If no dependent rules are specified, and if the is only one source and target, and
 they both specify a variable, the rule can be written in an abbreviated form:
 </p>
 <pre>
- "name" : for src.element make tgt.element
+  src.element -> tgt.element
 </pre>
 <p>
 This is implicitly the same as
 </p>
 <pre>
- "name" : for src.element as vvs make create([type]) tgt.element as vvt then [typeGroup](vvs, vvt)
+  src.element as vvs -> tgt.element = create('type') as vvt then defaultMappingGroup(vvs, vvt)
 </pre>
 <p>
-Where <code>type</code> and <code>typeGroup</code> are determined by the context of src.element
-and tgt.element:
+Where the name of the type given as a parameter to 'create' and the group invoked by the 'then' are determined by the context of src.element and tgt.element and the selected default mapping group, as documented in the next section. Note that default mapping groups are only invoked when no dependent rules or explicit group invocations are specified.
 </p>
-<ul>
- <li><code>typeGroup</code> is determined by looking through the available rule groups labeled as "for types" or "for type+types" and checking the types of their inputs
- looking for a match to the type of src.element, and [type]</li>
- <li><code>type</code> is determined by the type of tgt.element. If tgt.element can have more than one type, then the
- type is inferred by looking through the available groups labeled "for type+types" for a match to the type of
- src.element</li>
-</ul>
-
+<h3>Default mapping groups</h3>
+<p>
+It is not necessary to explicitly invoke groups for each mapping. Instead groups can be declared to be the "default" mapping for a given source and target type. Groups acting as defaults have either &lt;&lt;types&gt;&gt; or &lt;&lt;type+&gt;&gt; in their declaration.</p>
+<p>
+Groups marked with <code>types</code> are used by default when the engine encounters a mapping with a source and target type where the types match the source and target type of the group. Of course, there can be only one such group for each combination of source and target type for the engine to unambiguously determine which default group to invoke.
+</p>
+<p>
+In addition to the above use, groups may be marked with <code>type+</code>. They will act like a default mapping group, just like <codes>types</codes>, but additionally they will be invoked when the target type is not fixed, i.e. when mapping to an element with a choice type. This means that a <code>type+</code> group will be used as the default as long as the source type of the instance to map matches the source type of the group. Even so, the target will then always be taken to be the target type of the group.
+</p>
 <a name="grammar"></a>
 <h3>Formal Grammar</h3>
-
-<p>todo</p>
+<p>The formal grammar for the mapping language, specified using ANTLR, can be found <a href="mapping-language.g4">here</a>.</p>
+<p>Note that this grammar uses FHIRPath as an embedded syntax. Full details on FHIRPath and it's grammar can be found <a href="http://hl7.org/fhirpath">here</a>.</p>
 
 <a name="api"></a>
 <h3>Mapping Support API</h3>
 
 <p>todo</p>
-
 
 </div>
 
