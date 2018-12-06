@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/ValueSet/medicationrequest-intent"/>
+  <url value="http://hl7.org/fhir/CodeSystem/medicationrequest-intent"/>
   <name value="MedicationRequest Intent Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value=""/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/valueSet/medicationrequest-intent"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-intent"/>
   <content value="complete"/>
   <concept>
     <code value="proposal"/>
