@@ -1,7 +1,7 @@
 /**
  * Define a grammar called FhirMapper
  */
- grammar MappingLanguage;
+ grammar scratch_3;
 
 // starting point for parsing a mapping file
 // in case we need nested ConceptMaps, we need to have this rule:
@@ -12,15 +12,16 @@ structureMap
     ;
 
 mapId
-	: 'map' url '=' QUOTEDSTRING
+	: 'map' url '=' DELIMITEDIDENTIFIER
 	;
 
 url
-    : QUOTEDIDENTIFIER
+    : DELIMITEDIDENTIFIER
     ;
 
 identifier
     : IDENTIFIER
+    | DELIMITEDIDENTIFIER
     ;
 
 structure
@@ -56,26 +57,41 @@ parameters
     ;
 
 parameter
-    : inputMode identifier (':' type)?
+    : inputMode identifier type?
 	;
 
 type
-    : ':' identifier;
+    : ':' identifier
+    ;
 
 rule
- 	: (ruleName ':')? ruleSources ruleTargets? dependent?
+ 	: ruleSources ('->' ruleTargets)? dependent? ruleName? ';'
  	;
 
+ruleName
+    : DELIMITEDIDENTIFIER
+    ;
+
 ruleSources
-    : 'for' ruleSource (',' ruleSource)*
+    : ruleSource (',' ruleSource)*
     ;
 
 ruleSource
     :  ruleContext sourceType? sourceDefault? sourceListMode? alias? whereClause? checkClause? log?
     ;
 
+ruleTargets
+    : ruleTarget (',' ruleTarget)* targetListMode?
+    ;
+
+
 sourceType
-    : ':' identifier (INTEGER? '..' INTEGER?)?
+    : ':' identifier (INTEGER '..' upperBound)?
+    ;
+
+upperBound
+    : INTEGER
+    | '*'
     ;
 
 ruleContext
@@ -83,16 +99,7 @@ ruleContext
 	;
 
 sourceDefault
-    : 'default' literal       // Spec says nothing about what's allowed - what about complex types?
-    ;
-
-literal
-    : INTEGER
-    | NUMBER
-    | STRING
-    | DATETIME
-    | TIME
-    | BOOL
+    : 'default' fhirPath
     ;
 
 alias
@@ -112,23 +119,8 @@ log
     ;
 
 dependent
-    : 'then' (invocation | dependentRule)
+    : 'then' (invocation | rules)
     ;
-
-dependentRule
-    : '{' rule+ '}'
-    ;
-
-ruleTargets
-    : 'make' ruleTarget (',' ruleTarget)* targetListSpec?
-    ;
-
-targetListSpec
-    : '{' targetListMode '}'        // seen in examples, but unnecessary & inconsistent with sourceListMode
-    | targetListMode
-    ;
-
-
 
 ruleTarget
     : ruleContext ('=' transform)? alias?
@@ -154,14 +146,18 @@ param
     | identifier
     ;
 
-
-ruleName
-	: identifier
-	;
-
 fhirPath
-    : IDENTIFIER
+    : literal       // insert reference to FhirPath grammar here
     ;
+
+    literal
+        : INTEGER
+        | NUMBER
+        | STRING
+        | DATETIME
+        | TIME
+        | BOOL
+        ;
 
 groupTypeMode
     : 'types' | 'type+'
@@ -243,10 +239,10 @@ fragment TIMEFORMAT
         ;
 
 IDENTIFIER
-        : ([A-Za-z])([A-Za-z0-9] | '_' | '-')*
+        : ([A-Za-z] | '_')([A-Za-z0-9] | '_')*            // Added _ to support CQL (FHIR could constrain it out)
         ;
 
-QUOTEDIDENTIFIER
+DELIMITEDIDENTIFIER
         : '"' (ESC | .)*? '"'
         ;
 
@@ -254,17 +250,10 @@ STRING
         : '\'' (ESC | .)*? '\''
         ;
 
-QUOTEDSTRING
-    : QUOTEDIDENTIFIER
-    ;
-
-URL
-    : QUOTEDIDENTIFIER
-    ;
-
 INTEGER
     : [0-9]+
     ;
+
 // Also allows leading zeroes now (just like CQL and XSD)
 NUMBER
     : INTEGER ('.' [0-9]+)?
