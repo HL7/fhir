@@ -24,7 +24,7 @@
  <tr><td>Version</td><td>Where a version is used, it should be the standard LOINC version e.g. 2.48</td></tr>
  <tr><td>Code</td><td>The LOINC Code Identifier e.g. 21176-3. LOINC codes are not case sensitive. In addition, LOINC part codes and LOINC answer string ids can be used where appropriate</td></tr>
  <tr><td>Display</td><td>Use either the SHORTNAME or LONG_COMMON_NAME field for the display</td></tr>
- <tr><td>Inactive</td><td>codes with Property ACTIVE=DEPRECATED are considered inactive</td></tr>
+ <tr><td>Inactive</td><td>Codes with Property STATUS = DEPRECATED are considered inactive for use in ValueSet.compose.inactive</td></tr>
  <tr><td>Subsumption</td><td>LOINC defines the Multi-Axial Hierarchy, which is the basis for subsumption logic in LOINC</td></tr>
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
@@ -95,10 +95,10 @@ the representation is http://loinc.org/rdf#[code].
 <a name="props"></a>
 <h3>LOINC Properties</h3>
 <p>
-In addition to the <a href="terminology-service.html#standard-props">standard properties</a>, the following properties are defined for LOINC:
+In addition to the <a href="terminology-service.html#standard-props">standard properties</a>, the following LOINC tables fields are defined as code system properties when using LOINC in FHIR:
 </p>
 <table class="grid">
-<tr><td>STATUS</td><td>boolean</td><td>Status of the term. For the purposes of LOINC, codes with Property ACTIVE=DEPRECATED are considered inactive</td></tr>
+<tr><td>STATUS</td><td>code</td><td>Status of the term</td></tr>
 <tr><td>COMPONENT</td><td>code</td><td>First major axis-component or analyte: Analyte Name, Analyte sub-class, Challenge</td></tr>
 <tr><td>PROPERTY</td><td>code</td><td>Second major axis-property observed: Kind of Property (also called kind of quantity)</td></tr>
 <tr><td>TIME_ASPCT</td><td>code</td><td>Third major axis-timing of the measurement: Time Aspect (Point or moment in time vs. time interval)</td></tr>
