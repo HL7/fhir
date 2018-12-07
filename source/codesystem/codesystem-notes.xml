@@ -224,7 +224,7 @@ The code system hierarchy is a single tree, where concepts have only one parent.
 Some code systems define concepts that have multiple parents.
 If a code system has concepts like this (typically, concepts that are subsumed by 
 more than one other concept), the code system SHOULD NOT be represented using the hierarchy structure in 
-the Code System resource, and the relationships between resources should be defined using <a href="#properties">properties</a>. 
+the Code System resource, and the relationships between concepts should be defined using <a href="#properties">properties</a>. 
 If the hierarchy is used, implementers SHALL use a property to indicate 
 additional parents that are not represented in the structural (nested concepts) hierarchy. 
 </p>
