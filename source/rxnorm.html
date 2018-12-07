@@ -23,7 +23,7 @@
  <tr><td>System</td><td>The URI <a href="http://www.nlm.nih.gov/research/umls/rxnorm">http://www.nlm.nih.gov/research/umls/rxnorm</a> identifies the RxNorm code system</td></tr>
  <tr><td>Version</td><td>Where a version is used, it should be the date of release, encoded as in the download files, e.g. "07092014"</td></tr>
  <tr><td>Code</td><td>The code value for an RxNorm code is a Concept Identifier (CUI), and only CUIs for which there is an SAB=RXNORM</td></tr>
- <tr><td>Display</td><td>The correct display for a CUI is the string description for it associated with the source RXNORM. Display values are not case sensitive</td></tr>
+ <tr><td>Display</td><td>The string description for the CUI that is associated with the source RXNORM. For further information, <a href="#display">see below</a></td></tr>
  <tr><td>Inactive</td><td>Todo: Describe how it is determined which concepts are inactive</td></tr>
  <tr><td>Subsumption</td><td>No Subsumption relationships are defined by RxNorm</td></tr>
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
@@ -34,11 +34,22 @@
 The RxNorm scripts are able to populate a MySQL database that contains the data from RxNorm. 
 This page provides SQL statements that describe how to implement the features of the RxNorm 
 terminology correctly against this database. These are provided for implementer convenience, and 
-do not imply that any particular approach be used in implementations. 
+do not imply that any particular approach is required to be used in implementations. 
 </p>
+
+<h3>Correct RxNorm Display</h3>
 <p>
-For example, the correct display name for a CUI is 'Select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM' and TTY &lt;&gt; 'SY'.
+The correct display for a CUI is the string description for it associated with the source RXNORM.
+Given the RxNorm MySQL database, the correct display for a CUI can be determined by the 
+SQL:
 </p>
+<pre>
+ Select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM' and TTY &lt;&gt; 'SY'.
+</pre>
+<p>
+Display values are not case sensitive, though case SHOULD be preserved.
+</p>
+
 
 <h3>Copyright/License Issues</h3>
 
