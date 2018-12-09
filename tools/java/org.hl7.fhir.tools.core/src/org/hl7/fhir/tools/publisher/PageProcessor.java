@@ -2312,7 +2312,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         }
       } else
         b.append("  <td>"+country+"</td>\r\n");
-      b.append("  <td>"+Utilities.escapeXml(ns.getDescription())+"</td>\r\n");
+      b.append("  <td>"+processMarkdown("namingSystem.descrption",  ns.getDescription(), "")+"</td>\r\n");
       b.append("</tr>\r\n");
     }
     return b.toString();
