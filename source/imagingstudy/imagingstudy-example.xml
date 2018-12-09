@@ -8,7 +8,7 @@
 	</text>
 	<identifier>
 		<system value="urn:dicom:uid"/>
-		<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
+		<value value="2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
 	</identifier>
 	<status value="available"/>
 	<subject>
