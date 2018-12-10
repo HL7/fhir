@@ -153,6 +153,7 @@ import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r4.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.r4.model.Extension;
@@ -374,7 +375,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private final List<String> suppressedMessages = new ArrayList<String>();
   private Definitions definitions;
   private FolderManager folders;
-  private String version;
+  private FHIRVersion version;
   private Navigation navigation;
   private final List<PlatformGenerator> referenceImplementations = new ArrayList<PlatformGenerator>();
   private IniFile ini;
@@ -2930,7 +2931,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String reflink(String name) {
     for (PlatformGenerator t : referenceImplementations)
       if (t.getName().equals(name))
-        return t.getReference(version);
+        return t.getReference(version.toCode());
     return "??";
   }
 
@@ -5080,7 +5081,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     StringBuilder s = new StringBuilder();
     for (PlatformGenerator gen : referenceImplementations) {
       if (gen.wantListAsDownload())
-        s.append("<tr><td><a href=\""+gen.getReference(version)+"\">"+gen.getTitle()+"</a></td><td>"+processMarkdown(location, gen.getDescription(version, buildId), "")+"</td></tr>\r\n");
+        s.append("<tr><td><a href=\""+gen.getReference(version.toCode())+"\">"+gen.getTitle()+"</a></td><td>"+processMarkdown(location, gen.getDescription(version.toCode(), buildId), "")+"</td></tr>\r\n");
     }
     return s.toString();
   }
@@ -8907,6 +8908,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (tx.hasValueSet()) {
       if (tx.hasValueSet()) {
         String uri = tx.getValueSet();
+        if (uri.contains("|"))
+          uri = uri.substring(0, uri.indexOf("|"));
         ValueSet vs = definitions.getValuesets().get(uri);
         if (vs == null) {
           if (uri.startsWith("http://hl7.org/fhir/ValueSet/")) {
@@ -9144,7 +9147,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   public FolderManager getFolders() {
     return folders;
   }
-  public String getVersion() {
+  public FHIRVersion getVersion() {
     return version;
   }
 
@@ -9183,9 +9186,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   }
 
-  public void setVersion(String version) {
+  public void setVersion(FHIRVersion version) {
     this.version = version;
-    workerContext.setVersion(version);
+    workerContext.setVersion(version.toCode());
   }
 
   public void setFolders(FolderManager folders) throws Exception {
@@ -9473,6 +9476,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       br.display = "(unbound)";
     } else {
       String ref = binding.getValueSet();
+      if (ref.contains("|"))
+        ref = ref.substring(0 , ref.indexOf("|"));
       if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
         br.url = "v3/"+ref.substring(39)+"/vs.html";
         br.display = ref.substring(39);

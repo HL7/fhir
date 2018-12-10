@@ -159,13 +159,13 @@ public class ProfileGenerator {
     private Map<String, ElementDefinition> paths = new HashMap<String, ElementDefinition>();
   }
 
-  public ProfileGenerator(Definitions definitions, BuildWorkerContext context, ProfileKnowledgeProvider pkp, Calendar genDate, String version, Bundle dataElements, List<FHIRPathUsage> fpUsages, String rootFolder) throws FHIRException {
+  public ProfileGenerator(Definitions definitions, BuildWorkerContext context, ProfileKnowledgeProvider pkp, Calendar genDate, FHIRVersion version, Bundle dataElements, List<FHIRPathUsage> fpUsages, String rootFolder) throws FHIRException {
     super();
     this.definitions = definitions;
     this.context = context;
     this.pkp = pkp;
     this.genDate = genDate;
-    this.version = FHIRVersion.fromCode(version);
+    this.version = version;
     this.dataElements = dataElements;
     this.fpUsages = fpUsages;
     this.rootFolder = rootFolder;
@@ -1303,6 +1303,7 @@ public class ProfileGenerator {
 
   private ElementDefinitionBindingComponent generateBinding(BindingSpecification src) throws Exception {
     if (src == null)
+      
       return null;
     ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
     dst.setDescription(src.getDefinition());
@@ -1322,29 +1323,30 @@ public class ProfileGenerator {
   }
 
   private String buildValueSetReference(BindingSpecification src) throws Exception {
+    String v = src.getStrength() == BindingStrength.REQUIRED ? "|"+version.toCode() : "";
     switch (src.getBinding()) {
     case Unbound: return null;
     case CodeList:
       if (src.getValueSet()!= null)
-        return src.getValueSet().getUrl();
+        return src.getValueSet().getUrl()+v;
       else if (src.getReference().startsWith("#"))
-        return "http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1);
+        return "http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1)+v;
       else
         throw new Exception("not done yet");
     case ValueSet: 
       if (!Utilities.noString(src.getReference()))
         if (src.getReference().startsWith("http"))
-          return src.getReference();
+          return src.getReference()+v;
         else if (src.getValueSet()!= null)
-          return src.getValueSet().getUrl();
+          return src.getValueSet().getUrl()+v;
         else if (src.getReference().startsWith("valueset-"))
-          return "http://hl7.org/fhir/ValueSet/"+src.getReference().substring(9);
+          return "http://hl7.org/fhir/ValueSet/"+src.getReference().substring(9)+v;
         else
-          return "http://hl7.org/fhir/ValueSet/"+src.getReference();
+          return "http://hl7.org/fhir/ValueSet/"+src.getReference()+v;
       else
         return null; // throw new Exception("not done yet");
     case Special: 
-      return "http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1);
+      return "http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1)+v;
     default: 
       throw new Exception("not done yet");
     }

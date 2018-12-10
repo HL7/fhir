@@ -760,7 +760,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cm.setUserData("resource-definition", rd);
     cm.setId("sc-"+vs.getId());
     cm.setUrl("http://hl7.org/fhir/ConceptMap/"+cm.getId());
-    cm.setVersion(page.getVersion());   
+    cm.setVersion(page.getVersion().toCode());   
     cm.setName(vs.getName()+"CanonicalMap");  
     cm.setTitle("Canonical Mapping for \""+vs.present()+"\""); 
     cm.setStatus(PublicationStatus.DRAFT);  
@@ -1548,7 +1548,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     CapabilityStatement cpbs = new CapabilityStatement();
     cpbs.setId(FormatUtilities.makeId(name));
     cpbs.setUrl("http://hl7.org/fhir/CapabilityStatement/" + name);
-    cpbs.setVersion(page.getVersion());
+    cpbs.setVersion(page.getVersion().toCode());
     cpbs.setName("Base FHIR Capability Statement " + (full ? "(Full)" : "(Empty)"));
     cpbs.setStatus(PublicationStatus.DRAFT);
     cpbs.setExperimental(true);
@@ -1558,7 +1558,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpbs.setKind(CapabilityStatementKind.CAPABILITY);
     cpbs.setSoftware(new CapabilityStatementSoftwareComponent());
     cpbs.getSoftware().setName("Insert your software name here...");
-    cpbs.setFhirVersion(FHIRVersion.fromCode(page.getVersion()));
+    cpbs.setFhirVersion(page.getVersion());
     cpbs.getFormat().add(Factory.newCode("xml"));
     cpbs.getFormat().add(Factory.newCode("json"));
     CapabilityStatementRestComponent rest = new CapabilityStatement.CapabilityStatementRestComponent();
@@ -1772,9 +1772,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (checkFile("required", page.getFolders().rootDir, "publish.ini", errors, "all")) {
       checkFile("required", page.getFolders().srcDir, "navigation.xml", errors, "all");
       page.setIni(new IniFile(page.getFolders().rootDir + "publish.ini"));
-      page.setVersion(page.getIni().getStringProperty("FHIR", "version"));
+      page.setVersion(FHIRVersion.fromCode(page.getIni().getStringProperty("FHIR", "version")));
 
-      prsr = new SourceParser(page, folder, page.getDefinitions(), web, FHIRVersion.fromCode(page.getVersion()), page.getWorkerContext(), page.getGenDate(), page, fpUsages, isCIBuild);
+      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate(), page, fpUsages, isCIBuild);
       prsr.checkConditions(errors, dates);
       page.setRegistry(prsr.getRegistry());
       page.getDiffEngine().loadFromIni(prsr.getIni());
@@ -2151,13 +2151,13 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     page.log("Produce Schemas", LogMessageType.Process);
     new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir+"codegen"+File.separator, page.getFolders().dstDir,
-        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), true, page.getWorkerContext());
+        page.getFolders().srcDir, page.getVersion().toCode(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), true, page.getWorkerContext());
     new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
-        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false, page.getWorkerContext());
+        page.getFolders().srcDir, page.getVersion().toCode(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false, page.getWorkerContext());
     new org.hl7.fhir.definitions.generators.specification.json.SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
-        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), page.getWorkerContext());
+        page.getFolders().srcDir, page.getVersion().toCode(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), page.getWorkerContext());
     new org.hl7.fhir.definitions.generators.specification.json.JsonLDDefinitionsGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().dstDir,
-        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), page.getWorkerContext());
+        page.getFolders().srcDir, page.getVersion().toCode(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), page.getWorkerContext());
 
     List<StructureDefinition> list = new ArrayList<StructureDefinition>();
     for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
@@ -2202,7 +2202,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         String tmpImplDir = Utilities.path(page.getFolders().tmpDir, gen.getName(), "");
         String actualImplDir = Utilities.path(page.getFolders().implDir(gen.getName()), "");
 
-        gen.generate(page.getDefinitions(), destDir, actualImplDir, tmpImplDir, page.getVersion(), page.getGenDate().getTime(), page, page.getBuildId());
+        gen.generate(page.getDefinitions(), destDir, actualImplDir, tmpImplDir, page.getVersion().toCode(), page.getGenDate().getTime(), page, page.getBuildId());
       }
       for (PlatformGenerator gen : page.getReferenceImplementations()) {
         if (gen.doesCompile()) {
@@ -3082,7 +3082,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
   private void produceSpecMap() throws IOException {
-    SpecMapManager spm = new SpecMapManager("hl7.fhir.core", page.getVersion(), page.getVersion(), page.getBuildId(), page.getGenDate(), CANONICAL_BASE);
+    SpecMapManager spm = new SpecMapManager("hl7.fhir.core", page.getVersion().toCode(), page.getVersion().toCode(), page.getBuildId(), page.getGenDate(), CANONICAL_BASE);
         
     for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
       if (sd.hasUserData("path")) {
@@ -3617,7 +3617,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void buildSearchDefinition(ResourceDefn rd, SearchParameterDefn spd) throws Exception {
     StructureDefinition p = new StructureDefinition();
-    p.setFhirVersion(FHIRVersion.fromCode(page.getVersion()));
+    p.setFhirVersion(page.getVersion());
     p.setKind(StructureDefinitionKind.RESOURCE);
     p.setAbstract(true);
     p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
@@ -3728,7 +3728,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     page.log("Copy HTML templates", LogMessageType.Process);
     Utilities.copyDirectory(page.getFolders().rootDir + page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir, page.getHTMLChecker());
-    TextFile.stringToFile("\r\n[FHIR]\r\nFhirVersion=" + page.getVersion() + "-" + page.getBuildId() + "\r\nversion=" + page.getVersion()
+    TextFile.stringToFile("\r\n[FHIR]\r\nFhirVersion=" + page.getVersion() + "-" + page.getBuildId() + "\r\nversion=" + page.getVersion().toCode()
         + "\r\nbuildId=" + page.getBuildId() + "\r\ndate=" + new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()),
         Utilities.path(page.getFolders().dstDir, "version.info"), false);
 
@@ -4509,7 +4509,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           res.setVersion(Constants.VERSION);
         boolean wantSave = false;
         if (res instanceof CapabilityStatement) {
-          ((CapabilityStatement) res).setFhirVersion(FHIRVersion.fromCode(page.getVersion()));
+          ((CapabilityStatement) res).setFhirVersion(page.getVersion());
           if (res.hasText() && res.getText().hasDiv())
             wantSave = updateVersion(((CapabilityStatement) res).getText().getDiv());
         }
@@ -4755,7 +4755,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private boolean updateVersion(XhtmlNode div) {
     if (div.getNodeType().equals(NodeType.Text)) {
       if (div.getContent().contains("$ver$")) {
-        div.setContent(div.getContent().replace("$ver$", page.getVersion()));
+        div.setContent(div.getContent().replace("$ver$", page.getVersion().toCode()));
         return true;
       } else
         return false;
