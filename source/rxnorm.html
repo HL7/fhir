@@ -40,13 +40,14 @@ do not imply that any particular approach is required to be used in implementati
 <h3>Correct RxNorm Display</h3>
 <p>
 The correct display for a CUI is the string description for it associated with the source RXNORM.
-Given the RxNorm MySQL database, the correct display for a CUI can be determined by the 
+Given the RxNorm MySQL database, the correct display for a CUI can generally be determined by the 
 SQL:
 </p>
 <pre>
- Select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM' and TTY &lt;&gt; 'SY'.
+ Select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM' and TTY in ('SCD', 'SBD')
 </pre>
 <p>
+
 Display values are not case sensitive, though case SHOULD be preserved.
 </p>
 
