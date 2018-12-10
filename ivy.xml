@@ -95,7 +95,8 @@
 		<dependency org="org.typelevel" name="cats-kernel_2.12" rev="0.9.0" />
 		<dependency org="org.antlr" name="antlr4-runtime" rev="4.6"/>
 		<dependency org="io.circe" name="circe-core_2.11" rev="0.7.0-M2" />
-    <dependency org="com.atlassian.commonmark" name="commonmark" rev="0.9.0"/>
+    <dependency org="com.atlassian.commonmark" name="commonmark" rev="0.12.1"/>
+    <dependency org="com.atlassian.commonmark" name="commonmark-ext-gfm-tables" rev="0.12.1"/>
     <dependency org="org.fhir" name="ucum" rev="1.0-SNAPSHOT"/>
     
     <!-- IG web server dependencies -->

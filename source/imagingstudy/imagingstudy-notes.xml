@@ -23,7 +23,7 @@ The ImagingStudy’s DICOM Study Instance UID is encoded in the <code>ImagingStu
 
 	"identifier":{
 		"system":"urn:dicom:uid",
-		"value":"urn:oid:2.16.124.113543.1154777499.30246.19789.3503430046"
+		"value":"2.16.124.113543.1154777499.30246.19789.3503430046"
 	} 
 
 </pre>
@@ -87,7 +87,7 @@ The path to retrieve a DICOM instance is constructed by appending the appropriat
 For example, using the following information in a fictional ImagingStudy resource:
 <ul>
 <li>the WADO-RS service base url of <code>“https://pacs.hospital.org/wado-rs”</code> found in an <code>ImagingStudy.endpoint.address</code>,</li>
-<li>the DICOM Study Instance UID of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
+<li>the DICOM Study Instance UID of <code>“1.2.250.1.59.40211.12345678.678910”</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
 <li>the DICOM Series Instance UID of <code>“1.2.250.1.59.40211.789001276.14556172.67789”</code> found in <code>ImagingStudy.series.uid</code>, and</li>
 <li>the DICOM SOP Instance UID of <code>“1.2.250.1.59.40211.2678810.87991027.899772.2”</code> found in <code>ImagingStudy.series.instance.uid</code></li>
 </ul>
@@ -137,7 +137,7 @@ The query to retrieve a DICOM instance is constructed by appending the appropria
 For example, using the following information in a fictional ImagingStudy resource:
 <ul>
 <li>the WADO-URI service base url of <code>“https://pacs.hospital.org/wado-uri”</code> found in an <code>ImagingStudy.endpoint.address</code>,</li>
-<li>the DICOM Study Instance UID of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
+<li>the DICOM Study Instance UID of <code>1.2.250.1.59.40211.12345678.678910”</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
 <li>the DICOM Series Instance UID of <code>“1.2.250.1.59.40211.789001276.14556172.67789”</code> found in <code>ImagingStudy.series.uid</code>, and</li>
 <li>the DICOM SOP Instance UID of <code>“1.2.250.1.59.40211.2678810.87991027.899772.2”</code> found in <code>ImagingStudy.series.instance.uid</code></li>
 </ul>

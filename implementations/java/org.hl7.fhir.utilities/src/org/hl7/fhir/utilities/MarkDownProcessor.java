@@ -1,5 +1,10 @@
 package org.hl7.fhir.utilities;
 
+import java.util.Collections;
+import java.util.Set;
+
+import org.commonmark.Extension;
+import org.commonmark.ext.gfm.tables.TablesExtension;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -28,10 +33,13 @@ public class MarkDownProcessor {
   }
 
   private String processCommonMark(String source) {
-    Parser parser = Parser.builder().build();
+    Set<Extension> extensions = Collections.singleton(TablesExtension.create());
+    Parser parser = Parser.builder().extensions(extensions).build();
     Node document = parser.parse(source);
-    HtmlRenderer renderer = HtmlRenderer.builder().build();
-    return renderer.render(document);  
+    HtmlRenderer renderer = HtmlRenderer.builder().extensions(extensions).build();
+    String html = renderer.render(document);
+    html = html.replace("<table>", "<table class=\"grid\">");
+    return html;  
   }
   
 }

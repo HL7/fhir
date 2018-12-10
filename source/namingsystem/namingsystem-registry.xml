@@ -8,7 +8,7 @@
     <resource>
       <NamingSystem>
         <id value="dicom-uid"/>
-        <name value="DICOMUniqueOid"/>
+        <name value="DICOM Unique Id"/>
         <status value="active"/>
         <kind value="identifier"/>
         <date value="2015-07-31"/>
@@ -20,11 +20,17 @@
           </telecom>
         </contact>
         <description value="An OID issued under DICOM OID rules. DICOM OIDs are represented as plain OIDs, with no URI prefix"/>
+        <jurisdiction>
+          <coding>
+            <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+            <code value="001"/>
+          </coding>
+        </jurisdiction>
         <uniqueId>  
           <type value="uri"/>
           <value value="urn:dicom:uid"/>
           <preferred value="true"/>
-         </uniqueId>
+        </uniqueId>
       </NamingSystem>
     </resource>
   </entry>    
@@ -1908,34 +1914,4 @@
       </NamingSystem>
     </resource>
   </entry>
-  <entry>
-    <fullUrl value="http://hl7.org/fhir/NamingSystem/dicom-uid"/>
-    <resource>
-      <NamingSystem>
-        <id value="dicom-uid"/>
-        <name value="DICOM Unique Id"/>
-        <status value="active"/>
-        <kind value="identifier"/>
-        <date value="2018-10-29"/>
-        <publisher value="DICOM"/>
-        <contact>  
-          <telecom>
-            <system value="url"/>
-            <value value="https://www.dicomstandard.org/"/>
-          </telecom>
-        </contact>
-        <description value="Identifiers of DICOM Studies"/>
-        <jurisdiction>
-          <coding>
-            <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
-            <code value="001"/>
-          </coding>
-        </jurisdiction>
-        <uniqueId>  
-          <type value="uri"/>
-          <value value="urn:dicom:uid"/>
-         </uniqueId>
-      </NamingSystem>
-    </resource>
-  </entry>    
 </Bundle>

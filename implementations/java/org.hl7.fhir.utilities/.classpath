@@ -12,8 +12,9 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/junit-4.11.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/gson-2.3.jar"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/commonmark-0.9.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/hamcrest-core-1.3.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-compress-1.16.1.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commonmark-0.12.1.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commonmark-ext-gfm-tables-0.12.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
