@@ -1,18 +1,18 @@
 /**
  * Define a grammar called FhirMapper
  */
- grammar scratch_3;
+ grammar mappingLanguage;
 
 // starting point for parsing a mapping file
 // in case we need nested ConceptMaps, we need to have this rule:
 // structureMap : mapId conceptMap* structure* imports* group+
 
 structureMap
-    : mapId structure* imports* group+
+    : mapId structure* imports* group+ EOF
     ;
 
 mapId
-	: 'map' url '=' DELIMITEDIDENTIFIER
+	: 'map' url '=' identifier
 	;
 
 url
@@ -81,9 +81,8 @@ ruleSource
     ;
 
 ruleTargets
-    : ruleTarget (',' ruleTarget)* targetListMode?
+    : ruleTarget (',' ruleTarget)* targetListModeBlock?
     ;
-
 
 sourceType
     : ':' identifier (INTEGER '..' upperBound)?
@@ -124,7 +123,7 @@ dependent
 
 ruleTarget
     : ruleContext ('=' transform)? alias?
-    | invocation alias
+    | invocation alias?     // alias is not required when simply invoking a group
     ;
 
 transform
@@ -165,6 +164,11 @@ groupTypeMode
 
 sourceListMode
     : 'first' | 'not_first' | 'last' | 'not_last' | 'only_one'
+    ;
+
+targetListModeBlock
+    : '{' targetListMode '}'        // just here since there are divergent uses with and without brackets
+    | targetListMode
     ;
 
 targetListMode
