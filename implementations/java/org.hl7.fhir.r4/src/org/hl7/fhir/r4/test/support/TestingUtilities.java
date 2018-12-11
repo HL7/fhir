@@ -232,6 +232,8 @@ public class TestingUtilities {
       TextFile.stringToFile(s1, f1);
       TextFile.stringToFile(s2, f2);
       command.add(diff);
+      if (diff.toLowerCase().contains("meld"))
+    	  command.add("--newtab");
       command.add(f1);
       command.add(f2);
 

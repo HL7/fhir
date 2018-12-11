@@ -26,10 +26,8 @@ group ClaimResponse(source src : ClaimResponseR3, target tgt : ClaimResponse) ex
   src.item as s -> tgt.item as t then ClaimResponseItem(s, t);
   src.addItem as s -> tgt.addItem as t then ClaimResponseAddItem(s, t);
   src.error as s -> tgt.error as t then ClaimResponseError(s, t);
-  // src.totalCost as s -> tgt.total as t, t.amount = s;
-  src.totalCost as testvariable then {
-    testvariable -> tgt.total as t, t.amount = testvariable "set ClaimResponse.total.amount";
-  } "test rule";
+  src.totalCost as s -> tgt.total as t then ClaimResponseTotalCost(s, t);
+  src.totalBenefit as s -> tgt.total as t then ClaimResponseTotalBenefit(s, t);
   src.payment as s -> tgt.payment as t then ClaimResponsePayment(s, t);
   src.reserved as vs -> tgt.fundsReserve as vt, vt.coding = vs;
   src.form -> tgt.form;
@@ -142,3 +140,11 @@ group ClaimResponseInsurance(source src, target tgt) extends BackboneElement {
   src.claimResponse -> tgt.claimResponse;
 }
 
+group ClaimResponseTotalCost(source src, target tgt) extends BackboneElement {
+  src -> tgt.category as cc, cc.text = "Submitted Amount", cc.coding as coding, coding.code = "submitted", coding.system = "http://terminology.hl7.org/CodeSystem/adjudication";
+  src as vs -> tgt.amount as vt then Money(vs, vt);
+}
+group ClaimResponseTotalBenefit(source src, target tgt) extends BackboneElement {
+  src -> tgt.category as cc, cc.text = "Benefit Amount", cc.coding as coding, coding.code = "benefit", coding.system = "http://terminology.hl7.org/CodeSystem/adjudication";
+  src as vs -> tgt.amount as vt then Money(vs, vt);
+}

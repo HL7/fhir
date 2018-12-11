@@ -69,7 +69,7 @@ Generally, it is assumed the invocation of the engine follows some pattern like 
 </p>
 <ul>
 <li>The host application creates the engine, and passes it a handle to the standard services</li>
-<li>The host application chooses the model map resource, and asks the engine to prepare it (load, check, cache-up etc.)</li>
+<li>The host application chooses the structure map resource, and asks the engine to prepare it (load, check, cache-up etc.)</li>
 <li>The host application asks the engine to execute and provides a set of resources that match defined inputs in the map</li>
 <li>Any created output will be created via the standard API</li>
 </ul>
@@ -83,7 +83,9 @@ order to manage the map execution process.
 <a name="syntax"></a>
 <h3>General Syntax Notes</h3>
 <p>
-Mapping files are always plain text in Unicode. Whitespace is any Unicode whitespace, and the particular whitespace used is not significant, except that Unicode end of line characters terminate a comment. Comments are started by the characters "//".
+Mapping files are always plain text in Unicode. Whitespace is any Unicode whitespace, and the particular whitespace used
+is not significant, except that Unicode end of line characters terminate a
+comment. Comments are started by the characters "//" and can be found anywhere.
 </p>
 <p>
 The abstract model includes documentation for each item. The canonical
@@ -188,6 +190,12 @@ The url in the import statement may contain a "*" as a wildcard character (as sh
 Each Mapping source contains one or more groups, each containing one or more mapping rules. Each group declares a set of input and output variables that are shared by the rules. The in- and output variables define exactly which instances are passed to the mapping, and provides names by which they may be passed when invoking the map:
 </p>
 <pre>
+group [group-name] (inputs) (extends [other-group]) (&lt;&lt;stereotype&gt;&gt;) { // documentation
+  .. rules ...
+}  
+</pre>
+For example:
+<pre>
   group CodeSystem(source src : CodeSystemR3, target tgt : CodeSystem) extends DomainResource <<type+>> 
   {
       // rules
@@ -197,20 +205,27 @@ Each Mapping source contains one or more groups, each containing one or more map
 Each group has a name, which is how the mapping is invoked. The first group is special, in that this is the group invoked if no name is provided (e.g. starting the mapping by a host application).
 </p>
 <p>
-The inputs of a group are also referred to (below) as its input parameters, or just as parameters; or as input variables.
+The inputs of a group are also referred to (below) as its input parameters, or just as parameters; or as input variables,
+and are a comma separated list where each items has the format:
+</p>
+<pre>
+  [mode] [name]( : [type])
+</pre>
+<p>
+Each input to the group has a name.
+All input variables have a mode, which may be one of source or target (see above). 
+Inputs may have a type, but are not required to. There must be at least two
+input variables (source and target) - else there's nothing to map, except for
+the special case of the first group that may only have a single input. 
+Groups may have additional input or output inputs, where that's necessary.
 </p>
 <p>
-Each input to the group has a name. This is the name that applications use when passing the
-instance to the invocation engine, or that rules use when invoking the group. 
+Groups may extend other groups, which means that the rules in the other group
+also apply (typically, this is used with specializing classes in an OO context).
+When a group extends another group, it SHALL have the same input parameters (by mode, name, and type if specified)
+though their order may differ, and it MAY have additional parameters.
 </p>
 <p>
-Inputs may have a type (separated from the name of the paramter by a ':' and the type identifier). Although optional it is recommended for all parameters to be typed (see the discussion above). Input variables also have a mode, which may be one of 'source' or 'target' (similar to the modes for the whole map - see above). 
-There must be at least two input variables (marked 'source' and 'target') - else there's nothing to map. Maps may have additional input or output inputs, where that's necessary.
-</p>
-<p>
-Groups may optionally extend other groups, which means that the rules in the other group also apply (typically, this is used with specializing classes in an OO context).
-When a group extends another group, it SHALL have the same input parameters (by name, type and mode) though their order may differ, and it MAY have additional parameters.
-</p>
 <p>
 The stereotypes &lt;&lt;types&gt;&gt; or &lt;&lt;type+&gt;&gt; can be added to the end of the group declaration to indicate that this group provides a
 set of mappings that are intended to be used as the default way to map from source to target. For more information, see the section on "Default mapping groups" below.
@@ -227,7 +242,11 @@ how source content is transformed into target content. The full format for a rul
 looks like this:
 </p>
 <pre>
-  src.value : code as vs0 -> tgt.value = create("code") as vt0 then code(vs0, vt0) "valueCode";
+src_context.field as new_variable where condition -&gt; tgt_context.field = create([type]) as new_variable then [details] "name";
+</pre>
+For example:
+<pre>
+    src.value : code as vs0 -> tgt.value = create("code") as vt0 then code(vs0, vt0) "valueCode";
 </pre>
 <p>
 Each rule has three main parts:
@@ -238,16 +257,27 @@ Each rule has three main parts:
  <li><b>Dependent Rules</b>: Optional part starting with 'then'. Specifies a group or set of child rules to apply within the scope of the rule.</li>
 </ul>
 <p>
-The rule may optionally be followed with an identifier giving the the identity of the rule, used for logging and debugging purposes. The name is also used when specifying rule links (EK: what's that?). Names must be unique within the context of the map.
-</p>
-<p>
-Rules in a group may be applied in any order; there is no sense of sequentially applying one rule after another.
+Each rule may be assigned a name, though this is usually inferred by the parser and not specified directly. The name is used in trace logs (a record generated by the conversion engine recording the transform process).
+Names must be unique within the context of the map. Typically, the name is trivial and can be safely and usefully generated by the 
+engine processing the map, so this is often left out. 
 </p>
 <p>The three main parts are described in more detail in the following sections.</p>
 
 <h4>Source Content</h4>
 <p>
 The source content is formed by one or more source statements, which can be assigned a variable name and then be used when specifying target content, or re-used in subsequent transforms and dependent rules. Multiple source statement are separated by a comma and each statement can contain the following items:
+</p>
+<pre>
+ [source], [source] -&gt; ...
+</pre>
+<p>
+Each [source] contains the following items:
+</p>
+<pre>
+context.element { : type {min..max}} {default [value]} { list-option } as variable where [FHIRPath] check [FHIRPath]
+</pre>
+<p>
+    For example:
 </p>
 <pre>
   src.value : integer 0..* default 10 first as vs0
@@ -259,9 +289,9 @@ The source content is formed by one or more source statements, which can be assi
  <p>The element is an (optional) name of a child element of the context. If the name is not provided, the source is the context. If it is provided, the rule will apply once for each element on the context that matches this name.</p></li>
  <li><b>type</b>: A type may be specified. If a type is specified, only elements that have the specified type are selected as part of the source</li>
  <li><b>min..max</b>: Specified cardinality (may use '*' for the upper bound). If a cardinality is specified and the cardinality of the element in the source is not within the specified cardinality, the mapping engine raises an error instead of completing the transformation.</li>
- <li><b>default</b>: A default value, in the form of a FHIRPath expression, used if there is no source value found. If the source is repeating, but has no value, the default value will only be used once. Can only be used to specify a primitive value.</li>
+ <li><b>default</b>: A default value, used if there is no source value found. If there's a default value on an item that can repeat, it will only be used once. Default values only apply to primitive types, and the value is a FHIRPath statement (usually a literal)</li>
  <li><b>list-option</b>: by default, the rule will apply once for each occurrence of the element in the source. The list option can override this to specify different behaviour. Valid values are 'first', 'last', 'not_first', 'not_last' and 'only_one'</li>
- <li><b>'as' variable</b>: if an element is specified, a variable must be assigned. This variable name may then be used in the target statement, and may be re-used in other dependent rules (see below).</li>
+ <li><b>as variable</b>: if an element is specified, a variable must be assigned. This variable name may be used in the target statement, and may be re-used in other dependent rules (see below). There is one special case described below (simple form) where the variable name is provided explicitly</li>
  <li><b>where [condition]</b>: a FHIRPath expression that is evaluated to boolean on the context. If the expression returns false, the source element has no match</li>
  <li><b>check [condition]</b>: a FHIRPath expression that is evaluated to boolean on the context. If the expression returns false, the mapping engine raises an error. Note: it is usual to have either a where or a check clause, but possible to have both. If both are provided, the where clause is evaluated first, and the check only applies if the where expression is true</li>
 </ul>
@@ -297,12 +327,23 @@ Log statements are often used to note that some particular source element is not
 
 <h4>Target Transform</h4>
 <p>
-Each rule specifies zero or more target transformation statements, which specify how source content is used to create target content. These target statements can also be assigned to variables that can be used in subsequent transform rules. If no targets are specified, no transformation is done and there are no new  targets, just newly defined source variables, which can then be used in subsequent dependent rules. Multiple target statements are separated by a comma and each statement can contain the following items:
+Each rule specifies zero or more target transformation statements, which specify how source content is used to create target content. These target statements can also be assigned to variables that can be used in subsequent transform rules. If no targets are specified (no -&gt;), no transformation is done and there are no created targets, just newly defined source variables, which can then be used in subsequent dependent rules. Multiple target statements are separated by a comma, like this:
+</p>
+<pre>
+... -&gt; [target], [target] then...
+</pre>
+<p>
+Each [target] contains the following items:
 </p>
 <p>
 <pre>
--> context.element = copy(parameter, ...) as vt1 first
+  context.element = transform_code(parameters...) as variable {list_modes}
 </pre>
+<p>For example:</p>
+<pre>
+  context.element = copy(parameter, ...) as vt1 first
+</pre>
+
 <ul>
  <li><b>context.element</b>: The first part of the target statement consists of two parts: the <b>context</b> and the <b>element</b>. <p>The context is an identifier which is either declared as a target for the map, a taret parameter or any named variable within the group (including the variables from the source content) in which this rule is nested.</p>
 <p>The element is the name of a child element that is valid in the context. The created value will be placed into the named element</p></li>
@@ -386,14 +427,14 @@ If no dependent rules are specified, and if the is only one source and target, a
 they both specify a variable, the rule can be written in an abbreviated form:
 </p>
 <pre>
-  src.element -> tgt.element
+ src.element -&gt; tgt.element;
 </pre>
 <p>
 This is implicitly the same as
 </p>
 <pre>
-  src.element as vvs -> tgt.element = create('type') as vvt then defaultMappingGroup(vvs, vvt)
-</pre>
+  src.element as vvs -&gt; tgt.element = create('type') as vvt then defaultMappingGroup(vvs, vvt)
+</pre
 <p>
 Where the name of the type given as a parameter to 'create' and the group invoked by the 'then' are determined by the context of src.element and tgt.element and the selected default mapping group, as documented in the next section. Note that default mapping groups are only invoked when no dependent rules or explicit group invocations are specified.
 </p>

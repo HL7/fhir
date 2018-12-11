@@ -2493,7 +2493,7 @@
         <display value="millimole per kilogram per minute"/>
       </concept>
       <concept>
-        <code value="mmol/kg{H20}"/>  <!-- GG: was mmol/kg[H20] but that is not valid ucum -->
+        <code value="mmol/kg{H2O}"/>  <!-- GG: was mmol/kg[H20] but that is not valid ucum -->
         <display value="millimole per kilogram of water"/>
       </concept>
       <concept>
