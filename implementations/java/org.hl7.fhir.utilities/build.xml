@@ -27,7 +27,8 @@
         <pathelement location="../../../tools/java/imports/commons-compress-1.16.1.jar"/>
         <pathelement location="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
         <pathelement location="../../../tools/java/imports/txtmark-0.11.jar"/>
-        <pathelement location="../../../tools/java/imports/commonmark-0.9.0.jar"/>
+        <pathelement location="../../../tools/java/imports/commonmark-0.12.1.jar"/>
+        <pathelement location="../../../tools/java/imports/commonmark-ext-gfm-tables-0.12.1.jar"/>
         <pathelement location="../../../tools/java/imports/hapi-fhir-base-3.4.0.jar"/>
         <pathelement location="../../../tools/java/imports/commons-lang3-3.3.2.jar"/>
         <pathelement location="../../../tools/java/imports/junit-4.11.jar"/>

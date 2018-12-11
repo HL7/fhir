@@ -33,8 +33,8 @@
   <identifier>
     <use value="official"/>
     <type><text value="InstanceUID"/></type>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
+    <system value="urn:dicom:uid"/>
+    <value value="1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
   </identifier>
   <identifier>
     <type><text value="accessionNo"/></type>
@@ -44,13 +44,13 @@
  </identifier>
   <identifier>
     <type><text value="studyId"/></type>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:1.2.840.113619.2.21.848.34082.0.538976288.3"/>
+    <system value="urn:dicom:uid"/>
+    <value value="1.2.840.113619.2.21.848.34082.0.538976288.3"/>
   </identifier>
   <identifier>
     <type><text value="seriesId"/></type>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
+    <system value="urn:dicom:uid"/>
+    <value value="1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
   </identifier>
 
 <status value="completed"/>

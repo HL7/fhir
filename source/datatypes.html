@@ -151,7 +151,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>canonical<a name="canonical"></a></td>
-   <td>A URI that is refers to a <a href="references.html#canonical">resource by it's canonical URL</a> (<a href="references.html#canonical-list">resources with a <code>url</code> property</a>). The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, 
+   <td>A URI that refers to a <a href="references.html#canonical">resource by it's canonical URL</a> (<a href="references.html#canonical-list">resources with a <code>url</code> property</a>). The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, 
     and in that it may have a version appended, separated by a vertical bar (|). Note that the type <code>canonical</code> is not used for the actual canonical URLs that are the target
     of these references, but for the URIs that refer to them, and may have the version suffix in them. Like other URIs, elements of type <code>canonical</code> may also have #fragment references</td>
     <td>xs:anyURI</td>
@@ -1159,6 +1159,8 @@ others would appear on <a href="servicerequest.html">ServiceRequest</a>.
 If the identifier value itself is naturally a globally unique URI (e.g. an OID, a UUID, or a URI with no trailing local part),
 then the <code>system</code> SHALL be "<code>urn:ietf:rfc:3986</code>", and the URI is in the <code>value</code>
 (OIDs and UUIDs using urn:oid: and urn:uuid: - see <a href="datatypes-mappings.html#ii">note on the V3 mapping</a> and the <a href="datatypes-examples.html#Identifier">examples</a>).
+Naturally globally unique identifiers are those for which no <a href="identifier-registry.html">system has been assigned</a> and where the value of the identifier is reasonably 
+expected to not be re-used.  Typically, these are absolute URIs of some kind.
 </p>
 <p>
 In some cases, the system might not be known - only the value is known (e.g. a simple device that scans a barcode),

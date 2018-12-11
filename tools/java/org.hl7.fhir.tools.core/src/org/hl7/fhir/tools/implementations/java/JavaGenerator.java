@@ -769,7 +769,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "xpp3_xpath-1.1.4c.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "ST4-4.0.7.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "txtmark-0.11.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commonmark-0.9.0.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "commonmark-0.12.1.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "commonmark-ext-gfm-tables-0.12.1.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "antlr-runtime-3.5.2.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
     

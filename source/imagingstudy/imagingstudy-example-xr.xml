@@ -7,7 +7,7 @@
 	<identifier>
 		<use value="official"/>
 		<system value="urn:dicom:uid"/>
-		<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"/>
+		<value value="2.16.124.113543.6003.1154777499.30246.19789.3503430046"/>
 	</identifier>
 	<identifier>
 		<use value="usual"/>

@@ -6,7 +6,8 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">A set of images to share accompanying a report document, including one SC image and two CT image</div> 
 	</text> 
 	<identifier>
-		<value value="urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092901"/> 
+    <system value="urn:dicom:uid"/>
+		<value value="2.16.124.113543.6003.189642796.63084.16748.2599092901"/> 
 		<!-- SOP Instance UID value -->
 	</identifier>
 	<patient> 

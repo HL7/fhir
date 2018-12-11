@@ -2215,7 +2215,7 @@ public class SpreadsheetParser {
       }
       row++;
     }
-    ProfileGenerator gen = new ProfileGenerator(definitions, null, pkp, null, null, null, fpUsages, null);
+    ProfileGenerator gen = new ProfileGenerator(definitions, null, pkp, null, version, null, fpUsages, null);
     ProfileUtilities utils = new ProfileUtilities(this.context, issues, pkp);
     gen.convertElements(exe, ex, null);
     ex.getDifferential().getElementFirstRep().getType().clear();

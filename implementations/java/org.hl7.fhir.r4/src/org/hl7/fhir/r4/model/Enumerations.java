@@ -10052,6 +10052,10 @@ into another (possibly the same) biological entity.
           return _3_6_0;
         throw new FHIRException("Unknown FHIRVersion code '"+codeString+"'");
         }
+        @Override
+        public String toString() {
+          return toCode();
+        }
         public String toCode() {
           switch (this) {
             case _0_01: return "0.01";

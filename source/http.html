@@ -1473,7 +1473,7 @@ Notes:
  <li>operations do not appear directly in the history log, but side effects (e.g. creation of audit logs. stored binaries, etc.) will appear where relevant</li>
  <li>The resource in the entry is the resource as processed by the server, not as submitted by the client (<a href="updates.html">may be different</a>)</li>
  <li>The server SHOULD populate at least <a href="bundle-definitions.html#Bundle.entry.response.lastModified">response.lastModified</a> so the time of processing is clear in the history record</li>
- <li>If the server does not populate <a href="bundle-definitions.html#Bundle.entry.response.status">response.status</a>, it should ensure that only successful interactions appear in the history logs</li>
+ <li>Servers may choose to only record successful interactions. Servers may choose to only use 200 OK instead of other more specific success codes</li>
  <li>There may be more than one version of a given resource in the history</li>
 </ul>
 <p>
