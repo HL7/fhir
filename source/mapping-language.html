@@ -105,7 +105,7 @@ All names defined by the map language - group, rule and variable names - must be
 <h3>Metadata</h3>
 
 <p>
-The first part of the mapping syntax establishes the name of the mapping:
+The first part of the mapping syntax establishes the name of the mapping. For example:
 </p>
 <pre>
   map "http://hl7.org/fhir/StructureMap/CodeSystem3to4" = "R3 to R4 Conversions for CodeSystem"
@@ -124,7 +124,7 @@ the map uniquely, and then a human readable name for the map, quoted in strings.
 
 <p>
 The next optional section of the map references the set of structure definitions
-that are used or produced by this map:
+that are used or produced by this map. For example:
 </p>
 <pre>
   uses "http://hl7.org/fhir/3.0/StructureDefinition/CodeSystem" alias CodeSystemR3 as source
@@ -191,14 +191,15 @@ Each Mapping source contains one or more groups, each containing one or more map
 </p>
 <pre>
 group [group-name] (inputs) (extends [other-group]) (&lt;&lt;stereotype&gt;&gt;) { // documentation
-  .. rules ...
+  .. rules ..
 }  
 </pre>
 For example:
 <pre>
-  group CodeSystem(source src : CodeSystemR3, target tgt : CodeSystem) extends DomainResource <<type+>> 
+  group CodeSystem(source src : CodeSystemR3, target tgt : CodeSystem) extends DomainResource &lt;&lt;type+&gt;&gt;
   {
-      // rules
+    // documentation
+    .. rules ..
   }
 </pre>
 <p>
@@ -226,9 +227,9 @@ When a group extends another group, it SHALL have the same input parameters (by 
 though their order may differ, and it MAY have additional parameters.
 </p>
 <p>
-<p>
 The stereotypes &lt;&lt;types&gt;&gt; or &lt;&lt;type+&gt;&gt; can be added to the end of the group declaration to indicate that this group provides a
 set of mappings that are intended to be used as the default way to map from source to target. For more information, see the section on "Default mapping groups" below.
+</p>
 <p>
 Default mapping groups SHALL have two parameters, a source, and a target, in that order, and both SHALL have specified types for the inputs.
 </p>
@@ -281,7 +282,7 @@ context.element { : type {min..max}} {default [value]} { list-option } as variab
 </p>
 <pre>
   src.value : integer 0..* default 10 first as vs0
-    where value >= 10 check value <= 100
+    where value &gt;= 10 check value &lt;= 100
     log value
 </pre>
 <ul>
@@ -335,7 +336,6 @@ Each rule specifies zero or more target transformation statements, which specify
 <p>
 Each [target] contains the following items:
 </p>
-<p>
 <pre>
   context.element = transform_code(parameters...) as variable {list_modes}
 </pre>
@@ -434,7 +434,7 @@ This is implicitly the same as
 </p>
 <pre>
   src.element as vvs -&gt; tgt.element = create('type') as vvt then defaultMappingGroup(vvs, vvt)
-</pre
+</pre>
 <p>
 Where the name of the type given as a parameter to 'create' and the group invoked by the 'then' are determined by the context of src.element and tgt.element and the selected default mapping group, as documented in the next section. Note that default mapping groups are only invoked when no dependent rules or explicit group invocations are specified.
 </p>
@@ -449,8 +449,8 @@ In addition to the above use, groups may be marked with <code>type+</code>. They
 </p>
 <a name="grammar"></a>
 <h3>Formal Grammar</h3>
-<p>The formal grammar for the mapping language, specified using ANTLR, can be found <a href="mapping-language.g4">here</a>.</p>
-<p>Note that this grammar uses FHIRPath as an embedded syntax. Full details on FHIRPath and it's grammar can be found <a href="http://hl7.org/fhirpath">here</a>.</p>
+<p>The formal grammar for the mapping language, specified using ANTLR, can be found <a href="mapping.g4">here</a>.</p>
+<p>Note that this grammar uses FHIRPath as an embedded syntax. Full details on FHIRPath and its grammar can be found <a href="http://hl7.org/fhirpath">here</a>.</p>
 
 <a name="api"></a>
 <h3>Mapping Support API</h3>

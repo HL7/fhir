@@ -84,3 +84,5 @@ pharmacy-medRequest
 /implementations/r3maps/test-output
 
 source/\.antlr/
+
+images/\.antlr/
