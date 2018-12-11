@@ -167,16 +167,18 @@ public class SchematronGenerator {
     }
     if (c > 0) {
       Rule r = section.rule(path);
-	    for (Invariant inv : ed.getInvariants().values()) {
-	      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName())) {
-	        if (!isGlobal(inv.getId())) {
-	          if (inv.getXpath().contains("&lt;") || inv.getXpath().contains("&gt;"))
-	            throw new Exception("error in xpath - do not escape xml characters in the xpath in the excel spreadsheet");
-	          r.assrt(inv.getXpath().replace("\"", "'"), inv.getId()+": "+inv.getEnglish());
-	        }
-	      }
-	    }
-	  }
+      for (Invariant inv : ed.getInvariants().values()) {
+        if (!Utilities.existsInList(inv.getSeverity(), "warning", "best-practice")) {
+          if (inv.getFixedName() == null || path.endsWith(inv.getFixedName())) {
+            if (!isGlobal(inv.getId())) {
+              if (inv.getXpath().contains("&lt;") || inv.getXpath().contains("&gt;"))
+                throw new Exception("error in xpath - do not escape xml characters in the xpath in the excel spreadsheet");
+              r.assrt(inv.getXpath().replace("\"", "'"), inv.getId()+": "+inv.getEnglish());
+            }
+          }
+        }
+      }
+    }
   }
 
   private boolean isSpecialType(String tn) {
