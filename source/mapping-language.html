@@ -127,8 +127,8 @@ The next optional section of the map references the set of structure definitions
 that are used or produced by this map. For example:
 </p>
 <pre>
-  uses "http://hl7.org/fhir/3.0/StructureDefinition/CodeSystem" alias CodeSystemR3 as source
-  uses "http://hl7.org/fhir/StructureDefinition/CodeSystem" alias CodeSystem as target
+  uses "http://hl7.org/fhir/3.0/StructureDefinition/CodeSystem" alias CodeSystemR3 as source   // documentation
+  uses "http://hl7.org/fhir/StructureDefinition/CodeSystem" as target  // documentation
 </pre>
 <p>
 This section lists one or more structure definitions that the
@@ -170,10 +170,10 @@ and such maps typically require special development to integrate the execution o
 <a name="imports"></a>
 <h3>Map Imports</h3>
 <p>
-This next optional section references additional maps that are used by this map:
+This next optional section references additional maps that are used by this map. For example:
 </p>
 <pre>
-  imports "http://hl7.org/fhir/StructureMap/*3to4"
+  imports "http://hl7.org/fhir/StructureMap/*3to4"  // documentation
 </pre>
 <p>
 Maps can be broken up into several files, each containing a coherent set of groups. For example, when writing mappings for CDA to FHIR, one might have one file to map the main document, and another file containing the mappings for the datatypes (e.g. CD to CodeableConcept).
@@ -266,7 +266,7 @@ engine processing the map, so this is often left out.
 
 <h4>Source Content</h4>
 <p>
-The source content is formed by one or more source statements, which can be assigned a variable name and then be used when specifying target content, or re-used in subsequent transforms and dependent rules. Multiple source statement are separated by a comma and each statement can contain the following items:
+The source content is formed by one or more source statements, which can be assigned a variable name and then be used when specifying target content, or re-used in subsequent transforms and dependent rules. Multiple source statement are separated by a comma:
 </p>
 <pre>
  [source], [source] -&gt; ...
