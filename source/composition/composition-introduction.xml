@@ -20,8 +20,8 @@ to make more granular updates with individual provenance statements.
 </p>
 
 <p>
-The <a href="composition-cda-on-fhir.html">CDA on FHIR profile</a> constrains Composition to match 
-<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> and specify a clinical document.
+The <a href="composition-clinicaldocument.html">Clinical Document profile</a> constrains Composition to specify a clinical document
+(matching <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>).  
 See also the <a href="comparison-cda.html">comparison with CDA</a>.
 </p>
 </div>
