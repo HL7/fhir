@@ -11872,6 +11872,10 @@
     <display value="Fracture of shaft of ulna"/>
     <display value="Fracture of shaft of ulna (disorder)"/>
   </concept>
+  <concept id="263678003" display="At rest">
+    <display value="At rest"/>
+    <display value="At rest (qualifier value)"/>
+  </concept>
   <concept id="263776006" display="Heavy growth">
     <display value="Heavy growth"/>
     <display value="Heavy growth (qualifier value)"/>
@@ -15667,6 +15671,11 @@
     <display value="Orloff chicken"/>
     <display value="Orloff chicken (organism)"/>
   </concept>
+  <concept id="702281005" display="Evacuated blood collection tube, thrombin/clot activator/gel separator">
+    <display value="Evacuated blood collection tube, thrombin/clot activator/gel separator"/>
+    <display value="Evacuated blood collection tube with thrombin and clot activator and gel separator (physical object)"/>
+    <display value="Evacuated blood collection tube with thrombin and clot activator and gel separator"/>
+  </concept>
   <concept id="70308007" display="Langshan chicken">
     <display value="Langshan chicken"/>
     <display value="Langshan chicken (organism)"/>
@@ -15698,6 +15707,10 @@
   <concept id="706041008" display="Device for body fluid and tissue collection/transfer/processing">
     <display value="Device for body fluid and tissue collection/transfer/processing (physical object)"/>
     <display value="Device for body fluid and tissue collection/transfer/processing"/>
+  </concept>
+  <concept id="706052002" display="Evacuated blood collection tube">
+    <display value="Evacuated blood collection tube"/>
+    <display value="Evacuated blood collection tube (physical object)"/>
   </concept>
   <concept id="70777001" display="Urine specimen collection, catheterized">
     <display value="Urine specimen collection, catheterized"/>
@@ -15930,6 +15943,10 @@
     <display value="Nellore cattle breed (organism)"/>
     <display value="Nellore cattle"/>
     <display value="Nellore cattle breed"/>
+  </concept>
+  <concept id="767390000" display="Evacuated blood collection tube with heparin lithium and gel separator">
+    <display value="Evacuated blood collection tube with heparin lithium and gel separator (physical object)"/>
+    <display value="Evacuated blood collection tube with heparin lithium and gel separator"/>
   </concept>
   <concept id="76902006" display="Tetanus">
     <display value="Tetanus"/>
