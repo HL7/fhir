@@ -173,7 +173,6 @@ public class ExtensionDefinitionGenerator {
     }
   }
 
-
   private StructureDefinition generateExtension(StructureDefinition type, ElementDefinition ed) throws DefinitionException, FHIRException {
     StructureDefinition ext = new StructureDefinition();
     ext.setId("extension-"+ed.getPath().replace("[x]", ""));

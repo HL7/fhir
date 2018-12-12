@@ -1365,11 +1365,13 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
     }
     List<String> names = new ArrayList<String>();
+    Set<String> urls = new HashSet<>();
     names.addAll(page.getCodeSystems().keySet());
     Collections.sort(names);
     for (String n : names) {
       CodeSystem cs = page.getCodeSystems().get(n);
-      if (cs != null) {
+      if (cs != null && !urls.contains(cs.getUrl())) {
+        urls.add(cs.getUrl());
         if (cs.hasName()) {
           NamingSystem ns = new NamingSystem();
           ns.setId(cs.getId());
