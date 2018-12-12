@@ -1712,7 +1712,7 @@ public class VersionConvertor_30_40 {
       tgt = new org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent();
       list.add(tgt);
       copyElement(src, tgt);
-      tgt.setCode(src.getCode());
+      tgt.setCodeElement(convertUri(src.getCodeElement()));
     }
     if (src.hasProfile())
       tgt.addProfile(src.getProfile());
@@ -1732,7 +1732,7 @@ public class VersionConvertor_30_40 {
       return;
     org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent();
     copyElement(src, tgt);
-    tgt.setCode(src.getCode());
+    tgt.setCodeElement(convertUri(src.getCodeElement()));
     list.add(tgt);
     if (src.hasTarget()) {
       if (src.hasProfile())
