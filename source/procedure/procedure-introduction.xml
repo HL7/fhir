@@ -37,7 +37,7 @@ Note that many diagnostic processes are procedures that generate <a href="observ
 <a href="diagnosticreport.html">DiagnosticReports</a>. In many cases, 
 such an observation does not require an explicit representation of the procedure used to create the 
 observation, but where there are details of interest about how the diagnostic procedure was performed, 
-the procedure resource is used to describe the activity.
+the Procedure resource is used to describe the activity.
 </p>
 <p> Some diagnostic procedures might not have a Procedure record. The Procedure record is only necessary when 
 there is a need to capture information about the physical intervention that was performed to capture the diagnostic 
