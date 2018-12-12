@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame Grieve</LastAuthor>
+  <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-07-02T03:20:56Z</LastSaved>
+  <LastSaved>2018-12-12T05:32:10Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -93,9 +93,8 @@
   
   
   
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4035,7 +4034,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.snapshot</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">All snapshot elements must be in the StructureDefinition's specified type</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">element.first().path = %resource.type and element.tail().all(path.startsWith(%resource.type&amp;'.'))</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&amp;'.'))</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">f:element[1]/f:path/@value=parent::f:StructureDefinition/f:type/@value and count(f:element[position()!=1])=count(f:element[position()!=1][starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, '.'))])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
@@ -4044,7 +4043,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.differential</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">In any differential, all the elements must be in the specified type</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">element.first().path.startsWith(%resource.type) and (element.tail().not() or element.tail().all(path.startsWith(%resource.type&amp;'.')))</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(%resource.kind = 'logical' or element.first().path.startsWith(%resource.type)) and (element.tail().not() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches('\\..*','')&amp;'.')))</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">count(f:element)=count(f:element[f:path/@value=ancestor::f:StructureDefinition/f:type/@value or starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, '.'))])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
@@ -4393,12 +4392,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6187,7 +6187,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
