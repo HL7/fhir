@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpecimenDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SpecimenDefinition.xsd">
+  <id value="2364"/>
+  <typeCollected>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="122555007"/>
+      <display value="Venous blood specimen"/>
+    </coding>
+  </typeCollected>
+  <patientPreparation>
+    <text value="12 hour fasting"/>
+  </patientPreparation>
+  <patientPreparation>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="263678003"/>
+      <display value="At rest"/>
+    </coding>
+  </patientPreparation>
+  <timeAspect value="preferrably morning time"/>
+  <typeTested>
+    <type>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="119364003"/>
+        <display value="Serum specimen"/>
+      </coding>
+    </type>
+    <preference value="preferred"/>
+    <container>
+      <material>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="61088005"/>
+          <display value="plastic"/>
+        </coding>
+      </material>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="702281005"/>
+          <display value="Evacuated blood collection tube, thrombin/clot activator/gel separator"/>
+        </coding>
+      </type>
+      <cap>
+        <coding>
+          <system value="urn:iso:std:iso:6710:2017"/>
+          <code value="yellow"/>
+          <display value="yellow cap"/>
+        </coding>
+      </cap>
+      <minimumVolumeQuantity>
+        <value value="2"/>
+        <unit value="ml"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mL"/>
+      </minimumVolumeQuantity>
+    </container>
+    <handling>
+      <temperatureQualifier>
+        <text value="Ambient temperature"/>
+      </temperatureQualifier>
+      <temperatureRange>
+        <low>
+          <value value="15"/>
+          <unit value="°C"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="Cel"/>
+        </low>
+        <high>
+          <value value="25"/>
+          <unit value="°C"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="Cel"/>
+        </high>
+      </temperatureRange>
+      <maxDuration>
+        <value value="60"/>
+        <unit value="minute"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="min"/>
+      </maxDuration>
+    </handling>
+    <handling>
+      <temperatureQualifier>
+        <text value="Refrigerated temperature"/>
+      </temperatureQualifier>
+      <temperatureRange>
+        <low>
+          <value value="2"/>
+          <unit value="°C"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="Cel"/>
+        </low>
+        <high>
+          <value value="8"/>
+          <unit value="°C"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="Cel"/>
+        </high>
+      </temperatureRange>
+      <maxDuration>
+        <value value="8"/>
+        <unit value="hour"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="h"/>
+      </maxDuration>
+    </handling>
+  </typeTested>
+  <typeTested>
+    <type>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="119361006"/>
+        <display value="Plasma specimen"/>
+      </coding>
+    </type>
+    <preference value="alternate"/>
+    <container>
+      <material>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="32039001"/>
+          <display value="glass"/>
+        </coding>
+      </material>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="767390000"/>
+          <display value="Evacuated blood collection tube with heparin lithium and gel separator"/>
+        </coding>
+      </type>
+      <cap>
+        <coding>
+          <system value="urn:iso:std:iso:6710:2017"/>
+          <code value="green"/>
+          <display value="green cap"/>
+        </coding>
+      </cap>
+      <minimumVolumeQuantity>
+        <value value="2"/>
+        <unit value="ml"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mL"/>
+      </minimumVolumeQuantity>
+    </container>
+    <rejectionCriterion>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/rejection-criteria"/>
+        <code value="insufficient"/>
+        <display value="insufficient specimen volume"/>
+      </coding>
+    </rejectionCriterion>
+    <rejectionCriterion>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/rejection-criteria"/>
+        <code value="hemolized"/>
+        <display value="hemolized specimen"/>
+      </coding>
+    </rejectionCriterion>
+    <handling>
+      <temperatureQualifier>
+        <text value="Ambient temperature"/>
+      </temperatureQualifier>
+      <temperatureRange>
+        <low>
+          <value value="15"/>
+          <unit value="°C"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="Cel"/>
+        </low>
+        <high>
+          <value value="25"/>
+          <unit value="°C"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="Cel"/>
+        </high>
+      </temperatureRange>
+      <maxDuration>
+        <value value="60"/>
+        <unit value="minute"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="min"/>
+      </maxDuration>
+    </handling>
+    <handling>
+      <temperatureQualifier>
+        <text value="Refrigerated temperature"/>
+      </temperatureQualifier>
+      <temperatureRange>
+        <low>
+          <value value="2"/>
+          <unit value="°C"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="Cel"/>
+        </low>
+        <high>
+          <value value="8"/>
+          <unit value="°C"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="Cel"/>
+        </high>
+      </temperatureRange>
+      <maxDuration>
+        <value value="8"/>
+        <unit value="hour"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="h"/>
+      </maxDuration>
+    </handling>
+  </typeTested>
+</SpecimenDefinition>
