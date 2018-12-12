@@ -23,7 +23,7 @@ The ImagingStudy’s DICOM Study Instance UID is encoded in the <code>ImagingStu
 
 	"identifier":{
 		"system":"urn:dicom:uid",
-		"value":"2.16.124.113543.1154777499.30246.19789.3503430046"
+		"value":"urn:oid:2.16.124.113543.1154777499.30246.19789.3503430046"
 	} 
 
 </pre>

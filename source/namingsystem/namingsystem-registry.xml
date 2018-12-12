@@ -19,7 +19,7 @@
             <value value="https://www.dicomstandard.org/"/>
           </telecom>
         </contact>
-        <description value="An OID issued under DICOM OID rules. DICOM OIDs are represented as plain OIDs, with no URI prefix"/>
+        <description value="An OID issued under DICOM OID rules. DICOM OIDs are represented as plain OIDs, with a prefix of &quot;urn:oid:&quot;"/>
         <jurisdiction>
           <coding>
             <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>

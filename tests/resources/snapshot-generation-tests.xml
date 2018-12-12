@@ -1,4 +1,3 @@
-<!-- edited with XMLSpy v2017 rel. 3 (x64) (http://www.altova.com) by Lloyd McKenzie (Gevity) -->
 <TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <!--
  in this test script, are a set of test cases for snapshot generation
@@ -37,6 +36,9 @@
  31. Propagate extensions from differential to snapshot
  32. Disappearing slicing
  33. Type re-use
+ 34. Referencing a custom extension
+ 35. Referencing a profiled custom extension
+ 36. Deep recursion
 -->
   <contained>
     <StructureDefinition>
@@ -1619,6 +1621,9 @@
       <url value="http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status"/>
       <name value="IdentifierStatus"/>
       <title value="VhDir Identifier Status"/>
+      <status value="draft"/>
+      <kind value="complex-type"/>
+      <abstract value="false"/>
       <context>
         <type value="element"/>
         <expression value="Identifier"/>
@@ -1662,6 +1667,7 @@
       <status value="draft"/>
       <description value="fixture for #34: Referencing a custom extension"/>
       <kind value="resource"/>
+      <abstract value="false"/>
       <type value="Basic"/>
       <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
       <derivation value="constraint"/>
@@ -1701,6 +1707,9 @@
       <url value="http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-statu2"/>
       <name value="IdentifierStatus"/>
       <title value="VhDir Identifier Status"/>
+      <status value="draft"/>
+      <kind value="complex-type"/>
+      <abstract value="false"/>
       <context>
         <type value="element"/>
         <expression value="Identifier"/>
@@ -1733,6 +1742,7 @@
       <status value="draft"/>
       <description value="fixture for #35: Referencing a profiled custom extension"/>
       <kind value="resource"/>
+      <abstract value="false"/>
       <type value="Basic"/>
       <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
       <derivation value="constraint"/>
@@ -1764,7 +1774,60 @@
         </element>
       </differential>
     </StructureDefinition>
-  </contained>  <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
+  </contained>
+  <contained>
+    <StructureDefinition>
+      <id value="t36"/>
+      <url value="urn:uuid:428d7c25-e55f-42b4-a93e-83cef54421d7"/>
+      <name value="t36"/>
+      <status value="draft"/>
+      <description value="fixture for #36: Deep Recursion"/>
+      <kind value="resource"/>
+      <abstract value="false"/>
+      <type value="PlanDefinition"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element id="PlanDefinition">
+          <path value="PlanDefinition"/>
+        </element>
+        <element id="PlanDefinition.action">
+          <path value="PlanDefinition.action"/>
+        </element>
+        <element id="PlanDefinition.action.action">
+          <path value="PlanDefinition.action.action"/>
+        </element>
+        <element id="PlanDefinition.action.action.action">
+          <path value="PlanDefinition.action.action.action"/>
+        </element>
+        <element id="PlanDefinition.action.action.action.action">
+          <path value="PlanDefinition.action.action.action.action"/>
+        </element>
+        <element id="PlanDefinition.action.action.action.action.condition">
+          <path value="PlanDefinition.action.action.action.action.condition"/>
+          <slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="kind"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+        <element id="PlanDefinition.action.action.action.action.condition:stopConditions">
+          <path value="PlanDefinition.action.action.action.action.condition"/>
+          <sliceName value="stopConditions"/>
+        </element>
+        <element id="PlanDefinition.action.action.action.action.condition:stopConditions:kind">
+          <path value="PlanDefinition.action.action.action.action.condition.kind"/>
+          <type>
+            <code value="code"/>
+          </type>
+          <fixedCode value="stop"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+  <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
   <name value="SnapshotGenerationTests"/>
   <title value="Snapshot generation test script"/>
   <status value="draft"/>
@@ -3448,6 +3511,32 @@
         <description value="The narrative must mention the extension URL (http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status)"/>
         <direction value="response"/>
         <expression value="fixture('t35o').text.div.contains('http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status')"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+  </test>
+  <test>
+    <name value="Test36"/>
+    <description value="Test deep nesting"/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <encodeRequestUrl value="false"/>
+        <params value="sort=true"/>
+        <responseId value="t36o"/>
+        <sourceId value="t36"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <label value="test36"/>
+        <description value="Snapshot generation didn't blow up"/>
+        <direction value="response"/>
+        <expression value="fixture('t36o').snapshot.element.count() > 0"/>
         <warningOnly value="false"/>
       </assert>
     </action>
