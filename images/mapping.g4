@@ -81,7 +81,7 @@ ruleSource
     ;
 
 ruleTargets
-    : ruleTarget (',' ruleTarget)* targetListModeBlock?
+    : ruleTarget (',' ruleTarget)*
     ;
 
 sourceType
@@ -122,7 +122,7 @@ dependent
     ;
 
 ruleTarget
-    : ruleContext ('=' transform)? alias?
+    : ruleContext ('=' transform)? alias? targetListMode?
     | invocation alias?     // alias is not required when simply invoking a group
     ;
 
@@ -164,11 +164,6 @@ groupTypeMode
 
 sourceListMode
     : 'first' | 'not_first' | 'last' | 'not_last' | 'only_one'
-    ;
-
-targetListModeBlock
-    : '{' targetListMode '}'        // just here since there are divergent uses with and without brackets
-    | targetListMode
     ;
 
 targetListMode
@@ -248,6 +243,7 @@ IDENTIFIER
 
 DELIMITEDIDENTIFIER
         : '"' (ESC | .)*? '"'
+        | '`' (ESC | .)*? '`'
         ;
 
 STRING
