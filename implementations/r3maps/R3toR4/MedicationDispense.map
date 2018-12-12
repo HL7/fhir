@@ -30,13 +30,13 @@ group MedicationDispense(source src : MedicationDispenseR3, target tgt : Medicat
   src.detectedIssue -> tgt.detectedIssue;
   src.eventHistory -> tgt.eventHistory;
   
-  src.notDone as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedDispenseNotDone', vt.value = v;
-  src.notDoneReason as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedDispenseNotDoneReason', vt.value = v;
+  src.notDone as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.notDone', vt.value = v;
+  src.notDoneReason as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.notDoneReason', vt.value = v;
 }
 
 group actor(source src, target tgt) extends BackboneElement {
   src.actor -> tgt.actor;
-  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf', vt.value = v;
+  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.performer.onBehalfOf', vt.value = v;
 }
 
 group subst(source src, target tgt) extends BackboneElement {

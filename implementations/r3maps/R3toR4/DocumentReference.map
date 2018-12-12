@@ -14,7 +14,7 @@ group DocumentReference(source src : DocumentReferenceR3, target tgt : DocumentR
   src.class -> tgt.category;
   src.subject -> tgt.subject;
   src.indexed -> tgt.date;
-  src.created as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/StructureDefinition/X34-dr-created",  ext.value = vs;
+  src.created as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentReference.created",  ext.value = vs;
   src.author as s -> tgt.agent as t then agent(s, t);
   src.authenticator -> tgt.authenticator;
   src.custodian -> tgt.custodian;

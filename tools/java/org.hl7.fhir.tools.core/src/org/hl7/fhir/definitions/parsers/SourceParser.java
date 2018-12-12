@@ -531,7 +531,7 @@ public class SourceParser {
         }
       else
         bp.append(p);
-      if (!targets.isEmpty()) {
+      if (!targets.isEmpty() && !matchesElementDefinition(targets, ed.getTypes())) {
         bp.append(".where(");
         boolean innerFirst = true;
         for (String t : targets) {
@@ -548,6 +548,21 @@ public class SourceParser {
     }
     return b.toString();
   }
+
+
+  private boolean matchesElementDefinition(Set<String> targets, List<TypeRef> types) {
+    for (TypeRef tr : types) {
+      if (tr.getName().equals("Reference")) {
+        for (String s : tr.getParams()) {
+          if (!targets.contains(s))
+            return false;
+        }
+      }
+    }
+    return true;
+  }
+
+
 
 
   private void processContainerExamples() throws Exception {

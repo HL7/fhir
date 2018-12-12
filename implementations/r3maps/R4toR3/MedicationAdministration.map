@@ -9,8 +9,8 @@ group MedicationAdministration(source src : MedicationAdministrationR3, target t
   src.identifier -> tgt.identifier;
   src.instantiates -> tgt.definition;
   src.partOf -> tgt.partOf;
-  src where src.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus').exists() then statusR3(src, tgt);
-  src where src.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus').empty() then statusNR3(src, tgt);
+  src where src.extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status').exists() then statusR3(src, tgt);
+  src where src.extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status').empty() then statusNR3(src, tgt);
   src.category -> tgt.category;
   src.medication : CodeableConcept as vs -> tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
   src.medication : Reference as vs -> tgt.medication = create("Reference") as vt then Reference(vs, vt);
@@ -33,7 +33,7 @@ group MedicationAdministration(source src : MedicationAdministrationR3, target t
 
 group actor(source src, target tgt) extends BackboneElement {
   src.actor -> tgt.actor;
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.performer.onBehalfOf' then {
     e.value -> tgt.onBehalfOf;
   };
 }
@@ -49,10 +49,10 @@ group dosage(source src, target tgt) extends BackboneElement {
 }
 
 group statusR3(source src, target tgt) {
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MedAdminNotGiven' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.notGiven' then {
     e.value -> tgt.notGiven;
   };
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status' then {
     e.value -> tgt.status;
   };
 }

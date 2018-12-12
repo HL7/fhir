@@ -17,7 +17,7 @@ group Communication(source src : CommunicationR3, target tgt : Communication) ex
   src.medium -> tgt.medium;
   src.subject -> tgt.subject;
   src.recipient -> tgt.recipient;
-  src.topic as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34CommunicationTopic', vt.value = v;
+  src.topic as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Communication.topic', vt.value = v;
   src.context -> tgt.encounter;
   src.sent -> tgt.sent;
   src.received -> tgt.received;

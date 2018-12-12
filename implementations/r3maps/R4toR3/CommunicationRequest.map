@@ -23,7 +23,7 @@ group CommunicationRequest(source src : CommunicationRequest, target tgt : Commu
   src.occurrence : Period as s -> tgt.occurrence = create('Period') as t then Period(s, t);
   src.authoredOn -> tgt.authoredOn;
   src.sender -> tgt.sender;
-  src where requester.exists() or extension.where(url = 'http://hl7.org/fhir/StructureDefinition/X34CommReqOnBehalf').exists()  -> tgt.requester as vt0 then agent(src, vt0);
+  src where requester.exists() or extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CommunicationRequest.requester.onBehalfOf').exists()  -> tgt.requester as vt0 then agent(src, vt0);
   src.reasonCode -> tgt.reasonCode;
   src.reasonReference -> tgt.reasonReference;
   src.note -> tgt.note;
@@ -31,7 +31,7 @@ group CommunicationRequest(source src : CommunicationRequest, target tgt : Commu
 
 group agent(source src, target tgt) {
   src.requester -> tgt.agent;
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34CommReqOnBehalf' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CommunicationRequest.requester.onBehalfOf' then {
     e.value -> tgt.onBehalfOf;
   };
 }

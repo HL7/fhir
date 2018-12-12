@@ -9,8 +9,8 @@ group MedicationAdministration(source src : MedicationAdministrationR3, target t
   src.identifier -> tgt.identifier;
   src.definition -> tgt.instantiates;
   src.partOf -> tgt.partOf;
-  src.status as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedAdminStatus', vt.value = v;
-  src.notGiven as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedAdminNotGiven', vt.value = v;
+  src.status as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status', vt.value = v;
+  src.notGiven as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.notGiven', vt.value = v;
   src.status where src.notGiven.not() -> tgt.status;
   src.notGiven -> tgt.status = 'not-done';
   src.category -> tgt.category;
@@ -35,7 +35,7 @@ group MedicationAdministration(source src : MedicationAdministrationR3, target t
 
 group actor(source src, target tgt) extends BackboneElement {
   src.actor -> tgt.actor;
-  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf', vt.value = v;
+  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.performer.onBehalfOf', vt.value = v;
 }
 
 group dosage(source src, target tgt) extends BackboneElement {

@@ -7,7 +7,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 // in R3, both ProcedureRequest and ReferralRequest are folded into ServiceRequest, and there's no easy 
 // way to tell them apart. it requires special knowledge to decide which to convert back to, 
-// but they are marked with an extension (http://hl7.org/fhir/StructureDefinition/X34ServiceRequestType) in case this helps
+// but they are marked with an extension (http://hl7.org/fhir/3.0/StructureDefinition/BaseType) in case this helps
 
 group ServiceRequest(source src : ReferralRequestR3, target tgt : ServiceRequest) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -33,7 +33,7 @@ group ServiceRequest(source src : ReferralRequestR3, target tgt : ServiceRequest
   src.orderDetail as cc then {
     cc.text -> tgt.description;
   };
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34ReferralRequestDescription' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ReferralRequest.description' then {
     e.value -> tgt.description;
   };  
   src.supportingInfo -> tgt.supportingInfo;
@@ -43,7 +43,7 @@ group ServiceRequest(source src : ReferralRequestR3, target tgt : ServiceRequest
 
 group requester(source src, target tgt) {
   src -> tgt.agent as v then Reference(src, v);
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34ServiceRequestOnBehalfOf' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ReferralRequest.requester.onBehalfOf' then {
     e.value -> tgt.onBehalfOf;
   };
 }

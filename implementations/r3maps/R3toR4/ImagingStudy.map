@@ -35,7 +35,7 @@ group series(source src, target tgt) extends BackboneElement {
   src.modality -> tgt.modality;
   src.description -> tgt.description;
   src.numberOfInstances -> tgt.numberOfInstances;
-  src.availability as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34ImagingStudyAvailability', vt.value = v;
+  src.availability as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ImagingStudy.series.availability', vt.value = v;
   src.endpoint -> tgt.endpoint;
   src.bodySite -> tgt.bodySite;
   src.laterality -> tgt.laterality;

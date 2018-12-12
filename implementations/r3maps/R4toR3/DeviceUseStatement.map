@@ -9,7 +9,7 @@ group DeviceUseStatement(source src : DeviceUseStatement, target tgt : DeviceUse
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.subject -> tgt.subject;
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34DeviceUseWhenUsed' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DeviceUseStatement.whenUsed' then {
     e.value -> tgt.whenUsed;
   };  
   src.timing : Timing as vs -> tgt.timing = create("Timing") as vt then Timing(vs, vt);

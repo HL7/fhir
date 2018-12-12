@@ -45,7 +45,7 @@ group Measure(source src : MeasureR3, target tgt : Measure) extends DomainResour
   };
   src.definition -> tgt.definition;
   src.guidance -> tgt.guidance;
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureSet' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.set' then {
     e.value -> tgt.set;
   };
   src.group as s -> tgt.group as t then group(s, t);
@@ -54,7 +54,7 @@ group Measure(source src : MeasureR3, target tgt : Measure) extends DomainResour
 
 group group(source src, target tgt) extends BackboneElement {
   src.code as vs -> tgt.identifier as vt then Codeable2Identifier(vs, vt);
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureName' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.group.name' then {
     e.value -> tgt.name;
   };
   src.description -> tgt.description;
@@ -63,11 +63,11 @@ group group(source src, target tgt) extends BackboneElement {
 }
 
 group population(source src, target tgt) extends BackboneElement {
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.group.population.identifier' then {
     e.value -> tgt.identifier;
   };
   src.code -> tgt.code;
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureName' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.group.population.name' then {
     e.value -> tgt.name;
   };
   src.description -> tgt.description;
@@ -81,10 +81,7 @@ group stratifier(source src, target tgt) extends BackboneElement {
   src.criteria as s then {
     s.expression -> tgt.criteria;
   };
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasurePath' then {
-    e.value -> tgt.path;
-  };
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasurePath' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.group.stratifier.path' then {
     e.value -> tgt.path;
   };
 }
@@ -96,7 +93,7 @@ group supplementalData(source src, target tgt) extends BackboneElement {
   src.criteria as s then {
     s.expression -> tgt.criteria;
   };
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasurePath' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.supplementalData.path' then {
     e.value -> tgt.path;
   };
 }

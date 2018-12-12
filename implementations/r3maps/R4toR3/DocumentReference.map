@@ -14,7 +14,7 @@ group DocumentReference(source src : DocumentReference, target tgt : DocumentRef
   src.category -> tgt.class;
   src.subject -> tgt.subject;
   src.date -> tgt.indexed;
-  src.extension as ext where url = 'http://hl7.org/fhir/StructureDefinition/X34-dr-created' then {
+  src.extension as ext where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentReference.created' then {
     ext.value as vs0 -> tgt.created = vs0 "created2";
   } "created";
   src.agent as s where type.coding.where(system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code = 'AUT').exists() -> tgt.author as t then agent(s, t);

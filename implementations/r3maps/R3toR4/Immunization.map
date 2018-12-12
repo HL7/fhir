@@ -9,7 +9,7 @@ group Immunization(source src : ImmunizationR3, target tgt : Immunization) exten
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.notGiven where value = true -> tgt.status = 'not-done';
-  src.notGiven as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34ImmunizationNotGiven', vt.value = v;
+  src.notGiven as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Immunization.notGiven', vt.value = v;
   src.vaccineCode -> tgt.vaccineCode;
   src.patient -> tgt.patient;
   src.encounter -> tgt.encounter;
@@ -46,11 +46,11 @@ group reaction(source src, target tgt) extends BackboneElement {
 
 group protocol(source src, target tgt) extends BackboneElement {
   src.doseSequence as vs -> tgt.doseNumber = create('positiveInt') as vt then positiveInt(vs, vt);
-  src.description as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34ImmunizationDescription', vt.value = v;
+  src.description as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Immunization.vaccinationProtocol.description', vt.value = v;
   src.authority -> tgt.authority;
   src.series -> tgt.series;
   src.seriesDoses as vs -> tgt.seriesDoses = create('positiveInt') as vt then positiveInt(vs, vt);
   src.targetDisease -> tgt.targetDisease;
-  src.doseStatus as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34ImmunizationDoseStatus', vt.value = v;
-  src.doseStatusReason as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34ImmunizationDoseStatusReason', vt.value = v;
+  src.doseStatus as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Immunization.vaccinationProtocol.doseStatus', vt.value = v;
+  src.doseStatusReason as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Immunization.vaccinationProtocol.doseStatusReason', vt.value = v;
 }

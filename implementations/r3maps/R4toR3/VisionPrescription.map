@@ -12,7 +12,7 @@ group VisionPrescription(source src : VisionPrescription, target tgt : VisionPre
   src.encounter -> tgt.encounter;
   src.dateWritten -> tgt.dateWritten;
   src.prescriber -> tgt.prescriber;
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34VisionPrescriptionReason' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-VisionPrescription.reason' then {
     e.value -> tgt.reason;
   };
   src.lensSpecification as s -> tgt.dispense as t then dispense(s, t);

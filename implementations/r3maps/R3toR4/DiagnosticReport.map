@@ -28,7 +28,7 @@ group DiagnosticReport(source src : DiagnosticReportR3, target tgt : DiagnosticR
 
 group performer(source src, target tgt) {
   src.actor as v then Reference(v, tgt);
-  src.role as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34DiagnosticReportRole', vt.value = v;
+  src.role as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DiagnosticReport.performer.role', vt.value = v;
 }
 
 group image(source src, target tgt) extends BackboneElement {

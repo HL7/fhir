@@ -35,7 +35,7 @@ group MedicationRequest(source src : MedicationRequestR3, target tgt : Medicatio
 
 group requester(source src, target tgt) {
   src.agent -> tgt.requester;
-  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedRequestOnBehalf', vt.value = v;
+  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationRequest.requester.onBehalfOf', vt.value = v;
 }
 
 group dispense(source src, target tgt) {

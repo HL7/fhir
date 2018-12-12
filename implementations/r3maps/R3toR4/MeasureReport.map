@@ -36,7 +36,7 @@ group group(source src, target tgt) extends BackboneElement {
 }
 
 group population(source src, target tgt) extends BackboneElement {
-  src.identifier as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier', vt.value = v;
+  src.identifier as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MeasureReport.group.identifier', vt.value = v;
   src.code -> tgt.code;
   src.count -> tgt.count;
   src.patients -> tgt.subjectResults;
@@ -54,7 +54,7 @@ group stratum(source src, target tgt) extends BackboneElement {
 }
 
 group population2(source src, target tgt) extends BackboneElement {
-  src.identifier as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier', vt.value = v;
+  src.identifier as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MeasureReport.group.stratifier.stratum.population.identifier', vt.value = v;
   src.code -> tgt.code;
   src.count -> tgt.count;
   src.patients -> tgt.subjectResults;

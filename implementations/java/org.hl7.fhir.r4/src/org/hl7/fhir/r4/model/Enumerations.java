@@ -10160,6 +10160,9 @@ into another (possibly the same) biological entity.
             default: return "?";
           }
         }
+        public String toCode(int len) {
+          return toCode().substring(0, len);
+        }
     }
 
   public static class FHIRVersionEnumFactory implements EnumFactory<FHIRVersion> {

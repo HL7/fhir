@@ -28,7 +28,7 @@ group DiagnosticReport(source src : DiagnosticReport, target tgt : DiagnosticRep
 
 group performer(source src, target tgt) {
   src -> tgt.actor as vt then Reference(src, vt);
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34DiagnosticReportRole' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DiagnosticReport.performer.role' then {
     e.value -> tgt.role;
   };
 }

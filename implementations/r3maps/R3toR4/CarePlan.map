@@ -38,7 +38,7 @@ group activity(source src, target tgt) extends BackboneElement {
 }
 
 group detail(source src, target tgt) extends BackboneElement {
-  src.category as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34GoalCategory', vt.value = v;
+  src.category as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CarePlan.activity.detail.category', vt.value = v;
   src.definition -> tgt.instantiatesCanonical;
   src.code -> tgt.code;
   src.reasonCode -> tgt.reasonCode;
