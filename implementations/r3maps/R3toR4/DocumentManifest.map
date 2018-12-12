@@ -26,7 +26,7 @@ group DocumentManifestAgent(source src, target tgt) extends BackboneElement {
 }
 
 group content(source src, target tgt) extends Element {
-  src.p : Attachment as s -> tgt.extension as ext, ext.url = 'http://hl7.org/fhir/StructureDefinition/X34-dm-attachment', ext.value = s;
+  src.p : Attachment as s -> tgt.extension as ext, ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentManifest.content.p_Attachment', ext.value = s;
   src.p : Reference as s then Reference(s, tgt);
 }
 

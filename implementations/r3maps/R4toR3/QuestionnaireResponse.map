@@ -23,7 +23,7 @@ group item(source src, target tgt) extends BackboneElement {
   src.linkId -> tgt.linkId;
   src.definition -> tgt.definition;
   src.text -> tgt.text;
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34QRSubject' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-QuestionnaireResponse.item.subject' then {
     e.value -> tgt.subject;
   };
   src.answer as vs0 -> tgt.answer as vt0 then answer(vs0, vt0);

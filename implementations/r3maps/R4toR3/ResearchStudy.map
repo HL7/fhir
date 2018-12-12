@@ -35,7 +35,7 @@ group ResearchStudy(source src : ResearchStudyR3, target tgt : ResearchStudy) ex
   src.relatedArtifact -> tgt.relatedArtifact;
   src.keyword -> tgt.keyword;
   src.location -> tgt.location;
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34ResearchStudyJurisdiction' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ResearchStudy.jurisdiction' then {
     e.value -> tgt.jurisdiction;
   };
   src.description -> tgt.description;

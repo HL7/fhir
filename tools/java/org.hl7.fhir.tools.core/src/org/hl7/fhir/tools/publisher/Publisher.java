@@ -1265,13 +1265,16 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
       for (BindingSpecification cd : ig.getUnresolvedBindings()) {
-        ValueSet vs = page.getDefinitions().getValuesets().get(cd.getReference());
+        String ref = cd.getReference();
+        if (ref.contains("|"))
+          ref = ref.substring(0, ref.indexOf("|"));
+        ValueSet vs = page.getDefinitions().getValuesets().get(ref);
         if (vs == null)
-          vs = ig.getValueSet(cd.getReference());
+          vs = ig.getValueSet(ref);
         if (vs == null)
-          vs = page.getWorkerContext().fetchResource(ValueSet.class, cd.getReference());
+          vs = page.getWorkerContext().fetchResource(ValueSet.class, ref);
         if (vs == null)
-          throw new Exception("unable to resolve value set "+cd.getReference());
+          throw new Exception("unable to resolve value set "+ref);
         cd.setValueSet(vs);
       }
     }
@@ -3267,7 +3270,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private boolean checkMetaData(StructureDefinition sd) {
     check(tail(sd.getUrl()).equals(sd.getId()), sd, "id must equal tail of URL");
-    check(page.getVersion().equals(sd.getFhirVersion().toCode()), sd, "FhirVersion is wrong (should be "+page.getVersion()+", is "+sd.getFhirVersion().toCode()+")");
+    check(page.getVersion().equals(sd.getFhirVersion()), sd, "FhirVersion is wrong (should be "+page.getVersion()+", is "+sd.getFhirVersion()+")");
     switch (sd.getKind()) {
     case COMPLEXTYPE: return checkDataType(sd);
     case PRIMITIVETYPE: return checkDataType(sd);
@@ -4594,6 +4597,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getValueSets().put(vs.getUrl(), vs);
       addToResourceFeed(vs, valueSetsFeed, file.getName());
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
+      page.getDefinitions().getValuesets().put(vs.getUrl()+"|"+vs.getVersion(), vs);
     } else if (rt.equals("CodeSystem")) {
       CodeSystem cs = (CodeSystem) new XmlParser().parse(new FileInputStream(file));
       if (cs.getUrl().startsWith("http://hl7.org/fhir"))
@@ -4604,6 +4608,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       cs.setUserData("path", prefix +n + ".html");
       addToResourceFeed(cs, valueSetsFeed, file.getName());
       page.getCodeSystems().put(cs.getUrl(), cs);
+      page.getCodeSystems().put(cs.getUrl()+"|"+cs.getVersion(), cs);
     } else if (rt.equals("ConceptMap")) {
       ConceptMap cm = (ConceptMap) new XmlParser().parse(new FileInputStream(file));
       new ConceptMapValidator(page.getDefinitions(), e.getTitle()).validate(cm, false);
@@ -4615,6 +4620,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getDefinitions().getConceptMaps().put(cm.getUrl(), cm);
       cm.setUserData("path", prefix +n + ".html");
       page.getConceptMaps().put(cm.getUrl(), cm);
+      page.getConceptMaps().put(cm.getUrl()+"|"+cm.getVersion(), cm);
     }
 
     // queue for json and canonical XML generation processing
@@ -6300,6 +6306,7 @@ private String csCounter() {
 
       page.getValueSets().put(vs.getUrl(), vs);
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
+      page.getDefinitions().getValuesets().put(vs.getUrl()+"|"+vs.getVersion(), vs);
     }
     for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
       page.getVsValidator().validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);

@@ -7,14 +7,14 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 group Medication(source src : MedicationR3, target tgt : Medication) extends DomainResource <<type+>> {
   src.code -> tgt.code;
-  src.status as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedicationStatus', vt.value = v;
-  src.isBrand as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedicationBrand', vt.value = v;
-  src.isOverTheCounter as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedicationOTC', vt.value = v;
+  src.status as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.status', vt.value = v;
+  src.isBrand as v -> tgt.extension as vt, vt.url = 'hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand', vt.value = v;
+  src.isOverTheCounter as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationOTC', vt.value = v;
   src.manufacturer -> tgt.manufacturer;
   src.form -> tgt.form;
   src.ingredient as vs0 -> tgt.ingredient as vt0 then ingredient(vs0, vt0);
   src.package as vs0 then package(vs0, tgt);
-  src.image as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedicationImage', vt.value = v;
+  src.image as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationImage', vt.value = v;
 }
 
 group ingredient(source src, target tgt) extends BackboneElement {
@@ -25,14 +25,14 @@ group ingredient(source src, target tgt) extends BackboneElement {
 }
 
 group package(source src, target tgt)  {
-  src.container as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedicationContainer', vt.value = v;
-  src.content as vs0 -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedicationContent' then content(vs0, vt);
+  src.container as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container', vt.value = v;
+  src.content as vs0 -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content' then content(vs0, vt);
   src.batch as vs0 -> tgt.batch as vt0 then batch(vs0, vt0);
 }
 
 group content(source src, target tgt) extends Element {
-  src.item as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34Content', vt.value = v;
-  src.amount as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34Amount', vt.value = v;
+  src.item as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content', vt.value = v;
+  src.amount as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content.amount', vt.value = v;
 }
 
 group batch(source src, target tgt) extends BackboneElement {

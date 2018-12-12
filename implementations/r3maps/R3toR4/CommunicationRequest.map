@@ -31,7 +31,7 @@ group CommunicationRequest(source src : CommunicationRequestR3, target tgt : Com
 
 group agent(source src, target tgt) {
   src.agent -> tgt.requester;
-  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MedDispenseOnBehalf', vt.value = v;
+  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CommunicationRequest.requester.onBehalfOf', vt.value = v;
 }
 
 

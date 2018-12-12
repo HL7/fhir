@@ -22,7 +22,7 @@ group ValueSet(source src : ValueSetR3, target tgt : ValueSet) extends DomainRes
   src.immutable -> tgt.immutable;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.extensible as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/StructureDefinition/X34-vs-extensible",  ext.value = vs;
+  src.extensible as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/3.0/StructureDefinition/extension-ValueSet.extensible",  ext.value = vs;
   src.compose as vs0 -> tgt.compose as vt0 then compose(vs0, vt0);
   src.expansion as vs0 -> tgt.expansion as vt0 then expansion(vs0, vt0);
 }

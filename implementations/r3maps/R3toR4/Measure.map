@@ -43,23 +43,23 @@ group Measure(source src : MeasureR3, target tgt : Measure) extends DomainResour
   src.improvementNotation as s -> tgt.improvementNotation as cc, cc.text = s;
   src.definition -> tgt.definition;
   src.guidance -> tgt.guidance;
-  src.set as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureSet', vt.value = v;
+  src.set as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.set', vt.value = v;
   src.group as s -> tgt.group as t then group(s, t);
   src.supplementalData as s -> tgt.supplementalData as t then supplementalData(s, t);
 }
 
 group group(source src, target tgt) extends BackboneElement {
   src.identifier as vs -> tgt.code as vt then Identifier2Codeable(vs, vt);
-  src.name as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureName', vt.value = v;
+  src.name as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.group.name', vt.value = v;
   src.description -> tgt.description;
   src.population as s -> tgt.population as t then population(s, t);
   src.stratifier as s -> tgt.stratifier as t then stratifier(s, t);
 }
 
 group population(source src, target tgt) extends BackboneElement {
-  src.identifier as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier', vt.value = v;
+  src.identifier as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.group.population.identifier', vt.value = v;
   src.code -> tgt.code;
-  src.name as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureName', vt.value = v;
+  src.name as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.group.population.name', vt.value = v;
   src.description -> tgt.description;
   src.criteria as s -> tgt.criteria as t, t.expression = s;
 }
@@ -67,7 +67,7 @@ group population(source src, target tgt) extends BackboneElement {
 group stratifier(source src, target tgt) extends BackboneElement {
   src.identifier as vs -> tgt.code as vt then Identifier2Codeable(vs, vt);
   src.criteria as s -> tgt.criteria as t, t.expression = s;
-  src.path as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasurePath', vt.value = v;
+  src.path as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.group.stratifier.path', vt.value = v;
 }
 
 group supplementalData(source src, target tgt) extends BackboneElement {
@@ -75,6 +75,6 @@ group supplementalData(source src, target tgt) extends BackboneElement {
   src.usage -> tgt.usage;
   src.description -> tgt.description;
   src.criteria as s -> tgt.criteria as t, t.expression = s;
-  src.path as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34MeasurePath', vt.value = v;
+  src.path as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Measure.supplementalData.path', vt.value = v;
 }
 

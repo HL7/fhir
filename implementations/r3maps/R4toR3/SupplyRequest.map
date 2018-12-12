@@ -17,7 +17,7 @@ group SupplyRequest(source src : SupplyRequestR3, target tgt : SupplyRequest) ex
   src.occurrence : Period as vs -> tgt.occurrence = create('Period') as vt then Period(vs, vt);
   src.occurrence : Timing as vs -> tgt.occurrence = create('Timing') as vt then Timing(vs, vt);
   src.authoredOn -> tgt.authoredOn;
-  src where requester.exists() or extension.where(url = 'http://hl7.org/fhir/StructureDefinition/X34SupplyRequestOnBehalf').exists()  -> tgt.requester as vt0 then agent(src, vt0);
+  src where requester.exists() or extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-SupplyRequest.requester.onBehalfOf').exists()  -> tgt.requester as vt0 then agent(src, vt0);
   src.supplier -> tgt.supplier;
   src.reasonCode as vs -> tgt.reason = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
   src.reasonReference as vs -> tgt.reason = create('Reference') as vt then Reference(vs, vt);
@@ -27,7 +27,7 @@ group SupplyRequest(source src : SupplyRequestR3, target tgt : SupplyRequest) ex
 
 group agent(source src, target tgt) {
   src.requester -> tgt.agent;
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34SupplyRequestOnBehalf' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-SupplyRequest.requester.onBehalfOf' then {
     e.value -> tgt.onBehalfOf;
   };
 }

@@ -25,7 +25,7 @@ group CapabilityStatement(source src : CapabilityStatement, target tgt : Capabil
   src.software as vs0 -> tgt.software as vt0 then software(vs0, vt0);
   src.implementation as vs0 -> tgt.implementation as vt0 then implementation(vs0, vt0);
   src.fhirVersion -> tgt.fhirVersion;
-  src.extension as ext where url = 'http://hl7.org/fhir/StructureDefinition/X34-cs-acceptUnknown' then {
+  src.extension as ext where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CapabilityStatement.acceptUnknown' then {
     ext.value : code as vs0 -> tgt.acceptUnknown = vs0 "acceptUnknown2";
   } "acceptUnknown";
   src.format -> tgt.format;

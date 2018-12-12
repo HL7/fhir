@@ -33,7 +33,7 @@ group ClinicalImpression(source src : ClinicalImpressionR3, target tgt : Clinica
   src.finding as vs0 -> tgt.finding as vt0 then finding(vs0, vt0);
   src.prognosisCodeableConcept -> tgt.prognosisCodeableConcept;
   src.prognosisReference -> tgt.prognosisReference;
-  src.action as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34ClinicalImpressionAction', vt.value = v;
+  src.action as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ClinicalImpression.action', vt.value = v;
   src.note -> tgt.note;
 }
 

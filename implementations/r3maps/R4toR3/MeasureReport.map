@@ -36,7 +36,7 @@ group group(source src, target tgt) extends BackboneElement {
 }
 
 group population(source src, target tgt) extends BackboneElement {
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MeasureReport.group.population.identifier' then {
     e.value -> tgt.identifier;
   };
   src.code -> tgt.code;
@@ -58,7 +58,7 @@ group stratum(source src, target tgt) extends BackboneElement {
 }
 
 group population2(source src, target tgt) extends BackboneElement {
-  src.extension as e where url = 'http://hl7.org/fhir/StructureDefinition/X34MeasureIdentifier' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MeasureReport.group.stratifier.stratum.population.identifier' then {
     e.value -> tgt.identifier;
   };
   src.code -> tgt.code;

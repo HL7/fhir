@@ -667,6 +667,7 @@ Implementers should be aware of the following issues when using these extensions
 </p>
 <ul>
  <li>Implementations should always use the correct element for data when one exists. The version <a href="diff.html">differences</a> and <a href="r3maps.html">maps</a> (and their equivalent for other versions) can help</li>
+ <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g. <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc)</li>
  <li>Where complex data types have no equivalent in an earlier version, use a complex extension, containing extensions also following this pattern. Follow the same pattern for any elements not found in data types in earlier versions </li>
  <li>This table shows the data type mapping across versions. The mapping table SHALL be used.</li>
 </ul>

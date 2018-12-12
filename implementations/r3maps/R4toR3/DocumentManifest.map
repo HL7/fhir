@@ -25,8 +25,8 @@ group DocumentManifestAgent(source src, target tgt) extends BackboneElement {
 }
 
 group content(source src, target tgt) extends Element {
-  src.extension as s where url = 'http://hl7.org/fhir/StructureDefinition/X34-dm-attachment' then contentAttachment(s, tgt);
-  src where extension.where(url = 'http://hl7.org/fhir/StructureDefinition/X34-dm-attachment').empty() -> tgt.p = create('Reference') as p then Reference(src, p);
+  src.extension as s where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentManifest.content.p_Attachment' then contentAttachment(s, tgt);
+  src where extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentManifest.content.p_Attachment').empty() -> tgt.p = create('Reference') as p then Reference(src, p);
 }
 
 group contentAttachment(source src, target tgt) extends Element {

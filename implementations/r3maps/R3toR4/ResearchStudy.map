@@ -29,7 +29,7 @@ group ResearchStudy(source src : ResearchStudyR3, target tgt : ResearchStudy) ex
   src.relatedArtifact -> tgt.relatedArtifact;
   src.keyword -> tgt.keyword;
   src.location -> tgt.location;
-  src.jurisdiction as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34ResearchStudyJurisdiction', vt.value = v;
+  src.jurisdiction as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ResearchStudy.jurisdiction', vt.value = v;
   src.description -> tgt.description;
   src.enrollment -> tgt.enrollment;
   src.period -> tgt.period;

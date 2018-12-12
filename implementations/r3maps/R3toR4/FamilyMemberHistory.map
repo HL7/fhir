@@ -9,7 +9,7 @@ group FamilyMemberHistory(source src : FamilyMemberHistoryR3, target tgt : Famil
   src.identifier -> tgt.identifier;
   src.definition -> tgt.instantiatesCanonical;
   src.status -> tgt.status;
-  src.notDone as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/StructureDefinition/X34FMHNotDone', vt.value = v;
+  src.notDone as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-FamilyMemberHistory.notDone', vt.value = v;
   src.notDoneReason -> tgt.dataAbsentReason;
   src.patient -> tgt.patient;
   src.date -> tgt.date;

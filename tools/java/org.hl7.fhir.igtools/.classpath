@@ -26,7 +26,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.validation"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/antlr-runtime-3.5.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/commonmark-0.12.1.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-api-1.7.22.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-jdk14-1.7.22.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
