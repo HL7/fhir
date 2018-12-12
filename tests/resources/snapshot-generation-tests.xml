@@ -3515,6 +3515,7 @@
       </assert>
     </action>
   </test>
+<!--
   <test>
     <name value="Test36"/>
     <description value="Test deep nesting"/>
@@ -3541,4 +3542,5 @@
       </assert>
     </action>
   </test>
+  -->
 </TestScript>
