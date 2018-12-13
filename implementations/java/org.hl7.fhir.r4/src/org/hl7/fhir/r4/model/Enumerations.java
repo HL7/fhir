@@ -10020,6 +10020,8 @@ The primary difference between a medication statement and a medication administr
           return _3_3_0;
         if ("3.5.0".equals(codeString))
           return _3_5_0;
+        if ("3.6.0".equals(codeString))
+          return _4_0_0;
         if ("4.0.0".equals(codeString))
           return _4_0_0;
         throw new FHIRException("Unknown FHIRVersion code '"+codeString+"'");
@@ -10182,6 +10184,8 @@ The primary difference between a medication statement and a medication administr
           return FHIRVersion._3_3_0;
         if ("3.5.0".equals(codeString))
           return FHIRVersion._3_5_0;
+        if ("3.6.0".equals(codeString))
+          return FHIRVersion._4_0_0;
         if ("4.0.0".equals(codeString))
           return FHIRVersion._4_0_0;
         throw new IllegalArgumentException("Unknown FHIRVersion code '"+codeString+"'");
@@ -10234,6 +10238,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<FHIRVersion>(this, FHIRVersion._3_3_0);
         if ("3.5.0".equals(codeString))
           return new Enumeration<FHIRVersion>(this, FHIRVersion._3_5_0);
+        if ("3.6.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._4_0_0);
         if ("4.0.0".equals(codeString))
           return new Enumeration<FHIRVersion>(this, FHIRVersion._4_0_0);
         throw new FHIRException("Unknown FHIRVersion code '"+codeString+"'");
