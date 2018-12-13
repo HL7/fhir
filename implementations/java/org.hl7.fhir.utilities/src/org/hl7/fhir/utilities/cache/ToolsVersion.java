@@ -14,12 +14,12 @@ public class ToolsVersion {
    * this constant is checked 
    *  - when loading the current version package
    */
-  public final static int TOOLS_VERSION = 4;
-  public final static String TOOLS_VERSION_STR = "4";
+  public final static int TOOLS_VERSION = 3;
+  public final static String TOOLS_VERSION_STR = "3";
   
   // version history:
-  // 4: when changing to 4.0.0
   // 3: invalidate the current packages because of an error in the version value in the package.json
   // 2: split auto-ig into r3/r4 content
   // arbitrarily started at 1 when changing to git
 }
+
