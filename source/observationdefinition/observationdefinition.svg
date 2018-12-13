@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="n404"
+   version="1.1"
+   width="560.27509"
+   height="305.24681"
+   sodipodi:docname="observationdefinition.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata188">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview186"
+     showgrid="false"
+     inkscape:zoom="0.50689386"
+     inkscape:cx="-40.442394"
+     inkscape:cy="152.6234"
+     inkscape:window-x="2552"
+     inkscape:window-y="1090"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="n404" />
+  <defs
+     id="defs11">
+    <filter
+       id="shadow1"
+       x="0"
+       y="0"
+       width="200%"
+       height="200%">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset2" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix4" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+  </defs>
+  <g
+     id="n405"
+     transform="translate(629.32307,7.8911984)">
+    <rect
+       id="ObservationDefinition"
+       x="-314.79251"
+       y="7.2247801"
+       rx="4"
+       ry="4"
+       width="272.79999"
+       height="190"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n406"
+       x1="-314.79251"
+       y1="35.224781"
+       x2="-41.9925"
+       y2="35.224781"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n407"
+       x="-178.3925"
+       y="27.224779"
+       class="diagram-class-title  diagram-class-resource"
+       style="fill:#000000">ObservationDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan16">(<a
+   xlink:href="domainresource.html"
+   id="n408"
+   class="diagram-class-reference">DomainResource</a>
+)</tspan>
+</text>
+    <text
+       id="n409"
+       x="-308.79251"
+       y="49.224781"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.category"
+   id="n410"><title
+   id="title19">A code that classifies the general type of observation</title>
+
+category</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n411">CodeableConcept</a>
+ [0..*] « <a
+   xlink:href="valueset-observation-category.html"
+   id="n412"><title
+   id="n413">Codes for high level observation categories. (Strength=Example)</title>
+
+ObservationCategoryCodes</a>
+?? »</text>
+    <text
+       id="n419"
+       x="-308.79251"
+       y="63.224781"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.code"
+   id="n420"><title
+   id="title26">Describes what will be observed. Sometimes this is called the observation &quot;name&quot;</title>
+
+code</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n421">CodeableConcept</a>
+ [1..1] « <a
+   xlink:href="valueset-observation-codes.html"
+   id="n422"><title
+   id="n423">Codes identifying names of simple observations. (Strength=Example)</title>
+
+LOINCCodes</a>
+?? »</text>
+    <text
+       id="n429"
+       x="-308.79251"
+       y="77.224777"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.identifier"
+   id="n430"><title
+   id="title33">A unique identifier assigned to this ObservationDefinition artifact</title>
+
+identifier</a>
+ : <a
+   xlink:href="datatypes.html#Identifier"
+   id="n431">Identifier</a>
+ [0..*]</text>
+    <text
+       id="n435"
+       x="-308.79251"
+       y="91.224777"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.permittedDataType"
+   id="n436"><title
+   id="title38">The data types allowed for the value element of the instance observations conforming to this ObservationDefinition</title>
+
+permittedDataType</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n437">code</a>
+ [0..*] « <a
+   xlink:href="valueset-permitted-data-type.html"
+   id="n438"><title
+   id="n439">Permitted data type for observation value. (Strength=Required)</title>
+
+ObservationDataType</a>
+! »</text>
+    <text
+       id="n445"
+       x="-308.79251"
+       y="105.22478"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.multipleResultsAllowed"
+   id="n446"><title
+   id="title45">Multiple results allowed for observations conforming to this ObservationDefinition</title>
+
+multipleResultsAllowed</a>
+ : <a
+   xlink:href="datatypes.html#boolean"
+   id="n447">boolean</a>
+ [0..1]</text>
+    <text
+       id="n451"
+       x="-308.79251"
+       y="119.22478"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.method"
+   id="n452"><title
+   id="title50">The method or technique used to perform the observation</title>
+
+method</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n453">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-observation-methods.html"
+   id="n454"><title
+   id="n455">Methods for simple observations. (Strength=Example)</title>
+
+ObservationMethods</a>
+?? »</text>
+    <text
+       id="n461"
+       x="-308.79251"
+       y="133.22478"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.preferredReportName"
+   id="n462"><title
+   id="title57">The preferred name to be used when reporting the results of observations conforming to this ObservationDefinition</title>
+
+preferredReportName</a>
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n463">string</a>
+ [0..1]</text>
+    <text
+       id="n467"
+       x="-308.79251"
+       y="147.22478"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.validCodedValueSet"
+   id="n468"><title
+   id="title62">The set of valid coded results for the observations  conforming to this ObservationDefinition</title>
+
+validCodedValueSet</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n469">Reference</a>
+ [0..1] « <a
+   xlink:href="valueset.html#ValueSet"
+   id="n470">ValueSet</a>
+ »</text>
+    <text
+       id="n475"
+       x="-308.79251"
+       y="161.22478"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.normalCodedValueSet"
+   id="n476"><title
+   id="title68">The set of normal coded results for the observations conforming to this ObservationDefinition</title>
+
+normalCodedValueSet</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n477">Reference</a>
+ [0..1] « <a
+   xlink:href="valueset.html#ValueSet"
+   id="n478">ValueSet</a>
+ »</text>
+    <text
+       id="n483"
+       x="-308.79251"
+       y="175.22478"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.abnormalCodedValueSet"
+   id="n484"><title
+   id="title74">The set of abnormal coded results for the observation conforming to this ObservationDefinition</title>
+
+abnormalCodedValueSet</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n485">Reference</a>
+ [0..1] « <a
+   xlink:href="valueset.html#ValueSet"
+   id="n486">ValueSet</a>
+ »</text>
+    <text
+       id="n491"
+       x="-308.79251"
+       y="189.22478"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.criticalCodedValueSet"
+   id="n492"><title
+   id="title80">The set of critical coded results for the observation conforming to this ObservationDefinition</title>
+
+criticalCodedValueSet</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n493">Reference</a>
+ [0..1] « <a
+   xlink:href="valueset.html#ValueSet"
+   id="n494">ValueSet</a>
+ »</text>
+  </g>
+  <g
+     id="n499"
+     transform="translate(629.32307,7.8911984)">
+    <rect
+       id="ObservationDefinition.quantitativeDetails"
+       x="52.731731"
+       y="193.24681"
+       rx="4"
+       ry="4"
+       width="228.8"
+       height="92"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n500"
+       x1="52.731731"
+       y1="221.24681"
+       x2="281.53174"
+       y2="221.24681"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n501"
+       x="167.13173"
+       y="213.24681"
+       class="diagram-class-title"
+       style="fill:#000000">QuantitativeDetails</text>
+    <text
+       id="n502"
+       x="58.731731"
+       y="235.24681"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.customaryUnit"
+   id="n503"><title
+   id="title90">Customary unit used to report quantitative results of observations conforming to this ObservationDefinition</title>
+
+customaryUnit</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n504">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-ucum-units.html"
+   id="n505"><title
+   id="n506">Codes identifying units of measure. (Strength=Extensible)</title>
+
+UCUMCodes</a>
++ »</text>
+    <text
+       id="n512"
+       x="58.731731"
+       y="249.24681"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.unit"
+   id="n513"><title
+   id="title97">SI unit used to report quantitative results of observations conforming to this ObservationDefinition</title>
+
+unit</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n514">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-ucum-units.html"
+   id="n515"><title
+   id="n516">Codes identifying units of measure. (Strength=Extensible)</title>
+
+UCUMCodes</a>
++ »</text>
+    <text
+       id="n522"
+       x="58.731731"
+       y="263.2468"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.conversionFactor"
+   id="n523"><title
+   id="title104">Factor for converting value expressed with SI unit to value expressed with customary unit</title>
+
+conversionFactor</a>
+ : <a
+   xlink:href="datatypes.html#decimal"
+   id="n524">decimal</a>
+ [0..1]</text>
+    <text
+       id="n528"
+       x="58.731731"
+       y="277.2468"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.decimalPrecision"
+   id="n529"><title
+   id="title109">Number of digits after decimal separator when the results of such observations are of type Quantity</title>
+
+decimalPrecision</a>
+ : <a
+   xlink:href="datatypes.html#integer"
+   id="n530">integer</a>
+ [0..1]</text>
+  </g>
+  <g
+     id="n534"
+     transform="translate(629.32307,7.8911984)">
+    <rect
+       id="ObservationDefinition.qualifiedInterval"
+       x="56.675091"
+       y="4.8643699"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="162"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n535"
+       x1="56.675091"
+       y1="32.864368"
+       x2="360.27509"
+       y2="32.864368"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n536"
+       x="208.47508"
+       y="24.86437"
+       class="diagram-class-title"
+       style="fill:#000000">QualifiedInterval</text>
+    <text
+       id="n537"
+       x="62.675091"
+       y="46.864368"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.category"
+   id="n538"><title
+   id="title118">The category of interval of values for continuous or ordinal observations conforming to this ObservationDefinition</title>
+
+category</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n539">code</a>
+ [0..1] « <a
+   xlink:href="valueset-observation-range-category.html"
+   id="n540"><title
+   id="n541">Codes identifying the category of observation range. (Strength=Required)</title>
+
+ObservationRangeCategory</a>
+! »</text>
+    <text
+       id="n547"
+       x="62.675091"
+       y="60.864368"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.range"
+   id="n548"><title
+   id="title125">The low and high values determining the interval. There may be only one of the two</title>
+
+range</a>
+ : <a
+   xlink:href="datatypes.html#Range"
+   id="n549">Range</a>
+ [0..1]</text>
+    <text
+       id="n553"
+       x="62.675091"
+       y="74.864372"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.context"
+   id="n554"><title
+   id="title130">Codes to indicate the health context the range applies to. For example, the normal or therapeutic range</title>
+
+context</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n555">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-referencerange-meaning.html"
+   id="n556"><title
+   id="n557">Code identifying the health context of a range. (Strength=Extensible)</title>
+
+ObservationReferenceRangeMean...</a>
++ »</text>
+    <text
+       id="n563"
+       x="62.675091"
+       y="88.864372"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.appliesTo"
+   id="n564"><title
+   id="title137">Codes to indicate the target population this reference range applies to</title>
+
+appliesTo</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n565">CodeableConcept</a>
+ [0..*] « <a
+   xlink:href="valueset-referencerange-appliesto.html"
+   id="n566">
+  <title
+     id="n567">Codes identifying the population the reference range applies to. (Strength=Example)</title>
+</a>
+</text>
+    <text
+       id="n568"
+       x="82.675087"
+       y="102.86437"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="valueset-referencerange-appliesto.html"
+   id="n569">ObservationReferenceRangeAppl...</a>
+?? »</text>
+    <text
+       id="n577"
+       x="62.675091"
+       y="116.86437"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.gender"
+   id="n578"><title
+   id="title146">Sex of the population the range applies to</title>
+
+gender</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n579">code</a>
+ [0..1] « <a
+   xlink:href="valueset-administrative-gender.html"
+   id="n580"><title
+   id="n581">The gender of a person used for administrative purposes. (Strength=Required)</title>
+
+AdministrativeGender</a>
+! »</text>
+    <text
+       id="n587"
+       x="62.675091"
+       y="130.86436"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.age"
+   id="n588"><title
+   id="title153">The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so</title>
+
+age</a>
+ : <a
+   xlink:href="datatypes.html#Range"
+   id="n589">Range</a>
+ [0..1]</text>
+    <text
+       id="n593"
+       x="62.675091"
+       y="144.86436"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.gestationalAge"
+   id="n594"><title
+   id="title158">The gestational age to which this reference range is applicable, in the context of pregnancy</title>
+
+gestationalAge</a>
+ : <a
+   xlink:href="datatypes.html#Range"
+   id="n595">Range</a>
+ [0..1]</text>
+    <text
+       id="n599"
+       x="62.675091"
+       y="158.86436"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.condition"
+   id="n600"><title
+   id="title163">Text based condition for which the reference range is valid</title>
+
+condition</a>
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n601">string</a>
+ [0..1]</text>
+  </g>
+  <line
+     id="n605"
+     x1="587.33057"
+     y1="164.20714"
+     x2="682.05481"
+     y2="201.77124"
+     style="stroke:#000080;stroke-width:1" />
+  <polygon
+     id="n606"
+     points="-29.9925,156.31594 -35.9925,152.31594 -41.9925,156.31594 -35.9925,160.31594 "
+     style="fill:#000080;stroke:#000080;stroke-width:1"
+     transform="rotate(21.631431,252.01626,1807.3205)" />
+  <rect
+     id="n607"
+     x="592.82306"
+     y="175.8912"
+     width="83"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n608"
+     x="634.32306"
+     y="185.8912"
+     class="diagram-class-linkage"
+     style="fill:#000000">
+    <a
+       xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails"
+       id="n609"><title
+   id="title172">Characteristics for quantitative results of this observation</title>
+
+quantitativeDetails</a>
+  </text>
+  <text
+     id="n610"
+     x="662.05481"
+     y="197.77124"
+     class="diagram-class-linkage"
+     style="fill:#000000">[0..1]</text>
+  <line
+     id="n611"
+     x1="587.33057"
+     y1="104.3477"
+     x2="685.99817"
+     y2="100.1751"
+     style="stroke:#000080;stroke-width:1" />
+  <polygon
+     id="n612"
+     points="-29.9925,96.456502 -35.9925,92.456502 -41.9925,96.456502 -35.9925,100.4565 "
+     style="fill:#000080;stroke:#000080;stroke-width:1"
+     transform="rotate(-2.421563,459.35221,-14787.581)" />
+  <rect
+     id="n613"
+     x="599.32306"
+     y="94.891197"
+     width="74"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n614"
+     x="636.32306"
+     y="104.8912"
+     class="diagram-class-linkage"
+     style="fill:#000000">
+    <a
+       xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval"
+       id="n615"><title
+   id="title180">Multiple  ranges of results qualified by different contexts for ordinal or continuous observations conforming to this ObservationDefinition</title>
+
+qualifiedInterval</a>
+  </text>
+  <text
+     id="n616"
+     x="665.99817"
+     y="96.175102"
+     class="diagram-class-linkage"
+     style="fill:#000000">[0..*]</text>
+</svg>

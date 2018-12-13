@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="n276"
+   version="1.1"
+   width="836.0"
+   height="186.0"
+   sodipodi:docname="detectedissue.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata144">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     id="namedview142"
+     showgrid="false"
+     inkscape:zoom="2.7177033"
+     inkscape:cx="418"
+     inkscape:cy="93"
+     inkscape:window-x="-8"
+     inkscape:window-y="358"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="n276" />
+  <defs
+     id="defs11">
+    <filter
+       id="shadow1"
+       x="0"
+       y="0"
+       width="200%"
+       height="200%">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset2" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix4" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+  </defs>
+  <g
+     id="n277">
+    <rect
+       id="DetectedIssue"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="290.40000000000003"
+       height="176.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n278"
+       x1="0.0"
+       y1="28.0"
+       x2="290.40000000000003"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n279"
+       x="145.20000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">DetectedIssue<tspan
+   class="diagram-class-title-link"
+   id="tspan16"> (<a
+   xlink:href="domainresource.html"
+   class="diagram-class-reference"
+   id="n280">DomainResource</a>
+)</tspan>
+</text>
+    <text
+       id="n281"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.identifier"
+   id="n282"><title
+   id="title19">Business identifier associated with the detected issue record</title>
+identifier</a>
+ : <a
+   xlink:href="datatypes.html#Identifier"
+   id="n283">Identifier</a>
+ [0..*]</text>
+    <text
+       id="n287"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.status"
+   id="n288"><title
+   id="title24">Indicates the status of the detected issue (this element modifies the meaning of other elements)</title>
+status</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n289">code</a>
+ [1..1] « <a
+   xlink:href="valueset-observation-status.html"
+   id="n290"><title
+   id="n291">Indicates the status of the identified issue. (Strength=Required)</title>
+ObservationStatus</a>
+! »</text>
+    <text
+       id="n297"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.code"
+   id="n298"><title
+   id="title31">Identifies the general type of issue identified</title>
+code</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n299">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-detectedissue-category.html"
+   id="n300"><title
+   id="title35">Codes identifying the general type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc. (Strength=Preferred)</title>
+DetectedIssueCategory</a>
+? »</text>
+    <text
+       id="n305"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.severity"
+   id="n306"><title
+   id="title39">Indicates the degree of importance associated with the identified issue based on the potential impact on the patient</title>
+severity</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n307">code</a>
+ [0..1] « <a
+   xlink:href="valueset-detectedissue-severity.html"
+   id="n308"><title
+   id="n309">Indicates the potential degree of impact of the identified issue on the patient. (Strength=Required)</title>
+DetectedIssueSeverity</a>
+! »</text>
+    <text
+       id="n315"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.patient"
+   id="n316"><title
+   id="title46">Indicates the patient whose record the detected issue is associated with</title>
+patient</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n317">Reference</a>
+ [0..1] « <a
+   xlink:href="patient.html#Patient"
+   id="n318">Patient</a>
+ »</text>
+    <text
+       id="n323"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.identified_x_"
+   id="n324"><title
+   id="title52">The date or period when the detected issue was initially identified</title>
+identified[x]</a>
+ : <a
+   xlink:href="formats.html#umlchoice"
+   id="n325">Type</a>
+ [0..1] « <a
+   xlink:href="datatypes.html#dateTime"
+   id="n326">dateTime</a>
+|<a
+   xlink:href="datatypes.html#Period"
+   id="n327">Period</a>
+ »</text>
+    <text
+       id="n333"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.author"
+   id="n334"><title
+   id="title59">Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review</title>
+author</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n335">Reference</a>
+ [0..1] « <a
+   xlink:href="practitioner.html#Practitioner"
+   id="n336">Practitioner</a>
+|<a
+   xlink:href="practitionerrole.html#PractitionerRole"
+   id="n337">PractitionerRole</a>
+|<a
+   xlink:href="device.html#Device"
+   id="n338">Device</a>
+ »</text>
+    <text
+       id="n345"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.implicated"
+   id="n346"><title
+   id="title67">Indicates the resource representing the current activity or proposed activity that is potentially problematic</title>
+implicated</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n347">Reference</a>
+ [0..*] « <a
+   xlink:href="resourcelist.html#Any"
+   id="n348">Any</a>
+ »</text>
+    <text
+       id="n353"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.detail"
+   id="n354"><title
+   id="title73">A textual explanation of the detected issue</title>
+detail</a>
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n355">string</a>
+ [0..1]</text>
+    <text
+       id="n359"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.reference"
+   id="n360"><title
+   id="title78">The literature, knowledge-base or similar reference that describes the propensity for the detected issue identified</title>
+reference</a>
+ : <a
+   xlink:href="datatypes.html#uri"
+   id="n361">uri</a>
+ [0..1]</text>
+  </g>
+  <g
+     id="n365"
+     transform="translate(95.301056,5.5193662)">
+    <rect
+       id="DetectedIssue.evidence"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="272.79999"
+       height="64"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n366"
+       x1="320"
+       y1="28"
+       x2="592.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n367"
+       x="456.39999"
+       y="20"
+       class="diagram-class-title"
+       style="fill:#000000">Evidence</text>
+    <text
+       id="n368"
+       x="326"
+       y="42"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.evidence.code"
+   id="n369"><title
+   id="title87">A manifestation that led to the recording of this detected issue</title>
+code</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n370">CodeableConcept</a>
+ [0..*] « <a
+   xlink:href="valueset-manifestation-or-symptom.html"
+   id="n371"><title
+   id="n372">Codes that describes the types of evidence for a detected issue. (Strength=Example)</title>
+ManifestationAndSymptomCodes</a>
+?? »</text>
+    <text
+       id="n378"
+       x="326"
+       y="56"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.evidence.detail"
+   id="n379"><title
+   id="title94">Links to resources that constitute evidence for the detected issue such as a GuidanceResponse or MeasureReport</title>
+detail</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n380">Reference</a>
+ [0..*] « <a
+   xlink:href="resourcelist.html#Any"
+   id="n381">Any</a>
+ »</text>
+  </g>
+  <g
+     id="n386"
+     transform="translate(64.024648,113.69894)">
+    <rect
+       id="DetectedIssue.mitigation"
+       x="350"
+       y="0"
+       rx="4"
+       ry="4"
+       width="286"
+       height="78"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n387"
+       x1="350"
+       y1="28"
+       x2="636"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n388"
+       x="493"
+       y="20"
+       class="diagram-class-title"
+       style="fill:#000000">Mitigation</text>
+    <text
+       id="n389"
+       x="356"
+       y="42"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.mitigation.action"
+   id="n390"><title
+   id="title104">Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified issue</title>
+action</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n391">CodeableConcept</a>
+ [1..1] « <a
+   xlink:href="valueset-detectedissue-mitigation-action.html"
+   id="n392"><title
+   id="title108">Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g. 'added concurrent therapy', 'prior therapy documented', etc. (Strength=Preferred)</title>
+DetectedIssueMitigationAction</a>
+? »</text>
+    <text
+       id="n397"
+       x="356"
+       y="56"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.mitigation.date"
+   id="n398"><title
+   id="title112">Indicates when the mitigating action was documented</title>
+date</a>
+ : <a
+   xlink:href="datatypes.html#dateTime"
+   id="n399">dateTime</a>
+ [0..1]</text>
+    <text
+       id="n403"
+       x="356"
+       y="70"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="detectedissue-definitions.html#DetectedIssue.mitigation.author"
+   id="n404"><title
+   id="title117">Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring</title>
+author</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n405">Reference</a>
+ [0..1] « <a
+   xlink:href="practitioner.html#Practitioner"
+   id="n406">Practitioner</a>
+|<a
+   xlink:href="practitionerrole.html#PractitionerRole"
+   id="n407">PractitionerRole</a>
+ »</text>
+  </g>
+  <line
+     id="n413"
+     x1="290.40000000000003"
+     y1="61.87146529562982"
+     x2="320.0"
+     y2="56.54498714652957"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n414"
+     points="290.40000000000003,61.87146529562982 296.40000000000003,65.87146529562982 302.40000000000003,61.87146529562982 296.40000000000003,57.87146529562982 290.40000000000003,61.87146529562982"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-10.201120346260277 290.40000000000003 61.87146529562982)" />
+  <rect
+     id="n415"
+     x="287.5"
+     y="52.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n416"
+     x="305.0"
+     y="62.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="detectedissue-definitions.html#DetectedIssue.evidence"
+       id="n417"><title
+   id="title128">Supporting evidence or manifestations that provide the basis for identifying the detected issue such as a GuidanceResponse or MeasureReport</title>
+evidence</a>
+  </text>
+  <text
+     id="n418"
+     x="300.0"
+     y="52.54498714652957"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n419"
+     x1="290.40000000000003"
+     y1="67.54341575618172"
+     x2="350.0"
+     y2="59.14663599769984"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n420"
+     points="290.40000000000003,67.54341575618172 296.40000000000003,71.54341575618172 302.40000000000003,67.54341575618172 296.40000000000003,63.543415756181716 290.40000000000003,67.54341575618172"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-8.01936817826555 290.40000000000003 67.54341575618172)" />
+  <rect
+     id="n421"
+     x="298.0"
+     y="56.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n422"
+     x="320.0"
+     y="66.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="detectedissue-definitions.html#DetectedIssue.mitigation"
+       id="n423"><title
+   id="title136">Indicates an action that has been taken or is committed to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action</title>
+mitigation</a>
+  </text>
+  <text
+     id="n424"
+     x="330.0"
+     y="55.14663599769984"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

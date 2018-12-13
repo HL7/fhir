@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="n657"
+   version="1.1"
+   width="1248.0"
+   height="340.0"
+   sodipodi:docname="imagingstudy.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata285">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     id="namedview283"
+     showgrid="false"
+     inkscape:zoom="1.287297"
+     inkscape:cx="624"
+     inkscape:cy="170"
+     inkscape:window-x="-8"
+     inkscape:window-y="358"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="n657" />
+  <defs
+     id="defs11">
+    <filter
+       id="shadow1"
+       x="0"
+       y="0"
+       width="200%"
+       height="200%">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset2" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix4" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+  </defs>
+  <g
+     id="n658">
+    <rect
+       id="ImagingStudy"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="286.0"
+       height="330.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n659"
+       x1="0.0"
+       y1="28.0"
+       x2="286.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n660"
+       x="143.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">ImagingStudy<tspan
+   class="diagram-class-title-link"
+   id="tspan16"> (<a
+   xlink:href="domainresource.html"
+   class="diagram-class-reference"
+   id="n661">DomainResource</a>
+)</tspan>
+</text>
+    <text
+       id="n662"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.identifier"
+   id="n663"><title
+   id="title19">Identifiers for the ImagingStudy such as DICOM Study Instance UID, and Accession Number</title>
+identifier</a>
+ : <a
+   xlink:href="datatypes.html#Identifier"
+   id="n664">Identifier</a>
+ [0..*]</text>
+    <text
+       id="n668"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.status"
+   id="n669"><title
+   id="title24">The current state of the ImagingStudy (this element modifies the meaning of other elements)</title>
+status</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n670">code</a>
+ [1..1] « <a
+   xlink:href="valueset-imagingstudy-status.html"
+   id="n671"><title
+   id="n672">The status of the ImagingStudy. (Strength=Required)</title>
+ImagingStudyStatus</a>
+! »</text>
+    <text
+       id="n678"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.modality"
+   id="n679"><title
+   id="title31">A list of all the series.modality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19)</title>
+modality</a>
+ : <a
+   xlink:href="datatypes.html#Coding"
+   id="n680">Coding</a>
+ [0..*] « <a
+   id="n681"
+   xlink:href="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html"><title
+   id="n682">Type of acquired data in the instance. (Strength=Extensible)</title>
+AcquisitionModality</a>
++ »</text>
+    <text
+       id="n688"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.subject"
+   id="n689"><title
+   id="title38">The subject, typically a patient, of the imaging study</title>
+subject</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n690">Reference</a>
+ [1..1] « <a
+   xlink:href="patient.html#Patient"
+   id="n691">Patient</a>
+|<a
+   xlink:href="device.html#Device"
+   id="n692">Device</a>
+|<a
+   xlink:href="group.html#Group"
+   id="n693">Group</a>
+ »</text>
+    <text
+       id="n700"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.encounter"
+   id="n701"><title
+   id="title46">The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made</title>
+encounter</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n702">Reference</a>
+ [0..1] « <a
+   xlink:href="encounter.html#Encounter"
+   id="n703">Encounter</a>
+ »</text>
+    <text
+       id="n708"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.started"
+   id="n709"><title
+   id="title52">Date and time the study started</title>
+started</a>
+ : <a
+   xlink:href="datatypes.html#dateTime"
+   id="n710">dateTime</a>
+ [0..1]</text>
+    <text
+       id="n714"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.basedOn"
+   id="n715"><title
+   id="title57">A list of the diagnostic requests that resulted in this imaging study being performed</title>
+basedOn</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n716">Reference</a>
+ [0..*] « <a
+   xlink:href="careplan.html#CarePlan"
+   id="n717">CarePlan</a>
+|<a
+   xlink:href="servicerequest.html#ServiceRequest"
+   id="n718">ServiceRequest</a>
+|<a
+   xlink:href="appointment.html#Appointment"
+   id="n719">Appointment</a>
+|</text>
+    <text
+       id="n720"
+       x="26.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="appointmentresponse.html#AppointmentResponse"
+   id="n721">AppointmentResponse</a>
+|<a
+   xlink:href="task.html#Task"
+   id="n722">Task</a>
+ »</text>
+    <text
+       id="n732"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.referrer"
+   id="n733"><title
+   id="title68">The requesting/referring physician</title>
+referrer</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n734">Reference</a>
+ [0..1] « <a
+   xlink:href="practitioner.html#Practitioner"
+   id="n735">Practitioner</a>
+|<a
+   xlink:href="practitionerrole.html#PractitionerRole"
+   id="n736">PractitionerRole</a>
+ »</text>
+    <text
+       id="n742"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.interpreter"
+   id="n743"><title
+   id="title75">Who read the study and interpreted the images or other content</title>
+interpreter</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n744">Reference</a>
+ [0..*] « <a
+   xlink:href="practitioner.html#Practitioner"
+   id="n745">Practitioner</a>
+|<a
+   xlink:href="practitionerrole.html#PractitionerRole"
+   id="n746">PractitionerRole</a>
+ »</text>
+    <text
+       id="n752"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.endpoint"
+   id="n753"><title
+   id="title82">The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.connectionType</title>
+endpoint</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n754">Reference</a>
+ [0..*] « <a
+   xlink:href="endpoint.html#Endpoint"
+   id="n755">Endpoint</a>
+ »</text>
+    <text
+       id="n760"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.numberOfSeries"
+   id="n761"><title
+   id="title88">Number of Series in the Study. This value given may be larger than the number of series elements this Resource contains due to resource availability, security, or other factors. This element should be present if any series elements are present</title>
+numberOfSeries</a>
+ : <a
+   xlink:href="datatypes.html#unsignedInt"
+   id="n762">unsignedInt</a>
+ [0..1]</text>
+    <text
+       id="n766"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.numberOfInstances"
+   id="n767"><title
+   id="title93">Number of SOP Instances in Study. This value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present</title>
+numberOfInstances</a>
+ : <a
+   xlink:href="datatypes.html#unsignedInt"
+   id="n768">unsignedInt</a>
+ [0..1]</text>
+    <text
+       id="n772"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.procedureReference"
+   id="n773"><title
+   id="title98">The procedure which this ImagingStudy was part of</title>
+procedureReference</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n774">Reference</a>
+ [0..1] « <a
+   xlink:href="procedure.html#Procedure"
+   id="n775">Procedure</a>
+ »</text>
+    <text
+       id="n780"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.procedureCode"
+   id="n781"><title
+   id="title104">The code for the performed procedure type</title>
+procedureCode</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n782">CodeableConcept</a>
+ [0..*] « <a
+   id="n783"
+   xlink:href="http://www.rsna.org/RadLex_Playbook.aspx"><title
+   id="n784">The performed procedure type. (Strength=Extensible)</title>
+ImagingProcedureCode</a>
++ »</text>
+    <text
+       id="n790"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.location"
+   id="n791"><title
+   id="title111">The principal physical location where the ImagingStudy was performed</title>
+location</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n792">Reference</a>
+ [0..1] « <a
+   xlink:href="location.html#Location"
+   id="n793">Location</a>
+ »</text>
+    <text
+       id="n798"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.reasonCode"
+   id="n799"><title
+   id="title117">Description of clinical condition indicating why the ImagingStudy was requested</title>
+reasonCode</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n800">CodeableConcept</a>
+ [0..*] « <a
+   xlink:href="valueset-procedure-reason.html"
+   id="n801"><title
+   id="n802">The reason for the study. (Strength=Example)</title>
+ProcedureReasonCodes</a>
+?? »</text>
+    <text
+       id="n808"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.reasonReference"
+   id="n809"><title
+   id="title124">Indicates another resource whose existence justifies this Study</title>
+reasonReference</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n810">Reference</a>
+ [0..*] « <a
+   xlink:href="condition.html#Condition"
+   id="n811">Condition</a>
+|<a
+   xlink:href="observation.html#Observation"
+   id="n812">Observation</a>
+|<a
+   xlink:href="media.html#Media"
+   id="n813">Media</a>
+|</text>
+    <text
+       id="n814"
+       x="26.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="diagnosticreport.html#DiagnosticReport"
+   id="n815">DiagnosticReport</a>
+|<a
+   xlink:href="documentreference.html#DocumentReference"
+   id="n816">DocumentReference</a>
+ »</text>
+    <text
+       id="n826"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.note"
+   id="n827"><title
+   id="title135">Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g. Observation, and not in this element</title>
+note</a>
+ : <a
+   xlink:href="datatypes.html#Annotation"
+   id="n828">Annotation</a>
+ [0..*]</text>
+    <text
+       id="n832"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.description"
+   id="n833"><title
+   id="title140">The Imaging Manager description of the study. Institution-generated description or classification of the Study (component) performed</title>
+description</a>
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n834">string</a>
+ [0..1]</text>
+  </g>
+  <g
+     id="n838"
+     transform="translate(-0.77682154,-20.19736)">
+    <rect
+       id="ImagingStudy.series"
+       x="380"
+       y="50"
+       rx="4"
+       ry="4"
+       width="224.39999"
+       height="176"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n839"
+       x1="380"
+       y1="78"
+       x2="604.40002"
+       y2="78"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n840"
+       x="492.20001"
+       y="70"
+       class="diagram-class-title"
+       style="fill:#000000">Series</text>
+    <text
+       id="n841"
+       x="386"
+       y="92"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.uid"
+   id="n842"><title
+   id="title149">The DICOM Series Instance UID for the series</title>
+uid</a>
+ : <a
+   xlink:href="datatypes.html#id"
+   id="n843">id</a>
+ [1..1]</text>
+    <text
+       id="n847"
+       x="386"
+       y="106"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.number"
+   id="n848"><title
+   id="title154">The numeric identifier of this series in the study</title>
+number</a>
+ : <a
+   xlink:href="datatypes.html#unsignedInt"
+   id="n849">unsignedInt</a>
+ [0..1]</text>
+    <text
+       id="n853"
+       x="386"
+       y="120"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.modality"
+   id="n854"><title
+   id="title159">The modality of this series sequence</title>
+modality</a>
+ : <a
+   xlink:href="datatypes.html#Coding"
+   id="n855">Coding</a>
+ [1..1] « <a
+   id="n856"
+   xlink:href="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html"><title
+   id="n857">Type of acquired data in the instance. (Strength=Extensible)</title>
+AcquisitionModality</a>
++ »</text>
+    <text
+       id="n863"
+       x="386"
+       y="134"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.description"
+   id="n864"><title
+   id="title166">A description of the series</title>
+description</a>
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n865">string</a>
+ [0..1]</text>
+    <text
+       id="n869"
+       x="386"
+       y="148"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.numberOfInstances"
+   id="n870"><title
+   id="title171">Number of SOP Instances in the Study. The value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present</title>
+numberOfInstances</a>
+ : <a
+   xlink:href="datatypes.html#unsignedInt"
+   id="n871">unsignedInt</a>
+ [0..1]</text>
+    <text
+       id="n875"
+       x="386"
+       y="162"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.endpoint"
+   id="n876"><title
+   id="title176">The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.connectionType</title>
+endpoint</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n877">Reference</a>
+ [0..*] « <a
+   xlink:href="endpoint.html#Endpoint"
+   id="n878">Endpoint</a>
+ »</text>
+    <text
+       id="n883"
+       x="386"
+       y="176"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.bodySite"
+   id="n884"><title
+   id="title182">The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings. The bodySite may indicate the laterality of body part imaged; if so, it shall be consistent with any content of ImagingStudy.series.laterality</title>
+bodySite</a>
+ : <a
+   xlink:href="datatypes.html#Coding"
+   id="n885">Coding</a>
+ [0..1] « <a
+   xlink:href="valueset-body-site.html"
+   id="n886"><title
+   id="n887">Codes describing anatomical locations. May include laterality. (Strength=Example)</title>
+SNOMEDCTBodyStructures</a>
+?? »</text>
+    <text
+       id="n893"
+       x="386"
+       y="190"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.laterality"
+   id="n894"><title
+   id="title189">The laterality of the (possibly paired) anatomic structures examined. E.g., the left knee, both lungs, or unpaired abdomen. If present, shall be consistent with any laterality information indicated in ImagingStudy.series.bodySite</title>
+laterality</a>
+ : <a
+   xlink:href="datatypes.html#Coding"
+   id="n895">Coding</a>
+ [0..1] « <a
+   xlink:href="valueset-bodysite-laterality.html"
+   id="n896"><title
+   id="n897">Codes describing body site laterality (left, right, etc.). (Strength=Example)</title>
+Laterality</a>
+?? »</text>
+    <text
+       id="n903"
+       x="386"
+       y="204"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.specimen"
+   id="n904"><title
+   id="title196">The specimen imaged, e.g., for whole slide imaging of a biopsy</title>
+specimen</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n905">Reference</a>
+ [0..*] « <a
+   xlink:href="specimen.html#Specimen"
+   id="n906">Specimen</a>
+ »</text>
+    <text
+       id="n911"
+       x="386"
+       y="218"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.started"
+   id="n912"><title
+   id="title202">The date and time the series was started</title>
+started</a>
+ : <a
+   xlink:href="datatypes.html#dateTime"
+   id="n913">dateTime</a>
+ [0..1]</text>
+  </g>
+  <g
+     id="n917"
+     transform="translate(-222.17096,246.25243)">
+    <rect
+       id="ImagingStudy.series.performer"
+       x="640"
+       y="0"
+       rx="4"
+       ry="4"
+       width="308"
+       height="78"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n918"
+       x1="640"
+       y1="28"
+       x2="948"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n919"
+       x="794"
+       y="20"
+       class="diagram-class-title"
+       style="fill:#000000">Performer</text>
+    <text
+       id="n920"
+       x="646"
+       y="42"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.performer.function"
+   id="n921"><title
+   id="title211">Distinguishes the type of involvement of the performer in the series</title>
+function</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n922">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-series-performer-function.html"
+   id="n923"><title
+   id="n924">The type of involvement of the performer. (Strength=Extensible)</title>
+ImagingStudySeriesPerformerFu...</a>
++ »</text>
+    <text
+       id="n930"
+       x="646"
+       y="56"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.performer.actor"
+   id="n931"><title
+   id="title218">Indicates who or what performed the series</title>
+actor</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n932">Reference</a>
+ [1..1] « <a
+   xlink:href="practitioner.html#Practitioner"
+   id="n933">Practitioner</a>
+|<a
+   xlink:href="practitionerrole.html#PractitionerRole"
+   id="n934">PractitionerRole</a>
+|</text>
+    <text
+       id="n935"
+       x="666"
+       y="70"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="organization.html#Organization"
+   id="n936">Organization</a>
+|<a
+   xlink:href="careteam.html#CareTeam"
+   id="n937">CareTeam</a>
+|<a
+   xlink:href="patient.html#Patient"
+   id="n938">Patient</a>
+|<a
+   xlink:href="device.html#Device"
+   id="n939">Device</a>
+|<a
+   xlink:href="relatedperson.html#RelatedPerson"
+   id="n940">RelatedPerson</a>
+ »</text>
+  </g>
+  <g
+     id="n952">
+    <rect
+       id="ImagingStudy.series.instance"
+       x="680.0"
+       y="70.0"
+       rx="4"
+       ry="4"
+       width="162.8"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n953"
+       x1="680.0"
+       y1="98.0"
+       x2="842.8"
+       y2="98.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n954"
+       x="761.4"
+       y="90.0"
+       fill="black"
+       class="diagram-class-title">Instance</text>
+    <text
+       id="n955"
+       x="686.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.instance.uid"
+   id="n956"><title
+   id="title235">The DICOM SOP Instance UID for this image or other DICOM content</title>
+uid</a>
+ : <a
+   xlink:href="datatypes.html#id"
+   id="n957">id</a>
+ [1..1]</text>
+    <text
+       id="n961"
+       x="686.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.instance.sopClass"
+   id="n962"><title
+   id="title240">DICOM instance  type</title>
+sopClass</a>
+ : <a
+   xlink:href="datatypes.html#Coding"
+   id="n963">Coding</a>
+ [1..1] « <a
+   id="n964"
+   xlink:href="http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"><title
+   id="n965">The sopClass for the instance. (Strength=Extensible)</title>
+sopClass</a>
++ »</text>
+    <text
+       id="n971"
+       x="686.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.instance.number"
+   id="n972"><title
+   id="title247">The number of instance in the series</title>
+number</a>
+ : <a
+   xlink:href="datatypes.html#unsignedInt"
+   id="n973">unsignedInt</a>
+ [0..1]</text>
+    <text
+       id="n977"
+       x="686.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="imagingstudy-definitions.html#ImagingStudy.series.instance.title"
+   id="n978"><title
+   id="title252">The description of the instance</title>
+title</a>
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n979">string</a>
+ [0..1]</text>
+  </g>
+  <line
+     id="n983"
+     x1="604.4"
+     y1="101.19483101391651"
+     x2="675.1090909090909"
+     y2="78.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n984"
+     points="604.4,101.19483101391651 610.4,105.19483101391651 616.4,101.19483101391651 610.4,97.19483101391651 604.4,101.19483101391651"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-18.161135951551202 604.4 101.19483101391651)" />
+  <rect
+     id="n985"
+     x="619.5"
+     y="82.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n986"
+     x="639.0"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="imagingstudy-definitions.html#ImagingStudy.series.performer"
+       id="n987"><title
+   id="title261">Indicates who or what performed the series and how they were involved</title>
+performer</a>
+  </text>
+  <text
+     id="n988"
+     x="675.1090909090909"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n989"
+     x1="604.4"
+     y1="128.83060921248142"
+     x2="680.0"
+     y2="122.6523031203566"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n990"
+     points="604.4,128.83060921248142 610.4,132.83060921248142 616.4,128.83060921248142 610.4,124.83060921248142 604.4,128.83060921248142"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-4.672036168772228 604.4 128.83060921248142)" />
+  <rect
+     id="n991"
+     x="624.5"
+     y="118.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n992"
+     x="642.0"
+     y="128.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="imagingstudy-definitions.html#ImagingStudy.series.instance"
+       id="n993"><title
+   id="title269">A single SOP instance within the series, e.g. an image, or presentation state</title>
+instance</a>
+  </text>
+  <text
+     id="n994"
+     x="660.0"
+     y="118.6523031203566"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n995"
+     x1="286.0"
+     y1="153.94329896907217"
+     x2="380.0"
+     y2="146.67525773195877"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n996"
+     points="286.0,153.94329896907217 292.0,157.94329896907217 298.0,153.94329896907217 292.0,149.94329896907217 286.0,153.94329896907217"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-4.421289421430613 286.0 153.94329896907217)" />
+  <rect
+     id="n997"
+     x="320.0"
+     y="143.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n998"
+     x="333.0"
+     y="153.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="imagingstudy-definitions.html#ImagingStudy.series"
+       id="n999"><title
+   id="title277">Each study has one or more series of images or other content</title>
+series</a>
+  </text>
+  <text
+     id="n1000"
+     x="360.0"
+     y="142.67525773195877"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>
