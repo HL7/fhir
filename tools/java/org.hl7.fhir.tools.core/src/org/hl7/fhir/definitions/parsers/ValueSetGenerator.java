@@ -290,6 +290,8 @@ public class ValueSetGenerator {
       throw new Exception("no url");
     if (!vs.hasVersion())
       vs.setVersion(version);
+    if (!vs.hasExperimental())
+      vs.setExperimental(false);
     if (!vs.hasName())
       vs.setName(bs.getName());
     if (!vs.hasTitle())
