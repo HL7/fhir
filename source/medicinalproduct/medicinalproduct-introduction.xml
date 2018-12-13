@@ -2,6 +2,10 @@
 	<div>
 		<a name="scope"> </a>
 		<h2>Scope and Usage</h2>
+<blockquote class="stu-note">
+  <a name="dstu"/>
+<strong>This resource is still undergoing development and review by the appropriate Workgroups. At this time, is considered only as a draft resource not suitable for production implementation</strong>
+</blockquote>
 		<p>
 			Any pharmaceutical product or combination of pharmaceutical products that may be administered to human beings (or animals) for treating or preventing disease, with the aim/purpose of making a medical diagnosis or to restore, correct or modify physiological functions. 
 		</p>
