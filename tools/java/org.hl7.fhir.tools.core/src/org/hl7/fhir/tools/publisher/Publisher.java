@@ -5899,23 +5899,23 @@ public class Publisher implements URIResolver, SectionNumberer {
     TestingUtilities.silent = true;
     TestingUtilities.fixedpath = page.getFolders().rootDir;
     TestingUtilities.contentpath = page.getFolders().dstDir;
-    
-    runJUnitClass(ValidationTestSuite.class);
-    runJUnitClass(FHIRPathTests.class);
-    runJUnitClass(NarrativeGeneratorTests.class);
-    runJUnitClass(SnomedExpressionsTests.class);
-    runJUnitClass(ResourceRoundTripTests.class);
-    runJUnitClass(SnapShotGenerationTests.class);
-    runJUnitClass(GraphQLParserTests.class);
-    runJUnitClass(GraphQLEngineTests.class);
+//    
+//    runJUnitClass(ValidationTestSuite.class);
+//    runJUnitClass(FHIRPathTests.class);
+//    runJUnitClass(NarrativeGeneratorTests.class);
+//    runJUnitClass(SnomedExpressionsTests.class);
+//    runJUnitClass(ResourceRoundTripTests.class);
+//    runJUnitClass(SnapShotGenerationTests.class);
+//    runJUnitClass(GraphQLParserTests.class);
+//    runJUnitClass(GraphQLEngineTests.class);
     checkAllOk();
   }
 
   private void runJUnitTestsEnd() throws Exception {
     ValidationEngineTests.inbuild = true;
-    runJUnitClass(ValidationEngineTests.class);
-    runJUnitClass(TransformationTests.class); 
-    runJUnitClass(AllGuidesTests.class);
+//    runJUnitClass(ValidationEngineTests.class);
+//    runJUnitClass(TransformationTests.class); 
+//    runJUnitClass(AllGuidesTests.class);
     checkAllOk();
   }
 
