@@ -20,6 +20,7 @@
   
   <TabRatio>670</TabRatio>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -6462,7 +6463,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s117" ss:Width="275.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s117" ss:Width="82.0"/>
    <Column ss:StyleID="s117" ss:Width="49.0"/>
-   <Column ss:StyleID="s117" ss:Width="146.0"/>
+   <Column ss:StyleID="s117" ss:Width="221.0"/>
    <Column ss:StyleID="s117" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s117" ss:Width="98.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s117" ss:Width="89.0"/>
@@ -6503,9 +6504,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">TaskCode</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Codes to identify what the task involves.  These will typically be specific to a particular workflow.</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/task-code</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>

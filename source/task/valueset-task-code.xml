@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/lloyd/Documents/SVN/FHIR/build/schema/fhir-single.xsd">
+	<url value="http://hl7.org/fhir/ValueSet/task-code.html"/>
+	<name value="TaskCode"/>
+	<title value="Task Codes"/>
+	<status value="active"/>
+	<experimental value="false"/>
+	<description value="Codes indicating the type of action that is expected to be performed"/>
+	<immutable value="false"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/CodeSystem/task-code"/>
+			<version value="3.6.0"/>
+		</include>
+	</compose>
+</ValueSet>
