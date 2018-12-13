@@ -94,10 +94,13 @@ at the end of the line as a comment.
 </p>
 <p>
 All names defined by the map language - group, rule and variable names - must be valid
-<a href="datatypes.html#id">ids</a> (1-64 characters, upper and lowercase letters, numbers, dashes and dots). To avoid parsing ambiguities however, they cannot start with a character, cannot be the special boolean values 'true' and 'false' and cannot contain a dot or dash, unless the names can be escaped. Escaping can be done by surrounding them by double quotes. For example:
+<a href="datatypes.html#id">ids</a> (1-64 characters, upper and lowercase letters, numbers, dashes and dots). 
+To avoid parsing ambiguities however, they cannot start with a character, cannot be one of the keywords used
+in the language (see section Reserved Keywords below) and cannot contain a dot or dash, 
+unless the names can be escaped. Escaping can be done by surrounding them by backticks or double quotes. For example:
 
 <pre>
-   src  document4  "not-found"  "section4.5"
+   src  document4  "not-found"  "section4.5"  `group` 
 </pre>
 </p>
 
@@ -457,6 +460,42 @@ In addition to the above use, groups may be marked with <code>type+</code>. They
 
 <p>todo</p>
 
+<a name="reserved"></a>
+<h3>Reserved keywords</h3>
+<p>This is the list of reserved keywords, which cannot be used as 
+identifiers and names for variables, unless escaped.</p>
+
+<pre>
+map
+uses
+as
+alias
+imports
+group
+extends
+default
+where
+check
+log
+then
+true
+false
+types
+type
+first
+not_first
+last
+not_last
+only_one
+share
+collate
+source
+target
+queried
+produced
+conceptMap
+prefix
+</pre>
 </div>
 
 [%file newfooter%]

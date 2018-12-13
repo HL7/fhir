@@ -54,7 +54,7 @@ map "http://hl7.org/fhir/StructureMap/tutorial" = tutorial
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial(source "source" : TLeft, target "target" : TRight) {
+group tutorial(source src : TLeft, target tgt : TRight) {
 
 // rules go here
 
@@ -73,17 +73,17 @@ Having set up the context, we now need to define the relationships between
 the source and target structures:
 </p>
 <pre>
-source.a as a -&gt; target.a = a "rule_a";
+src.a as a -&gt; tgt.a = a "rule_a";
 </pre>
 <p>
 This simple statement says that:
 </p>
 <ul>
- <li>for every source (there'll only be one)</li>
+ <li>for every source src (there'll only be one)</li>
  <li>for any element 'a' in the source</li>
  <li>if there isn't any element 'a', then don't do anything</li>
  <li>if there is one, call it variable 'a'</li>
- <li>the value of property 'a' of the target will be a copy of variable a - that is, source.a</li>
+ <li>the value of property 'a' of the target will be a copy of variable a - that is, src.a</li>
 </ul>
 <p>
 "rule_a" is a purely arbitrary name associated with the rule that appears in logs, error messages,
@@ -96,7 +96,7 @@ has types, then the types will have to be correct. If the underlying source and 
 are strongly typed, and the mapping groups have explicit types, then a short hand form is possible:
 </p>
 <pre>
-source.a -&gt; target.a;
+src.a -&gt; tgt.a;
 </pre>
 <p>
 How this works is described <a href="#step10">below</a>.
@@ -122,7 +122,7 @@ Now consider the case where the elements have different names:
 This relationship is a simple variation of the last:
 </p>
 <pre>
-source.a1 as b -&gt; target.a2 = b;
+src.a1 as b -&gt; tgt.a2 = b;
 </pre>
 <p>
 Note that the choice of variable name is purely arbitrary. It does not need to be the same as the element name.
@@ -143,15 +143,15 @@ model - in this case, 20 characters.
     TRight
       a2 : string [0..1] {maxlength = 20}
   </pre></td></tr>
-  <tr><td colspan="2">The left instance is transformed to the right instance by copying a2 to a2, but target.a2 can only be 20 characters long</td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by copying a2 to a2, but tgt.a2 can only be 20 characters long</td></tr>
 </table>
 <p>
-There are 3 different ways to express this mapping, depending on what should happen when the length of source.a is > 20 characters:
+There are 3 different ways to express this mapping, depending on what should happen when the length of src.a is > 20 characters:
 </p>
 <pre>
-source.a2 as a -&gt; target.a2 = truncate(a, 20); // just cut it off at 20 characters
-source.a2 as a where a2.length &lt;= 20 -&gt; target.a2 = a; // ignore it
-source.a2 as a check a2.length &lt;= 20 -&gt; target.a2 = a; // error if it's longer than 20 characters
+src.a2 as a -&gt; tgt.a2 = truncate(a, 20); // just cut it off at 20 characters
+src.a2 as a where a2.length &lt;= 20 -&gt; tgt.a2 = a; // ignore it
+src.a2 as a check a2.length &lt;= 20 -&gt; tgt.a2 = a; // error if it's longer than 20 characters
 </pre>
 <p>
 Note that it is implicit here that the transformation engine is not required to expected to validate the
@@ -180,9 +180,9 @@ Now for the case where there is a simple type conversion between the primitive t
 There are 3 different ways to express this mapping, depending on what should happen when a is not an integer:
 </p>
 <pre>
-source.a21 as a -&gt; target.a21 = cast(a, "integer"); // error if it's not an integer
-source.a21 as a where a.isInteger -&gt; target.a21 = cast(a, "integer"); // ignore it
-source.a21 as a where not at1.isInteger -&gt; target.a21 = 0; // just assign it 0
+src.a21 as a -&gt; tgt.a21 = cast(a, "integer"); // error if it's not an integer
+src.a21 as a where a.isInteger -&gt; tgt.a21 = cast(a, "integer"); // ignore it
+src.a21 as a where not at1.isInteger -&gt; tgt.a21 = 0; // just assign it 0
 </pre>
 <p>
 More than one of these mapping rules may be present to handle all possible cases - e.g. rule_a21b combined with rule_a21c.
@@ -197,7 +197,7 @@ primitive types. The mapping language uses the FHIRPath syntax for primitive con
 <a name="step5"></a>
 <h3>Step #5: Managing lists, part 1</h3>
 <p>
-Back to the simple case where source.a22 is copied to target.a22, but in this case, a22 can repeat (in both source and target):
+Back to the simple case where src.a22 is copied to tgt.a22, but in this case, a22 can repeat (in both source and target):
 </p>
 <table>
   <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
@@ -214,7 +214,7 @@ Back to the simple case where source.a22 is copied to target.a22, but in this ca
 The transform rule simply asserts that a22 maps to a22. The engine will apply the rule once for each instance of a22:
 </p>
 <pre>
-source.a22 as a -&gt; target.a22 = a;
+src.a22 as a -&gt; tgt.a22 = a;
 </pre>
 <p>
 This will create one a22 in TRight for each a22 in TLeft.
@@ -240,10 +240,10 @@ A more difficult case is where the source allows multiple repeats, but the targe
 Again, there are multiple different ways to write this, depending on out desired outcome if there is more than one copy of a23:
 </p>
 <pre>
-source.a23 as a -&gt; target.a23 = a;  // leave it to the transform engine
-source.a23 only_one as a -&gt; target.a23 = a;  // transform engine throws an error if there is more than one
-source.a23 first as a -&gt; target.a23 = a;  // Only use the first one
-source.a23 last as a -&gt; target.a23 = a;  // Only use the last one
+src.a23 as a -&gt; tgt.a23 = a;  // leave it to the transform engine
+src.a23 only_one as a -&gt; tgt.a23 = a;  // transform engine throws an error if there is more than one
+src.a23 first as a -&gt; tgt.a23 = a;  // Only use the first one
+src.a23 last as a -&gt; tgt.a23 = a;  // Only use the last one
 </pre>
 <p>
 Leaving the outcome to the transform engine is not recommended; it might not always
@@ -276,13 +276,13 @@ leave these elements as anonymously typed, while others explicitly type them. Ho
 does not refer to the type, it's literal type is not important.
 </p>
 <pre>
-source.aa as s_aa -&gt; target.aa as t_aa then { // make aa exist
+src.aa as s_aa -&gt; tgt.aa as t_aa then { // make aa exist
   s_aa.ab as ab -&gt; t_aa.ab = ab; // copy ab inside aa
 };
 </pre>
 <p>
 This situation is handled by a pair of rules: the first rule establishes that relationship
-between source.aa and target.aa, and assigns 2 variable names to them. Then, the rule contains
+between src.aa and tgt.aa, and assigns 2 variable names to them. Then, the rule contains
 an additional set of rules (though only one in this example) to map with the context
 of s_aa and t_aa.
 </p>
@@ -290,7 +290,7 @@ of s_aa and t_aa.
 An alternate approach is to move the dependent rules to their own group:
 </p>
 <pre>
-source.aa as s_aa -&gt; target.aa as t_aa then ab_content(s_aa, t_aa); // make aa exist
+src.aa as s_aa -&gt; tgt.aa as t_aa then ab_content(s_aa, t_aa); // make aa exist
 
 group ab_content(source src, target tgt) {
   src.ab as ab -&gt; tgt.ab = ab; // copy ab inside aa
@@ -318,19 +318,19 @@ A common translation pattern is to perform a translation e.g. from one set of co
     TRight
       d : code [0..1]
   </pre></td></tr>
-  <tr><td colspan="2">The left instance is transformed to the right instance by translating source.d from one set of codes to another</td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by translating src.d from one set of codes to another</td></tr>
 </table>
 <p>
 The key to this transformation is the <a href="conceptmap.html">ConceptMap</a> resource, which
 actually specifies the mapping from one set of codes to the other:
 </p>
 <pre>
-source.d as d -&gt; target.d = translate(d, 'uri-of-concept-map', 'code');
+src.d as d -&gt; tgt.d = translate(d, 'uri-of-concept-map', 'code');
 </pre>
 <p>
 This asks the mapping engine to use the <a href="conceptmap-operation-translate.html">$translate</a>
 operation on the terminology server to translate the code using a specified concept map, and then to
-put the code value of the return translation in target.d.
+put the code value of the return translation in tgt.d.
 </p>
 
 <a name="step9"></a>
@@ -356,8 +356,8 @@ value of another element.
 This is managed using <a href="fhirpath.html">FHIRPath</a> conditions on the mapping statements:
 </p>
 <pre>
-source.i as i where m &lt; 2 -&gt; target.j = i;
-source.i as i where m >= 2 -&gt; target.k = i;
+src.i as i where m &lt; 2 -&gt; tgt.j = i;
+src.i as i where m >= 2 -&gt; tgt.k = i;
 </pre>
 
 <a name="step10"></a>
@@ -387,7 +387,7 @@ typing system to simplify the mapping statements.
 This is the same case as <a href="#step7">Step 7 above</a>, but the mapping statements take advantage of the types:
 </p>
 <pre>
-source.aa -&gt; target.aa;
+src.aa -&gt; tgt.aa;
 
 group ab_content(source src : TLeftInner, target tgt : TRightInner) &lt;&lt;types&gt;&gt; {
   src.ab -&gt; tgt.ab;
@@ -402,7 +402,7 @@ There are 2 different things happening in this short form:
 </ol>
 <p>
 In the case of the first rule (rule_aa), the engine finds a need to map <code>aa</code> to <code>aa</code> and determines that it must map from TLeftInner to a TRightInner.
-Since a group is defined for this purpose, it creates a TRightInner in target.aa, and then applies the discovered rule as a dependency rule. Inside
+Since a group is defined for this purpose, it creates a TRightInner in tgt.aa, and then applies the discovered rule as a dependency rule. Inside
 that rule that instructs the mapping engine to make tgt.ab from src.ab. It knows that both are primitive types, and compatible, and can apply this correctly.
 This short form is only applicable when there is only one source and target, when the types of both are known, and when no other dependency rules
 are nominated.
@@ -442,19 +442,19 @@ to a general structure:
         f : string [1..1]
         g : code [1..1]
   </pre></td></tr>
-  <tr><td colspan="2">The left instance is transformed to the right instance by adding one instance of target.e for each source.e, where the value goes into target.e.f, and
-    the value of target.e.g is 'g1'. source.f is also transformed into the same structure, but the value of target.e.g is 'g2'. As an added complication, the value for
-    source.f must come first</td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by adding one instance of tgt.e for each src.e, where the value goes into tgt.e.f, and
+    the value of tgt.e.g is 'g1'. src.f is also transformed into the same structure, but the value of tgt.e.g is 'g2'. As an added complication, the value for
+    src.f must come first</td></tr>
 </table>
 <p>
 This leads to some more complex mapping statements:
 </p>
 <pre>
-source.e as s_e -&gt; target.e as t_e then {
+src.e as s_e -&gt; tgt.e as t_e then {
   for s_e -&gt; t_e.f = s_e, t_e.g = 'g1';
 };
 
-source.f as s_f -&gt; target.e as t_e { first } then {
+src.f as s_f -&gt; tgt.e as t_e first then {
   s_f -&gt; t_e.f = s_f, t_e.g = 'g2';
 };
 </pre>
@@ -479,18 +479,18 @@ while the target puts the cardinality at the next level up:
         az2 : string [1..1]
         az3 : string [0..1]
   </pre></td></tr>
-  <tr><td colspan="2">The left instance is transformed to the right instance creating on target.az1 for every source.az1.az3, and then populating
+  <tr><td colspan="2">The left instance is transformed to the right instance creating on tgt.az1 for every src.az1.az3, and then populating
   each az1 with the matching value of az3, and copying the value of az2 to each instance</td></tr>
 </table>
 <p>
-The key to setting this mapping up is to create a variable context for source.az1, and then carry it down, performing the actual mappings at the next level down:
+The key to setting this mapping up is to create a variable context for src.az1, and then carry it down, performing the actual mappings at the next level down:
 </p>
 <pre>
 // setting up a variable for the parent
 src.az1 as s_az1 then {
 
-  // one target.az1 for each az3
-  s_az1.az3 as s_az3 -&gt; target.az1 as t_az1 then {
+  // one tgt.az1 for each az3
+  s_az1.az3 as s_az3 -&gt; tgt.az1 as t_az1 then {
     // value for az2. Note that this refers to a previous context in the source
     s_az1.az2 as az2 -&gt; t_az1.az2 = az2;
 
@@ -532,13 +532,13 @@ For our first example, we're going to look at creating multiple output structure
       f1 : String [1..1];
   </pre></td></tr>
   <tr><td colspan="2">The left instance is transformed to the right instance creating a copy of TRight2 for each f1 in the source, and
-  then putting the value of source.f1 in TRight2.f1</td></tr>
+  then putting the value of src.f1 in TRight2.f1</td></tr>
 </table>
 <p>
-The key to setting this mapping up is to create a variable context for source.az1, and then carry it down, performing the actual mappings at the next level down:
+The key to setting this mapping up is to create a variable context for src.az1, and then carry it down, performing the actual mappings at the next level down:
 </p>
 <pre>
-source.f1 as s_f1 -&gt; create("TRight2") as rr, target.ptr = reference(rr) then {
+src.f1 as s_f1 -&gt; create("TRight2") as rr, tgt.ptr = reference(rr) then {
   s_f1 -&gt; rr.f2 = srcff;
 };
 </pre>
@@ -572,11 +572,11 @@ For our second example, we're going to look at the reverse: where  multiple inpu
       f2 : String [1..*];
   </pre></td></tr>
   <tr><td colspan="2">The left instance is transformed to the right instance finding each ptr reference, getting
-   its value for f1, and adding this in target.f2</td></tr>
+   its value for f1, and adding this in tgt.f2</td></tr>
 </table>
 <p>
 The first task of the map is to ask the application host to find the structure
-identified by source.ptr, and create a variable for it
+identified by src.ptr, and create a variable for it
 </p>
 <pre>
 f2: [todo]
