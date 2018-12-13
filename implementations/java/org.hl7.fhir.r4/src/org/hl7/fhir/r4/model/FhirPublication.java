@@ -30,11 +30,11 @@ public enum FhirPublication {
       return FhirPublication.STU3;
     if ("3.5.0".equals(v))
       return FhirPublication.R4;
-    if ("3.6.0".equals(v))
+    if ("4.0.0".equals(v))
       return FhirPublication.R4;
     if ("3.5".equals(v))
       return FhirPublication.R4;
-    if ("3.6".equals(v))
+    if ("4.0".equals(v))
       return FhirPublication.R4;
     if ("1.0.0".equals(v))
       return FhirPublication.R4; // hack workaround build problem
