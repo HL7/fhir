@@ -9,7 +9,7 @@
     "txCache" : "txCache",
     "specification" : "../../../publish"
   },
-  "version": "3.6.0",
+  "version": "4.0.0",
   "npm-name" : "hl7.fhir.test.ig40",
   "license" : "CC0-1.0",
 	"canonicalBase": "http://hl7.org/fhir/test",
