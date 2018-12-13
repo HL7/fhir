@@ -7,9 +7,14 @@
 	<name value="TaskCode"/>
 	<title value="Task Codes"/>
 	<status value="active"/>
-	<experimental value="false"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
 	<description value="Codes indicating the type of action that is expected to be performed"/>
-	<immutable value="false"/>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/CodeSystem/task-code"/>
