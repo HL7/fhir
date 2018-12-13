@@ -2701,6 +2701,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       s.close();
 
       Bundle expansionFeed = new Bundle();
+      Set<String> urlset = new HashSet<>();
       expansionFeed.setId("valueset-expansions");
       expansionFeed.setType(BundleType.COLLECTION);
       expansionFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
@@ -2709,22 +2710,25 @@ public class Publisher implements URIResolver, SectionNumberer {
           + "'code', to help with code generation (saves the code generator having to figure out how to \r\n"
           + "do the expansions or find a terminology server that supports the same version of the value sets");
       for (ValueSet vs : page.getValueSets().values()) {
-        if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
-          ValueSet evs = null;
-          if (vs.hasUserData("expansion"))
-            evs = (ValueSet) vs.getUserData("expansion");
-          else {  
-            ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs, true, false);
-            if (vse.getValueset() != null) {
-              evs = vse.getValueset();
-              vs.setUserData("expansion", evs);
+        if (!urlset.contains(vs.getUrl())) {
+          urlset.add(vs.getUrl());
+          if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
+            ValueSet evs = null;
+            if (vs.hasUserData("expansion"))
+              evs = (ValueSet) vs.getUserData("expansion");
+            else {  
+              ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs, true, false);
+              if (vse.getValueset() != null) {
+                evs = vse.getValueset();
+                vs.setUserData("expansion", evs);
+              }
             }
-          }
-          if (evs != null) {
-            ValueSet vsc = vs.copy();
-            vsc.setText(null);
-            vsc.setExpansion(evs.getExpansion());
-            expansionFeed.addEntry().setFullUrl("http://hl7.org/fhir/"+vsc.fhirType()+"/"+vsc.getId()).setResource(vsc);
+            if (evs != null) {
+              ValueSet vsc = vs.copy();
+              vsc.setText(null);
+              vsc.setExpansion(evs.getExpansion());
+              expansionFeed.addEntry().setFullUrl("http://hl7.org/fhir/"+vsc.fhirType()+"/"+vsc.getId()).setResource(vsc);
+            }
           }
         }
       }
