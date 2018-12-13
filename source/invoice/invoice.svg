@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="n375"
+   version="1.1"
+   width="1471.2"
+   height="228.0"
+   sodipodi:docname="invoice.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata193">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     id="namedview191"
+     showgrid="false"
+     inkscape:zoom="1.0919975"
+     inkscape:cx="735.59998"
+     inkscape:cy="114"
+     inkscape:window-x="-8"
+     inkscape:window-y="358"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="n375" />
+  <defs
+     id="defs11">
+    <filter
+       id="shadow1"
+       x="0"
+       y="0"
+       width="200%"
+       height="200%">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset2" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix4" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+  </defs>
+  <g
+     id="n376">
+    <rect
+       id="Invoice"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="294.8"
+       height="218.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n377"
+       x1="0.0"
+       y1="28.0"
+       x2="294.8"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n378"
+       x="147.4"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Invoice<tspan
+   class="diagram-class-title-link"
+   id="tspan16"> (<a
+   xlink:href="domainresource.html"
+   class="diagram-class-reference"
+   id="n379">DomainResource</a>
+)</tspan>
+</text>
+    <text
+       id="n380"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.identifier"
+   id="n381"><title
+   id="title19">Identifier of this Invoice, often used for reference in correspondence about this invoice or for tracking of payments</title>
+identifier</a>
+ : <a
+   xlink:href="datatypes.html#Identifier"
+   id="n382">Identifier</a>
+ [0..*]</text>
+    <text
+       id="n386"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.status"
+   id="n387"><title
+   id="title24">The current state of the Invoice (this element modifies the meaning of other elements)</title>
+status</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n388">code</a>
+ [1..1] « <a
+   xlink:href="valueset-invoice-status.html"
+   id="n389"><title
+   id="n390">Codes identifying the lifecycle stage of an Invoice. (Strength=Required)</title>
+InvoiceStatus</a>
+! »</text>
+    <text
+       id="n396"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.cancelledReason"
+   id="n397"><title
+   id="title31">In case of Invoice cancellation a reason must be given (entered in error, superseded by corrected invoice etc.)</title>
+cancelledReason</a>
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n398">string</a>
+ [0..1]</text>
+    <text
+       id="n402"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.type"
+   id="n403"><title
+   id="title36">Type of Invoice depending on domain, realm an usage (e.g. internal/external, dental, preliminary)</title>
+type</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n404">CodeableConcept</a>
+ [0..1]</text>
+    <text
+       id="n408"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.subject"
+   id="n409"><title
+   id="title41">The individual or set of individuals receiving the goods and services billed in this invoice</title>
+subject</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n410">Reference</a>
+ [0..1] « <a
+   xlink:href="patient.html#Patient"
+   id="n411">Patient</a>
+|<a
+   xlink:href="group.html#Group"
+   id="n412">Group</a>
+ »</text>
+    <text
+       id="n418"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.recipient"
+   id="n419"><title
+   id="title48">The individual or Organization responsible for balancing of this invoice</title>
+recipient</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n420">Reference</a>
+ [0..1] « <a
+   xlink:href="organization.html#Organization"
+   id="n421">Organization</a>
+|<a
+   xlink:href="patient.html#Patient"
+   id="n422">Patient</a>
+|<a
+   xlink:href="relatedperson.html#RelatedPerson"
+   id="n423">RelatedPerson</a>
+ »</text>
+    <text
+       id="n430"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.date"
+   id="n431"><title
+   id="title56">Date/time(s) of when this Invoice was posted</title>
+date</a>
+ : <a
+   xlink:href="datatypes.html#dateTime"
+   id="n432">dateTime</a>
+ [0..1]</text>
+    <text
+       id="n436"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.issuer"
+   id="n437"><title
+   id="title61">The organizationissuing the Invoice</title>
+issuer</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n438">Reference</a>
+ [0..1] « <a
+   xlink:href="organization.html#Organization"
+   id="n439">Organization</a>
+ »</text>
+    <text
+       id="n444"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.account"
+   id="n445"><title
+   id="title67">Account which is supposed to be balanced with this Invoice</title>
+account</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n446">Reference</a>
+ [0..1] « <a
+   xlink:href="account.html#Account"
+   id="n447">Account</a>
+ »</text>
+    <text
+       id="n452"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.totalNet"
+   id="n453"><title
+   id="title73">Invoice total , taxes excluded</title>
+totalNet</a>
+ : <a
+   xlink:href="datatypes.html#Money"
+   id="n454">Money</a>
+ [0..1]</text>
+    <text
+       id="n458"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.totalGross"
+   id="n459"><title
+   id="title78">Invoice total, tax included</title>
+totalGross</a>
+ : <a
+   xlink:href="datatypes.html#Money"
+   id="n460">Money</a>
+ [0..1]</text>
+    <text
+       id="n464"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.paymentTerms"
+   id="n465"><title
+   id="title83">Payment details such as banking details, period of payment, deductibles, methods of payment</title>
+paymentTerms</a>
+ : <a
+   xlink:href="datatypes.html#markdown"
+   id="n466">markdown</a>
+ [0..1]</text>
+    <text
+       id="n470"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="invoice-definitions.html#Invoice.note"
+   id="n471"><title
+   id="title88">Comments made about the invoice by the issuer, subject, or other participants</title>
+note</a>
+ : <a
+   xlink:href="datatypes.html#Annotation"
+   id="n472">Annotation</a>
+ [0..*]</text>
+  </g>
+  <g
+     id="n476"
+     transform="translate(119.96365)">
+    <rect
+       id="Invoice.participant"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="268.39999"
+       height="78"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n477"
+       x1="320"
+       y1="28"
+       x2="588.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n478"
+       x="454.20001"
+       y="20"
+       class="diagram-class-title"
+       style="fill:#000000">Participant</text>
+    <text
+       id="n479"
+       x="326"
+       y="42"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="invoice-definitions.html#Invoice.participant.role"
+   id="n480"><title
+   id="title97">Describes the type of involvement (e.g. transcriptionist, creator etc.). If the invoice has been created automatically, the Participant may be a billing engine or another kind of device</title>
+role</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n481">CodeableConcept</a>
+ [0..1]</text>
+    <text
+       id="n485"
+       x="326"
+       y="56"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="invoice-definitions.html#Invoice.participant.actor"
+   id="n486"><title
+   id="title102">The device, practitioner, etc. who performed or participated in the service</title>
+actor</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n487">Reference</a>
+ [1..1] « <a
+   xlink:href="practitioner.html#Practitioner"
+   id="n488">Practitioner</a>
+|<a
+   xlink:href="organization.html#Organization"
+   id="n489">Organization</a>
+|<a
+   xlink:href="patient.html#Patient"
+   id="n490">Patient</a>
+|</text>
+    <text
+       id="n491"
+       x="346"
+       y="70"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="practitionerrole.html#PractitionerRole"
+   id="n492">PractitionerRole</a>
+|<a
+   xlink:href="device.html#Device"
+   id="n493">Device</a>
+|<a
+   xlink:href="relatedperson.html#RelatedPerson"
+   id="n494">RelatedPerson</a>
+ »</text>
+  </g>
+  <g
+     id="n505"
+     transform="translate(-217.94923,97.069823)">
+    <rect
+       id="Invoice.lineItem"
+       x="640"
+       y="0"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="64"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n506"
+       x1="640"
+       y1="28"
+       x2="943.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n507"
+       x="791.79999"
+       y="20"
+       class="diagram-class-title"
+       style="fill:#000000">LineItem</text>
+    <text
+       id="n508"
+       x="646"
+       y="42"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="invoice-definitions.html#Invoice.lineItem.sequence"
+   id="n509"><title
+   id="title118">Sequence in which the items appear on the invoice</title>
+sequence</a>
+ : <a
+   xlink:href="datatypes.html#positiveInt"
+   id="n510">positiveInt</a>
+ [0..1]</text>
+    <text
+       id="n514"
+       x="646"
+       y="56"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="invoice-definitions.html#Invoice.lineItem.chargeItem_x_"
+   id="n515"><title
+   id="title123">The ChargeItem contains information such as the billing code, date, amount etc. If no further details are required for the lineItem, inline billing codes can be added using the CodeableConcept data type instead of the Reference</title>
+chargeItem[x]</a>
+ : <a
+   xlink:href="formats.html#umlchoice"
+   id="n516">Type</a>
+ [1..1] « <a
+   xlink:href="references.html#Reference"
+   id="n517">Reference</a>
+(<a
+   xlink:href="chargeitem.html#ChargeItem"
+   id="n518">ChargeItem</a>
+)|<a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n519">CodeableConcept</a>
+ »</text>
+  </g>
+  <g
+     id="n526"
+     transform="translate(-526.558,188.64513)">
+    <rect
+       id="Invoice.lineItem.priceComponent"
+       x="960"
+       y="0"
+       rx="4"
+       ry="4"
+       width="211.2"
+       height="92"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n527"
+       x1="960"
+       y1="28"
+       x2="1171.2"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n528"
+       x="1065.6"
+       y="20"
+       class="diagram-class-title"
+       style="fill:#000000">PriceComponent</text>
+    <text
+       id="n529"
+       x="966"
+       y="42"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="invoice-definitions.html#Invoice.lineItem.priceComponent.type"
+   id="n530"><title
+   id="title135">This code identifies the type of the component</title>
+type</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n531">code</a>
+ [1..1] « <a
+   xlink:href="valueset-invoice-priceComponentType.html"
+   id="n532"><title
+   id="n533">Codes indicating the kind of the price component. (Strength=Required)</title>
+InvoicePriceComponentType</a>
+! »</text>
+    <text
+       id="n539"
+       x="966"
+       y="56"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="invoice-definitions.html#Invoice.lineItem.priceComponent.code"
+   id="n540"><title
+   id="title142">A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc</title>
+code</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n541">CodeableConcept</a>
+ [0..1]</text>
+    <text
+       id="n545"
+       x="966"
+       y="70"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="invoice-definitions.html#Invoice.lineItem.priceComponent.factor"
+   id="n546"><title
+   id="title147">The factor that has been applied on the base price for calculating this component</title>
+factor</a>
+ : <a
+   xlink:href="datatypes.html#decimal"
+   id="n547">decimal</a>
+ [0..1]</text>
+    <text
+       id="n551"
+       x="966"
+       y="84"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="invoice-definitions.html#Invoice.lineItem.priceComponent.amount"
+   id="n552"><title
+   id="title152">The amount calculated for this component</title>
+amount</a>
+ : <a
+   xlink:href="datatypes.html#Money"
+   id="n553">Money</a>
+ [0..1]</text>
+  </g>
+  <line
+     id="n557"
+     x1="294.8"
+     y1="75.36897001303781"
+     x2="320.0"
+     y2="69.61929595827901"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n558"
+     points="294.8,75.36897001303781 300.8,79.36897001303781 306.8,75.36897001303781 300.8,71.36897001303781 294.8,75.36897001303781"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-12.852687750344282 294.8 75.36897001303781)" />
+  <rect
+     id="n559"
+     x="283.0"
+     y="65.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n560"
+     x="307.0"
+     y="75.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="invoice-definitions.html#Invoice.participant"
+       id="n561"><title
+   id="title161">Indicates who or what performed or participated in the charged service</title>
+participant</a>
+  </text>
+  <text
+     id="n562"
+     x="300.0"
+     y="65.61929595827901"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n563"
+     x1="943.6"
+     y1="39.7618699780862"
+     x2="960.0"
+     y2="40.60043827611396"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n564"
+     points="943.6,39.7618699780862 949.6,43.7618699780862 955.6,39.7618699780862 949.6,35.7618699780862 943.6,39.7618699780862"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(2.9271108148116065 943.6 39.7618699780862)" />
+  <rect
+     id="n565"
+     x="920.5"
+     y="33.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n566"
+     x="951.0"
+     y="43.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="invoice-definitions.html#Invoice.lineItem.priceComponent"
+       id="n567"><title
+   id="title169">The price for a ChargeItem may be calculated as a base price with surcharges/deductions that apply in certain conditions. A ChargeItemDefinition resource that defines the prices, factors and conditions that apply to a billing code is currently under development. The priceComponent element can be used to offer transparency to the recipient of the Invoice as to how the prices have been calculated</title>
+priceComponent</a>
+  </text>
+  <text
+     id="n568"
+     x="940.0"
+     y="36.60043827611396"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n569"
+     x1="294.8"
+     y1="91.38702669149595"
+     x2="640.0"
+     y2="50.13873370577281"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n570"
+     points="294.8,91.38702669149595 300.8,95.38702669149595 306.8,91.38702669149595 300.8,87.38702669149595 294.8,91.38702669149595"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-6.814022090645018 294.8 91.38702669149595)" />
+  <rect
+     id="n571"
+     x="449.5"
+     y="63.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n572"
+     x="467.0"
+     y="73.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="invoice-definitions.html#Invoice.lineItem"
+       id="n573"><title
+   id="title177">Each line item represents one charge for goods and services rendered. Details such as date, code and amount are found in the referenced ChargeItem resource</title>
+lineItem</a>
+  </text>
+  <text
+     id="n574"
+     x="620.0"
+     y="46.13873370577281"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n575"
+     x1="294.8"
+     y1="98.88651709867132"
+     x2="960.0"
+     y2="53.24548028751907"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n576"
+     points="294.8,98.88651709867132 300.8,102.88651709867132 306.8,98.88651709867132 300.8,94.88651709867132 294.8,98.88651709867132"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-3.925055245578738 294.8 98.88651709867132)" />
+  <rect
+     id="n577"
+     x="585.5"
+     y="69.0"
+     width="83.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n578"
+     x="627.0"
+     y="79.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="invoice-definitions.html#Invoice.totalPriceComponent"
+       id="n579"><title
+   id="title185">The total amount for the Invoice may be calculated as the sum of the line items with surcharges/deductions that apply in certain conditions.  The priceComponent element can be used to offer transparency to the recipient of the Invoice of how the total price was calculated</title>
+totalPriceComponent</a>
+  </text>
+  <text
+     id="n580"
+     x="940.0"
+     y="49.24548028751907"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

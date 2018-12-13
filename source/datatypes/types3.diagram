@@ -3,6 +3,6 @@ classes=Extension,Narrative,Reference
 element-attributes=true
 
 [directions]
-Extension=right
-Narrative=left
-Reference=down
+Extension=10;60
+Narrative=-120;-70
+Reference=140;-50

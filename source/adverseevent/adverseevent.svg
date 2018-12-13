@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="n540"
+   version="1.1"
+   width="1297.2"
+   height="382.0"
+   sodipodi:docname="adverseevent.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata224">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1463"
+     inkscape:window-height="875"
+     id="namedview222"
+     showgrid="false"
+     inkscape:zoom="0.87573238"
+     inkscape:cx="648.59998"
+     inkscape:cy="191"
+     inkscape:window-x="2922"
+     inkscape:window-y="158"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n540" />
+  <defs
+     id="defs11">
+    <filter
+       id="shadow1"
+       x="0"
+       y="0"
+       width="200%"
+       height="200%">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset2" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix4" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+  </defs>
+  <g
+     id="n541">
+    <rect
+       id="AdverseEvent"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="299.20000000000005"
+       height="372.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n542"
+       x1="0.0"
+       y1="28.0"
+       x2="299.20000000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n543"
+       x="149.60000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">AdverseEvent<tspan
+   class="diagram-class-title-link"
+   id="tspan16"> (<a
+   xlink:href="domainresource.html"
+   class="diagram-class-reference"
+   id="n544">DomainResource</a>
+)</tspan>
+</text>
+    <text
+       id="n545"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.identifier"
+   id="n546"><title
+   id="title19">Business identifiers assigned to this adverse event by the performer or other systems which remain constant as the resource is updated and propagates from server to server</title>
+identifier</a>
+ : <a
+   xlink:href="datatypes.html#Identifier"
+   id="n547">Identifier</a>
+ [0..1]</text>
+    <text
+       id="n551"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.actuality"
+   id="n552"><title
+   id="title24">Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely (this element modifies the meaning of other elements)</title>
+actuality</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n553">code</a>
+ [1..1] « <a
+   xlink:href="valueset-adverse-event-actuality.html"
+   id="n554"><title
+   id="n555">Overall nature of the adverse event, e.g. real or potential. (Strength=Required)</title>
+AdverseEventActuality</a>
+! »</text>
+    <text
+       id="n561"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.category"
+   id="n562"><title
+   id="title31">The overall type of event, intended for search and filtering purposes</title>
+category</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n563">CodeableConcept</a>
+ [0..*] « <a
+   xlink:href="valueset-adverse-event-category.html"
+   id="n564"><title
+   id="n565">Overall categorization of the event, e.g. product-related or situational. (Strength=Extensible)</title>
+AdverseEventCategory</a>
++ »</text>
+    <text
+       id="n571"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.event"
+   id="n572"><title
+   id="title38">This element defines the specific type of event that occurred or that was prevented from occurring</title>
+event</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n573">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-adverse-event-type.html"
+   id="n574"><title
+   id="n575">Detailed type of event. (Strength=Example)</title>
+SNOMEDCTClinicalFindings</a>
+?? »</text>
+    <text
+       id="n581"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.subject"
+   id="n582"><title
+   id="title45">This subject or group impacted by the event</title>
+subject</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n583">Reference</a>
+ [1..1] « <a
+   xlink:href="patient.html#Patient"
+   id="n584">Patient</a>
+|<a
+   xlink:href="group.html#Group"
+   id="n585">Group</a>
+|<a
+   xlink:href="practitioner.html#Practitioner"
+   id="n586">Practitioner</a>
+|</text>
+    <text
+       id="n587"
+       x="26.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson.html#RelatedPerson"
+   id="n588">RelatedPerson</a>
+ »</text>
+    <text
+       id="n597"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.encounter"
+   id="n598"><title
+   id="title55">The Encounter during which AdverseEvent was created or to which the creation of this record is tightly associated</title>
+encounter</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n599">Reference</a>
+ [0..1] « <a
+   xlink:href="encounter.html#Encounter"
+   id="n600">Encounter</a>
+ »</text>
+    <text
+       id="n605"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.date"
+   id="n606"><title
+   id="title61">The date (and perhaps time) when the adverse event occurred</title>
+date</a>
+ : <a
+   xlink:href="datatypes.html#dateTime"
+   id="n607">dateTime</a>
+ [0..1]</text>
+    <text
+       id="n611"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.detected"
+   id="n612"><title
+   id="title66">Estimated or actual date the AdverseEvent began, in the opinion of the reporter</title>
+detected</a>
+ : <a
+   xlink:href="datatypes.html#dateTime"
+   id="n613">dateTime</a>
+ [0..1]</text>
+    <text
+       id="n617"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.recordedDate"
+   id="n618"><title
+   id="title71">The date on which the existence of the AdverseEvent was first recorded</title>
+recordedDate</a>
+ : <a
+   xlink:href="datatypes.html#dateTime"
+   id="n619">dateTime</a>
+ [0..1]</text>
+    <text
+       id="n623"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.resultingCondition"
+   id="n624"><title
+   id="title76">Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical)</title>
+resultingCondition</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n625">Reference</a>
+ [0..*] « <a
+   xlink:href="condition.html#Condition"
+   id="n626">Condition</a>
+ »</text>
+    <text
+       id="n631"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.location"
+   id="n632"><title
+   id="title82">The information about where the adverse event occurred</title>
+location</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n633">Reference</a>
+ [0..1] « <a
+   xlink:href="location.html#Location"
+   id="n634">Location</a>
+ »</text>
+    <text
+       id="n639"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.seriousness"
+   id="n640"><title
+   id="title88">Assessment whether this event was of real importance</title>
+seriousness</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n641">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-adverse-event-seriousness.html"
+   id="n642"><title
+   id="n643">Overall seriousness of this event for the patient. (Strength=Example)</title>
+AdverseEventSeriousness</a>
+?? »</text>
+    <text
+       id="n649"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.severity"
+   id="n650"><title
+   id="title95">Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.seriousness - a severe rash might not be serious, but a mild heart problem is</title>
+severity</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n651">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-adverse-event-severity.html"
+   id="n652"><title
+   id="n653">The severity of the adverse event itself, in direct relation to the subject. (Strength=Required)</title>
+AdverseEventSeverity</a>
+! »</text>
+    <text
+       id="n659"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.outcome"
+   id="n660"><title
+   id="title102">Describes the type of outcome from the adverse event</title>
+outcome</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n661">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-adverse-event-outcome.html"
+   id="n662"><title
+   id="n663">TODO (and should this be required?). (Strength=Required)</title>
+AdverseEventOutcome</a>
+! »</text>
+    <text
+       id="n669"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.recorder"
+   id="n670"><title
+   id="title109">Information on who recorded the adverse event.  May be the patient or a practitioner</title>
+recorder</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n671">Reference</a>
+ [0..1] « <a
+   xlink:href="patient.html#Patient"
+   id="n672">Patient</a>
+|<a
+   xlink:href="practitioner.html#Practitioner"
+   id="n673">Practitioner</a>
+|<a
+   xlink:href="practitionerrole.html#PractitionerRole"
+   id="n674">PractitionerRole</a>
+|</text>
+    <text
+       id="n675"
+       x="26.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="relatedperson.html#RelatedPerson"
+   id="n676">RelatedPerson</a>
+ »</text>
+    <text
+       id="n685"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.contributor"
+   id="n686"><title
+   id="title119">Parties that may or should contribute or have contributed information to the adverse event, which can consist of one or more activities.  Such information includes information leading to the decision to perform the activity and how to perform the activity (e.g. consultant), information that the activity itself seeks to reveal (e.g. informant of clinical history), or information about what activity was performed (e.g. informant witness)</title>
+contributor</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n687">Reference</a>
+ [0..*] « <a
+   xlink:href="practitioner.html#Practitioner"
+   id="n688">Practitioner</a>
+|<a
+   xlink:href="practitionerrole.html#PractitionerRole"
+   id="n689">PractitionerRole</a>
+|</text>
+    <text
+       id="n690"
+       x="26.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="device.html#Device"
+   id="n691">Device</a>
+ »</text>
+    <text
+       id="n699"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.subjectMedicalHistory"
+   id="n700"><title
+   id="title128">AdverseEvent.subjectMedicalHistory</title>
+subjectMedicalHistory</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n701">Reference</a>
+ [0..*] « <a
+   xlink:href="condition.html#Condition"
+   id="n702">Condition</a>
+|<a
+   xlink:href="observation.html#Observation"
+   id="n703">Observation</a>
+|</text>
+    <text
+       id="n704"
+       x="26.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="allergyintolerance.html#AllergyIntolerance"
+   id="n705">AllergyIntolerance</a>
+|<a
+   xlink:href="familymemberhistory.html#FamilyMemberHistory"
+   id="n706">FamilyMemberHistory</a>
+|<a
+   xlink:href="immunization.html#Immunization"
+   id="n707">Immunization</a>
+|<a
+   xlink:href="procedure.html#Procedure"
+   id="n708">Procedure</a>
+|</text>
+    <text
+       id="n709"
+       x="26.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="media.html#Media"
+   id="n710">Media</a>
+|<a
+   xlink:href="documentreference.html#DocumentReference"
+   id="n711">DocumentReference</a>
+ »</text>
+    <text
+       id="n725"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.referenceDocument"
+   id="n726"><title
+   id="title143">AdverseEvent.referenceDocument</title>
+referenceDocument</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n727">Reference</a>
+ [0..*] « <a
+   xlink:href="documentreference.html#DocumentReference"
+   id="n728">DocumentReference</a>
+ »</text>
+    <text
+       id="n733"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.study"
+   id="n734"><title
+   id="title149">AdverseEvent.study</title>
+study</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n735">Reference</a>
+ [0..*] « <a
+   xlink:href="researchstudy.html#ResearchStudy"
+   id="n736">ResearchStudy</a>
+ »</text>
+  </g>
+  <g
+     id="n741"
+     transform="translate(42.250351,15.986619)">
+    <rect
+       id="AdverseEvent.suspectEntity"
+       x="400"
+       y="0"
+       rx="4"
+       ry="4"
+       width="308"
+       height="64"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n742"
+       x1="400"
+       y1="28"
+       x2="708"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n743"
+       x="554"
+       y="20"
+       class="diagram-class-title"
+       style="fill:#000000">SuspectEntity</text>
+    <text
+       id="n744"
+       x="406"
+       y="42"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.suspectEntity.instance"
+   id="n745"><title
+   id="title159">Identifies the actual instance of what caused the adverse event.  May be a substance, medication, medication administration, medication statement or a device</title>
+instance</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n746">Reference</a>
+ [1..1] « <a
+   xlink:href="immunization.html#Immunization"
+   id="n747">Immunization</a>
+|<a
+   xlink:href="procedure.html#Procedure"
+   id="n748">Procedure</a>
+|<a
+   xlink:href="substance.html#Substance"
+   id="n749">Substance</a>
+|</text>
+    <text
+       id="n750"
+       x="426"
+       y="56"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="medication.html#Medication"
+   id="n751">Medication</a>
+|<a
+   xlink:href="medicationadministration.html#MedicationAdministration"
+   id="n752">MedicationAdministration</a>
+|<a
+   xlink:href="medicationstatement.html#MedicationStatement"
+   id="n753">MedicationStatement</a>
+|<a
+   xlink:href="device.html#Device"
+   id="n754">Device</a>
+ »</text>
+  </g>
+  <g
+     id="n766"
+     transform="translate(-251.2183,143.87957)">
+    <rect
+       id="AdverseEvent.suspectEntity.causality"
+       x="720"
+       y="0"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="106"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n767"
+       x1="720"
+       y1="28"
+       x2="997.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n768"
+       x="858.59998"
+       y="20"
+       class="diagram-class-title"
+       style="fill:#000000">Causality</text>
+    <text
+       id="n769"
+       x="726"
+       y="42"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.suspectEntity.causality.assessment"
+   id="n770"><title
+   id="title176">Assessment of if the entity caused the event</title>
+assessment</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n771">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-adverse-event-causality-assess.html"
+   id="n772">
+  <title
+     id="n773">Codes for the assessment of whether the entity caused the event. (Strength=Example)</title>
+</a>
+</text>
+    <text
+       id="n774"
+       x="746"
+       y="56"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="valueset-adverse-event-causality-assess.html"
+   id="n775">AdverseEventCausalityAssessme...</a>
+?? »</text>
+    <text
+       id="n783"
+       x="726"
+       y="70"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.suspectEntity.causality.productRelatedness"
+   id="n784"><title
+   id="title185">AdverseEvent.suspectEntity.causalityProductRelatedness</title>
+productRelatedness</a>
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n785">string</a>
+ [0..1]</text>
+    <text
+       id="n789"
+       x="726"
+       y="84"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.suspectEntity.causality.author"
+   id="n790"><title
+   id="title190">AdverseEvent.suspectEntity.causalityAuthor</title>
+author</a>
+ : <a
+   xlink:href="references.html#Reference"
+   id="n791">Reference</a>
+ [0..1] « <a
+   xlink:href="practitioner.html#Practitioner"
+   id="n792">Practitioner</a>
+|<a
+   xlink:href="practitionerrole.html#PractitionerRole"
+   id="n793">PractitionerRole</a>
+ »</text>
+    <text
+       id="n799"
+       x="726"
+       y="98"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="adverseevent-definitions.html#AdverseEvent.suspectEntity.causality.method"
+   id="n800"><title
+   id="title197">ProbabilityScale | Bayesian | Checklist</title>
+method</a>
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n801">CodeableConcept</a>
+ [0..1] « <a
+   xlink:href="valueset-adverse-event-causality-method.html"
+   id="n802"><title
+   id="n803">TODO. (Strength=Example)</title>
+AdverseEventCausalityMethod</a>
+?? »</text>
+  </g>
+  <line
+     id="n809"
+     x1="708.0"
+     y1="42.6172028890348"
+     x2="720.0"
+     y2="43.44451739986868"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n810"
+     points="708.0,42.6172028890348 714.0,46.6172028890348 720.0,42.6172028890348 714.0,38.6172028890348 708.0,42.6172028890348"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(3.9438951147327743 708.0 42.6172028890348)" />
+  <rect
+     id="n811"
+     x="694.5"
+     y="36.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n812"
+     x="714.0"
+     y="46.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="adverseevent-definitions.html#AdverseEvent.suspectEntity.causality"
+       id="n813"><title
+   id="title208">Information on the possible cause of the event</title>
+causality</a>
+  </text>
+  <text
+     id="n814"
+     x="700.0"
+     y="39.44451739986868"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n815"
+     x1="299.20000000000005"
+     y1="129.03066271018793"
+     x2="469.9688311688312"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n816"
+     points="299.20000000000005,129.03066271018793 305.20000000000005,133.03066271018793 311.20000000000005,129.03066271018793 305.20000000000005,125.03066271018793 299.20000000000005,129.03066271018793"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-20.847387687159003 299.20000000000005 129.03066271018793)" />
+  <rect
+     id="n817"
+     x="355.5"
+     y="89.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n818"
+     x="384.0"
+     y="99.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="adverseevent-definitions.html#AdverseEvent.suspectEntity"
+       id="n819"><title
+   id="title216">Describes the entity that is suspected to have caused the adverse event</title>
+suspectEntity</a>
+  </text>
+  <text
+     id="n820"
+     x="469.9688311688312"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>
