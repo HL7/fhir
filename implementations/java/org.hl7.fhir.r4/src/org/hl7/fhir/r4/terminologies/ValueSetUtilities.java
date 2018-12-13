@@ -6,6 +6,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Identifier;
 import org.hl7.fhir.r4.model.Meta;
 import org.hl7.fhir.r4.model.UriType;
@@ -82,8 +83,10 @@ public class ValueSetUtilities {
           if (!"infrastructure".equals(vs.getUserString("ballot.package")))
           System.out.println("Value Set "+vs.getUrl()+": ownership clash "+pckage+" vs "+vs.getUserString("ballot.package"));
       }
-      if (ss == StandardsStatus.NORMATIVE)
+      if (status == StandardsStatus.NORMATIVE) {
         vs.setExperimental(false);
+        vs.setStatus(PublicationStatus.ACTIVE);
+      }
     }
     if (fmm != null) {
       String sfmm = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_FMM_LEVEL);

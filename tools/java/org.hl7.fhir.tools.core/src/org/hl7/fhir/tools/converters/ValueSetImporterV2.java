@@ -363,11 +363,11 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
   private ValueSet buildV2ValueSet(String id, Element e) throws Exception {
     ValueSet vs = createValueSet(id);
     vs.setLanguage("en");
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
-    ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
     vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
+    ValueSetUtilities.makeShareable(vs);
     vs.setName("v2." + id);
     if (!vs.hasTitle())
       vs.setTitle("v2 table " + id);
@@ -522,12 +522,12 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
   private void buildV2CodeSystem(VSPack vp, String id, Element e) throws Exception {
     ValueSet vs = createValueSet(id);
     vs.setLanguage("en");
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
-    ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
     vs.setUserData("path", Utilities.path("v2", id, "index.html"));
     vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
+    ValueSetUtilities.makeShareable(vs);
     vs.setName("v2." + id);
     if (!vs.hasTitle())
       vs.setTitle("v2 table " + id);
@@ -693,12 +693,12 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
     ValueSet vs = createValueSet(id+"."+version);
     vs.setLanguage("en");
-    ValueSetUtilities.makeShareable(vs);
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
     vs.setUserData("path", Utilities.path("v2", id, version, "index.html"));
     vs.setUrl("http://terminology.hl7.org/ValueSet/"+vs.getId());
+    ValueSetUtilities.makeShareable(vs);
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null, null);
     vs.setName("v2." + id + "." + version);
     if (!vs.hasTitle())
       vs.setTitle("v2 table " + id + ", Version " + version);

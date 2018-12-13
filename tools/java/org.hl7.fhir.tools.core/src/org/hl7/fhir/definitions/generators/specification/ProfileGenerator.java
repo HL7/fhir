@@ -265,7 +265,7 @@ public class ProfileGenerator {
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+type.getCode()+" Type: "+type.getDefinition());
     p.setDate(genDate.getTime());
-    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("active")); // normative now
 
     Set<String> containedSlices = new HashSet<String>();
 
@@ -412,7 +412,7 @@ public class ProfileGenerator {
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for xhtml Type");
     p.setDate(genDate.getTime());
-    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("active")); 
 
     Set<String> containedSlices = new HashSet<String>();
 
@@ -537,7 +537,7 @@ public class ProfileGenerator {
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+type.getCode()+" type: "+type.getDefinition());
     p.setDate(genDate.getTime());
-    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("active")); 
 
     Set<String> containedSlices = new HashSet<String>();
 
@@ -662,7 +662,7 @@ public class ProfileGenerator {
     p.setDescription("Base StructureDefinition for "+t.getName()+" Type: "+t.getDefinition());
     p.setPurpose(t.getRequirements());
     p.setDate(genDate.getTime());
-    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
+    p.setStatus(t.getStandardsStatus() == StandardsStatus.NORMATIVE ?  PublicationStatus.fromCode("active") : PublicationStatus.fromCode("draft")); 
 
 
     Set<String> containedSlices = new HashSet<String>();
@@ -717,7 +717,7 @@ public class ProfileGenerator {
     p.setDescription("Base StructureDefinition for Type "+pt.getName()+": "+pt.getDefinition());
     p.setDescription(pt.getDefinition());
     p.setDate(genDate.getTime());
-    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("draft")); 
 
     // first, the differential
     p.setName(pt.getName());
@@ -876,7 +876,7 @@ public class ProfileGenerator {
     if (!p.hasPurpose())
       p.setPurpose(r.getRoot().getRequirements());
     p.setDate(genDate.getTime());
-    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
+    p.setStatus(r.getStatus() == StandardsStatus.NORMATIVE ?  PublicationStatus.fromCode("active") : PublicationStatus.fromCode("draft")); // DSTU
 
     Set<String> containedSlices = new HashSet<String>();
 
@@ -1105,7 +1105,7 @@ public class ProfileGenerator {
       context.cacheResource(sp);
       spd.setResource(sp);
       definitions.addNs(sp.getUrl(), "Search Parameter: "+sp.getName(), rn.toLowerCase()+".html#search");
-      sp.setStatus(p.getStatus());
+      sp.setStatus(spd.getStandardsStatus() == StandardsStatus.NORMATIVE ? PublicationStatus.fromCode("active") : PublicationStatus.fromCode("draft"));
       StandardsStatus sst = ToolingExtensions.getStandardsStatus(sp);
       if (sst == null || (spd.getStandardsStatus() == null && spd.getStandardsStatus().isLowerThan(sst)))
         ToolingExtensions.setStandardsStatus(sp, spd.getStandardsStatus(), spd.getNormativeVersion());
@@ -2055,7 +2055,7 @@ public class ProfileGenerator {
     opd.addContact().getTelecom().add(org.hl7.fhir.r4.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     opd.getContact().get(0).getTelecom().add(org.hl7.fhir.r4.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
     opd.setDescription(preProcessMarkdown(op.getDoco(), "Operation Documentation"));
-    opd.setStatus(PublicationStatus.DRAFT);
+    opd.setStatus(op.getStandardsStatus() == StandardsStatus.NORMATIVE ?  PublicationStatus.ACTIVE : PublicationStatus.DRAFT);
     opd.setDate(genDate.getTime());
     if (op.getKind().toLowerCase().equals("operation"))
       opd.setKind(OperationKind.OPERATION);

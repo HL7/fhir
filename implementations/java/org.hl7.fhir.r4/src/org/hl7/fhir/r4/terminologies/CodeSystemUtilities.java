@@ -15,6 +15,7 @@ import org.hl7.fhir.r4.terminologies.CodeSystemUtilities.ConceptStatus;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.model.DateTimeType;
+import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Identifier;
 import org.hl7.fhir.r4.model.Meta;
 import org.hl7.fhir.r4.model.Type;
@@ -210,8 +211,10 @@ public class CodeSystemUtilities {
           if (!"infrastructure".equals(cs.getUserString("ballot.package")))
             System.out.println("Code System "+cs.getUrl()+": ownership clash "+pckage+" vs "+cs.getUserString("ballot.package"));
       }
-      if (ss == StandardsStatus.NORMATIVE)
+      if (status == StandardsStatus.NORMATIVE) {
         cs.setExperimental(false);
+        cs.setStatus(PublicationStatus.ACTIVE);
+      }
     }
     if (fmm != null) {
       String sfmm = ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_FMM_LEVEL);
