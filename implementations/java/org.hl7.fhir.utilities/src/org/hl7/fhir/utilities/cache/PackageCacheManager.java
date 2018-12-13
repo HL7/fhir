@@ -309,7 +309,10 @@ public class PackageCacheManager {
     
     Map<String, String> profiles = new HashMap<String, String>(); 
     Map<String, String> canonicals = new HashMap<String, String>(); 
-    analysePackage(packRoot, npm.getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString(), profiles, canonicals);
+    if ("hl7.fhir.core".equals(npm.get("name").getAsString()))
+      analysePackage(packRoot, npm.get("version").getAsString(), profiles, canonicals);
+    else
+      analysePackage(packRoot, npm.getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString(), profiles, canonicals);
     IniFile ini = new IniFile(Utilities.path(packRoot, "cache.ini"));
     ini.setTimeStampFormat("dd/MM/yyyy h:mm:ss a");
     ini.setLongProperty("Package", "size", size, null);

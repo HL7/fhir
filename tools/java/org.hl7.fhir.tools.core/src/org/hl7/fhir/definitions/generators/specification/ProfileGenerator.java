@@ -709,6 +709,7 @@ public class ProfileGenerator {
     p.setFhirVersion(version);
     p.setVersion(version.toCode());
     ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE, "4.0.0");
+    p.setStatus(PublicationStatus.fromCode("active")); 
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(pt.getName());
@@ -717,7 +718,6 @@ public class ProfileGenerator {
     p.setDescription("Base StructureDefinition for Type "+pt.getName()+": "+pt.getDefinition());
     p.setDescription(pt.getDefinition());
     p.setDate(genDate.getTime());
-    p.setStatus(PublicationStatus.fromCode("draft")); 
 
     // first, the differential
     p.setName(pt.getName());
