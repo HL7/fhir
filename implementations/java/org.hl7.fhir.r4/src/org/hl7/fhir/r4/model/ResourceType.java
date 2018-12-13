@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 public enum ResourceType {
     Account,
@@ -72,7 +72,6 @@ public enum ResourceType {
     ImplementationGuide,
     InsurancePlan,
     Invoice,
-    ItemInstance,
     Library,
     Linkage,
     List,
@@ -290,8 +289,6 @@ public enum ResourceType {
       return "insuranceplan";
     case Invoice:
       return "invoice";
-    case ItemInstance:
-      return "iteminstance";
     case Library:
       return "library";
     case Linkage:
@@ -590,8 +587,6 @@ public enum ResourceType {
       return InsurancePlan;
     if ("Invoice".equals(code))
       return Invoice;
-    if ("ItemInstance".equals(code))
-      return ItemInstance;
     if ("Library".equals(code))
       return Library;
     if ("Linkage".equals(code))

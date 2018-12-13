@@ -3516,6 +3516,8 @@
     </action>
   </test>
 <!--
+  this triggers a complex bug in the snapshot generation to do with tracking paths when repeatedly walking across recursion (contentReference != null)
+  
   <test>
     <name value="Test36"/>
     <description value="Test deep nesting"/>

@@ -99,9 +99,9 @@ public class CountryCodesConverter {
     }
     cs1.setCount(cs1.getConcept().size());
     cs2.setCount(cs2.getConcept().size());
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "3.6.0", "package", "CodeSstem-iso3166.json")), cs1);
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "4.0.0", "package", "CodeSstem-iso3166.json")), cs1);
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "3.0.1", "package", "CodeSstem-iso3166.json")), cs1); // format hasn't changed
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "3.6.0", "package", "CodeSstem-iso3166-2.json")), cs2);
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "4.0.0", "package", "CodeSstem-iso3166-2.json")), cs2);
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "3.0.1", "package", "CodeSstem-iso3166-2.json")), cs2); // format hasn't changed
   }
 

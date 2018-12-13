@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -505,16 +505,16 @@ public class SupplyDelivery extends DomainResource {
     /**
      * Identifies the person who picked up the Supply.
      */
-    @Child(name = "receiver", type = {Practitioner.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "receiver", type = {Practitioner.class, PractitionerRole.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Who collected the Supply", formalDefinition="Identifies the person who picked up the Supply." )
     protected List<Reference> receiver;
     /**
      * The actual objects that are the target of the reference (Identifies the person who picked up the Supply.)
      */
-    protected List<Practitioner> receiverTarget;
+    protected List<Resource> receiverTarget;
 
 
-    private static final long serialVersionUID = 630023750L;
+    private static final long serialVersionUID = -750389806L;
 
   /**
    * Constructor
@@ -1061,22 +1061,10 @@ public class SupplyDelivery extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Practitioner> getReceiverTarget() { 
+    public List<Resource> getReceiverTarget() { 
       if (this.receiverTarget == null)
-        this.receiverTarget = new ArrayList<Practitioner>();
+        this.receiverTarget = new ArrayList<Resource>();
       return this.receiverTarget;
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public Practitioner addReceiverTarget() { 
-      Practitioner r = new Practitioner();
-      if (this.receiverTarget == null)
-        this.receiverTarget = new ArrayList<Practitioner>();
-      this.receiverTarget.add(r);
-      return r;
     }
 
       protected void listChildren(List<Property> children) {
@@ -1091,7 +1079,7 @@ public class SupplyDelivery extends DomainResource {
         children.add(new Property("occurrence[x]", "dateTime|Period|Timing", "The date or time(s) the activity occurred.", 0, 1, occurrence));
         children.add(new Property("supplier", "Reference(Practitioner|PractitionerRole|Organization)", "The individual responsible for dispensing the medication, supplier or device.", 0, 1, supplier));
         children.add(new Property("destination", "Reference(Location)", "Identification of the facility/location where the Supply was shipped to, as part of the dispense event.", 0, 1, destination));
-        children.add(new Property("receiver", "Reference(Practitioner)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver));
+        children.add(new Property("receiver", "Reference(Practitioner|PractitionerRole)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver));
       }
 
       @Override
@@ -1111,7 +1099,7 @@ public class SupplyDelivery extends DomainResource {
         case 1515218299: /*occurrenceTiming*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date or time(s) the activity occurred.", 0, 1, occurrence);
         case -1663305268: /*supplier*/  return new Property("supplier", "Reference(Practitioner|PractitionerRole|Organization)", "The individual responsible for dispensing the medication, supplier or device.", 0, 1, supplier);
         case -1429847026: /*destination*/  return new Property("destination", "Reference(Location)", "Identification of the facility/location where the Supply was shipped to, as part of the dispense event.", 0, 1, destination);
-        case -808719889: /*receiver*/  return new Property("receiver", "Reference(Practitioner)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver);
+        case -808719889: /*receiver*/  return new Property("receiver", "Reference(Practitioner|PractitionerRole)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -1405,7 +1393,7 @@ public class SupplyDelivery extends DomainResource {
    * Path: <b>SupplyDelivery.receiver</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="receiver", path="SupplyDelivery.receiver", description="Who collected the Supply", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  @SearchParamDefinition(name="receiver", path="SupplyDelivery.receiver", description="Who collected the Supply", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class, PractitionerRole.class } )
   public static final String SP_RECEIVER = "receiver";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>receiver</b>

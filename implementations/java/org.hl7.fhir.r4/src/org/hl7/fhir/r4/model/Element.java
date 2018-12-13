@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -50,7 +50,7 @@ public abstract class Element extends Base implements IBaseHasExtensions, IBaseE
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */
     @Child(name = "id", type = {StringType.class}, order=0, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="xml:id (or equivalent in JSON)", formalDefinition="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces." )
+    @Description(shortDefinition="Unique id for inter-element referencing", formalDefinition="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces." )
     protected StringType id;
 
     /**

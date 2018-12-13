@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -1900,7 +1900,7 @@ public class Group extends DomainResource {
    * Path: <b>Group.characteristic.value[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="value", path="Group.characteristic.value", description="Value held by characteristic", type="token" )
+  @SearchParamDefinition(name="value", path="(Group.characteristic.value as CodeableConcept) | (Group.characteristic.value as boolean)", description="Value held by characteristic", type="token" )
   public static final String SP_VALUE = "value";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>value</b>

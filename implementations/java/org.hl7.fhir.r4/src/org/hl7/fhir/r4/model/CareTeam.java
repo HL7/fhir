@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -50,7 +50,7 @@ public class CareTeam extends DomainResource {
 
     public enum CareTeamStatus {
         /**
-         * The care team has been drafted and proposed, but not yet participating in the coordination and delivery of care.
+         * The care team has been drafted and proposed, but not yet participating in the coordination and delivery of patient care.
          */
         PROPOSED, 
         /**
@@ -113,7 +113,7 @@ public class CareTeam extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case PROPOSED: return "The care team has been drafted and proposed, but not yet participating in the coordination and delivery of care.";
+            case PROPOSED: return "The care team has been drafted and proposed, but not yet participating in the coordination and delivery of patient care.";
             case ACTIVE: return "The care team is currently participating in the coordination and delivery of care.";
             case SUSPENDED: return "The care team is temporarily on hold or suspended and not participating in the coordination and delivery of care.";
             case INACTIVE: return "The care team was, but is no longer, participating in the coordination and delivery of care.";
@@ -127,7 +127,7 @@ public class CareTeam extends DomainResource {
             case ACTIVE: return "Active";
             case SUSPENDED: return "Suspended";
             case INACTIVE: return "Inactive";
-            case ENTEREDINERROR: return "Entered In Error";
+            case ENTEREDINERROR: return "Entered in Error";
             default: return "?";
           }
         }

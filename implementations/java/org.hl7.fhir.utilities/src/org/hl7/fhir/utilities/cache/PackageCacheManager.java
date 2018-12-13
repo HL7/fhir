@@ -132,7 +132,7 @@ public class PackageCacheManager {
     checkDeleteVersion("hl7.fhir.core", "1.0.2", 2);
     checkDeleteVersion("hl7.fhir.core", "1.4.0", 2);
     checkDeleteVersion("hl7.fhir.core", "current", toolsVersion);
-    checkDeleteVersion("hl7.fhir.core", "3.6.0", toolsVersion);
+    checkDeleteVersion("hl7.fhir.core", "4.0.0", toolsVersion);
   }
   
 

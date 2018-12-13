@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Fri, Nov 30, 2018 17:31+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -14756,52 +14756,6 @@ public class JsonParser extends JsonParserBase {
       res.setAmount(parseMoney(json.getAsJsonObject("amount")));
   }
 
-  protected ItemInstance parseItemInstance(JsonObject json) throws IOException, FHIRFormatError {
-    ItemInstance res = new ItemInstance();
-    parseItemInstanceProperties(json, res);
-    return res;
-  }
-
-  protected void parseItemInstanceProperties(JsonObject json, ItemInstance res) throws IOException, FHIRFormatError {
-    parseDomainResourceProperties(json, res);
-    if (json.has("count"))
-      res.setCountElement(parseInteger(json.get("count").getAsLong()));
-    if (json.has("_count"))
-      parseElementProperties(json.getAsJsonObject("_count"), res.getCountElement());
-    if (json.has("location"))
-      res.setLocation(parseReference(json.getAsJsonObject("location")));
-    if (json.has("subject"))
-      res.setSubject(parseReference(json.getAsJsonObject("subject")));
-    if (json.has("manufactureDate"))
-      res.setManufactureDateElement(parseDateTime(json.get("manufactureDate").getAsString()));
-    if (json.has("_manufactureDate"))
-      parseElementProperties(json.getAsJsonObject("_manufactureDate"), res.getManufactureDateElement());
-    if (json.has("expiryDate"))
-      res.setExpiryDateElement(parseDateTime(json.get("expiryDate").getAsString()));
-    if (json.has("_expiryDate"))
-      parseElementProperties(json.getAsJsonObject("_expiryDate"), res.getExpiryDateElement());
-    if (json.has("currentSWVersion"))
-      res.setCurrentSWVersionElement(parseString(json.get("currentSWVersion").getAsString()));
-    if (json.has("_currentSWVersion"))
-      parseElementProperties(json.getAsJsonObject("_currentSWVersion"), res.getCurrentSWVersionElement());
-    if (json.has("lotNumber"))
-      res.setLotNumberElement(parseString(json.get("lotNumber").getAsString()));
-    if (json.has("_lotNumber"))
-      parseElementProperties(json.getAsJsonObject("_lotNumber"), res.getLotNumberElement());
-    if (json.has("serialNumber"))
-      res.setSerialNumberElement(parseString(json.get("serialNumber").getAsString()));
-    if (json.has("_serialNumber"))
-      parseElementProperties(json.getAsJsonObject("_serialNumber"), res.getSerialNumberElement());
-    if (json.has("carrierAIDC"))
-      res.setCarrierAIDCElement(parseString(json.get("carrierAIDC").getAsString()));
-    if (json.has("_carrierAIDC"))
-      parseElementProperties(json.getAsJsonObject("_carrierAIDC"), res.getCarrierAIDCElement());
-    if (json.has("carrierHRF"))
-      res.setCarrierHRFElement(parseString(json.get("carrierHRF").getAsString()));
-    if (json.has("_carrierHRF"))
-      parseElementProperties(json.getAsJsonObject("_carrierHRF"), res.getCarrierHRFElement());
-  }
-
   protected Library parseLibrary(JsonObject json) throws IOException, FHIRFormatError {
     Library res = new Library();
     parseLibraryProperties(json, res);
@@ -27579,8 +27533,6 @@ public class JsonParser extends JsonParserBase {
       return parseInsurancePlan(json);
     else if (t.equals("Invoice"))
       return parseInvoice(json);
-    else if (t.equals("ItemInstance"))
-      return parseItemInstance(json);
     else if (t.equals("Library"))
       return parseLibrary(json);
     else if (t.equals("Linkage"))
@@ -28228,8 +28180,6 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"InsurancePlan"))
       return true;
     if (json.has(prefix+"Invoice"))
-      return true;
-    if (json.has(prefix+"ItemInstance"))
       return true;
     if (json.has(prefix+"Library"))
       return true;
@@ -44414,55 +44364,6 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  protected void composeItemInstance(String name, ItemInstance element) throws IOException {
-    if (element != null) {
-      prop("resourceType", name);
-      composeItemInstanceInner(element);
-    }
-  }
-
-  protected void composeItemInstanceInner(ItemInstance element) throws IOException {
-      composeDomainResourceElements(element);
-      if (element.hasCountElement()) {
-        composeIntegerCore("count", element.getCountElement(), false);
-        composeIntegerExtras("count", element.getCountElement(), false);
-      }
-      if (element.hasLocation()) {
-        composeReference("location", element.getLocation());
-      }
-      if (element.hasSubject()) {
-        composeReference("subject", element.getSubject());
-      }
-      if (element.hasManufactureDateElement()) {
-        composeDateTimeCore("manufactureDate", element.getManufactureDateElement(), false);
-        composeDateTimeExtras("manufactureDate", element.getManufactureDateElement(), false);
-      }
-      if (element.hasExpiryDateElement()) {
-        composeDateTimeCore("expiryDate", element.getExpiryDateElement(), false);
-        composeDateTimeExtras("expiryDate", element.getExpiryDateElement(), false);
-      }
-      if (element.hasCurrentSWVersionElement()) {
-        composeStringCore("currentSWVersion", element.getCurrentSWVersionElement(), false);
-        composeStringExtras("currentSWVersion", element.getCurrentSWVersionElement(), false);
-      }
-      if (element.hasLotNumberElement()) {
-        composeStringCore("lotNumber", element.getLotNumberElement(), false);
-        composeStringExtras("lotNumber", element.getLotNumberElement(), false);
-      }
-      if (element.hasSerialNumberElement()) {
-        composeStringCore("serialNumber", element.getSerialNumberElement(), false);
-        composeStringExtras("serialNumber", element.getSerialNumberElement(), false);
-      }
-      if (element.hasCarrierAIDCElement()) {
-        composeStringCore("carrierAIDC", element.getCarrierAIDCElement(), false);
-        composeStringExtras("carrierAIDC", element.getCarrierAIDCElement(), false);
-      }
-      if (element.hasCarrierHRFElement()) {
-        composeStringCore("carrierHRF", element.getCarrierHRFElement(), false);
-        composeStringExtras("carrierHRF", element.getCarrierHRFElement(), false);
-      }
-  }
-
   protected void composeLibrary(String name, Library element) throws IOException {
     if (element != null) {
       prop("resourceType", name);
@@ -58234,8 +58135,6 @@ public class JsonParser extends JsonParserBase {
       composeInsurancePlan("InsurancePlan", (InsurancePlan)resource);
     else if (resource instanceof Invoice)
       composeInvoice("Invoice", (Invoice)resource);
-    else if (resource instanceof ItemInstance)
-      composeItemInstance("ItemInstance", (ItemInstance)resource);
     else if (resource instanceof Library)
       composeLibrary("Library", (Library)resource);
     else if (resource instanceof Linkage)
@@ -58535,8 +58434,6 @@ public class JsonParser extends JsonParserBase {
       composeInsurancePlan(name, (InsurancePlan)resource);
     else if (resource instanceof Invoice)
       composeInvoice(name, (Invoice)resource);
-    else if (resource instanceof ItemInstance)
-      composeItemInstance(name, (ItemInstance)resource);
     else if (resource instanceof Library)
       composeLibrary(name, (Library)resource);
     else if (resource instanceof Linkage)

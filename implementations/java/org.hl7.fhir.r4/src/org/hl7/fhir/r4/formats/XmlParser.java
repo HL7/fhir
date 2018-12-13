@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -12684,47 +12684,6 @@ public class XmlParser extends XmlParserBase {
     return true;
   }
 
-  protected ItemInstance parseItemInstance(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError {
-    ItemInstance res = new ItemInstance();
-    parseDomainResourceAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseItemInstanceContent(eventType, xpp, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseItemInstanceContent(int eventType, XmlPullParser xpp, ItemInstance res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("count")) {
-        res.setCountElement(parseInteger(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("location")) {
-        res.setLocation(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
-        res.setSubject(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("manufactureDate")) {
-        res.setManufactureDateElement(parseDateTime(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("expiryDate")) {
-        res.setExpiryDateElement(parseDateTime(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("currentSWVersion")) {
-        res.setCurrentSWVersionElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("lotNumber")) {
-        res.setLotNumberElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("serialNumber")) {
-        res.setSerialNumberElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("carrierAIDC")) {
-        res.setCarrierAIDCElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("carrierHRF")) {
-        res.setCarrierHRFElement(parseString(xpp));
-      } else if (!parseDomainResourceContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
   protected Library parseLibrary(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError {
     Library res = new Library();
     parseDomainResourceAttributes(xpp, res);
@@ -23878,8 +23837,6 @@ public class XmlParser extends XmlParserBase {
       return parseInsurancePlan(xpp);
     else if (xpp.getName().equals("Invoice"))
       return parseInvoice(xpp);
-    else if (xpp.getName().equals("ItemInstance"))
-      return parseItemInstance(xpp);
     else if (xpp.getName().equals("Library"))
       return parseLibrary(xpp);
     else if (xpp.getName().equals("Linkage"))
@@ -24528,8 +24485,6 @@ public class XmlParser extends XmlParserBase {
       return parseInsurancePlan(xpp);
     else if (type.equals("Invoice"))
       return parseInvoice(xpp);
-    else if (type.equals("ItemInstance"))
-      return parseItemInstance(xpp);
     else if (type.equals("Library"))
       return parseLibrary(xpp);
     else if (type.equals("Linkage"))
@@ -24935,8 +24890,6 @@ public class XmlParser extends XmlParserBase {
     if (xpp.getName().equals(prefix+"InsurancePlan"))
       return true;
     if (xpp.getName().equals(prefix+"Invoice"))
-      return true;
-    if (xpp.getName().equals(prefix+"ItemInstance"))
       return true;
     if (xpp.getName().equals(prefix+"Library"))
       return true;
@@ -38335,50 +38288,6 @@ public class XmlParser extends XmlParserBase {
       }
   }
 
-  protected void composeItemInstance(String name, ItemInstance element) throws IOException {
-    if (element != null) {
-      composeDomainResourceAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeItemInstanceElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeItemInstanceElements(ItemInstance element) throws IOException {
-      composeDomainResourceElements(element);
-      if (element.hasCountElement()) {
-        composeInteger("count", element.getCountElement());
-      }
-      if (element.hasLocation()) {
-        composeReference("location", element.getLocation());
-      }
-      if (element.hasSubject()) {
-        composeReference("subject", element.getSubject());
-      }
-      if (element.hasManufactureDateElement()) {
-        composeDateTime("manufactureDate", element.getManufactureDateElement());
-      }
-      if (element.hasExpiryDateElement()) {
-        composeDateTime("expiryDate", element.getExpiryDateElement());
-      }
-      if (element.hasCurrentSWVersionElement()) {
-        composeString("currentSWVersion", element.getCurrentSWVersionElement());
-      }
-      if (element.hasLotNumberElement()) {
-        composeString("lotNumber", element.getLotNumberElement());
-      }
-      if (element.hasSerialNumberElement()) {
-        composeString("serialNumber", element.getSerialNumberElement());
-      }
-      if (element.hasCarrierAIDCElement()) {
-        composeString("carrierAIDC", element.getCarrierAIDCElement());
-      }
-      if (element.hasCarrierHRFElement()) {
-        composeString("carrierHRF", element.getCarrierHRFElement());
-      }
-  }
-
   protected void composeLibrary(String name, Library element) throws IOException {
     if (element != null) {
       composeDomainResourceAttributes(element);
@@ -50038,8 +49947,6 @@ public class XmlParser extends XmlParserBase {
       composeInsurancePlan("InsurancePlan", (InsurancePlan)resource);
     else if (resource instanceof Invoice)
       composeInvoice("Invoice", (Invoice)resource);
-    else if (resource instanceof ItemInstance)
-      composeItemInstance("ItemInstance", (ItemInstance)resource);
     else if (resource instanceof Library)
       composeLibrary("Library", (Library)resource);
     else if (resource instanceof Linkage)
@@ -50339,8 +50246,6 @@ public class XmlParser extends XmlParserBase {
       composeInsurancePlan(name, (InsurancePlan)resource);
     else if (resource instanceof Invoice)
       composeInvoice(name, (Invoice)resource);
-    else if (resource instanceof ItemInstance)
-      composeItemInstance(name, (ItemInstance)resource);
     else if (resource instanceof Library)
       composeLibrary(name, (Library)resource);
     else if (resource instanceof Linkage)

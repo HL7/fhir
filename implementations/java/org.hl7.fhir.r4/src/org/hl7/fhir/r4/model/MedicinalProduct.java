@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -3571,21 +3571,21 @@ public class MedicinalProduct extends DomainResource {
    * Search parameter: <b>name-language</b>
    * <p>
    * Description: <b>Language code for this name</b><br>
-   * Type: <b>string</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>MedicinalProduct.name.countryLanguage.language</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="name-language", path="MedicinalProduct.name.countryLanguage.language", description="Language code for this name", type="string" )
+  @SearchParamDefinition(name="name-language", path="MedicinalProduct.name.countryLanguage.language", description="Language code for this name", type="token" )
   public static final String SP_NAME_LANGUAGE = "name-language";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>name-language</b>
    * <p>
    * Description: <b>Language code for this name</b><br>
-   * Type: <b>string</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>MedicinalProduct.name.countryLanguage.language</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME_LANGUAGE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME_LANGUAGE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam NAME_LANGUAGE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_NAME_LANGUAGE);
 
 
 }

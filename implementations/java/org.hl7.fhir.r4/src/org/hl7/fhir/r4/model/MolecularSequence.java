@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -1288,17 +1288,17 @@ public class MolecularSequence extends DomainResource {
     @Block()
     public static class MolecularSequenceVariantComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+         * Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
          */
         @Child(name = "start", type = {IntegerType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Start position of the variant on the  reference sequence", formalDefinition="Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive." )
+        @Description(shortDefinition="Start position of the variant on the  reference sequence", formalDefinition="Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive." )
         protected IntegerType start;
 
         /**
-         * End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         @Child(name = "end", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="End position of the variant on the reference sequence", formalDefinition="End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
+        @Description(shortDefinition="End position of the variant on the reference sequence", formalDefinition="End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
         protected IntegerType end;
 
         /**
@@ -1344,7 +1344,7 @@ public class MolecularSequence extends DomainResource {
       }
 
         /**
-         * @return {@link #start} (Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
+         * @return {@link #start} (Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
          */
         public IntegerType getStartElement() { 
           if (this.start == null)
@@ -1364,7 +1364,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #start} (Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
+         * @param value {@link #start} (Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
          */
         public MolecularSequenceVariantComponent setStartElement(IntegerType value) { 
           this.start = value;
@@ -1372,14 +1372,14 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+         * @return Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
          */
         public int getStart() { 
           return this.start == null || this.start.isEmpty() ? 0 : this.start.getValue();
         }
 
         /**
-         * @param value Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+         * @param value Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
          */
         public MolecularSequenceVariantComponent setStart(int value) { 
             if (this.start == null)
@@ -1389,7 +1389,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return {@link #end} (End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @return {@link #end} (End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public IntegerType getEndElement() { 
           if (this.end == null)
@@ -1409,7 +1409,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #end} (End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @param value {@link #end} (End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public MolecularSequenceVariantComponent setEndElement(IntegerType value) { 
           this.end = value;
@@ -1417,14 +1417,14 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @return End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public int getEnd() { 
           return this.end == null || this.end.isEmpty() ? 0 : this.end.getValue();
         }
 
         /**
-         * @param value End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @param value End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public MolecularSequenceVariantComponent setEnd(int value) { 
             if (this.end == null)
@@ -1626,8 +1626,8 @@ public class MolecularSequence extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("start", "integer", "Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
-          children.add(new Property("end", "integer", "End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
+          children.add(new Property("start", "integer", "Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
+          children.add(new Property("end", "integer", "End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
           children.add(new Property("observedAllele", "string", "An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).  Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed  sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.", 0, 1, observedAllele));
           children.add(new Property("referenceAllele", "string", "An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.", 0, 1, referenceAllele));
           children.add(new Property("cigar", "string", "Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).", 0, 1, cigar));
@@ -1637,8 +1637,8 @@ public class MolecularSequence extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 109757538: /*start*/  return new Property("start", "integer", "Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
-          case 100571: /*end*/  return new Property("end", "integer", "End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
+          case 109757538: /*start*/  return new Property("start", "integer", "Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
+          case 100571: /*end*/  return new Property("end", "integer", "End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
           case -1418745787: /*observedAllele*/  return new Property("observedAllele", "string", "An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).  Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed  sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.", 0, 1, observedAllele);
           case 364045960: /*referenceAllele*/  return new Property("referenceAllele", "string", "An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.", 0, 1, referenceAllele);
           case 94658738: /*cigar*/  return new Property("cigar", "string", "Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).", 0, 1, cigar);
@@ -1833,10 +1833,10 @@ public class MolecularSequence extends DomainResource {
         protected IntegerType start;
 
         /**
-         * End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * End position of the sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         @Child(name = "end", type = {IntegerType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="End position of the sequence", formalDefinition="End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
+        @Description(shortDefinition="End position of the sequence", formalDefinition="End position of the sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
         protected IntegerType end;
 
         /**
@@ -2049,7 +2049,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return {@link #end} (End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @return {@link #end} (End position of the sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public IntegerType getEndElement() { 
           if (this.end == null)
@@ -2069,7 +2069,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #end} (End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @param value {@link #end} (End position of the sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public MolecularSequenceQualityComponent setEndElement(IntegerType value) { 
           this.end = value;
@@ -2077,14 +2077,14 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @return End position of the sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public int getEnd() { 
           return this.end == null || this.end.isEmpty() ? 0 : this.end.getValue();
         }
 
         /**
-         * @param value End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @param value End position of the sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public MolecularSequenceQualityComponent setEnd(int value) { 
             if (this.end == null)
@@ -2706,7 +2706,7 @@ public class MolecularSequence extends DomainResource {
           children.add(new Property("type", "code", "INDEL / SNP / Undefined variant.", 0, 1, type));
           children.add(new Property("standardSequence", "CodeableConcept", "Gold standard sequence used for comparing against.", 0, 1, standardSequence));
           children.add(new Property("start", "integer", "Start position of the sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
-          children.add(new Property("end", "integer", "End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
+          children.add(new Property("end", "integer", "End position of the sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
           children.add(new Property("score", "Quantity", "The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).", 0, 1, score));
           children.add(new Property("method", "CodeableConcept", "Which method is used to get sequence quality.", 0, 1, method));
           children.add(new Property("truthTP", "decimal", "True positives, from the perspective of the truth data, i.e. the number of sites in the Truth Call Set for which there are paths through the Query Call Set that are consistent with all of the alleles at this site, and for which there is an accurate genotype call for the event.", 0, 1, truthTP));
@@ -2726,7 +2726,7 @@ public class MolecularSequence extends DomainResource {
           case 3575610: /*type*/  return new Property("type", "code", "INDEL / SNP / Undefined variant.", 0, 1, type);
           case -1861227106: /*standardSequence*/  return new Property("standardSequence", "CodeableConcept", "Gold standard sequence used for comparing against.", 0, 1, standardSequence);
           case 109757538: /*start*/  return new Property("start", "integer", "Start position of the sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
-          case 100571: /*end*/  return new Property("end", "integer", "End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
+          case 100571: /*end*/  return new Property("end", "integer", "End position of the sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
           case 109264530: /*score*/  return new Property("score", "Quantity", "The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).", 0, 1, score);
           case -1077554975: /*method*/  return new Property("method", "CodeableConcept", "Which method is used to get sequence quality.", 0, 1, method);
           case -1048421849: /*truthTP*/  return new Property("truthTP", "decimal", "True positives, from the perspective of the truth data, i.e. the number of sites in the Truth Call Set for which there are paths through the Query Call Set that are consistent with all of the alleles at this site, and for which there is an accurate genotype call for the event.", 0, 1, truthTP);
@@ -4290,7 +4290,7 @@ public class MolecularSequence extends DomainResource {
          * Length of the variant chromosome.
          */
         @Child(name = "length", type = {IntegerType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Structural Variant Length", formalDefinition="Length of the variant chromosome." )
+        @Description(shortDefinition="Structural variant length", formalDefinition="Length of the variant chromosome." )
         protected IntegerType length;
 
         /**
@@ -4650,17 +4650,17 @@ public class MolecularSequence extends DomainResource {
     @Block()
     public static class MolecularSequenceStructureVariantOuterComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+         * Structural variant outer start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
          */
         @Child(name = "start", type = {IntegerType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Structural Variant Outer Start", formalDefinition="Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive." )
+        @Description(shortDefinition="Structural variant outer start", formalDefinition="Structural variant outer start. If the coordinate system is either 0-based or 1-based, then start position is inclusive." )
         protected IntegerType start;
 
         /**
-         * Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * Structural variant outer end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         @Child(name = "end", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Structural Variant Outer End", formalDefinition="Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
+        @Description(shortDefinition="Structural variant outer end", formalDefinition="Structural variant outer end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
         protected IntegerType end;
 
         private static final long serialVersionUID = -1798864889L;
@@ -4673,7 +4673,7 @@ public class MolecularSequence extends DomainResource {
       }
 
         /**
-         * @return {@link #start} (Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
+         * @return {@link #start} (Structural variant outer start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
          */
         public IntegerType getStartElement() { 
           if (this.start == null)
@@ -4693,7 +4693,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #start} (Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
+         * @param value {@link #start} (Structural variant outer start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
          */
         public MolecularSequenceStructureVariantOuterComponent setStartElement(IntegerType value) { 
           this.start = value;
@@ -4701,14 +4701,14 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+         * @return Structural variant outer start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
          */
         public int getStart() { 
           return this.start == null || this.start.isEmpty() ? 0 : this.start.getValue();
         }
 
         /**
-         * @param value Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+         * @param value Structural variant outer start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
          */
         public MolecularSequenceStructureVariantOuterComponent setStart(int value) { 
             if (this.start == null)
@@ -4718,7 +4718,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return {@link #end} (Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @return {@link #end} (Structural variant outer end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public IntegerType getEndElement() { 
           if (this.end == null)
@@ -4738,7 +4738,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #end} (Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @param value {@link #end} (Structural variant outer end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public MolecularSequenceStructureVariantOuterComponent setEndElement(IntegerType value) { 
           this.end = value;
@@ -4746,14 +4746,14 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @return Structural variant outer end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public int getEnd() { 
           return this.end == null || this.end.isEmpty() ? 0 : this.end.getValue();
         }
 
         /**
-         * @param value Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @param value Structural variant outer end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public MolecularSequenceStructureVariantOuterComponent setEnd(int value) { 
             if (this.end == null)
@@ -4764,15 +4764,15 @@ public class MolecularSequence extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("start", "integer", "Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
-          children.add(new Property("end", "integer", "Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
+          children.add(new Property("start", "integer", "Structural variant outer start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
+          children.add(new Property("end", "integer", "Structural variant outer end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 109757538: /*start*/  return new Property("start", "integer", "Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
-          case 100571: /*end*/  return new Property("end", "integer", "Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
+          case 109757538: /*start*/  return new Property("start", "integer", "Structural variant outer start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
+          case 100571: /*end*/  return new Property("end", "integer", "Structural variant outer end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -4887,17 +4887,17 @@ public class MolecularSequence extends DomainResource {
     @Block()
     public static class MolecularSequenceStructureVariantInnerComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+         * Structural variant inner start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
          */
         @Child(name = "start", type = {IntegerType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Structural Variant Inner Start", formalDefinition="Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive." )
+        @Description(shortDefinition="Structural variant inner start", formalDefinition="Structural variant inner start. If the coordinate system is either 0-based or 1-based, then start position is inclusive." )
         protected IntegerType start;
 
         /**
-         * Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * Structural variant inner end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         @Child(name = "end", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Structural Variant Inner End", formalDefinition="Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
+        @Description(shortDefinition="Structural variant inner end", formalDefinition="Structural variant inner end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
         protected IntegerType end;
 
         private static final long serialVersionUID = -1798864889L;
@@ -4910,7 +4910,7 @@ public class MolecularSequence extends DomainResource {
       }
 
         /**
-         * @return {@link #start} (Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
+         * @return {@link #start} (Structural variant inner start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
          */
         public IntegerType getStartElement() { 
           if (this.start == null)
@@ -4930,7 +4930,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #start} (Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
+         * @param value {@link #start} (Structural variant inner start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
          */
         public MolecularSequenceStructureVariantInnerComponent setStartElement(IntegerType value) { 
           this.start = value;
@@ -4938,14 +4938,14 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+         * @return Structural variant inner start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
          */
         public int getStart() { 
           return this.start == null || this.start.isEmpty() ? 0 : this.start.getValue();
         }
 
         /**
-         * @param value Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
+         * @param value Structural variant inner start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
          */
         public MolecularSequenceStructureVariantInnerComponent setStart(int value) { 
             if (this.start == null)
@@ -4955,7 +4955,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return {@link #end} (Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @return {@link #end} (Structural variant inner end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public IntegerType getEndElement() { 
           if (this.end == null)
@@ -4975,7 +4975,7 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #end} (Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @param value {@link #end} (Structural variant inner end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public MolecularSequenceStructureVariantInnerComponent setEndElement(IntegerType value) { 
           this.end = value;
@@ -4983,14 +4983,14 @@ public class MolecularSequence extends DomainResource {
         }
 
         /**
-         * @return Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @return Structural variant inner end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public int getEnd() { 
           return this.end == null || this.end.isEmpty() ? 0 : this.end.getValue();
         }
 
         /**
-         * @param value Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @param value Structural variant inner end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public MolecularSequenceStructureVariantInnerComponent setEnd(int value) { 
             if (this.end == null)
@@ -5001,15 +5001,15 @@ public class MolecularSequence extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("start", "integer", "Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
-          children.add(new Property("end", "integer", "Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
+          children.add(new Property("start", "integer", "Structural variant inner start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
+          children.add(new Property("end", "integer", "Structural variant inner end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 109757538: /*start*/  return new Property("start", "integer", "Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
-          case 100571: /*end*/  return new Property("end", "integer", "Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
+          case 109757538: /*start*/  return new Property("start", "integer", "Structural variant inner start. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
+          case 100571: /*end*/  return new Property("end", "integer", "Structural variant inner end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -6416,24 +6416,144 @@ public class MolecularSequence extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>referenceseqid-coordinate</b>
+   * Search parameter: <b>referenceseqid-variant-coordinate</b>
    * <p>
-   * Description: <b>Search parameter for region of the reference sequence. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource on NC_000001.11 and with position >123 and <345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
+   * Description: <b>Search parameter by reference sequence and variant coordinate. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-variant-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with variants on NC_000001.11 and with position >123 and <345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
    * Type: <b>composite</b><br>
    * Path: <b></b><br>
    * </p>
    */
-  @SearchParamDefinition(name="referenceseqid-coordinate", path="MolecularSequence", description="Search parameter for region of the reference sequence. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource on NC_000001.11 and with position >123 and <345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.", type="composite", compositeOf={"referenceseqid", "start"} )
-  public static final String SP_REFERENCESEQID_COORDINATE = "referenceseqid-coordinate";
+  @SearchParamDefinition(name="referenceseqid-variant-coordinate", path="MolecularSequence.variant", description="Search parameter by reference sequence and variant coordinate. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-variant-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with variants on NC_000001.11 and with position >123 and <345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.", type="composite", compositeOf={"referenceseqid", "variant-start"} )
+  public static final String SP_REFERENCESEQID_VARIANT_COORDINATE = "referenceseqid-variant-coordinate";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>referenceseqid-coordinate</b>
+   * <b>Fluent Client</b> search parameter constant for <b>referenceseqid-variant-coordinate</b>
    * <p>
-   * Description: <b>Search parameter for region of the reference sequence. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource on NC_000001.11 and with position >123 and <345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
+   * Description: <b>Search parameter by reference sequence and variant coordinate. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-variant-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with variants on NC_000001.11 and with position >123 and <345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
    * Type: <b>composite</b><br>
    * Path: <b></b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam> REFERENCESEQID_COORDINATE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam>(SP_REFERENCESEQID_COORDINATE);
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam> REFERENCESEQID_VARIANT_COORDINATE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam>(SP_REFERENCESEQID_VARIANT_COORDINATE);
+
+ /**
+   * Search parameter: <b>chromosome</b>
+   * <p>
+   * Description: <b>Chromosome number of the reference sequence</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MolecularSequence.referenceSeq.chromosome</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="chromosome", path="MolecularSequence.referenceSeq.chromosome", description="Chromosome number of the reference sequence", type="token" )
+  public static final String SP_CHROMOSOME = "chromosome";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>chromosome</b>
+   * <p>
+   * Description: <b>Chromosome number of the reference sequence</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MolecularSequence.referenceSeq.chromosome</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CHROMOSOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CHROMOSOME);
+
+ /**
+   * Search parameter: <b>window-end</b>
+   * <p>
+   * Description: <b>End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>MolecularSequence.referenceSeq.windowEnd</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="window-end", path="MolecularSequence.referenceSeq.windowEnd", description="End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.", type="number" )
+  public static final String SP_WINDOW_END = "window-end";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>window-end</b>
+   * <p>
+   * Description: <b>End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>MolecularSequence.referenceSeq.windowEnd</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.NumberClientParam WINDOW_END = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_WINDOW_END);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Amino Acid Sequence/ DNA Sequence / RNA Sequence</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MolecularSequence.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="MolecularSequence.type", description="Amino Acid Sequence/ DNA Sequence / RNA Sequence", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Amino Acid Sequence/ DNA Sequence / RNA Sequence</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MolecularSequence.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>window-start</b>
+   * <p>
+   * Description: <b>Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>MolecularSequence.referenceSeq.windowStart</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="window-start", path="MolecularSequence.referenceSeq.windowStart", description="Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.", type="number" )
+  public static final String SP_WINDOW_START = "window-start";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>window-start</b>
+   * <p>
+   * Description: <b>Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>MolecularSequence.referenceSeq.windowStart</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.NumberClientParam WINDOW_START = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_WINDOW_START);
+
+ /**
+   * Search parameter: <b>variant-end</b>
+   * <p>
+   * Description: <b>End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the variant.</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>MolecularSequence.variant.end</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="variant-end", path="MolecularSequence.variant.end", description="End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the variant.", type="number" )
+  public static final String SP_VARIANT_END = "variant-end";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>variant-end</b>
+   * <p>
+   * Description: <b>End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the variant.</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>MolecularSequence.variant.end</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.NumberClientParam VARIANT_END = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_VARIANT_END);
+
+ /**
+   * Search parameter: <b>chromosome-variant-coordinate</b>
+   * <p>
+   * Description: <b>Search parameter by chromosome and variant coordinate. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-variant-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with variants on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="chromosome-variant-coordinate", path="MolecularSequence.variant", description="Search parameter by chromosome and variant coordinate. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-variant-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with variants on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.", type="composite", compositeOf={"chromosome", "variant-start"} )
+  public static final String SP_CHROMOSOME_VARIANT_COORDINATE = "chromosome-variant-coordinate";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>chromosome-variant-coordinate</b>
+   * <p>
+   * Description: <b>Search parameter by chromosome and variant coordinate. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-variant-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with variants on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam> CHROMOSOME_VARIANT_COORDINATE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam>(SP_CHROMOSOME_VARIANT_COORDINATE);
 
  /**
    * Search parameter: <b>patient</b>
@@ -6462,64 +6582,64 @@ public class MolecularSequence extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MolecularSequence:patient").toLocked();
 
  /**
-   * Search parameter: <b>chromosome</b>
+   * Search parameter: <b>variant-start</b>
    * <p>
-   * Description: <b>Chromosome number of the reference sequence</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MolecularSequence.referenceSeq.chromosome</b><br>
+   * Description: <b>Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the variant.</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>MolecularSequence.variant.start</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="chromosome", path="MolecularSequence.referenceSeq.chromosome", description="Chromosome number of the reference sequence", type="token" )
-  public static final String SP_CHROMOSOME = "chromosome";
+  @SearchParamDefinition(name="variant-start", path="MolecularSequence.variant.start", description="Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the variant.", type="number" )
+  public static final String SP_VARIANT_START = "variant-start";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>chromosome</b>
+   * <b>Fluent Client</b> search parameter constant for <b>variant-start</b>
    * <p>
-   * Description: <b>Chromosome number of the reference sequence</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MolecularSequence.referenceSeq.chromosome</b><br>
+   * Description: <b>Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the variant.</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>MolecularSequence.variant.start</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CHROMOSOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CHROMOSOME);
+  public static final ca.uhn.fhir.rest.gclient.NumberClientParam VARIANT_START = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_VARIANT_START);
 
  /**
-   * Search parameter: <b>start</b>
+   * Search parameter: <b>chromosome-window-coordinate</b>
    * <p>
-   * Description: <b>Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>MolecularSequence.referenceSeq.windowStart</b><br>
+   * Description: <b>Search parameter by chromosome and window. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-window-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
    * </p>
    */
-  @SearchParamDefinition(name="start", path="MolecularSequence.referenceSeq.windowStart", description="Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.", type="number" )
-  public static final String SP_START = "start";
+  @SearchParamDefinition(name="chromosome-window-coordinate", path="MolecularSequence.referenceSeq", description="Search parameter by chromosome and window. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-window-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.", type="composite", compositeOf={"chromosome", "window-start"} )
+  public static final String SP_CHROMOSOME_WINDOW_COORDINATE = "chromosome-window-coordinate";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>start</b>
+   * <b>Fluent Client</b> search parameter constant for <b>chromosome-window-coordinate</b>
    * <p>
-   * Description: <b>Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>MolecularSequence.referenceSeq.windowStart</b><br>
+   * Description: <b>Search parameter by chromosome and window. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-window-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.NumberClientParam START = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_START);
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam> CHROMOSOME_WINDOW_COORDINATE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam>(SP_CHROMOSOME_WINDOW_COORDINATE);
 
  /**
-   * Search parameter: <b>end</b>
+   * Search parameter: <b>referenceseqid-window-coordinate</b>
    * <p>
-   * Description: <b>End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>MolecularSequence.referenceSeq.windowEnd</b><br>
+   * Description: <b>Search parameter by reference sequence and window. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-window-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on NC_000001.11 and with position >123 and <345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
    * </p>
    */
-  @SearchParamDefinition(name="end", path="MolecularSequence.referenceSeq.windowEnd", description="End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.", type="number" )
-  public static final String SP_END = "end";
+  @SearchParamDefinition(name="referenceseqid-window-coordinate", path="MolecularSequence.referenceSeq", description="Search parameter by reference sequence and window. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-window-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on NC_000001.11 and with position >123 and <345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.", type="composite", compositeOf={"referenceseqid", "window-start"} )
+  public static final String SP_REFERENCESEQID_WINDOW_COORDINATE = "referenceseqid-window-coordinate";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>end</b>
+   * <b>Fluent Client</b> search parameter constant for <b>referenceseqid-window-coordinate</b>
    * <p>
-   * Description: <b>End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>MolecularSequence.referenceSeq.windowEnd</b><br>
+   * Description: <b>Search parameter by reference sequence and window. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-window-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on NC_000001.11 and with position >123 and <345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.NumberClientParam END = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_END);
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam> REFERENCESEQID_WINDOW_COORDINATE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam>(SP_REFERENCESEQID_WINDOW_COORDINATE);
 
  /**
    * Search parameter: <b>referenceseqid</b>
@@ -6540,46 +6660,6 @@ public class MolecularSequence extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam REFERENCESEQID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REFERENCESEQID);
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Amino Acid Sequence/ DNA Sequence / RNA Sequence</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MolecularSequence.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="MolecularSequence.type", description="Amino Acid Sequence/ DNA Sequence / RNA Sequence", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Amino Acid Sequence/ DNA Sequence / RNA Sequence</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MolecularSequence.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>chromosome-coordinate</b>
-   * <p>
-   * Description: <b>Search parameter for region of the chromosome sequence string. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="chromosome-coordinate", path="MolecularSequence", description="Search parameter for region of the chromosome sequence string. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.", type="composite", compositeOf={"chromosome", "start"} )
-  public static final String SP_CHROMOSOME_COORDINATE = "chromosome-coordinate";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>chromosome-coordinate</b>
-   * <p>
-   * Description: <b>Search parameter for region of the chromosome sequence string. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam> CHROMOSOME_COORDINATE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.NumberClientParam>(SP_CHROMOSOME_COORDINATE);
 
 
 }

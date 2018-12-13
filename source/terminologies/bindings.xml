@@ -1200,12 +1200,6 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">R4 Ballot #2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">21</Data></Cell>
-    <Cell><Data ss:Type="String">3.6.0</Data></Cell>
-    <Cell><Data ss:Type="String">3.6.0</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Current Development build (Lead up to Release 4)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">22</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.0.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.0.0</Data></Cell>

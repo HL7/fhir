@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -395,14 +395,14 @@ public class BiologicallyDerivedProduct extends DomainResource {
         /**
          * Healthcare professional who is performing the collection.
          */
-        @Child(name = "collector", type = {Practitioner.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "collector", type = {Practitioner.class, PractitionerRole.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Individual performing collection", formalDefinition="Healthcare professional who is performing the collection." )
         protected Reference collector;
 
         /**
          * The actual object that is the target of the reference (Healthcare professional who is performing the collection.)
          */
-        protected Practitioner collectorTarget;
+        protected Resource collectorTarget;
 
         /**
          * The patient or entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product.
@@ -423,7 +423,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
         @Description(shortDefinition="Time of product collection", formalDefinition="Time of product collection." )
         protected Type collected;
 
-        private static final long serialVersionUID = -1930734179L;
+        private static final long serialVersionUID = 892130089L;
 
     /**
      * Constructor
@@ -459,19 +459,14 @@ public class BiologicallyDerivedProduct extends DomainResource {
         /**
          * @return {@link #collector} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Healthcare professional who is performing the collection.)
          */
-        public Practitioner getCollectorTarget() { 
-          if (this.collectorTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create BiologicallyDerivedProductCollectionComponent.collector");
-            else if (Configuration.doAutoCreate())
-              this.collectorTarget = new Practitioner(); // aa
+        public Resource getCollectorTarget() { 
           return this.collectorTarget;
         }
 
         /**
          * @param value {@link #collector} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Healthcare professional who is performing the collection.)
          */
-        public BiologicallyDerivedProductCollectionComponent setCollectorTarget(Practitioner value) { 
+        public BiologicallyDerivedProductCollectionComponent setCollectorTarget(Resource value) { 
           this.collectorTarget = value;
           return this;
         }
@@ -568,7 +563,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("collector", "Reference(Practitioner)", "Healthcare professional who is performing the collection.", 0, 1, collector));
+          children.add(new Property("collector", "Reference(Practitioner|PractitionerRole)", "Healthcare professional who is performing the collection.", 0, 1, collector));
           children.add(new Property("source", "Reference(Patient|Organization)", "The patient or entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product.", 0, 1, source));
           children.add(new Property("collected[x]", "dateTime|Period", "Time of product collection.", 0, 1, collected));
         }
@@ -576,7 +571,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 1883491469: /*collector*/  return new Property("collector", "Reference(Practitioner)", "Healthcare professional who is performing the collection.", 0, 1, collector);
+          case 1883491469: /*collector*/  return new Property("collector", "Reference(Practitioner|PractitionerRole)", "Healthcare professional who is performing the collection.", 0, 1, collector);
           case -896505829: /*source*/  return new Property("source", "Reference(Patient|Organization)", "The patient or entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product.", 0, 1, source);
           case 1632037015: /*collected[x]*/  return new Property("collected[x]", "dateTime|Period", "Time of product collection.", 0, 1, collected);
           case 1883491145: /*collected*/  return new Property("collected[x]", "dateTime|Period", "Time of product collection.", 0, 1, collected);

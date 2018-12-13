@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -647,7 +647,7 @@ public class Task extends DomainResource {
         /**
          * For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?
          */
-        @Child(name = "recipient", type = {Patient.class, Practitioner.class, RelatedPerson.class, Group.class, Organization.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "recipient", type = {Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class, Group.class, Organization.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="For whom is fulfillment sought?", formalDefinition="For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?" )
         protected List<Reference> recipient;
         /**
@@ -801,7 +801,7 @@ public class Task extends DomainResource {
           super.listChildren(children);
           children.add(new Property("repetitions", "positiveInt", "Indicates the number of times the requested action should occur.", 0, 1, repetitions));
           children.add(new Property("period", "Period", "Over what time-period is fulfillment sought.", 0, 1, period));
-          children.add(new Property("recipient", "Reference(Patient|Practitioner|RelatedPerson|Group|Organization)", "For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?", 0, java.lang.Integer.MAX_VALUE, recipient));
+          children.add(new Property("recipient", "Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Group|Organization)", "For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?", 0, java.lang.Integer.MAX_VALUE, recipient));
         }
 
         @Override
@@ -809,7 +809,7 @@ public class Task extends DomainResource {
           switch (_hash) {
           case 984367650: /*repetitions*/  return new Property("repetitions", "positiveInt", "Indicates the number of times the requested action should occur.", 0, 1, repetitions);
           case -991726143: /*period*/  return new Property("period", "Period", "Over what time-period is fulfillment sought.", 0, 1, period);
-          case 820081177: /*recipient*/  return new Property("recipient", "Reference(Patient|Practitioner|RelatedPerson|Group|Organization)", "For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?", 0, java.lang.Integer.MAX_VALUE, recipient);
+          case 820081177: /*recipient*/  return new Property("recipient", "Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Group|Organization)", "For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?", 0, java.lang.Integer.MAX_VALUE, recipient);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 

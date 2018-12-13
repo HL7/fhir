@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -9417,38 +9417,6 @@ public class RdfParser extends RdfParserBase {
       composeMoney(t, "Invoice", "amount", element.getAmount(), -1);
   }
 
-  protected void composeItemInstance(Complex parent, String parentType, String name, ItemInstance element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeDomainResource(t, "ItemInstance", name, element, index);
-    if (element.hasCountElement())
-      composeInteger(t, "ItemInstance", "count", element.getCountElement(), -1);
-    if (element.hasLocation())
-      composeReference(t, "ItemInstance", "location", element.getLocation(), -1);
-    if (element.hasSubject())
-      composeReference(t, "ItemInstance", "subject", element.getSubject(), -1);
-    if (element.hasManufactureDateElement())
-      composeDateTime(t, "ItemInstance", "manufactureDate", element.getManufactureDateElement(), -1);
-    if (element.hasExpiryDateElement())
-      composeDateTime(t, "ItemInstance", "expiryDate", element.getExpiryDateElement(), -1);
-    if (element.hasCurrentSWVersionElement())
-      composeString(t, "ItemInstance", "currentSWVersion", element.getCurrentSWVersionElement(), -1);
-    if (element.hasLotNumberElement())
-      composeString(t, "ItemInstance", "lotNumber", element.getLotNumberElement(), -1);
-    if (element.hasSerialNumberElement())
-      composeString(t, "ItemInstance", "serialNumber", element.getSerialNumberElement(), -1);
-    if (element.hasCarrierAIDCElement())
-      composeString(t, "ItemInstance", "carrierAIDC", element.getCarrierAIDCElement(), -1);
-    if (element.hasCarrierHRFElement())
-      composeString(t, "ItemInstance", "carrierHRF", element.getCarrierHRFElement(), -1);
-  }
-
   protected void composeLibrary(Complex parent, String parentType, String name, Library element, int index) {
     if (element == null) 
       return;
@@ -17785,8 +17753,6 @@ public class RdfParser extends RdfParserBase {
       composeInsurancePlan(parent, null, "InsurancePlan", (InsurancePlan)resource, -1);
     else if (resource instanceof Invoice)
       composeInvoice(parent, null, "Invoice", (Invoice)resource, -1);
-    else if (resource instanceof ItemInstance)
-      composeItemInstance(parent, null, "ItemInstance", (ItemInstance)resource, -1);
     else if (resource instanceof Library)
       composeLibrary(parent, null, "Library", (Library)resource, -1);
     else if (resource instanceof Linkage)

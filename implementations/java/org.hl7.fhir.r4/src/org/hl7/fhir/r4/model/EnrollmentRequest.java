@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -860,17 +860,17 @@ public class EnrollmentRequest extends DomainResource {
  /**
    * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>The status fo the enrollment</b><br>
+   * Description: <b>The status of the enrollment</b><br>
    * Type: <b>token</b><br>
    * Path: <b>EnrollmentRequest.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="EnrollmentRequest.status", description="The status fo the enrollment", type="token" )
+  @SearchParamDefinition(name="status", path="EnrollmentRequest.status", description="The status of the enrollment", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>The status fo the enrollment</b><br>
+   * Description: <b>The status of the enrollment</b><br>
    * Type: <b>token</b><br>
    * Path: <b>EnrollmentRequest.status</b><br>
    * </p>

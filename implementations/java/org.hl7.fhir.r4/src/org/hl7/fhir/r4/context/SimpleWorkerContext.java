@@ -186,10 +186,15 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		return res;
 	}
 
-  public static SimpleWorkerContext fromDefinitions(Map<String, byte[]> source, IContextResourceLoader loader) throws IOException, FHIRException {
+  public static SimpleWorkerContext fromDefinitions(Map<String, byte[]> source, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException  {
     SimpleWorkerContext res = new SimpleWorkerContext();
-    for (String name : source.keySet()) {
-      res.loadDefinitionItem(name, new ByteArrayInputStream(source.get(name)), loader);
+    for (String name : source.keySet()) { 
+      try {
+        res.loadDefinitionItem(name, new ByteArrayInputStream(source.get(name)), loader);
+      } catch (Exception e) {
+        System.out.println("Error loading "+name+": "+e.getMessage());
+        throw new FHIRException("Error loading "+name+": "+e.getMessage(), e);
+      }
     }
     return res;
   }

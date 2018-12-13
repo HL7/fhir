@@ -227,7 +227,7 @@ public class StructureMapUtilities {
     fpe.setHostServices(new FFHIRPathHostServices());
   }
 
-	public static String render(StructureMap map, boolean newFmt) {
+	public static String render(StructureMap map) {
 		StringBuilder b = new StringBuilder();
 		b.append("map \"");
 		b.append(map.getUrl());
@@ -239,7 +239,7 @@ public class StructureMapUtilities {
 		renderUses(b, map);
 		renderImports(b, map);
 		for (StructureMapGroupComponent g : map.getGroup())
-			renderGroup(b, g, newFmt);
+			renderGroup(b, g);
 		return b.toString();
 	}
 
@@ -364,102 +364,61 @@ public class StructureMapUtilities {
 			b.append("\r\n");
 	}
 
-  public static String groupToString(StructureMapGroupComponent g, boolean newFmt) {
+  public static String groupToString(StructureMapGroupComponent g) {
     StringBuilder b = new StringBuilder();
-    renderGroup(b, g, newFmt);
+    renderGroup(b, g);
     return b.toString();
   }
-  
-  private static void renderGroup(StringBuilder b, StructureMapGroupComponent g, boolean newFmt) {
+
+  private static void renderGroup(StringBuilder b, StructureMapGroupComponent g) {
     b.append("group ");
-    if (newFmt) {
-      b.append(g.getName());
-      b.append("(");
-      boolean first = true;
-      for (StructureMapGroupInputComponent gi : g.getInput()) {
-        if (first)
-          first = false;
-        else
-          b.append(", ");
-        b.append(gi.getMode().toCode());
-        b.append(" ");
-        b.append(gi.getName());
-        if (gi.hasType()) {
-          b.append(" : ");
-          b.append(gi.getType());
-        }
+    b.append(g.getName());
+    b.append("(");
+    boolean first = true;
+    for (StructureMapGroupInputComponent gi : g.getInput()) {
+      if (first)
+        first = false;
+      else
+        b.append(", ");
+      b.append(gi.getMode().toCode());
+      b.append(" ");
+      b.append(gi.getName());
+      if (gi.hasType()) {
+        b.append(" : ");
+        b.append(gi.getType());
       }
-      b.append(")");
-      if (g.hasExtends()) {
-        b.append(" extends ");
-        b.append(g.getExtends());
-      }
-      
-      switch (g.getTypeMode()) {
-      case TYPES: 
-        b.append(" <<types>>");
-        break;
-      case TYPEANDTYPES: 
-        b.append(" <<type+>>");
-        break;
-      default: // NONE, NULL
-      }
-      b.append(" {\r\n");
-      for (StructureMapGroupRuleComponent r : g.getRule()) {
-        renderRule(b, r, 2, true);
-      }
-      b.append("}\r\n\r\n");
-    } else {  
-      switch (g.getTypeMode()) {
-      case TYPES: 
-        b.append("for types");
-        break;
-      case TYPEANDTYPES: 
-        b.append("for type+types ");
-        break;
-      default: // NONE, NULL
-      }
-      b.append(g.getName());
-      if (g.hasExtends()) {
-        b.append(" extends ");
-        b.append(g.getExtends());
-      }
-      if (g.hasDocumentation()) 
-        renderDoco(b, g.getDocumentation());
-      b.append("\r\n");
-      for (StructureMapGroupInputComponent gi : g.getInput()) {
-        b.append("  input ");
-        b.append(gi.getName());
-        if (gi.hasType()) {
-          b.append(" : ");
-          b.append(gi.getType());
-        }
-        b.append(" as ");
-        b.append(gi.getMode().toCode());
-        b.append("\r\n");
-      }
-      if (g.hasInput())
-        b.append("\r\n");
-      for (StructureMapGroupRuleComponent r : g.getRule()) {
-        renderRule(b, r, 2, false);
-      }
-      b.append("\r\nendgroup\r\n");
     }
+    b.append(")");
+    if (g.hasExtends()) {
+      b.append(" extends ");
+      b.append(g.getExtends());
+    }
+
+    switch (g.getTypeMode()) {
+    case TYPES: 
+      b.append(" <<types>>");
+      break;
+    case TYPEANDTYPES: 
+      b.append(" <<type+>>");
+      break;
+    default: // NONE, NULL
+    }
+    b.append(" {\r\n");
+    for (StructureMapGroupRuleComponent r : g.getRule()) {
+      renderRule(b, r, 2);
+    }
+    b.append("}\r\n\r\n");
   }
 
   public static String ruleToString(StructureMapGroupRuleComponent r) {
     StringBuilder b = new StringBuilder();
-    renderRule(b, r, 0, false);
+    renderRule(b, r, 0);
     return b.toString();
   }
   
-	private static void renderRule(StringBuilder b, StructureMapGroupRuleComponent r, int indent, boolean newFmt) {
+	private static void renderRule(StringBuilder b, StructureMapGroupRuleComponent r, int indent) {
 		for (int i = 0; i < indent; i++)
 			b.append(' ');
-		if (!newFmt) {
-      b.append(r.getName());
-      b.append(" : for ");
-		}
 		boolean canBeAbbreviated = checkisSimple(r);
 
 		boolean first = true;
@@ -471,7 +430,7 @@ public class StructureMapUtilities {
 		  renderSource(b, rs, canBeAbbreviated);
 		}
 		if (r.getTarget().size() > 1) {
-		  b.append(newFmt ? " -> " : " make ");
+		  b.append(" -> ");
 		  first = true;
 		  for (StructureMapGroupRuleTargetComponent rt : r.getTarget()) {
 		    if (first)
@@ -488,14 +447,14 @@ public class StructureMapUtilities {
 		    renderTarget(b, rt, false);
 		  }
 		} else if (r.hasTarget()) { 
-      b.append(newFmt ? " -> " : " make ");
+      b.append(" -> ");
 		  renderTarget(b, r.getTarget().get(0), canBeAbbreviated);
 		}
 		if (r.hasRule()) {
 		  b.append(" then {\r\n");
 		  renderDoco(b, r.getDocumentation());
 		  for (StructureMapGroupRuleComponent ir : r.getRule()) {
-		    renderRule(b, ir, indent+2, newFmt);
+		    renderRule(b, ir, indent+2);
 		  }
 		  for (int i = 0; i < indent; i++)
 		    b.append(' ');
@@ -523,16 +482,14 @@ public class StructureMapUtilities {
 		    }
 		  }
 		}
-    if (newFmt) {
-      String n = ntail(r.getName());
-      if (!n.startsWith("\""))
-        n = "\""+n+"\"";
-      if (!matchesName(n, r.getSource())) {
-        b.append(" ");
-        b.append(n);
-      }
-      b.append(";");
-    }
+		String n = ntail(r.getName());
+		if (!n.startsWith("\""))
+		  n = "\""+n+"\"";
+		if (!matchesName(n, r.getSource())) {
+		  b.append(" ");
+		  b.append(n);
+		}
+		b.append(";");
 		renderDoco(b, r.getDocumentation());
 		b.append("\r\n");
 	}
@@ -2903,7 +2860,7 @@ public class StructureMapUtilities {
       map.setStatus(PublicationStatus.DRAFT);
     map.getText().setStatus(NarrativeStatus.GENERATED);
     map.getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-    map.getText().getDiv().addTag("pre").addText(render(map, true));
+    map.getText().getDiv().addTag("pre").addText(render(map));
     return map;
   }
 
