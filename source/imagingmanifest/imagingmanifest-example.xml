@@ -7,7 +7,7 @@
 	</text> 
 	<identifier>
     <system value="urn:dicom:uid"/>
-		<value value="2.16.124.113543.6003.189642796.63084.16748.2599092901"/> 
+		<value value="urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092901"/> 
 		<!-- SOP Instance UID value -->
 	</identifier>
 	<patient> 
