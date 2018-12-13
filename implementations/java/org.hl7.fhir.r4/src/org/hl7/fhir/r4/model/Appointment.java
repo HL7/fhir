@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -66,7 +66,7 @@ public class Appointment extends DomainResource {
          */
         ARRIVED, 
         /**
-         * This appointment has completed and may have resulted in an encounter.
+         * The planning stages of the appointment are now complete, the encounter resource will exist and will track further status changes. Note that an encounter may exist before the appointment status is fulfilled for many reasons.
          */
         FULFILLED, 
         /**
@@ -158,7 +158,7 @@ A specific time might or might not be pre-allocated.
             case PENDING: return "Some or all of the participant(s) have not finalized their acceptance of the appointment request.";
             case BOOKED: return "All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified.";
             case ARRIVED: return "The patient/patients has/have arrived and is/are waiting to be seen.";
-            case FULFILLED: return "This appointment has completed and may have resulted in an encounter.";
+            case FULFILLED: return "The planning stages of the appointment are now complete, the encounter resource will exist and will track further status changes. Note that an encounter may exist before the appointment status is fulfilled for many reasons.";
             case CANCELLED: return "The appointment has been cancelled.";
             case NOSHOW: return "Some or all of the participant(s) have not/did not appear for the appointment (usually the patient).";
             case ENTEREDINERROR: return "This instance should not have been part of this patient's medical record.";
@@ -1126,10 +1126,10 @@ A specific time might or might not be pre-allocated.
     /**
      * A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.
 
-The duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However in other situations the duration may be calculated by the scheduling system.
+The duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system.
      */
     @Child(name = "requestedPeriod", type = {Period.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Potential date/time interval(s) requested to allocate the appointment within", formalDefinition="A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.\n\nThe duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However in other situations the duration may be calculated by the scheduling system." )
+    @Description(shortDefinition="Potential date/time interval(s) requested to allocate the appointment within", formalDefinition="A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.\n\nThe duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system." )
     protected List<Period> requestedPeriod;
 
     private static final long serialVersionUID = -1096822339L;
@@ -2223,7 +2223,7 @@ The duration (usually in minutes) could also be provided to indicate the length 
     /**
      * @return {@link #requestedPeriod} (A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.
 
-The duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However in other situations the duration may be calculated by the scheduling system.)
+The duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system.)
      */
     public List<Period> getRequestedPeriod() { 
       if (this.requestedPeriod == null)
@@ -2298,7 +2298,7 @@ The duration (usually in minutes) could also be provided to indicate the length 
         children.add(new Property("patientInstruction", "string", "While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).", 0, 1, patientInstruction));
         children.add(new Property("basedOn", "Reference(ServiceRequest)", "The service request this appointment is allocated to assess (e.g. incoming referral or procedure request).", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant));
-        children.add(new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.\n\nThe duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However in other situations the duration may be calculated by the scheduling system.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod));
+        children.add(new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.\n\nThe duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod));
       }
 
       @Override
@@ -2325,7 +2325,7 @@ The duration (usually in minutes) could also be provided to indicate the length 
         case 737543241: /*patientInstruction*/  return new Property("patientInstruction", "string", "While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).", 0, 1, patientInstruction);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(ServiceRequest)", "The service request this appointment is allocated to assess (e.g. incoming referral or procedure request).", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case 767422259: /*participant*/  return new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant);
-        case -897241393: /*requestedPeriod*/  return new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.\n\nThe duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However in other situations the duration may be calculated by the scheduling system.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod);
+        case -897241393: /*requestedPeriod*/  return new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.\n\nThe duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -2993,7 +2993,7 @@ The duration (usually in minutes) could also be provided to indicate the length 
    * Path: <b>Appointment.basedOn</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="based-on", path="Appointment.basedOn.where(resolve() is ServiceRequest)", description="The service request this appointment is allocated to assess", type="reference", target={ServiceRequest.class } )
+  @SearchParamDefinition(name="based-on", path="Appointment.basedOn", description="The service request this appointment is allocated to assess", type="reference", target={ServiceRequest.class } )
   public static final String SP_BASED_ON = "based-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>based-on</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -833,10 +833,10 @@ public class ClaimResponse extends DomainResource {
     @Block()
     public static class AdjudicationComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.
+         * A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that: the patient is responsible for in aggregate or pertaining to this item; amounts paid by other coverages; and, the benefit payable for this item.
          */
         @Child(name = "category", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Type of adjudication information", formalDefinition="A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item." )
+        @Description(shortDefinition="Type of adjudication information", formalDefinition="A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that: the patient is responsible for in aggregate or pertaining to this item; amounts paid by other coverages; and, the benefit payable for this item." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/adjudication")
         protected CodeableConcept category;
 
@@ -880,7 +880,7 @@ public class ClaimResponse extends DomainResource {
       }
 
         /**
-         * @return {@link #category} (A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.)
+         * @return {@link #category} (A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that: the patient is responsible for in aggregate or pertaining to this item; amounts paid by other coverages; and, the benefit payable for this item.)
          */
         public CodeableConcept getCategory() { 
           if (this.category == null)
@@ -896,7 +896,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #category} (A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.)
+         * @param value {@link #category} (A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that: the patient is responsible for in aggregate or pertaining to this item; amounts paid by other coverages; and, the benefit payable for this item.)
          */
         public AdjudicationComponent setCategory(CodeableConcept value) { 
           this.category = value;
@@ -1020,7 +1020,7 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("category", "CodeableConcept", "A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.", 0, 1, category));
+          children.add(new Property("category", "CodeableConcept", "A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that: the patient is responsible for in aggregate or pertaining to this item; amounts paid by other coverages; and, the benefit payable for this item.", 0, 1, category));
           children.add(new Property("reason", "CodeableConcept", "A code supporting the understanding of the adjudication result and explaining variance from expected amount.", 0, 1, reason));
           children.add(new Property("amount", "Money", "Monetary amount associated with the category.", 0, 1, amount));
           children.add(new Property("value", "decimal", "A non-monetary value associated with the category. Mutually exclusive to the amount element above.", 0, 1, value));
@@ -1029,7 +1029,7 @@ public class ClaimResponse extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.", 0, 1, category);
+          case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that: the patient is responsible for in aggregate or pertaining to this item; amounts paid by other coverages; and, the benefit payable for this item.", 0, 1, category);
           case -934964668: /*reason*/  return new Property("reason", "CodeableConcept", "A code supporting the understanding of the adjudication result and explaining variance from expected amount.", 0, 1, reason);
           case -1413853096: /*amount*/  return new Property("amount", "Money", "Monetary amount associated with the category.", 0, 1, amount);
           case 111972721: /*value*/  return new Property("value", "decimal", "A non-monetary value associated with the category. Mutually exclusive to the amount element above.", 0, 1, value);
@@ -1961,10 +1961,10 @@ public class ClaimResponse extends DomainResource {
         protected List<PositiveIntType> detailSequence;
 
         /**
-         * The sequence number of the sub-details woithin the details within the claim item which this line is intended to replace.
+         * The sequence number of the sub-details within the details within the claim item which this line is intended to replace.
          */
         @Child(name = "subdetailSequence", type = {PositiveIntType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Subdetail sequence number", formalDefinition="The sequence number of the sub-details woithin the details within the claim item which this line is intended to replace." )
+        @Description(shortDefinition="Subdetail sequence number", formalDefinition="The sequence number of the sub-details within the details within the claim item which this line is intended to replace." )
         protected List<PositiveIntType> subdetailSequence;
 
         /**
@@ -2223,7 +2223,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #subdetailSequence} (The sequence number of the sub-details woithin the details within the claim item which this line is intended to replace.)
+         * @return {@link #subdetailSequence} (The sequence number of the sub-details within the details within the claim item which this line is intended to replace.)
          */
         public List<PositiveIntType> getSubdetailSequence() { 
           if (this.subdetailSequence == null)
@@ -2249,7 +2249,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #subdetailSequence} (The sequence number of the sub-details woithin the details within the claim item which this line is intended to replace.)
+         * @return {@link #subdetailSequence} (The sequence number of the sub-details within the details within the claim item which this line is intended to replace.)
          */
         public PositiveIntType addSubdetailSequenceElement() {//2 
           PositiveIntType t = new PositiveIntType();
@@ -2260,7 +2260,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #subdetailSequence} (The sequence number of the sub-details woithin the details within the claim item which this line is intended to replace.)
+         * @param value {@link #subdetailSequence} (The sequence number of the sub-details within the details within the claim item which this line is intended to replace.)
          */
         public AddedItemComponent addSubdetailSequence(int value) { //1
           PositiveIntType t = new PositiveIntType();
@@ -2272,7 +2272,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #subdetailSequence} (The sequence number of the sub-details woithin the details within the claim item which this line is intended to replace.)
+         * @param value {@link #subdetailSequence} (The sequence number of the sub-details within the details within the claim item which this line is intended to replace.)
          */
         public boolean hasSubdetailSequence(int value) { 
           if (this.subdetailSequence == null)
@@ -2980,7 +2980,7 @@ public class ClaimResponse extends DomainResource {
           super.listChildren(children);
           children.add(new Property("itemSequence", "positiveInt", "Claim items which this service line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, itemSequence));
           children.add(new Property("detailSequence", "positiveInt", "The sequence number of the details within the claim item which this line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, detailSequence));
-          children.add(new Property("subdetailSequence", "positiveInt", "The sequence number of the sub-details woithin the details within the claim item which this line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, subdetailSequence));
+          children.add(new Property("subdetailSequence", "positiveInt", "The sequence number of the sub-details within the details within the claim item which this line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, subdetailSequence));
           children.add(new Property("provider", "Reference(Practitioner|PractitionerRole|Organization)", "The providers who are authorized for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
           children.add(new Property("productOrService", "CodeableConcept", "When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item.", 0, 1, productOrService));
           children.add(new Property("modifier", "CodeableConcept", "Item typification or modifiers codes to convey additional context for the product or service.", 0, java.lang.Integer.MAX_VALUE, modifier));
@@ -3003,7 +3003,7 @@ public class ClaimResponse extends DomainResource {
           switch (_hash) {
           case 1977979892: /*itemSequence*/  return new Property("itemSequence", "positiveInt", "Claim items which this service line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, itemSequence);
           case 1321472818: /*detailSequence*/  return new Property("detailSequence", "positiveInt", "The sequence number of the details within the claim item which this line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, detailSequence);
-          case 146530674: /*subdetailSequence*/  return new Property("subdetailSequence", "positiveInt", "The sequence number of the sub-details woithin the details within the claim item which this line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, subdetailSequence);
+          case 146530674: /*subdetailSequence*/  return new Property("subdetailSequence", "positiveInt", "The sequence number of the sub-details within the details within the claim item which this line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, subdetailSequence);
           case -987494927: /*provider*/  return new Property("provider", "Reference(Practitioner|PractitionerRole|Organization)", "The providers who are authorized for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider);
           case 1957227299: /*productOrService*/  return new Property("productOrService", "CodeableConcept", "When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item.", 0, 1, productOrService);
           case -615513385: /*modifier*/  return new Property("modifier", "CodeableConcept", "Item typification or modifiers codes to convey additional context for the product or service.", 0, java.lang.Integer.MAX_VALUE, modifier);
@@ -4749,10 +4749,10 @@ public class ClaimResponse extends DomainResource {
     @Block()
     public static class TotalComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.
+         * A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.
          */
         @Child(name = "category", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Type of adjudication information", formalDefinition="A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item." )
+        @Description(shortDefinition="Type of adjudication information", formalDefinition="A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/adjudication")
         protected CodeableConcept category;
 
@@ -4782,7 +4782,7 @@ public class ClaimResponse extends DomainResource {
       }
 
         /**
-         * @return {@link #category} (A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.)
+         * @return {@link #category} (A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.)
          */
         public CodeableConcept getCategory() { 
           if (this.category == null)
@@ -4798,7 +4798,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #category} (A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.)
+         * @param value {@link #category} (A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.)
          */
         public TotalComponent setCategory(CodeableConcept value) { 
           this.category = value;
@@ -4831,14 +4831,14 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("category", "CodeableConcept", "A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.", 0, 1, category));
+          children.add(new Property("category", "CodeableConcept", "A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.", 0, 1, category));
           children.add(new Property("amount", "Money", "Monetary total amount associated with the category.", 0, 1, amount));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is resonsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.", 0, 1, category);
+          case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.", 0, 1, category);
           case -1413853096: /*amount*/  return new Property("amount", "Money", "Monetary total amount associated with the category.", 0, 1, amount);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -6605,14 +6605,14 @@ public class ClaimResponse extends DomainResource {
     protected Enumeration<Use> use;
 
     /**
-     * The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimburement is sought.
+     * The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought.
      */
     @Child(name = "patient", type = {Patient.class}, order=5, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The recipient of the products and services", formalDefinition="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimburement is sought." )
+    @Description(shortDefinition="The recipient of the products and services", formalDefinition="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought." )
     protected Reference patient;
 
     /**
-     * The actual object that is the target of the reference (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimburement is sought.)
+     * The actual object that is the target of the reference (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought.)
      */
     protected Patient patientTarget;
 
@@ -7002,7 +7002,7 @@ public class ClaimResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimburement is sought.)
+     * @return {@link #patient} (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought.)
      */
     public Reference getPatient() { 
       if (this.patient == null)
@@ -7018,7 +7018,7 @@ public class ClaimResponse extends DomainResource {
     }
 
     /**
-     * @param value {@link #patient} (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimburement is sought.)
+     * @param value {@link #patient} (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought.)
      */
     public ClaimResponse setPatient(Reference value) { 
       this.patient = value;
@@ -7026,7 +7026,7 @@ public class ClaimResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimburement is sought.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought.)
      */
     public Patient getPatientTarget() { 
       if (this.patientTarget == null)
@@ -7038,7 +7038,7 @@ public class ClaimResponse extends DomainResource {
     }
 
     /**
-     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimburement is sought.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought.)
      */
     public ClaimResponse setPatientTarget(Patient value) { 
       this.patientTarget = value;
@@ -7957,7 +7957,7 @@ public class ClaimResponse extends DomainResource {
         children.add(new Property("type", "CodeableConcept", "A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.", 0, 1, type));
         children.add(new Property("subType", "CodeableConcept", "A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.", 0, 1, subType));
         children.add(new Property("use", "code", "A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.", 0, 1, use));
-        children.add(new Property("patient", "Reference(Patient)", "The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimburement is sought.", 0, 1, patient));
+        children.add(new Property("patient", "Reference(Patient)", "The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought.", 0, 1, patient));
         children.add(new Property("created", "dateTime", "The date this resource was created.", 0, 1, created));
         children.add(new Property("insurer", "Reference(Organization)", "The party responsible for authorization, adjudication and reimbursement.", 0, 1, insurer));
         children.add(new Property("requestor", "Reference(Practitioner|PractitionerRole|Organization)", "The provider which is responsible for the claim, predetermination or preauthorization.", 0, 1, requestor));
@@ -7989,7 +7989,7 @@ public class ClaimResponse extends DomainResource {
         case 3575610: /*type*/  return new Property("type", "CodeableConcept", "A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.", 0, 1, type);
         case -1868521062: /*subType*/  return new Property("subType", "CodeableConcept", "A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.", 0, 1, subType);
         case 116103: /*use*/  return new Property("use", "code", "A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.", 0, 1, use);
-        case -791418107: /*patient*/  return new Property("patient", "Reference(Patient)", "The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimburement is sought.", 0, 1, patient);
+        case -791418107: /*patient*/  return new Property("patient", "Reference(Patient)", "The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought.", 0, 1, patient);
         case 1028554472: /*created*/  return new Property("created", "dateTime", "The date this resource was created.", 0, 1, created);
         case 1957615864: /*insurer*/  return new Property("insurer", "Reference(Organization)", "The party responsible for authorization, adjudication and reimbursement.", 0, 1, insurer);
         case 693934258: /*requestor*/  return new Property("requestor", "Reference(Practitioner|PractitionerRole|Organization)", "The provider which is responsible for the claim, predetermination or preauthorization.", 0, 1, requestor);
@@ -8567,17 +8567,17 @@ public class ClaimResponse extends DomainResource {
  /**
    * Search parameter: <b>insurer</b>
    * <p>
-   * Description: <b>The organization who generated this resource</b><br>
+   * Description: <b>The organization which generated this resource</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>ClaimResponse.insurer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="insurer", path="ClaimResponse.insurer", description="The organization who generated this resource", type="reference", target={Organization.class } )
+  @SearchParamDefinition(name="insurer", path="ClaimResponse.insurer", description="The organization which generated this resource", type="reference", target={Organization.class } )
   public static final String SP_INSURER = "insurer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>insurer</b>
    * <p>
-   * Description: <b>The organization who generated this resource</b><br>
+   * Description: <b>The organization which generated this resource</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>ClaimResponse.insurer</b><br>
    * </p>

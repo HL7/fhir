@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -74,7 +74,7 @@ public class CarePlan extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
-         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" . One of the listed statuses is presumed to apply,  but the system creating the request does not know.
+         * The authoring/source system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which.
          */
         UNKNOWN, 
         /**
@@ -135,7 +135,7 @@ public class CarePlan extends DomainResource {
             case REVOKED: return "The request (and any implicit authorization to act) has been terminated prior to the known full completion of the intended actions.  No further activity should occur.";
             case COMPLETED: return "The activity described by the request has been fully performed.  No further activity will occur.";
             case ENTEREDINERROR: return "This request should never have existed and should be considered 'void'.  (It is possible that real-world decisions were based on it.  If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".).";
-            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" . One of the listed statuses is presumed to apply,  but the system creating the request does not know.";
+            case UNKNOWN: return "The authoring/source system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which.";
             default: return "?";
           }
         }
@@ -534,7 +534,7 @@ public class CarePlan extends DomainResource {
 
     public enum CarePlanActivityStatus {
         /**
-         * Activity is planned but no action has yet been taken.
+         * Care plan activity is planned but no action has yet been taken.
          */
         NOTSTARTED, 
         /**
@@ -542,31 +542,31 @@ public class CarePlan extends DomainResource {
          */
         SCHEDULED, 
         /**
-         * Activity has been started but is not yet complete.
+         * Care plan activity has been started but is not yet complete.
          */
         INPROGRESS, 
         /**
-         * Activity was started but has temporarily ceased with an expectation of resumption at a future time.
+         * Care plan activity was started but has temporarily ceased with an expectation of resumption at a future time.
          */
         ONHOLD, 
         /**
-         * The activity has been completed (more or less) as planned.
+         * Care plan activity has been completed (more or less) as planned.
          */
         COMPLETED, 
         /**
-         * The planned activity has been withdrawn.
+         * The planned care plan activity has been withdrawn.
          */
         CANCELLED, 
         /**
-         * The planned activity has been ended prior to completion after the activity was started.
+         * The planned care plan activity has been ended prior to completion after the activity was started.
          */
         STOPPED, 
         /**
-         * The current state of the activity is not known.  Note: This concept is not to be used for "other".
+         * The current state of the care plan activity is not known.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which one.
          */
         UNKNOWN, 
         /**
-         * The activity was entered in error and voided.
+         * Care plan activity was entered in error and voided.
          */
         ENTEREDINERROR, 
         /**
@@ -629,15 +629,15 @@ public class CarePlan extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case NOTSTARTED: return "Activity is planned but no action has yet been taken.";
+            case NOTSTARTED: return "Care plan activity is planned but no action has yet been taken.";
             case SCHEDULED: return "Appointment or other booking has occurred but activity has not yet begun.";
-            case INPROGRESS: return "Activity has been started but is not yet complete.";
-            case ONHOLD: return "Activity was started but has temporarily ceased with an expectation of resumption at a future time.";
-            case COMPLETED: return "The activity has been completed (more or less) as planned.";
-            case CANCELLED: return "The planned activity has been withdrawn.";
-            case STOPPED: return "The planned activity has been ended prior to completion after the activity was started.";
-            case UNKNOWN: return "The current state of the activity is not known.  Note: This concept is not to be used for \"other\".";
-            case ENTEREDINERROR: return "The activity was entered in error and voided.";
+            case INPROGRESS: return "Care plan activity has been started but is not yet complete.";
+            case ONHOLD: return "Care plan activity was started but has temporarily ceased with an expectation of resumption at a future time.";
+            case COMPLETED: return "Care plan activity has been completed (more or less) as planned.";
+            case CANCELLED: return "The planned care plan activity has been withdrawn.";
+            case STOPPED: return "The planned care plan activity has been ended prior to completion after the activity was started.";
+            case UNKNOWN: return "The current state of the care plan activity is not known.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which one.";
+            case ENTEREDINERROR: return "Care plan activity was entered in error and voided.";
             default: return "?";
           }
         }
@@ -651,7 +651,7 @@ public class CarePlan extends DomainResource {
             case CANCELLED: return "Cancelled";
             case STOPPED: return "Stopped";
             case UNKNOWN: return "Unknown";
-            case ENTEREDINERROR: return "Entered In Error";
+            case ENTEREDINERROR: return "Entered in Error";
             default: return "?";
           }
         }

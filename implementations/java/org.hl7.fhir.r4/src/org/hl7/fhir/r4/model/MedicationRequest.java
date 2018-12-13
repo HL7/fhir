@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -124,14 +124,14 @@ public class MedicationRequest extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ACTIVE: return "http://hl7.org/fhir/ValueSet/medicationrequest-status";
-            case ONHOLD: return "http://hl7.org/fhir/ValueSet/medicationrequest-status";
-            case CANCELLED: return "http://hl7.org/fhir/ValueSet/medicationrequest-status";
-            case COMPLETED: return "http://hl7.org/fhir/ValueSet/medicationrequest-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/ValueSet/medicationrequest-status";
-            case STOPPED: return "http://hl7.org/fhir/ValueSet/medicationrequest-status";
-            case DRAFT: return "http://hl7.org/fhir/ValueSet/medicationrequest-status";
-            case UNKNOWN: return "http://hl7.org/fhir/ValueSet/medicationrequest-status";
+            case ACTIVE: return "http://hl7.org/fhir/CodeSystem/medicationrequest-status";
+            case ONHOLD: return "http://hl7.org/fhir/CodeSystem/medicationrequest-status";
+            case CANCELLED: return "http://hl7.org/fhir/CodeSystem/medicationrequest-status";
+            case COMPLETED: return "http://hl7.org/fhir/CodeSystem/medicationrequest-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/CodeSystem/medicationrequest-status";
+            case STOPPED: return "http://hl7.org/fhir/CodeSystem/medicationrequest-status";
+            case DRAFT: return "http://hl7.org/fhir/CodeSystem/medicationrequest-status";
+            case UNKNOWN: return "http://hl7.org/fhir/CodeSystem/medicationrequest-status";
             default: return "?";
           }
         }
@@ -312,14 +312,14 @@ public class MedicationRequest extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PROPOSAL: return "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
-            case PLAN: return "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
-            case ORDER: return "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
-            case ORIGINALORDER: return "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
-            case REFLEXORDER: return "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
-            case FILLERORDER: return "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
-            case INSTANCEORDER: return "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
-            case OPTION: return "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
+            case PROPOSAL: return "http://hl7.org/fhir/CodeSystem/medicationrequest-intent";
+            case PLAN: return "http://hl7.org/fhir/CodeSystem/medicationrequest-intent";
+            case ORDER: return "http://hl7.org/fhir/CodeSystem/medicationrequest-intent";
+            case ORIGINALORDER: return "http://hl7.org/fhir/CodeSystem/medicationrequest-intent";
+            case REFLEXORDER: return "http://hl7.org/fhir/CodeSystem/medicationrequest-intent";
+            case FILLERORDER: return "http://hl7.org/fhir/CodeSystem/medicationrequest-intent";
+            case INSTANCEORDER: return "http://hl7.org/fhir/CodeSystem/medicationrequest-intent";
+            case OPTION: return "http://hl7.org/fhir/CodeSystem/medicationrequest-intent";
             default: return "?";
           }
         }
@@ -1521,7 +1521,7 @@ public class MedicationRequest extends DomainResource {
     /**
      * Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.
      */
-    @Child(name = "reported", type = {BooleanType.class, Patient.class, Practitioner.class, RelatedPerson.class, Organization.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "reported", type = {BooleanType.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class, Organization.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Reported rather than primary record", formalDefinition="Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report." )
     protected Type reported;
 
@@ -1611,14 +1611,14 @@ public class MedicationRequest extends DomainResource {
     /**
      * The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.
      */
-    @Child(name = "recorder", type = {Practitioner.class}, order=16, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "recorder", type = {Practitioner.class, PractitionerRole.class}, order=16, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Person who entered the request", formalDefinition="The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order." )
     protected Reference recorder;
 
     /**
      * The actual object that is the target of the reference (The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.)
      */
-    protected Practitioner recorderTarget;
+    protected Resource recorderTarget;
 
     /**
      * The reason or the indication for ordering or not ordering the medication.
@@ -1715,10 +1715,10 @@ public class MedicationRequest extends DomainResource {
     protected MedicationRequestDispenseRequestComponent dispenseRequest;
 
     /**
-     * Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.
+     * Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.
      */
     @Child(name = "substitution", type = {}, order=28, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Any restrictions on medication substitution", formalDefinition="Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done." )
+    @Description(shortDefinition="Any restrictions on medication substitution", formalDefinition="Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done." )
     protected MedicationRequestSubstitutionComponent substitution;
 
     /**
@@ -1757,7 +1757,7 @@ public class MedicationRequest extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = 1230319796L;
+    private static final long serialVersionUID = 1313900480L;
 
   /**
    * Constructor
@@ -2517,19 +2517,14 @@ public class MedicationRequest extends DomainResource {
     /**
      * @return {@link #recorder} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.)
      */
-    public Practitioner getRecorderTarget() { 
-      if (this.recorderTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationRequest.recorder");
-        else if (Configuration.doAutoCreate())
-          this.recorderTarget = new Practitioner(); // aa
+    public Resource getRecorderTarget() { 
       return this.recorderTarget;
     }
 
     /**
      * @param value {@link #recorder} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.)
      */
-    public MedicationRequest setRecorderTarget(Practitioner value) { 
+    public MedicationRequest setRecorderTarget(Resource value) { 
       this.recorderTarget = value;
       return this;
     }
@@ -3077,7 +3072,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #substitution} (Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.)
+     * @return {@link #substitution} (Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.)
      */
     public MedicationRequestSubstitutionComponent getSubstitution() { 
       if (this.substitution == null)
@@ -3093,7 +3088,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #substitution} (Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.)
+     * @param value {@link #substitution} (Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.)
      */
     public MedicationRequest setSubstitution(MedicationRequestSubstitutionComponent value) { 
       this.substitution = value;
@@ -3303,7 +3298,7 @@ public class MedicationRequest extends DomainResource {
         children.add(new Property("category", "CodeableConcept", "Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient)).", 0, java.lang.Integer.MAX_VALUE, category));
         children.add(new Property("priority", "code", "Indicates how quickly the Medication Request should be addressed with respect to other requests.", 0, 1, priority));
         children.add(new Property("doNotPerform", "boolean", "If true indicates that the provider is asking for the medication request not to occur.", 0, 1, doNotPerform));
-        children.add(new Property("reported[x]", "boolean|Reference(Patient|Practitioner|RelatedPerson|Organization)", "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.", 0, 1, reported));
+        children.add(new Property("reported[x]", "boolean|Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Organization)", "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.", 0, 1, reported));
         children.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication));
         children.add(new Property("subject", "Reference(Patient|Group)", "A link to a resource representing the person or set of individuals to whom the medication will be given.", 0, 1, subject));
         children.add(new Property("encounter", "Reference(Encounter)", "The Encounter during which this [x] was created or to which the creation of this record is tightly associated.", 0, 1, encounter));
@@ -3312,7 +3307,7 @@ public class MedicationRequest extends DomainResource {
         children.add(new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The individual, organization, or device that initiated the request and has responsibility for its activation.", 0, 1, requester));
         children.add(new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|Patient|Device|RelatedPerson|CareTeam)", "The specified desired performer of the medication treatment (e.g. the performer of the medication administration).", 0, 1, performer));
         children.add(new Property("performerType", "CodeableConcept", "Indicates the type of performer of the administration of the medication.", 0, 1, performerType));
-        children.add(new Property("recorder", "Reference(Practitioner)", "The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.", 0, 1, recorder));
+        children.add(new Property("recorder", "Reference(Practitioner|PractitionerRole)", "The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.", 0, 1, recorder));
         children.add(new Property("reasonCode", "CodeableConcept", "The reason or the indication for ordering or not ordering the medication.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         children.add(new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was ordered.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         children.add(new Property("instantiatesCanonical", "canonical", "The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical));
@@ -3324,7 +3319,7 @@ public class MedicationRequest extends DomainResource {
         children.add(new Property("note", "Annotation", "Extra information about the prescription that could not be conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         children.add(new Property("dosageInstruction", "Dosage", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         children.add(new Property("dispenseRequest", "", "Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.", 0, 1, dispenseRequest));
-        children.add(new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, 1, substitution));
+        children.add(new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, 1, substitution));
         children.add(new Property("priorPrescription", "Reference(MedicationRequest)", "A link to a resource representing an earlier order related order or prescription.", 0, 1, priorPrescription));
         children.add(new Property("detectedIssue", "Reference(DetectedIssue)", "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.", 0, java.lang.Integer.MAX_VALUE, detectedIssue));
         children.add(new Property("eventHistory", "Reference(Provenance)", "Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.", 0, java.lang.Integer.MAX_VALUE, eventHistory));
@@ -3340,10 +3335,10 @@ public class MedicationRequest extends DomainResource {
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient)).", 0, java.lang.Integer.MAX_VALUE, category);
         case -1165461084: /*priority*/  return new Property("priority", "code", "Indicates how quickly the Medication Request should be addressed with respect to other requests.", 0, 1, priority);
         case -1788508167: /*doNotPerform*/  return new Property("doNotPerform", "boolean", "If true indicates that the provider is asking for the medication request not to occur.", 0, 1, doNotPerform);
-        case -241505587: /*reported[x]*/  return new Property("reported[x]", "boolean|Reference(Patient|Practitioner|RelatedPerson|Organization)", "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.", 0, 1, reported);
-        case -427039533: /*reported*/  return new Property("reported[x]", "boolean|Reference(Patient|Practitioner|RelatedPerson|Organization)", "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.", 0, 1, reported);
-        case 1219992533: /*reportedBoolean*/  return new Property("reported[x]", "boolean|Reference(Patient|Practitioner|RelatedPerson|Organization)", "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.", 0, 1, reported);
-        case 1198143416: /*reportedReference*/  return new Property("reported[x]", "boolean|Reference(Patient|Practitioner|RelatedPerson|Organization)", "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.", 0, 1, reported);
+        case -241505587: /*reported[x]*/  return new Property("reported[x]", "boolean|Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Organization)", "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.", 0, 1, reported);
+        case -427039533: /*reported*/  return new Property("reported[x]", "boolean|Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Organization)", "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.", 0, 1, reported);
+        case 1219992533: /*reportedBoolean*/  return new Property("reported[x]", "boolean|Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Organization)", "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.", 0, 1, reported);
+        case 1198143416: /*reportedReference*/  return new Property("reported[x]", "boolean|Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Organization)", "Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report.", 0, 1, reported);
         case 1458402129: /*medication[x]*/  return new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication);
         case 1998965455: /*medication*/  return new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication);
         case -209845038: /*medicationCodeableConcept*/  return new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication);
@@ -3355,7 +3350,7 @@ public class MedicationRequest extends DomainResource {
         case 693933948: /*requester*/  return new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The individual, organization, or device that initiated the request and has responsibility for its activation.", 0, 1, requester);
         case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|Patient|Device|RelatedPerson|CareTeam)", "The specified desired performer of the medication treatment (e.g. the performer of the medication administration).", 0, 1, performer);
         case -901444568: /*performerType*/  return new Property("performerType", "CodeableConcept", "Indicates the type of performer of the administration of the medication.", 0, 1, performerType);
-        case -799233858: /*recorder*/  return new Property("recorder", "Reference(Practitioner)", "The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.", 0, 1, recorder);
+        case -799233858: /*recorder*/  return new Property("recorder", "Reference(Practitioner|PractitionerRole)", "The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.", 0, 1, recorder);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "The reason or the indication for ordering or not ordering the medication.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
         case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was ordered.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
         case 8911915: /*instantiatesCanonical*/  return new Property("instantiatesCanonical", "canonical", "The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical);
@@ -3367,7 +3362,7 @@ public class MedicationRequest extends DomainResource {
         case 3387378: /*note*/  return new Property("note", "Annotation", "Extra information about the prescription that could not be conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note);
         case -1201373865: /*dosageInstruction*/  return new Property("dosageInstruction", "Dosage", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction);
         case 824620658: /*dispenseRequest*/  return new Property("dispenseRequest", "", "Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.", 0, 1, dispenseRequest);
-        case 826147581: /*substitution*/  return new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, 1, substitution);
+        case 826147581: /*substitution*/  return new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, 1, substitution);
         case -486355964: /*priorPrescription*/  return new Property("priorPrescription", "Reference(MedicationRequest)", "A link to a resource representing an earlier order related order or prescription.", 0, 1, priorPrescription);
         case 51602295: /*detectedIssue*/  return new Property("detectedIssue", "Reference(DetectedIssue)", "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.", 0, java.lang.Integer.MAX_VALUE, detectedIssue);
         case 1835190426: /*eventHistory*/  return new Property("eventHistory", "Reference(Provenance)", "Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.", 0, java.lang.Integer.MAX_VALUE, eventHistory);

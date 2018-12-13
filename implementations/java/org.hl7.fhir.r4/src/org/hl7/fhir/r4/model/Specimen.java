@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -177,14 +177,14 @@ public class Specimen extends DomainResource {
         /**
          * Person who collected the specimen.
          */
-        @Child(name = "collector", type = {Practitioner.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "collector", type = {Practitioner.class, PractitionerRole.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Who collected the specimen", formalDefinition="Person who collected the specimen." )
         protected Reference collector;
 
         /**
          * The actual object that is the target of the reference (Person who collected the specimen.)
          */
-        protected Practitioner collectorTarget;
+        protected Resource collectorTarget;
 
         /**
          * Time when specimen was collected from subject - the physiologically relevant time.
@@ -231,7 +231,7 @@ public class Specimen extends DomainResource {
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v2-0916")
         protected Type fastingStatus;
 
-        private static final long serialVersionUID = -1081279935L;
+        private static final long serialVersionUID = -719430195L;
 
     /**
      * Constructor
@@ -267,19 +267,14 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #collector} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who collected the specimen.)
          */
-        public Practitioner getCollectorTarget() { 
-          if (this.collectorTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SpecimenCollectionComponent.collector");
-            else if (Configuration.doAutoCreate())
-              this.collectorTarget = new Practitioner(); // aa
+        public Resource getCollectorTarget() { 
           return this.collectorTarget;
         }
 
         /**
          * @param value {@link #collector} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Person who collected the specimen.)
          */
-        public SpecimenCollectionComponent setCollectorTarget(Practitioner value) { 
+        public SpecimenCollectionComponent setCollectorTarget(Resource value) { 
           this.collectorTarget = value;
           return this;
         }
@@ -484,7 +479,7 @@ public class Specimen extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("collector", "Reference(Practitioner)", "Person who collected the specimen.", 0, 1, collector));
+          children.add(new Property("collector", "Reference(Practitioner|PractitionerRole)", "Person who collected the specimen.", 0, 1, collector));
           children.add(new Property("collected[x]", "dateTime|Period", "Time when specimen was collected from subject - the physiologically relevant time.", 0, 1, collected));
           children.add(new Property("duration", "Duration", "The span of time over which the collection of a specimen occurred.", 0, 1, duration));
           children.add(new Property("quantity", "SimpleQuantity", "The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.", 0, 1, quantity));
@@ -496,7 +491,7 @@ public class Specimen extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 1883491469: /*collector*/  return new Property("collector", "Reference(Practitioner)", "Person who collected the specimen.", 0, 1, collector);
+          case 1883491469: /*collector*/  return new Property("collector", "Reference(Practitioner|PractitionerRole)", "Person who collected the specimen.", 0, 1, collector);
           case 1632037015: /*collected[x]*/  return new Property("collected[x]", "dateTime|Period", "Time when specimen was collected from subject - the physiologically relevant time.", 0, 1, collected);
           case 1883491145: /*collected*/  return new Property("collected[x]", "dateTime|Period", "Time when specimen was collected from subject - the physiologically relevant time.", 0, 1, collected);
           case 2005009924: /*collectedDateTime*/  return new Property("collected[x]", "dateTime|Period", "Time when specimen was collected from subject - the physiologically relevant time.", 0, 1, collected);
@@ -2878,7 +2873,7 @@ public class Specimen extends DomainResource {
    * Path: <b>Specimen.collection.collector</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="collector", path="Specimen.collection.collector", description="Who collected the specimen", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  @SearchParamDefinition(name="collector", path="Specimen.collection.collector", description="Who collected the specimen", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class, PractitionerRole.class } )
   public static final String SP_COLLECTOR = "collector";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>collector</b>

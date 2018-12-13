@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -729,10 +729,10 @@ public class ClinicalImpression extends DomainResource {
     protected CodeableConcept code;
 
     /**
-     * A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.
+     * A summary of the context and/or cause of the assessment - why / where it was performed, and what patient events/status prompted it.
      */
     @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Why/how the assessment was performed", formalDefinition="A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it." )
+    @Description(shortDefinition="Why/how the assessment was performed", formalDefinition="A summary of the context and/or cause of the assessment - why / where it was performed, and what patient events/status prompted it." )
     protected StringType description;
 
     /**
@@ -776,14 +776,14 @@ public class ClinicalImpression extends DomainResource {
     /**
      * The clinician performing the assessment.
      */
-    @Child(name = "assessor", type = {Practitioner.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "assessor", type = {Practitioner.class, PractitionerRole.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The clinician performing the assessment", formalDefinition="The clinician performing the assessment." )
     protected Reference assessor;
 
     /**
      * The actual object that is the target of the reference (The clinician performing the assessment.)
      */
-    protected Practitioner assessorTarget;
+    protected Resource assessorTarget;
 
     /**
      * A reference to the last assessment that was conducted on this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.
@@ -798,13 +798,13 @@ public class ClinicalImpression extends DomainResource {
     protected ClinicalImpression previousTarget;
 
     /**
-     * This a list of the relevant problems/conditions for a patient.
+     * A list of the relevant problems/conditions for a patient.
      */
     @Child(name = "problem", type = {Condition.class, AllergyIntolerance.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Relevant impressions of patient state", formalDefinition="This a list of the relevant problems/conditions for a patient." )
+    @Description(shortDefinition="Relevant impressions of patient state", formalDefinition="A list of the relevant problems/conditions for a patient." )
     protected List<Reference> problem;
     /**
-     * The actual objects that are the target of the reference (This a list of the relevant problems/conditions for a patient.)
+     * The actual objects that are the target of the reference (A list of the relevant problems/conditions for a patient.)
      */
     protected List<Resource> problemTarget;
 
@@ -831,10 +831,10 @@ public class ClinicalImpression extends DomainResource {
     protected StringType summary;
 
     /**
-     * Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.
+     * Specific findings or diagnoses that were considered likely or relevant to ongoing treatment.
      */
     @Child(name = "finding", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Possible or likely findings and diagnoses", formalDefinition="Specific findings or diagnoses that was considered likely or relevant to ongoing treatment." )
+    @Description(shortDefinition="Possible or likely findings and diagnoses", formalDefinition="Specific findings or diagnoses that were considered likely or relevant to ongoing treatment." )
     protected List<ClinicalImpressionFindingComponent> finding;
 
     /**
@@ -876,7 +876,7 @@ public class ClinicalImpression extends DomainResource {
     @Description(shortDefinition="Comments made about the ClinicalImpression", formalDefinition="Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 1313360195L;
+    private static final long serialVersionUID = 1158874575L;
 
   /**
    * Constructor
@@ -1041,7 +1041,7 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #description} (A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @return {@link #description} (A summary of the context and/or cause of the assessment - why / where it was performed, and what patient events/status prompted it.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
       if (this.description == null)
@@ -1061,7 +1061,7 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @param value {@link #description} (A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @param value {@link #description} (A summary of the context and/or cause of the assessment - why / where it was performed, and what patient events/status prompted it.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public ClinicalImpression setDescriptionElement(StringType value) { 
       this.description = value;
@@ -1069,14 +1069,14 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.
+     * @return A summary of the context and/or cause of the assessment - why / where it was performed, and what patient events/status prompted it.
      */
     public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.
+     * @param value A summary of the context and/or cause of the assessment - why / where it was performed, and what patient events/status prompted it.
      */
     public ClinicalImpression setDescription(String value) { 
       if (Utilities.noString(value))
@@ -1299,19 +1299,14 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #assessor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
      */
-    public Practitioner getAssessorTarget() { 
-      if (this.assessorTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalImpression.assessor");
-        else if (Configuration.doAutoCreate())
-          this.assessorTarget = new Practitioner(); // aa
+    public Resource getAssessorTarget() { 
       return this.assessorTarget;
     }
 
     /**
      * @param value {@link #assessor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
      */
-    public ClinicalImpression setAssessorTarget(Practitioner value) { 
+    public ClinicalImpression setAssessorTarget(Resource value) { 
       this.assessorTarget = value;
       return this;
     }
@@ -1361,7 +1356,7 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #problem} (This a list of the relevant problems/conditions for a patient.)
+     * @return {@link #problem} (A list of the relevant problems/conditions for a patient.)
      */
     public List<Reference> getProblem() { 
       if (this.problem == null)
@@ -1587,7 +1582,7 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #finding} (Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.)
+     * @return {@link #finding} (Specific findings or diagnoses that were considered likely or relevant to ongoing treatment.)
      */
     public List<ClinicalImpressionFindingComponent> getFinding() { 
       if (this.finding == null)
@@ -1889,18 +1884,18 @@ public class ClinicalImpression extends DomainResource {
         children.add(new Property("status", "code", "Identifies the workflow status of the assessment.", 0, 1, status));
         children.add(new Property("statusReason", "CodeableConcept", "Captures the reason for the current state of the ClinicalImpression.", 0, 1, statusReason));
         children.add(new Property("code", "CodeableConcept", "Categorizes the type of clinical assessment performed.", 0, 1, code));
-        children.add(new Property("description", "string", "A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.", 0, 1, description));
+        children.add(new Property("description", "string", "A summary of the context and/or cause of the assessment - why / where it was performed, and what patient events/status prompted it.", 0, 1, description));
         children.add(new Property("subject", "Reference(Patient|Group)", "The patient or group of individuals assessed as part of this record.", 0, 1, subject));
         children.add(new Property("encounter", "Reference(Encounter)", "The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.", 0, 1, encounter));
         children.add(new Property("effective[x]", "dateTime|Period", "The point in time or period over which the subject was assessed.", 0, 1, effective));
         children.add(new Property("date", "dateTime", "Indicates when the documentation of the assessment was complete.", 0, 1, date));
-        children.add(new Property("assessor", "Reference(Practitioner)", "The clinician performing the assessment.", 0, 1, assessor));
+        children.add(new Property("assessor", "Reference(Practitioner|PractitionerRole)", "The clinician performing the assessment.", 0, 1, assessor));
         children.add(new Property("previous", "Reference(ClinicalImpression)", "A reference to the last assessment that was conducted on this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.", 0, 1, previous));
-        children.add(new Property("problem", "Reference(Condition|AllergyIntolerance)", "This a list of the relevant problems/conditions for a patient.", 0, java.lang.Integer.MAX_VALUE, problem));
+        children.add(new Property("problem", "Reference(Condition|AllergyIntolerance)", "A list of the relevant problems/conditions for a patient.", 0, java.lang.Integer.MAX_VALUE, problem));
         children.add(new Property("investigation", "", "One or more sets of investigations (signs, symptoms, etc.). The actual grouping of investigations varies greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.", 0, java.lang.Integer.MAX_VALUE, investigation));
         children.add(new Property("protocol", "uri", "Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.", 0, java.lang.Integer.MAX_VALUE, protocol));
         children.add(new Property("summary", "string", "A text summary of the investigations and the diagnosis.", 0, 1, summary));
-        children.add(new Property("finding", "", "Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.", 0, java.lang.Integer.MAX_VALUE, finding));
+        children.add(new Property("finding", "", "Specific findings or diagnoses that were considered likely or relevant to ongoing treatment.", 0, java.lang.Integer.MAX_VALUE, finding));
         children.add(new Property("prognosisCodeableConcept", "CodeableConcept", "Estimate of likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisCodeableConcept));
         children.add(new Property("prognosisReference", "Reference(RiskAssessment)", "RiskAssessment expressing likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisReference));
         children.add(new Property("supportingInfo", "Reference(Any)", "Information supporting the clinical impression.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
@@ -1914,7 +1909,7 @@ public class ClinicalImpression extends DomainResource {
         case -892481550: /*status*/  return new Property("status", "code", "Identifies the workflow status of the assessment.", 0, 1, status);
         case 2051346646: /*statusReason*/  return new Property("statusReason", "CodeableConcept", "Captures the reason for the current state of the ClinicalImpression.", 0, 1, statusReason);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Categorizes the type of clinical assessment performed.", 0, 1, code);
-        case -1724546052: /*description*/  return new Property("description", "string", "A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.", 0, 1, description);
+        case -1724546052: /*description*/  return new Property("description", "string", "A summary of the context and/or cause of the assessment - why / where it was performed, and what patient events/status prompted it.", 0, 1, description);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group)", "The patient or group of individuals assessed as part of this record.", 0, 1, subject);
         case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.", 0, 1, encounter);
         case 247104889: /*effective[x]*/  return new Property("effective[x]", "dateTime|Period", "The point in time or period over which the subject was assessed.", 0, 1, effective);
@@ -1922,13 +1917,13 @@ public class ClinicalImpression extends DomainResource {
         case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "The point in time or period over which the subject was assessed.", 0, 1, effective);
         case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "The point in time or period over which the subject was assessed.", 0, 1, effective);
         case 3076014: /*date*/  return new Property("date", "dateTime", "Indicates when the documentation of the assessment was complete.", 0, 1, date);
-        case -373213113: /*assessor*/  return new Property("assessor", "Reference(Practitioner)", "The clinician performing the assessment.", 0, 1, assessor);
+        case -373213113: /*assessor*/  return new Property("assessor", "Reference(Practitioner|PractitionerRole)", "The clinician performing the assessment.", 0, 1, assessor);
         case -1273775369: /*previous*/  return new Property("previous", "Reference(ClinicalImpression)", "A reference to the last assessment that was conducted on this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.", 0, 1, previous);
-        case -309542241: /*problem*/  return new Property("problem", "Reference(Condition|AllergyIntolerance)", "This a list of the relevant problems/conditions for a patient.", 0, java.lang.Integer.MAX_VALUE, problem);
+        case -309542241: /*problem*/  return new Property("problem", "Reference(Condition|AllergyIntolerance)", "A list of the relevant problems/conditions for a patient.", 0, java.lang.Integer.MAX_VALUE, problem);
         case 956015362: /*investigation*/  return new Property("investigation", "", "One or more sets of investigations (signs, symptoms, etc.). The actual grouping of investigations varies greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.", 0, java.lang.Integer.MAX_VALUE, investigation);
         case -989163880: /*protocol*/  return new Property("protocol", "uri", "Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.", 0, java.lang.Integer.MAX_VALUE, protocol);
         case -1857640538: /*summary*/  return new Property("summary", "string", "A text summary of the investigations and the diagnosis.", 0, 1, summary);
-        case -853173367: /*finding*/  return new Property("finding", "", "Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.", 0, java.lang.Integer.MAX_VALUE, finding);
+        case -853173367: /*finding*/  return new Property("finding", "", "Specific findings or diagnoses that were considered likely or relevant to ongoing treatment.", 0, java.lang.Integer.MAX_VALUE, finding);
         case -676337953: /*prognosisCodeableConcept*/  return new Property("prognosisCodeableConcept", "CodeableConcept", "Estimate of likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisCodeableConcept);
         case -587137783: /*prognosisReference*/  return new Property("prognosisReference", "Reference(RiskAssessment)", "RiskAssessment expressing likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisReference);
         case 1922406657: /*supportingInfo*/  return new Property("supportingInfo", "Reference(Any)", "Information supporting the clinical impression.", 0, java.lang.Integer.MAX_VALUE, supportingInfo);
@@ -2422,7 +2417,7 @@ public class ClinicalImpression extends DomainResource {
    * Path: <b>ClinicalImpression.assessor</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="assessor", path="ClinicalImpression.assessor", description="The clinician performing the assessment", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  @SearchParamDefinition(name="assessor", path="ClinicalImpression.assessor", description="The clinician performing the assessment", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class, PractitionerRole.class } )
   public static final String SP_ASSESSOR = "assessor";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>assessor</b>

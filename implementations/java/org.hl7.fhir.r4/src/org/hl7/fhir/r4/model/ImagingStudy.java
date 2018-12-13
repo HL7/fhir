@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -1815,25 +1815,25 @@ public class ImagingStudy extends DomainResource {
     /**
      * The requesting/referring physician.
      */
-    @Child(name = "referrer", type = {Practitioner.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "referrer", type = {Practitioner.class, PractitionerRole.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Referring physician", formalDefinition="The requesting/referring physician." )
     protected Reference referrer;
 
     /**
      * The actual object that is the target of the reference (The requesting/referring physician.)
      */
-    protected Practitioner referrerTarget;
+    protected Resource referrerTarget;
 
     /**
      * Who read the study and interpreted the images or other content.
      */
-    @Child(name = "interpreter", type = {Practitioner.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "interpreter", type = {Practitioner.class, PractitionerRole.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Who interpreted images", formalDefinition="Who read the study and interpreted the images or other content." )
     protected List<Reference> interpreter;
     /**
      * The actual objects that are the target of the reference (Who read the study and interpreted the images or other content.)
      */
-    protected List<Practitioner> interpreterTarget;
+    protected List<Resource> interpreterTarget;
 
 
     /**
@@ -1934,7 +1934,7 @@ public class ImagingStudy extends DomainResource {
     @Description(shortDefinition="Each study has one or more series of instances", formalDefinition="Each study has one or more series of images or other content." )
     protected List<ImagingStudySeriesComponent> series;
 
-    private static final long serialVersionUID = -791447025L;
+    private static final long serialVersionUID = -647973361L;
 
   /**
    * Constructor
@@ -2325,19 +2325,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #referrer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The requesting/referring physician.)
      */
-    public Practitioner getReferrerTarget() { 
-      if (this.referrerTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ImagingStudy.referrer");
-        else if (Configuration.doAutoCreate())
-          this.referrerTarget = new Practitioner(); // aa
+    public Resource getReferrerTarget() { 
       return this.referrerTarget;
     }
 
     /**
      * @param value {@link #referrer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The requesting/referring physician.)
      */
-    public ImagingStudy setReferrerTarget(Practitioner value) { 
+    public ImagingStudy setReferrerTarget(Resource value) { 
       this.referrerTarget = value;
       return this;
     }
@@ -2399,22 +2394,10 @@ public class ImagingStudy extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Practitioner> getInterpreterTarget() { 
+    public List<Resource> getInterpreterTarget() { 
       if (this.interpreterTarget == null)
-        this.interpreterTarget = new ArrayList<Practitioner>();
+        this.interpreterTarget = new ArrayList<Resource>();
       return this.interpreterTarget;
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public Practitioner addInterpreterTarget() { 
-      Practitioner r = new Practitioner();
-      if (this.interpreterTarget == null)
-        this.interpreterTarget = new ArrayList<Practitioner>();
-      this.interpreterTarget.add(r);
-      return r;
     }
 
     /**
@@ -3003,8 +2986,8 @@ public class ImagingStudy extends DomainResource {
         children.add(new Property("encounter", "Reference(Encounter)", "The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made.", 0, 1, encounter));
         children.add(new Property("started", "dateTime", "Date and time the study started.", 0, 1, started));
         children.add(new Property("basedOn", "Reference(CarePlan|ServiceRequest|Appointment|AppointmentResponse|Task)", "A list of the diagnostic requests that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, basedOn));
-        children.add(new Property("referrer", "Reference(Practitioner)", "The requesting/referring physician.", 0, 1, referrer));
-        children.add(new Property("interpreter", "Reference(Practitioner)", "Who read the study and interpreted the images or other content.", 0, java.lang.Integer.MAX_VALUE, interpreter));
+        children.add(new Property("referrer", "Reference(Practitioner|PractitionerRole)", "The requesting/referring physician.", 0, 1, referrer));
+        children.add(new Property("interpreter", "Reference(Practitioner|PractitionerRole)", "Who read the study and interpreted the images or other content.", 0, java.lang.Integer.MAX_VALUE, interpreter));
         children.add(new Property("endpoint", "Reference(Endpoint)", "The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.connectionType.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         children.add(new Property("numberOfSeries", "unsignedInt", "Number of Series in the Study. This value given may be larger than the number of series elements this Resource contains due to resource availability, security, or other factors. This element should be present if any series elements are present.", 0, 1, numberOfSeries));
         children.add(new Property("numberOfInstances", "unsignedInt", "Number of SOP Instances in Study. This value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present.", 0, 1, numberOfInstances));
@@ -3028,8 +3011,8 @@ public class ImagingStudy extends DomainResource {
         case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made.", 0, 1, encounter);
         case -1897185151: /*started*/  return new Property("started", "dateTime", "Date and time the study started.", 0, 1, started);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|ServiceRequest|Appointment|AppointmentResponse|Task)", "A list of the diagnostic requests that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, basedOn);
-        case -722568161: /*referrer*/  return new Property("referrer", "Reference(Practitioner)", "The requesting/referring physician.", 0, 1, referrer);
-        case -2008009094: /*interpreter*/  return new Property("interpreter", "Reference(Practitioner)", "Who read the study and interpreted the images or other content.", 0, java.lang.Integer.MAX_VALUE, interpreter);
+        case -722568161: /*referrer*/  return new Property("referrer", "Reference(Practitioner|PractitionerRole)", "The requesting/referring physician.", 0, 1, referrer);
+        case -2008009094: /*interpreter*/  return new Property("interpreter", "Reference(Practitioner|PractitionerRole)", "Who read the study and interpreted the images or other content.", 0, java.lang.Integer.MAX_VALUE, interpreter);
         case 1741102485: /*endpoint*/  return new Property("endpoint", "Reference(Endpoint)", "The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.connectionType.", 0, java.lang.Integer.MAX_VALUE, endpoint);
         case 1920000407: /*numberOfSeries*/  return new Property("numberOfSeries", "unsignedInt", "Number of Series in the Study. This value given may be larger than the number of series elements this Resource contains due to resource availability, security, or other factors. This element should be present if any series elements are present.", 0, 1, numberOfSeries);
         case -1043544226: /*numberOfInstances*/  return new Property("numberOfInstances", "unsignedInt", "Number of SOP Instances in Study. This value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present.", 0, 1, numberOfInstances);
@@ -3628,6 +3611,32 @@ public class ImagingStudy extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam STARTED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_STARTED);
 
  /**
+   * Search parameter: <b>interpreter</b>
+   * <p>
+   * Description: <b>Who interpreted the images</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImagingStudy.interpreter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="interpreter", path="ImagingStudy.interpreter", description="Who interpreted the images", type="reference", target={Practitioner.class, PractitionerRole.class } )
+  public static final String SP_INTERPRETER = "interpreter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>interpreter</b>
+   * <p>
+   * Description: <b>Who interpreted the images</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImagingStudy.interpreter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INTERPRETER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INTERPRETER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ImagingStudy:interpreter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INTERPRETER = new ca.uhn.fhir.model.api.Include("ImagingStudy:interpreter").toLocked();
+
+ /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>The context of the study</b><br>
@@ -3652,6 +3661,32 @@ public class ImagingStudy extends DomainResource {
    * the path value of "<b>ImagingStudy:encounter</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("ImagingStudy:encounter").toLocked();
+
+ /**
+   * Search parameter: <b>referrer</b>
+   * <p>
+   * Description: <b>The referring physician</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImagingStudy.referrer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="referrer", path="ImagingStudy.referrer", description="The referring physician", type="reference", target={Practitioner.class, PractitionerRole.class } )
+  public static final String SP_REFERRER = "referrer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>referrer</b>
+   * <p>
+   * Description: <b>The referring physician</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImagingStudy.referrer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REFERRER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REFERRER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ImagingStudy:referrer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REFERRER = new ca.uhn.fhir.model.api.Include("ImagingStudy:referrer").toLocked();
 
  /**
    * Search parameter: <b>endpoint</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A provider issued list of professional services and products which have been provided, or to be provided, to a patient which is sent to an insurer for reimbursement.
+ * A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
  */
 @ResourceDef(name="Claim", profile="http://hl7.org/fhir/StructureDefinition/Claim")
 public class Claim extends DomainResource {
@@ -3611,10 +3611,10 @@ public class Claim extends DomainResource {
         protected List<PositiveIntType> careTeamSequence;
 
         /**
-         * Diagnoses applicable for this service or product.
+         * Diagnosis applicable for this service or product.
          */
         @Child(name = "diagnosisSequence", type = {PositiveIntType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Applicable diagnoses", formalDefinition="Diagnoses applicable for this service or product." )
+        @Description(shortDefinition="Applicable diagnoses", formalDefinition="Diagnosis applicable for this service or product." )
         protected List<PositiveIntType> diagnosisSequence;
 
         /**
@@ -3886,7 +3886,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #diagnosisSequence} (Diagnoses applicable for this service or product.)
+         * @return {@link #diagnosisSequence} (Diagnosis applicable for this service or product.)
          */
         public List<PositiveIntType> getDiagnosisSequence() { 
           if (this.diagnosisSequence == null)
@@ -3912,7 +3912,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #diagnosisSequence} (Diagnoses applicable for this service or product.)
+         * @return {@link #diagnosisSequence} (Diagnosis applicable for this service or product.)
          */
         public PositiveIntType addDiagnosisSequenceElement() {//2 
           PositiveIntType t = new PositiveIntType();
@@ -3923,7 +3923,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @param value {@link #diagnosisSequence} (Diagnoses applicable for this service or product.)
+         * @param value {@link #diagnosisSequence} (Diagnosis applicable for this service or product.)
          */
         public ItemComponent addDiagnosisSequence(int value) { //1
           PositiveIntType t = new PositiveIntType();
@@ -3935,7 +3935,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @param value {@link #diagnosisSequence} (Diagnoses applicable for this service or product.)
+         * @param value {@link #diagnosisSequence} (Diagnosis applicable for this service or product.)
          */
         public boolean hasDiagnosisSequence(int value) { 
           if (this.diagnosisSequence == null)
@@ -4786,7 +4786,7 @@ public class Claim extends DomainResource {
           super.listChildren(children);
           children.add(new Property("sequence", "positiveInt", "A number to uniquely identify item entries.", 0, 1, sequence));
           children.add(new Property("careTeamSequence", "positiveInt", "CareTeam members related to this service or product.", 0, java.lang.Integer.MAX_VALUE, careTeamSequence));
-          children.add(new Property("diagnosisSequence", "positiveInt", "Diagnoses applicable for this service or product.", 0, java.lang.Integer.MAX_VALUE, diagnosisSequence));
+          children.add(new Property("diagnosisSequence", "positiveInt", "Diagnosis applicable for this service or product.", 0, java.lang.Integer.MAX_VALUE, diagnosisSequence));
           children.add(new Property("procedureSequence", "positiveInt", "Procedures applicable for this service or product.", 0, java.lang.Integer.MAX_VALUE, procedureSequence));
           children.add(new Property("informationSequence", "positiveInt", "Exceptions, special conditions and supporting information applicable for this service or product.", 0, java.lang.Integer.MAX_VALUE, informationSequence));
           children.add(new Property("revenue", "CodeableConcept", "The type of revenue or cost center providing the product and/or service.", 0, 1, revenue));
@@ -4812,7 +4812,7 @@ public class Claim extends DomainResource {
           switch (_hash) {
           case 1349547969: /*sequence*/  return new Property("sequence", "positiveInt", "A number to uniquely identify item entries.", 0, 1, sequence);
           case 1070083823: /*careTeamSequence*/  return new Property("careTeamSequence", "positiveInt", "CareTeam members related to this service or product.", 0, java.lang.Integer.MAX_VALUE, careTeamSequence);
-          case -909769262: /*diagnosisSequence*/  return new Property("diagnosisSequence", "positiveInt", "Diagnoses applicable for this service or product.", 0, java.lang.Integer.MAX_VALUE, diagnosisSequence);
+          case -909769262: /*diagnosisSequence*/  return new Property("diagnosisSequence", "positiveInt", "Diagnosis applicable for this service or product.", 0, java.lang.Integer.MAX_VALUE, diagnosisSequence);
           case -808920140: /*procedureSequence*/  return new Property("procedureSequence", "positiveInt", "Procedures applicable for this service or product.", 0, java.lang.Integer.MAX_VALUE, procedureSequence);
           case -702585587: /*informationSequence*/  return new Property("informationSequence", "positiveInt", "Exceptions, special conditions and supporting information applicable for this service or product.", 0, java.lang.Integer.MAX_VALUE, informationSequence);
           case 1099842588: /*revenue*/  return new Property("revenue", "CodeableConcept", "The type of revenue or cost center providing the product and/or service.", 0, 1, revenue);
@@ -7004,14 +7004,14 @@ public class Claim extends DomainResource {
     protected Enumeration<Use> use;
 
     /**
-     * The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimburement is sought.
+     * The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought.
      */
     @Child(name = "patient", type = {Patient.class}, order=5, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The recipient of the products and services", formalDefinition="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimburement is sought." )
+    @Description(shortDefinition="The recipient of the products and services", formalDefinition="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought." )
     protected Reference patient;
 
     /**
-     * The actual object that is the target of the reference (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimburement is sought.)
+     * The actual object that is the target of the reference (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought.)
      */
     protected Patient patientTarget;
 
@@ -7179,17 +7179,17 @@ public class Claim extends DomainResource {
     protected List<InsuranceComponent> insurance;
 
     /**
-     * Details of a accident which resulted in injuries which required the products and services listed in the claim.
+     * Details of an accident which resulted in injuries which required the products and services listed in the claim.
      */
     @Child(name = "accident", type = {}, order=24, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Details of the event", formalDefinition="Details of a accident which resulted in injuries which required the products and services listed in the claim." )
+    @Description(shortDefinition="Details of the event", formalDefinition="Details of an accident which resulted in injuries which required the products and services listed in the claim." )
     protected AccidentComponent accident;
 
     /**
-     * A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details.
+     * A claim line. Either a simple  product or service or a 'group' of details which can each be a simple items or groups of sub-details.
      */
     @Child(name = "item", type = {}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Product or service provided", formalDefinition="A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details." )
+    @Description(shortDefinition="Product or service provided", formalDefinition="A claim line. Either a simple  product or service or a 'group' of details which can each be a simple items or groups of sub-details." )
     protected List<ItemComponent> item;
 
     /**
@@ -7414,7 +7414,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimburement is sought.)
+     * @return {@link #patient} (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought.)
      */
     public Reference getPatient() { 
       if (this.patient == null)
@@ -7430,7 +7430,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @param value {@link #patient} (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimburement is sought.)
+     * @param value {@link #patient} (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought.)
      */
     public Claim setPatient(Reference value) { 
       this.patient = value;
@@ -7438,7 +7438,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimburement is sought.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought.)
      */
     public Patient getPatientTarget() { 
       if (this.patientTarget == null)
@@ -7450,7 +7450,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimburement is sought.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought.)
      */
     public Claim setPatientTarget(Patient value) { 
       this.patientTarget = value;
@@ -8205,7 +8205,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #accident} (Details of a accident which resulted in injuries which required the products and services listed in the claim.)
+     * @return {@link #accident} (Details of an accident which resulted in injuries which required the products and services listed in the claim.)
      */
     public AccidentComponent getAccident() { 
       if (this.accident == null)
@@ -8221,7 +8221,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @param value {@link #accident} (Details of a accident which resulted in injuries which required the products and services listed in the claim.)
+     * @param value {@link #accident} (Details of an accident which resulted in injuries which required the products and services listed in the claim.)
      */
     public Claim setAccident(AccidentComponent value) { 
       this.accident = value;
@@ -8229,7 +8229,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #item} (A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details.)
+     * @return {@link #item} (A claim line. Either a simple  product or service or a 'group' of details which can each be a simple items or groups of sub-details.)
      */
     public List<ItemComponent> getItem() { 
       if (this.item == null)
@@ -8312,7 +8312,7 @@ public class Claim extends DomainResource {
         children.add(new Property("type", "CodeableConcept", "The category of claim, e.g. oral, pharmacy, vision, institutional, professional.", 0, 1, type));
         children.add(new Property("subType", "CodeableConcept", "A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.", 0, 1, subType));
         children.add(new Property("use", "code", "A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.", 0, 1, use));
-        children.add(new Property("patient", "Reference(Patient)", "The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimburement is sought.", 0, 1, patient));
+        children.add(new Property("patient", "Reference(Patient)", "The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought.", 0, 1, patient));
         children.add(new Property("billablePeriod", "Period", "The period for which charges are being submitted.", 0, 1, billablePeriod));
         children.add(new Property("created", "dateTime", "The date this resource was created.", 0, 1, created));
         children.add(new Property("enterer", "Reference(Practitioner|PractitionerRole)", "Individual who created the claim, predetermination or preauthorization.", 0, 1, enterer));
@@ -8331,8 +8331,8 @@ public class Claim extends DomainResource {
         children.add(new Property("diagnosis", "", "Information about diagnoses relevant to the claim items.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
         children.add(new Property("procedure", "", "Procedures performed on the patient relevant to the billing items with the claim.", 0, java.lang.Integer.MAX_VALUE, procedure));
         children.add(new Property("insurance", "", "Financial instruments for reimbursement for the health care products and services specified on the claim.", 0, java.lang.Integer.MAX_VALUE, insurance));
-        children.add(new Property("accident", "", "Details of a accident which resulted in injuries which required the products and services listed in the claim.", 0, 1, accident));
-        children.add(new Property("item", "", "A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details.", 0, java.lang.Integer.MAX_VALUE, item));
+        children.add(new Property("accident", "", "Details of an accident which resulted in injuries which required the products and services listed in the claim.", 0, 1, accident));
+        children.add(new Property("item", "", "A claim line. Either a simple  product or service or a 'group' of details which can each be a simple items or groups of sub-details.", 0, java.lang.Integer.MAX_VALUE, item));
         children.add(new Property("total", "Money", "The total value of the all the items in the claim.", 0, 1, total));
       }
 
@@ -8344,7 +8344,7 @@ public class Claim extends DomainResource {
         case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The category of claim, e.g. oral, pharmacy, vision, institutional, professional.", 0, 1, type);
         case -1868521062: /*subType*/  return new Property("subType", "CodeableConcept", "A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.", 0, 1, subType);
         case 116103: /*use*/  return new Property("use", "code", "A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.", 0, 1, use);
-        case -791418107: /*patient*/  return new Property("patient", "Reference(Patient)", "The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimburement is sought.", 0, 1, patient);
+        case -791418107: /*patient*/  return new Property("patient", "Reference(Patient)", "The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought.", 0, 1, patient);
         case -332066046: /*billablePeriod*/  return new Property("billablePeriod", "Period", "The period for which charges are being submitted.", 0, 1, billablePeriod);
         case 1028554472: /*created*/  return new Property("created", "dateTime", "The date this resource was created.", 0, 1, created);
         case -1591951995: /*enterer*/  return new Property("enterer", "Reference(Practitioner|PractitionerRole)", "Individual who created the claim, predetermination or preauthorization.", 0, 1, enterer);
@@ -8363,8 +8363,8 @@ public class Claim extends DomainResource {
         case 1196993265: /*diagnosis*/  return new Property("diagnosis", "", "Information about diagnoses relevant to the claim items.", 0, java.lang.Integer.MAX_VALUE, diagnosis);
         case -1095204141: /*procedure*/  return new Property("procedure", "", "Procedures performed on the patient relevant to the billing items with the claim.", 0, java.lang.Integer.MAX_VALUE, procedure);
         case 73049818: /*insurance*/  return new Property("insurance", "", "Financial instruments for reimbursement for the health care products and services specified on the claim.", 0, java.lang.Integer.MAX_VALUE, insurance);
-        case -2143202801: /*accident*/  return new Property("accident", "", "Details of a accident which resulted in injuries which required the products and services listed in the claim.", 0, 1, accident);
-        case 3242771: /*item*/  return new Property("item", "", "A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details.", 0, java.lang.Integer.MAX_VALUE, item);
+        case -2143202801: /*accident*/  return new Property("accident", "", "Details of an accident which resulted in injuries which required the products and services listed in the claim.", 0, 1, accident);
+        case 3242771: /*item*/  return new Property("item", "", "A claim line. Either a simple  product or service or a 'group' of details which can each be a simple items or groups of sub-details.", 0, java.lang.Integer.MAX_VALUE, item);
         case 110549828: /*total*/  return new Property("total", "Money", "The total value of the all the items in the claim.", 0, 1, total);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
@@ -9090,17 +9090,17 @@ public class Claim extends DomainResource {
  /**
    * Search parameter: <b>detail-udi</b>
    * <p>
-   * Description: <b>UDI associated with a line item detail product or service</b><br>
+   * Description: <b>UDI associated with a line item, detail product or service</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Claim.item.detail.udi</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="detail-udi", path="Claim.item.detail.udi", description="UDI associated with a line item detail product or service", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Device.class } )
+  @SearchParamDefinition(name="detail-udi", path="Claim.item.detail.udi", description="UDI associated with a line item, detail product or service", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Device.class } )
   public static final String SP_DETAIL_UDI = "detail-udi";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>detail-udi</b>
    * <p>
-   * Description: <b>UDI associated with a line item detail product or service</b><br>
+   * Description: <b>UDI associated with a line item, detail product or service</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Claim.item.detail.udi</b><br>
    * </p>
@@ -9168,17 +9168,17 @@ public class Claim extends DomainResource {
  /**
    * Search parameter: <b>subdetail-udi</b>
    * <p>
-   * Description: <b>UDI associated with a line item detail subdetail product or service</b><br>
+   * Description: <b>UDI associated with a line item, detail, subdetail product or service</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Claim.item.detail.subDetail.udi</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subdetail-udi", path="Claim.item.detail.subDetail.udi", description="UDI associated with a line item detail subdetail product or service", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Device.class } )
+  @SearchParamDefinition(name="subdetail-udi", path="Claim.item.detail.subDetail.udi", description="UDI associated with a line item, detail, subdetail product or service", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Device.class } )
   public static final String SP_SUBDETAIL_UDI = "subdetail-udi";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subdetail-udi</b>
    * <p>
-   * Description: <b>UDI associated with a line item detail subdetail product or service</b><br>
+   * Description: <b>UDI associated with a line item, detail, subdetail product or service</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Claim.item.detail.subDetail.udi</b><br>
    * </p>
@@ -9194,17 +9194,17 @@ public class Claim extends DomainResource {
  /**
    * Search parameter: <b>facility</b>
    * <p>
-   * Description: <b>Facility where the products or services were/are to be provided</b><br>
+   * Description: <b>Facility where the products or services have been or will be provided</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Claim.facility</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="facility", path="Claim.facility", description="Facility where the products or services were/are to be provided", type="reference", target={Location.class } )
+  @SearchParamDefinition(name="facility", path="Claim.facility", description="Facility where the products or services have been or will be provided", type="reference", target={Location.class } )
   public static final String SP_FACILITY = "facility";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>facility</b>
    * <p>
-   * Description: <b>Facility where the products or services were/are to be provided</b><br>
+   * Description: <b>Facility where the products or services have been or will be provided</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Claim.facility</b><br>
    * </p>

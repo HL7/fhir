@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -1479,17 +1479,17 @@ public class GuidanceResponse extends DomainResource {
    * <p>
    * Description: <b>The identifier of the request associated with the response</b><br>
    * Type: <b>token</b><br>
-   * Path: <b></b><br>
+   * Path: <b>GuidanceResponse.requestIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="request", path="", description="The identifier of the request associated with the response", type="token" )
+  @SearchParamDefinition(name="request", path="GuidanceResponse.requestIdentifier", description="The identifier of the request associated with the response", type="token" )
   public static final String SP_REQUEST = "request";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>request</b>
    * <p>
    * Description: <b>The identifier of the request associated with the response</b><br>
    * Type: <b>token</b><br>
-   * Path: <b></b><br>
+   * Path: <b>GuidanceResponse.requestIdentifier</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUEST = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUEST);

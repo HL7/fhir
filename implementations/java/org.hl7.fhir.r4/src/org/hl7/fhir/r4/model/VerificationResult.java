@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -209,7 +209,7 @@ public class VerificationResult extends DomainResource {
         /**
          * Reference to the primary source.
          */
-        @Child(name = "who", type = {Organization.class, Practitioner.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "who", type = {Organization.class, Practitioner.class, PractitionerRole.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Reference to the primary source", formalDefinition="Reference to the primary source." )
         protected Reference who;
 
@@ -571,7 +571,7 @@ public class VerificationResult extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("who", "Reference(Organization|Practitioner)", "Reference to the primary source.", 0, 1, who));
+          children.add(new Property("who", "Reference(Organization|Practitioner|PractitionerRole)", "Reference to the primary source.", 0, 1, who));
           children.add(new Property("type", "CodeableConcept", "Type of primary source (License Board; Primary Education; Continuing Education; Postal Service; Relationship owner; Registration Authority; legal source; issuing source; authoritative source).", 0, java.lang.Integer.MAX_VALUE, type));
           children.add(new Property("communicationMethod", "CodeableConcept", "Method for communicating with the primary source (manual; API; Push).", 0, java.lang.Integer.MAX_VALUE, communicationMethod));
           children.add(new Property("validationStatus", "CodeableConcept", "Status of the validation of the target against the primary source (successful; failed; unknown).", 0, 1, validationStatus));
@@ -583,7 +583,7 @@ public class VerificationResult extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 117694: /*who*/  return new Property("who", "Reference(Organization|Practitioner)", "Reference to the primary source.", 0, 1, who);
+          case 117694: /*who*/  return new Property("who", "Reference(Organization|Practitioner|PractitionerRole)", "Reference to the primary source.", 0, 1, who);
           case 3575610: /*type*/  return new Property("type", "CodeableConcept", "Type of primary source (License Board; Primary Education; Continuing Education; Postal Service; Relationship owner; Registration Authority; legal source; issuing source; authoritative source).", 0, java.lang.Integer.MAX_VALUE, type);
           case 1314116695: /*communicationMethod*/  return new Property("communicationMethod", "CodeableConcept", "Method for communicating with the primary source (manual; API; Push).", 0, java.lang.Integer.MAX_VALUE, communicationMethod);
           case 1775633867: /*validationStatus*/  return new Property("validationStatus", "CodeableConcept", "Status of the validation of the target against the primary source (successful; failed; unknown).", 0, 1, validationStatus);
@@ -785,7 +785,7 @@ public class VerificationResult extends DomainResource {
         /**
          * The individual or organization attesting to information.
          */
-        @Child(name = "who", type = {Practitioner.class, Organization.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "who", type = {Practitioner.class, PractitionerRole.class, Organization.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The individual or organization attesting to information", formalDefinition="The individual or organization attesting to information." )
         protected Reference who;
 
@@ -797,7 +797,7 @@ public class VerificationResult extends DomainResource {
         /**
          * When the who is asserting on behalf of another (organization or individual).
          */
-        @Child(name = "onBehalfOf", type = {Organization.class, Practitioner.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "onBehalfOf", type = {Organization.class, Practitioner.class, PractitionerRole.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="When the who is asserting on behalf of another (organization or individual)", formalDefinition="When the who is asserting on behalf of another (organization or individual)." )
         protected Reference onBehalfOf;
 
@@ -1157,8 +1157,8 @@ public class VerificationResult extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("who", "Reference(Practitioner|Organization)", "The individual or organization attesting to information.", 0, 1, who));
-          children.add(new Property("onBehalfOf", "Reference(Organization|Practitioner)", "When the who is asserting on behalf of another (organization or individual).", 0, 1, onBehalfOf));
+          children.add(new Property("who", "Reference(Practitioner|PractitionerRole|Organization)", "The individual or organization attesting to information.", 0, 1, who));
+          children.add(new Property("onBehalfOf", "Reference(Organization|Practitioner|PractitionerRole)", "When the who is asserting on behalf of another (organization or individual).", 0, 1, onBehalfOf));
           children.add(new Property("communicationMethod", "CodeableConcept", "The method by which attested information was submitted/retrieved (manual; API; Push).", 0, 1, communicationMethod));
           children.add(new Property("date", "date", "The date the information was attested to.", 0, 1, date));
           children.add(new Property("sourceIdentityCertificate", "string", "A digital identity certificate associated with the attestation source.", 0, 1, sourceIdentityCertificate));
@@ -1170,8 +1170,8 @@ public class VerificationResult extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 117694: /*who*/  return new Property("who", "Reference(Practitioner|Organization)", "The individual or organization attesting to information.", 0, 1, who);
-          case -14402964: /*onBehalfOf*/  return new Property("onBehalfOf", "Reference(Organization|Practitioner)", "When the who is asserting on behalf of another (organization or individual).", 0, 1, onBehalfOf);
+          case 117694: /*who*/  return new Property("who", "Reference(Practitioner|PractitionerRole|Organization)", "The individual or organization attesting to information.", 0, 1, who);
+          case -14402964: /*onBehalfOf*/  return new Property("onBehalfOf", "Reference(Organization|Practitioner|PractitionerRole)", "When the who is asserting on behalf of another (organization or individual).", 0, 1, onBehalfOf);
           case 1314116695: /*communicationMethod*/  return new Property("communicationMethod", "CodeableConcept", "The method by which attested information was submitted/retrieved (manual; API; Push).", 0, 1, communicationMethod);
           case 3076014: /*date*/  return new Property("date", "date", "The date the information was attested to.", 0, 1, date);
           case -799067682: /*sourceIdentityCertificate*/  return new Property("sourceIdentityCertificate", "string", "A digital identity certificate associated with the attestation source.", 0, 1, sourceIdentityCertificate);
@@ -1740,10 +1740,10 @@ public class VerificationResult extends DomainResource {
     protected Timing frequency;
 
     /**
-     * The date/time validation was last completed (incl. failed validations).
+     * The date/time validation was last completed (including failed validations).
      */
     @Child(name = "lastPerformed", type = {DateTimeType.class}, order=8, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="The date/time validation was last completed (incl. failed validations)", formalDefinition="The date/time validation was last completed (incl. failed validations)." )
+    @Description(shortDefinition="The date/time validation was last completed (including failed validations)", formalDefinition="The date/time validation was last completed (including failed validations)." )
     protected DateTimeType lastPerformed;
 
     /**
@@ -2143,7 +2143,7 @@ public class VerificationResult extends DomainResource {
     }
 
     /**
-     * @return {@link #lastPerformed} (The date/time validation was last completed (incl. failed validations).). This is the underlying object with id, value and extensions. The accessor "getLastPerformed" gives direct access to the value
+     * @return {@link #lastPerformed} (The date/time validation was last completed (including failed validations).). This is the underlying object with id, value and extensions. The accessor "getLastPerformed" gives direct access to the value
      */
     public DateTimeType getLastPerformedElement() { 
       if (this.lastPerformed == null)
@@ -2163,7 +2163,7 @@ public class VerificationResult extends DomainResource {
     }
 
     /**
-     * @param value {@link #lastPerformed} (The date/time validation was last completed (incl. failed validations).). This is the underlying object with id, value and extensions. The accessor "getLastPerformed" gives direct access to the value
+     * @param value {@link #lastPerformed} (The date/time validation was last completed (including failed validations).). This is the underlying object with id, value and extensions. The accessor "getLastPerformed" gives direct access to the value
      */
     public VerificationResult setLastPerformedElement(DateTimeType value) { 
       this.lastPerformed = value;
@@ -2171,14 +2171,14 @@ public class VerificationResult extends DomainResource {
     }
 
     /**
-     * @return The date/time validation was last completed (incl. failed validations).
+     * @return The date/time validation was last completed (including failed validations).
      */
     public Date getLastPerformed() { 
       return this.lastPerformed == null ? null : this.lastPerformed.getValue();
     }
 
     /**
-     * @param value The date/time validation was last completed (incl. failed validations).
+     * @param value The date/time validation was last completed (including failed validations).
      */
     public VerificationResult setLastPerformed(Date value) { 
       if (value == null)
@@ -2404,7 +2404,7 @@ public class VerificationResult extends DomainResource {
         children.add(new Property("validationType", "CodeableConcept", "What the target is validated against (nothing; primary source; multiple sources).", 0, 1, validationType));
         children.add(new Property("validationProcess", "CodeableConcept", "The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context).", 0, java.lang.Integer.MAX_VALUE, validationProcess));
         children.add(new Property("frequency", "Timing", "Frequency of revalidation.", 0, 1, frequency));
-        children.add(new Property("lastPerformed", "dateTime", "The date/time validation was last completed (incl. failed validations).", 0, 1, lastPerformed));
+        children.add(new Property("lastPerformed", "dateTime", "The date/time validation was last completed (including failed validations).", 0, 1, lastPerformed));
         children.add(new Property("nextScheduled", "date", "The date when target is next validated, if appropriate.", 0, 1, nextScheduled));
         children.add(new Property("failureAction", "CodeableConcept", "The result if validation fails (fatal; warning; record only; none).", 0, 1, failureAction));
         children.add(new Property("primarySource", "", "Information about the primary source(s) involved in validation.", 0, java.lang.Integer.MAX_VALUE, primarySource));
@@ -2423,7 +2423,7 @@ public class VerificationResult extends DomainResource {
         case -279681197: /*validationType*/  return new Property("validationType", "CodeableConcept", "What the target is validated against (nothing; primary source; multiple sources).", 0, 1, validationType);
         case 797680566: /*validationProcess*/  return new Property("validationProcess", "CodeableConcept", "The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context).", 0, java.lang.Integer.MAX_VALUE, validationProcess);
         case -70023844: /*frequency*/  return new Property("frequency", "Timing", "Frequency of revalidation.", 0, 1, frequency);
-        case -1313229366: /*lastPerformed*/  return new Property("lastPerformed", "dateTime", "The date/time validation was last completed (incl. failed validations).", 0, 1, lastPerformed);
+        case -1313229366: /*lastPerformed*/  return new Property("lastPerformed", "dateTime", "The date/time validation was last completed (including failed validations).", 0, 1, lastPerformed);
         case 1874589434: /*nextScheduled*/  return new Property("nextScheduled", "date", "The date when target is next validated, if appropriate.", 0, 1, nextScheduled);
         case 1816382560: /*failureAction*/  return new Property("failureAction", "CodeableConcept", "The result if validation fails (fatal; warning; record only; none).", 0, 1, failureAction);
         case -528721731: /*primarySource*/  return new Property("primarySource", "", "Information about the primary source(s) involved in validation.", 0, java.lang.Integer.MAX_VALUE, primarySource);

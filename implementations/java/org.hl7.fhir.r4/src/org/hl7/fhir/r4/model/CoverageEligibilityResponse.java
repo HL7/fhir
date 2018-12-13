@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -775,6 +775,7 @@ public class CoverageEligibilityResponse extends DomainResource {
          */
         @Child(name = "authorizationSupporting", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Type of required supporting materials", formalDefinition="Codes or comments regarding information or actions associated with the preauthorization." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/coverageeligibilityresponse-ex-auth-support")
         protected List<CodeableConcept> authorizationSupporting;
 
         /**

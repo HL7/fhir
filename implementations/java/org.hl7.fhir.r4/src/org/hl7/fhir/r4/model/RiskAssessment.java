@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Nov 30, 2018 17:31+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -2313,7 +2313,7 @@ public class RiskAssessment extends DomainResource {
    * Path: <b>RiskAssessment.encounter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="RiskAssessment.encounter.where(resolve() is Encounter)", description="Where was assessment performed?", type="reference", target={Encounter.class } )
+  @SearchParamDefinition(name="encounter", path="RiskAssessment.encounter", description="Where was assessment performed?", type="reference", target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>

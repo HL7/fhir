@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -1223,7 +1223,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * The person who answered the questions about the subject.
      */
-    @Child(name = "source", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "source", type = {Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The person who answered the questions", formalDefinition="The person who answered the questions about the subject." )
     protected Reference source;
 
@@ -1774,7 +1774,7 @@ public class QuestionnaireResponse extends DomainResource {
         children.add(new Property("encounter", "Reference(Encounter)", "The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.", 0, 1, encounter));
         children.add(new Property("authored", "dateTime", "The date and/or time that this set of answers were last changed.", 0, 1, authored));
         children.add(new Property("author", "Reference(Device|Practitioner|PractitionerRole|Patient|RelatedPerson|Organization)", "Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.", 0, 1, author));
-        children.add(new Property("source", "Reference(Patient|Practitioner|RelatedPerson)", "The person who answered the questions about the subject.", 0, 1, source));
+        children.add(new Property("source", "Reference(Patient|Practitioner|PractitionerRole|RelatedPerson)", "The person who answered the questions about the subject.", 0, 1, source));
         children.add(new Property("item", "", "A group or question item from the original questionnaire for which answers are provided.", 0, java.lang.Integer.MAX_VALUE, item));
       }
 
@@ -1790,7 +1790,7 @@ public class QuestionnaireResponse extends DomainResource {
         case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.", 0, 1, encounter);
         case 1433073514: /*authored*/  return new Property("authored", "dateTime", "The date and/or time that this set of answers were last changed.", 0, 1, authored);
         case -1406328437: /*author*/  return new Property("author", "Reference(Device|Practitioner|PractitionerRole|Patient|RelatedPerson|Organization)", "Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.", 0, 1, author);
-        case -896505829: /*source*/  return new Property("source", "Reference(Patient|Practitioner|RelatedPerson)", "The person who answered the questions about the subject.", 0, 1, source);
+        case -896505829: /*source*/  return new Property("source", "Reference(Patient|Practitioner|PractitionerRole|RelatedPerson)", "The person who answered the questions about the subject.", 0, 1, source);
         case 3242771: /*item*/  return new Property("item", "", "A group or question item from the original questionnaire for which answers are provided.", 0, java.lang.Integer.MAX_VALUE, item);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
@@ -2272,7 +2272,7 @@ public class QuestionnaireResponse extends DomainResource {
    * Path: <b>QuestionnaireResponse.source</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source", path="QuestionnaireResponse.source", description="The individual providing the information reflected in the questionnaire respose", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="source", path="QuestionnaireResponse.source", description="The individual providing the information reflected in the questionnaire respose", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_SOURCE = "source";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source</b>

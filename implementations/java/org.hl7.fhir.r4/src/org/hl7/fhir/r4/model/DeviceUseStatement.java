@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -272,7 +272,7 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * Who reported the device was being used by the patient.
      */
-    @Child(name = "source", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "source", type = {Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who made the statement", formalDefinition="Who reported the device was being used by the patient." )
     protected Reference source;
 
@@ -1021,7 +1021,7 @@ public class DeviceUseStatement extends DomainResource {
         children.add(new Property("derivedFrom", "Reference(ServiceRequest|Procedure|Claim|Observation|QuestionnaireResponse|DocumentReference)", "Allows linking the DeviceUseStatement to the underlying Request, or to other information that supports or is used to derive the DeviceUseStatement.", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
         children.add(new Property("timing[x]", "Timing|Period|dateTime", "How often the device was used.", 0, 1, timing));
         children.add(new Property("recordedOn", "dateTime", "The time at which the statement was made/recorded.", 0, 1, recordedOn));
-        children.add(new Property("source", "Reference(Patient|Practitioner|RelatedPerson)", "Who reported the device was being used by the patient.", 0, 1, source));
+        children.add(new Property("source", "Reference(Patient|Practitioner|PractitionerRole|RelatedPerson)", "Who reported the device was being used by the patient.", 0, 1, source));
         children.add(new Property("device", "Reference(Device)", "The details of the device used.", 0, 1, device));
         children.add(new Property("reasonCode", "CodeableConcept", "Reason or justification for the use of the device.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference|Media)", "Indicates another resource whose existence justifies this DeviceUseStatement.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
@@ -1043,7 +1043,7 @@ public class DeviceUseStatement extends DomainResource {
         case -615615829: /*timingPeriod*/  return new Property("timing[x]", "Timing|Period|dateTime", "How often the device was used.", 0, 1, timing);
         case -1837458939: /*timingDateTime*/  return new Property("timing[x]", "Timing|Period|dateTime", "How often the device was used.", 0, 1, timing);
         case 735397551: /*recordedOn*/  return new Property("recordedOn", "dateTime", "The time at which the statement was made/recorded.", 0, 1, recordedOn);
-        case -896505829: /*source*/  return new Property("source", "Reference(Patient|Practitioner|RelatedPerson)", "Who reported the device was being used by the patient.", 0, 1, source);
+        case -896505829: /*source*/  return new Property("source", "Reference(Patient|Practitioner|PractitionerRole|RelatedPerson)", "Who reported the device was being used by the patient.", 0, 1, source);
         case -1335157162: /*device*/  return new Property("device", "Reference(Device)", "The details of the device used.", 0, 1, device);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Reason or justification for the use of the device.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
         case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference|Media)", "Indicates another resource whose existence justifies this DeviceUseStatement.", 0, java.lang.Integer.MAX_VALUE, reasonReference);

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -79,7 +79,7 @@ public class Media extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
-         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+         * The authoring/source system does not know which of the status values currently applies for this event.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which.
          */
         UNKNOWN, 
         /**
@@ -145,7 +145,7 @@ public class Media extends DomainResource {
             case STOPPED: return "The event was terminated prior to the full completion of the intended activity but after at least some of the 'main' activity (beyond preparation) has occurred.";
             case COMPLETED: return "The event has now concluded.";
             case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".).";
-            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
+            case UNKNOWN: return "The authoring/source system does not know which of the status values currently applies for this event.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which.";
             default: return "?";
           }
         }
@@ -303,7 +303,7 @@ public class Media extends DomainResource {
     /**
      * Who/What this Media is a record of.
      */
-    @Child(name = "subject", type = {Patient.class, Practitioner.class, Group.class, Device.class, Specimen.class, Location.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Practitioner.class, PractitionerRole.class, Group.class, Device.class, Specimen.class, Location.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who/What this Media is a record of", formalDefinition="Who/What this Media is a record of." )
     protected Reference subject;
 
@@ -1416,7 +1416,7 @@ public class Media extends DomainResource {
         children.add(new Property("type", "CodeableConcept", "A code that classifies whether the media is an image, video or audio recording or some other media category.", 0, 1, type));
         children.add(new Property("modality", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, 1, modality));
         children.add(new Property("view", "CodeableConcept", "The name of the imaging view e.g. Lateral or Antero-posterior (AP).", 0, 1, view));
-        children.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device|Specimen|Location)", "Who/What this Media is a record of.", 0, 1, subject));
+        children.add(new Property("subject", "Reference(Patient|Practitioner|PractitionerRole|Group|Device|Specimen|Location)", "Who/What this Media is a record of.", 0, 1, subject));
         children.add(new Property("encounter", "Reference(Encounter)", "The encounter that establishes the context for this media.", 0, 1, encounter));
         children.add(new Property("created[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, created));
         children.add(new Property("issued", "instant", "The date and time this version of the media was made available to providers, typically after having been reviewed.", 0, 1, issued));
@@ -1443,7 +1443,7 @@ public class Media extends DomainResource {
         case 3575610: /*type*/  return new Property("type", "CodeableConcept", "A code that classifies whether the media is an image, video or audio recording or some other media category.", 0, 1, type);
         case -622722335: /*modality*/  return new Property("modality", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, 1, modality);
         case 3619493: /*view*/  return new Property("view", "CodeableConcept", "The name of the imaging view e.g. Lateral or Antero-posterior (AP).", 0, 1, view);
-        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Practitioner|Group|Device|Specimen|Location)", "Who/What this Media is a record of.", 0, 1, subject);
+        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Practitioner|PractitionerRole|Group|Device|Specimen|Location)", "Who/What this Media is a record of.", 0, 1, subject);
         case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The encounter that establishes the context for this media.", 0, 1, encounter);
         case 1369676952: /*created[x]*/  return new Property("created[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, created);
         case 1028554472: /*created*/  return new Property("created[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, created);
@@ -1916,7 +1916,7 @@ public class Media extends DomainResource {
    * Path: <b>Media.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="Media.subject", description="Who/What this Media is a record of", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Group.class, Location.class, Patient.class, Practitioner.class, Specimen.class } )
+  @SearchParamDefinition(name="subject", path="Media.subject", description="Who/What this Media is a record of", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Group.class, Location.class, Patient.class, Practitioner.class, PractitionerRole.class, Specimen.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>

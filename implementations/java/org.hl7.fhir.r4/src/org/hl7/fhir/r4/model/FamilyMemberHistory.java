@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -62,7 +62,7 @@ public class FamilyMemberHistory extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
-         * Health information for this individual is unavailable/unknown.
+         * Health information for this family member is unavailable/unknown.
          */
         HEALTHUNKNOWN, 
         /**
@@ -108,7 +108,7 @@ public class FamilyMemberHistory extends DomainResource {
             case PARTIAL: return "Some health information is known and captured, but not complete - see notes for details.";
             case COMPLETED: return "All available related health information is captured as of the date (and possibly time) when the family member history was taken.";
             case ENTEREDINERROR: return "This instance should not have been part of this patient's medical record.";
-            case HEALTHUNKNOWN: return "Health information for this individual is unavailable/unknown.";
+            case HEALTHUNKNOWN: return "Health information for this family member is unavailable/unknown.";
             default: return "?";
           }
         }
@@ -116,8 +116,8 @@ public class FamilyMemberHistory extends DomainResource {
           switch (this) {
             case PARTIAL: return "Partial";
             case COMPLETED: return "Completed";
-            case ENTEREDINERROR: return "Entered in error";
-            case HEALTHUNKNOWN: return "Health unknown";
+            case ENTEREDINERROR: return "Entered in Error";
+            case HEALTHUNKNOWN: return "Health Unknown";
             default: return "?";
           }
         }
@@ -2273,7 +2273,7 @@ public class FamilyMemberHistory extends DomainResource {
    * Path: <b>FamilyMemberHistory.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="FamilyMemberHistory.patient.where(resolve() is Patient)", description="The identity of a subject to list family member history items for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="FamilyMemberHistory.patient", description="The identity of a subject to list family member history items for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

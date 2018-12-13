@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -2008,7 +2008,7 @@ public class StructureMap extends MetadataResource {
 // added from java-adornments.txt:
 
   public String toString() {
-    return StructureMapUtilities.groupToString(this, true);
+    return StructureMapUtilities.groupToString(this);
   }
 
 
@@ -6964,7 +6964,7 @@ public class StructureMap extends MetadataResource {
 // added from java-adornments.txt:
 
   public String toString() {
-    return StructureMapUtilities.render(this, true);
+    return StructureMapUtilities.render(this);
   }
 
 

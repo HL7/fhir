@@ -1,4 +1,4 @@
-FHIR Validation tool v3.6.0-13757
+FHIR Validation tool 
 
 The FHIR validation tool validates a FHIR resource or bundle.
 The validation tool compares a resource against the base definitions and any

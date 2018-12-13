@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -224,10 +224,10 @@ public class ChargeItem extends DomainResource {
     @Block()
     public static class ChargeItemPerformerComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Describes the type of performance or participation(e.g. primary surgeon, anaesthesiologiest, etc.).
+         * Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.).
          */
         @Child(name = "function", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="What type of performance was done", formalDefinition="Describes the type of performance or participation(e.g. primary surgeon, anaesthesiologiest, etc.)." )
+        @Description(shortDefinition="What type of performance was done", formalDefinition="Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
         protected CodeableConcept function;
 
@@ -261,7 +261,7 @@ public class ChargeItem extends DomainResource {
       }
 
         /**
-         * @return {@link #function} (Describes the type of performance or participation(e.g. primary surgeon, anaesthesiologiest, etc.).)
+         * @return {@link #function} (Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.).)
          */
         public CodeableConcept getFunction() { 
           if (this.function == null)
@@ -277,7 +277,7 @@ public class ChargeItem extends DomainResource {
         }
 
         /**
-         * @param value {@link #function} (Describes the type of performance or participation(e.g. primary surgeon, anaesthesiologiest, etc.).)
+         * @param value {@link #function} (Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.).)
          */
         public ChargeItemPerformerComponent setFunction(CodeableConcept value) { 
           this.function = value;
@@ -325,14 +325,14 @@ public class ChargeItem extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("function", "CodeableConcept", "Describes the type of performance or participation(e.g. primary surgeon, anaesthesiologiest, etc.).", 0, 1, function));
+          children.add(new Property("function", "CodeableConcept", "Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.).", 0, 1, function));
           children.add(new Property("actor", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|Patient|Device|RelatedPerson)", "The device, practitioner, etc. who performed or participated in the service.", 0, 1, actor));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 1380938712: /*function*/  return new Property("function", "CodeableConcept", "Describes the type of performance or participation(e.g. primary surgeon, anaesthesiologiest, etc.).", 0, 1, function);
+          case 1380938712: /*function*/  return new Property("function", "CodeableConcept", "Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.).", 0, 1, function);
           case 92645877: /*actor*/  return new Property("actor", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|Patient|Device|RelatedPerson)", "The device, practitioner, etc. who performed or participated in the service.", 0, 1, actor);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -538,7 +538,7 @@ public class ChargeItem extends DomainResource {
      * The organization requesting the service.
      */
     @Child(name = "performingOrganization", type = {Organization.class}, order=10, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Organization providing the charged sevice", formalDefinition="The organization requesting the service." )
+    @Description(shortDefinition="Organization providing the charged service", formalDefinition="The organization requesting the service." )
     protected Reference performingOrganization;
 
     /**
@@ -600,16 +600,16 @@ public class ChargeItem extends DomainResource {
     protected Money priceOverride;
 
     /**
-     * If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.
+     * If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.
      */
     @Child(name = "overrideReason", type = {StringType.class}, order=17, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Reason for overriding the list price/factor", formalDefinition="If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action." )
+    @Description(shortDefinition="Reason for overriding the list price/factor", formalDefinition="If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action." )
     protected StringType overrideReason;
 
     /**
      * The device, practitioner, etc. who entered the charge item.
      */
-    @Child(name = "enterer", type = {Practitioner.class, Organization.class, Patient.class, Device.class, RelatedPerson.class}, order=18, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "enterer", type = {Practitioner.class, PractitionerRole.class, Organization.class, Patient.class, Device.class, RelatedPerson.class}, order=18, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Individual who was entering", formalDefinition="The device, practitioner, etc. who entered the charge item." )
     protected Reference enterer;
 
@@ -1520,7 +1520,7 @@ public class ChargeItem extends DomainResource {
     }
 
     /**
-     * @return {@link #overrideReason} (If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.). This is the underlying object with id, value and extensions. The accessor "getOverrideReason" gives direct access to the value
+     * @return {@link #overrideReason} (If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.). This is the underlying object with id, value and extensions. The accessor "getOverrideReason" gives direct access to the value
      */
     public StringType getOverrideReasonElement() { 
       if (this.overrideReason == null)
@@ -1540,7 +1540,7 @@ public class ChargeItem extends DomainResource {
     }
 
     /**
-     * @param value {@link #overrideReason} (If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.). This is the underlying object with id, value and extensions. The accessor "getOverrideReason" gives direct access to the value
+     * @param value {@link #overrideReason} (If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.). This is the underlying object with id, value and extensions. The accessor "getOverrideReason" gives direct access to the value
      */
     public ChargeItem setOverrideReasonElement(StringType value) { 
       this.overrideReason = value;
@@ -1548,14 +1548,14 @@ public class ChargeItem extends DomainResource {
     }
 
     /**
-     * @return If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.
+     * @return If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.
      */
     public String getOverrideReason() { 
       return this.overrideReason == null ? null : this.overrideReason.getValue();
     }
 
     /**
-     * @param value If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.
+     * @param value If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.
      */
     public ChargeItem setOverrideReason(String value) { 
       if (Utilities.noString(value))
@@ -2033,8 +2033,8 @@ public class ChargeItem extends DomainResource {
         children.add(new Property("bodysite", "CodeableConcept", "The anatomical location where the related service has been applied.", 0, java.lang.Integer.MAX_VALUE, bodysite));
         children.add(new Property("factorOverride", "decimal", "Factor overriding the factor determined by the rules associated with the code.", 0, 1, factorOverride));
         children.add(new Property("priceOverride", "Money", "Total price of the charge overriding the list price associated with the code.", 0, 1, priceOverride));
-        children.add(new Property("overrideReason", "string", "If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.", 0, 1, overrideReason));
-        children.add(new Property("enterer", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson)", "The device, practitioner, etc. who entered the charge item.", 0, 1, enterer));
+        children.add(new Property("overrideReason", "string", "If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.", 0, 1, overrideReason));
+        children.add(new Property("enterer", "Reference(Practitioner|PractitionerRole|Organization|Patient|Device|RelatedPerson)", "The device, practitioner, etc. who entered the charge item.", 0, 1, enterer));
         children.add(new Property("enteredDate", "dateTime", "Date the charge item was entered.", 0, 1, enteredDate));
         children.add(new Property("reason", "CodeableConcept", "Describes why the event occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reason));
         children.add(new Property("service", "Reference(DiagnosticReport|ImagingStudy|Immunization|MedicationAdministration|MedicationDispense|Observation|Procedure|SupplyDelivery)", "Indicated the rendered service that caused this charge.", 0, java.lang.Integer.MAX_VALUE, service));
@@ -2068,8 +2068,8 @@ public class ChargeItem extends DomainResource {
         case 1703573481: /*bodysite*/  return new Property("bodysite", "CodeableConcept", "The anatomical location where the related service has been applied.", 0, java.lang.Integer.MAX_VALUE, bodysite);
         case -451233221: /*factorOverride*/  return new Property("factorOverride", "decimal", "Factor overriding the factor determined by the rules associated with the code.", 0, 1, factorOverride);
         case -216803275: /*priceOverride*/  return new Property("priceOverride", "Money", "Total price of the charge overriding the list price associated with the code.", 0, 1, priceOverride);
-        case -742878928: /*overrideReason*/  return new Property("overrideReason", "string", "If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.", 0, 1, overrideReason);
-        case -1591951995: /*enterer*/  return new Property("enterer", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson)", "The device, practitioner, etc. who entered the charge item.", 0, 1, enterer);
+        case -742878928: /*overrideReason*/  return new Property("overrideReason", "string", "If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.", 0, 1, overrideReason);
+        case -1591951995: /*enterer*/  return new Property("enterer", "Reference(Practitioner|PractitionerRole|Organization|Patient|Device|RelatedPerson)", "The device, practitioner, etc. who entered the charge item.", 0, 1, enterer);
         case 555978181: /*enteredDate*/  return new Property("enteredDate", "dateTime", "Date the charge item was entered.", 0, 1, enteredDate);
         case -934964668: /*reason*/  return new Property("reason", "CodeableConcept", "Describes why the event occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reason);
         case 1984153269: /*service*/  return new Property("service", "Reference(DiagnosticReport|ImagingStudy|Immunization|MedicationAdministration|MedicationDispense|Observation|Procedure|SupplyDelivery)", "Indicated the rendered service that caused this charge.", 0, java.lang.Integer.MAX_VALUE, service);
@@ -2596,17 +2596,17 @@ public class ChargeItem extends DomainResource {
  /**
    * Search parameter: <b>performing-organization</b>
    * <p>
-   * Description: <b>Organization providing the charged sevice</b><br>
+   * Description: <b>Organization providing the charged service</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>ChargeItem.performingOrganization</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="performing-organization", path="ChargeItem.performingOrganization", description="Organization providing the charged sevice", type="reference", target={Organization.class } )
+  @SearchParamDefinition(name="performing-organization", path="ChargeItem.performingOrganization", description="Organization providing the charged service", type="reference", target={Organization.class } )
   public static final String SP_PERFORMING_ORGANIZATION = "performing-organization";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>performing-organization</b>
    * <p>
-   * Description: <b>Organization providing the charged sevice</b><br>
+   * Description: <b>Organization providing the charged service</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>ChargeItem.performingOrganization</b><br>
    * </p>
@@ -2871,7 +2871,7 @@ public class ChargeItem extends DomainResource {
    * Path: <b>ChargeItem.enterer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="enterer", path="ChargeItem.enterer", description="Individual who was entering", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="enterer", path="ChargeItem.enterer", description="Individual who was entering", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_ENTERER = "enterer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>enterer</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Nov 7, 2018 18:13+1100 for FHIR v3.6.0
+// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0
 
 import java.util.*;
 
@@ -55,10 +55,10 @@ public class Extension extends BaseExtension implements IBaseExtension<Extension
     protected UriType url;
 
     /**
-     * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
+     * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
     @Child(name = "value", type = {}, order=1, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Value of extension", formalDefinition="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." )
+    @Description(shortDefinition="Value of extension", formalDefinition="Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)." )
     protected org.hl7.fhir.r4.model.Type value;
 
     private static final long serialVersionUID = 194602931L;
@@ -139,7 +139,7 @@ public class Extension extends BaseExtension implements IBaseExtension<Extension
     }
 
     /**
-     * @return {@link #value} (Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).)
+     * @return {@link #value} (Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).)
      */
     public org.hl7.fhir.r4.model.Type getValue() { 
       return this.value;
@@ -150,7 +150,7 @@ public class Extension extends BaseExtension implements IBaseExtension<Extension
     }
 
     /**
-     * @param value {@link #value} (Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).)
+     * @param value {@link #value} (Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).)
      */
     public Extension setValue(org.hl7.fhir.r4.model.Type value) { 
       this.value = value;
@@ -160,51 +160,51 @@ public class Extension extends BaseExtension implements IBaseExtension<Extension
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("url", "uri", "Source of the definition for the extension code - a logical name or a URL.", 0, 1, url));
-        children.add(new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value));
+        children.add(new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value));
       }
 
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case 116079: /*url*/  return new Property("url", "uri", "Source of the definition for the extension code - a logical name or a URL.", 0, 1, url);
-        case -1410166417: /*value[x]*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case 111972721: /*value*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1535024575: /*valueBase64Binary*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case 733421943: /*valueBoolean*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -786218365: /*valueCanonical*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -766209282: /*valueCode*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -766192449: /*valueDate*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case 1047929900: /*valueDateTime*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -2083993440: /*valueDecimal*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case 231604844: /*valueId*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1668687056: /*valueInstant*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1668204915: /*valueInteger*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -497880704: /*valueMarkdown*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1410178407: /*valueOid*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1249932027: /*valuePositiveInt*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1424603934: /*valueString*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -765708322: /*valueTime*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case 26529417: /*valueUnsignedInt*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1410172357: /*valueUri*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1410172354: /*valueUrl*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -765667124: /*valueUuid*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -478981821: /*valueAddress*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -67108992: /*valueAnnotation*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -475566732: /*valueAttachment*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case 924902896: /*valueCodeableConcept*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1887705029: /*valueCoding*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case 944904545: /*valueContactPoint*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -2026205465: /*valueHumanName*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -130498310: /*valueIdentifier*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1524344174: /*valuePeriod*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -2029823716: /*valueQuantity*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case 2030761548: /*valueRange*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case 2030767386: /*valueRatio*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case 1755241690: /*valueReference*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -962229101: /*valueSampledData*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -540985785: /*valueSignature*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1406282469: /*valueTiming*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
-        case -1858636920: /*valueDosage*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
+        case -1410166417: /*value[x]*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case 111972721: /*value*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1535024575: /*valueBase64Binary*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case 733421943: /*valueBoolean*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -786218365: /*valueCanonical*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -766209282: /*valueCode*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -766192449: /*valueDate*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case 1047929900: /*valueDateTime*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -2083993440: /*valueDecimal*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case 231604844: /*valueId*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1668687056: /*valueInstant*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1668204915: /*valueInteger*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -497880704: /*valueMarkdown*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1410178407: /*valueOid*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1249932027: /*valuePositiveInt*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1424603934: /*valueString*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -765708322: /*valueTime*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case 26529417: /*valueUnsignedInt*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1410172357: /*valueUri*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1410172354: /*valueUrl*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -765667124: /*valueUuid*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -478981821: /*valueAddress*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -67108992: /*valueAnnotation*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -475566732: /*valueAttachment*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case 924902896: /*valueCodeableConcept*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1887705029: /*valueCoding*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case 944904545: /*valueContactPoint*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -2026205465: /*valueHumanName*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -130498310: /*valueIdentifier*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1524344174: /*valuePeriod*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -2029823716: /*valueQuantity*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case 2030761548: /*valueRange*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case 2030767386: /*valueRatio*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case 1755241690: /*valueReference*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -962229101: /*valueSampledData*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -540985785: /*valueSignature*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1406282469: /*valueTiming*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
+        case -1858636920: /*valueDosage*/  return new Property("value[x]", "*", "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).", 0, 1, value);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
