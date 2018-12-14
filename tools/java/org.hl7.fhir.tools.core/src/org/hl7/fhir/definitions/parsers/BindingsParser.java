@@ -214,7 +214,8 @@ public class BindingsParser {
     try {
       ValueSet result = ValueSetUtilities.makeShareable((ValueSet) p.parse(input));
       result.setId(ref.substring(9));
-      result.setExperimental(true);
+      if (!result.hasExperimental())
+        result.setExperimental(false);
 //    if (!result.hasUrl())
         result.setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(9));
 

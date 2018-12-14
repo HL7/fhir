@@ -60,7 +60,7 @@ public class CodeSystemConvertor {
     cs.setName(vs.getName());
     cs.setTitle(vs.getTitle());
     cs.setStatus(vs.getStatus());
-    cs.setExperimental(vs.getExperimental());
+    cs.setExperimentalElement(vs.getExperimentalElement());
     cs.setPublisher(vs.getPublisher());
     for (ContactDetail csrc : vs.getContact()) {
       ContactDetail ctgt = cs.addContact();
