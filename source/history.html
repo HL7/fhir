@@ -43,8 +43,9 @@ Major Milestones:
 <table class="grid">
   <tr>
     <td><a href="http://hl7.org/fhir/R4/index.html">Dec XX, 2018</a></td>
-    <td>4.0.1</td>
-    <td>Release 4 (1<sup>st</sup> Normative Content + Trial Use Developments)</td>
+    <td>4.0.0</td>
+    <td>Release 4 (1<sup>st</sup> Normative Content + Trial Use Developments)
+    </td>
   </tr>
   <tr>
     <td><a href="http://hl7.org/fhir/STU3/index.html">Feb 21, 2017</a></td>
@@ -92,9 +93,82 @@ notes: do not list revision in the version
 	<tr>
 		<td>4.0.0<a name="v4.0.0"></a></td>
 		<td>
-      <p><b>R4</b>: Dec XX, 2018. First Normative content. Mayn breaking changes:</p>
+      <p><b>R4</b>: Dec XX, 2018. First Normative content, with many significant changes</p>
+      <p>
+      Note that between R3 and R4, nearly 3000 change proposals were applied to the specification, 
+      including &gt;1000 substantive changes, of which 339 were labeled 'non-compatible'. As 
+      such, providing a comprehensive list of changes between specifications is not appropriate. 
+      To help see and understand the differences between the specification releases, implementers can:
+      </p>
       <ul>
-        <li>todo.......</li>
+        <li>consult the <a href="diff.html">R3/R4 difference analysis</a></li>
+        <li>review (or use) the <a href="r3maps.html">R3/R4 transforms</a></li>
+        <li>Use the <img src="compare-to-r3.png"/> link at the foot of every page </li>
+      </ul>
+      <p>
+      To help implementers, the more significant changes are listed here:
+      </p>
+      <ul>
+       <li>Some content marked Normative using <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a> - see 
+          <a href="documentation.html">Documentation</a> and <a href="resourcelist.html">Resource</a> indexes. The meaning of normative is
+          described at length in the <a href="versions.html#change">Rules for Inter-version change</a>. 
+       </li>
+       <li>New Resources:
+         <ul style="-moz-column-count: 3; -moz-column-gap: 20px;  -webkit-column-count: 3;  -webkit-column-gap: 20px;  column-count: 3;  column-gap: 20px;">
+           <li><a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a></li>
+           <li><a href="catalogentry.html">CatalogEntry</a></li>
+           <li><a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
+           <li><a href="devicedefinition.html">DeviceDefinition</a></li>
+           <li><a href="effectevidencesynthesis.html">EffectEvidenceSynthesis</a></li>
+           <li><a href="eventdefinition.html">EventDefinition</a></li>
+           <li><a href="evidence.html">Evidence</a></li>
+           <li><a href="evidencevariable.html">EvidenceVariable</a></li>
+           <li><a href="examplescenario.html">ExampleScenario</a></li>
+           <li><a href="immunizationevaluation.html">ImmunizationEvaluation</a></li>
+           <li><a href="insuranceplan.html">InsurancePlan</a></li>
+           <li><a href="invoice.html">Invoice</a></li>
+           <li><a href="medicationknowledge.html">MedicationKnowledge</a></li>
+           <li><a href="medicinalproduct.html">MedicinalProduct</a></li>
+           <li><a href="medicinalproductauthorization.html">MedicinalProductAuthorization</a></li>
+           <li><a href="medicinalproductcontraindication.html">MedicinalProductContraindication</a></li>
+           <li><a href="medicinalproductindication.html">MedicinalProductIndication</a></li>
+           <li><a href="medicinalproductingredient.html">MedicinalProductIngredient</a></li>
+           <li><a href="medicinalproductinteraction.html">MedicinalProductInteraction</a></li>
+           <li><a href="medicinalproductmanufactured.html">MedicinalProductManufactured</a></li>
+           <li><a href="medicinalproductpackaged.html">MedicinalProductPackaged</a></li>
+           <li><a href="medicinalproductpharmaceutical.html">MedicinalProductPharmaceutical</a></li>
+           <li><a href="medicinalproductundesirableeffect.html">MedicinalProductUndesirableEffect</a></li>
+           <li><a href="observationdefinition.html">ObservationDefinition</a></li>
+           <li><a href="organizationaffiliation.html">OrganizationAffiliation</a></li>
+           <li><a href="researchdefinition.html">ResearchDefinition</a></li>
+           <li><a href="researchelementdefinition.html">ResearchElementDefinition</a></li>
+           <li><a href="riskevidencesynthesis.html">RiskEvidenceSynthesis</a></li>
+           <li><a href="specimendefinition.html">SpecimenDefinition</a></li>
+           <li><a href="substancepolymer.html">SubstancePolymer</a></li>
+           <li><a href="substancereferenceinformation.html">SubstanceReferenceInformation</a></li>
+           <li><a href="substancespecification.html">SubstanceSpecification</a></li>
+           <li><a href="terminologycapabilities.html">TerminologyCapabilities</a></li>
+           <li><a href="verificationresult.html">VerificationResult</a></li>
+         </ul>
+       </li>
+       <li>Renamed Resources:
+         <ul>
+           <li><code>BodySite</code> -&gt; <a href="bodystructure.html">BodyStructure</a></li>
+           <li><code>EligibilityRequest</code> ->  <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
+           <li><code>EligibilityResponse</code> ->  <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
+           <li><code>Sequence</code> -> <a href="molecularsequence.html">MolecularSequence</a></li>
+           <li><code>ReferralRequest</code> &amp; <code>ProcedureRequest</code> -> <a href="servicerequest.html">ServiceRequest</a></li>
+         </ul>
+       </li>
+       <li>Deleted Resources:
+         <ul>
+           <li><code>DeviceComponent</code></li>
+           <li><code>ImagingManifest</code></li>
+         </ul>
+       </li>
+       <li>Clarification of the meaning and use of <a href="conformance-rules.html#isModifier">IsModifier</a></li>
+       <li>Considerable development of the <a href="versions.html#versions">Version Management Policy</a>, and support for <a href="versioning.html">multiple FHIR versions</a> (specifically, the <a href="http.html#version-parameter">FHIR Version parameter</a>)</li>
+       <li>Datatypes: Rework <a href="datatypes.html#Money">Money</a> (no longer a constraint on <a href="datatypes.html#Quantity">Quantity</a>), and add <a href="metadatatypes.html#Expression">Expression</a></li>
       </ul>
     </td>
   </tr>
