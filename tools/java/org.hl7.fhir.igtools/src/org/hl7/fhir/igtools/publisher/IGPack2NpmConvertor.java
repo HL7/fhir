@@ -284,14 +284,17 @@ public class IGPack2NpmConvertor {
     
     if (!ig.hasFhirVersion())
       ig.addFhirVersion(FHIRVersion.fromCode(version));
+    else if (ig.getFhirVersion().size()>1) {
+      throw new FHIRException("Can't create an IGPack for a multi-version IG");
+    }
     else {
       boolean ok = false;
       for (Enumeration<FHIRVersion> v : ig.getFhirVersion()) {
-        if (!version.equals(v.primitiveValue()))
+        if (version.equals(v.primitiveValue()))
           ok = true;
       }
       if (!ok)
-        throw new FHIRException("FHIR version mismatch: "+version +" vs "+ig.getFhirVersion());
+        throw new FHIRException("FHIR version mismatch: "+version +" vs "+ig.getFhirVersion().get(0));
     }
     
     if (!ig.hasVersion()) {

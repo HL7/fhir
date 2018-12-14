@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame Grieve</LastAuthor>
+  <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-08-02T05:02:37Z</LastSaved>
+  <LastSaved>2018-12-12T19:04:04Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>694</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4269,7 +4269,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4345,7 +4344,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">aggregation.empty() or (code = 'Reference')</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:aggregation)) or exists(f:code[@value = 'Reference'])</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="210">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">5</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4395,7 +4394,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">binding.empty() or type.code.empty() or type.select((code = 'code') or (code = 'Coding') or (code='CodeableConcept') or (code = 'Quantity') or (code = 'string') or (code = 'uri')).exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity','string', 'uri')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">12</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4405,7 +4404,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">valueSet.exists() implies (valueSet.startsWith('http:') or valueSet.startsWith('https') or valueSet.startsWith('urn:'))</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">(starts-with(string(f:valueSet/@value), 'http:') or starts-with(string(f:valueSet/@value), 'https:') or starts-with(string(f:valueSet/@value), 'urn:'))</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">13</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4435,7 +4434,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">defaultValue.empty() or meaningWhenMissing.empty()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'fixed')])) or not(exists(f:meaningWhenMissing))</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">16</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4445,7 +4444,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">sliceName.empty() or sliceName.matches('^[a-zA-Z0-9\\/\\-_\\[\\]\\@]+$')</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:sliceName/@value)) or matches(f:sliceName/@value, '^[a-zA-Z0-9\/\-_\[\]\@]+$')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">17</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4455,7 +4454,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">(code='Reference' or code = 'canonical') or targetProfile.empty()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:targetProfile)) or (f:code/@value = 'Reference')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">18</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4465,22 +4464,22 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">isModifier implies isModifierReason.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(f:isModifier/@value = 'true') or exists(f:isModifierReason)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">19</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Element names cannot include some special characters</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">path.matches('[^\\s#\\/]+')</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(path/@value, '[^\s#\/]+')</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">path.matches('[^\\s\\.,:;\\\'"\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\\'"\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*')</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(path/@value, '[^\s\.,:;\'&amp;quot;\/|?!@#$%&amp;amp;*()\[\]{}]{1,64}(\.[^\s\.,:;\'&amp;quot;\/|?!@#$%&amp;amp;*()\[\]{}]{1,64}(\[x\])?(\:[^\s\.]+)?)*')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">20</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">warning</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Element names should be simple alphanumerics, or code generation tools may be broken</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">path.matches('[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*(\\[x])?)*')</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">matches(path/@value, '[A-Za-z][A-Za-z0-9]*(\.[a-z][A-Za-z0-9]*(\[x])?)*')</Data></Cell>
@@ -4495,7 +4494,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">expression.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">exists(f:expression/@value)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">22</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">error</Data></Cell>
@@ -4505,7 +4504,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">sliceIsConstraining.exists() implies sliceName.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">exists(f:sliceName) or not(exists(f:sliceIsConstraining))</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4515,7 +4514,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4525,7 +4524,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4535,7 +4534,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4545,7 +4544,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4555,7 +4554,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4565,7 +4564,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4575,7 +4574,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4585,7 +4584,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4595,7 +4594,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4605,7 +4604,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4615,7 +4614,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4625,7 +4624,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4635,7 +4634,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4645,7 +4644,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4655,7 +4654,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4665,7 +4664,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4675,7 +4674,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4685,7 +4684,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4695,7 +4694,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4705,7 +4704,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4715,7 +4714,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4725,7 +4724,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4735,7 +4734,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
@@ -4768,12 +4767,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>11</TopRowBottomPane>
+   <TopRowBottomPane>12</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

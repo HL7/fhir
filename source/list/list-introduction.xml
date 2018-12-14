@@ -36,7 +36,7 @@ Note that the presence of an item in a List resource SHALL NOT change the meanin
 understood by looking at the item outside the context of the List, because items may be accessed directly outside 
 the List by RESTful means or after a document is processed. For example, a List with a code that means 
 "refuted conditions" cannot have items that are <a href="condition.html">Condition</a> resources that do not have a 
-<code>Condition.clinicalStatus</code> of <a href="valueset-condition-clinical.html#refuted">refuted</a>.
+<code>verificationStatus</code> of <a href="valueset-condition-clinical.html#refuted">refuted</a>.
 </p>
 </div>
 

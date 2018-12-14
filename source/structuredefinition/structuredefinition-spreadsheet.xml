@@ -95,6 +95,7 @@
   
   <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4033,7 +4034,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.snapshot</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">All snapshot elements must be in the StructureDefinition's specified type</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">All snapshot elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">(%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&amp;'.'))</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">f:element[1]/f:path/@value=parent::f:StructureDefinition/f:type/@value and count(f:element[position()!=1])=count(f:element[position()!=1][starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, '.'))])</Data></Cell>
    </Row>
@@ -4042,7 +4043,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.differential</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">In any differential, all the elements must be in the specified type</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">In any differential, all the elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">(%resource.kind = 'logical' or element.first().path.startsWith(%resource.type)) and (element.tail().not() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches('\\..*','')&amp;'.')))</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">count(f:element)=count(f:element[f:path/@value=ancestor::f:StructureDefinition/f:type/@value or starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, '.'))])</Data></Cell>
    </Row>
