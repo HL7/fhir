@@ -11876,6 +11876,10 @@
     <display value="At rest"/>
     <display value="At rest (qualifier value)"/>
   </concept>
+  <concept id="26369006" display="Public health nurse">
+    <display value="Public health nurse"/>
+    <display value="Public health nurse (occupation)"/>
+  </concept>
   <concept id="263776006" display="Heavy growth">
     <display value="Heavy growth"/>
     <display value="Heavy growth (qualifier value)"/>
@@ -12811,6 +12815,11 @@
     <display value="Imaging (procedure)"/>
     <display value="Imaging"/>
     <display value="Clinical imaging"/>
+  </concept>
+  <concept id="363779003" display="Genotype determination">
+    <display value="Genotype determination"/>
+    <display value="Genotype"/>
+    <display value="Genotype determination (procedure)"/>
   </concept>
   <concept id="36570001" display="DK pig 31">
     <display value="DK pig 31"/>
@@ -15676,6 +15685,11 @@
     <display value="Evacuated blood collection tube with thrombin and clot activator and gel separator (physical object)"/>
     <display value="Evacuated blood collection tube with thrombin and clot activator and gel separator"/>
   </concept>
+  <concept id="702668005" display="Modification of diet in renal disease formula">
+    <display value="Modification of diet in renal disease formula"/>
+    <display value="MDRD"/>
+    <display value="Modification of diet in renal disease formula (qualifier value)"/>
+  </concept>
   <concept id="70308007" display="Langshan chicken">
     <display value="Langshan chicken"/>
     <display value="Langshan chicken (organism)"/>
@@ -16251,6 +16265,11 @@
     <display value="Aberdeen Angus cattle"/>
     <display value="Angus cattle breed"/>
     <display value="Aberdeen Angus cattle breed"/>
+  </concept>
+  <concept id="85151006" display="Left hand">
+    <display value="Left hand"/>
+    <display value="Structure of left hand"/>
+    <display value="Structure of left hand (body structure)"/>
   </concept>
   <concept id="8516002" display="DK pig 51">
     <display value="DK pig 51"/>

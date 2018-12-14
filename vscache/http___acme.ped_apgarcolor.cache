@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.ped/apgarcolor",
+  "code" : "0"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.ped/apgarcolor\" is not known; The code provided (http://acme.ped/apgarcolor#0) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.ped/apgarcolor",
+  "code" : "1"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.ped/apgarcolor\" is not known; The code provided (http://acme.ped/apgarcolor#1) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.ped/apgarcolor",
+  "code" : "2"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.ped/apgarcolor\" is not known; The code provided (http://acme.ped/apgarcolor#2) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

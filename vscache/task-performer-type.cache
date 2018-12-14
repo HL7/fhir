@@ -4,9 +4,9 @@
   "code" : "performer"
 }, "valueSet" :null}####
 v: {
-  "display" : "Performer",
-  "severity" : null,
-  "error" : ""
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/task-performer-type\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/task-performer-type#performer) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -32,17 +32,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code provided (http://terminology.hl7.org/CodeSystem/task-performer-type#performer, (Performer)) is not  valid in the value set ProcedurePerformerRoleCodes"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://terminology.hl7.org/CodeSystem/task-performer-type",
-  "code" : "performer",
-  "display" : "Performer"
-}, "valueSet" :null}####
-v: {
-  "display" : "Performer",
-  "severity" : null,
-  "error" : ""
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/task-performer-type\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/task-performer-type#performer, (Performer)) is not  valid in the value set ProcedurePerformerRoleCodes"
 }
 -------------------------------------------------------------------------------------
