@@ -36,7 +36,7 @@
   <createdDateTime value="2016-03-15"/>
   <bodySite>
     <coding>
-      <system value="http://snomed.info.sct"/>
+      <system value="http://snomed.info/sct"/>
       <code value="85151006"/>
       <display value="Structure of left hand (body structure)"/>
     </coding>

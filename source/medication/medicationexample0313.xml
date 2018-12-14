@@ -18,7 +18,7 @@
   <amount>
     <numerator><value value="1"></value>
       <unit value="ml"></unit>
-      <system value="https://unitsofmeasure.org"></system>
+      <system value="http://unitsofmeasure.org"></system>
       <code value="ml"></code>
     </numerator>
     <denominator>

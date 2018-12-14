@@ -89,7 +89,7 @@
 		</code>
 		<valueCodeableConcept>
 			<coding>
-				<system value="http:/acme.ec/codes"/>
+				<system value="http://acme.ec/codes"/>
 				<code value="5"/>
 				<display value="Localizes painful stimuli"/>
 			</coding>
@@ -119,7 +119,7 @@
 		</code>
 		<valueCodeableConcept>
 			<coding>
-				<system value="http:/acme.ec/codes"/>
+				<system value="http://acme.ec/codes"/>
 				<code value="4"/>
 				<display value="Confused, disoriented"/>
 			</coding>
@@ -150,7 +150,7 @@
 		</code>
 		<valueCodeableConcept>
 			<coding>
-				<system value="http:/acme.ec/codes"/>
+				<system value="http://acme.ec/codes"/>
 				<code value="4"/>
 				<display value="Opens eyes spontaneously"/>
 			</coding>

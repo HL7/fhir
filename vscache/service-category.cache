@@ -11,8 +11,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:fb83de7c-4672-4120-8f0c-4fc002498719",
-    "timestamp" : "2018-11-03T13:16:43.348Z",
+    "identifier" : "urn:uuid:140250c1-d7fb-43ac-bd5a-98a5259d307f",
+    "timestamp" : "2018-12-14T03:55:48.675Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -27,7 +27,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=4.0.0"
     }],
     "contains" : [{
       "extension" : [{
@@ -311,11 +311,11 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Specialist Obstetrics & Gynaecology - requires referral"
+        "valueString" : "Specialist Obstetrics & Gynecology - requires referral"
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "28",
-      "display" : "Specialist Obstetrics & Gynaecology"
+      "display" : "Specialist Obstetrics & Gynecology"
     },
     {
       "extension" : [{
@@ -388,8 +388,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:ae80a533-f801-4755-947c-3713a4bca740",
-    "timestamp" : "2018-11-03T13:34:25.661Z",
+    "identifier" : "urn:uuid:ea1f54d9-47f2-43cf-945b-917a138574cc",
+    "timestamp" : "2018-12-14T03:58:39.590Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -400,7 +400,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=3.5.0"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/service-category?version=4.0.0"
     }],
     "contains" : [{
       "extension" : [{
@@ -684,11 +684,11 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Specialist Obstetrics & Gynaecology - requires referral"
+        "valueString" : "Specialist Obstetrics & Gynecology - requires referral"
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "28",
-      "display" : "Specialist Obstetrics & Gynaecology"
+      "display" : "Specialist Obstetrics & Gynecology"
     },
     {
       "extension" : [{

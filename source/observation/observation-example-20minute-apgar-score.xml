@@ -65,7 +65,7 @@
 				<display value="Good color all over"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarcolor"/>
+				<system value="http://acme.ped/apgarcolor"/>
 				<code value="2"/>
 			</coding>
 			<text value="2. Good color all over"/>
@@ -89,7 +89,7 @@
 				<display value="At least 100 beats per minute"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarheartrate"/>
+				<system value="http://acme.ped/apgarheartrate"/>
 				<code value="2"/>
 			</coding>
 			<text value="2. At least 100 beats per minute"/>
@@ -113,7 +113,7 @@
 				<display value="Grimace and pulling away, cough, or sneeze during suctioning"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarreflexirritability"/>
+				<system value="http://acme.ped/apgarreflexirritability"/>
 				<code value="2"/>
 			</coding>
 			<text value="2. Grimace and pulling away, cough, or sneeze during suctioning"/>
@@ -137,7 +137,7 @@
 				<display value="Active motion "/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarmuscletone"/>
+				<system value="http://acme.ped/apgarmuscletone"/>
 				<code value="2"/>
 			</coding>
 			<text value="2. Active motion"/>
@@ -161,7 +161,7 @@
 				<display value="Good, strong cry; normal rate and effort of breathing    "/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarrespiratoryeffort"/>
+				<system value="http://acme.ped/apgarrespiratoryeffort"/>
 				<code value="2"/>
 			</coding>
 			<text value="2. Good, strong cry; normal rate and effort of breathing"/>

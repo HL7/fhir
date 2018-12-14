@@ -29,7 +29,7 @@
 
   <type>
     <coding>
-      <system value="http://org.mdhhs.fhir.consentdirective-type"/>
+      <system value="http://mdhhs.org/fhir/consentdirective-type"/>
       <code value="OPTIN"/>
     </coding>
     <text value="Opt-in consent directive"/>
@@ -129,7 +129,7 @@
         </reference>
         <role>
           <coding>
-            <system value="http://org.mdhhs.fhir.consent-actor-type"/>
+            <system value="http://mdhhs.org/fhir/consent-actor-type"/>
             <code value="IR"/>
             <display value="Recipient"/>
           </coding>
@@ -143,7 +143,7 @@
         </reference>
         <role>
           <coding>
-            <system value="http://org.mdhhs.fhir.consent-actor-type"/>
+            <system value="http://mdhhs.org/fhir/consent-actor-type"/>
             <code value="IS"/>
             <display value="Sender"/>
           </coding>
@@ -166,7 +166,7 @@
 
   <signer>
     <type>
-      <system value="http://org.mdhhs.fhir.consent-signer-type"/>
+      <system value="http://mdhhs.org/fhir/consent-signer-type"/>
       <code value="SELF"/>
     </type>
     <party>

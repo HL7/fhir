@@ -11,8 +11,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:a7a56944-f584-401f-93f2-63cd99e0ae9c",
-    "timestamp" : "2018-11-03T13:32:57.442Z",
+    "identifier" : "urn:uuid:d1047148-0831-4319-8d5a-a9d38577a95d",
+    "timestamp" : "2018-12-14T03:57:32.033Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -27,7 +27,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=4.0.0"
     }],
     "contains" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
@@ -96,8 +96,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:06356f69-0524-45f8-9797-d124c420ff10",
-    "timestamp" : "2018-11-03T13:45:30.162Z",
+    "identifier" : "urn:uuid:10e65e2a-eb3e-46ab-8162-8711c2ec26ba",
+    "timestamp" : "2018-12-14T04:03:27.215Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -108,7 +108,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=4.0.0"
     }],
     "contains" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",

@@ -59,7 +59,7 @@
     <status value="completed"/>
     <statusReason>
         <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/med-request-status-reason"/>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason"/>
             <code value="altchoice"/>
             <display value="Try another treatment first"/>
         </coding>
@@ -67,7 +67,7 @@
     <intent value="order"/>
     <category>
         <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medication-request-category"/>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
             <code value="inpatient"/>
             <display value="Inpatient"/>
         </coding>
@@ -97,7 +97,7 @@
     </performer>
     <performerType>
         <coding>
-            <system value="http://snomed.info.sct"/>
+            <system value="http://snomed.info/sct"/>
             <code value="26369006"/>
             <display value="Public Health Nurse"/>
         </coding>

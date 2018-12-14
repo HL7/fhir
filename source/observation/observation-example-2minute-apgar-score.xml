@@ -65,7 +65,7 @@
 				<display value="Good color in body with bluish hands or feet"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarcolor"/>
+				<system value="http://acme.ped/apgarcolor"/>
 				<code value="1"/>
 			</coding>
 			<text value="1. Good color in body with bluish hands or feet"/>
@@ -89,7 +89,7 @@
 				<display value="Fewer than 100 beats per minute"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarheartrate"/>
+				<system value="http://acme.ped/apgarheartrate"/>
 				<code value="1"/>
 			</coding>
 			<text value="1. Fewer than 100 beats per minute"/>
@@ -113,7 +113,7 @@
 				<display value="Grimace during suctioning"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarreflexirritability"/>
+				<system value="http://acme.ped/apgarreflexirritability"/>
 				<code value="1"/>
 			</coding>
 			<text value="1. Grimace during suctioning"/>
@@ -137,7 +137,7 @@
 				<display value="Some flexion of arms and legs"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarmuscletone"/>
+				<system value="http://acme.ped/apgarmuscletone"/>
 				<code value="1"/>
 			</coding>
 			<text value="1. Some flexion of arms and legs"/>
@@ -161,7 +161,7 @@
 				<display value="Weak cry; may sound like whimpering, slow or irregular breathing"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarrespiratoryeffort"/>
+				<system value="http://acme.ped/apgarrespiratoryeffort"/>
 				<code value="1"/>
 			</coding>
 			<text value="1. Weak cry; may sound like whimpering, slow or irregular breathing"/>

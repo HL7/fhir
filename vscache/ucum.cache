@@ -95,8 +95,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:d47a32b6-ebe1-48c7-83bd-ddee90bacdc6",
-    "timestamp" : "2018-11-03T13:12:33.756Z",
+    "identifier" : "urn:uuid:9faa86ae-e490-4eee-8e00-f43b5e6abff4",
+    "timestamp" : "2018-12-14T03:48:35.353Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -157,95 +157,6 @@ e: {
   "resourceType" : "ValueSet",
   "compose" : {
     "include" : [{
-      "system" : "http://unitsofmeasure.org",
-      "concept" : [{
-        "code" : "min",
-        "display" : "minutes"
-      },
-      {
-        "code" : "h",
-        "display" : "hours"
-      },
-      {
-        "code" : "d",
-        "display" : "days"
-      },
-      {
-        "code" : "wk",
-        "display" : "weeks"
-      },
-      {
-        "code" : "mo",
-        "display" : "months"
-      },
-      {
-        "code" : "a",
-        "display" : "years"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "expansion" : {
-    "identifier" : "urn:uuid:bf369820-a00a-42ac-a7cc-bf96b12d0e83",
-    "timestamp" : "2018-11-03T13:16:44.348Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueString" : "-1"
-    },
-    {
-      "name" : "includeDesignations",
-      "valueString" : "-1"
-    },
-    {
-      "name" : "excludeNested",
-      "valueString" : "-1"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
-    }],
-    "contains" : [{
-      "system" : "http://unitsofmeasure.org",
-      "code" : "min",
-      "display" : "minutes"
-    },
-    {
-      "system" : "http://unitsofmeasure.org",
-      "code" : "h",
-      "display" : "hours"
-    },
-    {
-      "system" : "http://unitsofmeasure.org",
-      "code" : "d",
-      "display" : "days"
-    },
-    {
-      "system" : "http://unitsofmeasure.org",
-      "code" : "wk",
-      "display" : "weeks"
-    },
-    {
-      "system" : "http://unitsofmeasure.org",
-      "code" : "mo",
-      "display" : "months"
-    },
-    {
-      "system" : "http://unitsofmeasure.org",
-      "code" : "a",
-      "display" : "years"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : false, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
       "system" : "http://unitsofmeasure.org"
     }]
   }
@@ -262,8 +173,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:d046dfbb-1494-4b24-842c-05770649e9eb",
-    "timestamp" : "2018-11-03T13:25:10.972Z",
+    "identifier" : "urn:uuid:583d7c79-2653-4510-9f81-c32a22eb1bf7",
+    "timestamp" : "2018-12-14T03:55:50.090Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -553,12 +464,12 @@ e: {
     },
     {
       "system" : "http://unitsofmeasure.org",
-      "code" : "/{hpf}",
+      "code" : "/[HPF]",
       "display" : "per hpf"
     },
     {
       "system" : "http://unitsofmeasure.org",
-      "code" : "/{LPF}",
+      "code" : "/[LPF]",
       "display" : "per LPF"
     },
     {
@@ -848,7 +759,7 @@ e: {
     },
     {
       "system" : "http://unitsofmeasure.org",
-      "code" : "[drp]/{HPF}",
+      "code" : "[drp]/[HPF]",
       "display" : "drop / HPF"
     },
     {
@@ -3373,7 +3284,7 @@ e: {
     },
     {
       "system" : "http://unitsofmeasure.org",
-      "code" : "mmol/kg{H20}",
+      "code" : "mmol/kg{H2O}",
       "display" : "millimole per kilogram of water"
     },
     {
@@ -5333,8 +5244,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:6675df1a-f151-4a03-b9d7-29c1744c3e39",
-    "timestamp" : "2018-11-03T13:26:04.300Z",
+    "identifier" : "urn:uuid:803fb8e7-6575-4265-99ca-04c8d2931860",
+    "timestamp" : "2018-12-14T03:56:13.349Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -5425,8 +5336,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:e7c4933d-3478-446b-8cee-9735fb1de8ce",
-    "timestamp" : "2018-11-03T13:28:14.753Z",
+    "identifier" : "urn:uuid:cd1ec921-8910-4948-861a-c0ad2dca7095",
+    "timestamp" : "2018-12-14T03:56:24.366Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -5488,6 +5399,95 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "code" : "min",
+        "display" : "minutes"
+      },
+      {
+        "code" : "h",
+        "display" : "hours"
+      },
+      {
+        "code" : "d",
+        "display" : "days"
+      },
+      {
+        "code" : "wk",
+        "display" : "weeks"
+      },
+      {
+        "code" : "mo",
+        "display" : "months"
+      },
+      {
+        "code" : "a",
+        "display" : "years"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:d59694c3-135b-49f0-b042-fa678694a66d",
+    "timestamp" : "2018-12-14T03:57:33.322Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "minutes"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "hours"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "days"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "weeks"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "months"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "years"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -5508,8 +5508,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:a25b390a-ce90-4b57-804d-7774f1d26764",
-    "timestamp" : "2018-11-03T13:35:28.473Z",
+    "identifier" : "urn:uuid:78416fdc-16e1-4973-b723-1ca0f39d7b16",
+    "timestamp" : "2018-12-14T03:59:12.865Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -5791,12 +5791,12 @@ e: {
     },
     {
       "system" : "http://unitsofmeasure.org",
-      "code" : "/{hpf}",
+      "code" : "/[HPF]",
       "display" : "per hpf"
     },
     {
       "system" : "http://unitsofmeasure.org",
-      "code" : "/{LPF}",
+      "code" : "/[LPF]",
       "display" : "per LPF"
     },
     {
@@ -6086,7 +6086,7 @@ e: {
     },
     {
       "system" : "http://unitsofmeasure.org",
-      "code" : "[drp]/{HPF}",
+      "code" : "[drp]/[HPF]",
       "display" : "drop / HPF"
     },
     {
@@ -8611,7 +8611,7 @@ e: {
     },
     {
       "system" : "http://unitsofmeasure.org",
-      "code" : "mmol/kg{H20}",
+      "code" : "mmol/kg{H2O}",
       "display" : "millimole per kilogram of water"
     },
     {
@@ -10564,8 +10564,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:a5fe7bda-b9ac-4081-b380-6021f490ca8b",
-    "timestamp" : "2018-11-03T13:45:30.256Z",
+    "identifier" : "urn:uuid:75dca680-1728-48d6-b0e5-e150b5c1649c",
+    "timestamp" : "2018-12-14T04:03:27.299Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -10604,8 +10604,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:8b057831-b4ee-464e-8750-36a80c5e4e1a",
-    "timestamp" : "2018-11-03T13:45:30.865Z",
+    "identifier" : "urn:uuid:334d3674-eb1e-4751-abe0-db8c8339e646",
+    "timestamp" : "2018-12-14T04:03:27.950Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"

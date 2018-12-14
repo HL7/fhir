@@ -11,8 +11,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:ad50f10a-c30e-43d9-bdae-6ec2bc753576",
-    "timestamp" : "2018-11-03T13:32:57.254Z",
+    "identifier" : "urn:uuid:35719011-542d-4199-ae8d-e7678146c032",
+    "timestamp" : "2018-12-14T03:56:24.431Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -27,7 +27,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type?version=3.5.0"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type?version=4.0.0"
     }],
     "contains" : [{
       "extension" : [{
@@ -5410,8 +5410,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:7305dd0b-f3b8-4095-a902-f408b228e88d",
-    "timestamp" : "2018-11-03T13:45:29.662Z",
+    "identifier" : "urn:uuid:a001cbd4-3c42-443a-820c-a0e6f4937f93",
+    "timestamp" : "2018-12-14T04:03:26.716Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -5422,7 +5422,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type?version=3.5.0"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type?version=4.0.0"
     }],
     "contains" : [{
       "extension" : [{

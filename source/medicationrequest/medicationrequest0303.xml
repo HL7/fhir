@@ -209,7 +209,7 @@
     <substitution>
         <allowedCodeableConcept>
             <coding>
-                <system value="http://terminology.hl7.org/CodeSystem/v3-ActSubstanceAdminSubstitutionCode"/>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-substanceAdminSubstitution"/>
                 <code value="TB"/>
                 <display value="Therapeutic Brand"/>
             </coding>
