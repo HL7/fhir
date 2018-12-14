@@ -23,12 +23,13 @@ in order to support consistent definitions for schema and UML derived code.
 <h3>Introduction</h3>
 <p>
 The Terminology Module provides an overview and guide to the FHIR resources, operations, coded data types and externally-defined standard and FHIR-defined terminologies that are used for representing and communicating coded, structured data in the FHIR core specification and profiles.  Collectively, these capabilities are used to provide the terminology service functionality required for supporting the use of coded data in FHIR resources throughout the specification as described in the other modules.
-
-<p>The primary terminology resources and their relationships are shown below:</p>
+</p>
+<p>The primary terminology-related structures and their relationships are shown below:</p>
 <table class="none"><tr><td>
-<img src="terminology-module-relationships.png" alt="Image showing the terminology resources and relationships" width="600px"/>
+<img src="terminology-module-relationships.png" alt="Image showing the terminology resources and relationships" width="1000px"/>
 </td></tr></table>
-<p>The ElementDefinition type (shown with a dotted box) is described elsewhere in the specification in the <a href="foundation-module.html">Foundation</a> and <a href="conformance-module.html">Conformance</a> modules.</p>
+<p><strong>Example: Condition profile with Condition.code slice bound to "SNOMED CT fracture codes" value set</strong></p>
+<p>[Note: The ElementDefinition type (shown with a dotted box) is described elsewhere in the specification in the <a href="foundation-module.html">Foundation</a> and <a href="conformance-module.html">Conformance</a> modules.]
 </p>
 
 <a name="index"></a>
@@ -150,23 +151,21 @@ For security considerations for terminology services, see the <a href="terminolo
 
 <a name="roadmap"></a>
 <h3>Development Roadmap</h3>
-    <p>The following three terminology resources have been tested and are being used in production tooling, and as
-        such they have reached a maturity level where changes become less likely and are now considered to be normative 
-        candidates.  We intend to progress these resources through to normative status via the May and September 
-        2018 R4 ballots.
+    <p>The following terminology resources have been tested and are being used in production tooling and now are normative or
+        are expected soon to progress to normative.
 	</p>
     <ul>
-        <li><a href="valueset.html" title="A value set specifies a set of codes drawn from one or more code systems.">ValueSet</a>&nbsp;<a style="color: maroon; hover: maroon; visited; maroon; opacity: 0.7" href="versions.html#maturity" title="Maturity Level">5</a></li>
-		<li><a href="codesystem.html" title="The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.">CodeSystem</a>&nbsp;<a style="color: maroon; hover: maroon; visited; maroon; opacity: 0.7" href="versions.html#maturity" title="Maturity Level">5</a></li>
-		<li><a href="conceptmap.html" title="A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.">ConceptMap</a>&nbsp;<a style="color: maroon; hover: maroon; visited; maroon; opacity: 0.7" href="versions.html#maturity" title="Maturity Level">3</a> (will be advanced to 5 and then normative)</li>
+        <li><a href="valueset.html" title="A value set specifies a set of codes drawn from one or more code systems.">ValueSet</a>[%fmmshort ValueSet%]</li>
+		<li><a href="codesystem.html" title="The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.">CodeSystem</a>[%fmmshort CodeSystem%]</li>
+		<li><a href="conceptmap.html" title="A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.">ConceptMap</a>[%fmmshort ConceptMap%]</li>
     </ul>
 
     <p>Other terminology resources are still in earlier stages of development.  We intend to continue to develop and test these 
         resources and advance them through the <a href="versions.html#maturity">Maturity Levels</a> 
         at Connectathons and elsewhere.</p>
     <ul>
-		<li><a href="namingsystem.html" title="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types.">NamingSystem</a>&nbsp;<a style="color: maroon; hover: maroon; visited; maroon; opacity: 0.7" href="versions.html#maturity" title="Maturity Level">1</a></li>
-		<li><a href="terminologycapabilities.html" title="Resource to document a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.">TerminologyCapabilities</a>&nbsp;<a style="color: maroon; hover: maroon; visited; maroon; opacity: 0.7" href="versions.html#maturity" title="Maturity Level">0</a></li>
+		<li><a href="namingsystem.html" title="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types.">NamingSystem</a>[%fmmshort NamingSystem%]</li>
+		<li><a href="terminologycapabilities.html" title="Resource to document a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.">TerminologyCapabilities</a>[%fmmshort TerminologyCapabilities%]</li>
     </ul>
 	<p>
 	  
