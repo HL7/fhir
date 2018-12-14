@@ -27,7 +27,7 @@
     <concept>
       <code value="normal"/>
       <display value="Normal Range"/>
-      <definition value="Within two standard deviations from the mean and accounting for 95.45% of the relevant control population."/>
+      <definition value="Values expected for a normal member of the relevant control population being measured. Typically each results producer such as a laboratory has specific normal ranges and they are usually defined as within two standard deviations from the mean and account for 95.45% of this population."/>
     </concept>
     <concept>
       <code value="recommended"/>
