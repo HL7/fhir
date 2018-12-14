@@ -75,7 +75,7 @@
 				<display value="The baby's whole body is completely bluish-gray or pale"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarcolor"/>
+				<system value="http://acme.ped/apgarcolor"/>
 				<code value="0"/>
 			</coding>
 			<text value="0. The baby's whole body is completely bluish-gray or pale"/>
@@ -104,7 +104,7 @@
 				<display value="No heart rate"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarheartrate"/>
+				<system value="http://acme.ped/apgarheartrate"/>
 				<code value="0"/>
 			</coding>
 			<text value="0. No heart rate"/>
@@ -133,7 +133,7 @@
 				<display value="No response to airways being suctioned"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarreflexirritability"/>
+				<system value="http://acme.ped/apgarreflexirritability"/>
 				<code value="0"/>
 			</coding>
 			<text value="0. No response to airways being suctioned"/>
@@ -162,7 +162,7 @@
 				<display value="Limp; no movement"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarmuscletone"/>
+				<system value="http://acme.ped/apgarmuscletone"/>
 				<code value="0"/>
 			</coding>
 			<text value="0. Limp; no movement"/>
@@ -191,7 +191,7 @@
 				<display value="Not breathing"/>
 			</coding>
 			<coding>
-				<system value="http:/acme.ped/apgarrespiratoryeffort"/>
+				<system value="http://acme.ped/apgarrespiratoryeffort"/>
 				<code value="0"/>
 			</coding>
 			<text value="0. Not breathing"/>

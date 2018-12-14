@@ -96,7 +96,7 @@
       <codeFilter>
          <path value="category"/>
          <code>
-           <system value="http://terminology.hl7.org/CodeSystem/medication-request-category"/>
+           <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
            <code value="outpatient"/>
          </code>
       </codeFilter>

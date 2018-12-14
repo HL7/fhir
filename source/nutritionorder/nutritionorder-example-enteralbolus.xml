@@ -43,9 +43,8 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		<baseFormulaType>
 			<coding>
 				<!--EH:  bolus tube feeding instruction in text-->
-				<system value="http://usextension/snomed.info/sct"/>
-				<!--EH  temporary system value for us extension -->
-				<code value="659311000124118"/>
+				<system value="http://snomed.info/sct"/>
+				<code value="442991000124104"/>
 				<display value="Adult high protein formula"/>
 			</coding>
 		</baseFormulaType>

@@ -35,7 +35,7 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http:hl7.org/fhir"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
             <code value="EM"/>
             <display value="Emergency Supply"/>
         </coding>

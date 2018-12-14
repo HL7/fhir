@@ -14,7 +14,7 @@
 	<status value="active"/>
 	<category>
 		<coding>
-			<system value="http://hl7.org.fhir/substance-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/substance-category"/>
 			<code value="allergen"/>
 			<display value="Allergen"/>
 		</coding>

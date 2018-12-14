@@ -25,7 +25,7 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http:hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
             <code value="RFP"/>
             <display value="Refill - Part Fill"/>
         </coding>

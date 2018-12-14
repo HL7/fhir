@@ -23,7 +23,7 @@
 	<effectiveDateTime value="2016-05-18T22:33:22Z"/>
 	<valueCodeableConcept>
 		<coding>
-			<system value="http:/acme.ped/apgarmuscletone"/>
+			<system value="http://acme.ped/apgarmuscletone"/>
 			<code value="2"/>
 			<display value="Active motion "/>
 		</coding>

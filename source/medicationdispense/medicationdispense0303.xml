@@ -24,7 +24,7 @@
     </statusReasonReference>
     <category>
         <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medication-dispense-category"/>
+            <system value="http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category"/>
             <code value="outpatient"/>
             <display value="Outpatient"/>
         </coding>

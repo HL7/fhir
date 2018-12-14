@@ -13,7 +13,7 @@
 	<status value="final"/>
 	<code>
 		<coding>
-			<system value="http://snomed.info"/>
+			<system value="http://snomed.info/sct"/>
 			<code value="363779003"/>
 			<display value="Genotype determination"/>
 		</coding>
