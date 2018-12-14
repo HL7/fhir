@@ -6,7 +6,7 @@
 		<p>
 			<strong>This resource is a request resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>.</p>
 		<p>
-			ServiceRequest is a record of a request for a procedure or diagnostic or other service to be planned, proposed, or performed, as distinguished by the <code>ServiceRequest.intent</code> field value, with or on a patient. The procedure will lead to either a <a href="procedure.html">Procedure</a> or <a href="diagnosticreport.html">DiagnosticReport</a>, that in turn may reference one or more <a href="observation.html">Observations</a>, that summarizes the performance of the procedures and associated documentation such as observations, images, findings that are relevant to the treatment/management of the subject. This resource may be used to share relevant information required to support a referral or a transfer of care request from one
+			ServiceRequest is a record of a request for a procedure or diagnostic or other service to be planned, proposed, or performed, as distinguished by the <code>ServiceRequest.intent</code> field value, with or on a patient. The procedure will lead to either a <a href="procedure.html">Procedure</a> or <a href="diagnosticreport.html">DiagnosticReport</a>, which in turn may reference one or more <a href="observation.html">Observations</a>, which summarize the performance of the procedures and associated documentation such as observations, images, findings that are relevant to the treatment/management of the subject. This resource may be used to share relevant information required to support a referral or a transfer of care request from one
 practitioner or organization to another when a patient is required to be referred to another provider for a
 consultation
 /second opinion and/or for short term or longer term management of one or more health issues or problems.
@@ -25,8 +25,8 @@ Examples include:
 			<li>  specialist consultation and assessments</li>
 			<li>  community services</li>
 			<li>  nursing services</li>
-			<li>  pharmacist medication review</li>
-			<li>  and other clinical interventions.</li>
+			<li>  pharmacist medication review, and</li>
+			<li>  other clinical interventions.</li>
 		</ul>
 		<p>
   Procedures may be performed by a healthcare professional, a friend or relative or in some cases by the patient themselves.
