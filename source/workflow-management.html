@@ -160,7 +160,7 @@ in order to support consistent definitions for schema and UML derived code.
             A patient is suffering from a poison ivy rash and is prescribed a steroid medication to manage the reaction. The provider asks the patient for his preferred pharmacy and creates the Task at the specified pharmacy's system. The patient is running late
             and by the time he arrives at the pharmacy, it is closed. He calls the clinic where the provider practices and requests that the pharmacy where the order is to be fulfilled is changed to one that is open around the clock. The staff at the
             clinic cancels the Task at the original pharmacy and creates a new Task at the requested new one. By the time the patient arrives at the new pharmacy, the medication is ready for pickup. Once the request is fulfilled, the clinic receives
-            the notification that the Task is complete and the prescription is also marked as complete.
+            the notification that the Task is complete, and the prescription is also marked as complete.
         </p>
 
         <a name="optionh"></a>
@@ -281,7 +281,7 @@ in order to support consistent definitions for schema and UML derived code.
         <ul>
             <li>Reduced number of communications</li>
             <li>All relevant data can be sent in one package</li>
-            <li>Responses can be asynchronous and content may be routed</li>
+            <li>Responses can be asynchronous, and content may be routed</li>
             <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
             <li>Can request things other than just fulfillment (e.g. please suspend)</li>
             <li>Explicit acknowledgement that filler has received and agreed to act on the request (though no need for the placer to check)</li>
@@ -334,7 +334,7 @@ in order to support consistent definitions for schema and UML derived code.
             <i>TODO: needs review and update. Possibly add options about using messaging and/or services instead of polling/subscription in above scenarios</i>
         </p>
         <h4>POST of "request" resource for filler system, response via Task</h4>
-        <p>This is a variation of<a href="workflow-management.html#optionh">Option H</a>, where the Workflow broker is essentially merged with the fulfiller. It still allows the placer to only use a POST of the request, and be made aware of the changes to
+        <p>This is a variation of<a href="workflow-management.html#optionh">Option H</a>, where the Workflow broker is essentially merged with the fulfiller. It still allows the placer to only use a POST of the request and be made aware of the changes to
             the other resources via subscription or polling.
         </p>
         <img alt="Diagram showing POST of &quot;request&quot; resource for filler system, response via Task workflow" src="workflow-optionh-a.png" />

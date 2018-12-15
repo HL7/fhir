@@ -83,7 +83,7 @@ using the <a href="codesystem.html">code system resource</a>, or they can be def
 by referencing the correct system url. The FHIR specification defines a <a href="terminologies-systems.html">set of
 namespaces</a> for commonly encountered code systems, and defines how some work with FHIR (e.g.
 <a href="snomedct.html">SNOMED CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>).
-These code systems are often large, and have many internally defined properties that are part of their
+These code systems are often large and have many internally defined properties that are part of their
 formal definitions. The CodeSystem resource is not an appropriate way to distribute the contents of
 these code systems; the standard FHIR code system resource simply represents the properties of
 the code system. Instead, these terminologies provide their own distribution formats, and it is assumed that the
@@ -162,7 +162,7 @@ The terminology service uses the code systems and value set resources defined on
 the implicit ones associated with the external code systems and those explicitly
 available at the /CodeSystem and /ValueSet endpoints - to serve the operational interface defined below.
 As code systems and value sets are created, updated or deleted, the outcomes of the operational
-services change. A terminology server should validate incoming resources, and ensure integrity
+services change. A terminology server should validate incoming resources and ensure integrity
 of the terminology services. Typically, servers provide a test and production
 environment, but there is no explicit notion of this in the interface itself.
 </p>
@@ -176,7 +176,7 @@ they might be quite complex (e.g. all codes with a particular property from an u
 a code system).
 </p>
 <p>
-A FHIR-enabled application can simply ask a terminology server to figure out all the details, and return a list
+A FHIR-enabled application can simply ask a terminology server to figure out all the details and return a list
 of the current codes in the value set. This is known as <a href="valueset-operation-expand.html">"expanding" the valueset</a>.
 As a summary, the client passes the server the following information:
 </p>
@@ -193,7 +193,7 @@ The server returns a value set that contains the current list of codes that meet
 <a href="operationoutcome.html">OperationOutcome</a> with an error if the expansion fails).
 Note that some value sets expand to many thousands of codes, or even an infinite number,
 and for these, the server SHOULD return an <a href="valueset-issue-type.html#too-costly">error code
-<i>too-costly</i></a>. In these cases the client can try again with a more specific text filter
+<i>too-costly</i></a>. In these cases, the client can try again with a more specific text filter
 to reduce the number of codes returned - this may result in a valid expansion.
 </p>
 <p>
@@ -212,10 +212,10 @@ trees of concepts are not subject to paging and the server simply returns the en
 Some example uses for the expansion operation:
 </p>
 <ul>
- <li> get a list of codes to display in a User interface (e.g. a drop down interface)</li>
+ <li> get a list of codes to display in a User interface (e.g. a drop-down interface)</li>
  <li> a variation on this is to offer the user a text box to type in. As the user types, call the expand operation to provide the user with a list of matching codes/concepts (like a browser search) </li>
  <li> fetch a list of codes to use when generating software programming instructions</li>
- <li> get a list of codes so that software can check whether a code is valid or not in a particular context</li>
+ <li> get a list of codes so that software can check whether a code is valid or not in a specific context</li>
 </ul>
 
 
@@ -423,7 +423,7 @@ In addition, any property codes defined by the code system (CodeSysem.property.c
 <p>
 One way to determine whether a code is in a value set is to expand the value set
 (as described above), and then look at the returned codes to see if the code is in the expansion.
-However this is not an efficient way to test whether a code is valid, and for some value sets
+However, this is not an efficient way to test whether a code is valid, and for some value sets
 (e.g. with infinite number of members), it cannot work. Instead, a FHIR terminology server
 provides <a href="valueset-operation-validate-code.html">a "validate-code" operation</a>. The client passes the server the following information:
 </p>
@@ -446,7 +446,7 @@ multiple codings are allowed and/or the codings provided are consistent with eac
 Every code system has an implicit value set that is "all the concepts defined
 in the code system" (CodeSystem.valueSet). For some code systems, these value set URIs are defined
 in advance (e.g. for <a href="loinc.html">LOINC</a>, it is <code>http://loinc.org/vs</code>).
-However for some code systems, they are not known. Clients can refer to these implicit
+However, for some code systems, they are not known. Clients can refer to these implicit
 value sets by providing the URI for the code system itself.
 </p>
 
@@ -865,7 +865,7 @@ they do not address, which is integrating terminologically based logic into appl
 </p>
 <p>
 A typical example of this is a user that wants to find any observations for male patients over
-the age of 50 who attended a particular clinic within a particular 2 week period, with a
+the age of 50 who attended a particular clinic within a particular 2-week period, with a
 diagnosis of gout, and who had an elevated serum creatinine.
 </p>
 <p>
@@ -907,7 +907,7 @@ whether the concept is post-coordinated or not. Here's a description of how the 
  <li> the client defines a name associated with a particular context in which it wishes to maintain a subsumption based closure table</li>
  <li> the client registers this name with the FHIR Terminology server using the $closure operation (described below), with only one parameter, the name of the context</li>
  <li> any time the client system encounters a new Coding that is not entered in the closure table, it calls the $closure operation with the context name, and the Coding value it has encountered</li>
- <li> the server returns a ConceptMap resource with a list of new entries (code&nbsp;: system -&gt; code&nbsp;: system) that the client should add to its closure table
+ <li> the server returns a ConceptMap resource with a list of new entries (code : system -&gt; code : system) that the client should add to its closure table
    <ul>
     <li> the server can indicate that entries should be removed from the table by providing a (code&nbsp;: system -&gt; code&nbsp;: system) with equivalence "unmatched" (though it's not known why that would be needed)</li>
    </ul>
@@ -920,7 +920,7 @@ The <a href="conceptmap-operation-closure.html">$closure operation</a> takes 2 p
 </p>
 <ul>
  <li> closure table context name</li>
- <li> concepts to enter into the table (0 or more - 0 codings is a request to (re-)initialise the table)</li>
+ <li> concepts to enter into the table (0 or more - 0 codings is a request to (re-)initialize the table)</li>
 </ul>
 <p>
 The operation returns a concept map which has a list of mappings that represent new entries to make in the closure table.
@@ -935,7 +935,7 @@ version in one of the delta responses. This is a request to replay all the mappi
 <h4>Initializing a Closure Table</h4>
 
 <p>
-Before it can be used, a closure table has to be initialised. To initialise a closure
+Before it can be used, a closure table has to be initialized. To initialize a closure
 table, POST the following to [base]/ConceptMap/$closure:
 </p>
 <div class="example">
@@ -1044,7 +1044,7 @@ Note that this example only includes one concept, but more than one is allowed:
 </div>
 <p>
 The response varies depending on the conditions on the server. Possible responses:
-If the closure table has not been initialised: Return a 404 Not Found with
+If the closure table has not been initialized: Return a 404 Not Found with
 </p>
 <div class="example">
 <pre class="json">
@@ -1066,7 +1066,7 @@ If the closure table has not been initialised: Return a 404 Not Found with
 </pre>
 </div>
 <p>
-If the closure table needs to be reinitialised:
+If the closure table needs to be reinitialized:
 Return a 422 Unprocessable Entity with
 </p>
 <div class="example">
@@ -1075,12 +1075,12 @@ Return a 422 Unprocessable Entity with
   "resourceType": "OperationOutcome",
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;closure \&quot;[name\&quot; must be reinitialised&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;closure \&quot;[name\&quot; must be reinitialized&lt;/p&gt;&lt;/div&gt;"
    },
    "issue": [{
        "severity": "error",
        "details": {
-         "text" : "closure \"[name]\" must be reinitialised"
+         "text" : "closure \"[name]\" must be reinitialized"
        }
      }
    ]
@@ -1088,8 +1088,8 @@ Return a 422 Unprocessable Entity with
 </pre>
 </div>
 <p>
-The server should only send this when its underlying terminology conditions have been changed (e.g. a new version of SNOMED CT has been loaded). When a client gets this, it’s only choice is to initialise the closure table, and process all the codes in the closure table again (the assumption here is that the system has some external source of ‘all the codes’ so it can rebuild the table again).
-If the concept(s) submitted are processed ok, but there’s no new concepts, or no new entries in the table, return a 200 OK with :
+The server should only send this when its underlying terminology conditions have been changed (e.g. a new version of SNOMED CT has been loaded). When a client gets this, it's only choice is to initialize the closure table, and process all the codes in the closure table again (the assumption here is that the system has some external source of 'all the codes' so it can rebuild the table again).
+If the concept(s) submitted are processed ok, but there's no new concepts, or no new entries in the table, return a 200 OK with :
 </p>
 <div class="example">
 <pre class="json">
@@ -1105,7 +1105,7 @@ If the concept(s) submitted are processed ok, but there’s no new concepts, or 
 </pre>
 </div>
 <p>
-If there’s new entries in the closure table, the server returns a 200 OK with:
+If there's new entries in the closure table, the server returns a 200 OK with:
 </p>
 <div class="example">
 <pre class="json">
@@ -1135,7 +1135,7 @@ If there’s new entries in the closure table, the server returns a 200 OK with:
 <ul>
  <li>The server can return multiple elements, each with 1 or more targets</li>
  <li>servers may return the relationship represented in either direction</li>
- <li>it’s important to understand the relationship the right way around. From the spec: The equivalence is read from target to source (e.g. the target is ‘wider’ than the source). So in this case, 128599005 (Structural disorder of heart) subsumes 22298006 (Myocardial infarction)</li>
+ <li>it's important to understand the relationship the right way around. From the spec: The equivalence is read from target to source (e.g. the target is 'wider' than the source). So in this case, 128599005 (Structural disorder of heart) subsumes 22298006 (Myocardial infarction)</li>
  <li>In the $closure operation, the response never explicitly states that a code is subsumed by itself. Clients should assume that this is implicit</li>
  <li>The version is important. Each new invocation of the $closure operation returns a new version of the concept map. The server must keep track of the versions is has issued for replay (see below)</li>
  <li>As well as entering codes that are actually used, the client also enters search terms into the closure table</li>
@@ -1145,9 +1145,9 @@ If there’s new entries in the closure table, the server returns a 200 OK with:
 <a name="closure-rerun"></a>
 <h4>Re-running Closure operation</h4>
 <p>
-Given the way that the closure operation functions, it’s possible for a client to lose a response from
+Given the way that the closure operation functions, it's possible for a client to lose a response from
 the server before it is committed to safe storage (or the client might not have particularly safe storage).
-For this reason, when a client is starting up, it should check that there has been no missing operations.
+For this reason, when a client is starting up, it should check that there have been no missing operations.
 It can do this by passing the last version (from the Concept Map response) it is sure it processed in the request:
 </p>
 <div class="example">
@@ -1165,7 +1165,7 @@ It can do this by passing the last version (from the Concept Map response) it is
 </pre>
 </div>
 <p>
-That’s a request to return all the additions to the closure table since version 3. The server returns its latest version in the concept map, along with anything added to the closure table since version 3 (not including version 3)
+That's a request to return all the additions to the closure table since version 3. The server returns its latest version in the concept map, along with anything added to the closure table since version 3 (not including version 3)
 </p>
 <p>
 Notes:
@@ -1174,7 +1174,7 @@ Notes:
  <li>The client can pass a concept or version, but not both</li>
  <li>These examples use a serially incrementing sequential integer, 
    but this is not required, and clients should not assume that there is any meaning or order in the version. 
-   Just recall the last version, and treat it as a magic fixed value only meaningful to the server. There is, however, one special value: ‘0’. 
+   Just recall the last version and treat it as a magic fixed value only meaningful to the server. There is, however, one special value: '0'. 
    Passing a last version of 0 should be understood as resyncing the entire closure table</li>
 </ul>
 
@@ -1212,7 +1212,7 @@ it might look like this:
 <p>
 The client can then use a table like this as part of its general search conditions. Using the example from above:
 "Find any observations for male patients over the age of 50 who attended a particular clinic within a particular
-2 week period, with a diagnosis of gout, and who had an elevated serum creatinine." This query could be done, for
+2-week period, with a diagnosis of gout, and who had an elevated serum creatinine." This query could be done, for
 instance, with an SQL query like this:
 </p>
 <pre>

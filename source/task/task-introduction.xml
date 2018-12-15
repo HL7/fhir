@@ -26,7 +26,7 @@
       ensure that tasks are completed. Task management may also be centrally controlled using some
       form of a workflow engine, in which case, the workflow engine itself may update and maintain the
       task resources in the server, and through its orchestration activities ensure that tasks are
-      completed. The task resource enables either model of task management, yet provides a
+      completed. The task resource enables either model of task management yet provides a
       consistent view of the status of tasks being executed in support of healthcare workflows. </p>
     <p>The assignment of tasks into categories by type of task, type of performer and task status
       enable the server to function as a queue of work items.  This queue can be polled or subscribed
@@ -70,7 +70,7 @@
       <blockquote class="stu-note">
       <a name="dstu"></a>
       <p>
-      <b>Note:</b>Currently, task pre-requisites can be represented using Task's `description` element or the <a href="requestgroup.html">RequestGroup</a> resource. We are seeking input from the implementer community in evaluating whether there is need for adding another mechanism to this resource for this purpose.<br/>
+      <b>Note:</b> Currently, task pre-requisites can be represented using Task's `description` element or the <a href="requestgroup.html">RequestGroup</a> resource. We are seeking input from the implementer community in evaluating whether there is need for adding another mechanism to this resource for this purpose.<br/>
       </p>
       <p>
       Feedback <a href="https://chat.fhir.org/#narrow/stream/103-Orders-and.20Observation.20WG">here</a>.
@@ -89,7 +89,7 @@
     fulfilling an order, signing an order, merging a set of records, admitting a
     patient. In contrast, <a href="procedure.html">Procedures</a> are actions
     that are intended to result in a physical or mental change to or for the
-    subject (e.g. surgery, physiotherapy, training, counseling). A Task resource
+    subject (for example, surgery, physiotherapy, training, counseling). A Task resource
     often exists in parallel with clinical resources. For example, a Task could
     request fulfillment of a <a href="servicerequest.html">ServiceRequest</a>
     ordering a Procedure that would result in a Procedure, <a

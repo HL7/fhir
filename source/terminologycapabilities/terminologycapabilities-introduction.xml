@@ -4,10 +4,10 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The TerminologyCapability resource provides for a terminology server to describe how the underlying terminology service works.
+The TerminologyCapabilities resource provides for a terminology server to describe how the underlying terminology service works.
 </p>
 <p>
-A client can get the TerminologyCapability statement for a <a href="terminology-service.html">Terminology Service</a> by using
+A client can get the TerminologyCapabilities statement for a <a href="terminology-service.html">Terminology Service</a> by using
 the <a href="http.html#capabilities">capabilities API</a>:
 </p>
 <pre>
@@ -24,7 +24,7 @@ This will return the TerminologyCapabilities resource that applies to the servic
 <h2>Boundaries and Relationships</h2>
 
 <ul>
- <li>The TerminologyCapability does not describe the API - see <a href="capabilitystatement.html">CapabilityStatement</a> for this.</li>
+ <li>The TerminologyCapabilities resource does not describe the API - see <a href="capabilitystatement.html">CapabilityStatement</a> for this.</li>
  <li>The CodeSystem resource documents the inherent structure and capabilities of code system, whereas 
    the <a href="terminologycapabilities.html">TerminologyCapabilities</a> resource documents what a server hosting the code system is capable of</li>
 </ul>

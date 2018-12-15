@@ -27,7 +27,7 @@ further information
 </p>
 <p>
 Ongoing change to the specification means that implementers must be able to 
-determine which version is in use in their context, and implement accordingly.
+determine which version is in use in their context and implement accordingly.
 </p>
 <p>There are 3 ways to determine the version of FHIR in use:</p>
 <ul>
@@ -44,20 +44,20 @@ Whenever resources are exchanged, the applicable FHIR version applies to the
 entire interaction, not just the resources. The semantics of the mime types, 
 the RESTful URLs, the search parameters, and the overall interaction are bound 
 to a particular FHIR version. The resource versions must be consistent with the 
-overall interaction. It’s not possible for client/server (or, for messaging, 
+overall interaction. It's not possible for client/server (or, for messaging, 
 sender/receiver) to have a coherent conversation without first agreeing on 
 the version. The version of the interaction is specified in the CapabilityStatement 
 resource. The sequence works this way:
 </p>
 <ul>
-<li>The server decides what version it is implementing, and states this in it’s CapabilityStatement</li>
+<li>The server decides what version it is implementing, and states this in it's CapabilityStatement</li>
 <li>The client knows what FHIR version it uses</li>
 <li>The first time the client connects to the server, it <a href="http.html#capabilities">retrieves that CapabilityStatement</a> 
   and checks that the server version is the same</li>
 <li>All interactions between the client and server use the same version</li>
 </ul>
 <p>
-Clients are advised to check the server’s capability statement before first using the 
+Clients are advised to check the server's capability statement before first using the 
 server, but how often is at the discretion of the implementer, and this varies 
 wildly. Some implementers only check the statement during the development cycle, 
 while others check on the first connection for each process. Which is appropriate 
@@ -95,8 +95,8 @@ GET [base]/metadata
 Accept: application/fhir+json; fhirVersion=3.0
 </pre>
 <p>
-This is a request to return the CapabilityStatement for the server’s 
-support of FHIR Release 3. The client will know that the server doesn’t 
+This is a request to return the CapabilityStatement for the server's 
+support of FHIR Release 3. The client will know that the server doesn't 
 support R3 if it gets an error in return, or if the capability statement 
 that comes back has a different fhirVersion (which would mean that the 
 server does not support the fhirVersion parameter).
@@ -106,7 +106,7 @@ Notes:
 </p>
 <ul>
  <li>The client must include the fhirVersion parameter on all following interactions.</li>
- <li>The same parameter can be used anywhere Mime type is used to describe that a content contains a FHIR resource – such as in an Email attachment:
+ <li>The same parameter can be used anywhere Mime type is used to describe that a content contains a FHIR resource - such as in an Email attachment:
    <pre>
    --MIME_boundary
    Content-Type: application/fhir+xml; fhirVersion=1.0
@@ -121,7 +121,7 @@ Clients can determine what versions a server supports by using the <a href="capa
 <p><b>Storage</b></p>
 
 <p>
-The same technique can be used in a database, or any other kind of storage – just 
+The same technique can be used in a database, or any other kind of storage - just 
 store the mime type (or just the version) alongside the resource. This means that 
 when reading resources, the application knows what version the resource has, and 
 therefore what parser to use, before reading the resource.
@@ -131,14 +131,14 @@ therefore what parser to use, before reading the resource.
 <h3>Version Specific Profile</h3>
 
 <p>
-There are some circumstances where applications handle ‘naked’ resources – that 
+There are some circumstances where applications handle 'naked' resources - that 
 is, resources where there is no wrapping envelope to carry a mimetype version 
 parameter, nor any suitable parallel location to store the version. The most 
 obvious circumstance is when resources are stored in files, though this may arise 
 in other circumstances due to (legacy) application or protocol design.
 </p>
 <p>
-When there’s no other alternative, the version has to be in the resources itself, 
+When there's no other alternative, the version has to be in the resources itself, 
 and applications reading the resource have to scan the resource to determine 
 the version and then read the resource as the correct version.
 </p>
@@ -187,17 +187,17 @@ all of which may be applicable when exchanging data. Implementers
 are advised to adopt their use in the order documented:
 </p>
 <ol>
-<li>All exchange of FHIR resources will have a known version from the metadata – this always applies, and 
+<li>All exchange of FHIR resources will have a known version from the metadata - this always applies, and 
    implementers are encouraged to prefer this method whenever possible.</li>
 <li>When this is not enough, or when resources are not exchanged under the rules of a <code>CapabilityStatement</code>, 
    a version parameter should be stored alongside the resource, preferably using the mime type parameter documented above</li>
-<li>When there’s no other choice, use the meta.profile to indicate which version(s) a resource conforms to</li>
+<li>When there's no other choice, use the meta.profile to indicate which version(s) a resource conforms to</li>
 </ol>
 <p>
-When determining the version, there’s no order of preference between these methods: 
+When determining the version, there's no order of preference between these methods: 
 if the version of a resource or interaction is specified more than one way, the version 
 statements must all agree with each other, or it is an error, and applications can process 
-a request/resource how they wish – usually, with some kind of error.
+a request/resource how they wish - usually, with some kind of error.
 </p>
 
 <a name="changes"></a>

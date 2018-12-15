@@ -172,7 +172,7 @@ separation of concerns between the FHIR REST API and standards-based
 authorization protocols like OAuth. For the use case of user-facing third-party
 app authorization, we recommend the OAuth-based SMART protocol 
 see <a href="security.html#authentication">Security: Authentication</a> as an
-externally-reviewed authorization mechanism with a real-world deployment base —
+externally-reviewed authorization mechanism with a real-world deployment base -
 but we note that community efforts are underway to explore a variety of
 approaches to authorization. 
 For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
@@ -204,7 +204,7 @@ Context-Based, and/or Attribute-Based Access Control."
 
 <p>
 
-<em>Approach:</em> Ensure that the level of assurance for identity proofing reflects the appropriate risk, given the issued party’s exposure to health information. Users should be identified and should have their Functional and/or Structural role 
+<em>Approach:</em> Ensure that the level of assurance for identity proofing reflects the appropriate risk, given the issued party's exposure to health information. Users should be identified and should have their Functional and/or Structural role 
 declared when these roles are related to the functionality the user is interacting with. Roles should 
 be conveyed using standard codes from <a href="valueset-security-role-type.html">Security Role Vocabulary</a>.
 </p><p>
@@ -213,7 +213,7 @@ should be conveyed using standard codes from <a href="v3/PurposeOfUse/vs.html">P
 </p><p>
 When using OAuth, the requested action on a Resource for specified one or more purpose of use and 
 the role of the user are managed by the OAuth authorization service (AS) and may be communicated 
-in the security token where jwt tokens are used.
+in the security token where JWT tokens are used.
 
 For details, see
 <a href="security-labels.html#hcs">Security: HCS vocabulary</a>.
@@ -372,8 +372,8 @@ within the resource set, they'll need to be changed consistently.
 </p><p>
 Then, there is the question of where to 
 make the de-identification changes. For example, the Observation Resource has a subject element that 
-mostly refers to a Patient resource. Should it be removed? or left and the Patient resource it refers to be de-identified? 
-Or it be updated to a new patient resource randomly or consistently? 
+mostly refers to a Patient resource. Should it be removed? Left and the Patient resource it refers to be de-identified? 
+Updated to a new patient resource randomly or consistently? 
 There are many other Reference elements on Observation that can easily be used to navigate back 
 to the Subject;  e.g., Observation.context value of Encounter or EpisodeOfCare; or Observation.performer.   
 These also need to be de-identified, and it will depend on the intended use of the data whether these all
