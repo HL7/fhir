@@ -104,7 +104,7 @@ in order to support consistent definitions for schema and UML derived code.
         <img alt="Diagram showing POST of request to placer/queue server system, receiver uses polling workflow" src="workflow-optionc.png" />
         <h4>Steps</h4>
         <ol>
-            <li>Placer system creates a 'request' resource (e.g. ServiceRequest etc.) by a system action or a POST on either its own system or a third party queue server system and places an "actionable" tag on the resource
+            <li>Placer system creates a 'request' resource (e.g. ServiceRequest etc.) by a system action or a POST on either its own system or a third-party queue server system and places an "actionable" tag on the resource
                 that indicates the request is intended to be acted upon. The request explicitly identifies the intended fullfiller</li>
             <li>The filler system uses polling (or a subscription) at the placer or queue server system to see if there are any "new" requests that: are tagged as "actionable", have the filler identified as the intended performer, and are a type of request
                 "of interest" to the filler.</li>
@@ -189,7 +189,7 @@ in order to support consistent definitions for schema and UML derived code.
         <ul>
             <li>Reduced number of communications</li>
             <li>All relevant data sent in one package</li>
-            <li>Responses can be asynchronous and content may be routed</li>
+            <li>Responses can be asynchronous, and content may be routed</li>
             <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
             <li>Can request things other than just fulfillment (e.g. please suspend)</li>
             <li>Explicit acknowledgement that filler has received and agreed to act on the request (though no need for the placer to check)</li>
@@ -252,14 +252,14 @@ in order to support consistent definitions for schema and UML derived code.
 
         <h4>Cancellation of a Task using REST - placer owns</h4>
         <ol>
-            <li>Placer sends an update to the Task setting the status to "cancelled" signalling they are no longer concerned about the outcome of the task</li>
+            <li>Placer sends an update to the Task setting the status to "cancelled" signaling they are no longer concerned about the outcome of the task</li>
             <li>Filler receives notification of the update (because the task is on their system, or because they poll it, or are subscribed to it) and ceases work if they are able</li>
         </ol>
 
         <h4>Cancellation of a Task using REST - filler owns</h4>
         <ol>
             <li>Placer creates a new task requesting cancellation of the original fulfillment task<br/> Fulfillment of the "cancellation task" can be requested using any of the mechanisms above</li>
-            <li>Filler decides whether they are able to cancel the task and update the "cancellation" task to indicate either cancellation is complete or has been refused</li>
+            <li>Filler decides whether they can cancel the task and update the "cancellation" task to indicate either cancellation is complete or has been refused</li>
         </ol>
 
     </div>

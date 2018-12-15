@@ -85,7 +85,7 @@ different aspects of the specification.  They are as follows:
     </tr>
     <tr>
       <th style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;">Informative</th>
-      <td>This portion of the specification is provided for implementer assistance, and does not make rules that implementers are required to follow. 
+      <td>This portion of the specification is provided for implementer assistance and does not make rules that implementers are required to follow. 
          Typical examples of this content in the FHIR specification are tables of contents, registries, examples, and implementer advice</td>
     </tr>
     <tr>
@@ -99,16 +99,16 @@ different aspects of the specification.  They are as follows:
 <a name="mixed"></a>
 <h4>Mixed Normative content</h4>
 <p>
-Some Normative artefacts contain a few parts labeled as 'Trial Use' <i>even though the artifact itself
+Some Normative artifacts contain a few parts labeled as 'Trial Use' <i>even though the artifact itself
 is labeled 'Normative'</i>:
 </p>
 <ul>
- <li>Some normative resources contain elements labelled as 'trial-use'</li>
- <li>Some normative pages contain sections labelled as 'trial-use'</li>
+ <li>Some normative resources contain elements labeled as 'trial-use'</li>
+ <li>Some normative pages contain sections labeled as 'trial-use'</li>
 </ul>
 <p>
-While HL7 prefers to avoid this outcome, there are a number of resources where the overall functionality 
-of the artefact is clearly ready to be labeled as 'normative' while some very specific parts are known 
+While HL7 prefers to avoid this outcome, there are several resources where the overall functionality 
+of the artifact is clearly ready to be labeled as 'normative' while some very specific parts are known 
 not to have the requisite level of implementation experience as the rest of the resource. 
 E.g. <a href="bundle-definitions.html#Bundle.signature">Bundle.signature</a>.
 </p>
@@ -145,7 +145,7 @@ Notes:
  <li>The above statuses can apply to both the standard overall as well as to individual components of the FHIR specification</li>
  <li>Between FHIR release 2 and 3, HL7 changed from using "DSTU" (Draft Standard for Trial Use) to just simply "STU" (Standard for Trial Use)
   to reflect the maturity of the FHIR specification: Release 2 and particularly this Release 3 are far beyond 
-  "draft" specifications, and have been and will be widely implemented.</li>
+  "draft" specifications and have been and will be widely implemented.</li>
  <li>Most pages in the specification identify their status explicitly. The few pages that don't are Table of contents pages, and are all <i>Informative</i></li>
  <li>Some content is labeled with the status "External", which means that the content is maintained in another standard, and the status must be found by consulting that other standard. In this case, the Maturity Model does not apply</li>
 </ul>
@@ -168,7 +168,7 @@ Guidance from early implementation will help address these areas.
 </p>
 
 <p>
-All artifacts in this specification are assigned a "Maturity Level", known as FMM (after the well known <a href="http://en.wikipedia.org/wiki/Capability_Maturity_Model">CMM</a> grades).
+All artifacts in this specification are assigned a "Maturity Level", known as FMM (after the well-known <a href="http://en.wikipedia.org/wiki/Capability_Maturity_Model">CMM</a> grades).
 The FMM level can be used by implementers to judge how advanced - and therefore stable - an artifact is. The following FMM levels are defined:
 </p>
 <table class="lines">
@@ -346,7 +346,7 @@ Once an artifact achieves <i>Normative</i> status, specific rules come into play
 <p>
 However, in a healthcare context, many implementers are unwilling to
 consider some of these steps because of concerns about clinical risk or
-technical limitations in their software (e.g. schema based processing).
+technical limitations in their software (e.g. schema-based processing).
 </p>
 
 <a name="f-compat"></a>
@@ -431,7 +431,7 @@ The following rules apply once an artifact in the FHIR core specification or in 
         <p>
         These expectations only apply to Value Sets and Code Systems maintained as part of the FHIR specification.  HL7 
         cannot enforce these rules on terminology artifacts maintained by other authorities 
-        - e.g. UCUM unit codes, ISO language codes, etc
+        - e.g. UCUM unit codes, ISO language codes, etc.
         </p>
       </td>
     </tr>
@@ -475,7 +475,7 @@ The following rules apply once an artifact in the FHIR core specification or in 
     <tr>
       <td>Search Criteria</td>
       <td>Search criteria may be added but not removed or renamed.  Existing criteria will not have their type or path changed or
-      have their description altered in any way that would invalidate the reasonable behavior of existing systems (with the exception of
+      have their description altered in any way that would invalidate the reasonable behavior of existing systems (except for
       correcting obvious errors).</td>
     </tr>
     <tr>
@@ -516,7 +516,7 @@ The following rules apply once an artifact in the FHIR core specification or in 
     <tr>
       <td>Implementation Guides</td>
       <td>
-      Additional artifacts can be added and artifacts can be changed.  The list of global profiles will not change
+      Additional artifacts can be added, and artifacts can be changed.  The list of global profiles will not change
       </td>
     </tr>
     <tr>
@@ -542,7 +542,7 @@ Once content is normative, there is a process for removing it from the standard 
 <code>deprecated</code> or <code>withdrawn</code> (from the <a href="https://www.w3.org/TR/html4/conform.html">HTML 4.0 Standard</a>):
 </p>
 <table class="grid">
- <tr><td><b>Deprecated</b></td><td>Systems should continue to support the artefact/feature/concept, but are discouraged from making use of it</td></tr>
+ <tr><td><b>Deprecated</b></td><td>Systems should continue to support the artifact/feature/concept, but are discouraged from making use of it</td></tr>
  <tr><td><b>Withdrawn</b></td><td>Documented for historical purposes, no longer supported</td></tr>
 </table>
 <p>
@@ -550,11 +550,11 @@ The specification will provide guidance with deprecated materials showing how to
 <code>Deprecated</code> materials are eligible to be balloted to be <code>withdrawn</code> two years after their <code>deprecated</code> status is published.
 </p>
 <p>
-The computable artifact labels (e.g. codes, element names, urls, etc) associated with withdrawn materials SHALL not be used in future versions of HL7 specifications.
+The computable artifact labels (e.g. codes, element names, urls, etc.) associated with withdrawn materials SHALL not be used in future versions of HL7 specifications.
 Materials marked "deprecated" may have that marking removed as part of a subsequent ballot at a later moment, while withdrawn materials SHALL NOT.
 </p>
 <p>
-The following artefacts are deprecated in this version of FHIR:
+The following artifacts are deprecated in this version of FHIR:
 </p>
 <ul>
  <li><a href="operationoutcome-definitions.html#OperationOutcome.issue.location">OperationOutcome.issue.location</a></li>
