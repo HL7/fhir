@@ -82,7 +82,7 @@ application's requirements.
 </p>
 <p>
 If an application's information requirements are nailed down - that is, well 
-understood, clearly expressed, and not subject to uncontrolled change – then it is easy 
+understood, clearly expressed, and not subject to uncontrolled change - then it is easy 
 to design a data storage schema that is completely fit for purpose and 
 highly efficient compared to storing FHIR resources. Classic Enterprise Information 
 Systems (EHRs) tend to behave like this.
@@ -91,7 +91,7 @@ Systems (EHRs) tend to behave like this.
 If, on the other hand, the application's information requirements are not at all 
 nailed down, and implementers have to deal with whatever data comes in an ongoing 
 basis, then resources are actually a very sound way to store an application's data. The 
-<a href="extensibility.html">the extensibility approach</a> makes FHIR a particularly 
+<a href="extensibility.html">extensibility approach</a> makes FHIR a particularly 
 robust choice as the primary data store. Clinical Data Repositories tend to behave 
 like this.
 </p>
@@ -124,7 +124,7 @@ of these:
 <p>
 There is no single pattern to resolve these somewhat inconsistent requirements,
 but application designers can consider several different techniques for dealing
-with these kind of requirements:
+with these kinds of requirements:
 </p>
 <ul>
  <li>When storing resources, store the version of the resource alongside the resource</li>
@@ -157,8 +157,8 @@ across all technologies.
 <p>
 Most applications that store resources natively find the way references work in FHIR 
 deserves particular focus. <a href="references.html">References</a> can be absolute 
-or relative URLs, they can be version specific or not, they may or might not follow 
-FHIR's well defined RESTful interface pattern, and they may or might not resolve 
+or relative URLs, they can be version specific or not, they might or might not follow 
+FHIR's well-defined RESTful interface pattern, and they might or might not resolve 
 in the local system. In addition, given the requirements consideration above, it's 
 not always possible to enforce referential integrity when storing resources directly. 
 </p>

@@ -26,7 +26,7 @@ Many of the defined elements in a resource are references to other resources. Us
 references, the resources combine to build a web of information about healthcare.
 </p>
 <p>
-References are always defined and represented in one particular direction - from one resource (source) to another (target).
+References are always defined and represented in one direction - from one resource (source) to another (target).
 The corresponding reverse relationship from the target to the source exists in a logical sense, but is
 not typically represented explicitly in the target resource. For external references, navigating these reverse relationships requires some
 external infrastructure to track the relationship between resources (the <a href="http.html">REST API</a> provides one such
@@ -35,7 +35,7 @@ search parameters for the references and by providing support for <a href="searc
 </p>
 <p>
 Because resources are processed independently, relationships are not considered to be transitive.
-For example, if a <a href="procedure.html">Procedure</a> resource references a particular <a href="patient.html">Patient</a> as its subject, and has a 
+For example, if a <a href="procedure.html">Procedure</a> resource references a <a href="patient.html">Patient</a> as its subject, and has a 
 <a href="procedure.html">Procedure</a> resource as its reason, there is no automatic rule or implication that the condition 
 has the same patient for its subject. Instead, the subject of the condition must be established 
 directly in the Condition resource itself. Another way to state this is that the context of the 
@@ -65,7 +65,7 @@ Resources contain two types of references to other resources:
 For canonical references, see below. The general references are handled by the <code>Reference</code> type.
 which contains at least one of a <code>reference</code> (literal reference),
 an <code>identifier</code> (logical reference), and a <code>display</code> (text description of target).
-In addition, it may a contain a target <code>type</code>.
+In addition, it may contain a target <code>type</code>.
 </p>
 
 [%dt Reference 1%]
@@ -91,8 +91,8 @@ In resources, a <code>Reference</code> always point to another resource, which h
 a fixed and known type. If appropriate, this type can be specified in the reference
 itself. In principle, the type of the target reference can be determined by resolving 
 the reference (using the approaches described below), and examining the content 
-returned to determine the type; for this reason specifying the type is almost always 
-duplication of information. However resolving references may be a very slow 
+returned to determine the type; for this reason, specifying the type is almost always 
+duplication of information. However, resolving references may be a very slow 
 operation, or impossible in practice due to various practical concerns. For this 
 reason, the reference may indicate directly the target resource type:
 </p>
@@ -146,11 +146,11 @@ Notes:
    ((http|https):\/\/([A-Za-z0-9\-\\\.\:\%\$]*\/)+)?([%piperesources%])\/[%id_regex%](\/_history\/[%id_regex%])?
    </pre>
    <br/>
-   However conformance with this regex is no guarantee that the end-point is a FHIR server
+   However, conformance with this regex is no guarantee that the end-point is a FHIR server
    </li>
  <li>URLs are always considered to be case-sensitive</li>
  <li>The URL may contain a reference to a canonical URL (see below) and applications can use the canonical URL resolution methods they support when resolving references, though the <code>|[version]</code> syntax part of the canonical reference is not supported</li>
- <li>References SHALL be a reference to an actual FHIR resource, and SHALL be resolvable (given that access control works, there is no temporary unavailability, etc). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL (<a href="#canonical">see below</a>) and looking it up in a local registry/repository</li>
+ <li>References SHALL be a reference to an actual FHIR resource, and SHALL be resolvable (given that access control works, there is no temporary unavailability, etc.). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL (<a href="#canonical">see below</a>) and looking it up in a local registry/repository</li>
 </ul>
 <div class="example">
 <p>A relative reference to the <a href="patient.html">Patient</a> "034AB16" in an element named <code>subject</code> on a FHIR RESTful server:</p>
@@ -176,7 +176,7 @@ replaces the logical URL with what is the correct literal URL at the completion 
 </p>
 
 <p>
-<a name="versions"></a>References are allowed to be version specific - that is, a reference may point to a specific version of a resource. e.g. :
+<a name="versions"></a>References can be version specific - that is, a reference may point to a specific version of a resource. e.g.:
 </p>
 <pre class="xml" fragment="Reference">
   &lt;target&gt;
@@ -185,7 +185,7 @@ replaces the logical URL with what is the correct literal URL at the completion 
 </pre>
 <p>
 This is usually associated with audit trail or provenance information where it is important to 
-reference a particular version of a record, not the most current information. 
+reference a specific version of a record, not the most current information. 
 </p>
 
 <a name="logical"></a>
@@ -255,7 +255,7 @@ matches the literal reference, if they understand how to resolve the logical ref
 </p>
 <p>
 Applications converting a logical reference to a literal reference may choose to leave the
-logical reference present, or remove it.
+logical reference present; or may remove it.
 </p>
 
 <a name="display"></a>
@@ -276,7 +276,7 @@ target resource.
 <p>
 This text can be used by any application that cannot resolve the reference
 to fill out the text portion of a hyperlink referring to the target resource, for instance.
-It can also save time fetching a target resource, and determining how to convert it to
+It can also save time fetching a target resource and determining how to convert it to
 a very short textual description.
 </p>
 </div>
@@ -351,7 +351,7 @@ which is shown as canonical(Any) in this specification. Such references SHALL on
 <a name="canonical-fragments"></a>
 <h3>Canonical Reference and Fragments</h3>
 <p>
-Canonical references may include a fragment when the reference is to a contained Contained Resources.
+Canonical references may include a fragment when the reference is to a contained resource.
 When the target of a canonical reference is a contained resource, the 
 canonical reference will have a fragment as part of the URL:
 </p>
@@ -372,7 +372,7 @@ Which is the form for references to the contained value set inside the above exa
 <a name="rendering"></a>
 <h3>Rendering References in Resource Narratives</h3>
 <p>
-References between resources create a particular challenge when rendering resource
+References between resources create a challenge when rendering resource
 narratives: the narrative includes information from the target resources. As an example,
 consider an Observation with a patient reference:
 </p>
@@ -427,7 +427,7 @@ be generated like this:
 </pre>
 </div>
 <p>
-However users generally prefer a more informative narrative, so this 
+However, users generally prefer a more informative narrative, so this 
 is not always acceptable. 
 </p>
 <p>
@@ -547,7 +547,7 @@ Some notes about use and interpretation of contained resources:
   <li>Both <code>Reference</code> and <code>canonical</code> types may refer to contained resources</li>
   <li>Contained resources SHALL NOT contain additional contained resources.</li>
   <li>Contained resources SHALL NOT contain <code>meta.versionId</code>, <code>meta.lastUpdated</code>, or <code>meta.security</code>.</li>
-  <li>Contained resources MAY contain <code>meta.tag</code>, though there are many tags that do not make sense on a contained resources.</li>
+  <li>Contained resources MAY contain <code>meta.tag</code>, though there are many tags that do not make sense on contained resources.</li>
   <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it.</li>
 </ul>
 
@@ -616,7 +616,7 @@ There are several reasons why a resource may refer to other resources of the sam
  <li>part-of: the resources describe a complex hierarchy composed of parts e.g. an organization structure</li>
  <li>builds-on: resources may add additional content to another resource by deriving from it e.g. extending type declarations</li>
  <li>replaces: one resource may be replaced by another due to changes over time e.g. replacing a prescription or to support patient merging </li>
- <li>uses/re-uses: a resource may use another resource in some kind of modular arrangement e.g. library references or value sets including other value sets</li>
+ <li>uses/re-uses: a resource may use another resource in a modular arrangement e.g. library references or value sets including other value sets</li>
 </ul>
 <p>
 For parameters where the relationship is a strict hierarchy (i.e. where it would be wrong to have circular
