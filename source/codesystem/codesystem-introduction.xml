@@ -27,7 +27,7 @@ The CodeSystem resource is used to declare the existence of a code system, and i
 <p>
 In addition, the CodeSystem resource may list some or all of the concepts in the code system, along with
 their basic properties (code, display, definition), designations, and additional properties. Code
-System resources may also be used to define supplements, that extend an existing code system with 
+System resources may also be used to define supplements, which extend an existing code system with 
 additional designations and properties.
 </p>
 <p>
