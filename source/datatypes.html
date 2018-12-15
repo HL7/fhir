@@ -23,12 +23,12 @@ resource elements. There are four categories of data types:
 </p>
 <ol>
   <li>Simple / primitive types, which are single elements with a primitive value (<a href="#primitive">below</a>)</li>
-  <li>General purpose complex types, which are re-usable clusters of elements (<a href="#complex">below</a>)</li>
+  <li>General-purpose complex types, which are re-usable clusters of elements (<a href="#complex">below</a>)</li>
   <li>Metadata types: A set of types for use with metadata resources<!-- (todo: provide link when pattern is defined) --></li>
   <li>Special purpose data types - defined elsewhere in the specification for specific usages</li>
 </ol>
 <p>
-This page describes the general purpose data types (categories 1 and 2). 
+This page describes the general-purpose data types (categories 1 and 2). 
 </p>
  
 <p><b>Data Types Summary</b>. 
@@ -36,7 +36,7 @@ This page describes the general purpose data types (categories 1 and 2).
 <p>Legend: see <a href="versions.html#std-process">Standards Status Colors</a></p>
 <div class="row">
     <div class="col-6" style="width: auto; border: #efefef 1px solid"><b>Primitive Types</b><br />[%diagram datatypes/allprimitivetypes.diagram 1dt%]</div>
-    <div class="col-6" style="width: auto; border: #efefef 1px solid; padding-right: 0px; margin-right: -25px;"><b>General Purpose Data types</b><br />[%diagram datatypes/alltypes.diagram 2dt%]</div>
+    <div class="col-6" style="width: auto; border: #efefef 1px solid; padding-right: 0px; margin-right: -25px;"><b>General-Purpose Data types</b><br />[%diagram datatypes/alltypes.diagram 2dt%]</div>
 </div>
 <div class="row">
     <div class="col-6" style="width: auto; border: #efefef 1px solid"><b>Metadata Types</b><br />[%diagram datatypes/metadatatypes.diagram 3dt%]</div>
@@ -108,7 +108,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td style="border-top: 0px silver solid"></td>
    <td colspan="3" style="border-top: 0px silver solid">Note that strings SHALL NOT exceed 1MB (1024*1024 characters) in size. Strings SHOULD not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed).
 	   Leading and Trailing whitespace is allowed, but SHOULD be <a href="xml.html#whitespace">removed when using the XML format</a>.
-     Note: this means that a string that consists only of whitespace could be trimmed to nothing, which would be treated as an invalid element value.  Therefore strings SHOULD always contain non-whitespace content</td>
+     Note: This means that a string that consists only of whitespace could be trimmed to nothing, which would be treated as an invalid element value.  Therefore strings SHOULD always contain non-whitespace content</td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
@@ -174,7 +174,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  <tr>
    <td>instant<a name="instant"></a></td>
    <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a time zone. 
-	   Note: This is intended for when precisely observed times are required(typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
+	   Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
    <td>xs:dateTime</td>
    <td>A JSON string - an xs:dateTime</td>
  </tr>
@@ -243,7 +243,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>id<a name="id"></a></td>
-   <td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)</td>
+   <td>Any combination of upper- or lower-case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)</td>
    <td>xs:string</td>
    <td>JSON string</td>
  </tr>
@@ -308,7 +308,7 @@ Notes:
  <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use</li>
  <li>Issues with the specified regexes: 
    <ul>
-     <li>The regexes are provided to assist with tooling, but are informative, <b>not normative</b>. There are a number of issues with the regexes</li>
+     <li>The regexes are provided to assist with tooling, but are informative, <b>not normative</b>. There are several issues with the regexes</li>
      <li>The string regex has problems with unicode - specifically, it might or might not allow unicode whitespace to some degree depending on unicode support in the regex engine being used. 
         The regexes <code>[\r\n\t\x{0020}-\x{FFFF}]*</code> or <code>[\r\n\t\u0020-\uFFFF]*</code> are better expressions of the constraints on string, but poorly supported (see <a href="https://www.regular-expressions.info/unicode.html">Regex Tutorial</a> for details).
         The <code>string</code> regex also applies to <code>markdown</code> as well. The regex does not enforce the length limit</li>
@@ -480,7 +480,7 @@ See also <a href="datatypes-examples.html#Attachment">Examples</a>, <a href="dat
 <p>
 This type is for containing or referencing attachments - additional data content defined in other
 formats. The most common use of this type is to include images or reports in
-some report format such as PDF. However it can be used for any
+some report format such as PDF. However, it can be used for any
 data that has a MIME type.
 </p>
 [%dt Attachment 1%]
@@ -643,7 +643,7 @@ This specification defines two types for representing coded values:
 </ul>
 <p>
 The <code>Coding</code> data type corresponds to the simple case of selecting
-a single code from a code list. However this type is rarely used in the
+a single code from a code list. However, this type is rarely used in the
 FHIR specifications; long experience with exchanging coded values in
 HL7 shows that in the general case, systems need to able to exchange
 multiple translation codes, and/or an original text.
@@ -681,7 +681,7 @@ in the definitions of the underlying codes. There is no meaning associated with 
 A typical use of <code>CodeableConcept</code> is to send the local code that the concept was coded with, and also one or more translations to publicly defined
 code systems such as LOINC or SNOMED CT. Sending local codes is useful and important for the purposes of debugging and integrity auditing. 
 </p>
-	<p>For example many qualitative laboratory test results values are typically represented with coded presence/absence concepts. Using the coded value for 'negative' with a standard SNOMED CT code translation, <code>valueCodeableConcept</code> would be:</p>
+	<p>For example, many qualitative laboratory test results values are typically represented with coded presence/absence concepts. Using the coded value for 'negative' with a standard SNOMED CT code translation, <code>valueCodeableConcept</code> would be:</p>
 	<pre class="json">
 
 	"valueCodeableConcept": {
@@ -714,9 +714,9 @@ may be flagged as the user selected code - the code or concept that the user act
 Note that in all but a few cases, only one of the codings may be flagged as the <code>coding.userSelected = true</code> 
 - the code or concept that the user actually selected directly. If more than one code is marked as user selected, 
 this means the user explicitly chose multiple codes. When none of the <code>coding</code> elements is 
-marked as user selected, the text (if present)is the preferred source of meaning.
+marked as user selected, the text (if present) is the preferred source of meaning.
 </p>
-	<p>A free text only representation of the concept without any <code>coding</code> elements is permitted if there is no appropriate code and only free text is available (and not prohibited by the implementation). For example using text only, the <code>Observation.valueCodeableConcept</code> element would be:</p>
+	<p>A free text only representation of the concept without any <code>coding</code> elements is permitted if there is no appropriate code and only free text is available (and not prohibited by the implementation). For example, using text only, the <code>Observation.valueCodeableConcept</code> element would be:</p>
 	<pre class="json">
 
 	"valueCodeableConcept": {
@@ -918,7 +918,7 @@ Alternate Representation
 </h3>
 <p>
 There are also circumstances where a financial amount must be represented as 
-the numerator or denominater in a Ratio, where the type is currency. In this context,
+the numerator or denominator in a Ratio, where the type is currency. In this context,
 the Money amount is represented as a <a href="#Quantity">Quantity</a>, using the 
 <code>MoneyQuantity</code> constraint:
 </p>
@@ -1008,10 +1008,10 @@ and where the numerator or denominator is an amount of a currency (no UCUM code 
 </p>
 <p>
 Common factors in the numerator and denominator are not automatically cancelled out. Ratios are not 
-simply "structured numbers" - for example blood pressure measurements (e.g. "120/60") are not ratios. 
+simply "structured numbers" - for example, blood pressure measurements (e.g. "120/60") are not ratios. 
 </p>
 <p>
-A proper ratio has both a numerator and a denominator; however these are not mandatory in order
+A proper ratio has both a numerator and a denominator; however, these are not mandatory in order
 to allow an invalid ratio with an extension with further information.
 </p>
 
@@ -1218,7 +1218,7 @@ This table summarizes where common parts of a person's name are found.
  <tr><td><b>Name</b></td><td><b>Example</b></td><td><b>Destination / Comments</b></td></tr>
  <tr><td>Surname</td><td>Smith</td><td>Family Name</td></tr>
  <tr><td>First name</td><td>John</td><td>Given Name</td></tr>
- <tr><td>Title</td><td>Mr</td><td>Prefix</td></tr>
+ <tr><td>Title</td><td>Mr.</td><td>Prefix</td></tr>
  <tr><td>Middle Name</td><td>Samuel</td><td>Subsequent Given Names</td></tr>
  <tr><td>Patronymic</td><td>bin Osman</td><td>Family Name</td></tr>
  <tr><td>Multiple family names</td><td>Carreño Quiñones</td><td>Family Name. See note below about decomposition of family name</td></tr>
@@ -1379,7 +1379,7 @@ can be expressed in a structured form and/or as a code. When both event and a re
 specification are provided, the list of events should be understood as an interpretation 
 of the information in the repeat structure.
 </p>
-<p>Note: the Timing data type allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
+<p>Note: The Timing data type allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
 [%dt Timing 13%]
 <p>
 If the timing schedule has repeating criteria, the repeat can occur a given number of times per

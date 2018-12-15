@@ -81,7 +81,7 @@ LOINC system, the version of LOINC used for the definition, and the display assi
  <tr><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a><a name="CodeableConcept"></a></td><td>A type that represents a concept by plain text and/or one or more <code>coding</code> elements (See the <a href="datatypes.html#CodeableConcept">datatype notes</a> for a discussion of code translations and using text in CodeableConcept)</td></tr>
  <tr><td colspan="2">In addition, the following data types also carry coded values, or content that can be treated as a code and bound to a valueset:</td></tr>
  <tr><td><a href="datatypes.html#Quantity">Quantity</a><a name="Quantity"></a></td><td>The instance has <i>system</i> and <i>code</i> elements for carrying a code for the type of unit, and these can be bound to a value set</td></tr>
- <tr><td><a href="datatypes.html#string">string</a><a name="string"></a></td><td>The instance carries a string. In some cases applications may wish to control the set of valid strings for a particular element, so the string value can be treated as a coded element (like <code>code</code>)</td></tr>
+ <tr><td><a href="datatypes.html#string">string</a><a name="string"></a></td><td>The instance carries a string. In some cases, applications may wish to control the set of valid strings for a particular element, so the string value can be treated as a coded element (like <code>code</code>)</td></tr>
  <tr><td><a href="datatypes.html#uri">uri</a><a name="uri"></a></td><td>Like <code>string</code>, URIs can be treated as a coded element</td></tr>
 </table>
 <p>
@@ -101,7 +101,7 @@ specification "binds" a value set to the element, and for the types code, Coding
 </p>
 <ul>
  <li><b><a href="codesystem.html">Code Systems</a></b> define concepts and give them meaning through formal definitions, and assign codes that represent the concepts</li>
- <li><b><a href="valueset.html">Value Sets</a></b> specifies a particular set of codes defined by code systems that can be used in a specific context</li>
+ <li><b><a href="valueset.html">Value Sets</a></b> specifies a set of codes defined by code systems that can be used in a specific context</li>
 </ul>
 <p>
 The difference between a code system and a value set is an important distinction that is easily
@@ -249,7 +249,7 @@ There are a number of places in the specification where value sets are reference
  <tr><td><a href="questionnaire.html">Questionnaire</a>.item.answerValueSet</td><td>Indicates that answers to a set of questions come from a value set</td></tr>
  <tr><td><a href="valueset.html">ValueSet</a>.compose.include.valueSet</td><td>The content of a value set includes the content in the imported value set too</td></tr>
  <tr><td><a href="operationdefinition.html">OperationDefinition</a>.parameter.binding.valueSet</td><td>Used to bind a defined parameter to a value set</td></tr>
- <tr><td><a href="extension-valueset-reference.html">ValueSet Reference Extension</a></td><td>Indicates that a particular coded value was chosen from the specified value set</td></tr>
+ <tr><td><a href="extension-valueset-reference.html">ValueSet Reference Extension</a></td><td>Indicates that a coded value was chosen from the specified value set</td></tr>
 </table>
 <p>
 When referencing value sets, the reference is usually made to the <a href="valueset.html#compositions">definition of a value set</a> - that is, a value set 
@@ -288,7 +288,7 @@ GET fhir/Questionnaire/234
 &lt;/Questionnaire&gt;
 </pre>
 <p>
-This specifies that the values for a particular questionnaire come from the
+This specifies that the values for a questionnaire come from the
 ValueSet with id 234234 on the same FHIR end-point. To resolve this, the
 system would GET fhir/ValueSet/234234
 </p>
@@ -304,7 +304,7 @@ reassigned. For this reason, systems are encouraged to use logical value set ref
 <p>
 A logical value set reference has the type <a href="datatypes.html#uri">uri</a>,
 where an absolute URI is provided that matches the one in ValueSet.url. The
-value set URL can - and is preferred to be - a web address that actually resolves
+value set URL can - and is preferred to be - a web address that resolves
 directly to a fixed web address that serves as the authoritative source for that
 value set. Alternatively, the system can query its terminology server(s) to
 resolve a value set with that URL as its identity.
@@ -359,7 +359,7 @@ arrangements, and cannot always be guaranteed, so it is not required.
 </p>
 <p><b>Version specific Logical References</b></p>
 <p>
-A value set has a two part identifier: a url, and a version. Some value sets only
+A value set has a two-part identifier: a url, and a version. Some value sets only
 ever have a single 'version'; a revision of the value set contents will cause
 a new url to be assigned. Others, however, maintain the same URL, and change
 the version. A terminology server may have multiple value sets for the same
@@ -397,7 +397,7 @@ any value set at all. Bindings are to be provided for these elements.
 
 <h2>Binding Strengths</h2>
 <p>
-Almost all of the elements that have a coded data type are bound to a value set. The bindings
+Almost all the elements that have a coded data type are bound to a value set. The bindings
 are associated with various degrees of flexibility as to how closely the value set should be
 followed:
 </p>
@@ -430,8 +430,8 @@ can interpret it with confidence. Generally, this is used for elements with type
 <a href="http://tools.ietf.org/html/bcp47">Language Codes</a>, <a href="http://unitsofmeasure.org">UCUM</a>, etc.)</li>
 </ul>
 <p>
-The other place where this is used is when <a href="profiling.html">profiling resources</a>, and there is agreement within a particular context of use
-that a particular set of codes are the only ones that can be used. In these cases, the data type SHALL contain one of the
+The other place where this is used is when <a href="profiling.html">profiling resources</a>, and there is agreement within a context of use
+that a specified set of codes are the only ones that can be used. In these cases, the data type SHALL contain one of the
 values in the value set.
 </p>
 <p>
@@ -474,7 +474,7 @@ pair, or <code>text</code>) may be used instead. The alternate concept can have 
 (see <a href="terminologies-binding-examples.html#extensible.c2">Condition instance #2</a>).
 </p>
 <p>
-If <b>there is at least one applicable concept</b> in the extensibly bound value set with a meaning which includes but is more 
+If <b>there is at least one applicable concept</b> in the extensibly-bound value set with a meaning which includes but is more 
 general than the meaning that is intended to be represented by the element in the resource instance, then the code that is 
 used in the instance SHALL be taken from the value set and should be the closest available match for the intended element 
 instance meaning (i.e. neither more general or more specific). However, a more specific code that more completely represents 
@@ -483,17 +483,17 @@ but it cannot be used <b>instead of</b> the code from the value set. This helps 
 they should expect to receive and build logic for and it facilitates interoperability.
 </p>
 <p>
-When a code for an applicable concept in the extensibly bound value set is used it should always be the closest available 
+When a code for an applicable concept in the extensibly-bound value set is used it should always be the closest available 
 match for the intended element instance meaning, regardless of hierarchical (i.e. "is-a") relationships in the 
-underlying code system(s) or a particular hierarchical "level" of the concept.  However, as noted above, a code for a concept 
-that is <b>outside</b> of the extensibly bound value set with a meaning which is "covered by" (i.e. is more specific than or 
+underlying code system(s) or hierarchical "level" of the concept.  However, as noted above, a code for a concept 
+that is <b>outside</b> of the extensibly-bound value set with a meaning which is "covered by" (i.e. is more specific than or 
 has an "is-a" relationship to) a concept that is included in the value set <b>cannot</b> be used.  In that case a code for a 
-concept that is in the extensibly bound value set SHALL be used in the element instance and it should be the code for the 
+concept that is in the extensibly-bound value set SHALL be used in the element instance and it should be the code for the 
 concept that most closely matches the intended element instance meaning.
 </p>
 <p>
 If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then, as noted above, one of the Coding values 
-SHALL be from the specified extensibly bound value set if a code in that value set applies, but if no applicable code exists in the 
+SHALL be from the specified extensibly-bound value set if a code in that value set applies, but if no applicable code exists in the 
 value set alternate code(s) from outside the value set may be used instead.  If no codes, including local codes, are available, then 
 text alone (in CodeableConcept.text) may be used.   
 </p>
@@ -515,13 +515,13 @@ that should be used, but it is impossible to create a bounded list of codes that
 use cases, including ones that are yet to arise.
 </p>
 <p>
-When an element is extensibly bound to a value set, <a href="profiling.html">derived profiles</a>
+When an element is extensibly-bound to a value set, <a href="profiling.html">derived profiles</a>
 may state rules on which codes can be used, but cannot select new or additional codes for these elements
 unless no codes with appropriate meanings are found in the base value set.
 </p>
 <p>
-Note that if the valueset-reference extension is being used and the code in the element instance is from outside the extensibly 
-bound value set, the extension must reference a different value set that the code was chosen from (or if no other value set 
+Note that if the valueset-reference extension is being used and the code in the element instance is from outside the extensibly-bound
+value set, the extension must reference a different value set that the code was chosen from (or if no other value set 
 reference is available the extension cannot be used in that instance).
 </p>
 <h4>Examples for Extensible Bindings</h4>

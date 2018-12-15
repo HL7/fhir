@@ -239,7 +239,7 @@
 
 <p>A <i>hook</i> in CDS Hooks is a pre-defined point in the workflow of a clinical information system such as an EHR. Each hook defines <i>context</i>, which is the information available as part of the current activity in the system. Each hook represents a point in the workflow that can be augmented by decision support from an external system. Within CDS Hooks, each hook defines the set of available context values, along with whether or not that context value can be used as a prefetch token.</p>
 
-<p>For example, the <code>patient-view</code> hook defines <code>patientId</code> and <code>encounterId</code> as context values, and indicates that they are both available for use as prefetch tokens (meaning that they can be used to parameterize prefetch templates).</p>
+<p>For example, the <code>patient-view</code> hook defines <code>patientId</code> and <code>encounterId</code> as context values and indicates that they are both available for use as prefetch tokens (meaning that they can be used to parameterize prefetch templates).</p>
 
 <p>Within FHIR, the concept of a hook can be represented using a combination of TriggerDefinition and ParameterDefinition:</p>
 
@@ -287,7 +287,7 @@
   <tr><td>limit</td><td>_limit=[limit]</td></tr>
 </table>
 
-<p>This prefetch data can be automatically determined from the data requirements of the PlanDefinition, and provided as part of the service definition to the CDS Hooks discovery response.</p>
+<p>This prefetch data can be automatically determined from the data requirements of the PlanDefinition and provided as part of the service definition to the CDS Hooks discovery response.</p>
 
 <a name="processing-requests"> </a>
 <h5>Processing CDS Hooks Requests</h5>

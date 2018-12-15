@@ -142,15 +142,15 @@ Protected Health Information and as such must be afforded the same protection an
  <table class="grid">
  <tr><td><b>Term</b></td><td><b>Alias</b></td><td><b>Resource Type</b></td><td><b>Description</b></td></tr>
  <tr><td>Adjudication</td><td>Claim, Preauthorization or Predetermination Processing</td><td>ClaimResponse</td><td>The processing by an insurer of a claim, preauthorization or predetermination to determine under the insurance plan what if any benefits are or would be payable.</td></tr>
- <tr><td>Assignment of Benefit</td><td>Assignment</td><td>n/a</td><td>When a Beneficiary directs that any benefit they receive from the adjudication of a claim may be paid to the service provider who issued the claim.</td></tr>
+ <tr><td>Assignment of Benefit</td><td>Assignment</td><td>n/a</td><td>When a Beneficiary directs that any benefits they receive from the adjudication of a claim may be paid to the service provider who issued the claim.</td></tr>
  <tr><td>Attachment</td><td></td><td>Communication</td><td>A collection of information objects sent to a party to support their understanding or processing of another resource such as a claim.</td></tr>
- <tr><td>Beneficiary</td><td>Patient</td><td>Patient</td><td>The party who's health care expenses may be covered by a policy issued by an Insurer.</td></tr>
+ <tr><td>Beneficiary</td><td>Patient</td><td>Patient</td><td>The party whose health care expenses may be covered by a policy issued by an Insurer.</td></tr>
  <tr><td>Benefit Amount</td><td>Benefit</td><td>n/a</td><td>The amount payable under an insurance policy for a given expense incurred by a patient.</td></tr>
  <tr><td>Claim</td><td>Claim</td><td>Claim</td><td>A request to an Insurer to adjudicate the supplied charges for health care goods and services under the identified policy and to pay the determined Benefit amount, if any.</td></tr>
- <tr><td>Coordination of Benefit</td><td>COB</td><td>n/a</td><td>The the rules, usually regionally defined, which govern the order of application of multiple Insurance coverages or SelfPay to a given suite of health care expenses.</td></tr>
- <tr><td>Dependent</td><td></td><td>Patient, RelatedPerson</td><td>A person who receives their coverage via a policy which is own or subscribed to by another. Typically these include spouses, partners and minor children but may also include students, parents and disabled persons.</td></tr>
+ <tr><td>Coordination of Benefit</td><td>COB</td><td>n/a</td><td>The rules, usually regionally defined, which govern the order of application of multiple Insurance coverages or Self-Pay to a given suite of health care expenses.</td></tr>
+ <tr><td>Dependent</td><td></td><td>Patient, RelatedPerson</td><td>A person who receives their coverage via a policy which is own or subscribed to by another. Typically, these include spouses, partners and minor children but may also include students, parents and disabled persons.</td></tr>
  <tr><td>Insurer</td><td>Payer, Payor</td><td>Organization</td><td>A public or private insurer which will adjudicate Claims for health care goods and services to determine if the there is any benefit payable, amount due, under the policy which covers the patient.</td></tr>
- <tr><td>Network</td><td></td><td>n/a</td><td>An insurer defined grouping of Providers for which the Beneficiary's plan preferentially covers the costs of treatment, eg. closed, rental, etc.</td></tr>
+ <tr><td>Network</td><td></td><td>n/a</td><td>An insurer defined grouping of Providers for which the Beneficiary's plan preferentially covers the costs of treatment, e.g. closed, rental, etc.</td></tr>
  <tr><td>Payer</td><td>Payor, Insurer</td><td>Organization</td><td>A public or private insurer.</td></tr>
  <tr><td>Payor</td><td>Payer, Insurer</td><td>Organization</td><td>A public or private insurer.</td></tr>
  <tr><td>Policy</td><td></td><td>Contract</td><td>A contract between an Insurer and an individual or other entity such as an employer to reimburse covered parties (Beneficiaries) for some or all of a prescribed suite of health-related goods and services.</td></tr>
@@ -254,13 +254,13 @@ creation date, and specify 'PaymentReconciliation' as an 'include'</li>
 <li>Get a bundle containing more than one resource - specify the maximum number in 'count'</li>
 </ul>
 <p>
-Upon processing of the request the Task or Bundle may contain errors or a reference to the resource(s) found.
+Upon processing of the request, the Task or Bundle may contain errors or a reference to the resource(s) found.
 </p>
 <a name="release"></a>
 <h4>Release</h4>
 <p>
 <b>Release</b> is the formal request for the release of any allocation or reserved resources such as funds or products reserved, for example  
-on a preauthorization, which have not been consumed, eg. as indicated on claims, and which are no longer required. The preauthorization which request ed the reservation
+on a preauthorization, which have not been consumed, e.g. as indicated on claims, and which are no longer required. The preauthorization which request ed the reservation
 will be identified in the .focus element and the insurer's response confirming the reservation may be provided as a .input element.
 </p>
 
@@ -296,7 +296,7 @@ of the targeted resource.
 
  <p>
  The table below details the relative order of events and use of financial resources for patient care during the care cycle.
- Not all steps or information exchanges may occur, and supporting information may be required more frequently than has been depicted below.
+ Not all steps or information exchanges may occur.  Supporting information may be required more frequently than has been depicted below.
  </p>
  <p>
  <table class="grid">
@@ -341,7 +341,7 @@ canceled resulting in a status of 'cancel'.
 <p>
 In the event that a resource is determined to have been entered in error, for example a wrong date of service or billing code, while the
 status is 'draft' then the status may be changed to 'entered-in-error' and no further editing of the resource is permitted. If the resource 
-status is 'active' when the error is noted then the resource must be canceled and further interaction with whatever parties have been supplied 
+status is 'active' when the error is noted, then the resource must be canceled and further interaction with whatever parties have been supplied 
 the resource may be required to halt any processing or reverse any effects of the resource prior to creating an amended instance.
 </p>
 <a name="secondary-use"></a>
@@ -362,14 +362,14 @@ business needs and discipline requirements.
 <p>
 There is often a need to provide supporting information, commonly referred to as <b>attachments</b>, to document the need for a service
 and/or to confirm that the good or service was authorized or rendered.
-This information may be in many forms, including: scanned documents, PDFs, word processing files, XRays, images, CDAs and FHIR Resources.
+This information may be in many forms, including: scanned documents, PDFs, word processing files, X-Rays, images, CDAs and FHIR Resources.
 </p>
 <p>
 Supporting information may be provided, as a reference or the actual material, to support the <a href="claim.html">Claim</a> (complete claim or Preauthorization) or <a href="explanationofbenefit.html">ExplanationOfBenefit</a> in a variety of manners:
 </p>
 <ul>
 <li><b>Included</b>: in the <i>{resource}</i>.supportingInfo section;</li>
-<li><b>Unsolicited</b>: in a <a href="communication.html">Communication</a> which refers to the Claim or Explanation Of Benefit; or</li>
+<li><b>Unsolicited</b>: in a <a href="communication.html">Communication</a> which refers to the Claim or Explanation of Benefit; or</li>
 <li><b>Solicited</b>: in a <a href="communication.html">Communication</a> in response to a <a href="communicationrequest.html">CommunicationRequest</a> from the insurer requesting more information; or</li>
 <li><b>Input</b>: in the input parameters of a FHIR operation or Task.input element if a <a href="task.html">Task</a> resource is used.</li>
 </ul>
@@ -377,7 +377,7 @@ Supporting information may be provided, as a reference or the actual material, t
 <a name="subrogation"></a>
 <h3>Subrogation - Insurers recovering costs from other insurers</h3>
 <p>
-It is not always appropriate to send a Claim, or other eClaim requests such as eligibility or preauthorizations, to some insurers. This may be due to 
+It is not always appropriate to send a Claim, or other eClaim requests such as eligibility or pre-authorizations, to some insurers. This may be due to 
 jurisdictional rules, for example the national health program may pay for workplace accident claims then recover costs directly against that program, 
 or there may be no direct relationship between the provider and the insurer, for example for injury caused by another party or covered under
 property or accident insurance, the patient's primary health insurer may pay for services then recover a portion of their costs from that other insurer.
@@ -408,7 +408,7 @@ While the jurisdiction rules must be consulted for COB specifics, generally: ris
 When sending Claims down the COB order all logically applicable policies will be listed, so that insurers may confirm adherence to the COB order,
  and, aside from subrogated coverages, will include the <a href="claimresponse.html">ClaimResponses</a> from any coverages appearing earlier in
  the COB order so that each insurer may correctly calculate their portion of the overall cost of products and services supplied. The claims 
- work their way through the COB order until the order is exhausted or their is no further outstanding balance, whichever comes first.
+ work their way through the COB order until the order is exhausted or there is no further outstanding balance, whichever comes first.
 </p>
 <p>
 While it is most common, it is not always the case that all claims originate with the provider. In some jurisdictions, in some or all cases,
@@ -433,7 +433,7 @@ eClaims request and response resources may be exchanged between providers and pa
 <h4>eClaim Batches</h4>
 <p>A batch of eClaim requests or responses is a (<a href="bundle.html">FHIR Bundle</a>) containing one or more eClaim requests or responses, as above.
 The batch is simply a 'bag' of request or responses, typically of a consistent type of request or response, for example: all eligibility, preauthorizations,
- claim, payment notifications, etc. There is no assurance provided that when receiving a batch of 100 claim responses that they relate to the 100 claim 
+ claim, payment notifications, etc. There is no assurance provided that when receiving a batch of 100 claim responses that they relate to the 100 claims 
  just submitted. 
 </p> 
 <a name="real-time"></a>
