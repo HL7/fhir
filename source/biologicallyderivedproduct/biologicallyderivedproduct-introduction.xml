@@ -3,10 +3,10 @@
 		<a name="bnc"> </a>
 		<h2>Scope and Usage</h2>
 
-    <blockquote class="stu-note">
-      <a name="dstu"/>
-		<strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
-  </blockquote>
+[%stu-note%]
+<a name="dstu"/>
+<strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
+[%end-note%]
 
 
 		<p>

@@ -593,6 +593,7 @@ public class ResourceValidator extends BaseValidator {
         name.equals("DataElement") || 
         name.equals("NamingSystem") || 
         name.equals("SearchParameter") || 
+        name.equals("GraphDefinition") || 
         name.equals("Provenance") || 
         name.equals("Query") || 
         name.equals("ValueSet") ||         
