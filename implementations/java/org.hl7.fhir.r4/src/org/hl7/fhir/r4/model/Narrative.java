@@ -259,7 +259,7 @@ public class Narrative extends BaseNarrative implements INarrative {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Narrative.div");
         else if (Configuration.doAutoCreate())
-          this.div = new XhtmlNode(NodeType.Element, "div"); // cc
+          this.div = new XhtmlNode(NodeType.Element, "div"); // cc 
       return this.div;
     }
 
