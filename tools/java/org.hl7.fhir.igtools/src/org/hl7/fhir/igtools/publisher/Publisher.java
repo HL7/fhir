@@ -2161,8 +2161,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     load("CapabilityStatement");
     load("Questionnaire");
     load("PlanDefinition");
-    checkConformanceResources();
     generateSnapshots();
+    checkConformanceResources();
     generateLogicalMaps();
     load("StructureMap");
     generateAdditionalExamples();

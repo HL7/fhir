@@ -411,6 +411,9 @@
           "source" : "document-structure.xml", 
           "errorCount": 3
         }
+      },
+      "message-infinite-loop.xml" : {
+        "errorCount": 34
       }
 		}
 	}
