@@ -3306,7 +3306,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       for (Element unusedResource: unusedResources) {
         List<String> references = findReferences(unusedResource);
         for (String reference: references) {
-          if (visitedResources.containsKey(reference)) {
+          if (!visitedResources.containsKey(reference)) {
             visitedResources.put(reference, unusedResource);
             reverseLinksFound = true;
           }
@@ -3474,43 +3474,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 //      if (process) {
         for (ElementInfo ei : children) {
-          boolean match = false;
-          if (slicer == null || slicer == ed) {
-            match = nameMatches(ei.name, tail(ed.getPath()));
-          } else {
-//            ei.slice = slice;
-            if (nameMatches(ei.name, tail(ed.getPath())))
-              try {
-                match = sliceMatches(hostContext, ei.element, ei.path, slicer, ed, profile, errors, stack);
-                if (match) {
-                  ei.slice = slicer;
-
-                  // Since a defined slice was found, this is not an additional (undefined) slice.
-                  ei.additionalSlice = false;
-                } else if (ei.slice == null) {
-                  // if the specified slice is undefined, keep track of the fact this is an additional (undefined) slice, but only if a slice wasn't found previously
-                  ei.additionalSlice = true;
-                }
-              } catch (FHIRException e) {
-                rule(errors, IssueType.PROCESSING, ei.line(), ei.col(), ei.path, false, e.getMessage());
-                unsupportedSlicing = true;
-                childUnsupportedSlicing = true;
-              }
-          }
-          if (match) {
-            boolean isOk = ei.definition == null || ei.definition == slicer;
-            if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, isOk, "Profile " + profile.getUrl() + ", Element matches more than one slice - " + (ei.definition==null || !ei.definition.hasSliceName() ? "" : ei.definition.getSliceName()) + ", " + (ed.hasSliceName() ? ed.getSliceName() : ""))) {
-              ei.definition = ed;
-              if (ei.slice == null) {
-                ei.index = i;
-              } else {
-                ei.index = sliceOffset;
-                ei.sliceindex = i - (sliceOffset + 1);
-              }
-            }
-          } else if (childUnsupportedSlicing) {
-            problematicPaths.add(ed.getPath());
-          }
+          unsupportedSlicing = matchSlice(hostContext, errors, profile, stack, slicer, unsupportedSlicing, problematicPaths, sliceOffset, i, ed, childUnsupportedSlicing, ei);
         }
 //      }
     }
@@ -3794,6 +3758,49 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         }
       }
     }
+  }
+
+  public boolean matchSlice(ValidatorHostContext hostContext, List<ValidationMessage> errors, StructureDefinition profile, NodeStack stack,
+      ElementDefinition slicer, boolean unsupportedSlicing, List<String> problematicPaths, int sliceOffset, int i, ElementDefinition ed,
+      boolean childUnsupportedSlicing, ElementInfo ei) throws IOException {
+    boolean match = false;
+    if (slicer == null || slicer == ed) {
+      match = nameMatches(ei.name, tail(ed.getPath()));
+    } else {
+//            ei.slice = slice;
+      if (nameMatches(ei.name, tail(ed.getPath())))
+        try {
+          match = sliceMatches(hostContext, ei.element, ei.path, slicer, ed, profile, errors, stack);
+          if (match) {
+            ei.slice = slicer;
+
+            // Since a defined slice was found, this is not an additional (undefined) slice.
+            ei.additionalSlice = false;
+          } else if (ei.slice == null) {
+            // if the specified slice is undefined, keep track of the fact this is an additional (undefined) slice, but only if a slice wasn't found previously
+            ei.additionalSlice = true;
+          }
+        } catch (FHIRException e) {
+          rule(errors, IssueType.PROCESSING, ei.line(), ei.col(), ei.path, false, e.getMessage());
+          unsupportedSlicing = true;
+          childUnsupportedSlicing = true;
+        }
+    }
+    if (match) {
+      boolean isOk = ei.definition == null || ei.definition == slicer;
+      if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, isOk, "Profile " + profile.getUrl() + ", Element matches more than one slice - " + (ei.definition==null || !ei.definition.hasSliceName() ? "" : ei.definition.getSliceName()) + ", " + (ed.hasSliceName() ? ed.getSliceName() : ""))) {
+        ei.definition = ed;
+        if (ei.slice == null) {
+          ei.index = i;
+        } else {
+          ei.index = sliceOffset;
+          ei.sliceindex = i - (sliceOffset + 1);
+        }
+      }
+    } else if (childUnsupportedSlicing) {
+      problematicPaths.add(ed.getPath());
+    }
+    return unsupportedSlicing;
   }
 
   private ElementDefinition getElementByTail(StructureDefinition p, String tail) throws DefinitionException {
