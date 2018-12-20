@@ -1,17 +1,15 @@
-﻿map "http://hl7.org/fhir/StructureMap/ResearchSubject4to3" = "R4 to R3 Conversion for ResearchSubject"
+map "http://hl7.org/fhir/StructureMap/ResearchSubject4to3" = "R4 to R3 Conversion for ResearchSubject"
 
 conceptmap "ResourceSubjectStatus" {
   prefix s = "http://hl7.org/fhir/research-study-status"
   prefix t = "http://hl7.org/fhir/research-study-status"
 
-  
-  s:"candidate" - t:"candidate"
-  s:"enrolled" - t:"on-study"
-  s:"active" - t:"on-study-intervention"
-  s:"suspended" - t:"on-study-observation"
-  s:"withdrawn" - t:"withdrawn"
-  s:"completed" - t:"off-study"
-  
+  s:"'candidate'" - t:"'candidate'"
+  s:"'enrolled'" - t:"'on-study'"
+  s:"'active'" - t:"'on-study-intervention'"
+  s:"'suspended'" - t:"'on-study-observation'"
+  s:"'withdrawn'" - t:"'withdrawn'"
+  s:"'completed'" - t:"'off-study'"
 }
 
 uses "http://hl7.org/fhir/StructureDefinition/ResearchSubject" alias ResearchSubject as source

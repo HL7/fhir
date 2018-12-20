@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/AuditEvent4to3" = "R4 to R3 Conversion for AuditEvent"
+map "http://hl7.org/fhir/StructureMap/AuditEvent4to3" = "R4 to R3 Conversion for AuditEvent"
 
 uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEvent as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/AuditEvent" alias AuditEventR3 as target

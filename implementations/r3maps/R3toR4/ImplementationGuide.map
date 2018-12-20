@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ImplementationGuide3to4" = "R3 to R4 Conversions for ImplementationGuide"
+map "http://hl7.org/fhir/StructureMap/ImplementationGuide3to4" = "R3 to R4 Conversions for ImplementationGuide"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ImplementationGuide" alias ImplementationGuideR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias ImplementationGuide as target
@@ -47,22 +47,22 @@ group grouping(source src, target dfn, target grp) extends BackboneElement {
 
 group resource(source src, target tgt, source pck) extends BackboneElement {
   pck.id -> tgt.groupingId "packageId";
-  src.example where src.exampleFor.empty() as vs0 -> tgt.example = create("boolean") as vt0 then boolean(vs0, vt0);
+  src.example where src.exampleFor.empty() as vs0 -> tgt.example = create('boolean') as vt0 then boolean(vs0, vt0);
   src.name -> tgt.name;
   src.description -> tgt.description;
-  src.acronym as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.package.resource.acronym",  ext.value = vs;
-  src.source : uri as vs ->  tgt.reference as ref,  ref.reference = vs,  ref.extension as ext,  ext.url = "http://hl7.org/fhir/3.0/StructureDefinition/BaseType",  ext.value = "uri" "sourceUri";
+  src.acronym as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.package.resource.acronym',  ext.value = vs;
+  src.source : uri as vs ->  tgt.reference as ref,  ref.reference = vs,  ref.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/BaseType',  ext.value = 'uri' "sourceUri";
   src.source : Reference as vs0 -> tgt.reference as vt0 then reference(vs0, vt0) "sourceRef";
-  src.exampleFor as vs0 -> tgt.example = create("canonical") as vt0 then Reference2Canonical(vs0, vt0);
+  src.exampleFor as vs0 -> tgt.example = create('canonical') as vt0 then Reference2Canonical(vs0, vt0);
 }
 
 group page(source src, target tgt) extends BackboneElement {
-  src.source as vs0 -> tgt.name = create("uri") as vt0 then uri(vs0, vt0);
+  src.source as vs0 -> tgt.name = create('uri') as vt0 then uri(vs0, vt0);
   src.title -> tgt.title;
-  src.kind as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.page.kind",  ext.value = vs;
-  src.type as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.page.type",  ext.value = vs;
-  src.package as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.page.package",  ext.value = vs;
-  src.format as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.page.format",  ext.value = vs;
+  src.kind as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.page.kind',  ext.value = vs;
+  src.type as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.page.type',  ext.value = vs;
+  src.package as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.page.package',  ext.value = vs;
+  src.format as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.page.format',  ext.value = vs;
   src.page as vs0 -> tgt.page as vt0 then page(vs0, vt0);
 }
 

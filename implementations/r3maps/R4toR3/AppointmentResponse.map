@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/AppointmentResponse4to3" = "R4 to R3 Conversion for AppointmentResponse"
+map "http://hl7.org/fhir/StructureMap/AppointmentResponse4to3" = "R4 to R3 Conversion for AppointmentResponse"
 
 uses "http://hl7.org/fhir/StructureDefinition/AppointmentResponse" alias AppointmentResponse as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/AppointmentResponse" alias AppointmentResponseR3 as target

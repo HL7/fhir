@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SearchParameter3to4" = "R3 to R4 Conversions for SearchParameter"
+map "http://hl7.org/fhir/StructureMap/SearchParameter3to4" = "R3 to R4 Conversions for SearchParameter"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SearchParameter" alias SearchParameterR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" alias SearchParameter as target

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/CodeSystem3to4" = "R3 to R4 Conversions for CodeSystem"
+map "http://hl7.org/fhir/StructureMap/CodeSystem3to4" = "R3 to R4 Conversions for CodeSystem"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CodeSystem" alias CodeSystemR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/CodeSystem" alias CodeSystem as target
@@ -64,11 +64,11 @@ group designation(source src, target tgt) extends BackboneElement {
 
 group propertyC(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
-  src.value : code as vs0 -> tgt.value = create("code") as vt0 then code(vs0, vt0) "valueCode";
-  src.value : Coding as vs0 -> tgt.value = create("Coding") as vt0 then Coding(vs0, vt0) "valueCoding";
-  src.value : string as vs0 -> tgt.value = create("string") as vt0 then string(vs0, vt0) "valueString";
-  src.value : integer as vs0 -> tgt.value = create("integer") as vt0 then integer(vs0, vt0) "valueInteger";
-  src.value : boolean as vs0 -> tgt.value = create("boolean") as vt0 then boolean(vs0, vt0) "valueBoolean";
-  src.value : dateTime as vs0 -> tgt.value = create("dateTime") as vt0 then dateTime(vs0, vt0) "valueDateTime";
+  src.value : code as vs0 -> tgt.value = create('code') as vt0 then code(vs0, vt0) "valueCode";
+  src.value : Coding as vs0 -> tgt.value = create('Coding') as vt0 then Coding(vs0, vt0) "valueCoding";
+  src.value : string as vs0 -> tgt.value = create('string') as vt0 then string(vs0, vt0) "valueString";
+  src.value : integer as vs0 -> tgt.value = create('integer') as vt0 then integer(vs0, vt0) "valueInteger";
+  src.value : boolean as vs0 -> tgt.value = create('boolean') as vt0 then boolean(vs0, vt0) "valueBoolean";
+  src.value : dateTime as vs0 -> tgt.value = create('dateTime') as vt0 then dateTime(vs0, vt0) "valueDateTime";
 }
 

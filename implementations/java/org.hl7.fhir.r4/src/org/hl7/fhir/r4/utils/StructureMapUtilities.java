@@ -232,7 +232,7 @@ public class StructureMapUtilities {
 		b.append("map \"");
 		b.append(map.getUrl());
 		b.append("\" = \"");
-		b.append(Utilities.escapeJava(map.getName()));
+		b.append(Utilities.escapeJson(map.getName()));
 		b.append("\"\r\n\r\n");
 
 		renderConceptMaps(b, map);
@@ -482,12 +482,14 @@ public class StructureMapUtilities {
 		    }
 		  }
 		}
-		String n = ntail(r.getName());
-		if (!n.startsWith("\""))
-		  n = "\""+n+"\"";
-		if (!matchesName(n, r.getSource())) {
-		  b.append(" ");
-		  b.append(n);
+		if (r.hasName()) {
+		  String n = ntail(r.getName());
+		  if (!n.startsWith("\""))
+		    n = "\""+n+"\"";
+		  if (!matchesName(n, r.getSource())) {
+		    b.append(" ");
+		    b.append(n);
+		  }
 		}
 		b.append(";");
 		renderDoco(b, r.getDocumentation());
@@ -511,6 +513,8 @@ public class StructureMapUtilities {
   }
 
   private static String ntail(String name) {
+    if (name == null)
+      return null;
     if (name.startsWith("\"")) {
       name = name.substring(1);
       name = name.substring(0, name.length()-1);
@@ -657,7 +661,7 @@ public class StructureMapUtilities {
 		else if (rtp.hasValueIntegerType())
 			b.append(rtp.getValueIntegerType().asStringValue());
 		else 
-	      b.append("\""+Utilities.escapeJava(rtp.getValueStringType().asStringValue())+"\"");
+	      b.append("'"+Utilities.escapeJava(rtp.getValueStringType().asStringValue())+"'");
 	  } catch (FHIRException e) {
 	    e.printStackTrace();
 	    b.append("error!");
@@ -702,8 +706,8 @@ public class StructureMapUtilities {
 		lexer.token("conceptmap");
 		ConceptMap map = new ConceptMap();
 		String id = lexer.readConstant("map id");
-		if (!id.startsWith("#"))
-			lexer.error("Concept Map identifier must start with #");
+		if (id.startsWith("#"))
+			throw lexer.error("Concept Map identifier must start with #");
 		map.setId(id);
 		map.setStatus(PublicationStatus.DRAFT); // todo: how to add this to the text format
 		result.getContained().add(map);
@@ -731,7 +735,7 @@ public class StructureMapUtilities {
       if (v.equals("provided")) {
         g.getUnmapped().setMode(ConceptMapGroupUnmappedMode.PROVIDED);
       } else
-        lexer.error("Only unmapped mode PROVIDED is supported at this time");
+        throw lexer.error("Only unmapped mode PROVIDED is supported at this time");
 		}
 		while (!lexer.hasToken("}")) {
 		  String srcs = readPrefix(prefixes, lexer);
@@ -937,9 +941,8 @@ public class StructureMapUtilities {
 		if (!newFmt) {
 		  rule.setName(lexer.takeDottedToken());
 		  lexer.token(":");
-		}
-		if (!newFmt) 
 		  lexer.token("for");
+    }
 		boolean done = false;
 		while (!done) {
 			parseSource(rule, lexer);
@@ -994,7 +997,7 @@ public class StructureMapUtilities {
 		    rule.setName(lexer.take());
 		  } else {
 		    if (rule.getSource().size() != 1 || !rule.getSourceFirstRep().hasElement())
-		      lexer.error("Complex rules must have an explicit name");
+		      throw lexer.error("Complex rules must have an explicit name");
 		    if (rule.getSourceFirstRep().hasType())
 		      rule.setName(rule.getSourceFirstRep().getElement()+"-"+rule.getSourceFirstRep().getType());
 		    else

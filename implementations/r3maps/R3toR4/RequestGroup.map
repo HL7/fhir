@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/RequestGroup3to4" = "R3 to R4 Conversions for RequestGroup"
+map "http://hl7.org/fhir/StructureMap/RequestGroup3to4" = "R3 to R4 Conversions for RequestGroup"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/RequestGroup" alias RequestGroupR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/RequestGroup" alias Requestgroup as target
@@ -51,9 +51,9 @@ group action(source src, target tgt) extends BackboneElement {
 
 group condition(source src, target tgt) extends BackboneElement {
   src.kind -> tgt.kind;
-  src.description as v -> tgt.expression as e, e.description = v; 
-  src.language as v -> tgt.expression as e, e.language = v; 
-  src.expression as v -> tgt.expression as e, e.expression = v; 
+  src.description as v ->  tgt.expression as e,  e.description = v;
+  src.language as v ->  tgt.expression as e,  e.language = v;
+  src.expression as v ->  tgt.expression as e,  e.expression = v;
 }
 
 group relatedAction(source src, target tgt) extends BackboneElement {

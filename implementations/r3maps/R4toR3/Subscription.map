@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Subscription4to3" = "R4 to R3 Conversion for Subscription"
+map "http://hl7.org/fhir/StructureMap/Subscription4to3" = "R4 to R3 Conversion for Subscription"
 
 uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias Subscription as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Subscription" alias SubscriptionR3 as target

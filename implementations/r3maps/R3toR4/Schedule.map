@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Schedule3to4" = "R3 to R4 Conversions for Schedule"
+map "http://hl7.org/fhir/StructureMap/Schedule3to4" = "R3 to R4 Conversions for Schedule"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Schedule" alias ScheduleR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Schedule" alias Schedule as target

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicationDispense3to4" = "R3 to R4 Conversions for MedicationDispense"
+map "http://hl7.org/fhir/StructureMap/MedicationDispense3to4" = "R3 to R4 Conversions for MedicationDispense"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationDispense" alias MedicationDispenseR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/MedicationDispense" alias MedicationDispense as target
@@ -10,8 +10,8 @@ group MedicationDispense(source src : MedicationDispenseR3, target tgt : Medicat
   src.partOf -> tgt.partOf;
   src.status -> tgt.status;
   src.category -> tgt.category;
-  src.medication : CodeableConcept as vs -> tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
-  src.medication : Reference as vs -> tgt.medication = create("Reference") as vt then Reference(vs, vt);
+  src.medication : CodeableConcept as vs -> tgt.medication = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create('Reference') as vt then Reference(vs, vt);
   src.subject -> tgt.subject;
   src.context -> tgt.context;
   src.supportingInformation -> tgt.supportingInformation;
@@ -29,14 +29,13 @@ group MedicationDispense(source src : MedicationDispenseR3, target tgt : Medicat
   src.substitution as vs0 -> tgt.substitution as vt0 then subst(vs0, vt0);
   src.detectedIssue -> tgt.detectedIssue;
   src.eventHistory -> tgt.eventHistory;
-  
-  src.notDone as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.notDone', vt.value = v;
-  src.notDoneReason as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.notDoneReason', vt.value = v;
+  src.notDone as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.notDone',  vt.value = v;
+  src.notDoneReason as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.notDoneReason',  vt.value = v;
 }
 
 group actor(source src, target tgt) extends BackboneElement {
   src.actor -> tgt.actor;
-  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.performer.onBehalfOf', vt.value = v;
+  src.onBehalfOf as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.performer.onBehalfOf',  vt.value = v;
 }
 
 group subst(source src, target tgt) extends BackboneElement {

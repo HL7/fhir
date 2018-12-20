@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Condition4to3" = "R4 to R3 Conversion for Condition"
+map "http://hl7.org/fhir/StructureMap/Condition4to3" = "R4 to R3 Conversion for Condition"
 
 uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Condition" alias ConditionR3 as target
@@ -23,16 +23,16 @@ group Condition(source src : Condition, target tgt : ConditionR3) extends Domain
   src.bodySite -> tgt.bodySite;
   src.subject -> tgt.subject;
   src.encounter -> tgt.context;
-  src.onset : dateTime as vs -> tgt.onset = create("dateTime") as vt then dateTime(vs, vt);
-  src.onset : Age as vs -> tgt.onset = create("Age") as vt then Age(vs, vt);
-  src.onset : Period as vs -> tgt.onset = create("Period") as vt then Period(vs, vt);
-  src.onset : Range as vs -> tgt.onset = create("Range") as vt then Range(vs, vt);
-  src.onset : string as vs -> tgt.onset = create("string") as vt then string(vs, vt);
-  src.abatement : dateTime as vs -> tgt.abatement = create("dateTime") as vt then dateTime(vs, vt);
-  src.abatement : Age as vs -> tgt.abatement = create("Age") as vt then Age(vs, vt);
-  src.abatement : Period as vs -> tgt.abatement = create("Period") as vt then Period(vs, vt);
-  src.abatement : Range as vs -> tgt.abatement = create("Range") as vt then Range(vs, vt);
-  src.abatement : string as vs -> tgt.abatement = create("string") as vt then string(vs, vt);
+  src.onset : dateTime as vs -> tgt.onset = create('dateTime') as vt then dateTime(vs, vt);
+  src.onset : Age as vs -> tgt.onset = create('Age') as vt then Age(vs, vt);
+  src.onset : Period as vs -> tgt.onset = create('Period') as vt then Period(vs, vt);
+  src.onset : Range as vs -> tgt.onset = create('Range') as vt then Range(vs, vt);
+  src.onset : string as vs -> tgt.onset = create('string') as vt then string(vs, vt);
+  src.abatement : dateTime as vs -> tgt.abatement = create('dateTime') as vt then dateTime(vs, vt);
+  src.abatement : Age as vs -> tgt.abatement = create('Age') as vt then Age(vs, vt);
+  src.abatement : Period as vs -> tgt.abatement = create('Period') as vt then Period(vs, vt);
+  src.abatement : Range as vs -> tgt.abatement = create('Range') as vt then Range(vs, vt);
+  src.abatement : string as vs -> tgt.abatement = create('string') as vt then string(vs, vt);
   src.recordedDate -> tgt.assertedDate;
   src.recorder -> tgt.recorder;
   src.asserter -> tgt.asserter;

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Quantity3to4" = "R3 to R4 Conversions for Quantity"
+map "http://hl7.org/fhir/StructureMap/Quantity3to4" = "R3 to R4 Conversions for Quantity"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Quantity" alias QuantityR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Quantity" alias Quantity as target

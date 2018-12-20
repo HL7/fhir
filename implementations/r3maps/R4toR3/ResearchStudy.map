@@ -1,22 +1,21 @@
-﻿map "http://hl7.org/fhir/StructureMap/ResearchStudy4to3" = "R4 to R3 Conversion for ResearchStudy"
+map "http://hl7.org/fhir/StructureMap/ResearchStudy4to3" = "R4 to R3 Conversion for ResearchStudy"
 
 conceptmap "ResourceStudyStatus" {
   prefix s = "http://hl7.org/fhir/research-study-status"
   prefix t = "http://hl7.org/fhir/research-study-status"
 
-  s:"active" - t:"in-progress"
-  s:"administratively-completed" - t:"completed"
-  s:"approved" - t:"in-progress"
-  s:"closed-to-accrual" - t:"suspended"
-  s:"closed-to-accrual-and-intervention" - t:"suspended"
-  s:"completed" - t:"completed"
-  s:"disapproved" - t:"stopped"
-  s:"in-review" - t:"draft"
-  s:"temporarily-closed-to-accrual" - t:"suspended"
-  s:"temporarily-closed-to-accrual-and-intervention" - t:"suspended"
-  s:"withdrawn  " - t:"stopped"
+  s:"'active'" - t:"'in-progress'"
+  s:"'administratively-completed'" - t:"'completed'"
+  s:"'approved'" - t:"'in-progress'"
+  s:"'closed-to-accrual'" - t:"'suspended'"
+  s:"'closed-to-accrual-and-intervention'" - t:"'suspended'"
+  s:"'completed'" - t:"'completed'"
+  s:"'disapproved'" - t:"'stopped'"
+  s:"'in-review'" - t:"'draft'"
+  s:"'temporarily-closed-to-accrual'" - t:"'suspended'"
+  s:"'temporarily-closed-to-accrual-and-intervention'" - t:"'suspended'"
+  s:"'withdrawn  '" - t:"'stopped'"
 }
-
 
 uses "http://hl7.org/fhir/StructureDefinition/ResearchStudy" alias ResearchStudy as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchStudy" alias ResearchStudyR3 as target

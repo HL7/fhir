@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Basic4to3" = "R4 to R3 Conversion for Basic"
+map "http://hl7.org/fhir/StructureMap/Basic4to3" = "R4 to R3 Conversion for Basic"
 
 uses "http://hl7.org/fhir/StructureDefinition/Basic" alias Basic as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Basic" alias BasicR3 as target

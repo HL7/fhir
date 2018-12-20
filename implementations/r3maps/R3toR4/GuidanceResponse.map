@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/GuidanceResponse3to4" = "R3 to R4 Conversions for GuidanceResponse"
+map "http://hl7.org/fhir/StructureMap/GuidanceResponse3to4" = "R3 to R4 Conversions for GuidanceResponse"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/GuidanceResponse" alias GuidanceResponseR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceResponse as target
@@ -6,7 +6,7 @@ uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceRe
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 group GuidanceResponse(source src : GuidanceResponseR3, target tgt : GuidanceResponse) extends DomainResource <<type+>> {
-  src.requestId as v -> tgt.requestIdentifier as ii, ii.value = v;
+  src.requestId as v ->  tgt.requestIdentifier as ii,  ii.value = v;
   src.identifier -> tgt.identifier;
   src.module as vs -> tgt.module = create('canonical') as vt then Reference2Canonical(vs, vt);
   src.status -> tgt.status;

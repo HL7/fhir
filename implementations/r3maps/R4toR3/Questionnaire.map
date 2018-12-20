@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Questionnaire4to3" = "R4 to R3 Conversion for Questionnaire"
+map "http://hl7.org/fhir/StructureMap/Questionnaire4to3" = "R4 to R3 Conversion for Questionnaire"
 
 uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Questionnaire" alias QuestionnaireR3 as target
@@ -50,23 +50,23 @@ group item(source src, target tgt) extends BackboneElement {
 group enableWhen(source src, target tgt) extends BackboneElement {
   src.question -> tgt.question;
   src.answer as v where src.operator = 'exists' -> tgt.hasAnswer = v;
-  src.answer : boolean as vs where src.operator = '=' -> tgt.answer = create('boolean') as vt then boolean(vs, vt);	
-  src.answer : decimal as vs where src.operator = '=' -> tgt.answer = create('decimal') as vt then decimal(vs, vt);	
-  src.answer : integer as vs where src.operator = '=' -> tgt.answer = create('integer') as vt then integer(vs, vt);	
-  src.answer : date as vs where src.operator = '=' -> tgt.answer = create('date') as vt then date(vs, vt);	
-  src.answer : dateTime as vs where src.operator = '=' -> tgt.answer = create('dateTime') as vt then dateTime(vs, vt);	
-  src.answer : time as vs where src.operator = '=' -> tgt.answer = create('time') as vt then time(vs, vt);	
-  src.answer : string as vs where src.operator = '=' -> tgt.answer = create('string') as vt then string(vs, vt);	
-  src.answer : Coding as vs where src.operator = '=' -> tgt.answer = create('Coding') as vt then Coding(vs, vt);	
-  src.answer : Quantity as vs where src.operator = '=' -> tgt.answer = create('Quantity') as vt then Quantity(vs, vt);	
-  src.answer : Reference as vs where src.operator = '=' -> tgt.answer = create('Reference') as vt then Reference(vs, vt);	
+  src.answer : boolean as vs where src.operator = '=' -> tgt.answer = create('boolean') as vt then boolean(vs, vt);
+  src.answer : decimal as vs where src.operator = '=' -> tgt.answer = create('decimal') as vt then decimal(vs, vt);
+  src.answer : integer as vs where src.operator = '=' -> tgt.answer = create('integer') as vt then integer(vs, vt);
+  src.answer : date as vs where src.operator = '=' -> tgt.answer = create('date') as vt then date(vs, vt);
+  src.answer : dateTime as vs where src.operator = '=' -> tgt.answer = create('dateTime') as vt then dateTime(vs, vt);
+  src.answer : time as vs where src.operator = '=' -> tgt.answer = create('time') as vt then time(vs, vt);
+  src.answer : string as vs where src.operator = '=' -> tgt.answer = create('string') as vt then string(vs, vt);
+  src.answer : Coding as vs where src.operator = '=' -> tgt.answer = create('Coding') as vt then Coding(vs, vt);
+  src.answer : Quantity as vs where src.operator = '=' -> tgt.answer = create('Quantity') as vt then Quantity(vs, vt);
+  src.answer : Reference as vs where src.operator = '=' -> tgt.answer = create('Reference') as vt then Reference(vs, vt);
 }
 
 group option(source src, target tgt) extends BackboneElement {
   src.value -> tgt.value;
 }
 
-group initial(source src, target tgt) extends BackboneElement  {
+group initial(source src, target tgt) extends BackboneElement {
   src.value -> tgt.initial;
 }
 

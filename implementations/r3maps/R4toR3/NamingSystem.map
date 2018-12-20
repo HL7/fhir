@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/NamingSystem4to3" = "R4 to R3 Conversion for NamingSystem"
+map "http://hl7.org/fhir/StructureMap/NamingSystem4to3" = "R4 to R3 Conversion for NamingSystem"
 
 uses "http://hl7.org/fhir/StructureDefinition/NamingSystem" alias NamingSystem as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/NamingSystem" alias NamingSystemR3 as target

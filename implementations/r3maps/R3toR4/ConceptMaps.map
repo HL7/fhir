@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ConceptMaps3to4" = "R3 to R4 Concept Map Library"
+map "http://hl7.org/fhir/StructureMap/ConceptMaps3to4" = "R3 to R4 Concept Map Library"
 
 conceptmap "ResourceTypeMap" {
   prefix s = "http://hl7.org/fhir/request-resource-types"
@@ -22,3 +22,4 @@ conceptmap "ResourceTypeMap" {
   s:Task = t:Task
   s:VisionPrescription = t:VisionPrescription
 }
+

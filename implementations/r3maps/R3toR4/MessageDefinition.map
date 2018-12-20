@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MessageDefinition3to4" = "R3 to R4 Conversions for MessageDefinition"
+map "http://hl7.org/fhir/StructureMap/MessageDefinition3to4" = "R3 to R4 Conversions for MessageDefinition"
 
 conceptmap "MessageSignificanceCategory" {
   prefix s = "http://hl7.org/fhir/message-significance-category"
@@ -33,11 +33,11 @@ group MessageDefinition(source src : MessageDefinitionR3, target tgt : MessageDe
   src.base -> tgt.base;
   src.parent -> tgt.parent;
   src.replaces -> tgt.replaces;
-  src.event as vs0 -> tgt.event = create("Coding") as vt0 then Coding(vs0, vt0);
-  src.category as v -> tgt.category = translate(v, "#MessageSignificanceCategory", "code");
+  src.event as vs0 -> tgt.event = create('Coding') as vt0 then Coding(vs0, vt0);
+  src.category as v -> tgt.category = translate(v, '#MessageSignificanceCategory', 'code');
   src.focus as vs0 -> tgt.focus as vt0 then focus(vs0, vt0);
-  src.responseRequired where value = true -> tgt.responseRequired = "always";
-  src.responseRequired where value = false -> tgt.responseRequired = "never";
+  src.responseRequired where value = true -> tgt.responseRequired = 'always';
+  src.responseRequired where value = false -> tgt.responseRequired = 'never';
   src.allowedResponse as vs0 -> tgt.allowedResponse as vt0 then allowedResponse(vs0, vt0);
 }
 
