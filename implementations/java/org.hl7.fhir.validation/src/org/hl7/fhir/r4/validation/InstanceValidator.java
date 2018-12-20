@@ -208,7 +208,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       if (item instanceof Resource) {
         val.validate(appContext, valerrors, (Resource) item, url);
       } else if (item instanceof Element) {
-        val.validate(appContext, valerrors, (Element) item);
+        val.validate(appContext, valerrors, (Element) item, url);
       } else
         throw new NotImplementedException("Not done yet (ValidatorHostServices.conformsToProfile), when item is element");
       boolean ok = true;
@@ -2290,7 +2290,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       // the resource in the bundle
       String fullUrl = null; // we're going to try to work this out as we go up
       while (stack != null && stack.getElement() != null) {
-        if (stack.getElement().getSpecial() == SpecialElement.BUNDLE_ENTRY && fullUrl==null && stack.parent.getElement().getName().equals("entry")) {
+        if (stack.getElement().getSpecial() == SpecialElement.BUNDLE_ENTRY && fullUrl==null && stack.parent != null && stack.parent.getElement().getName().equals("entry")) {
           String type = stack.parent.parent.element.getChildValue("type");
           fullUrl = stack.parent.getElement().getChildValue("fullUrl"); // we don't try to resolve contained references across this boundary
           if (fullUrl==null) 
@@ -2549,6 +2549,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       ed.setUserData("slice.expression.cache", n);
     }
 
+    return evaluateSlicingExpression(hostContext, element, path, profile, n);
+  }
+
+  public boolean evaluateSlicingExpression(ValidatorHostContext hostContext, Element element, String path, StructureDefinition profile, ExpressionNode n)  throws FHIRException {
     String msg;
     boolean ok;
     try {
@@ -2557,6 +2561,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       fpeTime = fpeTime + (System.nanoTime() - t);
       msg = fpe.forLog();
     } catch (Exception ex) {
+      ex.printStackTrace();
       throw new FHIRException("Problem evaluating slicing expression for element in profile " + profile.getUrl() + " path " + path + " (fhirPath = "+n+"): " + ex.getMessage());
     }
     return ok;
