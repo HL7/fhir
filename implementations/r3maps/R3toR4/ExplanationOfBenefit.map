@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ExplanationOfBenefit3to4" = "R3 to R4 Conversions for ExplanationOfBenefit"
+map "http://hl7.org/fhir/StructureMap/ExplanationOfBenefit3to4" = "R3 to R4 Conversions for ExplanationOfBenefit"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefitR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefit as target
@@ -22,9 +22,9 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : Exp
   src.claim -> tgt.claim;
   src.claimResponse -> tgt.claimResponse;
   src.outcome as vs then {
-   vs.coding as c where code in 'complete' | 'error' | 'partial' then {
-     c.code -> tgt.outcome;
-   };
+    vs.coding as c where code in ('complete' | 'error' | 'partial') then {
+      c.code -> tgt.outcome;
+    };
   };
   src.disposition -> tgt.disposition;
   src.related as s -> tgt.related as t then ExplanationOfBenefitRelated(s, t);
@@ -212,13 +212,13 @@ group ExplanationOfBenefitAddItemDetailSubDetail(source src, target tgt) extends
 }
 
 group ExplanationOfBenefitTotalCost(source src, target tgt) extends BackboneElement {
-  src -> tgt.category as cc, cc.text = "Submitted Amount", cc.coding as coding, coding.code = "submitted", coding.system = "http://terminology.hl7.org/CodeSystem/adjudication";
-  src as vs -> tgt.amount as vt then Money(vs, vt);
+  src ->  tgt.category as cc,  cc.text = 'Submitted Amount',  cc.coding as coding,  coding.code = 'submitted',  coding.system = 'http://terminology.hl7.org/CodeSystem/adjudication' "category";
+  src as vs -> tgt.amount as vt then Money(vs, vt) "amount";
 }
 
 group ExplanationOfBenefitTotalBenefit(source src, target tgt) extends BackboneElement {
-  src -> tgt.category as cc, cc.text = "Benefit Amount", cc.coding as coding, coding.code = "benefit", coding.system = "http://terminology.hl7.org/CodeSystem/adjudication";
-  src as vs -> tgt.amount as vt then Money(vs, vt);
+  src ->  tgt.category as cc,  cc.text = 'Benefit Amount',  cc.coding as coding,  coding.code = 'benefit',  coding.system = 'http://terminology.hl7.org/CodeSystem/adjudication' "category";
+  src as vs -> tgt.amount as vt then Money(vs, vt) "amount";
 }
 
 group ExplanationOfBenefitPayment(source src, target tgt) extends BackboneElement {

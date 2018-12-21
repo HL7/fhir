@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/PaymentNotice3to4" = "R3 to R4 Conversions for PaymentNotice"
+map "http://hl7.org/fhir/StructureMap/PaymentNotice3to4" = "R3 to R4 Conversions for PaymentNotice"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/PaymentNotice" alias PaymentNoticeR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/PaymentNotice" alias PaymentNotice as target

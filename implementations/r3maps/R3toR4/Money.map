@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Money3to4" = "R3 to R4 Conversions for Money"
+map "http://hl7.org/fhir/StructureMap/Money3to4" = "R3 to R4 Conversions for Money"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Money" alias MoneyR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Money" alias Money as target

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ConceptMap3to4" = "R3 to R4 Conversions for ConceptMap"
+map "http://hl7.org/fhir/StructureMap/ConceptMap3to4" = "R3 to R4 Conversions for ConceptMap"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ConceptMap" alias ConceptMapR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ConceptMap" alias ConceptMap as target
@@ -21,10 +21,10 @@ group ConceptMap(source src : ConceptMapR3, target tgt : ConceptMap) extends Dom
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.source : uri as vs0 -> tgt.source = create("uri") as vt0 then uri(vs0, vt0);
-  src.source : Reference as vs0 -> tgt.source = create("canonical") as vt0 then Reference2Canonical(vs0, vt0);
-  src.target : uri as vs0 -> tgt.target = create("uri") as vt0 then uri(vs0, vt0) "targetU";
-  src.target : Reference as vs0 -> tgt.target = create("canonical") as vt0 then Reference2Canonical(vs0, vt0);
+  src.source : uri as vs0 -> tgt.source = create('uri') as vt0 then uri(vs0, vt0);
+  src.source : Reference as vs0 -> tgt.source = create('canonical') as vt0 then Reference2Canonical(vs0, vt0);
+  src.target : uri as vs0 -> tgt.target = create('uri') as vt0 then uri(vs0, vt0) "targetU";
+  src.target : Reference as vs0 -> tgt.target = create('canonical') as vt0 then Reference2Canonical(vs0, vt0);
   src.group as vs0 -> tgt.group as vt0 then group(vs0, vt0);
 }
 

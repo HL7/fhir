@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Attachment4to3" = "R4 to R3 Conversion for Attachment"
+map "http://hl7.org/fhir/StructureMap/Attachment4to3" = "R4 to R3 Conversion for Attachment"
 
 uses "http://hl7.org/fhir/StructureDefinition/Attachment" alias Attachment as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Attachment" alias AttachmentR3 as target

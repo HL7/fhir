@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/AuditEvent3to4" = "R3 to R4 Conversions for AuditEvent"
+map "http://hl7.org/fhir/StructureMap/AuditEvent3to4" = "R3 to R4 Conversions for AuditEvent"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/AuditEvent" alias AuditEventR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEvent as target
@@ -21,7 +21,7 @@ group AuditEvent(source src : AuditEventR3, target tgt : AuditEvent) extends Dom
 group AuditEventAgent(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.reference as vs0 -> tgt.who as vt0 then Reference(vs0, vt0);
-  src.userId as vs0 -> tgt.who as vt0 then Identifier2Reference(vs0, vt0); // in theory, there should only be one of who/userId but if there isn't they'll get merged 
+  src.userId as vs0 -> tgt.who as vt0 then Identifier2Reference(vs0, vt0);
   src.altId -> tgt.altId;
   src.name -> tgt.name;
   src.requestor -> tgt.requestor;

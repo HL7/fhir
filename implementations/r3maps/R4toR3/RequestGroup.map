@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/RequestGroup4to3" = "R4 to R3 Conversion for RequestGroup"
+map "http://hl7.org/fhir/StructureMap/RequestGroup4to3" = "R4 to R3 Conversion for RequestGroup"
 
 uses "http://hl7.org/fhir/StructureDefinition/RequestGroup" alias RequestGroup as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/RequestGroup" alias RequestGroupR3 as target

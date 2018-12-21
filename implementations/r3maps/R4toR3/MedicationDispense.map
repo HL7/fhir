@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicationDispense4to3" = "R4 to R3 Conversion for MedicationDispense"
+map "http://hl7.org/fhir/StructureMap/MedicationDispense4to3" = "R4 to R3 Conversion for MedicationDispense"
 
 uses "http://hl7.org/fhir/StructureDefinition/MedicationDispense" alias MedicationDispense as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationDispense" alias MedicationDispenseR3 as target
@@ -10,8 +10,8 @@ group MedicationDispense(source src : MedicationDispense, target tgt : Medicatio
   src.partOf -> tgt.partOf;
   src.status -> tgt.status;
   src.category -> tgt.category;
-  src.medication : CodeableConcept as vs -> tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
-  src.medication : Reference as vs -> tgt.medication = create("Reference") as vt then Reference(vs, vt);
+  src.medication : CodeableConcept as vs -> tgt.medication = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create('Reference') as vt then Reference(vs, vt);
   src.subject -> tgt.subject;
   src.context -> tgt.context;
   src.supportingInformation -> tgt.supportingInformation;
@@ -29,7 +29,6 @@ group MedicationDispense(source src : MedicationDispense, target tgt : Medicatio
   src.substitution as vs0 -> tgt.substitution as vt0 then subst(vs0, vt0);
   src.detectedIssue -> tgt.detectedIssue;
   src.eventHistory -> tgt.eventHistory;
-  
   src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.notDone' then {
     e.value -> tgt.notDone;
   };

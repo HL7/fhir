@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Organization4to3" = "R4 to R3 Conversion for Organization"
+map "http://hl7.org/fhir/StructureMap/Organization4to3" = "R4 to R3 Conversion for Organization"
 
 uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Organization" alias OrganizationR3 as target
@@ -24,3 +24,4 @@ group contact(source src, target tgt) extends BackboneElement {
   src.telecom -> tgt.telecom;
   src.address -> tgt.address;
 }
+

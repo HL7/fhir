@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Sequence3to4" = "R3 to R4 Conversions for Sequence"
+map "http://hl7.org/fhir/StructureMap/Sequence3to4" = "R3 to R4 Conversions for Sequence"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Sequence" alias SequenceR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/MolecularSequence" alias MolecularSequence as target
@@ -15,7 +15,7 @@ group Sequence(source src : SequenceR3, target tgt : MolecularSequence) extends 
   src.performer -> tgt.performer;
   src.quantity -> tgt.quantity;
   src.referenceSeq as vs0 -> tgt.referenceSeq as vt0 then referenceSeq(vs0, vt0);
-  src.variant as vs0 -> tgt.variant as vt0 then variant(vs0, vt0); 
+  src.variant as vs0 -> tgt.variant as vt0 then variant(vs0, vt0);
   src.observedSeq -> tgt.observedSeq;
   src.quality as vs0 -> tgt.quality as vt0 then quality(vs0, vt0);
   src.readCoverage -> tgt.readCoverage;
@@ -42,7 +42,7 @@ group variant(source src, target tgt) extends BackboneElement {
   src.referenceAllele -> tgt.referenceAllele;
   src.cigar -> tgt.cigar;
   src.variantPointer -> tgt.variantPointer;
-};
+}
 
 group quality(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
@@ -59,7 +59,7 @@ group quality(source src, target tgt) extends BackboneElement {
   src.precision -> tgt.precision;
   src.recall -> tgt.recall;
   src.fScore -> tgt.fScore;
-};
+}
 
 group repository(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
@@ -68,4 +68,5 @@ group repository(source src, target tgt) extends BackboneElement {
   src.datasetId -> tgt.datasetId;
   src.variantsetId -> tgt.variantsetId;
   src.readsetId -> tgt.readsetId;
-};
+}
+

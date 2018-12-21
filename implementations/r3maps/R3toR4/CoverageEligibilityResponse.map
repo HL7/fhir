@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EligibilityResponse3to4" = "R3 to R4 Conversions for (Coverage)EligibilityResponse"
+map "http://hl7.org/fhir/StructureMap/EligibilityResponse3to4" = "R3 to R4 Conversions for (Coverage)EligibilityResponse"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EligibilityResponse" alias EligibilityResponseR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse" alias EligibilityResponse as target
@@ -14,9 +14,9 @@ group EligibilityResponse(source src : EligibilityResponseR3, target tgt : Cover
   src.requestProvider -> tgt.requestor;
   src.request -> tgt.request;
   src.outcome as vs then {
-   vs.coding as c where code in 'complete' | 'error' | 'partial' then {
-     c.code -> tgt.outcome;
-   };
+    vs.coding as c where code in ('complete' | 'error' | 'partial') then {
+      c.code -> tgt.outcome;
+    };
   };
   src.disposition -> tgt.disposition;
   src.insurer -> tgt.insurer;
@@ -29,7 +29,7 @@ group EligibilityResponse(source src : EligibilityResponseR3, target tgt : Cover
 group EligibilityResponseInsurance(source src, target tgt) extends BackboneElement {
   src.coverage -> tgt.coverage;
   src.contract -> tgt.contract;
-  src where (src.inforce = true) -> tgt.inforce = true;
+  src where (src.inforce = true) -> tgt.inforce = true "inforce";
   src.detail as s -> tgt.detail as t then EligibilityResponseInsuranceDetail(s, t);
 }
 

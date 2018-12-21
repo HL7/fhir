@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Library4to3" = "R4 to R3 Conversion for Library"
+map "http://hl7.org/fhir/StructureMap/Library4to3" = "R4 to R3 Conversion for Library"
 
 uses "http://hl7.org/fhir/StructureDefinition/Library" alias Library as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Library" alias LibraryR3 as target
@@ -27,10 +27,10 @@ group Library(source src : LibraryR3, target tgt : Library) extends DomainResour
   src.lastReviewDate -> tgt.lastReviewDate;
   src.effectivePeriod -> tgt.effectivePeriod;
   src.topic -> tgt.topic;
-  src.author as vs -> tgt.contributor as vt, vt.type = 'author' then Contributor(vs, vt);
-  src.editor as vs -> tgt.contributor as vt, vt.type = 'editor', vt.contact = vs;
-  src.reviewer as vs -> tgt.contributor as vt, vt.type = 'reviewer', vt.contact = vs;
-  src.endorser as vs -> tgt.contributor as vt, vt.type = 'endorser', vt.contact = vs;
+  src.author as vs ->  tgt.contributor as vt,  vt.type = 'author' then Contributor(vs, vt);
+  src.editor as vs ->  tgt.contributor as vt,  vt.type = 'editor',  vt.contact = vs;
+  src.reviewer as vs ->  tgt.contributor as vt,  vt.type = 'reviewer',  vt.contact = vs;
+  src.endorser as vs ->  tgt.contributor as vt,  vt.type = 'endorser',  vt.contact = vs;
   src.relatedArtifact -> tgt.relatedArtifact;
   src.parameter -> tgt.parameter;
   src.dataRequirement -> tgt.dataRequirement;

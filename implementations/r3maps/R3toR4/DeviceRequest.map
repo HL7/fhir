@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/DeviceRequest3to4" = "R3 to R4 Conversions for DeviceRequest"
+map "http://hl7.org/fhir/StructureMap/DeviceRequest3to4" = "R3 to R4 Conversions for DeviceRequest"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceRequest" alias DeviceRequestR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias DeviceRequest as target
@@ -13,7 +13,7 @@ group DeviceRequest(source src : DeviceRequestR3, target tgt : DeviceRequest) ex
   src.status -> tgt.status;
   src.intent as vs then {
     vs.coding as c then {
-     c.code -> tgt.intent;
+      c.code -> tgt.intent;
     };
   };
   src.priority -> tgt.priority;

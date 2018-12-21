@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Claim3to4" = "R3 to R4 Conversions for Claim"
+map "http://hl7.org/fhir/StructureMap/Claim3to4" = "R3 to R4 Conversions for Claim"
 
 conceptmap "Use" {
   prefix s = "http://hl7.org/fhir/claim-use"
@@ -19,7 +19,7 @@ group Claim(source src : ClaimR3, target tgt : Claim) extends DomainResource <<t
   src.status -> tgt.status;
   src.type -> tgt.type;
   src.subType -> tgt.subType;
-  src.use as v -> tgt.use = translate(v, "#Use", "code");
+  src.use as v -> tgt.use = translate(v, '#Use', 'code');
   src.patient -> tgt.patient;
   src.billablePeriod -> tgt.billablePeriod;
   src.created -> tgt.created;
@@ -48,19 +48,19 @@ group Claim(source src : ClaimR3, target tgt : Claim) extends DomainResource <<t
     vs.sequence -> vt.sequence;
     vs.category -> vt.category;
     vs.code -> vt.code;
-    vs.timing : date as vs0 -> vt.timing = create("date") as vt0 then date(vs0, vt0);
+    vs.timing : date as vs0 -> vt.timing = create('date') as vt0 then date(vs0, vt0);
     vs.timing : Period as vs0 -> vt.timing as vt0 then Period(vs0, vt0);
-    vs.value : boolean as vs0 -> vt.value = create("boolean") as vt0 then boolean(vs0, vt0);
-    vs.value : string as vs0 -> vt.value = create("string") as vt0 then string(vs0, vt0);
-    vs.value : Quantity as vs0 -> vt.value = create("Quantity") as vt0 then Quantity(vs0, vt0);
-    vs.value : Attachment as vs0 -> vt.value = create("Attachment") as vt0 then Attachment(vs0, vt0);
-    vs.value : Reference as vs0 -> vt.value = create("Reference") as vt0 then Reference(vs0, vt0);
+    vs.value : boolean as vs0 -> vt.value = create('boolean') as vt0 then boolean(vs0, vt0);
+    vs.value : string as vs0 -> vt.value = create('string') as vt0 then string(vs0, vt0);
+    vs.value : Quantity as vs0 -> vt.value = create('Quantity') as vt0 then Quantity(vs0, vt0);
+    vs.value : Attachment as vs0 -> vt.value = create('Attachment') as vt0 then Attachment(vs0, vt0);
+    vs.value : Reference as vs0 -> vt.value = create('Reference') as vt0 then Reference(vs0, vt0);
     vs.reason -> vt.reason;
   };
   src.diagnosis as vs -> tgt.diagnosis as vt then {
     vs.sequence -> vt.sequence;
-    vs.diagnosis : Reference as vs0 -> vt.diagnosis = create("Reference") as vt0 then Reference(vs0, vt0);
-    vs.diagnosis : CodeableConcept as vs0 -> vt.diagnosis = create("CodeableConcept") as vt0 then CodeableConcept(vs0, vt0);
+    vs.diagnosis : Reference as vs0 -> vt.diagnosis = create('Reference') as vt0 then Reference(vs0, vt0);
+    vs.diagnosis : CodeableConcept as vs0 -> vt.diagnosis = create('CodeableConcept') as vt0 then CodeableConcept(vs0, vt0);
     vs.type -> vt.type;
     vs.packageCode -> vt.packageCode;
   };
@@ -75,8 +75,8 @@ group Claim(source src : ClaimR3, target tgt : Claim) extends DomainResource <<t
   src.accident as vs -> tgt.accident as vt then {
     vs.date -> vt.date;
     vs.type -> vt.type;
-    vs.location : Address as vs0 -> vt.location = create("Address") as vt0 then Address(vs0, vt0);
-    vs.location : Reference as vs0 -> vt.location = create("Reference") as vt0 then Reference(vs0, vt0);
+    vs.location : Address as vs0 -> vt.location = create('Address') as vt0 then Address(vs0, vt0);
+    vs.location : Reference as vs0 -> vt.location = create('Reference') as vt0 then Reference(vs0, vt0);
   };
   src.item as vs -> tgt.item as vt then {
     vs.sequence -> vt.sequence;
@@ -89,11 +89,11 @@ group Claim(source src : ClaimR3, target tgt : Claim) extends DomainResource <<t
     vs.service -> vt.productOrService;
     vs.modifier -> vt.modifier;
     vs.programCode -> vt.programCode;
-    vs.serviced : date as vs0 -> vt.serviced = create("date") as vt0 then date(vs0, vt0);
+    vs.serviced : date as vs0 -> vt.serviced = create('date') as vt0 then date(vs0, vt0);
     vs.serviced : Period as vs0 -> vt.serviced as vt0 then Period(vs0, vt0);
-    vs.location : CodeableConcept as vs0 -> vt.diagnosis = create("CodeableConcept") as vt0 then CodeableConcept(vs0, vt0);
-    vs.location : Address as vs0 -> vt.location = create("Address") as vt0 then Address(vs0, vt0);
-    vs.location : Reference as vs0 -> vt.location = create("Reference") as vt0 then Reference(vs0, vt0);
+    vs.location : CodeableConcept as vs0 -> vt.diagnosis = create('CodeableConcept') as vt0 then CodeableConcept(vs0, vt0);
+    vs.location : Address as vs0 -> vt.location = create('Address') as vt0 then Address(vs0, vt0);
+    vs.location : Reference as vs0 -> vt.location = create('Reference') as vt0 then Reference(vs0, vt0);
     vs.quantity -> vt.quantity;
     vs.unitPrice -> vt.unitPrice;
     vs.factor -> vt.factor;

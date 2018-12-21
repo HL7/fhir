@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MessageHeader3to4" = "R3 to R4 Conversions for MessageHeader"
+map "http://hl7.org/fhir/StructureMap/MessageHeader3to4" = "R3 to R4 Conversions for MessageHeader"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MessageHeader" alias MessageHeaderR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeader as target
@@ -8,8 +8,8 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 group MessageHeader(source src : MessageHeaderR3, target tgt : MessageHeader) extends DomainResource <<type+>> {
   src.event -> tgt.event;
   src.destination as vs0 -> tgt.destination as vt0 then destination(vs0, vt0, src);
-  src.sender -> tgt.sender; // todo: actually, this has been moved into the bundle - figure this out
-  src.timestamp as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/3.0/StructureDefinition/extension-MessageHeader.timestamp",  ext.value = vs;
+  src.sender -> tgt.sender;
+  src.timestamp as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MessageHeader.timestamp',  ext.value = vs;
   src.enterer -> tgt.enterer;
   src.author -> tgt.author;
   src.source as vs0 -> tgt.source as vt0 then source(vs0, vt0);

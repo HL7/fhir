@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SampledData3to4" = "R3 to R4 Conversions for SampledData"
+map "http://hl7.org/fhir/StructureMap/SampledData3to4" = "R3 to R4 Conversions for SampledData"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SampledData" alias SampledDataR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/SampledData" alias SampledData as target

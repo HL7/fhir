@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Task3to4" = "R3 to R4 Conversions for Task"
+map "http://hl7.org/fhir/StructureMap/Task3to4" = "R3 to R4 Conversions for Task"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Task" alias TaskR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Task" alias Task as target

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Group3to4" = "R3 to R4 Conversions for Group"
+map "http://hl7.org/fhir/StructureMap/Group3to4" = "R3 to R4 Conversions for Group"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Group" alias GroupR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Group" alias group as target
@@ -19,10 +19,10 @@ group group(source src : GroupR3, target tgt : group) extends DomainResource <<t
 
 group characteristic(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
-  src.value : CodeableConcept as vs -> tgt.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
-  src.value : boolean as vs -> tgt.value = create("boolean") as vt then boolean(vs, vt);
-  src.value : Quantity as vs -> tgt.value = create("Quantity") as vt then Quantity(vs, vt);
-  src.value : Range as vs -> tgt.value = create("Range") as vt then Range(vs, vt);
+  src.value : CodeableConcept as vs -> tgt.value = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.value : boolean as vs -> tgt.value = create('boolean') as vt then boolean(vs, vt);
+  src.value : Quantity as vs -> tgt.value = create('Quantity') as vt then Quantity(vs, vt);
+  src.value : Range as vs -> tgt.value = create('Range') as vt then Range(vs, vt);
   src.exclude -> tgt.exclude;
   src.period -> tgt.period;
 }

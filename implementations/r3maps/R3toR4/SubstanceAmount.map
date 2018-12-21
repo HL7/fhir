@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SubstanceAmount3to4" = "R3 to R4 Conversions for SubstanceAmount"
+map "http://hl7.org/fhir/StructureMap/SubstanceAmount3to4" = "R3 to R4 Conversions for SubstanceAmount"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SubstanceAmount" alias SubstanceAmountR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/SubstanceAmount" alias SubstanceAmount as target

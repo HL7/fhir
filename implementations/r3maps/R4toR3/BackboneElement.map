@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/BackboneElement4to3" = "R4 to R3 Conversion for BackboneElement"
+map "http://hl7.org/fhir/StructureMap/BackboneElement4to3" = "R4 to R3 Conversion for BackboneElement"
 
 uses "http://hl7.org/fhir/StructureDefinition/BackboneElement" alias BackboneElement as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/BackboneElement" alias BackboneElementR3 as target

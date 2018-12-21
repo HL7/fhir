@@ -1,12 +1,12 @@
-﻿map "http://hl7.org/fhir/StructureMap/ClinicalImpression4to3" = "R4 to R3 Conversion for ClinicalImpression"
+map "http://hl7.org/fhir/StructureMap/ClinicalImpression4to3" = "R4 to R3 Conversion for ClinicalImpression"
 
 conceptmap "ClinicalImpressionStatus" {
   prefix s = "http://hl7.org/fhir/event-status"
   prefix t = "http://hl7.org/fhir/clinical-impression-status"
 
-  s:"in-progress" - t:draft
+  s:"'in-progress'" - t:draft
   s:completed - t:completed
-  s:"entered-in-error" - t:"entered-in-error"
+  s:"'entered-in-error'" - t:"'entered-in-error'"
 }
 
 uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias ClinicalImpression as source
@@ -16,13 +16,13 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group ClinicalImpression(source src : ClinicalImpression, target tgt : ClinicalImpressionR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, "#ClinicalImpressionStatus", "code");
+  src.status as v -> tgt.status = translate(v, '#ClinicalImpressionStatus', 'code');
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.subject -> tgt.subject;
   src.encounter -> tgt.context;
-  src.effective : dateTime as vs -> tgt.effective = create("dateTime") as vt then dateTime(vs, vt);
-  src.effective : Period as vs -> tgt.effective = create("Period") as vt then Period(vs, vt);
+  src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
   src.date -> tgt.date;
   src.assessor -> tgt.assessor;
   src.previous -> tgt.previous;
@@ -42,10 +42,11 @@ group ClinicalImpression(source src : ClinicalImpression, target tgt : ClinicalI
 group investigation(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.item -> tgt.item;
-};
+}
 
 group finding(source src, target tgt) extends BackboneElement {
   src.itemCodeableConcept as vs -> tgt.item = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
   src.itemReference as vs -> tgt.item = create('Reference') as vt then Reference(vs, vt);
   src.basis -> tgt.basis;
-};
+}
+

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ProcessRequest3to4" = "R3 to R4 Conversions for ProcessRequest"
+map "http://hl7.org/fhir/StructureMap/ProcessRequest3to4" = "R3 to R4 Conversions for ProcessRequest"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ProcessRequest" alias ProcessRequestR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ProcessRequest" alias ProcessRequest as target
