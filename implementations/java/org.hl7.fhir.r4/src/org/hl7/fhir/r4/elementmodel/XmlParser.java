@@ -282,13 +282,14 @@ public class XmlParser extends ParserBase {
     				if (property.isChoice()) {
     					if (property.getDefinition().hasRepresentation(PropertyRepresentation.TYPEATTR)) {
     						String xsiType = ((org.w3c.dom.Element) child).getAttributeNS(FormatUtilities.NS_XSI, "type");
-    						if (xsiType == null) {
+    						if (Utilities.noString(xsiType)) {
     		          logError(line(child), col(child), path, IssueType.STRUCTURE, "No type found on '"+child.getLocalName()+'"', IssueSeverity.ERROR);
     		          ok = false;
     						} else {
     							if (xsiType.contains(":"))
     								xsiType = xsiType.substring(xsiType.indexOf(":")+1);
     							n.setType(xsiType);
+    							n.setExplicitType(xsiType);
     						}
     					} else
     					  n.setType(n.getType());
@@ -359,7 +360,7 @@ public class XmlParser extends ParserBase {
       DateTimeType d = new DateTimeType(av);
       return d.getAsV3();
     } else
-      throw new FHIRException("Unknown Data format '"+fmt+"'");
+      throw new FHIRException("Unknown Date format '"+fmt+"'");
   }
 
   private void parseResource(String string, org.w3c.dom.Element container, Element parent, Property elementProperty) throws FHIRFormatError, DefinitionException, FHIRException, IOException {
@@ -475,7 +476,11 @@ public class XmlParser extends ParserBase {
         xml.link(linkResolver.resolveProperty(element.getProperty()));
       xml.enter(elementName);
       xml.text(element.getValue());
-      xml.exit(elementName);      
+      xml.exit(elementName);   
+    } else if (!element.hasChildren() && !element.hasValue()) {
+      if (element.getExplicitType() != null)
+        xml.attribute("xsi:type", element.getExplicitType());
+      xml.element(elementName);
     } else if (element.isPrimitive() || (element.hasType() && isPrimitive(element.getType()))) {
       if (element.getType().equals("xhtml")) {
         String rawXhtml = element.getValue();

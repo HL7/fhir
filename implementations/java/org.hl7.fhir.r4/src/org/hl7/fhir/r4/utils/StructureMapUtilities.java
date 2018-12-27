@@ -588,17 +588,17 @@ public class StructureMapUtilities {
     renderTarget(b, rt, false);
     return b.toString();
   }
-	
-	private static void renderTarget(StringBuilder b, StructureMapGroupRuleTargetComponent rt, boolean abbreviate) {
-	  if (rt.hasContext()) {
-	    if (rt.getContextType() == StructureMapContextType.TYPE)
-	      b.append("@");
-		b.append(rt.getContext());
-		if (rt.hasElement())  {
-			b.append('.');
-			b.append(rt.getElement());
-		}
-	  }
+
+  private static void renderTarget(StringBuilder b, StructureMapGroupRuleTargetComponent rt, boolean abbreviate) {
+    if (rt.hasContext()) {
+      if (rt.getContextType() == StructureMapContextType.TYPE)
+        b.append("@");
+      b.append(rt.getContext());
+      if (rt.hasElement())  {
+        b.append('.');
+        b.append(rt.getElement());
+      }
+    }
 		if (!abbreviate && rt.hasTransform()) {
 	    if (rt.hasContext()) 
 			b.append(" = ");
@@ -1222,7 +1222,12 @@ public class StructureMapUtilities {
 			return object;
 		}
     public String summary() {
-      return name+": "+ (object == null  ? "null" : object.fhirType());
+      if (object == null) 
+        return null;
+      else if (object instanceof PrimitiveType)
+        return name+": \""+((PrimitiveType) object).asStringValue()+'"';
+      else
+        return name+": ("+object.fhirType()+")";
     }
 	}
 
@@ -1281,6 +1286,8 @@ public class StructureMapUtilities {
 	private void log(String cnt) {
 	  if (services != null)
 	    services.log(cnt);
+	  else
+	    System.out.println(cnt);
 	}
 
 	/**
@@ -1364,6 +1371,7 @@ public class StructureMapUtilities {
 					}
 				} else if (rule.getSource().size() == 1 && rule.getSourceFirstRep().hasVariable() && rule.getTarget().size() == 1 && rule.getTargetFirstRep().hasVariable() && rule.getTargetFirstRep().getTransform() == StructureMapTransform.CREATE && !rule.getTargetFirstRep().hasParameter()) {
 				  // simple inferred, map by type
+				  System.out.println(v.summary());
 				  Base src = v.get(VariableMode.INPUT, rule.getSourceFirstRep().getVariable());
 				  Base tgt = v.get(VariableMode.OUTPUT, rule.getTargetFirstRep().getVariable());
 				  String srcType = src.fhirType();
@@ -1757,20 +1765,20 @@ public class StructureMapUtilities {
 	  Base dest = null;
 	  if (tgt.hasContext()) {
   		dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
-		if (dest == null)
-			throw new FHIRException("Rule \""+ruleId+"\": target context not known: "+tgt.getContext());
-		if (!tgt.hasElement())
-			throw new FHIRException("Rule \""+ruleId+"\": Not supported yet");
+  		if (dest == null)
+  		  throw new FHIRException("Rule \""+ruleId+"\": target context not known: "+tgt.getContext());
+  		if (!tgt.hasElement())
+  		  throw new FHIRException("Rule \""+ruleId+"\": Not supported yet");
 	  }
-		Base v = null;
-		if (tgt.hasTransform()) {
-			v = runTransform(ruleId, context, map, group, tgt, vars, dest, tgt.getElement(), srcVar, atRoot);
-			if (v != null && dest != null)
-				v = dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v); // reset v because some implementations may have to rewrite v when setting the value
-		} else if (dest != null) 
-			v = dest.makeProperty(tgt.getElement().hashCode(), tgt.getElement());
-		if (tgt.hasVariable() && v != null)
-			vars.add(VariableMode.OUTPUT, tgt.getVariable(), v);
+	  Base v = null;
+	  if (tgt.hasTransform()) {
+	    v = runTransform(ruleId, context, map, group, tgt, vars, dest, tgt.getElement(), srcVar, atRoot);
+	    if (v != null && dest != null)
+	      v = dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v); // reset v because some implementations may have to rewrite v when setting the value
+	  } else if (dest != null) 
+	    v = dest.makeProperty(tgt.getElement().hashCode(), tgt.getElement());
+	  if (tgt.hasVariable() && v != null)
+	    vars.add(VariableMode.OUTPUT, tgt.getVariable(), v);
 	}
 
 	private Base runTransform(String ruleId, TransformContext context, StructureMap map, StructureMapGroupComponent group, StructureMapGroupRuleTargetComponent tgt, Variables vars, Base dest, String element, String srcVar, boolean root) throws FHIRException {
@@ -1845,7 +1853,7 @@ public class StructureMapUtilities {
 	    case APPEND : 
         StringBuilder sb = new StringBuilder(getParamString(vars, tgt.getParameter().get(0)));
         for (int i = 1; i < tgt.getParameter().size(); i++)
-          sb.append(getParamString(vars, tgt.getParameter().get(1)));
+          sb.append(getParamString(vars, tgt.getParameter().get(i)));
         return new StringType(sb.toString());
 	    case TRANSLATE : 
 	      return translate(context, map, vars, tgt.getParameter());
