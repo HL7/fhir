@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <a name="scope"></a>
@@ -128,7 +128,7 @@ not generally assume that they are authorized to do this.
 </p>
 <p>
 Consent Directives are executed by verbal acknowledge or by being signed - either on paper, or digitally. Consent Signatures will
-be found in the <a href="provenance.html">Provenance</a> resource (example <a href="consent-example-signature.html">consent</a> and 
+be found in the source document which would refer to a <a href="provenance.html">Provenance</a> resource and 
 <a href="provenance-consent-signature.html">signature</a>). Implementation Guides will generally 
 make rules about what signatures are required, and how they are to be shared and used.
 </p>

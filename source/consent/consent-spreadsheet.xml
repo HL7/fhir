@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>lloyd</LastAuthor>
+  <LastAuthor>Dave</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-04-02T20:42:44Z</LastSaved>
+  <LastSaved>2018-12-27T16:09:57Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3619,7 +3619,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5723,8 +5722,8 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s89" ss:Width="484.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s89" ss:Width="146.0"/>
    <Column ss:StyleID="s89" ss:Width="205.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s89" ss:Width="43.0"/>
-   <Column ss:StyleID="s89" ss:Width="40.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s89" ss:Width="69.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s89" ss:Width="78.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s118"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Descriptive Name</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Default = XML.  Leave at default unless told otherwise</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5818,7 +5817,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s160"><Data ss:Type="String">Consent from Patients Know Best</Data></Cell>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Example of Patients Know Best Usage</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Example of Patients Know Best  (using SecurityLabels)</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">consent-example-pkb</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">consent-example-pkb.xml</Data></Cell>
     <Cell ss:StyleID="s149"/>
@@ -5834,11 +5833,11 @@
     <Cell ss:StyleID="s161"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Consent with Signature</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">Consent for CDA</Data></Cell>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Consent Example with a signature</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">consent-example-signature</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">consent-example-signature.xml</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Consent Example with a for a time limted restriction on a CDA by a specific author</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">consent-example-CDA</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">consent-example-CDA.xml</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s161"/>
    </Row>
@@ -6111,6 +6110,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
