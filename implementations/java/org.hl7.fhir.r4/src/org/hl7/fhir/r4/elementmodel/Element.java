@@ -68,6 +68,7 @@ public class Element extends Base {
 	private int col;
 	private SpecialElement special;
 	private XhtmlNode xhtml; // if this is populated, then value will also hold the string representation
+	private String explicitType; // for xsi:type attribute
 
 	public Element(String name) {
 		super();
@@ -805,6 +806,14 @@ public class Element extends Base {
       return c;
     } else 
       return null;
+  }
+
+  public String getExplicitType() {
+    return explicitType;
+  }
+
+  public void setExplicitType(String explicitType) {
+    this.explicitType = explicitType;
   }
 
   

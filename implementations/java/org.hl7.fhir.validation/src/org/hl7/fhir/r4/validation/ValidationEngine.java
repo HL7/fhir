@@ -166,8 +166,7 @@ public class ValidationEngine {
     public void log(String message) {
       if (mapLog != null)
         mapLog.println(message);
-      else
-        System.out.println(message);
+      System.out.println(message);
     }
 
     @Override
