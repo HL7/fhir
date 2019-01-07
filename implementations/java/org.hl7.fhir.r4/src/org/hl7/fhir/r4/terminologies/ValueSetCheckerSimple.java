@@ -68,24 +68,59 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
   }
 
   public ValidationResult validateCode(Coding code) throws FHIRException {
+    String warningMessage = null;
     // first, we validate the concept itself
+    
     String system = code.hasSystem() ? code.getSystem() : getValueSetSystem();
     if (system == null && !code.hasDisplay()) { // dealing with just a plain code (enum)
       system = systemForCodeInValueSet(code.getCode());
     }
+    if (!code.hasSystem())
+      code.setSystem(system);
+    boolean inExpansion = checkExpansion(code);
     CodeSystem cs = context.fetchCodeSystem(system);
-    if (cs == null)
-      throw new FHIRException("Unable to resolve system "+system+" - system is not specified or implicit");
-    if (cs.getContent() != CodeSystemContentMode.COMPLETE)
-      throw new FHIRException("Unable to resolve system "+system+" - system is not complete");
-    ValidationResult res = validateCode(code, cs);
+    if (cs == null) {
+      warningMessage = "Unable to resolve system "+system+" - system is not specified or implicit";
+      if (!inExpansion)
+        throw new FHIRException(warningMessage);
+    }
+    if (cs!=null && cs.getContent() != CodeSystemContentMode.COMPLETE) {
+      warningMessage = "Unable to resolve system "+system+" - system is not complete";
+      if (!inExpansion)
+        throw new FHIRException(warningMessage);
+    }
+    
+    ValidationResult res =null;
+    if (cs!=null)
+      res = validateCode(code, cs);
       
     // then, if we have a value set, we check it's in the value set
-    if (res.isOk() && valueset != null && !codeInValueSet(system, code.getCode()))
-      res.setMessage("Not in value set "+valueset.getUrl()).setSeverity(IssueSeverity.ERROR); 
+    if ((res==null || res.isOk()) && valueset != null && !codeInValueSet(system, code.getCode())) {
+      if (!inExpansion)
+        res.setMessage("Not in value set "+valueset.getUrl()).setSeverity(IssueSeverity.ERROR);
+      else if (warningMessage!=null)
+        res = new ValidationResult(IssueSeverity.WARNING, "Code found in expansion, however: " + warningMessage);
+      else
+        res.setMessage("Code found in expansion, however: " + res.getMessage());
+    }
     return res;
   }
 
+  boolean checkExpansion(Coding code) {
+    if (valueset==null || !valueset.hasExpansion())
+      return false;
+    return checkExpansion(code, valueset.getExpansion().getContains());
+  }
+
+  boolean checkExpansion(Coding code, List<ValueSetExpansionContainsComponent> contains) {
+    for (ValueSetExpansionContainsComponent containsComponent: contains) {
+      if (containsComponent.getSystem().equals(code.getSystem()) && containsComponent.getCode().equals(code.getCode()))
+        return true;
+      if (containsComponent.hasContains() && checkExpansion(code, containsComponent.getContains()))
+        return true;
+    }
+    return false;
+  }
 
   private ValidationResult validateCode(Coding code, CodeSystem cs) {
     ConceptDefinitionComponent cc = findCodeInConcept(cs.getConcept(), code.getCode());
@@ -112,8 +147,17 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
       throw new FHIRException("Unable to resolve system - no value set");
     if (valueset.getCompose().hasExclude())
       throw new FHIRException("Unable to resolve system - value set has excludes");
-    if (valueset.getCompose().getInclude().size() == 0)
-      throw new FHIRException("Unable to resolve system - value set has no includes");
+    if (valueset.getCompose().getInclude().size() == 0) {
+      if (!valueset.hasExpansion() || valueset.getExpansion().getContains().size() == 0)
+        throw new FHIRException("Unable to resolve system - value set has no includes or expansion");
+      else {
+        String cs = valueset.getExpansion().getContains().get(0).getSystem();
+        if (cs != null && checkSystem(valueset.getExpansion().getContains(), cs))
+          return cs;
+        else
+          throw new FHIRException("Unable to resolve system - value set expansion has multiple systems");
+      }
+    }
     for (ConceptSetComponent inc : valueset.getCompose().getInclude()) {
       if (inc.hasValueSet())
         throw new FHIRException("Unable to resolve system - value set has imports");
@@ -126,6 +170,16 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
     return null;
   }
 
+  /*
+   * Check that all system values within an expansion correspond to the specified system value
+   */
+  private boolean checkSystem(List<ValueSetExpansionContainsComponent> containsList, String system) {
+    for (ValueSetExpansionContainsComponent contains : containsList) {
+      if (!contains.getSystem().equals(system) || (contains.hasContains() && !checkSystem(contains.getContains(), system)))
+        return false;
+    }
+    return true;
+  }
   private ConceptDefinitionComponent findCodeInConcept(List<ConceptDefinitionComponent> concept, String code) {
     for (ConceptDefinitionComponent cc : concept) {
       if (code.equals(cc.getCode()))
