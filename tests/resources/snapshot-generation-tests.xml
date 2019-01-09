@@ -39,6 +39,8 @@
  34. Referencing a custom extension
  35. Referencing a profiled custom extension
  36. Deep recursion
+ 37. - used in another pull request
+ 38. Ensure slicing works when an element has both a profile and local constraints
 -->
   <contained>
     <StructureDefinition>
@@ -1823,6 +1825,63 @@
             <code value="code"/>
           </type>
           <fixedCode value="stop"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+  <contained>
+    <StructureDefinition>
+      <id value="t38"/>
+      <url value="urn:uuid:428d7c25-e55f-42b4-a93e-83cef54421d7"/>
+      <name value="t38"/>
+      <status value="draft"/>
+      <description value="fixture for #38: Slicing with profiles and local constraints"/>
+      <kind value="resource"/>
+      <abstract value="false"/>
+      <type value="Patient"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element id="Patient">
+          <path value="Patient"/>
+        </element>
+        <element id="Patient.identifier">
+          <path value="Patient.identifier"/>
+          <slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="type.coding.system"/>
+            </discriminator>
+            <discriminator>
+              <type value="value"/>
+              <path value="type.coding.code"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+        <element id="Patient.identifier:foo">
+          <path value="Patient.identifier"/>
+          <sliceName value="foo"/>
+          <min value="1"/>
+          <type>
+            <code value="CodeableConcept"/>
+            <!-- This profile isn't actually declaring anything new - but it's enough for test purposes.  In practice, it would point to something useful -->
+            <profile value="http://hl7.org/fhir/StructureDefinition/CodeableConcept"/>
+          </type>
+        </element>
+        <element id="Patient.identifier:foo.type">
+          <path value="Patient.identifier.type"/>
+        </element>
+        <element id="Patient.identifier:foo.type.coding">
+          <path value="Patient.identifier.type.coding"/>
+        </element>
+        <element id="Patient.identifier:foo.type.coding.system">
+          <path value="Patient.identifier.type.coding.system"/>
+          <fixedUri value="http://hl7.org/fhir/v2/0203"/>
+        </element>
+        <element id="Patient.identifier:foo.type.coding.system">
+          <path value="Patient.identifier.type.coding.system"/>
+          <fixedUri value="MRN"/>
         </element>
       </differential>
     </StructureDefinition>
