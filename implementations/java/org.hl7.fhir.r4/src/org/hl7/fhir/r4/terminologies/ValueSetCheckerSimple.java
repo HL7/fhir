@@ -42,14 +42,16 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
         warnings.add("Coding has no system");
       CodeSystem cs = context.fetchCodeSystem(c.getSystem());
       if (cs == null)
-        throw new FHIRException("Unsupported system "+c.getSystem()+" - system is not specified or implicit");
-      if (cs.getContent() != CodeSystemContentMode.COMPLETE)
-        throw new FHIRException("Unable to resolve system "+c.getSystem()+" - system is not complete");
-      ValidationResult res = validateCode(c, cs);
-      if (!res.isOk())
-        errors.add(res.getMessage());
-      else if (res.getMessage() != null)
-        warnings.add(res.getMessage());
+        warnings.add("Unsupported system "+c.getSystem()+" - system is not specified or implicit");
+      else if (cs.getContent() != CodeSystemContentMode.COMPLETE)
+        warnings.add("Unable to resolve system "+c.getSystem()+" - system is not complete");
+      else {
+        ValidationResult res = validateCode(c, cs);
+        if (!res.isOk())
+          errors.add(res.getMessage());
+        else if (res.getMessage() != null)
+          warnings.add(res.getMessage());
+      }
     }
     if (valueset != null) {
       boolean ok = false;
@@ -234,7 +236,9 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
   
   @Override
   public boolean codeInValueSet(String system, String code) throws FHIRException {
-    if (valueset.hasCompose()) {
+    if (valueset.hasExpansion()) {
+      return checkExpansion(new Coding(system, code, null));
+    } else if (valueset.hasCompose()) {
       boolean ok = false;
       for (ConceptSetComponent vsi : valueset.getCompose().getInclude()) {
         ok = ok || inComponent(vsi, system, code, valueset.getCompose().getInclude().size() == 1);
@@ -243,7 +247,7 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
         ok = ok && !inComponent(vsi, system, code, valueset.getCompose().getInclude().size() == 1);
       }
       return ok;
-    }
+    } 
     
     return false;
   }
