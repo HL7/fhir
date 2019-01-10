@@ -141,7 +141,7 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
       if (code.getDisplay().equalsIgnoreCase(ds.getValue()))
         return new ValidationResult(cc);
     }
-    return new ValidationResult(IssueSeverity.WARNING, "Display Name for "+code+" must be one of '"+b.toString()+"'", cc);
+    return new ValidationResult(IssueSeverity.WARNING, "Display Name for "+code.getSystem()+"#"+code.getCode()+" must be one of '"+b.toString()+"'", cc);
   }
 
   private String getValueSetSystem() throws FHIRException {
