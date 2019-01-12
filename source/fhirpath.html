@@ -14,12 +14,8 @@
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
-FHIRPath is a separate specification published at <a href="http://hl7.org/fhirpath">http://hl7.org/fhirpath</a> in order to support wider re-use across multiple specifications.
-</p>
-<p>
-FHIRPath is a path-based navigation and extraction language, somewhat like XPath. Operations
-are expressed in terms of the logical content of hierarchical data models, and support traversal, 
-selection and filtering of data.
+The FHIR Specification uses <a href="http://hl7.org/fhirpath/r2">FHIRPath (release 2)</a> for path-based navigation and extraction.
+FHIRPath is a separate specification published at <a href="http://hl7.org/fhirpath/r2">http://hl7.org/fhirpath</a> in order to support wider re-use across multiple specifications.
 </p>
 <p>
 FHIRPath is used in several places in the FHIR and related specifications:
@@ -39,6 +35,10 @@ In addition, FHIRPath is used in <a href="http://cds-hooks.hl7.org/ballots/2018M
 <a name="rules"></a>
 <h3>Using FHIRPath with Resources</h3>
 
+<p>
+In FHIRPath, like XPath, operations are expressed in terms of the logical content of hierarchical data models, and support traversal, 
+selection and filtering of data.
+</p>
 <p>
 FHIRPath uses a tree model that abstracts away the actual underlying data model of the 
 data being queried. For FHIR, this means that the contents of the resources and data 
