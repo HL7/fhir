@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Specimen4to3" = "R4 to R3 Conversion for Specimen"
+map "http://hl7.org/fhir/StructureMap/Specimen4to3" = "R4 to R3 Conversion for Specimen"
 
 uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias Specimen as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Specimen" alias SpecimenR3 as target
@@ -22,8 +22,8 @@ group Specimen(source src : Specimen, target tgt : SpecimenR3) extends DomainRes
 
 group collection(source src, target tgt) extends BackboneElement {
   src.collector -> tgt.collector;
-  src.collected : dateTime as vs -> tgt.collected = create("dateTime") as vt then dateTime(vs, vt);
-  src.collected : Period as vs -> tgt.collected = create("Period") as vt then Period(vs, vt);
+  src.collected : dateTime as vs -> tgt.collected = create('dateTime') as vt then dateTime(vs, vt);
+  src.collected : Period as vs -> tgt.collected = create('Period') as vt then Period(vs, vt);
   src.quantity -> tgt.quantity;
   src.method -> tgt.method;
   src.bodySite -> tgt.bodySite;
@@ -33,8 +33,8 @@ group processing(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.procedure -> tgt.procedure;
   src.additive -> tgt.additive;
-  src.time : dateTime as vs -> tgt.time = create("dateTime") as vt then dateTime(vs, vt);
-  src.time : Period as vs -> tgt.time = create("Period") as vt then Period(vs, vt);
+  src.time : dateTime as vs -> tgt.time = create('dateTime') as vt then dateTime(vs, vt);
+  src.time : Period as vs -> tgt.time = create('Period') as vt then Period(vs, vt);
 }
 
 group container(source src, target tgt) extends BackboneElement {
@@ -43,6 +43,7 @@ group container(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.capacity -> tgt.capacity;
   src.specimenQuantity -> tgt.specimenQuantity;
-  src.additive : CodeableConcept as vs -> tgt.additive = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
-  src.additive : Reference as vs -> tgt.additive = create("Reference") as vt then Reference(vs, vt);
-}  
+  src.additive : CodeableConcept as vs -> tgt.additive = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.additive : Reference as vs -> tgt.additive = create('Reference') as vt then Reference(vs, vt);
+}
+

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/primitives4to3" = "R4 to R3 Primitive Conversions"
+map "http://hl7.org/fhir/StructureMap/primitives4to3" = "R4 to R3 Primitive Conversions"
 
 uses "http://hl7.org/fhir/StructureDefinition/base64Binary" as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/base64Binary" alias base64BinaryR3 as target

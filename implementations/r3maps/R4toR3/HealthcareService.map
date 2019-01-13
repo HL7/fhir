@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/HealthcareService4to3" = "R4 to R3 Conversion for HealthcareService"
+map "http://hl7.org/fhir/StructureMap/HealthcareService4to3" = "R4 to R3 Conversion for HealthcareService"
 
 uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" alias HealthcareService as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/HealthcareService" alias HealthcareServiceR3 as target
@@ -49,3 +49,4 @@ group notAvailable(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.during -> tgt.during;
 }
+

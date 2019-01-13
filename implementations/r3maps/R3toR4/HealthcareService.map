@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/HealthcareService3to4" = "R3 to R4 Conversions for HealthcareService"
+map "http://hl7.org/fhir/StructureMap/HealthcareService3to4" = "R3 to R4 Conversions for HealthcareService"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/HealthcareService" alias HealthcareServiceR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" alias HealthcareService as target
@@ -21,7 +21,7 @@ group HealthcareService(source src : HealthcareServiceR3, target tgt : Healthcar
   src.coverageArea -> tgt.coverageArea;
   src.serviceProvisionCode -> tgt.serviceProvisionCode;
   src.eligibility as vs -> tgt.eligibility as vt then eligibility(vs, vt, src);
-  src.programName as v -> tgt.program as cc, cc.text = v;
+  src.programName as v ->  tgt.program as cc,  cc.text = v;
   src.characteristic -> tgt.characteristic;
   src.referralMethod -> tgt.referralMethod;
   src.appointmentRequired -> tgt.appointmentRequired;
@@ -32,7 +32,7 @@ group HealthcareService(source src : HealthcareServiceR3, target tgt : Healthcar
 }
 
 group eligibility(source src, target tgt, source res) {
-  src as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src as vs -> tgt.code as vt then CodeableConcept(vs, vt) "code";
   res.eligibilityNote -> tgt.comment;
 }
 
@@ -47,3 +47,4 @@ group notAvailable(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.during -> tgt.during;
 }
+

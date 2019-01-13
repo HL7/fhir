@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Communication4to3" = "R4 to R3 Conversion for Communication"
+map "http://hl7.org/fhir/StructureMap/Communication4to3" = "R4 to R3 Conversion for Communication"
 
 uses "http://hl7.org/fhir/StructureDefinition/Communication" alias Communication as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Communication" alias CommunicationR3 as target
@@ -11,8 +11,8 @@ group Communication(source src : CommunicationR3, target tgt : Communication) ex
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
   src.status where value != 'not-done' -> tgt.status;
-  src.status as v where value = 'not-done' -> tgt.status = 'completed', tgt.notDone = v;
-  src.statusReason where src.status = 'not-done'  -> tgt.notDoneReason;  
+  src.status as v where value = 'not-done' ->  tgt.status = 'completed',  tgt.notDone = v;
+  src.statusReason where src.status = 'not-done' -> tgt.notDoneReason;
   src.category -> tgt.category;
   src.medium -> tgt.medium;
   src.subject -> tgt.subject;

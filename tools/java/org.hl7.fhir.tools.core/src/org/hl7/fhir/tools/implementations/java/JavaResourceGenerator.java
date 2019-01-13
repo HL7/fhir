@@ -1659,6 +1659,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       write("      public "+tn+" copy() {\r\n");
       write("        "+tn+" dst = new "+tn+"();\r\n");
       write("        copyValues(dst);\r\n");
+      write("        return dst;\r\n");
+      write("      }\r\n\r\n");
+      write("      public void copyValues("+tn+" dst) {\r\n");
+      write("        super.copyValues(dst);\r\n");
 	  }
 	  for (ElementDefn c : e.getElements()) {
 	    if (doGenerateAccessors(c)) { 
@@ -1676,14 +1680,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	      }
 	    }
 	  }
-    if (!isAbstract) 
-      write("        return dst;\r\n");
     write("      }\r\n\r\n");
     if (!owner && !isAbstract) {
       write("      protected "+tn+" typedCopy() {\r\n");
       write("        return copy();\r\n");
-      write("      }\r\n\r\n");
-      
+      write("      }\r\n\r\n");      
     }
   }
 

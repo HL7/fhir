@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ClaimResponse3to4" = "R3 to R4 Conversions for ClaimResponse"
+map "http://hl7.org/fhir/StructureMap/ClaimResponse3to4" = "R3 to R4 Conversions for ClaimResponse"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ClaimResponse" alias ClaimResponseR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ClaimResponse" alias ClaimResponse as target
@@ -17,9 +17,9 @@ group ClaimResponse(source src : ClaimResponseR3, target tgt : ClaimResponse) ex
   src.requestProvider -> tgt.requestor;
   src.request -> tgt.request;
   src.outcome as vs then {
-   vs.coding as c then {
-     c.code where value in 'queued' | 'complete' | 'error' | 'partial' -> tgt.outcome;
-   };
+    vs.coding as c then {
+      c.code where value in ('queued' | 'complete' | 'error' | 'partial') -> tgt.outcome;
+    };
   };
   src.disposition -> tgt.disposition;
   src.payeeType -> tgt.payeeType;
@@ -29,7 +29,7 @@ group ClaimResponse(source src : ClaimResponseR3, target tgt : ClaimResponse) ex
   src.totalCost as s -> tgt.total as t then ClaimResponseTotalCost(s, t);
   src.totalBenefit as s -> tgt.total as t then ClaimResponseTotalBenefit(s, t);
   src.payment as s -> tgt.payment as t then ClaimResponsePayment(s, t);
-  src.reserved as vs -> tgt.fundsReserve as vt, vt.coding = vs;
+  src.reserved as vs ->  tgt.fundsReserve as vt,  vt.coding = vs;
   src.form -> tgt.form;
   src.processNote as s -> tgt.processNote as t then ClaimResponseProcessNote(s, t);
   src.communicationRequest -> tgt.communicationRequest;
@@ -141,10 +141,12 @@ group ClaimResponseInsurance(source src, target tgt) extends BackboneElement {
 }
 
 group ClaimResponseTotalCost(source src, target tgt) extends BackboneElement {
-  src -> tgt.category as cc, cc.text = "Submitted Amount", cc.coding as coding, coding.code = "submitted", coding.system = "http://terminology.hl7.org/CodeSystem/adjudication";
-  src as vs -> tgt.amount as vt then Money(vs, vt);
+  src ->  tgt.category as cc,  cc.text = 'Submitted Amount',  cc.coding as coding,  coding.code = 'submitted',  coding.system = 'http://terminology.hl7.org/CodeSystem/adjudication' "category";
+  src as vs -> tgt.amount as vt then Money(vs, vt) "amount";
 }
+
 group ClaimResponseTotalBenefit(source src, target tgt) extends BackboneElement {
-  src -> tgt.category as cc, cc.text = "Benefit Amount", cc.coding as coding, coding.code = "benefit", coding.system = "http://terminology.hl7.org/CodeSystem/adjudication";
-  src as vs -> tgt.amount as vt then Money(vs, vt);
+  src ->  tgt.category as cc,  cc.text = 'Benefit Amount',  cc.coding as coding,  coding.code = 'benefit',  coding.system = 'http://terminology.hl7.org/CodeSystem/adjudication' "amount";
+  src as vs -> tgt.amount as vt then Money(vs, vt) "amount";
 }
+

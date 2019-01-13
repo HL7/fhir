@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MessageHeader4to3" = "R4 to R3 Conversion for MessageHeader"
+map "http://hl7.org/fhir/StructureMap/MessageHeader4to3" = "R4 to R3 Conversion for MessageHeader"
 
 uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeader as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MessageHeader" alias MessageHeaderR3 as target
@@ -25,7 +25,7 @@ group destination(source src, target tgt, target mtgt) extends BackboneElement {
   src.name -> tgt.name;
   src.target -> tgt.target;
   src.endpoint -> tgt.endpoint;
-  src.receiver -> mtgt.receiver; // multiples will just overwrite...
+  src.receiver -> mtgt.receiver;
 }
 
 group source(source src, target tgt) extends BackboneElement {

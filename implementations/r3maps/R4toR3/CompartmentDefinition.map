@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/CompartmentDefinition4to3" = "R4 to R3 Conversion for CompartmentDefinition"
+map "http://hl7.org/fhir/StructureMap/CompartmentDefinition4to3" = "R4 to R3 Conversion for CompartmentDefinition"
 
 uses "http://hl7.org/fhir/StructureDefinition/CompartmentDefinition" alias CompartmentDefinition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CompartmentDefinition" alias CompartmentDefinitionR3 as target

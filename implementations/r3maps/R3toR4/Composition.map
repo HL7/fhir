@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Composition3to4" = "R3 to R4 Conversions for Composition"
+map "http://hl7.org/fhir/StructureMap/Composition3to4" = "R3 to R4 Conversions for Composition"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Composition" alias CompositionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Composition" alias Composition as target
@@ -31,10 +31,10 @@ group attester(source src, target tgt) extends BackboneElement {
 
 group relatesTo(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
-  src.target : Identifier as vs -> tgt.target = create("Identifier") as vt then Identifier(vs, vt);
-  src.target : Reference as vs -> tgt.target = create("Reference") as vt then Reference(vs, vt);
+  src.target : Identifier as vs -> tgt.target = create('Identifier') as vt then Identifier(vs, vt);
+  src.target : Reference as vs -> tgt.target = create('Reference') as vt then Reference(vs, vt);
 }
-    
+
 group event(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.period -> tgt.period;
@@ -51,3 +51,4 @@ group section(source src, target tgt) extends BackboneElement {
   src.emptyReason -> tgt.emptyReason;
   src.section as vs0 -> tgt.section as vt0 then section(vs0, vt0);
 }
+

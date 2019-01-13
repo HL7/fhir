@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/BodySite3to4" = "R3 to R4 Conversions for BodySite"
+map "http://hl7.org/fhir/StructureMap/BodySite3to4" = "R3 to R4 Conversions for BodySite"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/BodySite" alias BodySiteR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/BodyStructure" alias BodyStructure as target

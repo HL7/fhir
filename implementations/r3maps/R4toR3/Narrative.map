@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Narrative4to3" = "R4 to R3 Conversion for Narrative"
+map "http://hl7.org/fhir/StructureMap/Narrative4to3" = "R4 to R3 Conversion for Narrative"
 
 uses "http://hl7.org/fhir/StructureDefinition/Narrative" alias Narrative as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Narrative" alias NarrativeR3 as target

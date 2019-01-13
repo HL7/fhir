@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/CoverageEligibilityResponse4to3" = "R4 to R3 Conversion for (Coverage)EligibilityResponse"
+map "http://hl7.org/fhir/StructureMap/CoverageEligibilityResponse4to3" = "R4 to R3 Conversion for (Coverage)EligibilityResponse"
 
 uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse" alias CoverageEligibilityResponse as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EligibilityResponse" alias EligibilityResponseR3 as target
@@ -13,7 +13,7 @@ group CoverageEligibilityResponse(source src : CoverageEligibilityResponseR3, ta
   src.created -> tgt.created;
   src.requestor -> tgt.requestProvider;
   src.request -> tgt.request;
-  src.outcome as vs where value in 'complete' | 'error' | 'partial' -> tgt.outcome as vt, vt.coding as c, c.system = 'http://hl7.org/fhir/remittance-outcome', c.code = vs;
+  src.outcome as vs where value in ('complete' | 'error' | 'partial') ->  tgt.outcome as vt,  vt.coding as c,  c.system = 'http://hl7.org/fhir/remittance-outcome',  c.code = vs;
   src.disposition -> tgt.disposition;
   src.insurer -> tgt.insurer;
   src.insurance as s -> tgt.insurance as t then CoverageEligibilityResponseInsurance(s, t);

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Questionnaire3to4" = "R3 to R4 Conversions for Questionnaire"
+map "http://hl7.org/fhir/StructureMap/Questionnaire3to4" = "R3 to R4 Conversions for Questionnaire"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Questionnaire" alias QuestionnaireR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as target
@@ -49,8 +49,8 @@ group item(source src, target tgt) extends BackboneElement {
 
 group enableWhen(source src, target tgt) extends BackboneElement {
   src.question -> tgt.question;
-  src.hasAnswer as v where src.answer.empty() -> tgt.operator = 'exists', tgt.answer = v;
-  src.answer as v -> tgt.answer = v, tgt.operator = '=';
+  src.hasAnswer as v where src.answer.empty() ->  tgt.operator = 'exists',  tgt.answer = v;
+  src.answer as v ->  tgt.answer = v,  tgt.operator = '=';
 }
 
 group option(source src, target tgt) extends BackboneElement {

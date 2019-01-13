@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ContactPoint3to4" = "R3 to R4 Conversions for ContactPoint"
+map "http://hl7.org/fhir/StructureMap/ContactPoint3to4" = "R3 to R4 Conversions for ContactPoint"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ContactPoint" alias ContactPointR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" alias ContactPoint as target

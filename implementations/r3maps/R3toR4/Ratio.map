@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Ratio3to4" = "R3 to R4 Conversions for Ratio"
+map "http://hl7.org/fhir/StructureMap/Ratio3to4" = "R3 to R4 Conversions for Ratio"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Ratio" alias RatioR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Ratio" alias Ratio as target

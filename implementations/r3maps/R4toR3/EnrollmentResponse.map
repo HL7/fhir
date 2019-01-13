@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EnrollmentResponse4to3" = "R4 to R3 Conversion for EnrollmentResponse"
+map "http://hl7.org/fhir/StructureMap/EnrollmentResponse4to3" = "R4 to R3 Conversion for EnrollmentResponse"
 
 uses "http://hl7.org/fhir/StructureDefinition/EnrollmentResponse" alias EnrollmentResponse as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EnrollmentResponse" alias EnrollmentResponseR3 as target
@@ -9,7 +9,7 @@ group EnrollmentResponse(source src : EnrollmentResponseR3, target tgt : Enrollm
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.request -> tgt.request;
-  src.outcome as vs where value in 'complete' | 'error' | 'partial' -> tgt.outcome as vt, vt.coding as c, c.system = 'http://hl7.org/fhir/remittance-outcome', c.code = vs;
+  src.outcome as vs where value in ('complete' | 'error' | 'partial') ->  tgt.outcome as vt,  vt.coding as c,  c.system = 'http://hl7.org/fhir/remittance-outcome',  c.code = vs;
   src.disposition -> tgt.disposition;
   src.created -> tgt.created;
   src.organization -> tgt.organization;

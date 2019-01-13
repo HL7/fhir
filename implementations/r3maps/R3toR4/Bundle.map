@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Bundle3to4" = "R3 to R4 Conversions for Bundle"
+map "http://hl7.org/fhir/StructureMap/Bundle3to4" = "R3 to R4 Conversions for Bundle"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Bundle" alias BundleR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as target
@@ -48,3 +48,4 @@ group response(source src, target tgt) extends BackboneElement {
   src.lastModified -> tgt.lastModified;
   src.outcome -> tgt.outcome;
 }
+

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/CapabilityStatement4to3" = "R4 to R3 Conversion for CapabilityStatement"
+map "http://hl7.org/fhir/StructureMap/CapabilityStatement4to3" = "R4 to R3 Conversion for CapabilityStatement"
 
 uses "http://hl7.org/fhir/StructureDefinition/CapabilityStatement" alias CapabilityStatement as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CapabilityStatement" alias CapabilityStatementR3 as target

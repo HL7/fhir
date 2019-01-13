@@ -135,7 +135,7 @@ and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes
 
 <p style="background-color: #ffefef; border:1px solid maroon; padding: 5px;">
 This release (Release 3) is a <i>Trial Use</i> Specification, though a little of the content (where marked 
-specifically at the top of the page) is <i>Draft</i>. For Release 4, some content is planned to be <i>Normative</i>.
+specifically at the top of the page) is <i>Draft</i>. For Release 4, <i>some</i> content is <i>Normative</i>.
 </p>
 
 <p>
@@ -262,10 +262,9 @@ Each FHIR version is identified by a string composed from 4 parts: publication.m
    <td valign="top">revision</td>
    <td>
      <ul>
-       <li>Incremented any time a change is made to the specification</li>
-       <li>At present, this is the SVN version number (this allows anyone to reconstruct the source from which the version was built)</li>
-       <li>Changes are made numerous times a day, generally driven by 
-       <a href="http://hl7.org/fhir-issues">change requests</a> submitted by the implementation community</li>
+       <li>The hash for the GIT version from which the specification was built, for tracing publication / tooling issues</li>
+       <li>For the current build, changes are made numerous times a day, generally driven by <a href="http://hl7.org/fhir-issues">change requests</a> submitted by the implementation community</li>
+       <li>The publication revision number only changes when technical corrections are made</li>
      </ul>
    </td>
   </tr>
@@ -648,7 +647,7 @@ This technique can be used with all versions of FHIR, including R2 and R3:
 </tr>
 <tr>
 <td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (this version)</td>
-<td>4.0 (once published)</td>
+<td>4.0</td>
 </tr>
 </table>
 <p>
@@ -735,31 +734,29 @@ Note for balloters: these packages will be created when R4 is finalized. Until t
 <a name="plans"></a>
 <h3>Plans for future releases</h3>
 <p>
-While implementation of this <i>Trial Use</i> release is occurring, development will be progressing on the next release.  
-This next release will include additional resources, profiles and quality enhancements over the current release.  
+While implementation of this mixed <i>Normative</i> and <i>Trial Use</i> release is occurring, development will be progressing on the next release.  
+This next release will include additional clarifications, resources, profiles and quality enhancements over the current release based on 
+implementation experience and ongoing development work.  
 It will also incorporate fixes for issues raised with the <a href="http://hl7.org/fhir-issues">FHIR issue tracker</a>.  It may be useful for implementers
-of the STU to review the development release to get a sense of what changes are likely coming and perhaps to find more robust definitions and guidance than
-are available in the first release.  The FHIR development release can be found at <a href="http://build.fhir.org/">build.fhir.org</a>.  Some implementers
-who are dependent on content that exists in a draft release may choose to implement based on a particular snapshot of the development release, though in doing so, they
-will limit their potential communication partners and would not be considered to be completely FHIR conformant.
+of the STU to review the candidate current release (at <a href="http://build.fhir.org">http://build.fhir.org</a>) to get a sense of what changes are 
+likely coming and perhaps to find more robust definitions and guidance than are available in the this release.  Some implementers who are dependent 
+on content that exists in a draft release may choose to implement based on a particular snapshot of the development release, though in doing so, they
+will limit their potential communication partners.
 </p>
 <p>
-The next major publication of FHIR will be Release 4.  It is our hope that this release will include the transition of some of the content of the specification to 
-<a href="#normative">Normative</a>.  This should include many of the core infrastructure resources (e.g. <a href="structuredefinition.html">StructureDefinition</a>,
-<a href="valueset.html">ValueSet</a> as well key pages such as the XML and JSON syntaxes, RESTful protocol, etc.  It should also include at least a few of the administrative
-resources such as <a href="patient.html">Patient</a>.  Much content, including most if not all clinical and business resources, will remain at the <a href="#stu">Trial Use</a>
-level as they are not expected to meet the criteria for Normative.
+The next major publication of FHIR will be Release 5.  It is our hope release 5 will include more <a href="#normative">Normative</a> content,
+including more of the core patient summary clinical content.  Other content, including most if not all clinical knowledge/reasoning, care planning, 
+and financial resources, are likely to remain at the <a href="#stu">Trial Use</a> level as they are not expected to meet the criteria for Normative.
 </p>
 <p>
-The anticipated timeline for Release 4 involves a finalization of scope by the end of 2017, balloting in April of 2018 and publication around October 2018.  The specific 
-timing may vary based on implementer feedback and the volume of contents received during the ballot process.  More information on plans for Release 4 can be found on the 
-<a href="https://onfhir.hl7.org/2017/01/20/fhir-product-roadmap/">HL7 product director's blog</a>.  (Subscribing to this blog is a good way to keep current on significant
-events in FHIR development, including ballot and publication timelines.)
+ More information on plans for Release 5 can be found on the <a href="https://onfhir.hl7.org/">HL7 product director's blog</a>.  
+ (Subscribing to this blog is a good way to keep current on significant events in FHIR development, including ballot and publication timelines.)
 </p>
 <p>
-There will be additional releases of FHIR with a frequency of between 18 and 24 months for the foreseeable future.  These releases will include new content (e.g. in the
-public health, financial or clinical research spaces), revisions reflecting implementer feedback and increasing maturity on Trial Use artifacts and the migration of additional
-content to normative status.  As well, HL7 will gradually shift focus to providing additional guidance through the publication of implementation guides and profiles where
+There will be additional releases of FHIR with a frequency of somewhere between 18 and 24 months for the foreseeable future.  These releases will include 
+maintenance on Normative content, new content (e.g. in the public health, financial or clinical research spaces), 
+revisions to trial use content reflecting implementer feedback and increasing maturity on Trial Use artifacts and the migration of additional
+content to normative status.  As well, HL7 will continue to focus to providing additional guidance through the publication of implementation guides and profiles where
 consensus can be found at the international level.
 </p>
 
