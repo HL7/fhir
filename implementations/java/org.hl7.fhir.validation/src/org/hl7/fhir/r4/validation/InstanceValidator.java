@@ -1014,6 +1014,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     String code = element.getNamedChildValue("code");
     String system = element.getNamedChildValue("system");
     String display = element.getNamedChildValue("display");
+    String summary = system+"#"+code+" ["+display+"}";
+    
     rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, isAbsolute(system), "Coding.system must be an absolute reference, not a local reference");
 
     if (system != null && code != null && !noTerminologyChecks) {
@@ -1069,7 +1071,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             }
           }
       } catch (Exception e) {
-        rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating Coding");
+        rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating Coding "+summary);
       }
     }
   }
@@ -3753,19 +3755,19 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               else
                 goodProfiles.put(typeProfile, profileErrors);
             }
-            if (goodProfiles.size()==1) {
-              errors.addAll(goodProfiles.values().iterator().next());
-            } else if (goodProfiles.size()==0) {
-              rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Unable to find matching profile among choices: " + StringUtils.join("; ", profiles));
-              for (List<ValidationMessage> messages : badProfiles) {
-                errors.addAll(messages);
-              }
-            } else {
-              warning(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Found multiple matching profiles among choices: " + StringUtils.join("; ", goodProfiles.keySet()));
-              for (List<ValidationMessage> messages : goodProfiles.values()) {
-                errors.addAll(messages);
-              }                    
+          }
+          if (goodProfiles.size()==1) {
+            errors.addAll(goodProfiles.values().iterator().next());
+          } else if (goodProfiles.size()==0) {
+            rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Unable to find matching profile among choices: " + StringUtils.join("; ", profiles));
+            for (List<ValidationMessage> messages : badProfiles) {
+              errors.addAll(messages);
             }
+          } else {
+            warning(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Found multiple matching profiles among choices: " + StringUtils.join("; ", goodProfiles.keySet()));
+            for (List<ValidationMessage> messages : goodProfiles.values()) {
+              errors.addAll(messages);
+            }                    
           }
         }
         if (p!=null) {

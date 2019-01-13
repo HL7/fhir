@@ -4,12 +4,12 @@ conceptmap "ResourceStudyStatus" {
   prefix s = "http://hl7.org/fhir/research-study-status"
   prefix t = "http://hl7.org/fhir/research-study-status"
 
-  s:"'draft'" - t:"'in-review'"
-  s:"'in-progress'" - t:"'active'"
-  s:"'suspended'" - t:"'disapproved'"
-  s:"'stopped'" - t:"'withdrawn'"
-  s:"'completed'" - t:"'administratively-completed'"
-  s:"'entered-in-error'" - t:"'withdrawn'"
+  s:draft - t:"in-review"
+  s:"in-progress" - t:active
+  s:suspended - t:disapproved
+  s:stopped - t:withdrawn
+  s:completed - t:"administratively-completed"
+  s:"entered-in-error" - t:withdrawn
 }
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchStudy" alias ResearchStudyR3 as source
