@@ -1014,6 +1014,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     String code = element.getNamedChildValue("code");
     String system = element.getNamedChildValue("system");
     String display = element.getNamedChildValue("display");
+    String summary = system+"#"+code+" ["+display+"}";
+    
     rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, isAbsolute(system), "Coding.system must be an absolute reference, not a local reference");
 
     if (system != null && code != null && !noTerminologyChecks) {
@@ -1069,7 +1071,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             }
           }
       } catch (Exception e) {
-        rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating Coding");
+        rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating Coding "+summary);
       }
     }
   }
