@@ -1,24 +1,22 @@
-﻿map "http://hl7.org/fhir/StructureMap/ResearchSubject3to4" = "R3 to R4 Conversions for ResearchSubject"
+map "http://hl7.org/fhir/StructureMap/ResearchSubject3to4" = "R3 to R4 Conversions for ResearchSubject"
 
 conceptmap "ResourceSubjectStatus" {
   prefix s = "http://hl7.org/fhir/research-study-status"
   prefix t = "http://hl7.org/fhir/research-study-status"
 
-  
-  s:"candidate" - t:"candidate"
-  s:"eligible" - t:"candidate"
-  s:"follow-up" - t:"completed"
-  s:"ineligible" - t:"candidate"
-  s:"not-registered" - t:"candidate"
-  s:"off-study" - t:"completed"
-  s:"on-study" - t:"enrolled"
-  s:"on-study-intervention" - t:"active"
-  s:"on-study-observation" - t:"suspended"
-  s:"pending-on-study" - t:"enrolled"
-  s:"potential-candidate" - t:"candidate"
-  s:"screening" - t:"candidate"
-  s:"withdrawn" - t:"withdrawn"
-  
+  s:candidate - t:candidate
+  s:eligible - t:candidate
+  s:"follow-up" - t:completed
+  s:ineligible - t:candidate
+  s:"not-registered" - t:candidate
+  s:"off-study" - t:completed
+  s:"on-study" - t:enrolled
+  s:"on-study-intervention" - t:active
+  s:"on-study-observation" - t:suspended
+  s:"pending-on-study" - t:enrolled
+  s:"potential-candidate" - t:candidate
+  s:screening - t:candidate
+  s:withdrawn - t:withdrawn
 }
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchSubject" alias ResearchSubjectR3 as source
