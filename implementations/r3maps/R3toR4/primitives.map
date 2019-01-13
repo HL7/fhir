@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/primitives3to4" = "R3 to R4 Primitive Conversions"
+map "http://hl7.org/fhir/StructureMap/primitives3to4" = "R3 to R4 Primitive Conversions"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/base64Binary" alias base64BinaryR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/base64Binary" as target
@@ -182,5 +182,4 @@ group integer2positiveInt(source src : integerR3, target tgt : positiveInt) exte
 group positiveInt2unsignedInt(source src : positiveIntR3, target tgt : unsignedInt) extends Element <<types>> {
   src.value as v -> tgt.value = v;
 }
-
 

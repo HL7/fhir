@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Period4to3" = "R4 to R3 Conversion for Period"
+map "http://hl7.org/fhir/StructureMap/Period4to3" = "R4 to R3 Conversion for Period"
 
 uses "http://hl7.org/fhir/StructureDefinition/Period" alias Period as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Period" alias PeriodR3 as target

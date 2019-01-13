@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Consent4to3" = "R4 to R3 Conversion for Consent"
+map "http://hl7.org/fhir/StructureMap/Consent4to3" = "R4 to R3 Conversion for Consent"
 
 uses "http://hl7.org/fhir/StructureDefinition/Consent" alias Consent as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Consent" alias ConsentR3 as target
@@ -19,7 +19,7 @@ group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResour
     cc.coding as c where system = 'urn:ietf:rfc:3986' then {
       c.code -> tgt.policyRule;
     };
-  };   
+  };
   src.provision as vs then baseProvision(vs, tgt);
 }
 
@@ -40,7 +40,7 @@ group policy(source src, target tgt) extends BackboneElement {
 }
 
 group provision(source src, target tgt) extends BackboneElement {
-  src.type  -> tgt.type;
+  src.type -> tgt.type;
   src.period -> tgt.period;
   src.actor as vs -> tgt.actor as vt then actor(vs, vt);
   src.action -> tgt.action;

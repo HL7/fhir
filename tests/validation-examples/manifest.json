@@ -411,6 +411,16 @@
           "source" : "document-structure.xml", 
           "errorCount": 3
         }
+      },
+      "message-infinite-loop.xml" : {
+        "errorCount": 34
+      },
+      "slice-profile-and-local-patient.xml" : {
+        "errorCount": 0,
+        "profile" : {
+          "source" : "slice-profile-and-local-profile.xml", 
+          "errorCount": 0
+        }
       }
 		}
 	}

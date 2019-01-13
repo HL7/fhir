@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Patient4to3" = "R4 to R3 Conversion for Patient"
+map "http://hl7.org/fhir/StructureMap/Patient4to3" = "R4 to R3 Conversion for Patient"
 
 uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Patient" alias PatientR3 as target
@@ -12,12 +12,12 @@ group Patient(source src : Patient, target tgt : PatientR3) extends DomainResour
   src.telecom -> tgt.telecom;
   src.gender -> tgt.gender;
   src.birthDate -> tgt.birthDate;
-  src.deceased : boolean as vs -> tgt.deceased = create("boolean") as vt then boolean(vs, vt);
-  src.deceased : dateTime as vs -> tgt.deceased = create("dateTime") as vt then dateTime(vs, vt);
+  src.deceased : boolean as vs -> tgt.deceased = create('boolean') as vt then boolean(vs, vt);
+  src.deceased : dateTime as vs -> tgt.deceased = create('dateTime') as vt then dateTime(vs, vt);
   src.address -> tgt.address;
   src.maritalStatus -> tgt.maritalStatus;
-  src.multipleBirth : boolean as vs -> tgt.multipleBirth = create("boolean") as vt then boolean(vs, vt);
-  src.multipleBirth : integer as vs -> tgt.multipleBirth = create("integer") as vt then integer(vs, vt);
+  src.multipleBirth : boolean as vs -> tgt.multipleBirth = create('boolean') as vt then boolean(vs, vt);
+  src.multipleBirth : integer as vs -> tgt.multipleBirth = create('integer') as vt then integer(vs, vt);
   src.photo -> tgt.photo;
   src.contact as vs0 -> tgt.contact as vt0 then contact(vs0, vt0);
   src.extension as vs0 where url = 'http://hl7.org/fhir/StructureDefinition/patient-animal' -> tgt.animal as vt0 then animal(vs0, vt0) "animal";
@@ -58,3 +58,4 @@ group link(source src, target tgt) extends BackboneElement {
   src.other -> tgt.other;
   src.type -> tgt.type;
 }
+

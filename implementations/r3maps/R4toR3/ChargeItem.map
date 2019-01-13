@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ChargeItem4to3" = "R4 to R3 Conversion for ChargeItem"
+map "http://hl7.org/fhir/StructureMap/ChargeItem4to3" = "R4 to R3 Conversion for ChargeItem"
 
 uses "http://hl7.org/fhir/StructureDefinition/ChargeItem" alias ChargeItem as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ChargeItem" alias ChargeItemR3 as target

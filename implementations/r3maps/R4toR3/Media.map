@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Media4to3" = "R4 to R3 Conversion for Media"
+map "http://hl7.org/fhir/StructureMap/Media4to3" = "R4 to R3 Conversion for Media"
 
 uses "http://hl7.org/fhir/StructureDefinition/Media" alias Media as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Media" alias MediaR3 as target
@@ -8,8 +8,8 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group Media(source src : MediaR3, target tgt : Media) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
-  src.type as vs0 then { 
-    vs0.coding as c where system='http://terminology.hl7.org/CodeSystem/media-type' then { 
+  src.type as vs0 then {
+    vs0.coding as c where system = 'http://terminology.hl7.org/CodeSystem/media-type' then {
       c.code -> tgt.type;
     };
   };
@@ -17,8 +17,8 @@ group Media(source src : MediaR3, target tgt : Media) extends DomainResource <<t
   src.view -> tgt.view;
   src.subject -> tgt.subject;
   src.encounter -> tgt.context;
-  src.created : dateTime as vs -> tgt.occurrence = create("dateTime") as vt then dateTime(vs, vt);
-  src.created : Period as vs -> tgt.occurrence = create("Period") as vt then Period(vs, vt);
+  src.created : dateTime as vs -> tgt.occurrence = create('dateTime') as vt then dateTime(vs, vt);
+  src.created : Period as vs -> tgt.occurrence = create('Period') as vt then Period(vs, vt);
   src.operator -> tgt.operator;
   src.reasonCode -> tgt.reasonCode;
   src.bodySite -> tgt.bodySite;

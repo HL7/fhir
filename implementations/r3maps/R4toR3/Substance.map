@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Substance4to3" = "R4 to R3 Conversion for Substance"
+map "http://hl7.org/fhir/StructureMap/Substance4to3" = "R4 to R3 Conversion for Substance"
 
 uses "http://hl7.org/fhir/StructureDefinition/Substance" alias Substance as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Substance" alias SubstanceR3 as target
@@ -20,9 +20,10 @@ group instance(source src, target tgt) extends BackboneElement {
   src.expiry -> tgt.expiry;
   src.quantity -> tgt.quantity;
 }
-  
+
 group ingredient(source src, target tgt) extends BackboneElement {
   src.quantity -> tgt.quantity;
-  src.substance : CodeableConcept as vs -> tgt.substance = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
-  src.substance : Reference as vs -> tgt.substance = create("Reference") as vt then Reference(vs, vt);
+  src.substance : CodeableConcept as vs -> tgt.substance = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.substance : Reference as vs -> tgt.substance = create('Reference') as vt then Reference(vs, vt);
 }
+

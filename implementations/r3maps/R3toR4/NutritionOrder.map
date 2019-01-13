@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/NutritionOrder3to4" = "R3 to R4 Conversions for NutritionOrder"
+map "http://hl7.org/fhir/StructureMap/NutritionOrder3to4" = "R3 to R4 Conversions for NutritionOrder"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/NutritionOrder" alias NutritionOrderR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/NutritionOrder" alias NutritionOrder as target

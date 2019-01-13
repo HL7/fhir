@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/DiagnosticReport4to3" = "R4 to R3 Conversion for DiagnosticReport"
+map "http://hl7.org/fhir/StructureMap/DiagnosticReport4to3" = "R4 to R3 Conversion for DiagnosticReport"
 
 uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" alias DiagnosticReport as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DiagnosticReport" alias DiagnosticReportR3 as target
@@ -13,8 +13,8 @@ group DiagnosticReport(source src : DiagnosticReport, target tgt : DiagnosticRep
   src.code -> tgt.code;
   src.subject -> tgt.subject;
   src.encounter -> tgt.context;
-  src.effective : dateTime as vs -> tgt.effective = create("dateTime") as vt then dateTime(vs, vt);
-  src.effective : Period as vs -> tgt.effective = create("Period") as vt then Period(vs, vt);
+  src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
   src.issued -> tgt.issued;
   src.performer as vs0 -> tgt.performer as vt0 then performer(vs0, vt0);
   src.specimen -> tgt.specimen;
@@ -27,7 +27,7 @@ group DiagnosticReport(source src : DiagnosticReport, target tgt : DiagnosticRep
 }
 
 group performer(source src, target tgt) {
-  src -> tgt.actor as vt then Reference(src, vt);
+  src -> tgt.actor as vt then Reference(src, vt) "actor";
   src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DiagnosticReport.performer.role' then {
     e.value -> tgt.role;
   };
@@ -37,3 +37,4 @@ group image(source src, target tgt) extends BackboneElement {
   src.comment -> tgt.comment;
   src.link -> tgt.link;
 }
+

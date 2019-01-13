@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Flag4to3" = "R4 to R3 Conversion for Flag"
+map "http://hl7.org/fhir/StructureMap/Flag4to3" = "R4 to R3 Conversion for Flag"
 
 uses "http://hl7.org/fhir/StructureDefinition/Flag" alias Flag as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Flag" alias FlagR3 as target

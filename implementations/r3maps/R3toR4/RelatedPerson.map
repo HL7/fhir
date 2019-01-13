@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/RelatedPerson3to4" = "R3 to R4 Conversions for RelatedPerson"
+map "http://hl7.org/fhir/StructureMap/RelatedPerson3to4" = "R3 to R4 Conversions for RelatedPerson"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/RelatedPerson" alias RelatedPersonR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" alias RelatedPerson as target

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/GraphDefinition4to3" = "R4 to R3 Conversion for GraphDefinition"
+map "http://hl7.org/fhir/StructureMap/GraphDefinition4to3" = "R4 to R3 Conversion for GraphDefinition"
 
 uses "http://hl7.org/fhir/StructureDefinition/GraphDefinition" alias GraphDefinition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/GraphDefinition" alias GraphDefinitionR3 as target

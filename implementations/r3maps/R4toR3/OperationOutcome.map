@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/OperationOutcome4to3" = "R4 to R3 Conversion for OperationOutcome"
+map "http://hl7.org/fhir/StructureMap/OperationOutcome4to3" = "R4 to R3 Conversion for OperationOutcome"
 
 uses "http://hl7.org/fhir/StructureDefinition/OperationOutcome" alias OperationOutcome as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/OperationOutcome" alias OperationOutcomeR3 as target

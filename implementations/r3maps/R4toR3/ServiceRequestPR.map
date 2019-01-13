@@ -1,13 +1,9 @@
-﻿map "http://hl7.org/fhir/StructureMap/ServiceRequestPR4to3" = "R4 to R3 Conversion for ServiceRequest"
+map "http://hl7.org/fhir/StructureMap/ServiceRequestPR4to3" = "R4 to R3 Conversion for ServiceRequest"
 
 uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias ServiceRequest as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ProcedureRequest" alias ProcedureRequestR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
-
-// in R3, both ProcedureRequest and ReferralRequest are folded into ServiceRequest, and there's no easy 
-// way to tell them apart. it requires special knowledge to decide which to convert back to, 
-// but they are marked with an extension (http://hl7.org/fhir/3.0/StructureDefinition/BaseType) in case this helps
 
 group ServiceRequest(source src : ServiceRequest, target tgt : ProcedureRequestR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -44,8 +40,9 @@ group ServiceRequest(source src : ServiceRequest, target tgt : ProcedureRequestR
 }
 
 group requester(source src, target tgt) {
-  src -> tgt.agent as v then Reference(src, v);
+  src -> tgt.agent as v then Reference(src, v) "agent";
   src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ProcedureRequest.requester.onBehalfOf' then {
     e.value -> tgt.onBehalfOf;
   };
 }
+

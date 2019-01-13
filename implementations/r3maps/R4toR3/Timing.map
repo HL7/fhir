@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Timing4to3" = "R4 to R3 Conversion for Timing"
+map "http://hl7.org/fhir/StructureMap/Timing4to3" = "R4 to R3 Conversion for Timing"
 
 uses "http://hl7.org/fhir/StructureDefinition/Timing" alias Timing as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Timing" alias TimingR3 as target
@@ -12,9 +12,9 @@ group Timing(source src : Timing, target tgt : TimingR3) extends BackboneElement
 }
 
 group repeat(source src, target tgt) extends Element {
-  src.bounds : Duration as vs -> tgt.bounds = create("Duration") as vt then Duration(vs, vt);
-  src.bounds : Range as vs -> tgt.bounds = create("Range") as vt then Range(vs, vt);
-  src.bounds : Period as vs -> tgt.bounds = create("Period") as vt then Period(vs, vt);
+  src.bounds : Duration as vs -> tgt.bounds = create('Duration') as vt then Duration(vs, vt);
+  src.bounds : Range as vs -> tgt.bounds = create('Range') as vt then Range(vs, vt);
+  src.bounds : Period as vs -> tgt.bounds = create('Period') as vt then Period(vs, vt);
   src.count -> tgt.count;
   src.countMax -> tgt.countMax;
   src.duration -> tgt.duration;

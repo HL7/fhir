@@ -3089,60 +3089,71 @@ public class ProfileUtilities extends TranslatingUtilities {
 
     for (ElementDefinitionHolder child : edh.getChildren()) {
       if (child.getChildren().size() > 0) {
-        // what we have to check for here is running off the base profile into a data type profile
-        ElementDefinition ed = cmp.snapshot.get(child.getBaseIndex());
-        ElementDefinitionComparer ccmp;
-        if (ed.getType().isEmpty() || isAbstract(ed.getType().get(0).getCode()) || ed.getType().get(0).getCode().equals(ed.getPath())) {
-          ccmp = new ElementDefinitionComparer(true, cmp.snapshot, cmp.base, cmp.prefixLength, cmp.name);
-        } else if (ed.getType().get(0).getCode().equals("Extension") && child.getSelf().getType().size() == 1 && child.getSelf().getType().get(0).hasProfile()) {
-          StructureDefinition profile = context.fetchResource(StructureDefinition.class, child.getSelf().getType().get(0).getProfile().get(0).getValue());
-          if (profile==null)
-            ccmp = null; // this might happen before everything is loaded. And we don't so much care about sot order in this case
-          else
-          ccmp = new ElementDefinitionComparer(true, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
-        } else if (ed.getType().size() == 1 && !ed.getType().get(0).getCode().equals("*")) {
-          StructureDefinition profile = context.fetchResource(StructureDefinition.class, sdNs(ed.getType().get(0).getCode()));
-          if (profile==null)
-            throw new FHIRException("Unable to resolve profile " + sdNs(ed.getType().get(0).getCode()) + " in element " + ed.getPath());
-          ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
-        } else if (child.getSelf().getType().size() == 1) {
-          StructureDefinition profile = context.fetchResource(StructureDefinition.class, sdNs(child.getSelf().getType().get(0).getCode()));
-          if (profile==null)
-            throw new FHIRException("Unable to resolve profile " + sdNs(ed.getType().get(0).getCode()) + " in element " + ed.getPath());
-          ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), child.getSelf().getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
-        } else if (ed.getPath().endsWith("[x]") && !child.getSelf().getPath().endsWith("[x]")) {
-          String edLastNode = ed.getPath().replaceAll("(.*\\.)*(.*)", "$2");
-          String childLastNode = child.getSelf().getPath().replaceAll("(.*\\.)*(.*)", "$2");
-          String p = childLastNode.substring(edLastNode.length()-3);
-          if (isPrimitive(Utilities.uncapitalize(p)))
-            p = Utilities.uncapitalize(p);
-          StructureDefinition sd = context.fetchResource(StructureDefinition.class, sdNs(p));
-          if (sd == null)
-            throw new Error("Unable to find profile "+p);
-          ccmp = new ElementDefinitionComparer(false, sd.getSnapshot().getElement(), p, child.getSelf().getPath().length(), cmp.name);
-        } else if (child.getSelf().hasType() && child.getSelf().getType().get(0).getCode().equals("Reference")) {
-          for (TypeRefComponent t: child.getSelf().getType()) {
-            if (!t.getCode().equals("Reference")) {
-              throw new Error("Can't have children on an element with a polymorphic type - you must slice and constrain the types first (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
-            }
-          }
-          StructureDefinition profile = context.fetchResource(StructureDefinition.class, sdNs(ed.getType().get(0).getCode()));
-          ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
-        } else if (!child.getSelf().hasType() && ed.getType().get(0).getCode().equals("Reference")) {
-          for (TypeRefComponent t: ed.getType()) {
-            if (!t.getCode().equals("Reference")) {
-              throw new Error("Not handled yet (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
-            }
-          }
-          StructureDefinition profile = context.fetchResource(StructureDefinition.class, sdNs(ed.getType().get(0).getCode()));
-          ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
-        } else {
-          throw new Error("Not handled yet (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
-        }
+        ElementDefinitionComparer ccmp = getComparer(cmp, child);
         if (ccmp != null)
         sortElements(child, ccmp, errors);
       }
     }
+  }
+
+
+  public ElementDefinitionComparer getComparer(ElementDefinitionComparer cmp, ElementDefinitionHolder child) throws FHIRException, Error {
+    // what we have to check for here is running off the base profile into a data type profile
+    ElementDefinition ed = cmp.snapshot.get(child.getBaseIndex());
+    ElementDefinitionComparer ccmp;
+    if (ed.getType().isEmpty() || isAbstract(ed.getType().get(0).getCode()) || ed.getType().get(0).getCode().equals(ed.getPath())) {
+      ccmp = new ElementDefinitionComparer(true, cmp.snapshot, cmp.base, cmp.prefixLength, cmp.name);
+    } else if (ed.getType().get(0).getCode().equals("Extension") && child.getSelf().getType().size() == 1 && child.getSelf().getType().get(0).hasProfile()) {
+      StructureDefinition profile = context.fetchResource(StructureDefinition.class, child.getSelf().getType().get(0).getProfile().get(0).getValue());
+      if (profile==null)
+        ccmp = null; // this might happen before everything is loaded. And we don't so much care about sot order in this case
+      else
+      ccmp = new ElementDefinitionComparer(true, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
+    } else if (ed.getType().size() == 1 && !ed.getType().get(0).getCode().equals("*")) {
+      StructureDefinition profile = context.fetchResource(StructureDefinition.class, sdNs(ed.getType().get(0).getCode()));
+      if (profile==null)
+        throw new FHIRException("Unable to resolve profile " + sdNs(ed.getType().get(0).getCode()) + " in element " + ed.getPath());
+      ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
+    } else if (child.getSelf().getType().size() == 1) {
+      StructureDefinition profile = context.fetchResource(StructureDefinition.class, sdNs(child.getSelf().getType().get(0).getCode()));
+      if (profile==null)
+        throw new FHIRException("Unable to resolve profile " + sdNs(ed.getType().get(0).getCode()) + " in element " + ed.getPath());
+      ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), child.getSelf().getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
+    } else if (ed.getPath().endsWith("[x]") && !child.getSelf().getPath().endsWith("[x]")) {
+      String edLastNode = ed.getPath().replaceAll("(.*\\.)*(.*)", "$2");
+      String childLastNode = child.getSelf().getPath().replaceAll("(.*\\.)*(.*)", "$2");
+      String p = childLastNode.substring(edLastNode.length()-3);
+      if (isPrimitive(Utilities.uncapitalize(p)))
+        p = Utilities.uncapitalize(p);
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, sdNs(p));
+      if (sd == null)
+        throw new Error("Unable to find profile "+p);
+      ccmp = new ElementDefinitionComparer(false, sd.getSnapshot().getElement(), p, child.getSelf().getPath().length(), cmp.name);
+    } else if (child.getSelf().hasType() && child.getSelf().getType().get(0).getCode().equals("Reference")) {
+      for (TypeRefComponent t: child.getSelf().getType()) {
+        if (!t.getCode().equals("Reference")) {
+          throw new Error("Can't have children on an element with a polymorphic type - you must slice and constrain the types first (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
+        }
+      }
+      StructureDefinition profile = context.fetchResource(StructureDefinition.class, sdNs(ed.getType().get(0).getCode()));
+      ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
+    } else if (!child.getSelf().hasType() && ed.getType().get(0).getCode().equals("Reference")) {
+      for (TypeRefComponent t: ed.getType()) {
+        if (!t.getCode().equals("Reference")) {
+          throw new Error("Not handled yet (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
+        }
+      }
+      StructureDefinition profile = context.fetchResource(StructureDefinition.class, sdNs(ed.getType().get(0).getCode()));
+      ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
+    } else {
+      // this is allowed if we only profile the extensions
+      StructureDefinition profile = context.fetchResource(StructureDefinition.class, sdNs("Element"));
+      if (profile==null)
+        throw new FHIRException("Unable to resolve profile " + sdNs(ed.getType().get(0).getCode()) + " in element " + ed.getPath());
+      ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), "Element", child.getSelf().getPath().length(), cmp.name);
+//      throw new Error("Not handled yet (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
+    }
+    return ccmp;
   }
 
   private static String sdNs(String type) {

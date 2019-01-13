@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Coverage4to3" = "R4 to R3 Conversion for Coverage"
+map "http://hl7.org/fhir/StructureMap/Coverage4to3" = "R4 to R3 Conversion for Coverage"
 
 uses "http://hl7.org/fhir/StructureDefinition/Coverage" alias Coverage as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Coverage" alias CoverageR3 as target
@@ -20,49 +20,49 @@ group Coverage(source src : CoverageR3, target tgt : Coverage) extends DomainRes
   src.class as class -> tgt.grouping as t then {
     class.type as vs then {
       vs.coding as c where code = 'group' then {
-        c then CoverageClassGroup(class, t);
+        c then CoverageClassGroup(class, t) "CoverageClassGroup";
       };
     };
   };
   src.class as class -> tgt.grouping as t then {
     class.type as vs then {
       vs.coding as c where code = 'subgroup' then {
-        c then CoverageClassSubGroup(class, t);
+        c then CoverageClassSubGroup(class, t) "CoverageClassSubGroup";
       };
     };
   };
   src.class as class -> tgt.grouping as t then {
     class.type as vs then {
       vs.coding as c where code = 'plan' then {
-        c then CoverageClassPlanGroup(class, t);
+        c then CoverageClassPlanGroup(class, t) "CoverageClassPlanGroup";
       };
     };
   };
   src.class as class -> tgt.grouping as t then {
     class.type as vs then {
       vs.coding as c where code = 'subplan' then {
-        c then CoverageClassSubPlanGroup(class, t);
+        c then CoverageClassSubPlanGroup(class, t) "CoverageClassSubPlanGroup";
       };
     };
   };
   src.class as class -> tgt.grouping as t then {
     class.type as vs then {
       vs.coding as c where code = 'class' then {
-        c then CoverageClassClassGroup(class, t);
+        c then CoverageClassClassGroup(class, t) "CoverageClassClassGroup";
       };
     };
   };
   src.class as class -> tgt.grouping as t then {
     class.type as vs then {
       vs.coding as c where code = 'subclass' then {
-        c then CoverageClassSubClassGroup(class, t);
+        c then CoverageClassSubClassGroup(class, t) "CoverageClassSubClassGroup";
       };
     };
   };
   src.class as class then {
     class.type as vs then {
       vs.coding as c where code = 'sequence' then {
-        c then CoverageClassSequenceGroup(class, tgt);
+        c then CoverageClassSequenceGroup(class, tgt) "CoverageClassSequenceGroup";
       };
     };
   };
@@ -104,3 +104,4 @@ group CoverageClassSubClassGroup(source src, target tgt) extends BackboneElement
 group CoverageClassSequenceGroup(source src, target tgt) extends BackboneElement {
   src.value -> tgt.sequence;
 }
+

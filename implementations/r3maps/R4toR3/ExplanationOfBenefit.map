@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ExplanationOfBenefit4to3" = "R4 to R3 Conversion for ExplanationOfBenefit"
+map "http://hl7.org/fhir/StructureMap/ExplanationOfBenefit4to3" = "R4 to R3 Conversion for ExplanationOfBenefit"
 
 uses "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefit as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefitR3 as target
@@ -21,7 +21,7 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : Exp
   src.facility -> tgt.facility;
   src.claim -> tgt.claim;
   src.claimResponse -> tgt.claimResponse;
-  src.outcome as vs where value in 'complete' | 'error' | 'partial' -> tgt.outcome as vt, vt.coding as c, c.system = 'http://hl7.org/fhir/remittance-outcome', c.code = vs;
+  src.outcome as vs where value in ('complete' | 'error' | 'partial') ->  tgt.outcome as vt,  vt.coding as c,  c.system = 'http://hl7.org/fhir/remittance-outcome',  c.code = vs;
   src.disposition -> tgt.disposition;
   src.related as s -> tgt.related as t then ExplanationOfBenefitRelated(s, t);
   src.prescription -> tgt.prescription;
@@ -36,14 +36,11 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : Exp
   src.accident as s -> tgt.accident as t then ExplanationOfBenefitAccident(s, t);
   src.item as s -> tgt.item as t then ExplanationOfBenefitItem(s, t);
   src.addItem as s -> tgt.addItem as t then ExplanationOfBenefitAddItem(s, t);
-  // src.total where src.total.category.coding.code = 'submitted' as s then {
-  //   s.amount as vs -> tgt.totalBenefit as vt then Money(vs, vt);
-  // };
   src.total as total then {
     total.category as vs then {
       total.amount as va then {
         vs.coding as c where code = 'submitted' then {
-          c -> tgt.totalCost as cost then Money(va, cost);
+          c -> tgt.totalCost as cost then Money(va, cost) "total";
         };
       };
     };
@@ -52,7 +49,7 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : Exp
     total.category as vs then {
       total.amount as va then {
         vs.coding as c where code = 'benefit' then {
-          c -> tgt.totalBenefit as cost then Money(va, cost);
+          c -> tgt.totalBenefit as cost then Money(va, cost) "total";
         };
       };
     };

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Identifier4to3" = "R4 to R3 Conversion for Identifier"
+map "http://hl7.org/fhir/StructureMap/Identifier4to3" = "R4 to R3 Conversion for Identifier"
 
 uses "http://hl7.org/fhir/StructureDefinition/Identifier" alias Identifier as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Identifier" alias IdentifierR3 as target
@@ -20,5 +20,4 @@ group Codeable2Identifier(source src, target tgt) extends Element {
     c.code -> tgt.value;
   };
 }
-
 

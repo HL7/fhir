@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EpisodeOfCare3to4" = "R3 to R4 Conversions for EpisodeOfCare"
+map "http://hl7.org/fhir/StructureMap/EpisodeOfCare3to4" = "R3 to R4 Conversions for EpisodeOfCare"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EpisodeOfCare" alias EpisodeOfCareR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" alias EpisodeOfCare as target

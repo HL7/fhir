@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ProductShelfLife4to3" = "R4 to R3 Conversion for ProductShelfLife"
+map "http://hl7.org/fhir/StructureMap/ProductShelfLife4to3" = "R4 to R3 Conversion for ProductShelfLife"
 
 uses "http://hl7.org/fhir/StructureDefinition/ProductShelfLife" alias ProductShelfLife as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ProductShelfLife" alias ProductShelfLifeR3 as target

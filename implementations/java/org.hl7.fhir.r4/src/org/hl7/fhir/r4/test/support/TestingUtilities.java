@@ -211,6 +211,7 @@ public class TestingUtilities {
   public static String checkJsonSrcIsSame(String s1, String s2) throws JsonSyntaxException, FileNotFoundException, IOException {
     return checkJsonSrcIsSame(s1,s2,true);
   }
+
   public static String checkJsonSrcIsSame(String s1, String s2, boolean showDiff) throws JsonSyntaxException, FileNotFoundException, IOException {
     String result = compareJsonSrc(s1, s2);
     if (result != null && SHOW_DIFF && showDiff) {
@@ -345,5 +346,53 @@ public class TestingUtilities {
     return System.getProperty("java.io.tmpdir");
   }
 
+  public static String checkTextIsSame(String s1, String s2) throws JsonSyntaxException, FileNotFoundException, IOException {
+    return checkTextIsSame(s1,s2,true);
+  }
+
+  public static String checkTextIsSame(String s1, String s2, boolean showDiff) throws JsonSyntaxException, FileNotFoundException, IOException {
+    String result = compareText(s1, s2);
+    if (result != null && SHOW_DIFF && showDiff) {
+      String diff = null; 
+      if (System.getProperty("os.name").contains("Linux"))
+        diff = Utilities.path("/", "usr", "bin", "meld");
+      else {
+      if (Utilities.checkFile("WinMerge", Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge"), "\\WinMergeU.exe", null))
+        diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge", "WinMergeU.exe");
+      else if (Utilities.checkFile("WinMerge", Utilities.path(System.getenv("ProgramFiles(X86)"), "Meld"), "\\Meld.exe", null))
+        diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "Meld", "Meld.exe");
+      }
+      if (diff == null || diff.isEmpty())
+        return result;
+      
+      List<String> command = new ArrayList<String>();
+      String f1 = Utilities.path("[tmp]", "input" + s1.hashCode() + ".json");
+      String f2 = Utilities.path("[tmp]", "output" + s2.hashCode() + ".json");
+      TextFile.stringToFile(s1, f1);
+      TextFile.stringToFile(s2, f2);
+      command.add(diff);
+      if (diff.toLowerCase().contains("meld"))
+        command.add("--newtab");
+      command.add(f1);
+      command.add(f2);
+
+      ProcessBuilder builder = new ProcessBuilder(command);
+      builder.directory(new CSFile(Utilities.path("[tmp]")));
+      builder.start();
+      
+    }
+    return result;
+  }
+
+
+  private static String compareText(String s1, String s2) {
+    for (int i = 0; i < Integer.min(s1.length(), s2.length()); i++) {
+      if (s1.charAt(i) != s2.charAt(i))
+        return "Strings differ at character "+Integer.toString(i)+": '"+s1.charAt(i) +"' vs '"+s2.charAt(i)+"'";
+    }
+    if (s1.length() != s2.length())
+      return "Strings differ in length: "+Integer.toString(s1.length())+" vs "+Integer.toString(s2.length())+" but match to the end of the shortest";
+    return null;
+  }
 
 }

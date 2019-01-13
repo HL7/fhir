@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/OperationDefinition3to4" = "R3 to R4 Conversions for OperationDefinition"
+map "http://hl7.org/fhir/StructureMap/OperationDefinition3to4" = "R3 to R4 Conversions for OperationDefinition"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/OperationDefinition" alias OperationDefinitionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinition as target

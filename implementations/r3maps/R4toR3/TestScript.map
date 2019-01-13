@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/TestScript4to3" = "R4 to R3 Conversion for TestScript"
+map "http://hl7.org/fhir/StructureMap/TestScript4to3" = "R4 to R3 Conversion for TestScript"
 
 uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias TestScript as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/TestScript" alias TestScriptR3 as target
@@ -36,17 +36,17 @@ group origin(source src, target tgt) extends BackboneElement {
   src.index -> tgt.index;
   src.profile -> tgt.profile;
 }
-  
+
 group metadata(source src, target tgt) extends BackboneElement {
   src.link as vs0 -> tgt.link as vt0 then link(vs0, vt0);
   src.capability as vs0 -> tgt.capability as vt0 then capability(vs0, vt0);
 }
-  
+
 group link(source src, target tgt) extends BackboneElement {
   src.url -> tgt.url;
   src.description -> tgt.description;
 }
-  
+
 group capability(source src, target tgt) extends BackboneElement {
   src.required -> tgt.required;
   src.validated -> tgt.validated;

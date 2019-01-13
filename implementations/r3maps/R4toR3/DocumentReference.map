@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/DocumentReference4to3" = "R4 to R3 Conversion for DocumentReference"
+map "http://hl7.org/fhir/StructureMap/DocumentReference4to3" = "R4 to R3 Conversion for DocumentReference"
 
 uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" alias DocumentReference as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DocumentReference" alias DocumentReferenceR3 as target
@@ -17,7 +17,7 @@ group DocumentReference(source src : DocumentReference, target tgt : DocumentRef
   src.extension as ext where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentReference.created' then {
     ext.value as vs0 -> tgt.created = vs0 "created2";
   } "created";
-  src.agent as s where type.coding.where(system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code = 'AUT').exists() -> tgt.author as t then agent(s, t);
+  src.agent as s where type.coding.where((system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType') and (code = 'AUT')).exists() -> tgt.author as t then agent(s, t);
   src.authenticator -> tgt.authenticator;
   src.custodian -> tgt.custodian;
   src.relatesTo as vs0 -> tgt.relatesTo as vt0 then relatesTo(vs0, vt0);
@@ -52,7 +52,7 @@ group context(source src, target tgt) extends BackboneElement {
 }
 
 group related(source src, target tgt) {
-  src where reference.exists() -> tgt.ref as vt0 then ReferenceNoIdentifier(src, vt0);
-  src where identifier.exists() -> tgt.identifier as vt0 then Reference2Identifier(src, vt0);
+  src where reference.exists() -> tgt.ref as vt0 then ReferenceNoIdentifier(src, vt0) "reference";
+  src where identifier.exists() -> tgt.identifier as vt0 then Reference2Identifier(src, vt0) "identifier";
 }
 

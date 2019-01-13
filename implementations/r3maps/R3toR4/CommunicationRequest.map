@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/CommunicationRequest3to4" = "R3 to R4 Conversions for CommunicationRequest"
+map "http://hl7.org/fhir/StructureMap/CommunicationRequest3to4" = "R3 to R4 Conversions for CommunicationRequest"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CommunicationRequest" alias CommunicationRequestR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequest" alias CommunicationRequest as target
@@ -31,9 +31,8 @@ group CommunicationRequest(source src : CommunicationRequestR3, target tgt : Com
 
 group agent(source src, target tgt) {
   src.agent -> tgt.requester;
-  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CommunicationRequest.requester.onBehalfOf', vt.value = v;
+  src.onBehalfOf as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CommunicationRequest.requester.onBehalfOf',  vt.value = v;
 }
-
 
 group payload(source src, target tgt) extends BackboneElement {
   src.content : string as s -> tgt.content = create('string') as t then string(s, t);

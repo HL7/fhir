@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Encounter4to3" = "R4 to R3 Conversion for Encounter"
+map "http://hl7.org/fhir/StructureMap/Encounter4to3" = "R4 to R3 Conversion for Encounter"
 
 uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias Encounter as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Encounter" alias EncounterR3 as target
@@ -43,13 +43,13 @@ group participant(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.period -> tgt.period;
   src.individual -> tgt.individual;
-};
+}
 
 group diagnosis(source src, target tgt) extends BackboneElement {
   src.condition -> tgt.condition;
   src.use -> tgt.role;
   src.rank -> tgt.rank;
-};
+}
 
 group hospitalization(source src, target tgt) extends BackboneElement {
   src.preAdmissionIdentifier -> tgt.preAdmissionIdentifier;
@@ -61,10 +61,11 @@ group hospitalization(source src, target tgt) extends BackboneElement {
   src.specialArrangement -> tgt.specialArrangement;
   src.destination -> tgt.destination;
   src.dischargeDisposition -> tgt.dischargeDisposition;
-};
-  
+}
+
 group location(source src, target tgt) extends BackboneElement {
   src.location -> tgt.location;
   src.status -> tgt.status;
   src.period -> tgt.period;
-};
+}
+

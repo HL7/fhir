@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ImmunizationRecommendation3to4" = "R3 to R4 Conversions for ImmunizationRecommendation"
+map "http://hl7.org/fhir/StructureMap/ImmunizationRecommendation3to4" = "R3 to R4 Conversions for ImmunizationRecommendation"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendationR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendation as target

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/PlanDefinition4to3" = "R4 to R3 Conversion for PlanDefinition"
+map "http://hl7.org/fhir/StructureMap/PlanDefinition4to3" = "R4 to R3 Conversion for PlanDefinition"
 
 uses "http://hl7.org/fhir/StructureDefinition/PlanDefinition" alias PlanDefinition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/PlanDefinition" alias PlanDefinitionR3 as target
@@ -27,10 +27,10 @@ group PlanDefinition(source src : PlanDefinition, target tgt : PlanDefinitionR3)
   src.lastReviewDate -> tgt.lastReviewDate;
   src.effectivePeriod -> tgt.effectivePeriod;
   src.topic -> tgt.topic;
-  src.author as vs -> tgt.contributor as vt, vt.type = 'author' then Contributor(vs, vt);
-  src.editor as vs -> tgt.contributor as vt, vt.type = 'editor', vt.contact = vs;
-  src.reviewer as vs -> tgt.contributor as vt, vt.type = 'reviewer', vt.contact = vs;
-  src.endorser as vs -> tgt.contributor as vt, vt.type = 'endorser', vt.contact = vs;
+  src.author as vs ->  tgt.contributor as vt,  vt.type = 'author' then Contributor(vs, vt);
+  src.editor as vs ->  tgt.contributor as vt,  vt.type = 'editor',  vt.contact = vs;
+  src.reviewer as vs ->  tgt.contributor as vt,  vt.type = 'reviewer',  vt.contact = vs;
+  src.endorser as vs ->  tgt.contributor as vt,  vt.type = 'endorser',  vt.contact = vs;
   src.relatedArtifact -> tgt.relatedArtifact;
   src.library -> tgt.library;
   src.goal as vs0 -> tgt.goal as vt0 then goal(vs0, vt0);
@@ -67,11 +67,11 @@ group action(source src, target tgt) extends BackboneElement {
   src.input -> tgt.input;
   src.output -> tgt.output;
   src.relatedAction as vs0 -> tgt.relatedAction as vt0 then relatedAction(vs0, vt0);
-  src.timing : dateTime as vs -> tgt.timing = create("dateTime") as vt then dateTime(vs, vt);
-  src.timing : Period as vs -> tgt.timing = create("Period") as vt then Period(vs, vt);
-  src.timing : Duration as vs -> tgt.timing = create("Duration") as vt then Duration(vs, vt);
-  src.timing : Range as vs -> tgt.timing = create("Range") as vt then Range(vs, vt);
-  src.timing : Timing as vs -> tgt.timing = create("Timing") as vt then Timing(vs, vt);
+  src.timing : dateTime as vs -> tgt.timing = create('dateTime') as vt then dateTime(vs, vt);
+  src.timing : Period as vs -> tgt.timing = create('Period') as vt then Period(vs, vt);
+  src.timing : Duration as vs -> tgt.timing = create('Duration') as vt then Duration(vs, vt);
+  src.timing : Range as vs -> tgt.timing = create('Range') as vt then Range(vs, vt);
+  src.timing : Timing as vs -> tgt.timing = create('Timing') as vt then Timing(vs, vt);
   src.type -> tgt.type;
   src.groupingBehavior -> tgt.groupingBehavior;
   src.selectionBehavior -> tgt.selectionBehavior;
@@ -96,15 +96,16 @@ group condition(source src, target tgt) extends BackboneElement {
 group relatedAction(source src, target tgt) extends BackboneElement {
   src.actionid -> tgt.actionid;
   src.relationship -> tgt.relationship;
-  src.offset : Duration as vs -> tgt.offset = create("Duration") as vt then Duration(vs, vt);
-  src.offset : Range as vs -> tgt.offset = create("Range") as vt then Range(vs, vt);
+  src.offset : Duration as vs -> tgt.offset = create('Duration') as vt then Duration(vs, vt);
+  src.offset : Range as vs -> tgt.offset = create('Range') as vt then Range(vs, vt);
 }
 
 group dynamicValue(source src, target tgt) extends BackboneElement {
   src.path -> tgt.path;
-   src.expression as e then {
+  src.expression as e then {
     e.description -> tgt.description;
     e.language -> tgt.language;
     e.expression -> tgt.expression;
   };
 }
+

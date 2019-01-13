@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/DomainResource3to4" = "R3 to R4 Conversions for DomainResource"
+map "http://hl7.org/fhir/StructureMap/DomainResource3to4" = "R3 to R4 Conversions for DomainResource"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DomainResource" alias DomainResourceR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/DomainResource" alias DomainResource as target

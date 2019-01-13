@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Binary4to3" = "R4 to R3 Conversion for Binary"
+map "http://hl7.org/fhir/StructureMap/Binary4to3" = "R4 to R3 Conversion for Binary"
 
 uses "http://hl7.org/fhir/StructureDefinition/Binary" alias Binary as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Binary" alias BinaryR3 as target

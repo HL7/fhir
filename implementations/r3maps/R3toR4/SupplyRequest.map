@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SupplyRequest3to4" = "R3 to R4 Conversions for SupplyRequest"
+map "http://hl7.org/fhir/StructureMap/SupplyRequest3to4" = "R3 to R4 Conversions for SupplyRequest"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SupplyRequest" alias SupplyRequestR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" alias SupplyRequest as target
@@ -29,7 +29,6 @@ group SupplyRequest(source src : SupplyRequestR3, target tgt : SupplyRequest) ex
 
 group agent(source src, target tgt) {
   src.agent -> tgt.requester;
-  src.onBehalfOf as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-SupplyRequest.requester.onBehalfOf', vt.value = v;
+  src.onBehalfOf as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-SupplyRequest.requester.onBehalfOf',  vt.value = v;
 }
-
 
