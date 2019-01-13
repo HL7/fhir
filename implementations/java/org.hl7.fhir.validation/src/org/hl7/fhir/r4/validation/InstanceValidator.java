@@ -3763,19 +3763,19 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               else
                 goodProfiles.put(typeProfile, profileErrors);
             }
-            if (goodProfiles.size()==1) {
-              errors.addAll(goodProfiles.values().iterator().next());
-            } else if (goodProfiles.size()==0) {
-              rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Unable to find matching profile among choices: " + StringUtils.join("; ", profiles));
-              for (List<ValidationMessage> messages : badProfiles) {
-                errors.addAll(messages);
-              }
-            } else {
-              warning(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Found multiple matching profiles among choices: " + StringUtils.join("; ", goodProfiles.keySet()));
-              for (List<ValidationMessage> messages : goodProfiles.values()) {
-                errors.addAll(messages);
-              }                    
+          }
+          if (goodProfiles.size()==1) {
+            errors.addAll(goodProfiles.values().iterator().next());
+          } else if (goodProfiles.size()==0) {
+            rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Unable to find matching profile among choices: " + StringUtils.join("; ", profiles));
+            for (List<ValidationMessage> messages : badProfiles) {
+              errors.addAll(messages);
             }
+          } else {
+            warning(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Found multiple matching profiles among choices: " + StringUtils.join("; ", goodProfiles.keySet()));
+            for (List<ValidationMessage> messages : goodProfiles.values()) {
+              errors.addAll(messages);
+            }                    
           }
         }
         if (p!=null) {
