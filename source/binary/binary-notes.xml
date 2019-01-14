@@ -91,7 +91,7 @@ the Binary resource, such as:
 </p>
 <ul>
  <li>retrieving byte ranges</li>
- <li>Finding the size of the content before retrieving it (hough this can be achieved using a <a href="http.html#head">HEAD request</a>)</li>
+ <li>Finding the size of the content before retrieving it (though this can be achieved using a <a href="http.html#head">HEAD request</a>)</li>
  <li>Stream content from Binary? </li>
  <li>generating content dynamically on the fly</li>
 </ul>
