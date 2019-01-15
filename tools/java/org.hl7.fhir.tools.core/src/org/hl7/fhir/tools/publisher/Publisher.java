@@ -203,14 +203,6 @@ import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
-import org.hl7.fhir.r4.test.FHIRPathTests;
-import org.hl7.fhir.r4.test.GraphQLEngineTests;
-import org.hl7.fhir.r4.test.GraphQLParserTests;
-import org.hl7.fhir.r4.test.NarrativeGeneratorTests;
-import org.hl7.fhir.r4.test.ResourceRoundTripTests;
-import org.hl7.fhir.r4.test.SnapShotGenerationTests;
-import org.hl7.fhir.r4.test.SnomedExpressionsTests;
-import org.hl7.fhir.r4.test.support.TestingUtilities;
 import org.hl7.fhir.r4.utils.EOperationOutcome;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.GraphQLSchemaGenerator;
@@ -255,9 +247,6 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.hl7.fhir.utilities.xml.XmlGenerator;
-import org.hl7.fhir.validation.r4.tests.TransformationTests;
-import org.hl7.fhir.validation.r4.tests.ValidationEngineTests;
-import org.hl7.fhir.validation.r4.tests.ValidationTestSuite;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -5895,7 +5884,8 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void runJUnitTestsInProcess() throws Exception {
-    TestingUtilities.context = page.getWorkerContext();
+    /*
+	  TestingUtilities.context = page.getWorkerContext();
     TestingUtilities.silent = true;
     TestingUtilities.fixedpath = page.getFolders().rootDir;
     TestingUtilities.contentpath = page.getFolders().dstDir;
@@ -5909,14 +5899,17 @@ public class Publisher implements URIResolver, SectionNumberer {
     runJUnitClass(GraphQLParserTests.class);
     runJUnitClass(GraphQLEngineTests.class);
     checkAllOk();
+	 */
   }
 
   private void runJUnitTestsEnd() throws Exception {
+	  /*
     ValidationEngineTests.inbuild = true;
     runJUnitClass(ValidationEngineTests.class);
     runJUnitClass(TransformationTests.class); 
     runJUnitClass(AllGuidesTests.class);
     checkAllOk();
+	 */
   }
 
   private void runJUnitClass(Class<?> clzz) {
