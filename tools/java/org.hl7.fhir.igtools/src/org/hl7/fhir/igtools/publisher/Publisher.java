@@ -976,7 +976,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         logOptions.add(level);
       }
     }
-    if (configuration.has("narratives")) {
+    if (configuration.has("exampleNarratives")) {
       genExampleNarratives = configuration.get("exampleNarratives").getAsBoolean();
     }
 
