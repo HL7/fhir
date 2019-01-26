@@ -24,8 +24,8 @@ using the facilities provided by the <a href="codesystem.html">code system</a>. 
    (after checking for <code>concept</code> and <code>filter</code>) and if they are in all the referenced value sets</li>
  <li>If the system reference is not version specific and filters are present, then the contents of the value set are open and change 
     over time as the underlying code systems are updated</li>
- <li>The version reference may be the special value "<code>*</code>", which indicates that the value set includes codes from all versions of the code system.
-     how to handle provision of the required versions and generation of expansions is at server discrection, including for poorly behaved code systems where 
+ <li>The version reference may be the special value '<code>*</code>', which indicates that the value set includes codes from all versions of the code system.
+     how to handle provision of the required versions and generation of expansions is at server discretion, including for poorly behaved code systems where 
 		 a code changes in meaning). 
     [%impl-note%]     
        <span class="warning">Use of this capability is subject to future clarification and conformance requirements based on implementation experience</span>.
@@ -162,8 +162,8 @@ Irrespective of this, the display in the expansion always goes in <a href="datat
 In addition to the display, a concept can have one or more <code>designation</code> elements. 
 The display is equivalent to a special designation with an implied <code>designation.use</code> of "primary code" 
 and a language equal to the <a href="resource.html#language">Resource Language</a>. The designations can provide 
-additional displays for other language, as well as designations for other purposes. 
-When using concepts, applications use the <code>display</code> unless the language or usage in context provide a reason
+additional displays for other languages, as well as designations for other purposes. 
+When using concepts, applications use the <code>display</code> unless the language or usage in context provides a reason
 to use one of the designations.
 </p>
  
@@ -349,7 +349,7 @@ Other parameters that servers may be required to use:
    Applications generating expansions SHALL use this parameter if the CodeSystem.content value is "fragment" or " </td></tr>
  <tr><td><code>[canonical1]#supplement</code></td><td>[canonical2] : Indicates that the specified supplement (canonical2) contributed to the content
   of the expansion for the code system canonical1 (by influencing selection, or providing designations). Applications generating expansions SHALL use this parameter to record 
-	that a supplement was used durin the expansion process</td></tr>
+	that a supplement was used during the expansion process</td></tr>
 </table>
 <p>
 Beyond this, servers MAY define their own parameters, though Terminology server

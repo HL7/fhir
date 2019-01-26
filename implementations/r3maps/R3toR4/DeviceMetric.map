@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/DeviceMetric3to4" = "R3 to R4 Conversions for DeviceMetric"
+map "http://hl7.org/fhir/StructureMap/DeviceMetric3to4" = "R3 to R4 Conversions for DeviceMetric"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceMetric" alias DeviceMetricR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/DeviceMetric" alias DeviceMetric as target

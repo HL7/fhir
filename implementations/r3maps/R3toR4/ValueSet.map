@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ValueSet3to4" = "R3 to R4 Conversions for ValueSet"
+map "http://hl7.org/fhir/StructureMap/ValueSet3to4" = "R3 to R4 Conversions for ValueSet"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ValueSet" alias ValueSetR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSet as target
@@ -22,7 +22,7 @@ group ValueSet(source src : ValueSetR3, target tgt : ValueSet) extends DomainRes
   src.immutable -> tgt.immutable;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.extensible as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/3.0/StructureDefinition/extension-ValueSet.extensible",  ext.value = vs;
+  src.extensible as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ValueSet.extensible',  ext.value = vs;
   src.compose as vs0 -> tgt.compose as vt0 then compose(vs0, vt0);
   src.expansion as vs0 -> tgt.expansion as vt0 then expansion(vs0, vt0);
 }
@@ -71,13 +71,13 @@ group expansion(source src, target tgt) extends BackboneElement {
 
 group parameter(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
-  src.value : string as vs0 -> tgt.value = create("string") as vt0 then string(vs0, vt0) "valueString";
-  src.value : boolean as vs0 -> tgt.value = create("boolean") as vt0 then boolean(vs0, vt0) "valueBoolean";
-  src.value : integer as vs0 -> tgt.value = create("integer") as vt0 then integer(vs0, vt0) "valueInteger";
-  src.value : decimal as vs0 -> tgt.value = create("decimal") as vt0 then decimal(vs0, vt0) "valueDecimal";
-  src.value : url as vs0 -> tgt.value = create("url") as vt0 then url(vs0, vt0) "valueUrl";
-  src.value : code as vs0 -> tgt.value = create("code") as vt0 then code(vs0, vt0) "valueCode";
-  src.value : dateTime as vs0 -> tgt.value = create("dateTime") as vt0 then dateTime(vs0, vt0) "valueDateTime";
+  src.value : string as vs0 -> tgt.value = create('string') as vt0 then string(vs0, vt0) "valueString";
+  src.value : boolean as vs0 -> tgt.value = create('boolean') as vt0 then boolean(vs0, vt0) "valueBoolean";
+  src.value : integer as vs0 -> tgt.value = create('integer') as vt0 then integer(vs0, vt0) "valueInteger";
+  src.value : decimal as vs0 -> tgt.value = create('decimal') as vt0 then decimal(vs0, vt0) "valueDecimal";
+  src.value : url as vs0 -> tgt.value = create('url') as vt0 then url(vs0, vt0) "valueUrl";
+  src.value : code as vs0 -> tgt.value = create('code') as vt0 then code(vs0, vt0) "valueCode";
+  src.value : dateTime as vs0 -> tgt.value = create('dateTime') as vt0 then dateTime(vs0, vt0) "valueDateTime";
 }
 
 group contains(source src, target tgt) extends BackboneElement {

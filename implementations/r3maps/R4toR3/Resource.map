@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Resource4to3" = "R3 to R2 Conversion for Resource"
+map "http://hl7.org/fhir/StructureMap/Resource4to3" = "R3 to R2 Conversion for Resource"
 
 uses "http://hl7.org/fhir/StructureDefinition/Resource" alias Resource as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Resource" alias ResourceR2 as target

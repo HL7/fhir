@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/List4to3" = "R4 to R3 Conversion for List"
+map "http://hl7.org/fhir/StructureMap/List4to3" = "R4 to R3 Conversion for List"
 
 uses "http://hl7.org/fhir/StructureDefinition/List" alias List as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/List" alias ListR3 as target

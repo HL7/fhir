@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EligibilityRequest3to4" = "R3 to R4 Conversions for (Coverage)EligibilityRequest"
+map "http://hl7.org/fhir/StructureMap/EligibilityRequest3to4" = "R3 to R4 Conversions for (Coverage)EligibilityRequest"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EligibilityRequest" alias EligibilityRequestR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest" alias CoverageEligibilityRequest as target
@@ -17,10 +17,11 @@ group EligibilityRequest(source src : EligibilityRequestR3, target tgt : Coverag
   src.insurer -> tgt.insurer;
   src.facility -> tgt.facility;
   src.coverage as coverage -> tgt.insurance as insurance then {
-    src -> insurance.focal = true, insurance.coverage = coverage;
+    src ->  insurance.focal = true,  insurance.coverage = coverage "focal";
     src.businessArrangement as ba -> insurance.businessArrangement = ba;
   };
   src.benefitCategory as bc -> tgt.item as item then {
-    src -> item.category = bc;
+    src -> item.category = bc "category";
   };
 }
+

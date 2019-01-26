@@ -25,7 +25,7 @@ pieces of application functionality to each other. Services communicate by invok
 information (as parameters and outputs) in accordance with a well-defined service contract.
 </p>
 <p>
-Generally speaking, services are cohesive sets of functions that maintain responsibility for both data and "state" for the
+Services are cohesive sets of functions that maintain responsibility for both data and "state" for the
 scope of their responsibility.  Services have a unity of function, such as Terminology Management, Identity Management, or
 so on, working with other services in collaboration as part of an orchestrated workflow.  Data within a service typically
 follows a "black box" model and is not classically exposed, instead using pre-defined interfaces to make specific
@@ -62,7 +62,7 @@ different parts of systems, all of which have potential utility in FHIR implemen
 <a name="patterns"></a>
 <h3>Service References and Patterns</h3>
 <p>
-Generally, the definition of particular services is a domain or context specific task, and it is anticipated that this
+The definition of specific services is a domain or context specific task. It is anticipated that this
 would be done as separate specifications that make use of the underlying facilities defined in this specification.  HL7 has
 already defined a portfolio of services that take advantage of REST- and SOAP-based interfaces, but the parameters passed
 to and from those services are not at present resource-based.  These are potential extension points that may lend well for
@@ -72,7 +72,7 @@ interfaces can build an entirely separate implementation.
 </p>
 <p>
 Note that for each of the items below, there are paired sets of standards, an HL7 Standard defining the functional
-specification, and an OMG Technical Standard containing SOAP bindings (for all of the items below) and REST bindings (for
+specification, and an OMG Technical Standard containing SOAP bindings (for all the items below) and REST bindings (for
 about half of the items below).
 </p>
 <p>
@@ -96,7 +96,7 @@ Similarly, this specification defines a <a href="terminology-service.html">Termi
 is tightly integrated with the RESTful API (note: this terminology service has different goals than
 the CTS2 service, so they are not functionally equivalent). FHIR itself is a framework for the instantiation
 of an RLUS service. Definition of other additional services based on the service interface definitions
-provided by the HL7 SOA work group will be considered if there is sufficient interest in this.
+provided by the HL7 SOA work group will be considered if there is enough interest in this.
 </p>
 
 <a name="approaches"></a>
@@ -112,7 +112,7 @@ drawbacks.  Three specific styles of implementation have been identified:
  <li>FHIR + SOA Pattern illustrates the impact of applying interaction patterns, exception handing and role definition, guided by SOA practices, atop an implementation technology (SOAP, REST, or others)</li>
 </ul>
 <p>
-Determining which of the above implementation styles is best suited to a particular situation is context-dependent.  The
+Determining which of the above implementation styles is best suited to a situation is context-dependent.  The
 following table presents these alternatives, deliberately using qualitative measures to help navigate to the best-fit based
 upon influencing factors.  "Harvey Balls" in the table below indicate relative strengths and weaknesses of the
 implementation alternatives.
@@ -141,7 +141,7 @@ implementation alternatives.
  <td align="center">&#9679;</td>
  <td align="center">&#9679;</td>
  <td align="center">&#9679;</td>
- <td>Each of the implementation approaches are capable of supporting stateless processing</td>
+ <td>Each of the implementation approaches can support stateless processing</td>
  </tr>
  <tr>
  <td>Support of "loose coupling"</td>
@@ -229,20 +229,20 @@ sources.
 <b>Data Storage and Coherence</b>.  The approach to and complexities associated with data storage and overall data coherence will
 significantly depend upon whether an implementation is subject to enterprise policies and whether data consistency is the
 responsibility of the service provider or consumer.  In Enterprise settings, these issues are typically governed by
-organizational policy. FHIR servers and their data persistence would need to fit within that policy, with data access being
-in compliance with that policy and services interacting with "policy enforcement points" to assure that appropriate
+organizational policy. FHIR servers and their data persistence would need to fit within that policy, with data access following
+that policy and services interacting with "policy enforcement points" to assure that appropriate
 permissions are in place.
 </p>
 <p>
 Where data consistency is the responsibility of the service (or server) use of SOA-friendly interface protocols, such as
 SOAP and potentially REST, create the access channel for integration.  This may necessitate defining minimum sets of data
 that are required to comply with data coherence expectations (in other words, a service contract that specifies the
-collection of resources that must be updated in tandem, and the scope of what constitutes a ‘single transaction’ - more on
+collection of resources that must be updated in tandem, and the scope of what constitutes a 'single transaction' - more on
 this in the Transactional Integrity section).
 </p>
 <p>
 In alternative implementations data storage is managed within the FHIR server, consistent with non-SOA FHIR implementations.
-Data consistency is the responsibility of the Server but responsibility may carry to consuming applications (if they are
+Data consistency is the responsibility of the Server, but responsibility may carry to consuming applications (if they are
 provided with sufficient update rights so as to make that a concern).  Data validation also has a shared responsibility,
 first with the FHIR Server, and additionally with the authorized updating applications. Data visibility is a product of the
 REST interface, typically allowing CRUD operations to the data element level.
@@ -254,7 +254,7 @@ particularly with update functions, the ability to update multiple different res
 part of a broader transaction is how this is typically realized.
 </p>
 <p>
-Should one part of the update ‘fail’, one would expect all of the other updates to be "rolled back" to a prior, stable state.
+Should one part of the update 'fail', one would expect all the other updates to be "rolled back" to a prior, stable state.
 Rollback is not expressly specified as part of the FHIR.  Data update and integrity becomes the responsibility of each
 service.  The FHIR specification does not inherently provide for concurrency management (e.g., managing of "deadlock"
 conditions where two resources each await update permission from the other). As a result, within the FHIR server itself it
@@ -286,9 +286,9 @@ structure of FHIR resources as a payload descriptor for carrying data structures
 modularly based.
 </p>
 <p>
-<b>Explicit State</b>.  All resources represent the various states of the record and real world entities involved in a transaction
+<b>Explicit State</b>.  All resources represent the various states of the record and real-world entities involved in a transaction
 explicitly. This is necessary for use in RESTful and document contexts, where there is no explicit transaction. Service
-interactions are typically associated with implicit semantics, such as a request to change the status of a particular resource to
+interactions are typically associated with implicit semantics, such as a request to change the status of a resource to
 something else, for example. The fact that resources that carry this state explicitly as well as the transaction fixing
 state implicitly creates duplication between the two, and this will need to be managed.
 </p>
@@ -341,7 +341,7 @@ orchestration, adjusting care pathways based upon patient evaluation and affecti
 <p>
 At present, to support this complexity within a FHIR setting without the use of SOA tools, these flows would need to be
 manually coded, either by having a directed sequence of calls, or by creating an independent capability effectively acting
-as an orchestrator. This can be supported within FHIR exclusively, but all of the steps and corresponding state management
+as an orchestrator. This can be supported within FHIR exclusively, but all the steps and corresponding state management
 would need to be done by hand. FHIR Batch provides some of this capability, allowing for aggregation of multiple steps, but
 does not necessarily support the event processing needed in complex.
 </p>
@@ -410,7 +410,7 @@ proven and established industry best-practices.
 SOA design patterns are frequently used to govern interactions for dynamic processes, non-sequential workflows, or dynamic
 workflows involving human intervention and/or consideration of external factors as part of processing. The ability to model
 interaction patterns using languages such as SOAml, and to define roles and role interactions, are tools that may be useful
-to FHIR development in these circumstances, and would be indicators signaling that SOA has the potential to add value to a
+to FHIR development in these circumstances - and would be indicators signaling that SOA has the potential to add value to a
 FHIR implementation.
 </p>
 <p>
@@ -426,10 +426,10 @@ SOA provides guidance around data persistence, durability, and expectations in s
 <h3>Summary </h3>
 <p>
 FHIR has proven itself as beneficial in that it provides an easy-to-implement and coherent approach to accessing healthcare
-resources using a modern protocol stack. SOA has proven itself over time in multiple vertical market segments as a way to
+resources using a modern protocol stack. SOA has proven itself over time in multiple vertical market segments to
 divide responsibilities and authoritatively manage information across distributed systems. Marrying the discipline of SOA
 with the implementation ease of FHIR is a winning combination when the situation warrants.  Implementers should consider
-evaluation of the contextual landscape to determine where FHIR and SOA have the opportunity to benefit from complementary
+evaluation of the contextual landscape to determine where FHIR and SOA can benefit from complementary
 implementation leverage points.
 </p>
 <p>

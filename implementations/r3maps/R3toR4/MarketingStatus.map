@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MarketingStatus3to4" = "R3 to R4 Conversions for MarketingStatus"
+map "http://hl7.org/fhir/StructureMap/MarketingStatus3to4" = "R3 to R4 Conversions for MarketingStatus"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MarketingStatus" alias MarketingStatusR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/MarketingStatus" alias MarketingStatus as target

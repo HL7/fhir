@@ -22,7 +22,7 @@
 		<text value="interpretation of results should be assigned based upon the level of kindey function"/>
 	</interpretation>
 	<note><text value="GFR estimating equations developed by the Modification of Diet in Renal Disease (MDRD) Study Group and the Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI)...."/></note><!--  The observation is complete  --><!--  No reliability concerns  --><method><!--  Method was MDRD  --><coding>
-			<system value="http://snomed.info/id"/>
+			<system value="http://snomed.info/sct"/>
 			<code value="702668005"/>
 			<display value="MDRD"/>
 		</coding>

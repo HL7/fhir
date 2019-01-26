@@ -59,7 +59,7 @@
     <performer>
         <function>
             <coding>
-                <system value="http://terminology.hl7.org/CodeSystem/med-dispense-perform-function"/>
+                <system value="http://terminology.hl7.org/CodeSystem/medicationdispense-performer-function"/>
                 <code value="finalchecker"/>
                 <display value="Final Checker"/>
             </coding>

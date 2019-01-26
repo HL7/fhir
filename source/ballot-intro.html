@@ -63,8 +63,8 @@ Three ballot periods are anticipated:
    <td>Aug 2018 - Sep 2018</td>
    <td>A follow up ballot
      <ul>
-       <li>Reballoting of normative content where substantitive changes were required in response to ballot and implementer feedback</li>
-       <li>Additional signficant new (added post the full FHIR ballot) or significantly revised content balloted for "Trial Use"</li>
+       <li>Reballoting of normative content where substantive changes were required in response to ballot and implementer feedback</li>
+       <li>Additional significant new (added post the full FHIR ballot) or significantly revised content balloted for "Trial Use"</li>
      </ul>  
      <b>This is the current ballot</b>
    </td>
@@ -73,9 +73,9 @@ Three ballot periods are anticipated:
 
 <p>
 The key driver of this complexity is the introduction of normative content. HL7's 
-ballot rules for normative content require that if any substantiative changes are
+ballot rules for normative content require that if any substantive changes are
 made as a result of ballot reconciliation, the content must be reballoted.
-(Note that 'substantiative changes' means any change that is likely to change
+(Note that 'substantive changes' means any change that is likely to change
 implementations - a very low bar). 
 </p>
 <p>
@@ -209,7 +209,7 @@ For the Trial-Use ballot, the significant new content areas or changes are indic
 <p>
 The specification has been updated to include R3/R4 maps and difference analysis, but 
 these have not been updated. This will be done proper to publication of the final 
-specification In the mean time, balloters are welcome to comment on suggested 
+specification. In the meantime, balloters are welcome to comment on suggested 
 improvements to the mappings and difference statements, but these cannot be the 
 basis for negative votes. Contributions may also be made directly 
 (join the <a href="https://chat.fhir.org/#narrow/stream/133-R3.2FR4-Conversion.20work">conversation at chat.fhir.org</a>).
@@ -255,9 +255,9 @@ Please consult the <a href="#round2">Round 2 ballot guide above</a> before comme
  <tr style="background-color: #eeeeee"><td colspan="3"><b>Base Documentation</b></td></tr>
  <tr><td>Make it explicit about canonical URLs with fragments</td> <td>FHIR-I: [%GF#17357%]</td> <td>[%diff references.html#canonical References%]</td></tr>
  <tr><td>Added reference.type</td><td>FHIR-I: [%GF#13543%]</td> <td>[%diff references.html#type References between Resources%]</td></tr> 
- <tr><td>Clarify definition of is-modifier + impacts on modifier extensions<br/>Note: this lead to <b style="color: maroon">breaking changes</b> on a few extensions (changed from modifierExtension to normal extension)</td><td>FHIR-I: [%GF#16188%]</td> <td>[%diff conformance-rules.html Conformance Rules%], [%diff extensibility.html#modifiers Extensibility%]</td></tr> 
+ <tr><td>Clarify definition of is-modifier + impacts on modifier extensions<br/>Note: this led to <b style="color: maroon">breaking changes</b> on a few extensions (changed from modifierExtension to normal extension)</td><td>FHIR-I: [%GF#16188%]</td> <td>[%diff conformance-rules.html Conformance Rules%], [%diff extensibility.html#modifiers Extensibility%]</td></tr> 
  <tr><td>Multiple language support on narratives</td><td>FHIR-I: [%GF#15759%]</td> <td>[%diff narrative.html#languages Narrative%]</td></tr> 
- <tr><td>Rules around extensible bindings (intended to be clarifications, but may be substantiative for some)</td><td>Vocab: [%GF#17402%]</td> <td>[%diff terminologies.html#extensible Using Codes%]</td></tr> 
+ <tr><td>Rules around extensible bindings (intended to be clarifications, but may be substantive for some)</td><td>Vocab: [%GF#17402%]</td> <td>[%diff terminologies.html#extensible Using Codes%]</td></tr> 
  <tr><td>Enhance/extend rules around changes between versions</td><td>FHIR-I: [%GF#13089%]</td> <td>[%diff versions.html#rules Version Management Policy%]</td></tr> 
  <tr><td>Add note about namespaces in types in FHIRPath consequence to FHIRPath changes</td><td>FHIR-I: [%GF#15876%]</td> <td>[%diff fhirpath.html#types FHIRPath%]</td></tr> 
  <tr><td>Add draft Terminology Service API to FHIRPath</td> <td>FHIR-I: [%GF#15777%]</td> <td>[%diff fhirpath.html FHIRPath%]</td></tr>
@@ -269,7 +269,7 @@ Please consult the <a href="#round2">Round 2 ballot guide above</a> before comme
  <tr><td>Clarify about 406 and 415 status codes <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16329%]</td> <td>[%diff http.html Restful API%], [%diff formats.html Formats%]</td></tr>
  <tr><td>Rewrite intermediaries section, and refocus on custom headers</td> <td>FHIR-I: [%GF#14162%]</td> <td>[%diff http.html#custom RESTful API%]</td></tr> 
  <tr><td>Clarify version requirements in Location header</td> <td>FHIR-I: [%GF#13915%]</td> <td>[%diff http.html#create RESTful API%]</td></tr> 
- <tr><td>Decribe use of :below on reference for searching canonicals</td> <td>FHIR-I: [%GF#14195%]</td> <td>[%diff http.html#versions RESTful API%]</td></tr> 
+ <tr><td>Describe use of :below on reference for searching canonicals</td> <td>FHIR-I: [%GF#14195%]</td> <td>[%diff http.html#versions RESTful API%]</td></tr> 
  <tr><td>Change rules around optionality of Bundle.entry.request and .response <b style="color: maroon">Breaking change!</b></td><td>FHIR-I: [%GF#14551%]</td> <td>[%diff http.html#transaction RESTful API%]</td></tr> 
  <tr><td>Add _list parameter to history interaction</td><td>FHIR-I: [%GF#16022%]</td> <td>[%diff http.html#history RESTful API%]</td></tr> 
  <tr><td>Add conformance language about errors and operation outcome</td><td>FHIR-I: [%GF#14495%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
@@ -469,7 +469,7 @@ more signficant</b> (not all) changes are listed here:
 </p>
 <ul>
  <li>New Resources: <a href="medicationknowledge.html">MedicationKnowledge</a>, <a href="devicedefinition.html">DeviceDefinition</a>, <a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
- <li>Renamed Resources: <code>OrgnizationRole</code> to <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <code>EligibilityRequest</code> to <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a>, 
+ <li>Renamed Resources: <code>OrganizationRole</code> to <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <code>EligibilityRequest</code> to <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a>, 
    <code>EligibilityResponse</code> to <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a>, and <code>ProductPlan</code> to <a href="insuranceplan.html">InsurancePlan</a></li>
  <li>Significant rework around devices - in the <a href="device.html">Device</a> resource, remove <code>DeviceComponent</code> + new resource <a href="devicedefinition.html">DeviceDefinition</a></li>
  <li>Update maps/diffs to R3 (see <a href="#maps">note</a> above)</li>

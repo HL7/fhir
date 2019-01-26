@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SpecimenDefinition3to4" = "R3 to R4 Conversions for SpecimenDefinition"
+map "http://hl7.org/fhir/StructureMap/SpecimenDefinition3to4" = "R3 to R4 Conversions for SpecimenDefinition"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition" alias SpecimenDefinition as target

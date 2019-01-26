@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Device4to3" = "R4 to R3 Conversion for Device"
+map "http://hl7.org/fhir/StructureMap/Device4to3" = "R4 to R3 Conversion for Device"
 
 uses "http://hl7.org/fhir/StructureDefinition/Device" alias Device as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Device" alias DeviceR3 as target

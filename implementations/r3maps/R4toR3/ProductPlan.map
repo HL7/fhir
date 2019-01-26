@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ProductPlan4to3" = "R4 to R3 Conversion for ProductPlan"
+map "http://hl7.org/fhir/StructureMap/ProductPlan4to3" = "R4 to R3 Conversion for ProductPlan"
 
 uses "http://hl7.org/fhir/StructureDefinition/ProductPlan" alias ProductPlan as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ProductPlan" alias ProductPlanR3 as target

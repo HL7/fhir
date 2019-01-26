@@ -377,6 +377,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private Publisher childPublisher = null;
   private String childOutput = "";
   private GenerationTool tool;
+  private boolean genExampleNarratives = true;
 
   private List<String> resourceDirs = new ArrayList<String>();
   private List<String> pagesDirs = new ArrayList<String>();
@@ -686,27 +687,31 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     for (FetchedFile f : fileList) {
       System.out.println(f.getName());
       for (FetchedResource r : f.getResources()) {
-        dlog(LogCategory.PROGRESS, "narrative for "+f.getName()+" : "+r.getId());
-        if (r.getResource() != null && isConvertableResource(r.getResource().fhirType())) {
-          boolean regen = false;
-          gen.setDefinitionsTarget(igpkp.getDefinitionsName(r));
-          if (r.getResource() instanceof DomainResource && !(((DomainResource) r.getResource()).hasText() && ((DomainResource) r.getResource()).getText().hasDiv()))
-            regen = gen.generate((DomainResource) r.getResource(), otherFilesStartup);
-          if (r.getResource() instanceof Bundle)
-            regen = gen.generate((Bundle) r.getResource(), false, otherFilesStartup);
-          if (regen)
-            r.setElement(convertToElement(r.getResource()));
-        } else {
-          if ("http://hl7.org/fhir/StructureDefinition/DomainResource".equals(r.getElement().getProperty().getStructure().getBaseDefinition()) && !hasNarrative(r.getElement())) {
-            gen.generate(r.getElement(), true, getTypeLoader(f,r));
-          } else if (r.getElement().fhirType().equals("Bundle")) {
-            for (Element e : r.getElement().getChildrenByName("entry")) {
-              Element res = e.getNamedChild("resource");
-              if (res!=null && "http://hl7.org/fhir/StructureDefinition/DomainResource".equals(res.getProperty().getStructure().getBaseDefinition()) && !hasNarrative(res)) {
-                gen.generate(gen.new ResourceContext(r.getElement(), res), res, true, getTypeLoader(f,r));
+        if (r.getExampleUri()==null || genExampleNarratives) {
+          dlog(LogCategory.PROGRESS, "narrative for "+f.getName()+" : "+r.getId());
+          if (r.getResource() != null && isConvertableResource(r.getResource().fhirType())) {
+            boolean regen = false;
+            gen.setDefinitionsTarget(igpkp.getDefinitionsName(r));
+            if (r.getResource() instanceof DomainResource && !(((DomainResource) r.getResource()).hasText() && ((DomainResource) r.getResource()).getText().hasDiv()))
+              regen = gen.generate((DomainResource) r.getResource(), otherFilesStartup);
+            if (r.getResource() instanceof Bundle)
+              regen = gen.generate((Bundle) r.getResource(), false, otherFilesStartup);
+            if (regen)
+              r.setElement(convertToElement(r.getResource()));
+          } else {
+            if ("http://hl7.org/fhir/StructureDefinition/DomainResource".equals(r.getElement().getProperty().getStructure().getBaseDefinition()) && !hasNarrative(r.getElement())) {
+              gen.generate(r.getElement(), true, getTypeLoader(f,r));
+            } else if (r.getElement().fhirType().equals("Bundle")) {
+              for (Element e : r.getElement().getChildrenByName("entry")) {
+                Element res = e.getNamedChild("resource");
+                if (res!=null && "http://hl7.org/fhir/StructureDefinition/DomainResource".equals(res.getProperty().getStructure().getBaseDefinition()) && !hasNarrative(res)) {
+                  gen.generate(gen.new ResourceContext(r.getElement(), res), res, true, getTypeLoader(f,r));
+                }
               }
             }
           }
+        } else {
+          dlog(LogCategory.PROGRESS, "skipped narrative for "+f.getName()+" : "+r.getId());
         }
       }
     }
@@ -970,6 +975,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         System.out.println("Logging " + level);
         logOptions.add(level);
       }
+    }
+    if (configuration.has("exampleNarratives")) {
+      genExampleNarratives = configuration.get("exampleNarratives").getAsBoolean();
     }
 
     if (configuration.has("tool") && !"jekyll".equals(str(configuration, "tool")))
@@ -1527,6 +1535,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       dep.addProperty("package", packageId);
 
     String webref = pi.getWebLocation();
+    String location = dep.get("location").getAsString(); 
+    if (location.startsWith(".."))
+      webref = location;
     
     SpecMapManager igm = new SpecMapManager(TextFile.streamToBytes(pi.load("other", "spec.internals")), pi.getNpm().getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString());
     igm.setName(name);
@@ -2161,8 +2172,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     load("CapabilityStatement");
     load("Questionnaire");
     load("PlanDefinition");
-    checkConformanceResources();
     generateSnapshots();
+    checkConformanceResources();
     generateLogicalMaps();
     load("StructureMap");
     generateAdditionalExamples();

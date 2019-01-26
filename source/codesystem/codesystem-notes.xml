@@ -97,7 +97,7 @@ In addition to the display and definition, a concept can have one or more <code>
 The display is equivalent to a special designation with an implied <code>designation.use</code> meaning "primary code/designation" 
 and a language equal to the <a href="resource.html#language">Resource Language</a>. The designations can provide additional displays
 for other language, as well as designations for other purposes. 
-When using concepts, applications use the <code>display</code> and <code>designation</code> unless the language or usage in context provide a reason
+When using concepts, applications use the <code>display</code> and <code>designation</code> unless the language or usage in context provides a reason
 to use one of the designations.
 </p>
 
@@ -322,7 +322,7 @@ informative.
 
 <p>
 For medications, the relationship between the code system and the medication resource
-is complex. Many medication related code systems (e.g. RxNorm, DM+D, AMT, etc) represent 
+is complex. Many medication related code systems (e.g. RxNorm, DM+D, AMT, etc.) represent 
 more complex information than just code, display name and code system.  These often 
 contain information about the content of the medication
 A similar principle applies to observation definitions, which overlap significantly

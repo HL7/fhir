@@ -23,7 +23,7 @@
 	<effectiveDateTime value="2016-05-18T22:33:22Z"/>
 	<valueCodeableConcept>
 		<coding>
-			<system value="http:/acme.ped/apgarrespiratoryeffort"/>
+			<system value="http://acme.ped/apgarrespiratoryeffort"/>
 			<code value="2"/>
 			<display value="Good, strong cry; normal rate and effort of breathing    "/>
 		</coding>

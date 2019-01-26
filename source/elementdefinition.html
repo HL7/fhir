@@ -170,8 +170,8 @@ same path must conform.
 		</tr>
 		<tr>
 				<td>base</td>
-				<td>snpshot: required<br/>differential: optional</td>
-				<td>snpshot: required<br/>differential: optional</td>
+				<td>snapshot: required<br/>differential: optional</td>
+				<td>snapshot: required<br/>differential: optional</td>
 				<td>required</td>
 				<td>required</td>
 		</tr>
@@ -370,7 +370,7 @@ same path must conform.
 </p>
 <ul>
 		<li>Slicing is only allowed when constraining an existing structure</li>
-		<li><code>slicing</code> can only be used on the first repeat of an element, this element is considered to be the slicing entry</li>
+		<li><code>slicing</code> can only be used on the first repetition of an element.  This first element that declares <code>slicing</code> is considered to be the slicing entry</li>
 		<li>All elements following the first repeat that containing a slicing SHALL have a <code>sliceName</code></li>
 		<li>The special slice name <code>@default</code> applies to all entries that are not in any other slice</li>
 		<li>The first entry (the one having the <code>slicing</code> information) is understood to be the set of constraints that apply to all slices and entries, whether they have a defined slice or not

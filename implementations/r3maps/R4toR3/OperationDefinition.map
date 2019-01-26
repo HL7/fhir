@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/OperationDefinition4to3" = "R4 to R3 Conversion for OperationDefinition"
+map "http://hl7.org/fhir/StructureMap/OperationDefinition4to3" = "R4 to R3 Conversion for OperationDefinition"
 
 uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/OperationDefinition" alias OperationDefinitionR3 as target
@@ -49,7 +49,7 @@ group parameter(source src, target tgt) extends BackboneElement {
 
 group binding(source src, target tgt) extends BackboneElement {
   src.strength -> tgt.strength;
-  src.valueSet as vs0 where value.startsWith('http://hl7.org').not() -> tgt.valueSet = create("uri") as vt0 then canonical2Uri(vs0, vt0) "valueSetU";
-  src.valueSet as vs0 where value.startsWith('http://hl7.org') -> tgt.valueSet = create("Reference") as vt0 then canonical2Reference(vs0, vt0) "valueSetR";
+  src.valueSet as vs0 where value.startsWith('http://hl7.org').not() -> tgt.valueSet = create('uri') as vt0 then canonical2Uri(vs0, vt0) "valueSetU";
+  src.valueSet as vs0 where value.startsWith('http://hl7.org') -> tgt.valueSet = create('Reference') as vt0 then canonical2Reference(vs0, vt0) "valueSetR";
 }
 

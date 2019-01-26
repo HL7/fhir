@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Communication3to4" = "R3 to R4 Conversions for Communication"
+map "http://hl7.org/fhir/StructureMap/Communication3to4" = "R3 to R4 Conversions for Communication"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Communication" alias CommunicationR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Communication" alias Communication as target
@@ -10,14 +10,14 @@ group Communication(source src : CommunicationR3, target tgt : Communication) ex
   src.definition -> tgt.instantiatesCanonical;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
-  src.status where src.notDone.not()-> tgt.status;
+  src.status where src.notDone.not() -> tgt.status;
   src.notDone where src.notDone -> tgt.status = 'not-done';
-  src.notDoneReason -> tgt.statusReason;  
+  src.notDoneReason -> tgt.statusReason;
   src.category -> tgt.category;
   src.medium -> tgt.medium;
   src.subject -> tgt.subject;
   src.recipient -> tgt.recipient;
-  src.topic as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Communication.topic', vt.value = v;
+  src.topic as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Communication.topic',  vt.value = v;
   src.context -> tgt.encounter;
   src.sent -> tgt.sent;
   src.received -> tgt.received;

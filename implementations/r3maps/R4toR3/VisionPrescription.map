@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/VisionPrescription4to3" = "R4 to R3 Conversion for VisionPrescription"
+map "http://hl7.org/fhir/StructureMap/VisionPrescription4to3" = "R4 to R3 Conversion for VisionPrescription"
 
 uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" alias VisionPrescription as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/VisionPrescription" alias VisionPrescriptionR3 as target
@@ -37,3 +37,4 @@ group dispense(source src, target tgt) extends BackboneElement {
   src.brand -> tgt.brand;
   src.note -> tgt.note;
 }
+

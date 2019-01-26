@@ -129,9 +129,9 @@ some other kind of profiled REST interface.
       <p>
             These resources tend to not contain any individual data, or business sensitive data. Most often these Resources will be available
             for anonymous access, meaning there is no access control based on the user or system requesting. 
-            However these Resources do tend to contain important information that must be authenticated back to the source publishing them, and 
+            However, these Resources do tend to contain important information that must be authenticated back to the source publishing them, and 
             protected from integrity failures in communication. 
-            For this reason server authenticated https (TLS) is recommended to provide authentication of the server and integrity protection in transit.
+            For this reason, server authenticated https (TLS) is recommended to provide authentication of the server and integrity protection in transit.
             This is normal web-server use of <a href="#http">https</a>. 
       </p>
       <a name="Business"></a>
@@ -142,7 +142,7 @@ some other kind of profiled REST interface.
             location, or other group that is not identifiable as individuals.
             Often these resources will require some sort of client authentication to assure that only authorized access is given.
             The client access control may be to individuals, or may be to system identity. 
-            For this purpose possible client authentication methods such as: mutual-authenticated-TLS, APIKey, App signed JWT, or App OAuth client-id JWT
+            For this purpose, possible client authentication methods such as: mutual-authenticated-TLS, APIKey, App signed JWT, or App OAuth client-id JWT
             For example: an App that uses a Business protected Provider Directory to determine other business endpoint details. 
       </p>
       <a name="Individual"></a>
@@ -153,7 +153,7 @@ some other kind of profiled REST interface.
             These identities are needed to enable the practice of healthcare. 
             These identities are identities under general privacy regulations, and thus must consider Privacy risk. 
             Often access to these other identities are covered by business relationships.
-            For this purpose access to these Resources will tend to be Role specific using methods such as RBAC or ABAC. 
+            For this purpose, access to these Resources will tend to be Role specific using methods such as RBAC or ABAC. 
       </p>
       <a name="Patient"></a>
       <h3>Patient Sensitive</h3>
@@ -237,10 +237,10 @@ Authorization/Access Control
 Correctly identifying people, devices, locations and organizations is one of the foundations that any security system is built on. 
 Most applications of security protocols, whether authentication, access control, digital signatures, etc. rely on the correct mapping between
 the relevant resources and the underlying systems. Note that this isn't necessary. There is nothing in FHIR that requires or relies 
-on any security being in place, or any particular implementation. However, real world usage will generally require this. 
+on any security being in place, or any particular security implementation. However, real world usage will generally require this. 
 </p>
 <p>
-A holder of data should not allow the data to be communicated unless there are sufficient assurances that the 
+A holder of data should not allow the data to be communicated unless there are enough assurances that the 
 other party is authorized to receive it. This is true for a client creating a resource through a PUT/POST, 
 as much as it is true for a server returning resources on a GET. The presumption is that without 
 proper authorization, to the satisfaction of the data holder, the data does not get communicated.
@@ -250,8 +250,8 @@ Two of the classic Access Control models are: Role-Based Access Control (RBAC), 
 </p>
 <p>
 In Role-Based Access Control (RBAC), permissions are operations on an object that a user wishes to access. 
-Permissions are grouped into roles. A role characterizes the functions a user is allowed to perform. Roles 
-are assigned to users. If the user’s role has the appropriate permissions to access an object, then that 
+Permissions are grouped into roles. A role characterizes the functions a user can perform. Roles 
+are assigned to users. If the user's role has the appropriate permissions to access an object, then that 
 user is granted access to the object. FHIR readily enables RBAC, as FHIR Resources are object types and 
 the CRUDE (Create, Read, Update, Delete, Execute) events (the FHIR equivalent to permissions in the RBAC scheme) are operations on those objects. 
 </p>
@@ -288,17 +288,17 @@ Submitted data and Retrieved data</a>.
 <h3>
 Access Control Considerations
 </h3>
-The FHIR RESTful API provides a number of ways that a client may request or create information. 
+The FHIR RESTful API provides several ways that a client may request or create information. 
 When designing a system to authorize access to information, all potential access methods must be considered. 
 They include the following:
 <ul>
-<li>The basic CRUD methods on resources. A security implementation must evaluate whether a client is allowed to read, update create or delete a given resource.</li>
+<li>The basic CRUD methods on resources. A security implementation must evaluate whether a client can read, update create or delete a given resource.</li>
 <li>Chained search provides the ability to disclose information on related resources. A security implementation must consider whether a client has the permission to access the resource being searched on, as well as the chained resource(s)</li>
 <li>_include and _revinclude search parameters allow client to request related resources. A security implementation must determine if the client has access to the included resources.</li>
 <li><a href="security-labels.html">security labels</a></li>
 <li>Several resources, including Bundle, Composition, Group and List, are designed to contain other resources. A security implementation should consider whether access to an individual resource, such as a Bundle, should permit access to all resources contained within the resource.</li>
-<li>FHIR defines several operations that may be supported by a server. Security implementations must evaluate whether a client has the ability to invoke these operations and what information should be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find patient matches using MPI based logic, and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
-<li>Batch and transaction processing provide ways for clients to create and update information in bulk. Security implementations should consider whether a client has the ability to initiate one of these interactions and make authorization decisions on each action in the batch/transaction.</li>
+<li>FHIR defines several operations that may be supported by a server. Security implementations must evaluate whether a client can invoke these operations and what information should be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find Patient Matches using MPI-based Logic, and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
+<li>Batch and transaction processing provide ways for clients to create and update information in bulk. Security implementations should consider whether a client can initiate one of these interactions and make authorization decisions on each action in the batch/transaction.</li>
 <li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g. break the glass) (<a href="operationoutcome-example-break-the-glass.html">example</a>). </li>
 </ul>
 
@@ -317,16 +317,16 @@ To balance usability of the returned result vs appropriate protection, the actua
 Typical methods of handling Access Denied used are:
 </p>
 <p>
-<b>Return a Success with Bundle containing zero results</b> – This result is indistinguishable from the case where no data is known. When consistently returned on Access Denied, this will not expose which patients exist, or what data might be blinded. This method is also consistent with cases where some results are authorized while other results are blinded. This can only be used when returning a Bundle is a valid result.
+<b>Return a Success with Bundle containing zero results</b> - This result is indistinguishable from the case where no data is known. When consistently returned on Access Denied, this will not expose which patients exist, or what data might be blinded. This method is also consistent with cases where some results are authorized while other results are blinded. This can only be used when returning a Bundle is a valid result.
 </p>
 <p>
-<b>Return a 404 “Not Found”</b> – This also protects from data leakage as it is indistinguishable from a query against a resource that doesn't exist. It does however leak that the user authentication is validated. 
+<b>Return a 404 "Not Found"</b> - This also protects from data leakage as it is indistinguishable from a query against a resource that doesn't exist. It does however leak that the user authentication is validated. 
 </p>
 <p>
-<b>Return a 403 “Forbidden”</b> – This communicates that the reason for the failure is an Authorization failure. It should only be used when the client and/or user is well enough known to be given this information. Thus this method is most used when the user is allowed to know that they are forbidden access. It doesn’t explain how the user might change things to become authorized. 
+<b>Return a 403 "Forbidden"</b> - This communicates that the reason for the failure is an Authorization failure. It should only be used when the client and/or user is well enough known to be given this information. Thus this method is most used when the user can know that they are forbidden access. It doesn't explain how the user might change things to become authorized. 
 </p>
 <p>
-<b>Return a 401 “Unauthorized”</b> – This communicates that user authentication was attempted and failed to be authenticated. 
+<b>Return a 401 "Unauthorized"</b> - This communicates that user authentication was attempted and failed to be authenticated. 
 </p>
 <p>
 Note that if a server allows <a href="http.html#upsert">PUT to a new location</a>, 
@@ -351,7 +351,7 @@ ATNA log events can be automatically converted to AuditEvent resources, and from
 client applications are able to search the audit events, or subscribe to them.
 </p>
 <p>
-With regard to HTTP logs, implementers need to consider the implications of distributing
+For HTTP logs, implementers need to consider the implications of distributing
 access to the logs. HTTP logs, including those that only contain the URL itself, should be 
 regarded as being as sensitive as the resources themselves.  Even if direct PHI is kept out of
 the logs by careful avoidance of search parameters (e.g. by using POST), the logs will
@@ -382,7 +382,7 @@ FHIR resources include an XHTML narrative, so that applications can display the 
 without having to fully and correctly process the data in the resource. However, displaying HTML is associated 
 with several known security issues that have been observed in production systems in other contexts (e.g. 
 <a href="http://smartplatforms.org/2014/04/security-vulnerabilities-in-ccda-display/">with CDA</a>). For
-this reason, the <a href="narrative.html#security">FHIR narrative is not allowed to contain active content</a>.
+this reason, the <a href="narrative.html#security">FHIR narrative can't contain active content</a>.
 However, care is still needed when displaying the narrative:
 </p>
 <ul>
@@ -399,7 +399,7 @@ when the resource is displayed. This may be a feature or a problem depending on 
 <p>
 In addition to narrative, <a href="documents.html">Documents</a> may also contain 
 stylesheets. Unlike with CDA, the stylesheets are simple CSS stylesheets, not 
-executable XSLT, so the same security risks do not apply. However CSS stylesheets
+executable XSLT, so the same security risks do not apply. However, CSS stylesheets
 may still reference external content (e.g. background images), and applications 
 displaying documents should ensure that CSS links are not automatically followed 
 without checking their safety first, and that session/identifying information 

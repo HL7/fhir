@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductDeviceSpec4to3" = "R4 to R3 Conversion for MedicinalProductDeviceSpec"
+map "http://hl7.org/fhir/StructureMap/MedicinalProductDeviceSpec4to3" = "R4 to R3 Conversion for MedicinalProductDeviceSpec"
 
 uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductDeviceSpec" alias MedicinalProductDeviceSpec as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductDeviceSpec" alias MedicinalProductDeviceSpecR3 as target

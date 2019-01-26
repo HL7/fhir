@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/CarePlan3to4" = "R3 to R4 Conversions for CarePlan"
+map "http://hl7.org/fhir/StructureMap/CarePlan3to4" = "R3 to R4 Conversions for CarePlan"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CarePlan" alias CarePlanR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/CarePlan" alias CarePlan as target
@@ -38,14 +38,14 @@ group activity(source src, target tgt) extends BackboneElement {
 }
 
 group detail(source src, target tgt) extends BackboneElement {
-  src.category as v -> tgt.extension as vt, vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CarePlan.activity.detail.category', vt.value = v;
+  src.category as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CarePlan.activity.detail.category',  vt.value = v;
   src.definition -> tgt.instantiatesCanonical;
   src.code -> tgt.code;
   src.reasonCode -> tgt.reasonCode;
   src.reasonReference -> tgt.reasonReference;
   src.goal -> tgt.goal;
   src.status -> tgt.status;
-  src.statusReason as s -> tgt.statusReason as t, t.text = s;
+  src.statusReason as s ->  tgt.statusReason as t,  t.text = s;
   src.prohibited -> tgt.doNotPerform;
   src.scheduled : Timing as s -> tgt.scheduled = create('Timing') as t then Timing(s, t);
   src.scheduled : Period as s -> tgt.scheduled = create('Period') as t then Period(s, t);

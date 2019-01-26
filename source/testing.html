@@ -19,7 +19,7 @@
 The FHIR specification describes a set of <a href="resource.html">resources</a>,
 and several different frameworks for exchanging resources between different systems.
 Because of its general nature and wide applicability, the rules made in this
-specification are fairly loose. As a consequence and in order to insure
+specification are fairly loose. As a consequence, and in order to insure
 interoperability between applications claiming conformance to this specification, a
 testing framework has been established within the FHIR specification. To this end, the
 <a href="testscript.html">TestScript</a> resource provides an implementation-agnostic
@@ -71,7 +71,7 @@ systems adhere to the specification.
 <h4 id="workflow">Workflow</h4>
 <p><b>Pre-Processing</b></p>
 <p>
-  The TestScript execution workflow begins by determining if the test suite is appropriate for the server under test. This can be determined by evaluating if the interactions listed in the TestScript metadata "capabilities" section are supported by the server's conformance resource. If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under test�s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison.. See <a href="#howToSpecifiyCapabilities">How to specify metadata capabilities</a>.
+  The TestScript execution workflow begins by determining if the test suite is appropriate for the server under test. This can be determined by evaluating if the interactions listed in the TestScript metadata "capabilities" section are supported by the server's conformance resource. If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under test�s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison. See <a href="#howToSpecifiyCapabilities">How to specify metadata capabilities</a>.
 </p>
 <p>
   If the server supports the requirements of the TestScript instance, any specified fixtures are loaded or retrieved. If the fixtures are marked as 'autocreate' then they are automatically created on the server(s) under test using 'create' operations. If any of the autocreate operations fail, then the tests in the TestScript are skipped.
@@ -123,7 +123,7 @@ systems adhere to the specification.
   The variables section of the TestScript defines a set of expressions whose evaluations will be used in substitutions. These substitutions are performed in operation request headers and URL paths as well as assertion values.
 </p>
 <p>
-  Without variables, search parameters and request headers (such as If-Modified-Since) would be specified in outgoing requests as literal values. Variables allow the values to be managed externally in fixtures or dynamically in server response fixtures. They would be defined to hold path expressions against the fixtures. The path expressions would not change from one server to another but the fixture data could.
+  Without variables, search parameters and request headers (such as If-Modified-Since) would be specified in outgoing requests as literal values. Variables allow the values to be managed externally in fixtures or dynamically in server response fixtures. They would be defined to hold path expressions against the fixtures. The path expressions would not change from one server to another, but the fixture data could.
 </p>
 <p>
   Using variables allows for the same test scripts to be executed against the same servers by different clients at the same time. Each client would change the fixture data (external to the test script) to make the data unique to that client. This ensures that the same delete/create/read operations executed concurrently by one client does not interfere with those of another client. That can be important within the context of a testing event such as a Connectathon. It can be very useful in year-round testing against public servers as well.
@@ -193,7 +193,7 @@ To mark a resource as a test resource, use the testing tag:
 &lt;/Patient&gt;
 </pre>
 <p>
-Not all testing resources need to explicitly marked as test, but it
+Not all testing resources need to explicitly marked as 'HTEST', but it
 may be necessary when performing testing on a production system, for
 instance. Note: This is a security label because different access control rules may apply to test resources.
 </p>
@@ -837,7 +837,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
   </operation>
 </action>
 </xmp></div>
-<p>Test engines will take values specified for <a href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader">requestHeader</a> "as-is" and not transform them. This might be useful for negative testing, e.g. the value can be set explicitly to "applcation/xml" or an invalid value and verify server response.</p>
+<p>Test engines will take values specified for <a href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader">requestHeader</a> "as-is" and not transform them. This might be useful for negative testing, e.g. the value can be set explicitly to "application/xml" or an invalid value and verify server response.</p>
 </li>
 </ol>
 
@@ -880,7 +880,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
   </operation>
 </action>
 </xmp></div>
-<p>Test engines will take values specified for <a href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader">requestHeader</a> "as-is" and not transform them. This might be useful for negative testing e.g. the value can be set explicitly to "applcation/xml" or an invalid value and verify server response.</p>
+<p>Test engines will take values specified for <a href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader">requestHeader</a> "as-is" and not transform them. This might be useful for negative testing e.g. the value can be set explicitly to "application/xml" or an invalid value and verify server response.</p>
 </li>
 </ol>
 

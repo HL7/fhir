@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Meta4to3" = "R4 to R3 Conversion for Meta"
+map "http://hl7.org/fhir/StructureMap/Meta4to3" = "R4 to R3 Conversion for Meta"
 
 uses "http://hl7.org/fhir/StructureDefinition/Meta" alias Meta as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Meta" alias MetaR3 as target

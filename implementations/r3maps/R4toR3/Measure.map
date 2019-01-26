@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Measure4to3" = "R4 to R3 Conversion for Measure"
+map "http://hl7.org/fhir/StructureMap/Measure4to3" = "R4 to R3 Conversion for Measure"
 
 uses "http://hl7.org/fhir/StructureDefinition/Measure" alias Measure as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Measure" alias MeasureR3 as target
@@ -26,10 +26,10 @@ group Measure(source src : MeasureR3, target tgt : Measure) extends DomainResour
   src.lastReviewDate -> tgt.lastReviewDate;
   src.effectivePeriod -> tgt.effectivePeriod;
   src.topic -> tgt.topic;
-  src.author as vs -> tgt.contributor as vt, vt.type = 'author' then Contributor(vs, vt);
-  src.editor as vs -> tgt.contributor as vt, vt.type = 'editor', vt.contact = vs;
-  src.reviewer as vs -> tgt.contributor as vt, vt.type = 'reviewer', vt.contact = vs;
-  src.endorser as vs -> tgt.contributor as vt, vt.type = 'endorser', vt.contact = vs;
+  src.author as vs ->  tgt.contributor as vt,  vt.type = 'author' then Contributor(vs, vt);
+  src.editor as vs ->  tgt.contributor as vt,  vt.type = 'editor',  vt.contact = vs;
+  src.reviewer as vs ->  tgt.contributor as vt,  vt.type = 'reviewer',  vt.contact = vs;
+  src.endorser as vs ->  tgt.contributor as vt,  vt.type = 'endorser',  vt.contact = vs;
   src.relatedArtifact -> tgt.relatedArtifact;
   src.library -> tgt.library;
   src.disclaimer -> tgt.disclaimer;

@@ -4,7 +4,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2018-10-30T23:14:39Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -14,8 +14,8 @@
   
   
   
-  <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1627,7 +1627,7 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The part number of the device</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">The part number of thedevice</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">The part number of the device</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Alphanumeric Maximum 20</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7002,7 +7002,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7098,8 +7097,8 @@
     <Cell ss:StyleID="s159"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Transducer Diconnected</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">The device transducer is diconnected.</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">Transducer Disconnected</Data></Cell>
+    <Cell ss:StyleID="s173"><Data ss:Type="String">The device transducer is disconnected.</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s160"/>
@@ -7109,7 +7108,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Hardware Disconnectd</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">Hardware Disconnected</Data></Cell>
     <Cell ss:StyleID="s173"><Data ss:Type="String">The device hardware is disconnected.</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
@@ -7562,6 +7561,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

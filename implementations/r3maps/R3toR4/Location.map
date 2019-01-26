@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Location3to4" = "R3 to R4 Conversions for Location"
+map "http://hl7.org/fhir/StructureMap/Location3to4" = "R3 to R4 Conversions for Location"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Location" alias LocationR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Location" alias Location as target
@@ -27,5 +27,5 @@ group position(source src, target tgt) extends BackboneElement {
   src.longitude -> tgt.longitude;
   src.latitude -> tgt.latitude;
   src.altitude -> tgt.altitude;
-};
+}
 

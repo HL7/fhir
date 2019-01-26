@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.ped/apgarheartrate",
+  "code" : "0"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.ped/apgarheartrate\" is not known; The code provided (http://acme.ped/apgarheartrate#0) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.ped/apgarheartrate",
+  "code" : "1"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.ped/apgarheartrate\" is not known; The code provided (http://acme.ped/apgarheartrate#1) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.ped/apgarheartrate",
+  "code" : "2"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.ped/apgarheartrate\" is not known; The code provided (http://acme.ped/apgarheartrate#2) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

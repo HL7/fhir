@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Practitioner4to3" = "R4 to R3 Conversion for Practitioner"
+map "http://hl7.org/fhir/StructureMap/Practitioner4to3" = "R4 to R3 Conversion for Practitioner"
 
 uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Practitioner" alias PractitionerR3 as target

@@ -55,7 +55,7 @@
 	</valueQuantity>
 	<interpretation>
 		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/0078"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 			<code value="L"/>
 			<display value="Low"/>
 		</coding>

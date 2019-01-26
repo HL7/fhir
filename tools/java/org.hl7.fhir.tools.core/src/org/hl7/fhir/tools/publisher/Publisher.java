@@ -2967,7 +2967,7 @@ public class Publisher implements URIResolver, SectionNumberer {
               JsonObject meta = JSONUtil.forceObject(jr, "meta");
               JsonArray labels = JSONUtil.forceArray(meta, "tag");
               JsonObject label = JSONUtil.addObj(labels);
-              label.addProperty("system", "http://hl7.org/fhir/v3/ActReason");
+              label.addProperty("system", "http://terminology.hl7.org/CodeSystem/v3-ActReason");
               label.addProperty("code", "HTEST");
               label.addProperty("display", "test health data");
                 
@@ -4690,7 +4690,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     Element tag = XMLUtil.getNamedChild(meta, "tag");
     Element label = XMLUtil.insertChild(xdoc, meta, "security", FormatUtilities.FHIR_NS, tag, 4);
-    XMLUtil.addTextTag(xdoc, label, "system", FormatUtilities.FHIR_NS, "http://hl7.org/fhir/v3/ActReason", 6);
+    XMLUtil.addTextTag(xdoc, label, "system", FormatUtilities.FHIR_NS, "http://terminology.hl7.org/CodeSystem/v3-ActReason", 6);
     XMLUtil.addTextTag(xdoc, label, "code", FormatUtilities.FHIR_NS, "HTEST", 6);
     XMLUtil.addTextTag(xdoc, label, "display", FormatUtilities.FHIR_NS, "test health data", 6); 
     XMLUtil.spacer(xdoc, label, 4); 
@@ -5899,23 +5899,23 @@ public class Publisher implements URIResolver, SectionNumberer {
     TestingUtilities.silent = true;
     TestingUtilities.fixedpath = page.getFolders().rootDir;
     TestingUtilities.contentpath = page.getFolders().dstDir;
-//    
-//    runJUnitClass(ValidationTestSuite.class);
-//    runJUnitClass(FHIRPathTests.class);
-//    runJUnitClass(NarrativeGeneratorTests.class);
-//    runJUnitClass(SnomedExpressionsTests.class);
-//    runJUnitClass(ResourceRoundTripTests.class);
-//    runJUnitClass(SnapShotGenerationTests.class);
-//    runJUnitClass(GraphQLParserTests.class);
-//    runJUnitClass(GraphQLEngineTests.class);
+    
+    runJUnitClass(ValidationTestSuite.class);
+    runJUnitClass(FHIRPathTests.class);
+    runJUnitClass(NarrativeGeneratorTests.class);
+    runJUnitClass(SnomedExpressionsTests.class);
+    runJUnitClass(ResourceRoundTripTests.class);
+    runJUnitClass(SnapShotGenerationTests.class);
+    runJUnitClass(GraphQLParserTests.class);
+    runJUnitClass(GraphQLEngineTests.class);
     checkAllOk();
   }
 
   private void runJUnitTestsEnd() throws Exception {
     ValidationEngineTests.inbuild = true;
-//    runJUnitClass(ValidationEngineTests.class);
-//    runJUnitClass(TransformationTests.class); 
-//    runJUnitClass(AllGuidesTests.class);
+    runJUnitClass(ValidationEngineTests.class);
+    runJUnitClass(TransformationTests.class); 
+    runJUnitClass(AllGuidesTests.class);
     checkAllOk();
   }
 

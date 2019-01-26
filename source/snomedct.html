@@ -88,7 +88,7 @@ unambiguously reference a particular version of a SNOMED CT edition:</p>
 are <a href="https://confluence.ihtsdotools.org/display/DOCEXTPG/4.4.2+Edition+URI+Examples">listed here</a>.</p>
 <p>Note that many implementations are in the habit of
 simply using the date of release in the form YYYYMMDD (e.g. "20140531"),
-and assuming that the edition is known. However this is not always
+and assuming that the edition is known. However, this is not always
 safe, so implementations that populate the <i>version</i> element
 SHOULD use the URI form.
 </p><p>
@@ -133,7 +133,7 @@ term (e.g., the SNOMED CT code for "Fully specified name", "Synonym" or "Definit
 </p>
 <p>
 [Note that ValueSet.compose.include.concept is only used when the value set is defined extensionally (i.e. as an 
-enumerated list of concepts).  For intensionally defined value sets (i.e. using one or more filters) additional 
+enumerated list of concepts).  For intensionally-defined value sets (i.e. using one or more filters) additional 
 terms could be added using CodeSystem.concept.designation, as noted below.]
 </p>
 <p>
@@ -268,10 +268,10 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
    </td></tr>
 </table>
 
-<h4>By whether postcoordination is allowed</h4>
+<h4>By whether post-coordination is allowed</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Specify whether postcoordination is allowed or not</td></tr>
+ <tr><td>Description</td><td>Specify whether post-coordination is allowed or not</td></tr>
  <tr><td>Property Name</td><td>expressions</td></tr>
  <tr><td>Operations Allowed</td><td>=</td></tr>
  <tr><td>Values Allowed</td><td>true or false</td></tr>
@@ -294,7 +294,7 @@ These implicit value sets do not use complex queries. Implicit value sets can al
 <p>
 If any value set resources exist with an identifier that conforms to the URL patterns specified below,
 the content of the resource must conform to the template provided. Profiles and other value set
-references are allowed to reference these value sets directly (by reference as a URI, rather than
+references can reference these value sets directly (by reference as a URI, rather than
 by a literal value set reference).
 </p>
 <p>
@@ -306,7 +306,7 @@ A SNOMED CT implicit value set URL has two parts:
 </ul>
 <p>
 The URL <a href="http://snomed.info/sct">http://snomed.info/sct</a> should be understood to mean an unspecified edition/version. This defines an incomplete value set whose
-actual membership will depend on the particular edition used when it is expanded. If no version or edition is specified, the terminology
+actual membership will depend on the edition used when it is expanded. If no version or edition is specified, the terminology
 service SHALL use the latest version available for its default edition (or the International Edition, if no other edition is the default).
 </p>
 <p>
@@ -486,7 +486,7 @@ A SNOMED CT implicit concept map URL has two parts:
   <li>A query portion that specifies the scope of the content</li>
 </ul>
 <p>
-The URL <a href="http://snomed.info/sct">http://snomed.info/sct</a> should be understood to mean an unspecified edition/version. This defines an incomplete concept map whose actual membership will depend on the particular edition being used. If no version or edition is specified, the terminology service SHALL use the latest version available for its default edition (or the International Edition, if no other edition is the default).
+The URL <a href="http://snomed.info/sct">http://snomed.info/sct</a> should be understood to mean an unspecified edition/version. This defines an incomplete concept map whose actual membership will depend on the edition being used. If no version or edition is specified, the terminology service SHALL use the latest version available for its default edition (or the International Edition, if no other edition is the default).
 </p>
 <p>
 For the second part of the URL (the query part), there is only one possible value:

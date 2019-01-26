@@ -1,14 +1,13 @@
-﻿map "http://hl7.org/fhir/StructureMap/MeasureReport4to3" = "R4 to R3 Conversion for MeasureReport"
+map "http://hl7.org/fhir/StructureMap/MeasureReport4to3" = "R4 to R3 Conversion for MeasureReport"
 
 conceptmap "MeasureReportType" {
   prefix s = "http://hl7.org/fhir/measure-report-type"
   prefix t = "http://hl7.org/fhir/measure-report-type"
 
-  s:"subject-list" - t:"patient-list"
+  s:"'subject-list'" - t:"'patient-list'"
   s:individual - t:individual
   s:summary - t:summary
 }
-
 
 uses "http://hl7.org/fhir/StructureDefinition/MeasureReport" alias MeasureReport as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MeasureReport" alias MeasureReportR3 as target
@@ -18,7 +17,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group MeasureReport(source src : MeasureReportR3, target tgt : MeasureReport) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
-  src.type as v -> tgt.type = translate(v, "#MeasureReportType", "code");
+  src.type as v -> tgt.type = translate(v, '#MeasureReportType', 'code');
   src.measure -> tgt.measure;
   src.subject -> tgt.patient;
   src.date -> tgt.date;

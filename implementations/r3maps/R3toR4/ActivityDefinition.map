@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ActivityDefinition3to4" = "R3 to R4 Conversions for ActivityDefinition"
+map "http://hl7.org/fhir/StructureMap/ActivityDefinition3to4" = "R3 to R4 Conversions for ActivityDefinition"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ActivityDefinition" alias ActivityDefinitionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ActivityDefinition" alias ActivityDefinition as target
@@ -34,7 +34,7 @@ group ActivityDefinition(source src : ActivityDefinitionR3, target tgt : Activit
   src.contributor as vs where type = 'endorser' -> tgt.endorser as vt then Contributor(vs, vt);
   src.relatedArtifact -> tgt.relatedArtifact;
   src.library -> tgt.library;
-  src.kind as v -> tgt.kind = translate(v, "http://hl7.org/fhir/StructureMap/ConceptMaps3to4#ResourceTypeMap", "code");
+  src.kind as v -> tgt.kind = translate(v, 'http://hl7.org/fhir/StructureMap/ConceptMaps3to4#ResourceTypeMap', 'code');
   src.code -> tgt.code;
   src.doNotPerform -> tgt.doNotPerform;
   src.timing -> tgt.timing;
@@ -54,12 +54,12 @@ group ActivityDefinitionParticipant(source src, target tgt) extends BackboneElem
   src.role -> tgt.role;
 }
 
-
 group ActivityDefinitionDynamicValue(source src, target tgt) extends BackboneElement {
   src.path -> tgt.path;
-  src as vs where vs.type.exists().not() -> tgt.expression = create("Expression") as vt then {
+  src as vs where vs.type.exists().not() -> tgt.expression = create('Expression') as vt then {
     vs.description -> vt.description;
-	vs.language -> vt.language;
-	vs.expression -> vt.expression;
-  };
+    vs.language -> vt.language;
+    vs.expression -> vt.expression;
+  } "expression";
 }
+

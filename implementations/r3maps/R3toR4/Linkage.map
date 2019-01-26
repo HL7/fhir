@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Linkage3to4" = "R3 to R4 Conversions for Linkage"
+map "http://hl7.org/fhir/StructureMap/Linkage3to4" = "R3 to R4 Conversions for Linkage"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Linkage" alias LinkageR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Linkage" alias Linkage as target

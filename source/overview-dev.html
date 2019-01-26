@@ -130,6 +130,22 @@ Each instance of a resource consists of:
 Note that although this specification always shows the JSON properties in the order that they are defined, many JSON libraries order properties by other criteria.
 </p>
 
+<a name="identity"></a>
+<h3>URLs and Identities</h3>
+<p>
+All resources may have a <code>URL</code> that identifies the resource and specifies where it was/can be accessed from. 
+This URL is not represented inside the resource; the value arises in a context use, and changes as copies of the 
+resource are made, or following other deployment/security related changes. If the resource is accessed via
+the FHIR RESTful API (see immediately below) then the URL for the resource is <code>[base]/[resourceType]/[id]</code> 
+where the <code>resourceType</code> and <code>id</code> come from the resource (see above).
+</p>
+<p>
+Some resources - those typically associated with formal publication cycles, rather than operational
+healthcare - have an explicit URL in them, which is normally the URL of master copy of the resource.
+This URL remains constant as the resource is copied across systems. See <a href="references.html#canonical">Canonical URLs</a> for further 
+information.
+</p>
+
 <a name="Interactions"></a>
 <h3>Interactions</h3>
 <p>
@@ -440,9 +456,7 @@ The response to a search request is a <a href="bundle.html">Bundle</a>: a list o
 <code>  "resourceType": "Bundle",</code>
 <code>  "type": "searchset",</code>
 <code>  "id" : "eceb4882-5c7e-4ca4-af62-995dfb8cef01"</code>
-<code>  "meta" : {</code>
-<code>    "lastUpdated" : "2014-08-19T15:49:30Z"</code>
-<code>  },</code>
+<code>  "timestamp": "2014-08-19T15:49:30Z",</code>
 <code>  "total": "3",</code>
 <code>  "link": [</code>
 <code>    {</code>
@@ -477,7 +491,7 @@ Notes:
 <ul>
   <li><b>resourceType/type</b> (line 7/8) - the result of a search is always a bundle of type "searchset"</li>
   <li><b>id</b> (line 9) - An identifier assigned to this particular bundle. The server should assign a unique id to this bundle that it will not be re-used</li>
-  <li><b>meta.lastUpdated</b> (line 11) - (if the server supports versioning) This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The lastUpdated data SHALL be the same or more recent than the most recent resource in the results</li>
+  <li><b>timestamp</b> (line 11) - (if the server supports versioning) This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The timestamp must be the same or more recent than the most recent resource in the results</li>
   <li><b>total</b> (line 13) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
   <li><b>link</b> (line 14) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
   <li><b>entry</b> (line 23) - Actual resources in this set of results</li>
@@ -603,7 +617,7 @@ Implementers notes:
   <li><b>meta.lastUpdated</b> (line 6) - Changes when the versionId changes. Systems that don't support versions usually don't track lastUpdated either</li>
   <li><b>meta.profile</b> (line 7) - An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. Can be changed as profiles and value sets change or the system rechecks conformance</li>
   <li><b>meta.security</b> (lines 8 - 11) - <a href="security-labels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-system chooses to</li>
-  <li><b>meta.tag</b> (lines 12 - 16) - <a href="resource.html#Meta">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider the tags when interpreting the meaning of a resource. Tags can be <a href="http.html#tags">updated</a> without changing the resource version</li>
+  <li><b>meta.tag</b> (lines 12 - 16) - <a href="resource.html#Meta">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider the tags when interpreting the meaning of a resource</li>
   <li><b>implicitRules</b> (line 17) - indicates that there is a <a href="profiling.html#agreement">custom agreement</a> about how the resources are used that must be understood in order to safely process the resource. Use of this is discouraged because it restricts sharing, but sometimes necessary</li>
   <li><b>language</b> (line 18) - The <a href="narrative.html#language">base language of the resource</a>. The resource is allowed to have content from other languages; this is just the base, but should be the main language of the resource</li>
 </ul>

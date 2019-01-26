@@ -23,7 +23,7 @@
 	<effectiveDateTime value="2016-05-18T22:33:22Z"/>
 	<valueCodeableConcept>
 		<coding>
-			<system value="http:/acme.ped/apgarcolor"/>
+			<system value="http://acme.ped/apgarcolor"/>
 			<code value="2"/>
 			<display value="Good color all over"/>
 		</coding>

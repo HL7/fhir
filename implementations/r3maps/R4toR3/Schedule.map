@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Schedule4to3" = "R4 to R3 Conversion for Schedule"
+map "http://hl7.org/fhir/StructureMap/Schedule4to3" = "R4 to R3 Conversion for Schedule"
 
 uses "http://hl7.org/fhir/StructureDefinition/Schedule" alias Schedule as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Schedule" alias ScheduleR3 as target
@@ -15,3 +15,4 @@ group Schedule(source src : Schedule, target tgt : ScheduleR3) extends DomainRes
   src.planningHorizon -> tgt.planningHorizon;
   src.comment -> tgt.comment;
 }
+

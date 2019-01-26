@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/DetectedIssue3to4" = "R3 to R4 Conversions for DetectedIssue"
+map "http://hl7.org/fhir/StructureMap/DetectedIssue3to4" = "R3 to R4 Conversions for DetectedIssue"
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DetectedIssue" alias DetectedIssueR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias DetectedIssue as target
@@ -23,4 +23,5 @@ group mitigation(source src, target tgt) extends BackboneElement {
   src.action -> tgt.action;
   src.date -> tgt.date;
   src.author -> tgt.author;
-};
+}
+

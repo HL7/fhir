@@ -8,7 +8,7 @@
   }
 }}####
 e: {
-  "error" : "Error from server: ChildCount not supported by RXNorm"
+  "error" : "Error from server: getcontext not supported by RXNorm"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -156,7 +156,7 @@ v: {
   "code" : "204520"
 }, "valueSet" :null}####
 v: {
-  "display" : "potassium chloride 2 MEQ in 1 ML Injectable Solution",
+  "display" : "Potassium Chloride 2 MEQ/ML Injectable Solution",
   "severity" : null,
   "error" : ""
 }
@@ -166,7 +166,7 @@ v: {
   "code" : "313002"
 }, "valueSet" :null}####
 v: {
-  "display" : "Sodium Chloride 9 MG/ML Injectable Solution",
+  "display" : "Sodium Chloride 0.154 MEQ/ML Injectable Solution",
   "severity" : null,
   "error" : ""
 }
@@ -196,7 +196,7 @@ v: {
   "code" : "763179"
 }, "valueSet" :null}####
 v: {
-  "display" : "predniSONE 5 MG Tablet 12 Day 48 Count Pack",
+  "display" : "predniSONE 5 MG Oral Tablet 48 Count Pack",
   "severity" : null,
   "error" : ""
 }
@@ -253,12 +253,12 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-  "code" : "746201"
+  "code" : "1797870"
 }, "valueSet" :null}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code \"746201\" is not valid in the system http://www.nlm.nih.gov/research/umls/rxnorm; The code provided (http://www.nlm.nih.gov/research/umls/rxnorm#746201) is not  valid in the value set All codes known to the system"
+  "error" : "The code \"1797870\" is not valid in the system http://www.nlm.nih.gov/research/umls/rxnorm; The code provided (http://www.nlm.nih.gov/research/umls/rxnorm#1797870) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -276,7 +276,7 @@ v: {
   "code" : "1313112"
 }, "valueSet" :null}####
 v: {
-  "display" : "phenytoin 125 MG in 5 mL Oral Suspension",
+  "display" : "Phenytoin 25 MG/ML Oral Suspension",
   "severity" : null,
   "error" : ""
 }
@@ -471,9 +471,9 @@ v: {
   "display" : "Potassium Chloride"
 }, "valueSet" :null}####
 v: {
-  "display" : "potassium chloride 2 MEQ in 1 ML Injectable Solution",
+  "display" : "Potassium Chloride 2 MEQ/ML Injectable Solution",
   "severity" : "warning",
-  "error" : "The display \"Potassium Chloride\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}204520 - should be one of [\"potassium chloride 2 MEQ in 1 ML Injectable Solution\",\"potassium chloride 15 % Injectable Solution\",\"K+ Chloride 2 MEQ/ML Injectable Solution\",\"Pot Chloride 2 MEQ/ML Injectable Solution\",\"potassium chloride 2 MEQ per 1 ML Injectable Solution\"]"
+  "error" : "The display \"Potassium Chloride\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}204520 - should be one of [\"Potassium Chloride 2 MEQ/ML Injectable Solution\",\"potassium chloride 15 % Injectable Solution\",\"K+ Chloride 2 MEQ/ML Injectable Solution\",\"Pot Chloride 2 MEQ/ML Injectable Solution\"]"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -482,9 +482,9 @@ v: {
   "display" : "Sodium Chloride 0.9% injectable solution"
 }, "valueSet" :null}####
 v: {
-  "display" : "Sodium Chloride 9 MG/ML Injectable Solution",
+  "display" : "Sodium Chloride 0.154 MEQ/ML Injectable Solution",
   "severity" : "warning",
-  "error" : "The display \"Sodium Chloride 0.9% injectable solution\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}313002 - should be one of [\"Sodium Chloride 9 MG/ML Injectable Solution\",\"sodium chloride 0.9 % Injectable Solution\",\"sodium chloride 9 MG/ML Injectable Solution\",\"NaCl 9 MG/ML Injectable Solution\"]"
+  "error" : "The display \"Sodium Chloride 0.9% injectable solution\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}313002 - should be one of [\"Sodium Chloride 0.154 MEQ/ML Injectable Solution\",\"sodium chloride 0.9 % Injectable Solution\",\"sodium chloride 9 MG/ML Injectable Solution\",\"NaCl 0.154 MEQ/ML Injectable Solution\"]"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -515,9 +515,9 @@ v: {
   "display" : "Prednisone 5mg Oral Tablet 48 Count Pack"
 }, "valueSet" :null}####
 v: {
-  "display" : "predniSONE 5 MG Tablet 12 Day 48 Count Pack",
+  "display" : "predniSONE 5 MG Oral Tablet 48 Count Pack",
   "severity" : "warning",
-  "error" : "The display \"Prednisone 5mg Oral Tablet 48 Count Pack\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}763179 - should be one of [\"predniSONE 5 MG Tablet 12 Day 48 Count Pack\",\"Prednisone 5 MG Oral Tablet 48 Count Pack\"]"
+  "error" : "The display \"Prednisone 5mg Oral Tablet 48 Count Pack\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}763179 - should be one of [\"predniSONE 5 MG Oral Tablet 48 Count Pack\",\"Prednisone 5 MG Oral Tablet 48 Count Pack\"]"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -566,13 +566,13 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-  "code" : "746201",
+  "code" : "1797870",
   "display" : "Nasonex 0.05mg/ACTUAT Nasal Inhaler"
 }, "valueSet" :null}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code \"746201\" is not valid in the system http://www.nlm.nih.gov/research/umls/rxnorm; The code provided (http://www.nlm.nih.gov/research/umls/rxnorm#746201) is not  valid in the value set All codes known to the system"
+  "error" : "The code \"1797870\" is not valid in the system http://www.nlm.nih.gov/research/umls/rxnorm; The code provided (http://www.nlm.nih.gov/research/umls/rxnorm#1797870) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -592,9 +592,9 @@ v: {
   "display" : "Phenytoin 25mg/ml oral suspension"
 }, "valueSet" :null}####
 v: {
-  "display" : "phenytoin 125 MG in 5 mL Oral Suspension",
+  "display" : "Phenytoin 25 MG/ML Oral Suspension",
   "severity" : "warning",
-  "error" : "The display \"Phenytoin 25mg/ml oral suspension\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}1313112 - should be one of [\"phenytoin 125 MG in 5 mL Oral Suspension\",\"phenytoin 125 MG per 5 ML Oral Suspension\",\"phenytoin 100 MG per 4 ML Oral Suspension\",\"DPH 25 MG/ML Oral Suspension\"]"
+  "error" : "The display \"Phenytoin 25mg/ml oral suspension\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}1313112 - should be one of [\"Phenytoin 25 MG/ML Oral Suspension\",\"phenytoin 125 MG per 5 ML Oral Suspension\",\"phenytoin 100 MG per 4 ML Oral Suspension\",\"DPH 25 MG/ML Oral Suspension\"]"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -715,16 +715,6 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-  "code" : "1797870"
-}, "valueSet" :null}####
-v: {
-  "display" : "NASONEX 50 MCG/ACTUAT Metered Dose Nasal Spray",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "1797870",
   "display" : "Nasonex 0.05mg/ACTUAT Nasal Inhaler"
 }, "valueSet" :null}####
@@ -732,5 +722,15 @@ v: {
   "display" : "NASONEX 50 MCG/ACTUAT Metered Dose Nasal Spray",
   "severity" : "warning",
   "error" : "The display \"Nasonex 0.05mg/ACTUAT Nasal Inhaler\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}1797870 - should be one of [\"NASONEX 50 MCG/ACTUAT Metered Dose Nasal Spray\",\"Nasonex 0.05 MG/ACTUAT Metered Dose Nasal Spray\",\"Nasonex 50 MCG/ACTUAT Metered Dose Nasal Spray\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "1797870"
+}, "valueSet" :null}####
+v: {
+  "display" : "NASONEX 50 MCG/ACTUAT Metered Dose Nasal Spray",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

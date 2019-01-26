@@ -1,12 +1,12 @@
-﻿map "http://hl7.org/fhir/StructureMap/Procedure4to3" = "R4 to R3 Conversion for Procedure"
+map "http://hl7.org/fhir/StructureMap/Procedure4to3" = "R4 to R3 Conversion for Procedure"
 
 conceptmap "EventStatus" {
   prefix s = "http://hl7.org/fhir/ValueSet/event-status"
   prefix t = "http://hl7.org/fhir/ValueSet/event-status"
 
-  s:"entered-in-error" - t:"entered-in-error"
-  s:"in-progress" - t:"in-progress"
-  s:"on-hold" - t:suspended
+  s:"'entered-in-error'" - t:"'entered-in-error'"
+  s:"'in-progress'" - t:"'in-progress'"
+  s:"'on-hold'" - t:suspended
   s:aborted - t:stopped
   s:completed - t:completed
   s:preparation - t:preparation
@@ -26,13 +26,13 @@ group Procedure(source src : ProcedureR3, target tgt : Procedure) extends Domain
   src.instantiatesUri -> tgt.instantiatesUri;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
-  src.status where value = 'not-done' -> tgt.status = create("code") as vt, vt.value = "suspended",  tgt.notDone = true;
-  src.status as vs where (value = 'not-done').not() -> tgt.status = translate(vs, "#EventStatus", "code");
-  src.statusReason as vs where src.status = 'not-done' -> tgt.notDoneReason = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+  src.status where value = 'not-done' ->  tgt.status = create('code') as vt,  vt.value = 'suspended',  tgt.notDone = true;
+  src.status as vs where (value = 'not-done').not() -> tgt.status = translate(vs, '#EventStatus', 'code');
+  src.statusReason as vs where src.status = 'not-done' -> tgt.notDoneReason = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.subject -> tgt.subject;
-  src.encounter : Reference as vs -> tgt.context = create("Reference") as vt then Reference(vs, vt);
+  src.encounter : Reference as vs -> tgt.context = create('Reference') as vt then Reference(vs, vt);
   src.performed -> tgt.performed;
   src.recorder -> tgt.recorder;
   src.asserter -> tgt.asserter;

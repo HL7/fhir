@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EntryDefinition4to3" = "R4 to R3 Conversion for EntryDefinition"
+map "http://hl7.org/fhir/StructureMap/EntryDefinition4to3" = "R4 to R3 Conversion for EntryDefinition"
 
 uses "http://hl7.org/fhir/StructureDefinition/EntryDefinition" alias EntryDefinition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EntryDefinition" alias EntryDefinitionR3 as target

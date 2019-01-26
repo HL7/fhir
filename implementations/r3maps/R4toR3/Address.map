@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Address4to3" = "R4 to R3 Conversion for Address"
+map "http://hl7.org/fhir/StructureMap/Address4to3" = "R4 to R3 Conversion for Address"
 
 uses "http://hl7.org/fhir/StructureDefinition/Address" alias Address as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Address" alias AddressR3 as target
