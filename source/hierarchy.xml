@@ -338,7 +338,7 @@ signatures.html
     	<page type="resource" resource="MedicinalProductManufactured"/>
     	<page type="resource" resource="MedicinalProductPackaged"/>
     	<page type="resource" resource="MedicinalProductPharmaceutical"/>
-      <page type="resource" resource="SubstanceSpecification"/>
+      <page type="resource" resource="SubstanceDefinition"/>
       <page type="resource" resource="SubstancePolymer"/>
       <page type="resource" resource="SubstanceProtein"/>
       <page type="resource" resource="SubstanceNucleicAcid"/>
