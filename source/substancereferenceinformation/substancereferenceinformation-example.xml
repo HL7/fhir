@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SubstanceSpecification xmlns="http://hl7.org/fhir">
+<SubstanceReferenceInformation xmlns="http://hl7.org/fhir">
    <id value="example"/>
    <!--numberOfMoieties value="2"/>
    <identifier>
@@ -466,4 +466,4 @@
          <referenceSourceId value="CBG345267C (Artificial ID)"/>
       </referenceSource>
    </substanceName-->
-</SubstanceSpecification>
+</SubstanceReferenceInformation>
