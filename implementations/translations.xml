@@ -932,8 +932,8 @@
     <item id="SubstanceReferenceInformation">
         <translation lang="en">SubstanceReferenceInformation</translation>
     </item>
-	<item id="SubstanceSpecification">
-		<translation lang="en">SubstanceSpecification</translation>
+	<item id="SubstanceDefinition">
+		<translation lang="en">SubstanceDefinition</translation>
 	</item>
 	<item id="SubstanceSourceMaterial">
 		<translation lang="en">SubstanceSourceMaterial</translation>
