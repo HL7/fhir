@@ -1150,11 +1150,13 @@ public class StructureMapUtilities {
 				target.addListMode(StructureMapTargetListMode.SHARE);
 				lexer.next();
 				target.setListRuleId(lexer.take());
-			} else if (lexer.getCurrent().equals("first")) 
-				target.addListMode(StructureMapTargetListMode.FIRST);
-			else
-				target.addListMode(StructureMapTargetListMode.LAST);
-			lexer.next();
+			} else {
+				if (lexer.getCurrent().equals("first")) 
+					target.addListMode(StructureMapTargetListMode.FIRST);
+				else
+					target.addListMode(StructureMapTargetListMode.LAST);
+				lexer.next();
+				}
 		}
 	}
 
@@ -1199,7 +1201,7 @@ public class StructureMapUtilities {
 	}
 
 	public enum VariableMode {
-		INPUT, OUTPUT
+		INPUT, OUTPUT, SHARED
 	}
 
 	public class Variable {
@@ -1260,12 +1262,20 @@ public class StructureMapUtilities {
     public String summary() {
       CommaSeparatedStringBuilder s = new CommaSeparatedStringBuilder();
       CommaSeparatedStringBuilder t = new CommaSeparatedStringBuilder();
+      CommaSeparatedStringBuilder sh = new CommaSeparatedStringBuilder();
       for (Variable v : list)
-        if (v.mode == VariableMode.INPUT)
+      	switch(v.mode) {
+      	case INPUT:
           s.append(v.summary());
-        else
+          break;
+        case OUTPUT:
           t.append(v.summary());
-      return "source variables ["+s.toString()+"], target variables ["+t.toString()+"]";
+          break;
+        case SHARED:
+          sh.append(v.summary());
+          break;
+      	}
+      return "source variables ["+s.toString()+"], target variables ["+t.toString()+"], shared variables ["+sh.toString()+"]";
     }
 	}
 
@@ -1359,7 +1369,7 @@ public class StructureMapUtilities {
 		if (source != null) {
 			for (Variables v : source) {
 				for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
-					processTarget(rule.getName(), context, v, map, group, t, rule.getSource().size() == 1 ? rule.getSourceFirstRep().getVariable() : null, atRoot);
+					processTarget(rule.getName(), context, v, map, group, t, rule.getSource().size() == 1 ? rule.getSourceFirstRep().getVariable() : null, atRoot, vars);
 				}
 				if (rule.hasRule()) {
 					for (StructureMapGroupRuleComponent childrule : rule.getRule()) {
@@ -1761,7 +1771,7 @@ public class StructureMapUtilities {
     return false;
   }
 
-  private void processTarget(String ruleId, TransformContext context, Variables vars, StructureMap map, StructureMapGroupComponent group, StructureMapGroupRuleTargetComponent tgt, String srcVar, boolean atRoot) throws FHIRException {
+  private void processTarget(String ruleId, TransformContext context, Variables vars, StructureMap map, StructureMapGroupComponent group, StructureMapGroupRuleTargetComponent tgt, String srcVar, boolean atRoot, Variables sharedVars) throws FHIRException {
 	  Base dest = null;
 	  if (tgt.hasContext()) {
   		dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
@@ -1775,8 +1785,17 @@ public class StructureMapUtilities {
 	    v = runTransform(ruleId, context, map, group, tgt, vars, dest, tgt.getElement(), srcVar, atRoot);
 	    if (v != null && dest != null)
 	      v = dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v); // reset v because some implementations may have to rewrite v when setting the value
-	  } else if (dest != null) 
-	    v = dest.makeProperty(tgt.getElement().hashCode(), tgt.getElement());
+	  } else if (dest != null) { 
+	  	if (tgt.hasListMode(StructureMapTargetListMode.SHARE)) {
+	  		v = sharedVars.get(VariableMode.SHARED, tgt.getListRuleId());
+	  		if (v == null) {
+	  			v = dest.makeProperty(tgt.getElement().hashCode(), tgt.getElement());
+	  			sharedVars.add(VariableMode.SHARED, tgt.getListRuleId(), v);	  			
+	  		}
+	  	} else {
+	  		v = dest.makeProperty(tgt.getElement().hashCode(), tgt.getElement());
+	  	}
+	  }
 	  if (tgt.hasVariable() && v != null)
 	    vars.add(VariableMode.OUTPUT, tgt.getVariable(), v);
 	}
