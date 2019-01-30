@@ -1,5 +1,0 @@
-{
-  identifier @flatten { system value }
-  active 
-  name @flatten @slice(path: "use") { given family @singleton } 
-}

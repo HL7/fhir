@@ -1,5 +1,0 @@
-{ 
-  id
-  subject { reference, resource {active} } 
-  code {coding {system code} }
-}

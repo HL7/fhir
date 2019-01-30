@@ -1,5 +1,0 @@
-{
-  identifier @flatten { system value }
-  active 
-  name @flatten { text given family } 
-}

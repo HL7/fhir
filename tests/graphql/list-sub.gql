@@ -1,3 +1,0 @@
- { 
-  entry(_count: 5, _offset: 5) { deleted item { reference } } 
- }

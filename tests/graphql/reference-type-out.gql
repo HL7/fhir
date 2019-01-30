@@ -1,5 +1,0 @@
-{ 
-  id
-  subject { reference, resource(type : Group) {active} } 
-  code {coding {system code} }
-}
