@@ -4,13 +4,14 @@
 
 		<!-- HAPI FHIR Deps -->
 		<dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="3.7.0-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.utilities" rev="3.7.0-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2" rev="3.7.0-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2016may" rev="3.7.0-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu3" rev="3.7.0-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r4" rev="3.7.0-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.convertors" rev="3.7.0-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.validation" rev="3.7.0-SNAPSHOT"/>
+		<!-- HAPI FHIR Deps -->
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.utilities" rev="3.7.1-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2" rev="3.7.1-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2016may" rev="3.7.1-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu3" rev="3.7.1-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r4" rev="3.7.1-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.convertors" rev="3.7.1-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.validation" rev="3.7.1-SNAPSHOT"/>
 
 		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" />
 		<dependency org="com.google.code.gson" name="gson" rev="2.3"/>
@@ -131,5 +132,7 @@
 		<dependency org="org.slf4j" name="slf4j-log4j12" rev="1.7.22" />
 		<dependency org="org.slf4j" name="slf4j-jdk14" rev="1.7.22"/>
 		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.22"/>
+		<dependency org="org.apache.logging.log4j" name="log4j" rev="2.11.1" />
+
 	</dependencies>
 </ivy-module>
