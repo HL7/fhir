@@ -1370,10 +1370,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     PackageCacheManager pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
     
     NpmPackage npm = null; 
-    if (pcm.hasPackage("hl7.fhir.core", Constants.VERSION))
-        npm = pcm.loadPackageCache("hl7.fhir.core", Constants.VERSION);
-    else
-      npm = pcm.resolvePackage("hl7.fhir.core", Constants.VERSION, Constants.VERSION);
+    npm = pcm.loadPackage("hl7.fhir.core", Constants.VERSION);
     
     ZipInputStream zip = new ZipInputStream(npm.load("other", "ig-template.zip"));
     byte[] buffer = new byte[2048];
@@ -1425,7 +1422,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     String v = version.equals(Constants.VERSION) ? "current" : version;
 
     if (Utilities.noString(igPack)) {
-      pi = pcm.loadPackageCache("hl7.fhir.core", v);
+      pi = pcm.loadPackage("hl7.fhir.core", v);
     } else
       pi = pcm.extractLocally(igPack);
     if (pi == null) {
@@ -1520,7 +1517,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (Utilities.noString(canonical))
       throw new Exception("You must specify a canonical URL for the IG "+name);
     
-    NpmPackage pi = packageId == null ? null : pcm.loadPackageCache(packageId, igver);
+    NpmPackage pi = packageId == null ? null : pcm.loadPackageFromCacheOnly(packageId, igver);
     if (pi == null) {
       pi = resolveDependency(canonical, packageId, igver);
       if (pi == null) {
@@ -1594,7 +1591,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private NpmPackage resolveDependency(String canonical, String packageId, String igver) throws Exception {
     if (packageId != null) 
-      return pcm.resolvePackage(packageId, igver, Constants.VERSION);
+      return pcm.loadPackageFromCacheOnly(packageId, igver);
     
     JsonObject pl;
     System.out.println("Fetch Package history from "+Utilities.pathURL(canonical, "package-list.json"));
