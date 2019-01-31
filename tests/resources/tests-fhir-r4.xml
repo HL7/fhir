@@ -786,7 +786,7 @@
   <group name="testIntersect">
     <test inputfile="patient-example.xml"><expression>(1 | 2 | 3).intersect(2 | 4) = 2</expression><output type="boolean">true</output></test>
     <test inputfile="patient-example.xml"><expression>(1 | 2).intersect(4) = {}</expression><output type="boolean">true</output></test> 
-    <test inputfile="patient-example.xml"><expression>(1 | 2).intersect({}) = {}</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>(1 | 2).intersect(-) = {}</expression><output type="boolean">true</output></test>
     <test inputfile="patient-example.xml"><expression>1.combine(1).intersect(1).count() = 1</expression><output type="boolean">true</output></test> <!-- do not merge duplicates -->
   </group>
 

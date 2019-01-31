@@ -3537,7 +3537,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">If there is no component or hasMember element then either a value[x] or a data absent reason must be present.</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">(component.empty() and hasMember.empty()) implies (dataAbsentReason or value)</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">f:component or f:memberOF or f:*[starts-with(local-name(.), 'value')] or f:dataAbsentReason</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

@@ -2879,7 +2879,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       for (String fn : ini.getPropertyNames("test-files")) {
         if (fn.endsWith("\\*")) {
           fn = fn.substring(0, fn.length()-2);
-          zip.addFiles(Utilities.path(page.getFolders().rootDir, "tests", fn)+File.separator, fn+File.separator, null, null);
+// GGTODO          zip.addFiles(Utilities.path(page.getFolders().rootDir, "tests", fn)+File.separator, fn+File.separator, null, null);
         } else
           zip.addFileName(fn, Utilities.path(page.getFolders().rootDir, "tests", fn), false);
       }
