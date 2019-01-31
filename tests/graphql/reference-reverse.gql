@@ -1,6 +1,0 @@
-{ 
-  id
-  ConditionList(_reference: patient) {
-    id
-  }
-}

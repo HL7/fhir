@@ -1,5 +1,0 @@
-{ 
-  id
-  subject { reference, resource { ...on Patient {active} } }
-  code {coding {system code} }
-}

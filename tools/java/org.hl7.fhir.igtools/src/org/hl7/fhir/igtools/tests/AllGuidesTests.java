@@ -2,7 +2,7 @@ package org.hl7.fhir.igtools.tests;
 
 import org.hl7.fhir.igtools.publisher.Publisher;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
-import org.hl7.fhir.r4.test.support.TestingUtilities;
+import org.hl7.fhir.r4.test.utils.TestingUtilities;
 import org.hl7.fhir.utilities.Utilities;
 import org.junit.Test;
 

@@ -4822,7 +4822,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">If Observation.code is the same as an Observation.component.code then the value element associated with the code SHALL NOT be present</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">value.empty() or component.code.where( (coding.code = %resource.code.coding.code) and (coding.system = %resource.code.coding.system)).empty()</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">not(f:*[starts-with(local-name(.), 'value')] and (for $coding in f:code/f:coding return f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value] [f:system/@value=$coding/f:system/@value]))</Data></Cell>
     <Cell><Data ss:Type="String">[#9375],[#14038][#14073]</Data></Cell>
    </Row>

@@ -224,7 +224,7 @@ public class SimpleFetcher implements IFetchFile {
               if (!Utilities.existsInList(ext, "json", "ttl", "html", "txt"))
                 try {
                   org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.XmlParser(context).parse(new FileInputStream(f));
-                  addFile(res, f, "application/fhir+xml");
+                  addFile(res, f, e, "application/fhir+xml");
                   count++;
                   ok = true;
                 } catch (Exception e) {
@@ -233,7 +233,7 @@ public class SimpleFetcher implements IFetchFile {
               if (!ok && !Utilities.existsInList(ext, "xml", "ttl", "html", "txt")) {
                 try {
                   org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.JsonParser(context).parse(new FileInputStream(fn));
-                  addFile(res, f, "application/fhir+json");
+                  addFile(res, f, e, "application/fhir+json");
                   count++;
                   ok = true;
                 } catch (Exception e) {
@@ -243,7 +243,7 @@ public class SimpleFetcher implements IFetchFile {
               if (!ok && !Utilities.existsInList(ext, "json", "xml", "html", "txt")) {
                 try {
                   org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.TurtleParser(context).parse(new FileInputStream(fn));
-                  addFile(res, f, "application/fhir+turtle");
+                  addFile(res, f, e, "application/fhir+turtle");
                   count++;
                   ok = true;
                 } catch (Exception e) {
@@ -259,6 +259,11 @@ public class SimpleFetcher implements IFetchFile {
     return res;
   }
 
+  private void addFile(List<FetchedFile> res, File f, org.hl7.fhir.r4.elementmodel.Element e, String cnt) throws IOException {
+    if (!e.fhirType().equals("ImplementationGuide"))
+      addFile(res, f, cnt);
+  }
+  
   private void addFile(List<FetchedFile> res, File f, String cnt) throws IOException {
     FetchedFile ff = new FetchedFile();
     ff.setPath(f.getCanonicalPath());

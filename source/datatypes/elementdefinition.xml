@@ -4461,7 +4461,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell><Data ss:Type="String">Must have a modifier reason if isModifier = true</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">isModifier implies isModifierReason.exists()</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">(isModifier.exists() and isModifier) implies isModifierReason.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(f:isModifier/@value = 'true') or exists(f:isModifierReason)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">

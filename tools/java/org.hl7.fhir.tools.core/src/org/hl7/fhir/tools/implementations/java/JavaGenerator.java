@@ -61,7 +61,7 @@ import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
-import org.hl7.fhir.r4.test.ToolsHelper;
+import org.hl7.fhir.r4.test.utils.ToolsHelper;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.r4.utils.Version;
@@ -274,27 +274,29 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jConv.flush();
     jConv.close();
     TextFile.stringToFileNoPrefix(makeConstantsClass(version, buildId, genDate), implDir+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+"Constants.java");
-    ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
-    zip.addFiles(actualImpl+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl, "org/hl7/fhir/r4/formats/", ".java", null);
-    zip.addFiles(actualImpl+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl, "org/hl7/fhir/r4/model/", ".java", null);
-    //    zip.addFiles(implDir+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+"annotations"+sl, "org/hl7/fhir/instance/model/annotations/", ".java", null);
-    zip.addFiles(actualImpl+"org.hl7.fhir.rdf"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"rdf"+sl, "org/hl7/fhir/rdf/", ".java", null);
-    zip.addFiles(actualImpl+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl, "org/hl7/fhir/utilities/", ".java", null);
-    zip.addFiles(actualImpl+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xhtml"+sl, "org/hl7/fhir/utilities/xhtml/", ".java", null);
-    zip.addFiles(actualImpl+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xml"+sl, "org/hl7/fhir/utilities/xml/", ".java", null);
 
-    String importsDir = folders.rootDir+sl+"tools"+sl+"java"+sl+"imports";
-    zip.addFileName("imports/xpp3-1.1.4c.jar", importsDir+sl+"xpp3-1.1.4c.jar", false);
-    zip.addFileName("imports/gson-2.3.jar", importsDir+sl+"gson-2.3.jar", false);
-    zip.addFileName("imports/commons-codec-1.9.jar", importsDir+sl+"commons-codec-1.9.jar", false);
-    zip.addFileName("imports/commons-lang3-3.3.2.jar", importsDir+sl+"commons-lang3-3.3.2.jar", false);
-    zip.addFileName("imports/commons-logging-1.1.1.jar", importsDir+sl+"commons-logging-1.1.1.jar", false);
-    zip.addFileName("imports/commons-logging-api-1.1.jar", importsDir+sl+"commons-logging-api-1.1.jar", false);
-    zip.addFileName("imports/httpclient-4.2.3.jar", importsDir+sl+"httpclient-4.2.3.jar", false);
-    zip.addFileName("imports/httpcore-4.2.2.jar", importsDir+sl+"httpcore-4.2.2.jar", false);
-    zip.addFileName("imports/hapi-fhir-base-3.4.0.jar", importsDir+sl+"hapi-fhir-base-3.4.0.jar", false);
+    // FIXME: JA - Commented out, maybe even more can be
+//    ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
+//    zip.addFiles(actualImpl+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl, "org/hl7/fhir/r4/formats/", ".java", null);
+//    zip.addFiles(actualImpl+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl, "org/hl7/fhir/r4/model/", ".java", null);
+//    zip.addFiles(actualImpl+"org.hl7.fhir.rdf"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"rdf"+sl, "org/hl7/fhir/rdf/", ".java", null);
+//    zip.addFiles(actualImpl+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl, "org/hl7/fhir/utilities/", ".java", null);
+//    zip.addFiles(actualImpl+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xhtml"+sl, "org/hl7/fhir/utilities/xhtml/", ".java", null);
+//    zip.addFiles(actualImpl+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xml"+sl, "org/hl7/fhir/utilities/xml/", ".java", null);
+//
+//    String importsDir = folders.rootDir+sl+"tools"+sl+"java"+sl+"imports";
+//    zip.addFileName("imports/xpp3-1.1.4c.jar", importsDir+sl+"xpp3-1.1.4c.jar", false);
+//    zip.addFileName("imports/gson-2.3.jar", importsDir+sl+"gson-2.3.jar", false);
+//    zip.addFileName("imports/commons-codec-1.9.jar", importsDir+sl+"commons-codec-1.9.jar", false);
+//    zip.addFileName("imports/commons-lang3-3.3.2.jar", importsDir+sl+"commons-lang3-3.3.2.jar", false);
+//    zip.addFileName("imports/commons-logging-1.1.1.jar", importsDir+sl+"commons-logging-1.1.1.jar", false);
+//    zip.addFileName("imports/commons-logging-api-1.1.jar", importsDir+sl+"commons-logging-api-1.1.jar", false);
+//    zip.addFileName("imports/httpclient-4.2.3.jar", importsDir+sl+"httpclient-4.2.3.jar", false);
+//    zip.addFileName("imports/httpcore-4.2.2.jar", importsDir+sl+"httpcore-4.2.2.jar", false);
+//    zip.addFileName("imports/hapi-fhir-base-3.4.0.jar", importsDir+sl+"hapi-fhir-base-3.4.0.jar", false);
+//
+//    zip.close();
 
-    zip.close();
     jParserGenX.close();
     jParserGenJ.close();
     jParserGenR.close();
@@ -450,6 +452,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
   @Override
   public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues, boolean forWeb) throws Exception {
+
+    // FIXME: JA this method is NOP - Can it be removed?
+    if (true) {
+      return true;
+    }
+
     logger.log(" .... build validator", LogMessageType.Process);
     // now, we pack a jar with what we need for testing:
     Manifest manifest = new Manifest();
@@ -476,7 +484,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "commons-compress-1.16.1.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.4.0.jar"), names);
+    // FIXME: JA need to pull this version from the ivy file
+    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.7.0-SNAPSHOT.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "junit-4.11.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "hamcrest-core-1.3.jar"), names);
@@ -735,6 +744,11 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   }
 
   public void buildIGPublisher(String packFileName) throws Exception {
+    // FIXME: JA This is disabled for now
+    if (true) {
+      return;
+    }
+
     Manifest manifest = new Manifest();
     manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
     manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");

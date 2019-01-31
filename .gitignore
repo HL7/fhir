@@ -12,6 +12,11 @@ holder.txt
 /schema/datatypes
 /implementations/javascript/app
 
+# Intellij Stuff
+.idea/
+*.iml
+out/
+
 # Boring system files that don’t belong in the project repository
 .DS_Store
 source/.DS_Store

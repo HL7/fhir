@@ -4044,7 +4044,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.differential</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">In any differential, all the elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">(%resource.kind = 'logical' or element.first().path.startsWith(%resource.type)) and (element.tail().not() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches('\\..*','')&amp;'.')))</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(%resource.kind = 'logical' or element.first().path.startsWith(%resource.type)) and (element.tail().empty() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches('\\..*','')&amp;'.')))</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">count(f:element)=count(f:element[f:path/@value=ancestor::f:StructureDefinition/f:type/@value or starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, '.'))])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
@@ -4116,7 +4116,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">All element definitions must have unique ids (snapshot)</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String"> snapshot.element.all(id) and snapshot.element.id.trace('ids').isDistinct()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String"> snapshot.element.all(id.exists()) and snapshot.element.id.trace('ids').isDistinct()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">count(f:snapshot/f:element)=count(f:snapshot/f:element/@id) and (count(f:snapshot/f:element)=count(distinct-values(f:snapshot/f:element/@id)))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43">
@@ -4125,7 +4125,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">All element definitions must have unique ids (diff)</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">differential.element.all(id) and differential.element.id.trace('ids').isDistinct()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">differential.element.all(id.exists()) and differential.element.id.trace('ids').isDistinct()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">count(f:differential/f:element)=count(f:differential/f:element/@id) and (count(f:differential/f:element)=count(distinct-values(f:differential/f:element/@id)))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">

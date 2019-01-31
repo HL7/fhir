@@ -1,3 +1,0 @@
-{ 
-  PatientList(active : true) { id, active } 
-}

@@ -1,0 +1,85 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/CodeSystem/test-ig-cs",
+      "concept" : [{
+        "code" : "code 1"
+      },
+      {
+        "code" : "code 2"
+      }]
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/CodeSystem/test-ig-cs",
+      "concept" : [{
+        "code" : "code 1"
+      },
+      {
+        "code" : "code 3"
+      }]
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/CodeSystem/test-ig-cs",
+      "concept" : [{
+        "code" : "code 1"
+      },
+      {
+        "code" : "code 2"
+      }]
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/CodeSystem/test-ig-cs",
+      "concept" : [{
+        "code" : "code 1"
+      },
+      {
+        "code" : "code 3"
+      }]
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/CodeSystem/test-ig-cs"
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
+}
+-------------------------------------------------------------------------------------

@@ -1,55 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="org.hl7.fhir.tools">
   <property environment="env"/>
-  <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
-  <property name="org.hl7.fhir.implementation4.location" value="../../../implementations/java/org.hl7.fhir.r4"/>
-  <property name="org.hl7.fhir.implementation3.location" value="../../../implementations/java/org.hl7.fhir.dstu3"/>
-  <property name="org.hl7.fhir.implementation2.location" value="../../../implementations/java/org.hl7.fhir.dstu2"/>
-  <property name="org.hl7.fhir.implementation14.location" value="../../../implementations/java/org.hl7.fhir.dstu2016may"/>
-  <property name="org.hl7.fhir.convertors.location" value="../../../implementations/java/org.hl7.fhir.convertors"/>
-  <property name="org.hl7.fhir.validation.location" value="../../../implementations/java/org.hl7.fhir.validation"/>
   <property name="org.hl7.fhir.rdf.location" value="../../../implementations/java/org.hl7.fhir.rdf"/>
   <property name="org.hl7.fhir.igtools.location" value="../../../tools/java/org.hl7.fhir.igtools"/>
   <property name="debuglevel" value="source,lines,vars"/>
   <property name="target" value="1.8"/>
   <property name="source" value="1.8"/>
-  <path id="org.hl7.fhir.utilities.classpath">
-    <pathelement location="${org.hl7.fhir.utilities.location}/bin"/>
-  </path>
   <path id="org.hl7.fhir.rdf.classpath">
     <pathelement location="${org.hl7.fhir.rdf.location}/bin"/>
   </path>
   <path id="org.hl7.fhir.igtools.classpath">
     <pathelement location="${org.hl7.fhir.igtools.location}/bin"/>
   </path>
-  <path id="org.hl7.fhir.implementation4.classpath">
-    <pathelement location="${org.hl7.fhir.implementation3.location}/bin"/>
-  </path>
-  <path id="org.hl7.fhir.implementation3.classpath">
-    <pathelement location="${org.hl7.fhir.implementation4.location}/bin"/>
-  </path>
-  <path id="org.hl7.fhir.implementation2.classpath">
-    <pathelement location="${org.hl7.fhir.implementation2.location}/bin"/>
-  </path>
-  <path id="org.hl7.fhir.implementation14.classpath">
-    <pathelement location="${org.hl7.fhir.implementation14.location}/bin"/>
-  </path>
-  <path id="org.hl7.fhir.convertors.classpath">
-    <pathelement location="${org.hl7.fhir.convertors.location}/bin"/>
-  </path>
-  <path id="org.hl7.fhir.validation.classpath">
-    <pathelement location="${org.hl7.fhir.validation.location}/bin"/>
-  </path>
   <path id="org.hl7.fhir.tools.classpath">
     <pathelement location="bin"/>
     <fileset dir="../imports" includes="*.jar"/>
-    <path refid="org.hl7.fhir.implementation4.classpath"/>
-    <path refid="org.hl7.fhir.implementation3.classpath"/>
-    <path refid="org.hl7.fhir.implementation2.classpath"/>
-    <path refid="org.hl7.fhir.implementation14.classpath"/>
-    <path refid="org.hl7.fhir.convertors.classpath"/>
-    <path refid="org.hl7.fhir.validation.classpath"/>
-    <path refid="org.hl7.fhir.utilities.classpath"/>
     <path refid="org.hl7.fhir.rdf.classpath"/>
     <path refid="org.hl7.fhir.igtools.classpath"/>
   </path>
@@ -57,53 +22,11 @@
     <delete dir="bin"/>
   </target>
   <target depends="clean" name="cleanall">
-    <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="clean"/>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation4.location}" inheritAll="false" target="clean"/>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation3.location}" inheritAll="false" target="clean"/>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation2.location}" inheritAll="false" target="clean"/>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation14.location}" inheritAll="false" target="clean"/>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.convertors.location}" inheritAll="false" target="clean"/>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.validation.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.igtools.location}" inheritAll="false" target="clean"/>
   </target>
   <target depends="build-subprojects,build-project" name="build"/>
   <target name="build-subprojects">
-    <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="build-project">
-      <propertyset>
-        <propertyref name="build.compiler"/>
-      </propertyset>
-    </ant>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation3.location}" inheritAll="false" target="build-project">
-      <propertyset>
-        <propertyref name="build.compiler"/>
-      </propertyset>
-    </ant>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation4.location}" inheritAll="false" target="build-project">
-      <propertyset>
-        <propertyref name="build.compiler"/>
-      </propertyset>
-    </ant>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation2.location}" inheritAll="false" target="build-project">
-      <propertyset>
-        <propertyref name="build.compiler"/>
-      </propertyset>
-    </ant>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation14.location}" inheritAll="false" target="build-project">
-      <propertyset>
-        <propertyref name="build.compiler"/>
-      </propertyset>
-    </ant>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.convertors.location}" inheritAll="false" target="build-project">
-      <propertyset>
-        <propertyref name="build.compiler"/>
-      </propertyset>
-    </ant>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.validation.location}" inheritAll="false" target="build-project">
-      <propertyset>
-        <propertyref name="build.compiler"/>
-      </propertyset>
-    </ant>
     <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="build-project">
       <propertyset>
         <propertyref name="build.compiler"/>
@@ -120,7 +43,8 @@
       <fileset dir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/instance/formats" includes="*"/>
       <fileset dir="../org.hl7.fhir.instance/src/org/hl7/fhir/instance/model" includes="*"/>
     </delete>
-    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/formats">
+	 <!--
+	 <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/formats">
       <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/formats" includes="*.java"/>
     </copy>
     <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model">
@@ -137,7 +61,8 @@
     </copy>
     <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/client">
       <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/client" includes="*.java"/>
-    </copy>
+	 </copy>
+	 -->
   </target>
   <target name="build-project">
     <echo message="${ant.project.name}: ${ant.file}"/>
