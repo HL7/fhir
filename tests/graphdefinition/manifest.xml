@@ -1,9 +1,0 @@
-<graphdef-tests>
-  <test name="simple" source="simple.gdl" context="Patient/example/$graph"> 
-    <rule description="Must be 2 resources in the bundle" expression="Bundle.entry.count() = 2"/>
-  </test>
-  <test name="full-syntax" source="full-syntax.gdl" context="Patient/example/$graph"> 
-    <rule description="Must be 2 resources in the bundle" expression="Bundle.entry.count() = 2"/>
-  </test>
-  
-</graphdef-tests>
