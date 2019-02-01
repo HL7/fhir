@@ -2873,18 +2873,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip = new ZipGenerator(page.getFolders().dstDir + "definitions-r2asr3.json.zip");
       page.getDiffEngine().saveR2AsR3(zip, FhirFormat.JSON);
       zip.close();
-      
-      zip = new ZipGenerator(page.getFolders().dstDir + "test-cases.zip");
-      IniFile ini = new IniFile(Utilities.path(page.getFolders().rootDir, "tests", "testcases.ini"));
-      for (String fn : ini.getPropertyNames("test-files")) {
-        if (fn.endsWith("\\*")) {
-          fn = fn.substring(0, fn.length()-2);
-// GGTODO          zip.addFiles(Utilities.path(page.getFolders().rootDir, "tests", fn)+File.separator, fn+File.separator, null, null);
-        } else
-          zip.addFileName(fn, Utilities.path(page.getFolders().rootDir, "tests", fn), false);
-      }
-      zip.close();
-      
+            
       zip = new ZipGenerator(page.getFolders().dstDir + "all-valuesets.zip");
       zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
       zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
