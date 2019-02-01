@@ -51,7 +51,7 @@
 	<classpathentry kind="lib" path="../imports/handy-uri-templates-2.1.6.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-net-3.6.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu2016may"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/hapi-fhir-base-3.7.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/gson-2.8.5.jar"/>
+	<classpathentry kind="lib" path="../imports/hapi-fhir-base-3.7.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/gson-2.8.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
