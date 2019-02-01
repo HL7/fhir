@@ -744,11 +744,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   }
 
   public void buildIGPublisher(String packFileName) throws Exception {
-    // FIXME: JA This is disabled for now
-    if (true) {
-      return;
-    }
-
     Manifest manifest = new Manifest();
     manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
     manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
@@ -762,7 +757,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     String importsDir = Utilities.path(folders.rootDir, "tools", "java", "imports");
     AddJarToJar(jar, Utilities.path(importsDir, "xmlbeans-2.6.0.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "xpp3-1.1.4c.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "gson-2.3.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "gson-2.8.5.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-codec-1.9.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-collections4-4.1.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-compress-1.16.1.jar"), names);
@@ -773,7 +768,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "commons-exec-1.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.4.0.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "poi-3.17.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "poi-ooxml-3.17.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "ooxml-schemas-1.3.jar"), names);
@@ -788,17 +782,18 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "antlr-runtime-3.5.2.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
     
-    // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.r4",          "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.r4",          "src").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu3",       "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu3",       "src").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2016may", "bin").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2",       "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2",       "bin").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.convertors",  "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.convertors",  "bin").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.utilities",   "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.utilities",   "bin").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.validation",  "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.validation",  "bin").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools",           "java", "org.hl7.fhir.igtools",     "bin")), Utilities.path(folders.rootDir, "tools",           "java", "org.hl7.fhir.igtools",     "bin").length()+1, names);
+    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.7.0-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu3-3.7.3-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2016may-3.7.3-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r4-3.7.3-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.utilities-3.7.3-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.validation-3.7.3-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.convertors-3.7.3-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2-3.7.3-SNAPSHOT.jar"), names);
     
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"publish", "version.info")), Utilities.path(folders.rootDir,"publish").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools",           "java", "org.hl7.fhir.igtools",     "bin")), Utilities.path(folders.rootDir, "tools",           "java", "org.hl7.fhir.igtools",     "bin").length()+1, names);
+//   
+//    AddToJar(jar, new File(Utilities.path(folders.rootDir,"publish", "version.info")), Utilities.path(folders.rootDir,"publish").length()+1, names);
     jar.close();
     
   }
