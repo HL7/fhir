@@ -969,7 +969,9 @@ public class Publisher implements URIResolver, SectionNumberer {
         fp.check(null, p.getResource(), p.getContext(), p.getExpression()); 
       }
     } catch (Exception e) {
-      BaseValidator.rule(page.getValidationErrors(), Source.Publisher, IssueType.STRUCTURE, p.getLocation(), false, "Expression '"+p.getExpression()+"' has illegal path ("+e.getMessage()+")"); 
+      ValidationMessage validationMessage = new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, -1, -1, p.getLocation(), 
+            "Expression '"+p.getExpression()+"' has illegal path ("+e.getMessage()+")", IssueSeverity.ERROR);
+      page.getValidationErrors().add(validationMessage);
     }
   }
 

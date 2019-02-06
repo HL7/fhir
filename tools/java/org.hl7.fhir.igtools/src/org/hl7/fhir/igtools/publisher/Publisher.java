@@ -1524,7 +1524,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         if (Utilities.noString(packageId))
           throw new Exception("Package Id for guide at "+canonical+" is unknown (contact FHIR Product Director");
         else
-          throw new Exception("Unknown Package "+packageId+"#"+version);
+          throw new Exception("Unknown Package "+packageId+"#"+igver);
       }
     }
     log("Load "+name+" ("+canonical+") from "+packageId+"#"+igver);
