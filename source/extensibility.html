@@ -97,11 +97,13 @@ In JSON, extensions are represented similarly:
 </p>
 <pre class="json" fragment="HumanName">
 {
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use",
-    "valueCode" : "I"
-  }],
-  "text" : "Chief Red Cloud"
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use",
+      "valueCode": "I"
+    }
+  ],
+  "text": "Chief Red Cloud"
 }
 </pre>
 </div>
@@ -155,24 +157,31 @@ Or in JSON:
 </p>
 <pre class="json" fragment="Patient">
 {
-  "resourceType" : "Patient",
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/patient-citizenship",
-    "extension" : [{
-      "url" : "code",
-      "valueCodeableConcept" : {
-          "coding" : [{
-             "system" : "urn:iso:std:iso:3166",
-             "code" : "DE"
-          }]
-       }
-    }, {
-      "url" : "period",
-      "valuePeriod" : {
-         "start" : "2009-03-14"
-      }
-    }]
-	}]
+  "resourceType": "Patient",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-citizenship",
+      "extension": [
+        {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "DE"
+              }
+            ]
+          }
+        },
+        {
+          "url": "period",
+          "valuePeriod": {
+            "start": "2009-03-14"
+          }
+        }
+      ]
+    }
+  ]
 }
 </pre>
 </div>
@@ -213,30 +222,36 @@ The URL of the extension is thus different. In XML:
 or in JSON:
 </p>
 <pre class="json" fragment="Patient">
-
 {
-  "resourceType" : "Patient",
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/patient-citizenship",
-    "extension" : [{
-      "url" : "code",
-      "valueCodeableConcept" : {
-        "coding" : [{
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "DE"
-        }]
-      }
-    },{
-      "url" : "period",
-      "valuePeriod" : {
-        "start" : "2009-03-14"
-      }
-    },
-		{
-      "url": "http://acme.org/fhir/StructureDefinition/passport-number",
-      "valueString": "12345ABC"
-    }]
-  }]
+  "resourceType": "Patient",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-citizenship",
+      "extension": [
+        {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "DE"
+              }
+            ]
+          }
+        },
+        {
+          "url": "period",
+          "valuePeriod": {
+            "start": "2009-03-14"
+          }
+        },
+        {
+          "url": "http://acme.org/fhir/StructureDefinition/passport-number",
+          "valueString": "12345ABC"
+        }
+      ]
+    }
+  ]
 }
 </pre>
 <p>
@@ -317,11 +332,13 @@ Or in JSON:
 </p>
 <pre class="json">
 {
-  "resourceType" : "MedicationRequest",
-  "modifierExtension" : [{
-    "url" : "http://example.org/fhir/StructureDefinition/anti-prescription",
-    "valueBoolean" : true
-  }],
+  "resourceType": "MedicationRequest",
+  "modifierExtension": [
+    {
+      "url": "http://example.org/fhir/StructureDefinition/anti-prescription",
+      "valueBoolean": true
+    }
+  ],
   .. other content ...
 }
 </pre>
