@@ -53,9 +53,15 @@ public class ValidationServices implements IValidatorResourceFetcher {
     
     if (appContext != null) {
       Element bnd = (Element) appContext;
+      int count = 0;
       for (Element be : bnd.getChildren("entry")) {
+        count++;
         Element ber = be.getNamedChild("resource");
         if (ber != null) {
+          if (!be.hasChild("fullUrl")) {
+            String bundleId = ((Element) appContext).getChildValue("id");
+            throw new FHIRException("No fullUrl on entry #" + count + " in Bundle " + bundleId);
+          }
           if (be.getChildByName("fullUrl").equals(url))
             return ber;
           if (parts.length == 2 && ber.fhirType().equals(parts[0]) && ber.hasChild("id") && ber.getChildValue("id").equals(parts[1])) 
