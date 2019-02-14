@@ -1,0 +1,3001 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "de"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:47",
+      "concept" : [{
+        "code" : "ar",
+        "display" : "Arabic",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Arabisk"
+        },
+        {
+          "language" : "en",
+          "value" : "Arabic"
+        },
+        {
+          "language" : "nl",
+          "value" : "Arabisch"
+        }]
+      },
+      {
+        "code" : "bn",
+        "display" : "Bengali",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Bengali"
+        },
+        {
+          "language" : "nl",
+          "value" : "Bengaals"
+        },
+        {
+          "language" : "ru",
+          "value" : "Бенгальский"
+        },
+        {
+          "language" : "zh",
+          "value" : "孟加拉语"
+        },
+        {
+          "language" : "de",
+          "value" : "Bengalisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Bengalsk"
+        }]
+      },
+      {
+        "code" : "cs",
+        "display" : "Czech",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Czech"
+        },
+        {
+          "language" : "nl",
+          "value" : "Tsjechisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "Чешский"
+        },
+        {
+          "language" : "zh",
+          "value" : "捷克语"
+        },
+        {
+          "language" : "de",
+          "value" : "Tschechisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Tjekkisk"
+        }]
+      },
+      {
+        "code" : "da",
+        "display" : "Danish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Danish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Deens"
+        },
+        {
+          "language" : "ru",
+          "value" : "Датский"
+        },
+        {
+          "language" : "zh",
+          "value" : "丹麦语"
+        },
+        {
+          "language" : "de",
+          "value" : "Dänisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Dansk"
+        }]
+      },
+      {
+        "code" : "de",
+        "display" : "German",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits"
+        },
+        {
+          "language" : "ru",
+          "value" : "Немецкий"
+        },
+        {
+          "language" : "zh",
+          "value" : "德语"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk"
+        }]
+      },
+      {
+        "code" : "de-AT",
+        "display" : "German (Austria)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Austria)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Oostenrijk)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Немецкий (Австрия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "德语 （奥地利）"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (Österreich)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (Østrig"
+        }]
+      },
+      {
+        "code" : "de-CH",
+        "display" : "German (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Немецкий (Швейцария)"
+        },
+        {
+          "language" : "zh",
+          "value" : "德语 （瑞士）"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "de-DE",
+        "display" : "German (Germany)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Germany)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Duitsland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Немецкий (Германия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "德语 （德国）"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (Deutschland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (Tyskland)"
+        }]
+      },
+      {
+        "code" : "el",
+        "display" : "Greek",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Greek"
+        },
+        {
+          "language" : "nl",
+          "value" : "Grieks"
+        },
+        {
+          "language" : "ru",
+          "value" : "Греческий"
+        },
+        {
+          "language" : "zh",
+          "value" : "希腊语"
+        },
+        {
+          "language" : "de",
+          "value" : "Griechisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Græsk"
+        }]
+      },
+      {
+        "code" : "en",
+        "display" : "English",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk"
+        }]
+      },
+      {
+        "code" : "en-AU",
+        "display" : "English (Australia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Australia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Australië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Австралия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （澳大利亚）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Australien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Australien)"
+        }]
+      },
+      {
+        "code" : "en-CA",
+        "display" : "English (Canada)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Canada)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Canada)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Канада)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （加拿大）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Kanada)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Canada)"
+        }]
+      },
+      {
+        "code" : "en-GB",
+        "display" : "English (Great Britain)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Great Britain)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Groot Brittannië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Великобритания)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （英国）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Großbritannien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Storbritannien)"
+        }]
+      },
+      {
+        "code" : "en-IN",
+        "display" : "English (India)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (India)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (India)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Индия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （印度）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Indien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Indien)"
+        }]
+      },
+      {
+        "code" : "en-NZ",
+        "display" : "English (New Zeland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (New Zeland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Nieuw Zeeland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Новая Зеландия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （新西兰）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Neuseeland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (New Zeeland)"
+        }]
+      },
+      {
+        "code" : "en-SG",
+        "display" : "English (Singapore)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Singapore)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Singapore)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Сингапур)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （新加坡）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Singapur)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Singapore)"
+        }]
+      },
+      {
+        "code" : "en-US",
+        "display" : "English (United States)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (United States)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Verenigde Staten)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (США)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （美国）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (USA)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Amerikansk)"
+        }]
+      },
+      {
+        "code" : "es",
+        "display" : "Spanish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "Испанский"
+        },
+        {
+          "language" : "zh",
+          "value" : "西班牙语"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk"
+        }]
+      },
+      {
+        "code" : "es-AR",
+        "display" : "Spanish (Argentina)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Argentina)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Argentinië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Испанский (Аргентина)"
+        },
+        {
+          "language" : "zh",
+          "value" : "西班牙语 （阿根廷）"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Argentinien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Argentina)"
+        }]
+      },
+      {
+        "code" : "es-ES",
+        "display" : "Spanish (Spain)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Spain)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Spanje)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Испанский (Испания)"
+        },
+        {
+          "language" : "zh",
+          "value" : "西班牙语 （西班牙）"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Spanien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Spanien)"
+        }]
+      },
+      {
+        "code" : "es-UY",
+        "display" : "Spanish (Uruguay)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Uruguay)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Uruguay)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Испанский (Уругвай)"
+        },
+        {
+          "language" : "zh",
+          "value" : "西班牙语 （乌拉圭）"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Uruguay)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Uruguay)"
+        }]
+      },
+      {
+        "code" : "fi",
+        "display" : "Finnish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Finnish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fins"
+        },
+        {
+          "language" : "ru",
+          "value" : "Финский"
+        },
+        {
+          "language" : "zh",
+          "value" : "芬兰语"
+        },
+        {
+          "language" : "de",
+          "value" : "Finnisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Finsk"
+        }]
+      },
+      {
+        "code" : "fr",
+        "display" : "French",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans"
+        },
+        {
+          "language" : "ru",
+          "value" : "Французский"
+        },
+        {
+          "language" : "zh",
+          "value" : "法语"
+        },
+        {
+          "language" : "de",
+          "value" : "Französisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk"
+        }]
+      },
+      {
+        "code" : "fr-BE",
+        "display" : "French (Belgium)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (Belgium)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (België)"
+        },
+        {
+          "language" : "de",
+          "value" : "Französisch (Belgien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Finsk (Belgien)"
+        }]
+      },
+      {
+        "code" : "fr-CH",
+        "display" : "French (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Французский (Швейцария)"
+        },
+        {
+          "language" : "zh",
+          "value" : "法语 （比利时）"
+        },
+        {
+          "language" : "de",
+          "value" : "Französisch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "fr-FR",
+        "display" : "French (France)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (France)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (Frankrijk)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Французский (Франция)"
+        },
+        {
+          "language" : "zh",
+          "value" : "法语 （瑞士）"
+        },
+        {
+          "language" : "de",
+          "value" : "Französisch (Frankreich)"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk (Frankrig)"
+        }]
+      },
+      {
+        "code" : "fy",
+        "display" : "Frysian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Frysian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fries"
+        },
+        {
+          "language" : "zh",
+          "value" : "弗里士兰语"
+        },
+        {
+          "language" : "de",
+          "value" : "Friesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Frisisk"
+        }]
+      },
+      {
+        "code" : "fy-NL",
+        "display" : "Frysian (Netherlands)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Frysian (Netherlands)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fries (Nederland)"
+        },
+        {
+          "language" : "zh",
+          "value" : "弗里士兰语（荷兰）"
+        },
+        {
+          "language" : "de",
+          "value" : "Friesisch (Niederlande)"
+        },
+        {
+          "language" : "da",
+          "value" : "Frisisk (Holland)"
+        }]
+      },
+      {
+        "code" : "hi",
+        "display" : "Hindi",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Hindi"
+        },
+        {
+          "language" : "en",
+          "value" : "Hindi"
+        },
+        {
+          "language" : "nl",
+          "value" : "Hindi"
+        }]
+      },
+      {
+        "code" : "hr",
+        "display" : "Croatian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Croatian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Kroatisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "Хорватский"
+        },
+        {
+          "language" : "zh",
+          "value" : "克罗地亚语"
+        },
+        {
+          "language" : "de",
+          "value" : "Kroatisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Kroatisk"
+        }]
+      },
+      {
+        "code" : "it",
+        "display" : "Italian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "Итальянский"
+        },
+        {
+          "language" : "zh",
+          "value" : "意大利语"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk"
+        }]
+      },
+      {
+        "code" : "it-CH",
+        "display" : "Italian (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Итальянский (Швейцария)"
+        },
+        {
+          "language" : "zh",
+          "value" : "意大利语 （瑞士）"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "it-IT",
+        "display" : "Italian (Italy)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian (Italy)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans (Italië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Итальянский (Италия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "意大利语 （意大利）"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch (Italien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk (Italien)"
+        }]
+      },
+      {
+        "code" : "ja",
+        "display" : "Japanese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Japanese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Japans"
+        },
+        {
+          "language" : "ru",
+          "value" : "Японский"
+        },
+        {
+          "language" : "zh",
+          "value" : "日语"
+        },
+        {
+          "language" : "de",
+          "value" : "Japanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Japansk"
+        }]
+      },
+      {
+        "code" : "ko",
+        "display" : "Korean",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Korean"
+        },
+        {
+          "language" : "nl",
+          "value" : "Koreaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "Корейский"
+        },
+        {
+          "language" : "zh",
+          "value" : "朝鲜语"
+        },
+        {
+          "language" : "de",
+          "value" : "Koreanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Koreansk"
+        }]
+      },
+      {
+        "code" : "nl",
+        "display" : "Dutch",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands"
+        },
+        {
+          "language" : "ru",
+          "value" : "Нидерландский"
+        },
+        {
+          "language" : "zh",
+          "value" : "荷兰语"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederländisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk"
+        }]
+      },
+      {
+        "code" : "nl-BE",
+        "display" : "Dutch (Belgium)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch (Belgium)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands (België)"
+        },
+        {
+          "language" : "zh",
+          "value" : "荷兰语 （比利时）"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederländisch (Belgien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk (Belgien)"
+        }]
+      },
+      {
+        "code" : "nl-NL",
+        "display" : "Dutch (Netherlands)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch (Netherlands)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands (Nederland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Нидерландский (Нидерланды)"
+        },
+        {
+          "language" : "zh",
+          "value" : "荷兰语 （荷兰）"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederländisch (Niederlande)"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk (Holland)"
+        }]
+      },
+      {
+        "code" : "no",
+        "display" : "Norwegian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Norwegian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Noors"
+        },
+        {
+          "language" : "ru",
+          "value" : "Норвежский"
+        },
+        {
+          "language" : "zh",
+          "value" : "挪威语"
+        },
+        {
+          "language" : "de",
+          "value" : "Norwegisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Norsk"
+        }]
+      },
+      {
+        "code" : "no-NO",
+        "display" : "Norwegian (Norway)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Norwegian (Norway)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Noors (Noorwegen)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Норвежский (Норвегия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "挪威语 （挪威）"
+        },
+        {
+          "language" : "de",
+          "value" : "Norwegisch (Norwegen)"
+        },
+        {
+          "language" : "da",
+          "value" : "Norsk (Norge)"
+        }]
+      },
+      {
+        "code" : "pa",
+        "display" : "Punjabi",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Punjabi"
+        },
+        {
+          "language" : "en",
+          "value" : "Punjabi"
+        },
+        {
+          "language" : "nl",
+          "value" : "Punjabi"
+        }]
+      },
+      {
+        "code" : "pt",
+        "display" : "Portuguese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Portuguese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Portugees"
+        },
+        {
+          "language" : "ru",
+          "value" : "Португальский"
+        },
+        {
+          "language" : "zh",
+          "value" : "葡萄牙语"
+        },
+        {
+          "language" : "de",
+          "value" : "Portugiesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Portugisisk"
+        }]
+      },
+      {
+        "code" : "pt-BR",
+        "display" : "Portuguese (Brazil)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Portuguese (Brazil)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Portugees (Brazilië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Португальский (Бразилия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "葡萄牙语 （巴西）"
+        },
+        {
+          "language" : "de",
+          "value" : "Portugiesisch (Brasilien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Portugisisk (Brasilien)"
+        }]
+      },
+      {
+        "code" : "ru",
+        "display" : "Russian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Russian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Russisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "Русский"
+        },
+        {
+          "language" : "zh",
+          "value" : "俄语"
+        },
+        {
+          "language" : "de",
+          "value" : "Russisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Russisk"
+        }]
+      },
+      {
+        "code" : "ru-RU",
+        "display" : "Russian (Russia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Russian (Russia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Russisch (Rusland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Русский (Россия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "俄语 （俄罗斯）"
+        },
+        {
+          "language" : "de",
+          "value" : "Russisch (Russland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Russisk (Rusland)"
+        }]
+      },
+      {
+        "code" : "sr",
+        "display" : "Serbian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Serbian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Servisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "Сербский"
+        },
+        {
+          "language" : "zh",
+          "value" : "塞尔维亚语"
+        },
+        {
+          "language" : "de",
+          "value" : "Serbisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Serbisk"
+        }]
+      },
+      {
+        "code" : "sr-SP",
+        "display" : "Serbian (Serbia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Serbian (Serbia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Servisch (Servië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Сербский (Сербия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "塞尔维亚语 （塞尔维亚）"
+        },
+        {
+          "language" : "de",
+          "value" : "Serbisch (Serbien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Serbisk (Serbien)"
+        }]
+      },
+      {
+        "code" : "sv",
+        "display" : "Swedish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Swedish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Zweeds"
+        },
+        {
+          "language" : "ru",
+          "value" : "Шведский"
+        },
+        {
+          "language" : "zh",
+          "value" : "瑞典语"
+        },
+        {
+          "language" : "de",
+          "value" : "Schwedisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Svensk"
+        }]
+      },
+      {
+        "code" : "sv-SE",
+        "display" : "Swedish (Sweden)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Swedish (Sweden)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Zweeds (Zweden)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Шведский (Швеция)"
+        },
+        {
+          "language" : "zh",
+          "value" : "瑞典语 （瑞典）"
+        },
+        {
+          "language" : "de",
+          "value" : "Schwedisch (Schweden)"
+        },
+        {
+          "language" : "da",
+          "value" : "Svensk (Sverige)"
+        }]
+      },
+      {
+        "code" : "te",
+        "display" : "Telegu",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Telegu"
+        },
+        {
+          "language" : "nl",
+          "value" : "Teloegoe"
+        },
+        {
+          "language" : "ru",
+          "value" : "Телугу"
+        },
+        {
+          "language" : "zh",
+          "value" : "泰卢固语"
+        },
+        {
+          "language" : "de",
+          "value" : "Telugu"
+        },
+        {
+          "language" : "da",
+          "value" : "Telugu"
+        }]
+      },
+      {
+        "code" : "zh",
+        "display" : "Chinese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees"
+        },
+        {
+          "language" : "ru",
+          "value" : "Kитайский"
+        },
+        {
+          "language" : "zh",
+          "value" : "中文"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk"
+        }]
+      },
+      {
+        "code" : "zh-CN",
+        "display" : "Chinese (China)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (China)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (China)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Kитайский (Китай)"
+        },
+        {
+          "language" : "zh",
+          "value" : "中文 （中国）"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (China)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Kina)"
+        }]
+      },
+      {
+        "code" : "zh-HK",
+        "display" : "Chinese (Hong Kong)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Hong Kong)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Hong Kong)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Kитайский (Гонконг)"
+        },
+        {
+          "language" : "zh",
+          "value" : "中文 （香港特别行政区）"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Hong Kong)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Hong Kong)"
+        }]
+      },
+      {
+        "code" : "zh-SG",
+        "display" : "Chinese (Singapore)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Singapore)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Singapore)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Kитайский (Сингапур)"
+        },
+        {
+          "language" : "zh",
+          "value" : "中文 （新加坡）"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Singapur)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Singapore)"
+        }]
+      },
+      {
+        "code" : "zh-TW",
+        "display" : "Chinese (Taiwan)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Taiwan)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Taiwan)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Kитайский (Тайвань)"
+        },
+        {
+          "language" : "zh",
+          "value" : "中文 （台湾）"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Taiwan)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Taiwan)"
+        }]
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "German",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "zh"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:47",
+      "concept" : [{
+        "code" : "ar",
+        "display" : "Arabic",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Arabisk"
+        },
+        {
+          "language" : "en",
+          "value" : "Arabic"
+        },
+        {
+          "language" : "nl",
+          "value" : "Arabisch"
+        }]
+      },
+      {
+        "code" : "bn",
+        "display" : "Bengali",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Bengali"
+        },
+        {
+          "language" : "nl",
+          "value" : "Bengaals"
+        },
+        {
+          "language" : "ru",
+          "value" : "Бенгальский"
+        },
+        {
+          "language" : "zh",
+          "value" : "孟加拉语"
+        },
+        {
+          "language" : "de",
+          "value" : "Bengalisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Bengalsk"
+        }]
+      },
+      {
+        "code" : "cs",
+        "display" : "Czech",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Czech"
+        },
+        {
+          "language" : "nl",
+          "value" : "Tsjechisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "Чешский"
+        },
+        {
+          "language" : "zh",
+          "value" : "捷克语"
+        },
+        {
+          "language" : "de",
+          "value" : "Tschechisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Tjekkisk"
+        }]
+      },
+      {
+        "code" : "da",
+        "display" : "Danish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Danish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Deens"
+        },
+        {
+          "language" : "ru",
+          "value" : "Датский"
+        },
+        {
+          "language" : "zh",
+          "value" : "丹麦语"
+        },
+        {
+          "language" : "de",
+          "value" : "Dänisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Dansk"
+        }]
+      },
+      {
+        "code" : "de",
+        "display" : "German",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits"
+        },
+        {
+          "language" : "ru",
+          "value" : "Немецкий"
+        },
+        {
+          "language" : "zh",
+          "value" : "德语"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk"
+        }]
+      },
+      {
+        "code" : "de-AT",
+        "display" : "German (Austria)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Austria)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Oostenrijk)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Немецкий (Австрия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "德语 （奥地利）"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (Österreich)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (Østrig"
+        }]
+      },
+      {
+        "code" : "de-CH",
+        "display" : "German (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Немецкий (Швейцария)"
+        },
+        {
+          "language" : "zh",
+          "value" : "德语 （瑞士）"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "de-DE",
+        "display" : "German (Germany)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Germany)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Duitsland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Немецкий (Германия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "德语 （德国）"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (Deutschland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (Tyskland)"
+        }]
+      },
+      {
+        "code" : "el",
+        "display" : "Greek",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Greek"
+        },
+        {
+          "language" : "nl",
+          "value" : "Grieks"
+        },
+        {
+          "language" : "ru",
+          "value" : "Греческий"
+        },
+        {
+          "language" : "zh",
+          "value" : "希腊语"
+        },
+        {
+          "language" : "de",
+          "value" : "Griechisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Græsk"
+        }]
+      },
+      {
+        "code" : "en",
+        "display" : "English",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk"
+        }]
+      },
+      {
+        "code" : "en-AU",
+        "display" : "English (Australia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Australia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Australië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Австралия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （澳大利亚）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Australien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Australien)"
+        }]
+      },
+      {
+        "code" : "en-CA",
+        "display" : "English (Canada)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Canada)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Canada)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Канада)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （加拿大）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Kanada)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Canada)"
+        }]
+      },
+      {
+        "code" : "en-GB",
+        "display" : "English (Great Britain)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Great Britain)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Groot Brittannië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Великобритания)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （英国）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Großbritannien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Storbritannien)"
+        }]
+      },
+      {
+        "code" : "en-IN",
+        "display" : "English (India)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (India)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (India)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Индия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （印度）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Indien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Indien)"
+        }]
+      },
+      {
+        "code" : "en-NZ",
+        "display" : "English (New Zeland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (New Zeland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Nieuw Zeeland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Новая Зеландия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （新西兰）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Neuseeland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (New Zeeland)"
+        }]
+      },
+      {
+        "code" : "en-SG",
+        "display" : "English (Singapore)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Singapore)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Singapore)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (Сингапур)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （新加坡）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Singapur)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Singapore)"
+        }]
+      },
+      {
+        "code" : "en-US",
+        "display" : "English (United States)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (United States)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Verenigde Staten)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Английский (США)"
+        },
+        {
+          "language" : "zh",
+          "value" : "英语 （美国）"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (USA)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Amerikansk)"
+        }]
+      },
+      {
+        "code" : "es",
+        "display" : "Spanish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "Испанский"
+        },
+        {
+          "language" : "zh",
+          "value" : "西班牙语"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk"
+        }]
+      },
+      {
+        "code" : "es-AR",
+        "display" : "Spanish (Argentina)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Argentina)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Argentinië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Испанский (Аргентина)"
+        },
+        {
+          "language" : "zh",
+          "value" : "西班牙语 （阿根廷）"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Argentinien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Argentina)"
+        }]
+      },
+      {
+        "code" : "es-ES",
+        "display" : "Spanish (Spain)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Spain)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Spanje)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Испанский (Испания)"
+        },
+        {
+          "language" : "zh",
+          "value" : "西班牙语 （西班牙）"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Spanien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Spanien)"
+        }]
+      },
+      {
+        "code" : "es-UY",
+        "display" : "Spanish (Uruguay)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Uruguay)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Uruguay)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Испанский (Уругвай)"
+        },
+        {
+          "language" : "zh",
+          "value" : "西班牙语 （乌拉圭）"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Uruguay)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Uruguay)"
+        }]
+      },
+      {
+        "code" : "fi",
+        "display" : "Finnish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Finnish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fins"
+        },
+        {
+          "language" : "ru",
+          "value" : "Финский"
+        },
+        {
+          "language" : "zh",
+          "value" : "芬兰语"
+        },
+        {
+          "language" : "de",
+          "value" : "Finnisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Finsk"
+        }]
+      },
+      {
+        "code" : "fr",
+        "display" : "French",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans"
+        },
+        {
+          "language" : "ru",
+          "value" : "Французский"
+        },
+        {
+          "language" : "zh",
+          "value" : "法语"
+        },
+        {
+          "language" : "de",
+          "value" : "Französisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk"
+        }]
+      },
+      {
+        "code" : "fr-BE",
+        "display" : "French (Belgium)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (Belgium)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (België)"
+        },
+        {
+          "language" : "de",
+          "value" : "Französisch (Belgien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Finsk (Belgien)"
+        }]
+      },
+      {
+        "code" : "fr-CH",
+        "display" : "French (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Французский (Швейцария)"
+        },
+        {
+          "language" : "zh",
+          "value" : "法语 （比利时）"
+        },
+        {
+          "language" : "de",
+          "value" : "Französisch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "fr-FR",
+        "display" : "French (France)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (France)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (Frankrijk)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Французский (Франция)"
+        },
+        {
+          "language" : "zh",
+          "value" : "法语 （瑞士）"
+        },
+        {
+          "language" : "de",
+          "value" : "Französisch (Frankreich)"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk (Frankrig)"
+        }]
+      },
+      {
+        "code" : "fy",
+        "display" : "Frysian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Frysian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fries"
+        },
+        {
+          "language" : "zh",
+          "value" : "弗里士兰语"
+        },
+        {
+          "language" : "de",
+          "value" : "Friesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Frisisk"
+        }]
+      },
+      {
+        "code" : "fy-NL",
+        "display" : "Frysian (Netherlands)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Frysian (Netherlands)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fries (Nederland)"
+        },
+        {
+          "language" : "zh",
+          "value" : "弗里士兰语（荷兰）"
+        },
+        {
+          "language" : "de",
+          "value" : "Friesisch (Niederlande)"
+        },
+        {
+          "language" : "da",
+          "value" : "Frisisk (Holland)"
+        }]
+      },
+      {
+        "code" : "hi",
+        "display" : "Hindi",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Hindi"
+        },
+        {
+          "language" : "en",
+          "value" : "Hindi"
+        },
+        {
+          "language" : "nl",
+          "value" : "Hindi"
+        }]
+      },
+      {
+        "code" : "hr",
+        "display" : "Croatian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Croatian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Kroatisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "Хорватский"
+        },
+        {
+          "language" : "zh",
+          "value" : "克罗地亚语"
+        },
+        {
+          "language" : "de",
+          "value" : "Kroatisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Kroatisk"
+        }]
+      },
+      {
+        "code" : "it",
+        "display" : "Italian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "Итальянский"
+        },
+        {
+          "language" : "zh",
+          "value" : "意大利语"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk"
+        }]
+      },
+      {
+        "code" : "it-CH",
+        "display" : "Italian (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Итальянский (Швейцария)"
+        },
+        {
+          "language" : "zh",
+          "value" : "意大利语 （瑞士）"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "it-IT",
+        "display" : "Italian (Italy)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian (Italy)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans (Italië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Итальянский (Италия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "意大利语 （意大利）"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch (Italien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk (Italien)"
+        }]
+      },
+      {
+        "code" : "ja",
+        "display" : "Japanese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Japanese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Japans"
+        },
+        {
+          "language" : "ru",
+          "value" : "Японский"
+        },
+        {
+          "language" : "zh",
+          "value" : "日语"
+        },
+        {
+          "language" : "de",
+          "value" : "Japanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Japansk"
+        }]
+      },
+      {
+        "code" : "ko",
+        "display" : "Korean",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Korean"
+        },
+        {
+          "language" : "nl",
+          "value" : "Koreaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "Корейский"
+        },
+        {
+          "language" : "zh",
+          "value" : "朝鲜语"
+        },
+        {
+          "language" : "de",
+          "value" : "Koreanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Koreansk"
+        }]
+      },
+      {
+        "code" : "nl",
+        "display" : "Dutch",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands"
+        },
+        {
+          "language" : "ru",
+          "value" : "Нидерландский"
+        },
+        {
+          "language" : "zh",
+          "value" : "荷兰语"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederländisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk"
+        }]
+      },
+      {
+        "code" : "nl-BE",
+        "display" : "Dutch (Belgium)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch (Belgium)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands (België)"
+        },
+        {
+          "language" : "zh",
+          "value" : "荷兰语 （比利时）"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederländisch (Belgien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk (Belgien)"
+        }]
+      },
+      {
+        "code" : "nl-NL",
+        "display" : "Dutch (Netherlands)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch (Netherlands)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands (Nederland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Нидерландский (Нидерланды)"
+        },
+        {
+          "language" : "zh",
+          "value" : "荷兰语 （荷兰）"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederländisch (Niederlande)"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk (Holland)"
+        }]
+      },
+      {
+        "code" : "no",
+        "display" : "Norwegian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Norwegian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Noors"
+        },
+        {
+          "language" : "ru",
+          "value" : "Норвежский"
+        },
+        {
+          "language" : "zh",
+          "value" : "挪威语"
+        },
+        {
+          "language" : "de",
+          "value" : "Norwegisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Norsk"
+        }]
+      },
+      {
+        "code" : "no-NO",
+        "display" : "Norwegian (Norway)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Norwegian (Norway)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Noors (Noorwegen)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Норвежский (Норвегия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "挪威语 （挪威）"
+        },
+        {
+          "language" : "de",
+          "value" : "Norwegisch (Norwegen)"
+        },
+        {
+          "language" : "da",
+          "value" : "Norsk (Norge)"
+        }]
+      },
+      {
+        "code" : "pa",
+        "display" : "Punjabi",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Punjabi"
+        },
+        {
+          "language" : "en",
+          "value" : "Punjabi"
+        },
+        {
+          "language" : "nl",
+          "value" : "Punjabi"
+        }]
+      },
+      {
+        "code" : "pt",
+        "display" : "Portuguese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Portuguese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Portugees"
+        },
+        {
+          "language" : "ru",
+          "value" : "Португальский"
+        },
+        {
+          "language" : "zh",
+          "value" : "葡萄牙语"
+        },
+        {
+          "language" : "de",
+          "value" : "Portugiesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Portugisisk"
+        }]
+      },
+      {
+        "code" : "pt-BR",
+        "display" : "Portuguese (Brazil)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Portuguese (Brazil)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Portugees (Brazilië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Португальский (Бразилия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "葡萄牙语 （巴西）"
+        },
+        {
+          "language" : "de",
+          "value" : "Portugiesisch (Brasilien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Portugisisk (Brasilien)"
+        }]
+      },
+      {
+        "code" : "ru",
+        "display" : "Russian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Russian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Russisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "Русский"
+        },
+        {
+          "language" : "zh",
+          "value" : "俄语"
+        },
+        {
+          "language" : "de",
+          "value" : "Russisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Russisk"
+        }]
+      },
+      {
+        "code" : "ru-RU",
+        "display" : "Russian (Russia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Russian (Russia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Russisch (Rusland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Русский (Россия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "俄语 （俄罗斯）"
+        },
+        {
+          "language" : "de",
+          "value" : "Russisch (Russland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Russisk (Rusland)"
+        }]
+      },
+      {
+        "code" : "sr",
+        "display" : "Serbian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Serbian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Servisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "Сербский"
+        },
+        {
+          "language" : "zh",
+          "value" : "塞尔维亚语"
+        },
+        {
+          "language" : "de",
+          "value" : "Serbisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Serbisk"
+        }]
+      },
+      {
+        "code" : "sr-SP",
+        "display" : "Serbian (Serbia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Serbian (Serbia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Servisch (Servië)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Сербский (Сербия)"
+        },
+        {
+          "language" : "zh",
+          "value" : "塞尔维亚语 （塞尔维亚）"
+        },
+        {
+          "language" : "de",
+          "value" : "Serbisch (Serbien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Serbisk (Serbien)"
+        }]
+      },
+      {
+        "code" : "sv",
+        "display" : "Swedish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Swedish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Zweeds"
+        },
+        {
+          "language" : "ru",
+          "value" : "Шведский"
+        },
+        {
+          "language" : "zh",
+          "value" : "瑞典语"
+        },
+        {
+          "language" : "de",
+          "value" : "Schwedisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Svensk"
+        }]
+      },
+      {
+        "code" : "sv-SE",
+        "display" : "Swedish (Sweden)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Swedish (Sweden)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Zweeds (Zweden)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Шведский (Швеция)"
+        },
+        {
+          "language" : "zh",
+          "value" : "瑞典语 （瑞典）"
+        },
+        {
+          "language" : "de",
+          "value" : "Schwedisch (Schweden)"
+        },
+        {
+          "language" : "da",
+          "value" : "Svensk (Sverige)"
+        }]
+      },
+      {
+        "code" : "te",
+        "display" : "Telegu",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Telegu"
+        },
+        {
+          "language" : "nl",
+          "value" : "Teloegoe"
+        },
+        {
+          "language" : "ru",
+          "value" : "Телугу"
+        },
+        {
+          "language" : "zh",
+          "value" : "泰卢固语"
+        },
+        {
+          "language" : "de",
+          "value" : "Telugu"
+        },
+        {
+          "language" : "da",
+          "value" : "Telugu"
+        }]
+      },
+      {
+        "code" : "zh",
+        "display" : "Chinese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees"
+        },
+        {
+          "language" : "ru",
+          "value" : "Kитайский"
+        },
+        {
+          "language" : "zh",
+          "value" : "中文"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk"
+        }]
+      },
+      {
+        "code" : "zh-CN",
+        "display" : "Chinese (China)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (China)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (China)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Kитайский (Китай)"
+        },
+        {
+          "language" : "zh",
+          "value" : "中文 （中国）"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (China)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Kina)"
+        }]
+      },
+      {
+        "code" : "zh-HK",
+        "display" : "Chinese (Hong Kong)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Hong Kong)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Hong Kong)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Kитайский (Гонконг)"
+        },
+        {
+          "language" : "zh",
+          "value" : "中文 （香港特别行政区）"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Hong Kong)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Hong Kong)"
+        }]
+      },
+      {
+        "code" : "zh-SG",
+        "display" : "Chinese (Singapore)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Singapore)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Singapore)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Kитайский (Сингапур)"
+        },
+        {
+          "language" : "zh",
+          "value" : "中文 （新加坡）"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Singapur)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Singapore)"
+        }]
+      },
+      {
+        "code" : "zh-TW",
+        "display" : "Chinese (Taiwan)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Taiwan)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Taiwan)"
+        },
+        {
+          "language" : "ru",
+          "value" : "Kитайский (Тайвань)"
+        },
+        {
+          "language" : "zh",
+          "value" : "中文 （台湾）"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Taiwan)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Taiwan)"
+        }]
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "Chinese",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

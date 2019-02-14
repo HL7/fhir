@@ -34,13 +34,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
       "valueBoolean" : true
     }],
-<<<<<<< Updated upstream
-    "identifier" : "urn:uuid:89308865-ff2e-4d56-a683-b11a1aa509b6",
-    "timestamp" : "2019-01-12T21:34:20.512Z",
-=======
-    "identifier" : "urn:uuid:26d72a97-cba3-4310-b478-1b49a508c5f7",
-    "timestamp" : "2019-01-18T16:13:54.856Z",
->>>>>>> Stashed changes
+    "identifier" : "urn:uuid:5f2c9721-9c31-405e-ac52-eec33b156451",
+    "timestamp" : "2019-01-15T17:03:00-06:00",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
