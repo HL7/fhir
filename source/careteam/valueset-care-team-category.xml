@@ -10,76 +10,39 @@
 	<copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
 	<compose>
 		<include>
-			<system value="http://loinc.org"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<!--Event-focused care team-->
-				<value value="LA27975-4"/>
-			</filter>
-		</include>
-		<include>
-			<system value="http://loinc.org"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<!--Encounter-focused care team-->
-				<value value="LA27976-2"/>
-			</filter>
-		</include>
-		<include>
-			<system value="http://loinc.org"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<!--Episode of care-focused care team-->
-				<value value="LA27977-0"/>
-			</filter>
-		</include>
-		<include>
-			<system value="http://loinc.org"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<!--Condition-focused care team-->
-				<value value="LA27978-8"/>
-			</filter>
-		</include>
-		<include>
-			<system value="http://loinc.org"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<!--Longitudinal care-coordination focused care team-->
-				<value value="LA28865-6"/>
-			</filter>
-		</include>
-		<include>
-			<system value="http://loinc.org"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<!--Home & Community Based Services (HCBS)-focused care team-->
-				<value value="LA28866-4"/>
-			</filter>
-		</include>
-		<include>
-			<system value="http://loinc.org"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<!--Clinical research-focused care team-->
-				<value value="LA27980-4"/>
-			</filter>
-		</include>
-		<include>
-			<system value="http://loinc.org"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<!--Pubic health-focused care team-->
-				<value value="LA28867-2"/>
-			</filter>
+			  <system value="http://loinc.org"/>
+			  <concept>
+				<code value="LA27975-4"/>
+				<display value="Event-focused care team"/>
+			  </concept>
+			  <concept>
+				<code value="LA27976-2"/>
+				<display value="Encounter-focused care team"/>
+			  </concept>
+			  <concept>
+				<code value="LA27977-0"/>
+				<display value="Episode of care-focused care team"/>
+			  </concept>
+			  <concept>
+				<code value="LA27978-8"/>
+				<display value="Condition-focused care team"/>
+			  </concept>
+			  <concept>
+				<code value="LA28865-6"/>
+				<display value="Longitudinal care-coordination focused care team"/>
+			  </concept>
+			  <concept>
+				<code value="LA28866-4"/>
+				<display value="Home &amp; Community Based Services (HCBS)-focused care team"/>
+			  </concept>
+			  <concept>
+				<code value="LA27980-4"/>
+				<display value="Clinical research-focused care team"/>
+			  </concept>
+			 <concept>
+				<code value="LA28867-2"/>
+				<display value="Public health-focused care team"/>
+			  </concept> 
 		</include>
 	</compose>
 </ValueSet>
