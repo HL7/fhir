@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Rob Hausam</LastAuthor>
@@ -3776,23 +3776,23 @@
     <Cell ss:StyleID="s100"><Data ss:Type="String">GF#17285</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">abatement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">AllergyIntolerance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">abatement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">dateTime|Age|Period|Range|string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">When the allergy or intolerance resolved</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">The date or estimated date that the allergy or intolerance resolved. This is called abatement because of the many overloaded connotations associated with resolution.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Age is generally used when the patient reports an age at which the allergy or intolerance abated. If there is no abatement element, the clinicalStatus can be used to convey whether allergy or intolerance has resolved or not. When abatementString exists, it conveys that the allergy or intolerance is abated.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
