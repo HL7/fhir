@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/R4/codesystem.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<CodeSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/R4/codesystem.xsd" xmlns="http://hl7.org/fhir">
+    <id value="administrative-gender-nl"/>
+    <url value="http://hl7.org/fhir/administrative-gender-nl"/>
+    <version value="4.0.0"/>
+    <name value="AdministrativeGender NL"/>
+    <title value="AdministrativeGender NL"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <date value="2019-02-18T19:50:00+01:00"/>
+    <description value="The gender of a person used for administrative purposes."/>
+    <caseSensitive value="true"/>
+    <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+    <content value="complete"/>
+    <supplements value="http://hl7.org/fhir/administrative-gender"/>
+    <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+            <valueString value="Mannelijk"/>
+        </extension>
+        <code value="male"/>
+        <display value="Mannelijk"/>
+        <definition value="Mannelijk."/>
+    </concept>
+    <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+            <valueString value="Vrouwelijk"/>
+        </extension>
+        <code value="female"/>
+        <display value="Vrouwelijk"/>
+        <definition value="Vrouwelijk."/>
+    </concept>
+    <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+            <valueString value="Het administratieve geslacht is een waarde anders dan mannelijk/vrouwelijk/onbekend. Wanneer deze waarde wordt geselecteerd, kunnen systemen er vaak voor kiezen om een extensie toe te voegen met een lokale, meer specifieke waarde."/>
+        </extension>
+        <code value="other"/>
+        <display value="Anders"/>
+        <definition value="Anders."/>
+    </concept>
+    <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+            <valueString value="Een juiste waarde is van toepassing, maar niet bekend. Gebruiksaanwijzing: Dit betekent dat de werkelijke waarde niet bekend is. Als het enige dat onbekend is, de juiste expressie van de waarde is binnen de relevante kaders (waardelijst, datatype, etc.), dan moeten de NullFlavors OTH of UNC worden gebruikt. Er mogen geen andere kenmerken worden gebruikt voor een datatype met dit kenmerk tenzij: Deze kenmerken zelf direct betrekking hebben op de semantiek van &quot;onbekend&quot;. (Bijv. een lokale code die wordt verstuurd als vertaling die &#39;obekend&#39; omvat) Zulke kenmerken kwalificeren nader, de aard van hetgeen onbekend is. (Bijv. het specificeren van een code &quot;H&quot; en een URL prefix &quot;tel:&quot; om aan te geven dat het privënummer onbekend is.)"/>
+        </extension>
+        <code value="unknown"/>
+        <display value="Onbekend"/>
+        <definition value="Onbekend."/>
+    </concept>
+</CodeSystem>
