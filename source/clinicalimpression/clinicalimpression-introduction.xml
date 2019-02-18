@@ -47,7 +47,7 @@ Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-ClinicalImpression is the equivalent of the "A" in Weed  SOAP.  It is the outcome of the clinical assessment process.  The ClinicalImpression may lead to a statement of a Condition about a patient.
+ClinicalImpression is the equivalent of the "A" (assessment) in the SOAP note format originally described by Lawrence Weed, MD.  It is the outcome of the clinical assessment process.  The ClinicalImpression may lead to a statement of a Condition about a patient.
 
 There is another related clinical concept often called an "assessment": assessment Tools such as Apgar (also known as "Assessment Scales").
 This is not what the ClinicalImpression resource is about; assessment tools such as Apgar are represented as 
