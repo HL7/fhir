@@ -223,12 +223,12 @@
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
   </subject>
-  <addresses>
+  <addressesReference>
     <!-- The concern points to the contained Condition. Other options are to point to a 'real' Condition resource-->
     <reference value="#p1"/>
     <!-- Local reference -->
     <display value="Asthma"/>
-  </addresses>
+  </addressesReference>
   <goal>
     <reference value="#g1"/>
   </goal>

@@ -54,11 +54,11 @@
   <careTeam>
     <reference value="#careteam"/>
   </careTeam>
-  <addresses>
+  <addressesReference>
     <reference value="Condition/f201"/>
     <!--TODO Correcte referentie-->
     <display value="?????"/>
-  </addresses>
+  </addressesReference>
   <goal>
     <reference value="#goal"/>
   </goal>

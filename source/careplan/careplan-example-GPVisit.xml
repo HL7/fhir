@@ -127,10 +127,10 @@
   <careTeam>
     <reference value="#careteam"/>
   </careTeam>
-  <addresses>
+  <addressesReference>
     <reference value="#p1"/>
     <display value="obesity"/>
-  </addresses>
+  </addressesReference>
   <goal>
     <reference value="#goal"/>
   </goal>

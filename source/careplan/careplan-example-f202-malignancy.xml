@@ -102,10 +102,10 @@
   <careTeam>
     <reference value="#careteam"/>
   </careTeam>
-  <addresses>
+  <addressesReference>
     <reference value="Condition/f202"/>
     <display value="Roel's head-neck tumor"/>
-  </addresses>
+  </addressesReference>
   <goal>
     <reference value="#goal"/>
   </goal>
