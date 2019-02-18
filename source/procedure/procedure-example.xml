@@ -22,10 +22,10 @@
     <reference value="Practitioner/example"/>
     <display value="Dr Cecil Surgeon"/>
   </recorder>
-  <asserter>
+  <reportedReference>
     <reference value="Practitioner/example"/>
     <display value="Dr Cecil Surgeon"/>
-  </asserter>
+  </reportedReference>
   <performer>
     <actor>
       <reference value="Practitioner/example"/>

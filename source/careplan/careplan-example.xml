@@ -69,10 +69,10 @@
 	<careTeam>
 		<reference value="CareTeam/example"/>
 	</careTeam>
-	<addresses>
+	<addressesReference>
 		<reference value="#p1"/>
 		<display value="obesity"/>
-	</addresses>
+	</addressesReference>
 	<goal>
 		<reference value="Goal/example" />
 	</goal>
@@ -118,6 +118,7 @@
 		<location>
 			<display value="Patient's home" />
 		</location>
+		<reportedBoolean value="false"/> 
 		<performer>
 			<reference value="Patient/example"/>
 			<display value="Peter James Chalmers"/>
