@@ -22,7 +22,7 @@
   
   
   
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4482,7 +4482,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5633,8 +5632,9 @@
    <Column ss:StyleID="s143" ss:Width="28.0"/>
    <Column ss:StyleID="s143" ss:Width="328.0"/>
    <Column ss:StyleID="s143" ss:Width="57.0"/>
-   <Column ss:Span="1" ss:StyleID="s143" ss:Width="205.0"/>
-   <Column ss:Index="7" ss:StyleID="s143" ss:Width="40.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s143" ss:Width="261.0"/>
+   <Column ss:StyleID="s143" ss:Width="205.0"/>
+   <Column ss:StyleID="s143" ss:Width="40.0"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s107"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Descriptive Name</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Default = XML.  Leave at default unless told otherwise</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5663,13 +5663,13 @@
     <Cell ss:StyleID="s148"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Negation</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Mother has no history of malignant tumor of breast</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">negation</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">familymemberhistory-example-negation.xml</Data></Cell>
     <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s147"/>
@@ -5946,6 +5946,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6088,7 +6089,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Codes describing the sex assigned at birth as documented on the birth registration.</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:HRef="http://build.fhir.org/valueset-administrative-gender.html" ss:StyleID="s154"><Data ss:Type="String">http://build.fhir.org/valueset-administrative-gender.html</Data></Cell>
+    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/administrative-gender" ss:StyleID="s154"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/administrative-gender</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>

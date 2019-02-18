@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FamilyMemberHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familymemberhistory.xsd">
+  <id value="negation"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Mother has no history of malignant tumor of breast</div>
+  </text>
+  <status value="completed"/>
+  <patient>
+    <reference value="Patient/100"/>
+    <display value="Peter Patient"/>
+  </patient>
+  
+  <relationship>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+      <code value="MTH"/>
+      <display value="mother"/>
+    </coding>
+  </relationship>
+  <condition>
+    <code>
+     <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="700146008"/>
+       <display value="No history of malignant neoplasm of breast"/>
+     </coding>
+     <text value="No history of malignant tumor of breast"/>
+    </code>
+  </condition>
+</FamilyMemberHistory>
