@@ -65,9 +65,9 @@
 
   <!-- may have been for cream to treat sunburn on that arm, reference to that medication -->
   <suspectEntity>
-    <instance>
+    <instanceReference>
       <reference value="Medication/example"/>
-    </instance>
+    </instanceReference>
   </suspectEntity>
 
 </AdverseEvent>
