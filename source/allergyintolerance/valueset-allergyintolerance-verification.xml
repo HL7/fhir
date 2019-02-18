@@ -5,8 +5,8 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/allergyintolerance-verification"/>
-  <name value="AllergyIntoleranceVerificationStatusCodes"/>
-  <title value="AllergyIntolerance Verification Status Codes"/>
+  <name value="AllergyIntoleranceVerificationStatus"/>
+  <title value="AllergyIntolerance Verification Status"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -15,7 +15,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Preferred value set for AllergyIntolerance Verification Status."/>
+  <description value="The verification status to support or decline the clinical status of the allergy or intolerance."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"/>
