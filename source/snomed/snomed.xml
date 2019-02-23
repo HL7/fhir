@@ -12165,6 +12165,10 @@
     <display value="Welsh black cattle"/>
     <display value="Black Welsh cattle breed"/>
   </concept>
+  <concept id="288524001" display="Courses">
+    <display value="Courses"/>
+    <display value="Courses (qualifier value)"/>
+  </concept>
   <concept id="28995006" display="Treated with">
     <display value="Treated with"/>
     <display value="TW"/>
@@ -15675,6 +15679,12 @@
     <display value="Ventriculus"/>
     <display value="Stomach structure"/>
     <display value="Stomach structure (body structure)"/>
+  </concept>
+  <concept id="700146008" display="No history of malignant tumor of breast">
+    <display value="No history of malignant tumor of breast"/>
+    <display value="No history of malignant neoplasm of breast"/>
+    <display value="No history of malignant tumour of breast"/>
+    <display value="No history of malignant neoplasm of breast (situation)"/>
   </concept>
   <concept id="70210006" display="Orloff chicken">
     <display value="Orloff chicken"/>
