@@ -78759,3 +78759,110 @@ v: {
   "error" : "The display \"HLA-A+​B+​C (class I) [Type]\" is not a valid display for the code {http://loinc.org}13303-3 - should be one of [\"HLA-A+B+C (class I) [Type]\",HLA-A+B+C]"
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org",
+      "concept" : [{
+        "code" : "LA27975-4",
+        "display" : "Event-focused care team"
+      },
+      {
+        "code" : "LA27976-2",
+        "display" : "Encounter-focused care team"
+      },
+      {
+        "code" : "LA27977-0",
+        "display" : "Episode of care-focused care team"
+      },
+      {
+        "code" : "LA27978-8",
+        "display" : "Condition-focused care team"
+      },
+      {
+        "code" : "LA28865-6",
+        "display" : "Longitudinal care-coordination focused care team"
+      },
+      {
+        "code" : "LA28866-4",
+        "display" : "Home & Community Based Services (HCBS)-focused care team"
+      },
+      {
+        "code" : "LA27980-4",
+        "display" : "Clinical research-focused care team"
+      },
+      {
+        "code" : "LA28867-2",
+        "display" : "Public health-focused care team"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:053ed27b-4ea8-4b11-af4b-91f1f1fbae30",
+    "timestamp" : "2019-02-18T14:53:40.466Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://loinc.org?version=2.64"
+    }],
+    "contains" : [{
+      "system" : "http://loinc.org",
+      "code" : "LA27975-4",
+      "display" : "Event-focused care team"
+    },
+    {
+      "system" : "http://loinc.org",
+      "code" : "LA27976-2",
+      "display" : "Encounter-focused care team"
+    },
+    {
+      "system" : "http://loinc.org",
+      "code" : "LA27977-0",
+      "display" : "Episode of care-focused care team"
+    },
+    {
+      "system" : "http://loinc.org",
+      "code" : "LA27978-8",
+      "display" : "Condition-focused care team"
+    },
+    {
+      "system" : "http://loinc.org",
+      "code" : "LA28865-6",
+      "display" : "Longitudinal care-coordination focused care team"
+    },
+    {
+      "system" : "http://loinc.org",
+      "code" : "LA28866-4",
+      "display" : "Home & Community Based Services (HCBS)-focused care team"
+    },
+    {
+      "system" : "http://loinc.org",
+      "code" : "LA27980-4",
+      "display" : "Clinical research-focused care team"
+    },
+    {
+      "system" : "http://loinc.org",
+      "code" : "LA28867-2",
+      "display" : "Public health-focused care team"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
