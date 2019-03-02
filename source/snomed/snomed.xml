@@ -173,6 +173,10 @@
     <display value="Consultation"/>
     <display value="Consultation (procedure)"/>
   </concept>
+  <concept id="115341008" display="Total measurement">
+    <display value="Total measurement"/>
+    <display value="Total measurement (qualifier value)"/>
+  </concept>
   <concept id="115665000" display="Atopic state">
     <display value="Atopic state"/>
     <display value="Atopic diathesis"/>
