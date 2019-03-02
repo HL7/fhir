@@ -2,17 +2,17 @@ package org.hl7.fhir.igtools.openapi;
 
 import java.util.List;
 
-import org.hl7.fhir.r4.model.CapabilityStatement;
-import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent;
-import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
-import org.hl7.fhir.r4.model.CapabilityStatement.ResourceInteractionComponent;
-import org.hl7.fhir.r4.model.CapabilityStatement.ResourceVersionPolicy;
-import org.hl7.fhir.r4.model.CapabilityStatement.RestfulCapabilityMode;
-import org.hl7.fhir.r4.model.CapabilityStatement.TypeRestfulInteraction;
-import org.hl7.fhir.r4.model.CodeType;
-import org.hl7.fhir.r4.model.ContactDetail;
-import org.hl7.fhir.r4.model.ContactPoint;
-import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.r5.model.CapabilityStatement;
+import org.hl7.fhir.r5.model.CapabilityStatement.CapabilityStatementRestComponent;
+import org.hl7.fhir.r5.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
+import org.hl7.fhir.r5.model.CapabilityStatement.ResourceInteractionComponent;
+import org.hl7.fhir.r5.model.CapabilityStatement.ResourceVersionPolicy;
+import org.hl7.fhir.r5.model.CapabilityStatement.RestfulCapabilityMode;
+import org.hl7.fhir.r5.model.CapabilityStatement.TypeRestfulInteraction;
+import org.hl7.fhir.r5.model.CodeType;
+import org.hl7.fhir.r5.model.ContactDetail;
+import org.hl7.fhir.r5.model.ContactPoint;
+import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
 
 public class OpenApiGenerator {
 

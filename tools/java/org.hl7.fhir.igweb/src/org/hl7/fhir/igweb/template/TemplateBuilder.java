@@ -8,7 +8,7 @@ import java.util.Map;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.text.StrSubstitutor;
 import org.hl7.fhir.igweb.servlet.HomeServlet;
-import org.hl7.fhir.r4.model.Constants;
+import org.hl7.fhir.r5.model.Constants;
 
 public class TemplateBuilder {
 

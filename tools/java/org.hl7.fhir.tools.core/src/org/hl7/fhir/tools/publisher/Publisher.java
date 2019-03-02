@@ -125,97 +125,97 @@ import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.igtools.tests.AllGuidesTests;
-import org.hl7.fhir.r4.conformance.ProfileComparer;
-import org.hl7.fhir.r4.conformance.ProfileComparer.ProfileComparison;
-import org.hl7.fhir.r4.conformance.ProfileUtilities;
-import org.hl7.fhir.r4.conformance.ShExGenerator;
-import org.hl7.fhir.r4.conformance.ShExGenerator.HTMLLinkPolicy;
-import org.hl7.fhir.r4.elementmodel.Manager;
-import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
-import org.hl7.fhir.r4.elementmodel.ParserBase.ValidationPolicy;
-import org.hl7.fhir.r4.formats.FormatUtilities;
-import org.hl7.fhir.r4.formats.IParser;
-import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.formats.JsonParser;
-import org.hl7.fhir.r4.formats.RdfParser;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.Bundle;
-import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.r4.model.Bundle.BundleType;
-import org.hl7.fhir.r4.model.CanonicalType;
-import org.hl7.fhir.r4.model.CapabilityStatement;
-import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementKind;
-import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent;
-import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
-import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent;
-import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestSecurityComponent;
-import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementSoftwareComponent;
-import org.hl7.fhir.r4.model.CapabilityStatement.ConditionalDeleteStatus;
-import org.hl7.fhir.r4.model.CapabilityStatement.ReferenceHandlingPolicy;
-import org.hl7.fhir.r4.model.CapabilityStatement.ResourceInteractionComponent;
-import org.hl7.fhir.r4.model.CapabilityStatement.RestfulCapabilityMode;
-import org.hl7.fhir.r4.model.CapabilityStatement.SystemInteractionComponent;
-import org.hl7.fhir.r4.model.CapabilityStatement.SystemRestfulInteraction;
-import org.hl7.fhir.r4.model.CapabilityStatement.TypeRestfulInteraction;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.r4.model.CodeType;
-import org.hl7.fhir.r4.model.CompartmentDefinition;
-import org.hl7.fhir.r4.model.CompartmentDefinition.CompartmentDefinitionResourceComponent;
-import org.hl7.fhir.r4.model.CompartmentDefinition.CompartmentType;
-import org.hl7.fhir.r4.model.ConceptMap;
-import org.hl7.fhir.r4.model.ConceptMap.ConceptMapGroupComponent;
-import org.hl7.fhir.r4.model.ConceptMap.SourceElementComponent;
-import org.hl7.fhir.r4.model.ConceptMap.TargetElementComponent;
-import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.ContactDetail;
-import org.hl7.fhir.r4.model.ContactPoint;
-import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.r4.model.DomainResource;
-import org.hl7.fhir.r4.model.ElementDefinition;
-import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
-import org.hl7.fhir.r4.model.Enumerations.ConceptMapEquivalence;
-import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
-import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
-import org.hl7.fhir.r4.model.Factory;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
-import org.hl7.fhir.r4.model.Meta;
-import org.hl7.fhir.r4.model.MetadataResource;
-import org.hl7.fhir.r4.model.NamingSystem;
-import org.hl7.fhir.r4.model.NamingSystem.NamingSystemIdentifierType;
-import org.hl7.fhir.r4.model.NamingSystem.NamingSystemType;
-import org.hl7.fhir.r4.model.NamingSystem.NamingSystemUniqueIdComponent;
-import org.hl7.fhir.r4.model.Narrative;
-import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
-import org.hl7.fhir.r4.model.OperationDefinition;
-import org.hl7.fhir.r4.model.Questionnaire;
-import org.hl7.fhir.r4.model.Resource;
-import org.hl7.fhir.r4.model.ResourceType;
-import org.hl7.fhir.r4.model.SearchParameter;
-import org.hl7.fhir.r4.model.StringType;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
-import org.hl7.fhir.r4.model.UriType;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.r4.terminologies.LoincToDEConvertor;
-import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
-import org.hl7.fhir.r4.utils.EOperationOutcome;
-import org.hl7.fhir.r4.utils.FHIRPathEngine;
-import org.hl7.fhir.r4.utils.GraphQLSchemaGenerator;
-import org.hl7.fhir.r4.utils.GraphQLSchemaGenerator.FHIROperationType;
-import org.hl7.fhir.r4.utils.NarrativeGenerator;
-import org.hl7.fhir.r4.utils.QuestionnaireBuilder;
-import org.hl7.fhir.r4.utils.ResourceUtilities;
-import org.hl7.fhir.r4.utils.StructureMapUtilities;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
-import org.hl7.fhir.r4.validation.BaseValidator;
-import org.hl7.fhir.r4.validation.ProfileValidator;
-import org.hl7.fhir.r4.validation.XmlValidator;
+import org.hl7.fhir.r5.conformance.ProfileComparer;
+import org.hl7.fhir.r5.conformance.ProfileComparer.ProfileComparison;
+import org.hl7.fhir.r5.conformance.ProfileUtilities;
+import org.hl7.fhir.r5.conformance.ShExGenerator;
+import org.hl7.fhir.r5.conformance.ShExGenerator.HTMLLinkPolicy;
+import org.hl7.fhir.r5.elementmodel.Manager;
+import org.hl7.fhir.r5.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.r5.elementmodel.ParserBase.ValidationPolicy;
+import org.hl7.fhir.r5.formats.FormatUtilities;
+import org.hl7.fhir.r5.formats.IParser;
+import org.hl7.fhir.r5.formats.IParser.OutputStyle;
+import org.hl7.fhir.r5.formats.JsonParser;
+import org.hl7.fhir.r5.formats.RdfParser;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.Bundle;
+import org.hl7.fhir.r5.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r5.model.Bundle.BundleType;
+import org.hl7.fhir.r5.model.CanonicalType;
+import org.hl7.fhir.r5.model.CapabilityStatement;
+import org.hl7.fhir.r5.model.CapabilityStatement.CapabilityStatementKind;
+import org.hl7.fhir.r5.model.CapabilityStatement.CapabilityStatementRestComponent;
+import org.hl7.fhir.r5.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
+import org.hl7.fhir.r5.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent;
+import org.hl7.fhir.r5.model.CapabilityStatement.CapabilityStatementRestSecurityComponent;
+import org.hl7.fhir.r5.model.CapabilityStatement.CapabilityStatementSoftwareComponent;
+import org.hl7.fhir.r5.model.CapabilityStatement.ConditionalDeleteStatus;
+import org.hl7.fhir.r5.model.CapabilityStatement.ReferenceHandlingPolicy;
+import org.hl7.fhir.r5.model.CapabilityStatement.ResourceInteractionComponent;
+import org.hl7.fhir.r5.model.CapabilityStatement.RestfulCapabilityMode;
+import org.hl7.fhir.r5.model.CapabilityStatement.SystemInteractionComponent;
+import org.hl7.fhir.r5.model.CapabilityStatement.SystemRestfulInteraction;
+import org.hl7.fhir.r5.model.CapabilityStatement.TypeRestfulInteraction;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r5.model.CodeType;
+import org.hl7.fhir.r5.model.CompartmentDefinition;
+import org.hl7.fhir.r5.model.CompartmentDefinition.CompartmentDefinitionResourceComponent;
+import org.hl7.fhir.r5.model.CompartmentDefinition.CompartmentType;
+import org.hl7.fhir.r5.model.ConceptMap;
+import org.hl7.fhir.r5.model.ConceptMap.ConceptMapGroupComponent;
+import org.hl7.fhir.r5.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.r5.model.ConceptMap.TargetElementComponent;
+import org.hl7.fhir.r5.model.Constants;
+import org.hl7.fhir.r5.model.ContactDetail;
+import org.hl7.fhir.r5.model.ContactPoint;
+import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.r5.model.DomainResource;
+import org.hl7.fhir.r5.model.ElementDefinition;
+import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r5.model.Enumerations.ConceptMapEquivalence;
+import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
+import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r5.model.Enumerations.SearchParamType;
+import org.hl7.fhir.r5.model.Factory;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
+import org.hl7.fhir.r5.model.Meta;
+import org.hl7.fhir.r5.model.MetadataResource;
+import org.hl7.fhir.r5.model.NamingSystem;
+import org.hl7.fhir.r5.model.NamingSystem.NamingSystemIdentifierType;
+import org.hl7.fhir.r5.model.NamingSystem.NamingSystemType;
+import org.hl7.fhir.r5.model.NamingSystem.NamingSystemUniqueIdComponent;
+import org.hl7.fhir.r5.model.Narrative;
+import org.hl7.fhir.r5.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.r5.model.OperationDefinition;
+import org.hl7.fhir.r5.model.Questionnaire;
+import org.hl7.fhir.r5.model.Resource;
+import org.hl7.fhir.r5.model.ResourceType;
+import org.hl7.fhir.r5.model.SearchParameter;
+import org.hl7.fhir.r5.model.StringType;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.r5.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.r5.model.UriType;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r5.terminologies.LoincToDEConvertor;
+import org.hl7.fhir.r5.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
+import org.hl7.fhir.r5.utils.EOperationOutcome;
+import org.hl7.fhir.r5.utils.FHIRPathEngine;
+import org.hl7.fhir.r5.utils.GraphQLSchemaGenerator;
+import org.hl7.fhir.r5.utils.GraphQLSchemaGenerator.FHIROperationType;
+import org.hl7.fhir.r5.utils.NarrativeGenerator;
+import org.hl7.fhir.r5.utils.QuestionnaireBuilder;
+import org.hl7.fhir.r5.utils.ResourceUtilities;
+import org.hl7.fhir.r5.utils.StructureMapUtilities;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
+import org.hl7.fhir.r5.validation.BaseValidator;
+import org.hl7.fhir.r5.validation.ProfileValidator;
+import org.hl7.fhir.r5.validation.XmlValidator;
 import org.hl7.fhir.rdf.RDFValidator;
 import org.hl7.fhir.tools.converters.CDAGenerator;
 import org.hl7.fhir.tools.converters.DSTU3ValidationConvertor;
@@ -2238,8 +2238,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     produceSchemaZip();
 
-    page.log("Load R3 Definitions", LogMessageType.Process);
-    loadR3Definitions();
+    page.log("Load R4 Definitions", LogMessageType.Process);
+    loadR4Definitions();
     page.log("Produce Content", LogMessageType.Process);
     produceSpec();
 
@@ -2259,31 +2259,31 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
 
-  private void loadR3Definitions() throws FileNotFoundException, FHIRException, IOException {
-    loadR3DefinitionBundle(page.getDiffEngine().getOriginal().getTypes(), Utilities.path(page.getFolders().srcDir, "release3", "profiles-types.xml"));
-    loadR3DefinitionBundle(page.getDiffEngine().getOriginal().getResources(), Utilities.path(page.getFolders().srcDir, "release3", "profiles-resources.xml"));
-    loadR3DefinitionBundle(page.getDiffEngine().getOriginal().getExtensions(), Utilities.path(page.getFolders().srcDir, "release3", "extension-definitions.xml"));
-    loadR3DefinitionBundle(page.getDiffEngine().getOriginal().getProfiles(), Utilities.path(page.getFolders().srcDir, "release3", "profiles-others.xml"));
-    loadValueSetBundle(page.getDiffEngine().getOriginal().getExpansions(), Utilities.path(page.getFolders().srcDir, "release3", "expansions.xml"));
-    loadValueSetBundle(page.getDiffEngine().getOriginal().getValuesets(), Utilities.path(page.getFolders().srcDir, "release3", "valuesets.xml"));
+  private void loadR4Definitions() throws FileNotFoundException, FHIRException, IOException {
+    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getTypes(), Utilities.path(page.getFolders().srcDir, "release4", "profiles-types.xml"));
+    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getResources(), Utilities.path(page.getFolders().srcDir, "release4", "profiles-resources.xml"));
+    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getExtensions(), Utilities.path(page.getFolders().srcDir, "release4", "extension-definitions.xml"));
+    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getProfiles(), Utilities.path(page.getFolders().srcDir, "release4", "profiles-others.xml"));
+    loadValueSetBundle(page.getDiffEngine().getOriginal().getExpansions(), Utilities.path(page.getFolders().srcDir, "release4", "expansions.xml"));
+    loadValueSetBundle(page.getDiffEngine().getOriginal().getValuesets(), Utilities.path(page.getFolders().srcDir, "release4", "valuesets.xml"));
   }
 
-  private void loadR3DefinitionBundle(Map<String, StructureDefinition> map, String fn) throws FHIRException, FileNotFoundException, IOException {
-    org.hl7.fhir.dstu3.model.Bundle bundle = (org.hl7.fhir.dstu3.model.Bundle) new org.hl7.fhir.dstu3.formats.XmlParser().parse(new FileInputStream(fn));
-    for (org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
-      if (be.getResource() instanceof org.hl7.fhir.dstu3.model.StructureDefinition) {
-        org.hl7.fhir.dstu3.model.StructureDefinition sd = (org.hl7.fhir.dstu3.model.StructureDefinition) be.getResource();
-        map.put(sd.getName(), VersionConvertor_30_40.convertStructureDefinition(sd));
+  private void loadR4DefinitionBundle(Map<String, StructureDefinition> map, String fn) throws FHIRException, FileNotFoundException, IOException {
+    org.hl7.fhir.r4.model.Bundle bundle = (org.hl7.fhir.r4.model.Bundle) new org.hl7.fhir.r4.formats.XmlParser().parse(new FileInputStream(fn));
+    for (org.hl7.fhir.r4.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
+      if (be.getResource() instanceof org.hl7.fhir.r4.model.StructureDefinition) {
+        org.hl7.fhir.r4.model.StructureDefinition sd = (org.hl7.fhir.r4.model.StructureDefinition) be.getResource();
+        map.put(sd.getName(), org.hl7.fhir.convertors.conv40_50.StructureDefinition.convertStructureDefinition(sd));
       }
     }
   }
   
   private static void loadValueSetBundle(Map<String, ValueSet> map, String fn) throws FHIRException, FileNotFoundException, IOException {
-    org.hl7.fhir.dstu3.model.Bundle bundle = (org.hl7.fhir.dstu3.model.Bundle) new org.hl7.fhir.dstu3.formats.XmlParser().parse(new FileInputStream(fn));
-    for (org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
-      if (be.getResource() instanceof org.hl7.fhir.dstu3.model.ValueSet) {
-        org.hl7.fhir.dstu3.model.ValueSet sd = (org.hl7.fhir.dstu3.model.ValueSet) be.getResource();
-        map.put(sd.getName(), VersionConvertor_30_40.convertValueSet(sd));
+    org.hl7.fhir.r4.model.Bundle bundle = (org.hl7.fhir.r4.model.Bundle) new org.hl7.fhir.r4.formats.XmlParser().parse(new FileInputStream(fn));
+    for (org.hl7.fhir.r4.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
+      if (be.getResource() instanceof org.hl7.fhir.r4.model.ValueSet) {
+        org.hl7.fhir.r4.model.ValueSet sd = (org.hl7.fhir.r4.model.ValueSet) be.getResource();
+        map.put(sd.getName(), org.hl7.fhir.convertors.conv40_50.ValueSet.convertValueSet(sd));
       }
     }    
   }
@@ -2868,12 +2868,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.close();
       System.gc();
 
-      page.log("....dstu2 in dstu3 format", LogMessageType.Process);
+      page.log("....r4 in r5 format", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().dstDir + "definitions-r2asr3.xml.zip");
-      page.getDiffEngine().saveR2AsR3(zip, FhirFormat.XML);
+      page.getDiffEngine().saveR4AsR5(zip, FhirFormat.XML);
       zip.close();
       zip = new ZipGenerator(page.getFolders().dstDir + "definitions-r2asr3.json.zip");
-      page.getDiffEngine().saveR2AsR3(zip, FhirFormat.JSON);
+      page.getDiffEngine().saveR4AsR5(zip, FhirFormat.JSON);
       zip.close();
             
       zip = new ZipGenerator(page.getFolders().dstDir + "all-valuesets.zip");
@@ -4008,11 +4008,11 @@ public class Publisher implements URIResolver, SectionNumberer {
         String type = base.getAttribute("fragment");
         if (!page.getDefinitions().hasPrimitiveType(type)) {
           if (f.isJson()) {
-            org.hl7.fhir.r4.elementmodel.JsonParser p = new org.hl7.fhir.r4.elementmodel.JsonParser(page.getWorkerContext());
+            org.hl7.fhir.r5.elementmodel.JsonParser p = new org.hl7.fhir.r5.elementmodel.JsonParser(page.getWorkerContext());
             p.setupValidation(ValidationPolicy.QUICK, null);
             p.parse(base.getTextContent(), type);
           } else {
-            org.hl7.fhir.r4.elementmodel.XmlParser p = new org.hl7.fhir.r4.elementmodel.XmlParser(page.getWorkerContext());
+            org.hl7.fhir.r5.elementmodel.XmlParser p = new org.hl7.fhir.r5.elementmodel.XmlParser(page.getWorkerContext());
             p.setupValidation(ValidationPolicy.QUICK, null);
             p.parse(XMLUtil.getFirstChild(base), type);
           }
@@ -4609,7 +4609,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     e.setResourceName(resn.getName());
     String canonical = "http://hl7.org/fhir/";
     
-    org.hl7.fhir.r4.elementmodel.Element ex = Manager.parse(page.getWorkerContext(), new CSFileInputStream(page.getFolders().dstDir + prefix+n + ".xml"), FhirFormat.XML);
+    org.hl7.fhir.r5.elementmodel.Element ex = Manager.parse(page.getWorkerContext(), new CSFileInputStream(page.getFolders().dstDir + prefix+n + ".xml"), FhirFormat.XML);
     new DefinitionsUsageTracker(page.getDefinitions()).updateUsage(ex);
     Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".json"), FhirFormat.JSON, OutputStyle.PRETTY, canonical); 
 //    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(Utilities.changeFileExt(destName, ".canonical.json")), FhirFormat.JSON, OutputStyle.CANONICAL); 

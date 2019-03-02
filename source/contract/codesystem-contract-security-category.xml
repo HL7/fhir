@@ -14,7 +14,7 @@
             http://build.fhir.org/sc.html.</div>
     </text>
     <url value="http://hl7.org/fhir/contract-security-category"/>
-    <version value="4.0.0"/>
+    <version value="4.1.0"/>
     <name value="ContractSecurityCategory"/>
     <status value="draft"/>
     <experimental value="true"/>

@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.Resource;
-import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.Resource;
+import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.utg.v2.V2CsvExporter;
 import org.hl7.fhir.utg.v3.V3MifExporter;
 import org.hl7.fhir.utilities.Utilities;

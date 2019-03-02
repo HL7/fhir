@@ -4,9 +4,9 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.r4.model.Enumeration;
-import org.hl7.fhir.r4.model.PrimitiveType;
-import org.hl7.fhir.r4.utils.TranslatingUtilities.TranslationServices;
+import org.hl7.fhir.r5.model.Enumeration;
+import org.hl7.fhir.r5.model.PrimitiveType;
+import org.hl7.fhir.r5.utils.TranslatingUtilities.TranslationServices;
 
 public class TranslationImplementation implements TranslationServices {
 

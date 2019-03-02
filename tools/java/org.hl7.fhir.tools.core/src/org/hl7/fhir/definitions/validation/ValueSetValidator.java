@@ -9,17 +9,17 @@ import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.r4.model.MetadataResource;
-import org.hl7.fhir.r4.model.Resource;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
-import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
-import org.hl7.fhir.r4.validation.BaseValidator;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r5.model.MetadataResource;
+import org.hl7.fhir.r5.model.Resource;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
+import org.hl7.fhir.r5.validation.BaseValidator;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -264,7 +264,7 @@ public class ValueSetValidator extends BaseValidator {
   }
 
   private String getOid(ValueSet vs) {
-    for (org.hl7.fhir.r4.model.Identifier id : vs.getIdentifier()) {
+    for (org.hl7.fhir.r5.model.Identifier id : vs.getIdentifier()) {
       if (id.getSystem().equals("urn:ietf:rfc:3986") && id.getValue().startsWith("urn:oid:")) {
         return id.getValue().substring(8);
       }

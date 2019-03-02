@@ -119,86 +119,86 @@ import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.conformance.ProfileComparer;
-import org.hl7.fhir.r4.conformance.ProfileComparer.ProfileComparison;
-import org.hl7.fhir.r4.conformance.ProfileUtilities;
-import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
-import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
-import org.hl7.fhir.r4.formats.FormatUtilities;
-import org.hl7.fhir.r4.formats.IParser;
-import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.formats.JsonParser;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.Base;
-import org.hl7.fhir.r4.model.BooleanType;
-import org.hl7.fhir.r4.model.Bundle;
-import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
-import org.hl7.fhir.r4.model.CodeType;
-import org.hl7.fhir.r4.model.CodeableConcept;
-import org.hl7.fhir.r4.model.Coding;
-import org.hl7.fhir.r4.model.ConceptMap;
-import org.hl7.fhir.r4.model.ContactDetail;
-import org.hl7.fhir.r4.model.ContactPoint;
-import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.r4.model.DomainResource;
-import org.hl7.fhir.r4.model.ElementDefinition;
-import org.hl7.fhir.r4.model.ElementDefinition.ConstraintSeverity;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionMappingComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.SlicingRules;
-import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
-import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
-import org.hl7.fhir.r4.model.ExpressionNode.CollectionStatus;
-import org.hl7.fhir.r4.model.Extension;
-import org.hl7.fhir.r4.model.ImplementationGuide;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
-import org.hl7.fhir.r4.model.MetadataResource;
-import org.hl7.fhir.r4.model.NamingSystem;
-import org.hl7.fhir.r4.model.NamingSystem.NamingSystemIdentifierType;
-import org.hl7.fhir.r4.model.NamingSystem.NamingSystemUniqueIdComponent;
-import org.hl7.fhir.r4.model.Narrative;
-import org.hl7.fhir.r4.model.Quantity;
-import org.hl7.fhir.r4.model.Resource;
-import org.hl7.fhir.r4.model.SearchParameter;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContextType;
-import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent;
-import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionMappingComponent;
-import org.hl7.fhir.r4.model.Type;
-import org.hl7.fhir.r4.model.TypeDetails;
-import org.hl7.fhir.r4.model.UriType;
-import org.hl7.fhir.r4.model.UsageContext;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
-import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceDesignationComponent;
-import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
-import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.r4.terminologies.TerminologyClient;
-import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
-import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
-import org.hl7.fhir.r4.utils.EOperationOutcome;
-import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
-import org.hl7.fhir.r4.utils.IResourceValidator;
-import org.hl7.fhir.r4.utils.NarrativeGenerator;
-import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
-import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
-import org.hl7.fhir.r4.utils.StructureMapUtilities;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
-import org.hl7.fhir.r4.utils.Translations;
-import org.hl7.fhir.r4.utils.TypesUtilities;
-import org.hl7.fhir.r4.utils.TypesUtilities.TypeClassification;
-import org.hl7.fhir.r4.utils.TypesUtilities.WildcardInformation;
+import org.hl7.fhir.r5.conformance.ProfileComparer;
+import org.hl7.fhir.r5.conformance.ProfileComparer.ProfileComparison;
+import org.hl7.fhir.r5.conformance.ProfileUtilities;
+import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.r5.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r5.formats.FormatUtilities;
+import org.hl7.fhir.r5.formats.IParser;
+import org.hl7.fhir.r5.formats.IParser.OutputStyle;
+import org.hl7.fhir.r5.formats.JsonParser;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.Base;
+import org.hl7.fhir.r5.model.BooleanType;
+import org.hl7.fhir.r5.model.Bundle;
+import org.hl7.fhir.r5.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.r5.model.CodeType;
+import org.hl7.fhir.r5.model.CodeableConcept;
+import org.hl7.fhir.r5.model.Coding;
+import org.hl7.fhir.r5.model.ConceptMap;
+import org.hl7.fhir.r5.model.ContactDetail;
+import org.hl7.fhir.r5.model.ContactPoint;
+import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.r5.model.DomainResource;
+import org.hl7.fhir.r5.model.ElementDefinition;
+import org.hl7.fhir.r5.model.ElementDefinition.ConstraintSeverity;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionMappingComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.SlicingRules;
+import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
+import org.hl7.fhir.r5.model.Enumerations.SearchParamType;
+import org.hl7.fhir.r5.model.ExpressionNode.CollectionStatus;
+import org.hl7.fhir.r5.model.Extension;
+import org.hl7.fhir.r5.model.ImplementationGuide;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
+import org.hl7.fhir.r5.model.MetadataResource;
+import org.hl7.fhir.r5.model.NamingSystem;
+import org.hl7.fhir.r5.model.NamingSystem.NamingSystemIdentifierType;
+import org.hl7.fhir.r5.model.NamingSystem.NamingSystemUniqueIdComponent;
+import org.hl7.fhir.r5.model.Narrative;
+import org.hl7.fhir.r5.model.Quantity;
+import org.hl7.fhir.r5.model.Resource;
+import org.hl7.fhir.r5.model.SearchParameter;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.StructureDefinition.ExtensionContextType;
+import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionContextComponent;
+import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.r5.model.Type;
+import org.hl7.fhir.r5.model.TypeDetails;
+import org.hl7.fhir.r5.model.UriType;
+import org.hl7.fhir.r5.model.UsageContext;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceDesignationComponent;
+import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r5.model.ValueSet.ConceptSetFilterComponent;
+import org.hl7.fhir.r5.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r5.terminologies.TerminologyClient;
+import org.hl7.fhir.r5.terminologies.TerminologyClientR5;
+import org.hl7.fhir.r5.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
+import org.hl7.fhir.r5.utils.EOperationOutcome;
+import org.hl7.fhir.r5.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.r5.utils.IResourceValidator;
+import org.hl7.fhir.r5.utils.NarrativeGenerator;
+import org.hl7.fhir.r5.utils.NarrativeGenerator.IReferenceResolver;
+import org.hl7.fhir.r5.utils.NarrativeGenerator.ResourceWithReference;
+import org.hl7.fhir.r5.utils.StructureMapUtilities;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
+import org.hl7.fhir.r5.utils.Translations;
+import org.hl7.fhir.r5.utils.TypesUtilities;
+import org.hl7.fhir.r5.utils.TypesUtilities.TypeClassification;
+import org.hl7.fhir.r5.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
 import org.hl7.fhir.utilities.CSFile;
@@ -8657,8 +8657,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String summariseValue(Type fixed) throws Exception {
-    if (fixed instanceof org.hl7.fhir.r4.model.PrimitiveType)
-      return ((org.hl7.fhir.r4.model.PrimitiveType) fixed).asStringValue();
+    if (fixed instanceof org.hl7.fhir.r5.model.PrimitiveType)
+      return ((org.hl7.fhir.r5.model.PrimitiveType) fixed).asStringValue();
     if (fixed instanceof CodeableConcept)
       return summarise((CodeableConcept) fixed);
     if (fixed instanceof Quantity)
@@ -9168,7 +9168,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     breadCrumbManager.setDefinitions(definitions);
     TerminologyClient client;
     try {
-      client = new TerminologyClientR4(tsServer);
+      client = new TerminologyClientR5(tsServer);
       client.setTimeout(30000);
     } catch(Exception e) {
       System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());
@@ -10453,8 +10453,8 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
 
   @SuppressWarnings("rawtypes")
   private String renderType(Type v) throws Exception {
-    if (v instanceof org.hl7.fhir.r4.model.PrimitiveType)
-      return ((org.hl7.fhir.r4.model.PrimitiveType) v).asStringValue();
+    if (v instanceof org.hl7.fhir.r5.model.PrimitiveType)
+      return ((org.hl7.fhir.r5.model.PrimitiveType) v).asStringValue();
     throw new Exception("unhandled default value");
   }
 
