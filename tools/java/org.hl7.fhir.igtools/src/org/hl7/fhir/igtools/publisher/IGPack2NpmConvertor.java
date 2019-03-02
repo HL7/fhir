@@ -18,20 +18,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.formats.JsonParser;
-import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.Enumeration;
-import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
-import org.hl7.fhir.r4.model.ImplementationGuide;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideManifestComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ManifestResourceComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
-import org.hl7.fhir.r4.model.Reference;
-import org.hl7.fhir.r4.utils.NPMPackageGenerator;
-import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
+import org.hl7.fhir.r5.formats.IParser.OutputStyle;
+import org.hl7.fhir.r5.formats.JsonParser;
+import org.hl7.fhir.r5.model.Constants;
+import org.hl7.fhir.r5.model.Enumeration;
+import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
+import org.hl7.fhir.r5.model.ImplementationGuide;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideManifestComponent;
+import org.hl7.fhir.r5.model.ImplementationGuide.ManifestResourceComponent;
+import org.hl7.fhir.r5.model.ImplementationGuide.SPDXLicense;
+import org.hl7.fhir.r5.model.Reference;
+import org.hl7.fhir.r5.utils.NPMPackageGenerator;
+import org.hl7.fhir.r5.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
@@ -223,13 +223,15 @@ public class IGPack2NpmConvertor {
 
   private byte[] compose(ImplementationGuide ig, String version) throws IOException, FHIRException {
     if (version.equals("1.0.2")) {
-      return new org.hl7.fhir.dstu2.formats.JsonParser().composeBytes(new org.hl7.fhir.convertors.VersionConvertor_10_40(null).convertResource(ig));
+      return new org.hl7.fhir.dstu2.formats.JsonParser().composeBytes(new org.hl7.fhir.convertors.VersionConvertor_10_50(null).convertResource(ig));
     } else if (version.equals("1.4.0")) {
-      return new org.hl7.fhir.dstu2016may.formats.JsonParser().composeBytes(org.hl7.fhir.convertors.VersionConvertor_14_40.convertResource(ig));
+      return new org.hl7.fhir.dstu2016may.formats.JsonParser().composeBytes(org.hl7.fhir.convertors.VersionConvertor_14_50.convertResource(ig));
     } else if (version.equals("3.0.1") || version.equals("3.0.0") ) {
-      return new org.hl7.fhir.dstu3.formats.JsonParser().composeBytes(org.hl7.fhir.convertors.VersionConvertor_30_40.convertResource(ig, false));
-    } else if (version.equals(Constants.VERSION) || version.equals("3.3.0") || version.equals("3.2.0")) {
-      return new org.hl7.fhir.r4.formats.JsonParser().composeBytes(ig);
+      return new org.hl7.fhir.dstu3.formats.JsonParser().composeBytes(org.hl7.fhir.convertors.VersionConvertor_30_50.convertResource(ig, false));
+    } else if (version.equals("4.0.0") || version.equals("4.0.1") ) {
+      return new org.hl7.fhir.r4.formats.JsonParser().composeBytes(org.hl7.fhir.convertors.VersionConvertor_40_50.convertResource(ig));
+    } else if (version.equals(Constants.VERSION)) {
+      return new org.hl7.fhir.r5.formats.JsonParser().composeBytes(ig);
     } else
       throw new FHIRException("Unsupported version "+version);
   }
@@ -370,15 +372,18 @@ public class IGPack2NpmConvertor {
     byte[] b = files.get(n);
     if (version.equals("1.0.2")) {
       org.hl7.fhir.dstu2.model.Resource r = new org.hl7.fhir.dstu2.formats.JsonParser().parse(b);
-      return (ImplementationGuide) new org.hl7.fhir.convertors.VersionConvertor_10_40(null).convertResource(r);
+      return (ImplementationGuide) new org.hl7.fhir.convertors.VersionConvertor_10_50(null).convertResource(r);
     } else if (version.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.model.Resource r = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(b);
-      return (ImplementationGuide) org.hl7.fhir.convertors.VersionConvertor_14_40.convertResource(r);
+      return (ImplementationGuide) org.hl7.fhir.convertors.VersionConvertor_14_50.convertResource(r);
     } else if (version.equals("3.0.1") || version.equals("3.0.0") ) {
       org.hl7.fhir.dstu3.model.Resource r = new org.hl7.fhir.dstu3.formats.JsonParser().parse(b);
-      return (ImplementationGuide) org.hl7.fhir.convertors.VersionConvertor_30_40.convertResource(r, false);
-    } else if (version.equals(Constants.VERSION) || version.equals("3.3.0") || version.equals("3.2.0")) {
+      return (ImplementationGuide) org.hl7.fhir.convertors.VersionConvertor_30_50.convertResource(r, false);
+    } else if (version.equals("4.0.1") || version.equals("4.0.0") ) {
       org.hl7.fhir.r4.model.Resource r = new org.hl7.fhir.r4.formats.JsonParser().parse(b);
+      return (ImplementationGuide) org.hl7.fhir.convertors.VersionConvertor_40_50.convertResource(r);
+    } else if (version.equals(Constants.VERSION)) {
+      org.hl7.fhir.r5.model.Resource r = new org.hl7.fhir.r5.formats.JsonParser().parse(b);
       return (ImplementationGuide) r;
     } else
       throw new FHIRException("Unsupported version "+version);

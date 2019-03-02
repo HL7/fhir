@@ -122,7 +122,7 @@
   <target name="fhir-sources-jar" depends="build">
     <jar destfile="${maven-sources-jar}" filesetmanifest="mergewithoutmain">
       <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src" includes="**/*.java"/>
-      <fileset dir="../../../implementations/java/org.hl7.fhir.r4/src" includes="**/*.java"/>
+      <fileset dir="../../../implementations/java/org.hl7.fhir.r5/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.utilities/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.rdf/src" includes="**/*.java"/>
       <fileset dir="../../../tools/java/org.hl7.fhir.igtools/src" includes="**/*.java"/>

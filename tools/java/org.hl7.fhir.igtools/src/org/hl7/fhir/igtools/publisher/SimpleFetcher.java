@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r4.context.IWorkerContext;
-import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
-import org.hl7.fhir.r4.formats.FormatUtilities;
-import org.hl7.fhir.r4.model.CanonicalType;
-import org.hl7.fhir.r4.model.Reference;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.Type;
-import org.hl7.fhir.r4.model.UriType;
+import org.hl7.fhir.r5.context.IWorkerContext;
+import org.hl7.fhir.r5.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r5.formats.FormatUtilities;
+import org.hl7.fhir.r5.model.CanonicalType;
+import org.hl7.fhir.r5.model.Reference;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.Type;
+import org.hl7.fhir.r5.model.UriType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -223,7 +223,7 @@ public class SimpleFetcher implements IFetchFile {
               boolean ok = false;
               if (!Utilities.existsInList(ext, "json", "ttl", "html", "txt"))
                 try {
-                  org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.XmlParser(context).parse(new FileInputStream(f));
+                  org.hl7.fhir.r5.elementmodel.Element e = new org.hl7.fhir.r5.elementmodel.XmlParser(context).parse(new FileInputStream(f));
                   addFile(res, f, e, "application/fhir+xml");
                   count++;
                   ok = true;
@@ -232,7 +232,7 @@ public class SimpleFetcher implements IFetchFile {
                 }
               if (!ok && !Utilities.existsInList(ext, "xml", "ttl", "html", "txt")) {
                 try {
-                  org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.JsonParser(context).parse(new FileInputStream(fn));
+                  org.hl7.fhir.r5.elementmodel.Element e = new org.hl7.fhir.r5.elementmodel.JsonParser(context).parse(new FileInputStream(fn));
                   addFile(res, f, e, "application/fhir+json");
                   count++;
                   ok = true;
@@ -242,7 +242,7 @@ public class SimpleFetcher implements IFetchFile {
               }
               if (!ok && !Utilities.existsInList(ext, "json", "xml", "html", "txt")) {
                 try {
-                  org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.TurtleParser(context).parse(new FileInputStream(fn));
+                  org.hl7.fhir.r5.elementmodel.Element e = new org.hl7.fhir.r5.elementmodel.TurtleParser(context).parse(new FileInputStream(fn));
                   addFile(res, f, e, "application/fhir+turtle");
                   count++;
                   ok = true;
@@ -259,7 +259,7 @@ public class SimpleFetcher implements IFetchFile {
     return res;
   }
 
-  private void addFile(List<FetchedFile> res, File f, org.hl7.fhir.r4.elementmodel.Element e, String cnt) throws IOException {
+  private void addFile(List<FetchedFile> res, File f, org.hl7.fhir.r5.elementmodel.Element e, String cnt) throws IOException {
     if (!e.fhirType().equals("ImplementationGuide"))
       addFile(res, f, cnt);
   }

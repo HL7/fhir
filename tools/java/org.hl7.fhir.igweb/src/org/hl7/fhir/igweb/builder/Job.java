@@ -12,7 +12,7 @@ import org.apache.commons.codec.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.igtools.publisher.*;
 import org.hl7.fhir.igweb.Slf4jLogger;
-import org.hl7.fhir.r4.model.DateTimeType;
+import org.hl7.fhir.r5.model.DateTimeType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 

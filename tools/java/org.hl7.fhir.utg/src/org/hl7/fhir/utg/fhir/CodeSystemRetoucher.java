@@ -7,9 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r5.formats.IParser.OutputStyle;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.CodeSystem;
 
 public class CodeSystemRetoucher {
 

@@ -9,30 +9,35 @@ import java.util.Map.Entry;
 
 import org.hl7.fhir.convertors.IGR2ConvertorAdvisor;
 import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
+import org.hl7.fhir.convertors.VersionConvertorAdvisor50;
 import org.hl7.fhir.convertors.VersionConvertor_10_40;
+import org.hl7.fhir.convertors.VersionConvertor_10_50;
 import org.hl7.fhir.convertors.VersionConvertor_14_40;
+import org.hl7.fhir.convertors.VersionConvertor_14_50;
 import org.hl7.fhir.convertors.VersionConvertor_30_40;
-import org.hl7.fhir.r4.context.IWorkerContext;
-import org.hl7.fhir.r4.context.IWorkerContext.ValidationResult;
-import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.formats.JsonParser;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.CodeableConcept;
-import org.hl7.fhir.r4.model.Coding;
-import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
-import org.hl7.fhir.r4.model.ImplementationGuide;
-import org.hl7.fhir.r4.model.ImplementationGuide.GuideParameterCode;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
-import org.hl7.fhir.r4.model.Parameters;
-import org.hl7.fhir.r4.model.Reference;
-import org.hl7.fhir.r4.model.Resource;
-import org.hl7.fhir.r4.model.StringType;
-import org.hl7.fhir.r4.utils.IGHelper;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.convertors.VersionConvertor_30_50;
+import org.hl7.fhir.convertors.VersionConvertor_40_50;
+import org.hl7.fhir.r5.context.IWorkerContext;
+import org.hl7.fhir.r5.context.IWorkerContext.ValidationResult;
+import org.hl7.fhir.r5.formats.IParser.OutputStyle;
+import org.hl7.fhir.r5.formats.JsonParser;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.CodeableConcept;
+import org.hl7.fhir.r5.model.Coding;
+import org.hl7.fhir.r5.model.Constants;
+import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
+import org.hl7.fhir.r5.model.ImplementationGuide;
+import org.hl7.fhir.r5.model.ImplementationGuide.GuideParameterCode;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionComponent;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
+import org.hl7.fhir.r5.model.ImplementationGuide.SPDXLicense;
+import org.hl7.fhir.r5.model.Parameters;
+import org.hl7.fhir.r5.model.Reference;
+import org.hl7.fhir.r5.model.Resource;
+import org.hl7.fhir.r5.model.StringType;
+import org.hl7.fhir.r5.utils.IGHelper;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -244,7 +249,7 @@ public class ConfigFileConverter {
         res = new org.hl7.fhir.dstu3.formats.XmlParser().parse(new FileInputStream(filename));
       else
         throw new Exception("Unable to determine file type for "+filename);
-      return VersionConvertor_30_40.convertResource(res, false);
+      return VersionConvertor_30_50.convertResource(res, false);
     } else if (version.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.model.Resource res;
       if (filename.contains("json"))
@@ -253,7 +258,7 @@ public class ConfigFileConverter {
         res = new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(new FileInputStream(filename));
       else
         throw new Exception("Unable to determine file type for "+filename);
-      return VersionConvertor_14_40.convertResource(res);
+      return VersionConvertor_14_50.convertResource(res);
     } else if (version.equals("1.0.2")) {
       org.hl7.fhir.dstu2.model.Resource res;
       if (filename.contains("json"))
@@ -263,8 +268,17 @@ public class ConfigFileConverter {
       else
         throw new Exception("Unable to determine file type for "+filename);
 
-      VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
-      return new VersionConvertor_10_40(advisor ).convertResource(res);
+      VersionConvertorAdvisor50 advisor = new IGR2ConvertorAdvisor5();
+      return new VersionConvertor_10_50(advisor).convertResource(res);
+    } else if (version.equals("4.0.0")) {
+      org.hl7.fhir.r4.model.Resource res;
+      if (filename.contains("json"))
+        res = new org.hl7.fhir.r4.formats.JsonParser().parse(new FileInputStream(filename));
+      else if (filename.contains("xml"))
+        res = new org.hl7.fhir.r4.formats.XmlParser().parse(new FileInputStream(filename));
+      else
+        throw new Exception("Unable to determine file type for "+filename);
+      return VersionConvertor_40_50.convertResource(res);
     } else if (version.equals(Constants.VERSION)) {
       if (filename.contains("json"))
         return new JsonParser().parse(new FileInputStream(filename));

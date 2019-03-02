@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.model.ResourceDefn.PointSpec;
-import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r5.model.StructureDefinition;
 
 public class LogicalModel {
  

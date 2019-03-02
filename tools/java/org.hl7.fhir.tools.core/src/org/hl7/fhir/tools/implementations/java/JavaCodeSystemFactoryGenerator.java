@@ -33,8 +33,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.definitions.Config;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 /*
@@ -48,11 +48,11 @@ public class JavaCodeSystemFactoryGenerator extends JavaBaseGenerator {
 	}
 
 	public void generate(Date genDate, String version, CodeSystem cs, String tns) throws Exception {		
-		write("package org.hl7.fhir.r4.model.codesystems;\r\n");
+		write("package org.hl7.fhir.r5.model.codesystems;\r\n");
 		write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
 		write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     write("\r\n");
-    write("import org.hl7.fhir.r4.model.EnumFactory;\r\n");
+    write("import org.hl7.fhir.r5.model.EnumFactory;\r\n");
     write("\r\n");
 
     write("public class "+tns+"EnumFactory implements EnumFactory<"+tns+"> {\r\n");

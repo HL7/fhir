@@ -55,16 +55,16 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
-import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.r4.model.ImplementationGuide;
-import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
-import org.hl7.fhir.r4.test.utils.ToolsHelper;
-import org.hl7.fhir.r4.utils.NPMPackageGenerator;
-import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
-import org.hl7.fhir.r4.utils.Version;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.Constants;
+import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
+import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r5.model.ImplementationGuide;
+import org.hl7.fhir.r5.model.ImplementationGuide.SPDXLicense;
+import org.hl7.fhir.r5.test.utils.ToolsHelper;
+import org.hl7.fhir.r5.utils.NPMPackageGenerator;
+import org.hl7.fhir.r5.utils.NPMPackageGenerator.Category;
+import org.hl7.fhir.r5.utils.Version;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.tools.implementations.java.JavaResourceGenerator.JavaGenClass;
@@ -149,8 +149,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   public void generate(Definitions definitions, String destDir, String actualImpl, String implDir, String version, Date genDate, Logger logger, String buildId) throws Exception {
     char sl = File.separatorChar;
     this.genDate = genDate;
-    javaDir       =  implDir+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl;
-    javaParserDir =  implDir+"org.hl7.fhir.r4"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl;
+    javaDir       =  implDir+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl;
+    javaParserDir =  implDir+"org.hl7.fhir.r5"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl;
     Utilities.createDirectory(javaDir);
     Utilities.createDirectory(Utilities.path(javaDir, "codesystems"));
     Utilities.createDirectory(javaParserDir);
@@ -273,12 +273,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jConv.generate(definitions, version, genDate);
     jConv.flush();
     jConv.close();
-    TextFile.stringToFileNoPrefix(makeConstantsClass(version, buildId, genDate), implDir+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+"Constants.java");
+    TextFile.stringToFileNoPrefix(makeConstantsClass(version, buildId, genDate), implDir+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+"Constants.java");
 
     // FIXME: JA - Commented out, maybe even more can be
 //    ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
-//    zip.addFiles(actualImpl+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl, "org/hl7/fhir/r4/formats/", ".java", null);
-//    zip.addFiles(actualImpl+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl, "org/hl7/fhir/r4/model/", ".java", null);
+//    zip.addFiles(actualImpl+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl, "org/hl7/fhir/r4/formats/", ".java", null);
+//    zip.addFiles(actualImpl+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl, "org/hl7/fhir/r4/model/", ".java", null);
 //    zip.addFiles(actualImpl+"org.hl7.fhir.rdf"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"rdf"+sl, "org/hl7/fhir/rdf/", ".java", null);
 //    zip.addFiles(actualImpl+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl, "org/hl7/fhir/utilities/", ".java", null);
 //    zip.addFiles(actualImpl+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xhtml"+sl, "org/hl7/fhir/utilities/xhtml/", ".java", null);
@@ -354,7 +354,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
       
     String s =
-        "package org.hl7.fhir.r4.model;\r\n"+
+        "package org.hl7.fhir.r5.model;\r\n"+
             "\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n"+
             "// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n"+
             "\r\n"+
@@ -371,7 +371,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   private void generateResourceTypeEnum(String version, String buildId, Date genDate) throws Exception {
 
     OutputStreamWriter output = new OutputStreamWriter(new FileOutputStream(javaDir+"ResourceType.java"), "UTF-8");
-    output.write("package org.hl7.fhir.r4.model;\r\n");
+    output.write("package org.hl7.fhir.r5.model;\r\n");
     output.write("\r\n");
     output.write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     output.write("\r\n");
@@ -445,7 +445,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 //
 //
 //
-//    int r = ToolProvider.getSystemJavaCompiler().run(null, null, null, folders.rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.r4"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+"Type.java");
+//    int r = ToolProvider.getSystemJavaCompiler().run(null, null, null, folders.rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.r5"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+"Type.java");
 //    return r == 0;
 //  }
 
@@ -463,7 +463,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     Manifest manifest = new Manifest();
     manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
     manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
-    manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.r4.validation.Validator");
+    manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.r5.validation.Validator");
 
     JarOutputStream jar = new JarOutputStream(new FileOutputStream(Utilities.path(folders.dstDir, "org.hl7.fhir.validator.jar")), manifest);
     List<String> names = new ArrayList<String>();
@@ -491,7 +491,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "hamcrest-core-1.3.jar"), names);
 
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
-    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.r4", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.r4", "bin", "").length(), names);
+    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.r5", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.r5", "bin", "").length(), names);
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu3", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu3", "bin", "").length(), names);
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu2", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu2", "bin", "").length(), names);
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu2016may", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "bin", "").length(), names);
@@ -504,7 +504,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     manifest = new Manifest();
     manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
     manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
-    manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.r4.test.ToolsHelper");
+    manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.r5.test.ToolsHelper");
     
     logger.log(" .... build validator package", LogMessageType.Process);
     ImplementationGuide ig = new ImplementationGuide();
@@ -783,13 +783,14 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
     
     AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.7.0-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu3-3.7.5-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2016may-3.7.5-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r4-3.7.5-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.utilities-3.7.5-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.validation-3.7.5-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.convertors-3.7.5-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2-3.7.5-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu3-3.7.6-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2016may-3.7.6-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r4-3.7.6-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r5-3.7.6-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.utilities-3.7.6-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.validation-3.7.6-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.convertors-3.7.6-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2-3.7.6-SNAPSHOT.jar"), names);
     
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools",           "java", "org.hl7.fhir.igtools",     "bin")), Utilities.path(folders.rootDir, "tools",           "java", "org.hl7.fhir.igtools",     "bin").length()+1, names);
 //   
