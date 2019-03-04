@@ -627,7 +627,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       processTxLog(Utilities.path(destDir != null ? destDir : outputDir, "qa-tx.html"));
       log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
     }
-    log("Checking on package: the file "+Utilities.path(outputDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "package.tgz")).exists()));
     recordOutcome(null, val);
   }
 

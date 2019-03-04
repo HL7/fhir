@@ -474,12 +474,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         if (isProfiledExtension(ec)) {
           StructureDefinition extDefn = context.fetchResource(StructureDefinition.class, ec.getType().get(0).getProfile().get(0).getValue());
           if (extDefn == null) {
-            String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+")";
-            b.append("  <tr><td colspan=\"2\" class=\"structure\"><span class=\"self-link-parent\"><a name=\""+ec.getId()+"\"> </a><b>"+title+"</b>"+link(ec.getId())+"</span></td></tr>\r\n");
+            String title = ec.getId();
+            b.append("  <tr><td colspan=\"2\" class=\"structure\"><span class=\"self-link-parent\"><a name=\""+ec.getId()+"\"> </a><span style=\"color: grey\">"+Integer.toString(i++)+".</span> <b>"+title+"</b>"+link(ec.getId())+"</span></td></tr>\r\n");
             generateElementInner(b, sd,  ec, 1, null);
           } else {
-            String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("path") ? extDefn.getUserData("path") : "extension-"+extDefn.getId().toLowerCase()+".html")+
-                "\">"+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
+            String title = ec.getId();
             b.append("  <tr><td colspan=\"2\" class=\"structure\"><span class=\"self-link-parent\"><a name=\""+ec.getId()+"\"> </a>");
             if (ec.getId().endsWith("[x]")) {
               Set<String> tl = new HashSet<String>();
@@ -493,13 +492,13 @@ public class StructureDefinitionRenderer extends BaseRenderer {
                 }
               }
             }
-            b.append("<b>"+title+"</b>"+link(ec.getId())+"</span></td></tr>\r\n");
+            b.append("<span style=\"color: grey\">"+Integer.toString(i++)+".</span> <b>"+title+"</b>"+link(ec.getId())+"</span></td></tr>\r\n");
             ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
             generateElementInner(b, sd, ec, valueDefn == null ? 2 : 3, valueDefn);
 //            generateElementInner(b, extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
           }
         } else {
-          String title = ec.getPath() + (!ec.hasSliceName() ? "" : "(" +ec.getSliceName() +")");
+          String title = ec.getId();
           b.append("  <tr><td colspan=\"2\" class=\"structure\"><span class=\"self-link-parent\"><a name=\""+ec.getId()+"\"> </a>");
           if (ec.getId().endsWith("[x]")) {
             Set<String> tl = new HashSet<String>();
@@ -522,7 +521,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           for (StringPair s : replacements)
             if (ec.getId().startsWith(s.match))
               b.append("<a name=\""+s.replace+ec.getId().substring(s.match.length())+"\"> </a>");
-          b.append("<b>"+title+"</b>"+link(ec.getId())+"</span></td></tr>\r\n");
+          b.append("<span style=\"color: grey\">"+Integer.toString(i++)+".</span> <b>"+title+"</b>"+link(ec.getId())+"</span></td></tr>\r\n");
           generateElementInner(b, sd, ec, 1, null);
           if (ec.hasSlicing())
             generateSlicing(sd, ec.getSlicing());
