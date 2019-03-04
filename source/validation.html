@@ -260,8 +260,7 @@ execute the FHIR validator, follow the following steps:
 </p>
 <ul>
  <li><a href="downloads.html">Download</a> the FHIR Validator</li>
- <li>(optional) <a href="downloads.html">Download</a> One of the FHIR definitions (with or without text)</li>
- <li>Execute the validator, providing the path to the definitions, and a reference to the resource to validate</li>
+ <li>Execute the validator, specifying the version, and a reference to the resource to validate</li>
 </ul>
 <p>
 Here is an example windows batch file that demonstrates the process (using the common utilities <a href="http://gnuwin32.sourceforge.net/packages/wget.htm">wget</a> and <a href="http://www.7-zip.org/">7z</a>):
@@ -270,8 +269,8 @@ Here is an example windows batch file that demonstrates the process (using the c
 @ECHO OFF
 
  ECHO get the validator and unzip it 
- wget http://build.fhir.org/validator.zip
- 7z.exe x validator.zip
+ wget https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=ca.uhn.hapi.fhir&amp;a=org.hl7.fhir.validation.cli&amp;v=LATEST&amp;e=jar
+ rename *.jar validator.jar
 
  ECHO 1. First example shows how to validate against the base spec:
  ECHO   a. get an example to validate

@@ -99,7 +99,7 @@ public class JsonXhtmlRenderer extends TranslatingUtilities implements JsonCreat
   public void value(String value) throws IOException {
     checkInArray();
     b.append('"');
-    b.append(Utilities.escapeXml(value));
+    b.append(Utilities.escapeXml(Utilities.escapeJson(value)));
     b.append('"');
   }
 

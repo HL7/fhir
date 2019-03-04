@@ -780,7 +780,7 @@ public class ProfileGenerator {
     reset();
 
     // now, the snapshot
-    new ProfileUtilities(context, issues, pkp).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType(), p.getName());
+    new ProfileUtilities(context, issues, pkp).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType(), null, p.getName());
 //    for (ElementDefinition ed : p.getSnapshot().getElement())
 //      generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
 
@@ -1032,7 +1032,7 @@ public class ProfileGenerator {
       issues.add(new ValidationMessage(Source.ProfileValidator, IssueType.STRUCTURE, -1, -1, p.getUrl(), s, IssueSeverity.WARNING));
     reset();
     // ok, c is the differential. now we make the snapshot
-    new ProfileUtilities(context, issues, pkp).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+p.getType(), p.getName());
+    new ProfileUtilities(context, issues, pkp).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+p.getType(), null, p.getName());
     reset();
 
     p.getDifferential().getElement().get(0).getType().clear();
