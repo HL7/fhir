@@ -392,6 +392,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private boolean debug;
   private boolean isChild;
   private boolean cacheVersion;
+  private boolean appendTrailingSlashInDataFile;
 
   private Publisher childPublisher = null;
   private String childOutput = "";
@@ -1253,6 +1254,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     igArtifactsPage = configuration.has("igArtifactsPage") ? configuration.get("igArtifactsPage").getAsString() : null;
     genExamples = "true".equals(ostr(configuration, "gen-examples"));
     doTransforms = "true".equals(ostr(configuration, "do-transforms"));
+    appendTrailingSlashInDataFile = "true".equals(ostr(configuration, "append-slash-to-dependency-urls"));
+    
     JsonArray array = configuration.getAsJsonArray("spreadsheets");
     if (array != null) {
       for (JsonElement be : array) 
@@ -3882,7 +3885,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     for (SpecMapManager sm : specMaps) {
       if (sm.getName() != null)
-        data.addProperty(sm.getName(), sm.getBase());
+        data.addProperty(sm.getName(), appendTrailingSlashInDataFile ? sm.getBase() : Utilities.appendForwardSlash(sm.getBase()));
     }
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(data);
@@ -4465,8 +4468,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateOutputsCapabilityStatement(FetchedFile f, FetchedResource r, CapabilityStatement cpbs, Map<String, String> vars) throws Exception {
-    if (igpkp.wantGen(r, "swagger")) {
-
+    if (igpkp.wantGen(r, "swagger") || igpkp.wantGen(r, "openapi")) {
       Writer oa = null;
       if (openApiTemplate != null) 
         oa = new Writer(new FileOutputStream(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")), new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), openApiTemplate)));
