@@ -189,6 +189,10 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
     return page.resolveBinding(profile, binding, path);
   }
 
+  public BindingResolution resolveBinding(StructureDefinition profile, String ref, String path) throws FHIRException {
+    return page.resolveBinding(profile, ref, path);
+  }
+
   @Override
   public String getLinkForProfile(StructureDefinition profile, String url) {
     return page.getLinkForProfile(profile, url);

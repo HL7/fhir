@@ -52,6 +52,7 @@ import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Piece;
 
 public class StructureDefinitionRenderer extends BaseRenderer {
   public static final String RIM_MAPPING = "http://hl7.org/v3";
@@ -399,7 +400,20 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         System.out.println("No value set at "+path+" (no url)");
     b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
     append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).
-    append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
+    append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td>").append(vss);
+    if (tx.hasExtension(ToolingExtensions.EXT_MAX_VALUESET)) {
+      BindingResolution br = igp.resolveBinding(sd, ToolingExtensions.readStringExtension(tx, ToolingExtensions.EXT_MAX_VALUESET), path);
+      b.append("<br>");
+      b.append("<a style=\"font-weight:bold\" title=\"Max Value Set Extension\" href=\""+prefix+"extension-elementdefinition-maxvalueset.html\">Max Binding</a>: ");             
+      b.append((br.url == null ? Utilities.escapeXml(br.display) : "<a href=\""+ (Utilities.isAbsoluteUrl(br.url) || !igp.prependLinks() ? br.url : prefix+br.url)+"\">"+Utilities.escapeXml(br.display)+"</a>"));
+    }
+    if (tx.hasExtension(ToolingExtensions.EXT_MIN_VALUESET)) {
+      BindingResolution br = igp.resolveBinding(sd, ToolingExtensions.readStringExtension(tx, ToolingExtensions.EXT_MIN_VALUESET), path);
+      b.append("<br>");
+      b.append("<a style=\"font-weight:bold\" title=\"Min Value Set Extension\" href=\""+prefix+"extension-elementdefinition-minvalueset.html\">Min Binding</a>: ");             
+      b.append((br.url == null ? Utilities.escapeXml(br.display) : "<a href=\""+ (Utilities.isAbsoluteUrl(br.url) || !igp.prependLinks() ? br.url : prefix+br.url)+"\">"+Utilities.escapeXml(br.display)+"</a>"));
+    }      
+    b.append("</td></tr>\r\n");
   }
 
   private String getSpecialValueSetName(String uri) {
@@ -545,7 +559,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     tableRowNE(b, translate("sd.dict", "Definition"), null, processMarkdown(profile.getName(), d.getDefinitionElement()));
     tableRowNE(b, translate("sd.dict", "Note"), null, businessIdWarning(profile.getName(), tail(d.getPath())));
     tableRow(b, translate("sd.dict", "Control"), "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
-    tableRowNE(b, translate("sd.dict", "Binding"), "terminologies.html", describeBinding(d));
+    tableRowNE(b, translate("sd.dict", "Binding"), "terminologies.html", describeBinding(profile, d, d.getPath()));
     if (d.hasContentReference())
       tableRow(b, translate("sd.dict", "Type"), null, "See "+d.getContentReference().substring(1));
     else
@@ -804,9 +818,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return null;
   }
 
-
-
-  private String describeBinding(ElementDefinition d) throws Exception {
+  private String describeBinding(StructureDefinition sd, ElementDefinition d, String path) throws Exception {
     if (!d.hasBinding())
       return null;
     else {
@@ -814,23 +826,22 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       ElementDefinitionBindingComponent def = d.getBinding();
       if (!def.hasValueSet()) 
         return def.getDescription();
-      String ref = def.getValueSet();
-      ValueSet vs = context.fetchResource(ValueSet.class, canonicalise(ref));
-      String defDesc = def.getDescription()==null ? "" : def.getDescription() + "<br/>";
-      if (vs != null) {
-        String pp = (String) vs.getUserData("path");
-        if (pp == null) {
-          return null;
-        } else if (pp.startsWith("http:") || pp.startsWith("https:"))
-          return defDesc+conf(def)+ "<a href=\""+pp+"\">"+gt(vs.getNameElement())+"</a>"+confTail(def);
-        else
-          return defDesc+conf(def)+ "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a>"+confTail(def);
+      BindingResolution br = igp.resolveBinding(sd, def, path);
+      String defDesc = def.getDescription()==null ? "" : Utilities.escapeXml(def.getDescription()) + "<br/>";
+      String s = defDesc+conf(def)+ "<a href=\""+br.url+"\">"+Utilities.escapeXml(br.display)+"</a>"+confTail(def);
+      if (def.hasExtension(ToolingExtensions.EXT_MAX_VALUESET)) {
+        br = igp.resolveBinding(sd, ToolingExtensions.readStringExtension(def, ToolingExtensions.EXT_MAX_VALUESET), path);
+        s = s + "<br>";
+        s = s + "<a style=\"font-weight:bold\" title=\"Max Value Set Extension\" href=\""+prefix+"extension-elementdefinition-maxvalueset.html\">Max Binding</a>: ";             
+        s = s + (br.url == null ? Utilities.escapeXml(br.display) : "<a href=\""+ (Utilities.isAbsoluteUrl(br.url) || !igp.prependLinks() ? br.url : prefix+br.url)+"\">"+Utilities.escapeXml(br.display)+"</a>");
       }
-      if (ref.startsWith("http:") || ref.startsWith("https:"))
-        return defDesc+conf(def)+" <a href=\""+ref+"\">"+ref+"</a>"+confTail(def);
-      else
-        return defDesc+conf(def)+" ?? Broken Reference to "+ref+" ??"+confTail(def);
-
+      if (def.hasExtension(ToolingExtensions.EXT_MIN_VALUESET)) {
+        br = igp.resolveBinding(sd, ToolingExtensions.readStringExtension(def, ToolingExtensions.EXT_MIN_VALUESET), path);
+        s = s + "<br>";
+        s = s + "<a style=\"font-weight:bold\" title=\"Min Value Set Extension\" href=\""+prefix+"extension-elementdefinition-minvalueset.html\">Min Binding</a>: ";             
+        s = s + (br.url == null ? Utilities.escapeXml(br.display) : "<a href=\""+ (Utilities.isAbsoluteUrl(br.url) || !igp.prependLinks() ? br.url : prefix+br.url)+"\">"+Utilities.escapeXml(br.display)+"</a>");
+      }      
+      return s;
     }
   }
 

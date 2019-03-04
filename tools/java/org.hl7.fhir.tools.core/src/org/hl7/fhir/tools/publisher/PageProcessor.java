@@ -9470,76 +9470,85 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   @Override
   public BindingResolution resolveBinding(StructureDefinition profile, ElementDefinitionBindingComponent binding, String path) throws FHIRException {
-    BindingResolution br = new BindingResolution();
     if (!binding.hasValueSet()) {
+      BindingResolution br = new BindingResolution();
       br.url = "terminologies.html#unbound";
       br.display = "(unbound)";
+      return br;
     } else {
-      String ref = binding.getValueSet();
-      if (ref.contains("|"))
-        ref = ref.substring(0 , ref.indexOf("|"));
-      if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
-        br.url = "v3/"+ref.substring(39)+"/vs.html";
-        br.display = ref.substring(39);
-      } else if (definitions.getValuesets().containsKey(ref)) {
-        ValueSet vs = definitions.getValuesets().get(ref);
+      return resolveBinding(profile, binding.getValueSet(), binding.getDescription(), path);
+    }
+  }
+  
+  public BindingResolution resolveBinding(StructureDefinition profile, String ref, String path) throws FHIRException {
+    return resolveBinding(profile, ref, null, path);
+  }
+  
+  public BindingResolution resolveBinding(StructureDefinition profile, String ref, String description, String path) throws FHIRException {
+    BindingResolution br = new BindingResolution();
+    if (ref.contains("|"))
+      ref = ref.substring(0 , ref.indexOf("|"));
+    if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
+      br.url = "v3/"+ref.substring(39)+"/vs.html";
+      br.display = ref.substring(39);
+    } else if (definitions.getValuesets().containsKey(ref)) {
+      ValueSet vs = definitions.getValuesets().get(ref);
+      br.url = vs.getUserString("path");
+      br.display = vs.present();
+    } else if (ref.startsWith("ValueSet/")) {
+      ValueSet vs = definitions.getValuesets().get(ref.substring(8));
+      if (vs == null) {
+        br.url = ref.substring(9)+".html";
+        br.display = ref.substring(9);
+      } else {
         br.url = vs.getUserString("path");
         br.display = vs.present();
-      } else if (ref.startsWith("ValueSet/")) {
-        ValueSet vs = definitions.getValuesets().get(ref.substring(8));
-        if (vs == null) {
-          br.url = ref.substring(9)+".html";
-          br.display = ref.substring(9);
-        } else {
-          br.url = vs.getUserString("path");
-          br.display = vs.present();
-        }
-      } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/")) {
-        ValueSet vs = definitions.getValuesets().get(ref);
-        if (vs == null)
-          vs = definitions.getExtraValuesets().get(ref);
-        if (vs != null) {
-          br.url = vs.getUserString("path");
-          if (Utilities.noString(br.url))
-            br.url = ref.substring(23)+".html";
-          br.display = vs.present();
-        } else if (ref.substring(23).equals("use-context")) { // special case because this happens before the value set is created
-          br.url = "valueset-"+ref.substring(23)+".html";
-          br.display = "Context of Use ValueSet";
-        } else if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
-          br.url = "v3/"+ref.substring(26)+"/index.html";
-          br.display = ref.substring(26);
-        }  else if (ref.startsWith("http://terminology.hl7.org/ValueSet/v2-")) {
-          br.url = "v2/"+ref.substring(26)+"/index.html";
-          br.display = ref.substring(26);
-        }  else if (ref.startsWith("#")) {
-          br.url = null;
-          br.display = ref;
-        } else {
-          br.url = ref;
-          br.display = "????";
-          getValidationErrors().add(
-              new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, -1, -1, path, "Unresolved Value set "+ref, IssueSeverity.WARNING));
-        }
+      }
+    } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/")) {
+      ValueSet vs = definitions.getValuesets().get(ref);
+      if (vs == null)
+        vs = definitions.getExtraValuesets().get(ref);
+      if (vs != null) {
+        br.url = vs.getUserString("path");
+        if (Utilities.noString(br.url))
+          br.url = ref.substring(23)+".html";
+        br.display = vs.present();
+      } else if (ref.substring(23).equals("use-context")) { // special case because this happens before the value set is created
+        br.url = "valueset-"+ref.substring(23)+".html";
+        br.display = "Context of Use ValueSet";
+      } else if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
+        br.url = "v3/"+ref.substring(26)+"/index.html";
+        br.display = ref.substring(26);
+      }  else if (ref.startsWith("http://terminology.hl7.org/ValueSet/v2-")) {
+        br.url = "v2/"+ref.substring(26)+"/index.html";
+        br.display = ref.substring(26);
+      }  else if (ref.startsWith("#")) {
+        br.url = null;
+        br.display = ref;
       } else {
         br.url = ref;
-        if (ref.equals("http://tools.ietf.org/html/bcp47"))
-          br.display = "IETF BCP-47";
-        else if (ref.equals("http://www.rfc-editor.org/bcp/bcp13.txt"))
-          br.display = "IETF BCP-13";
-        else if (ref.equals("http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"))
-          br.display = "NucCore";
-        else if (ref.equals("https://rtmms.nist.gov/rtmms/index.htm#!rosetta"))
-          br.display = "Rosetta";
-        else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
-          br.display = "ISO Country Codes";
-        else if (ref.equals("http://www.ncbi.nlm.nih.gov/clinvar/variation"))
-          br.display = "ClinVar";
-        else if (!Utilities.noString(binding.getDescription()))
-          br.display = binding.getDescription();
-        else
-          br.display = "????";
+        br.display = "????";
+        getValidationErrors().add(
+            new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, -1, -1, path, "Unresolved Value set "+ref, IssueSeverity.WARNING));
       }
+    } else {
+      br.url = ref;
+      if (ref.equals("http://tools.ietf.org/html/bcp47"))
+        br.display = "IETF BCP-47";
+      else if (ref.equals("http://www.rfc-editor.org/bcp/bcp13.txt"))
+        br.display = "IETF BCP-13";
+      else if (ref.equals("http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"))
+        br.display = "NucCore";
+      else if (ref.equals("https://rtmms.nist.gov/rtmms/index.htm#!rosetta"))
+        br.display = "Rosetta";
+      else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
+        br.display = "ISO Country Codes";
+      else if (ref.equals("http://www.ncbi.nlm.nih.gov/clinvar/variation"))
+        br.display = "ClinVar";
+      else if (!Utilities.noString(description))
+        br.display = description;
+      else
+        br.display = "????";
     }
     return br;
   }
