@@ -1852,10 +1852,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private String targetUrl() {
     if (mode == null)
-      return "file:"+outputDir;
+      return "file://"+outputDir;
     switch (mode) {
     case AUTOBUILD: return targetOutput == null ? "https://build.fhir.org/ig/[org]/[repo]" : targetOutput;
-    case MANUAL: return "file:"+outputDir;
+    case MANUAL: return "file://"+outputDir;
     case WEBSERVER: return "http://unknown";
     case PUBLICATION: return targetOutput;
     default: return igpkp.getCanonical();
@@ -2655,7 +2655,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           changed = true;
           sd.getDifferential().getElement().add(0, new ElementDefinition().setPath(p.substring(0, p.indexOf("."))));
         }
-        utils.generateSnapshot(base, sd, sd.getUrl(), sd.getName());
+        utils.generateSnapshot(base, sd, sd.getUrl(), Utilities.extractBaseUrl(base.getUserString("path")), sd.getName());
         changed = true;
       }
     } else { //sd.getKind() == StructureDefinitionKind.LOGICAL

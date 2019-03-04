@@ -2226,7 +2226,7 @@ public class SpreadsheetParser {
     List<String> errors = new ArrayList<String>();
     utils.sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
     assert(errors.size() == 0);
-    utils.generateSnapshot(base, ex, ex.getUrl(), ex.getName());
+    utils.generateSnapshot(base, ex, ex.getUrl(), null, ex.getName());
     utils.setIds(ex, true);
     new ExtensionDefinitionValidator(context).validate(ex);
 	  this.context.cacheResource(ex);
