@@ -329,94 +329,98 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 
   @Override
   public BindingResolution resolveBinding(StructureDefinition profile, ElementDefinitionBindingComponent binding, String path) {
-    BindingResolution br = new BindingResolution();
     if (!binding.hasValueSet()) {
+      BindingResolution br = new BindingResolution();
       br.url = specPath("terminologies.html#unbound");
       br.display = "(unbound)";
+      return br;
     } else {
-      String ref = binding.getValueSet();
-      if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
-        br.url = specPath("v3/"+ref.substring(32)+"/vs.html");
-        br.display = ref.substring(32);
-      } else if (ref.startsWith("ValueSet/")) {
-        ValueSet vs = context.fetchResource(ValueSet.class, makeCanonical(ref));
-        if (vs == null) {
-          br.url = ref;  
-          if (ref.equals("http://tools.ietf.org/html/bcp47"))
-            br.display = "IETF BCP-47";
-          else if (ref.equals("http://www.rfc-editor.org/bcp/bcp13.txt"))
-            br.display = "IETF BCP-13";
-          else if (ref.equals("http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"))
-            br.display = "NucCore";
-          else if (ref.equals("https://rtmms.nist.gov/rtmms/index.htm#!rosetta"))
-            br.display = "Rosetta";
-          else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
-            br.display = "ISO Country Codes";
-          else {
-            br.url = ref.substring(9)+".html"; // broken link, 
-            br.display = ref.substring(9);
+      return resolveBinding(profile, binding.getValueSet(), path);
+    }
+  }
+  
+  public BindingResolution resolveBinding(StructureDefinition profile, String ref, String path) {
+    BindingResolution br = new BindingResolution();
+    if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
+      br.url = specPath("v3/"+ref.substring(32)+"/vs.html");
+      br.display = ref.substring(32);
+    } else if (ref.startsWith("ValueSet/")) {
+      ValueSet vs = context.fetchResource(ValueSet.class, makeCanonical(ref));
+      if (vs == null) {
+        br.url = ref;  
+        if (ref.equals("http://tools.ietf.org/html/bcp47"))
+          br.display = "IETF BCP-47";
+        else if (ref.equals("http://www.rfc-editor.org/bcp/bcp13.txt"))
+          br.display = "IETF BCP-13";
+        else if (ref.equals("http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"))
+          br.display = "NucCore";
+        else if (ref.equals("https://rtmms.nist.gov/rtmms/index.htm#!rosetta"))
+          br.display = "Rosetta";
+        else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
+          br.display = "ISO Country Codes";
+        else {
+          br.url = ref.substring(9)+".html"; // broken link, 
+          br.display = ref.substring(9);
+          brokenLinkWarning(path, ref);
+        }
+      } else {
+        br.url = vs.getUserString("path");
+        br.display = vs.getName(); 
+      }
+    } else { 
+      if (ref.startsWith("http://hl7.org/fhir/ValueSet/")) {
+        ValueSet vs = context.fetchResource(ValueSet.class, ref);
+        if (vs != null) { 
+          br.url = vs.getUserString("path");
+          br.display = vs.getName(); 
+        } else {
+          String vsr = VersionConvertorConstants.vsToRef(ref);
+          if (vsr != null) {
+            br.display = ref.substring(29);
+            br.url = vsr;
+          } else {
+            br.display = ref.substring(29);
+            br.url = ref.substring(29)+".html";
             brokenLinkWarning(path, ref);
           }
+        }
+      } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
+        br.url = specPath("v3/"+ref.substring(26)+"/index.html"); 
+        br.display = ref.substring(26);
+      } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
+        br.url = specPath("v2/"+ref.substring(26)+"/index.html"); 
+        br.display = ref.substring(26);
+      } else if (ref.startsWith("http://loinc.org/vs/")) {
+        String code = tail(ref);
+        if (code.startsWith("LL")) {
+          br.url = "https://r.details.loinc.org/AnswerList/"+code+".html";
+          br.display = "LOINC Answer List "+code;
+        } else {
+          br.url = "https://r.details.loinc.org/LOINC/"+code+".html";
+          br.display = "LOINC "+code;
+        }
+      } else {
+        ValueSet vs = context.fetchResource(ValueSet.class, ref);
+        if (vs != null && vs.hasUserData("path")) {
+          br.url = vs.getUserString("path");  
+          br.display = vs.present();
+        } else if (Utilities.isAbsoluteUrl(ref) && (!ref.startsWith("http://hl7.org") || !ref.startsWith("http://terminology.hl7.org"))) {
+          br.url = ref;  
+          br.display = ref;
+        } else if (vs == null) {
+          br.url = ref+".html"; // broken link, 
+          br.display = ref;
+          brokenLinkWarning(path, ref);
+        } else if (ref.contains("|")) {
+          br.url = vs.getUserString("versionpath");
+          if (br.url==null) {
+            System.out.println("Unable to find version-specific path for reference - defaulting to version-independent reference: " + ref);
+            br.url = vs.getUserString("path");
+          }
+          br.display = vs.getName(); 
         } else {
           br.url = vs.getUserString("path");
           br.display = vs.getName(); 
-        }
-      } else { 
-        if (ref.startsWith("http://hl7.org/fhir/ValueSet/")) {
-          ValueSet vs = context.fetchResource(ValueSet.class, ref);
-          if (vs != null) { 
-            br.url = vs.getUserString("path");
-            br.display = vs.getName(); 
-          } else {
-            String vsr = VersionConvertorConstants.vsToRef(ref);
-            if (vsr != null) {
-              br.display = ref.substring(29);
-              br.url = vsr;
-            } else {
-              br.display = ref.substring(29);
-              br.url = ref.substring(29)+".html";
-              brokenLinkWarning(path, ref);
-            }
-          }
-        } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
-          br.url = specPath("v3/"+ref.substring(26)+"/index.html"); 
-          br.display = ref.substring(26);
-        } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
-          br.url = specPath("v2/"+ref.substring(26)+"/index.html"); 
-          br.display = ref.substring(26);
-        } else if (ref.startsWith("http://loinc.org/vs/")) {
-          String code = tail(ref);
-          if (code.startsWith("LL")) {
-            br.url = "https://r.details.loinc.org/AnswerList/"+code+".html";
-            br.display = "LOINC Answer List "+code;
-          } else {
-            br.url = "https://r.details.loinc.org/LOINC/"+code+".html";
-            br.display = "LOINC "+code;
-          }
-        } else {
-          ValueSet vs = context.fetchResource(ValueSet.class, ref);
-          if (vs != null && vs.hasUserData("path")) {
-            br.url = vs.getUserString("path");  
-            br.display = vs.present();
-          } else if (Utilities.isAbsoluteUrl(ref) && (!ref.startsWith("http://hl7.org") || !ref.startsWith("http://terminology.hl7.org"))) {
-            br.url = ref;  
-            br.display = ref;
-          } else if (vs == null) {
-            br.url = ref+".html"; // broken link, 
-            br.display = ref;
-            brokenLinkWarning(path, ref);
-          } else if (ref.contains("|")) {
-            br.url = vs.getUserString("versionpath");
-            if (br.url==null) {
-              System.out.println("Unable to find version-specific path for reference - defaulting to version-independent reference: " + ref);
-              br.url = vs.getUserString("path");
-            }
-            br.display = vs.getName(); 
-            
-          } else {
-            br.url = vs.getUserString("path");
-            br.display = vs.getName(); 
-          }
         }
       }
     }

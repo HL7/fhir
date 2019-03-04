@@ -160,6 +160,7 @@ import org.hl7.fhir.r5.utils.IResourceValidator;
 import org.hl7.fhir.r5.utils.NPMPackageGenerator;
 import org.hl7.fhir.r5.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.r5.utils.NarrativeGenerator;
+import org.hl7.fhir.r5.utils.NarrativeGenerator.ILiquidTemplateProvider;
 import org.hl7.fhir.r5.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.r5.utils.NarrativeGenerator.ITypeParser;
 import org.hl7.fhir.r5.utils.NarrativeGenerator.ResourceWithReference;
@@ -513,6 +514,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private boolean doTransforms;
   private List<String> spreadsheets = new ArrayList<>();
   private List<String> bundles = new ArrayList<>();
+
+  private IGPublisherLiquidTemplateServices templateProvider;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -698,7 +701,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void generateNarratives() throws Exception {
     dlog(LogCategory.PROGRESS, "gen narratives");
-    gen = new NarrativeGenerator("", "", context, this);
+    gen = new NarrativeGenerator("", "", context, this).setLiquidServices(templateProvider, validator.getExternalHostServices());
     gen.setCorePath(checkAppendSlash(specPath));
     gen.setDestDir(Utilities.path(tempDir));
     gen.setPkp(igpkp);
@@ -959,6 +962,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       log("Build Formal Publication package, intended for "+getTargetOutput());
     
     templateManager = new TemplateManager(pcm);
+    templateProvider = new IGPublisherLiquidTemplateServices();
     log("Package Cache: "+pcm.getFolder());
     if (packagesFolder != null) {
       log("Loading Packages from "+packagesFolder);
@@ -1019,7 +1023,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       // We need the root to be expressed as a full path.  getDirectoryForFile will do that in general, but not in Eclipse
       rootDir = new File(rootDir).getCanonicalPath();
     }
-      
+
+    
     if (Utilities.existsInList(version.substring(0,  3), "1.0", "1.4", "1.6", "3.0"))
       markdownEngine = new MarkDownProcessor(Dialect.DARING_FIREBALL);
     else
@@ -1045,6 +1050,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
    qaDir = Utilities.path(rootDir, str(paths, "qa"));
    vsCache = ostr(paths, "txCache");
+   templateProvider.clear();
+   if (paths.has("liquid")) {
+     templateProvider.load(Utilities.path(rootDir, str(paths, "liquid", "liquid")));
+   } 
     
    if (mode == IGBuildMode.WEBSERVER) 
       vsCache = Utilities.path(System.getProperty("java.io.tmpdir"), "fhircache");
@@ -4410,7 +4419,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (exp.getValueset() != null) {
         expansions.add(exp.getValueset());
                 
-        NarrativeGenerator gen = new NarrativeGenerator("", null, context);
+        NarrativeGenerator gen = new NarrativeGenerator("", null, context).setLiquidServices(templateProvider, validator.getExternalHostServices());
         gen.setTooCostlyNoteNotEmpty("This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection (1000 codes) of the whole set of codes is shown");
         gen.setTooCostlyNoteEmpty("This value set cannot be expanded because of the way it is defined - it has an infinite number of members");
         exp.getValueset().setCompose(null);
@@ -4466,7 +4475,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       new OpenApiGenerator(cpbs, oa).generate(license());
       oa.commit();
       otherFilesRun.add(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json"));
-      npm.addFile(Category.OPENAPI, cpbs.getId()+ ".openapi.json", IOUtils.toByteArray(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")));
+      npm.addFile(Category.OPENAPI, cpbs.getId()+ ".openapi.json", TextFile.fileToBytes(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")));
     }
   }
 
@@ -4587,7 +4596,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     if (r.getResource() != null && r.getResource() instanceof Bundle) {
       Bundle b = (Bundle) r.getResource();
-      return new NarrativeGenerator("",  null, context).renderBundle(b);
+      return new NarrativeGenerator("",  null, context).setLiquidServices(templateProvider, validator.getExternalHostServices()).renderBundle(b);
     }
     if (r.getElement().fhirType().equals("Bundle")) {
       return new NarrativeGenerator("",  null, context).renderBundle(r.getElement());
