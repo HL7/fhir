@@ -1162,8 +1162,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     inspector = new HTLMLInspector(outputDir, specMaps, this, igpkp.getCanonical().contains("hl7.org/fhir"));
     inspector.getManual().add("full-ig.zip");
     historyPage = ostr(paths, "history");
-    if (historyPage != null)
+    if (historyPage != null) {
       inspector.getManual().add(historyPage);
+      inspector.getManual().add(Utilities.pathURL(igpkp.getCanonical(), historyPage));
+    }
     inspector.getManual().add("qa.html");
     inspector.getManual().add("qa-tx.html");
     allowBrokenHtml = "true".equals(ostr(configuration, "allow-broken-links"));
@@ -2928,7 +2930,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         childPublisher.execute();
         log("Done processing nested IG: " + nestedIgConfig);
         log("**************************");
-        
+        childPublisher.updateInspector(inspector, nestedIgOutput);
       } catch (Exception e) {
         log("Publishing Child IG Failed: " + nestedIgConfig);
         throw e;
@@ -2991,6 +2993,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       log("Final .zip built");
     }
   }
+
+
 
 
 
@@ -5272,5 +5276,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     this.targetOutputNested = targetOutputNested;
   }
   
+  private void updateInspector(HTLMLInspector parentInspector, String path) {
+    parentInspector.getManual().add(path+"/full-ig.zip");
+    parentInspector.getManual().add("../"+historyPage);
+    parentInspector.getSpecMaps().addAll(specMaps);
+  }
   
 }
