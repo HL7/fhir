@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
@@ -3458,6 +3459,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     exec.setStreamHandler(pump);
     exec.setWorkingDirectory(new File(tempDir));
 
+    dumpVars();
+
     try {
 	    if (SystemUtils.IS_OS_WINDOWS)
 	      exec.execute(org.apache.commons.exec.CommandLine.parse("cmd /C "+jekyllCommand+" build --destination \""+outputDir+"\""));
@@ -3467,9 +3470,20 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     	log("Jekyll has failed - not installed (correcty?). Complete output from running Jekyll: " + pumpHandler.getBufferString());
     	throw ioex;
     }
-
     return true;
   }
+
+  private void dumpVars() {
+    log("---- Props -------------");
+    Properties properties = System.getProperties();
+    properties.forEach((k, v) -> log((String) k + ": "+ v));
+    log("---- Vars -------------");
+    System.getenv().forEach((k, v) -> {
+      log(k + ":" + v);
+    });
+    log("-----------------------");
+  }
+
 
   private void generateSummaryOutputs() throws Exception {
     log("Generating Summary Outputs");
