@@ -46,6 +46,7 @@ import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionMappingCompo
 import org.hl7.fhir.r5.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r5.model.Type;
 import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.utils.ElementDefinitionUtilities;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.MarkDownProcessor;
@@ -264,14 +265,16 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
 
-  private String summariseValue(Type fixed) throws Exception {
+  private String summariseValue(Type fixed) throws FHIRException {
     if (fixed instanceof org.hl7.fhir.r5.model.PrimitiveType)
       return ((org.hl7.fhir.r5.model.PrimitiveType) fixed).asStringValue();
     if (fixed instanceof CodeableConcept) 
       return summarise((CodeableConcept) fixed);
+    if (fixed instanceof Coding) 
+      return summarise((Coding) fixed);
     if (fixed instanceof Quantity) 
       return summarise((Quantity) fixed);
-    throw new Exception("Generating text summary of fixed value not yet done for type "+fixed.getClass().getName());
+    throw new FHIRException("Generating text summary of fixed value not yet done for type "+fixed.getClass().getName());
   }
 
 
@@ -284,16 +287,16 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return quantity.getValue().toString()+quantity.getUnit()+cu;
   }
 
-  private String summarise(CodeableConcept cc) throws Exception {
+  private String summarise(CodeableConcept cc) throws FHIRException {
     if (cc.getCoding().size() == 1 && cc.getText() == null) {
       return summarise(cc.getCoding().get(0));
     } else if (cc.getCoding().size() == 0 && cc.hasText()) {
       return "\"" + cc.getText()+"\"";
     } else 
-      throw new Exception("too complex to describe");
+      throw new FHIRException("too complex to describe");
   }
 
-  private String summarise(Coding coding) throws Exception {
+  private String summarise(Coding coding) throws FHIRException {
     if ("http://snomed.info/sct".equals(coding.getSystem()))
       return ""+translate("sd.summary", "SNOMED CT code")+" "+coding.getCode()+ (!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
     if ("http://loinc.org".equals(coding.getSystem()))
@@ -302,7 +305,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     if (cs !=  null) {
       return "<a href=\""+cs.getUserData("filename")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
     }
-    throw new Exception("Unknown system "+coding.getSystem()+" generating fixed value description");
+    throw new FHIRException("Unknown system "+coding.getSystem()+" generating fixed value description");
   }
 
   private String root(String path) {
@@ -330,16 +333,70 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return new XhtmlComposer(XhtmlComposer.HTML).compose(utils.generateGrid(defnFile, sd, destDir, false, sd.getId(), prefix, "", outputTracker));
   }
 
-  public String tx(boolean withHeadings) {
+  public String txDiff(boolean withHeadings, boolean mustSupportOnly) throws FHIRException {
     List<String> txlist = new ArrayList<String>();
+    boolean hasFixed  = false;
+    Map<String, ElementDefinitionBindingComponent> txmap = new HashMap<String, ElementDefinitionBindingComponent>();
+    for (ElementDefinition ed : sd.getDifferential().getElement()) {
+      if (ed.hasBinding() && !"0".equals(ed.getMax()) && (!mustSupportOnly || ed.getMustSupport())) {
+        String id = ed.getId();
+        if (ed.hasFixed()) { 
+          hasFixed = true;
+          ed.getBinding().setUserData("tx.value", ed.getFixed());
+        } else if (ed.hasPattern()) { 
+          hasFixed = true;
+          ed.getBinding().setUserData("tx.pattern", ed.getPattern());
+        } else {
+          // tricky : scan the children for a fixed coding value
+          Type t = findFixedValue(ed, true);
+          if (t != null)
+            ed.getBinding().setUserData("tx.value", t);
+        }
+        if (ed.getType().size() == 1 && ed.getType().get(0).getCode().equals("Extension"))
+          id = id + "<br/>"+ed.getType().get(0).getProfile();
+        txlist.add(id);
+        txmap.put(id, ed.getBinding());
+      }
+    }
+    if (txlist.isEmpty())
+      return "";
+    else {
+      StringBuilder b = new StringBuilder();
+      if (withHeadings)
+        b.append("<h4>"+translate("sd.tx", "Terminology Bindings (Differential)")+"</h4>\r\n");       
+      b.append("<table class=\"list\">\r\n");
+      b.append("<tr><td><b>"+translate("sd.tx", "Path")+"</b></td><td><b>"+translate("sd.tx", "Conformance")+"</b></td><td><b>"+translate("sd.tx", hasFixed ? "ValueSet / Code" : "ValueSet")+"</b></td></tr>\r\n");
+      for (String path : txlist)  {
+        txItem(txmap, b, path);
+      }
+      b.append("</table>\r\n");
+      return b.toString();
+    }
+  }
+  
+  public String tx(boolean withHeadings, boolean mustSupportOnly) throws FHIRException {
+    List<String> txlist = new ArrayList<String>();
+    boolean hasFixed  = false;
     Map<String, ElementDefinitionBindingComponent> txmap = new HashMap<String, ElementDefinitionBindingComponent>();
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
-      if (ed.hasBinding() && !"0".equals(ed.getMax())) {
-        String path = ed.getPath();
+      if (ed.hasBinding() && !"0".equals(ed.getMax()) && (!mustSupportOnly || ed.getMustSupport())) {
+        String id = ed.getId();
+        if (ed.hasFixed()) { 
+          hasFixed = true;
+          ed.getBinding().setUserData("tx.value", ed.getFixed());
+        } else if (ed.hasPattern()) { 
+          hasFixed = true;
+          ed.getBinding().setUserData("tx.pattern", ed.getPattern());
+        } else {
+          // tricky : scan the children for a fixed coding value
+          Type t = findFixedValue(ed, false);
+          if (t != null)
+            ed.getBinding().setUserData("tx.value", t);
+        }
         if (ed.getType().size() == 1 && ed.getType().get(0).getCode().equals("Extension"))
-          path = path + "<br/>"+ed.getType().get(0).getProfile();
-        txlist.add(path);
-        txmap.put(path, ed.getBinding());
+          id = id + "<br/>"+ed.getType().get(0).getProfile();
+        txlist.add(id);
+        txmap.put(id, ed.getBinding());
       }
     }
     if (txlist.isEmpty())
@@ -349,7 +406,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       if (withHeadings)
         b.append("<h4>"+translate("sd.tx", "Terminology Bindings")+"</h4>\r\n");       
       b.append("<table class=\"list\">\r\n");
-      b.append("<tr><td><b>"+translate("sd.tx", "Path")+"</b></td><td><b>"+translate("sd.tx", "Name")+"</b></td><td><b>"+translate("sd.tx", "Conformance")+"</b></td><td><b>"+translate("sd.tx", "ValueSet")+"</b></td></tr>\r\n");
+      b.append("<tr><td><b>"+translate("sd.tx", "Path")+"</b></td><td><b>"+translate("sd.tx", "Conformance")+"</b></td><td><b>"+translate("sd.tx", hasFixed ? "ValueSet / Code" : "ValueSet")+"</b></td></tr>\r\n");
       for (String path : txlist)  {
         txItem(txmap, b, path);
       }
@@ -359,7 +416,24 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
   }
 
-  public void txItem(Map<String, ElementDefinitionBindingComponent> txmap, StringBuilder b, String path) {
+  private Type findFixedValue(ElementDefinition ed, boolean diff) {
+    if (ElementDefinitionUtilities.hasType(ed, "Coding")) {
+      List<ElementDefinition> children = ProfileUtilities.getChildList(sd, ed, diff);
+      String sys = null;
+      String code = null;
+      for (ElementDefinition cd : children) {
+        if (cd.getPath().endsWith(".system") && cd.hasFixed()) 
+          sys = cd.getFixed().primitiveValue();
+        if (cd.getPath().endsWith(".code") && cd.hasFixed()) 
+          code = cd.getFixed().primitiveValue();
+      }
+      if (sys != null && code != null)
+        return new Coding().setSystem(sys).setCode(code);
+    }
+    return null;
+  }
+
+  public void txItem(Map<String, ElementDefinitionBindingComponent> txmap, StringBuilder b, String path) throws FHIRException {
     ElementDefinitionBindingComponent tx = txmap.get(path);
     String vss = "";
     String vsn = "?ext";
@@ -398,9 +472,16 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         System.out.println("No value set at "+path+" (url = '"+tx.getValueSet()+"')");
       else
         System.out.println("No value set at "+path+" (no url)");
-    b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
-    append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).
-    append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td>").append(vss);
+    if (tx.hasUserData("tx.value"))
+      vss = "Fixed Value: "+summariseValue((Type) tx.getUserData("tx.value"));
+    else if (tx.hasUserData("tx.pattern"))
+      vss = "Pattern: "+summariseValue((Type) tx.getUserData("tx.pattern"));
+    
+    b.append("<tr><td>").append(path).append("</td><td><a href=\"").append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement()));
+    if (tx.hasDescription())
+      b.append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td title=\"").append(Utilities.escapeXml(tx.getDescription())).append("\">").append(vss);
+    else
+      b.append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td>").append(vss);
     if (tx.hasExtension(ToolingExtensions.EXT_MAX_VALUESET)) {
       BindingResolution br = igp.resolveBinding(sd, ToolingExtensions.readStringExtension(tx, ToolingExtensions.EXT_MAX_VALUESET), path);
       b.append("<br>");
