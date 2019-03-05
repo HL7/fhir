@@ -1807,6 +1807,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (publishedIg.hasPackageId())
       pcm.recordMap(igpkp.getCanonical(), publishedIg.getPackageId());
     
+    String id = npmName+"-"+businessVersion;
+    if (npmName.startsWith("hl7.")) {
+      if (!id.matches("[A-Za-z0-9\\-\\.]{1,64}"))
+        throw new FHIRException("The generated ID is '"+id+"' which is not valid");
+      publishedIg.setId(id);
+    } else if (!id.equals(publishedIg.getId()))
+      errors.add(new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, "ImplementationGuide.id", "The Implementation Guide Resource id should be "+id, IssueSeverity.WARNING));
+      
     // load any bundles
     if (sourceDir != null || igpkp.isAutoPath())
       needToBuild = loadResources(needToBuild, igf);
