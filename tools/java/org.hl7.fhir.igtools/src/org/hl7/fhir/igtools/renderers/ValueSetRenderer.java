@@ -27,6 +27,7 @@ import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r5.utils.EOperationOutcome;
 import org.hl7.fhir.r5.utils.NarrativeGenerator;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.NpmPackage;
@@ -55,6 +56,8 @@ public class ValueSetRenderer extends BaseRenderer {
       b.append(" <tr><td>"+translate("vs.summary", "OID")+":</td><td>"+ValueSetUtilities.getOID(vs)+"("+translate("vs.summary", "for OID based terminology systems")+")</td></tr>\r\n");
     if (vs.hasCopyright())
       b.append(" <tr><td>"+translate("vs.summary", "Copyright")+":</td><td>"+Utilities.escapeXml(gt(vs.getCopyrightElement()))+"</td></tr>\r\n");
+    if (ToolingExtensions.hasExtension(vs, ToolingExtensions.EXT_FMM_LEVEL))
+      b.append(" <tr><td><a class=\"fmm\" href=\"versions.html#maturity\" title=\"Maturity Level\">"+translate("cs.summary", "Maturity")+"</a>:</td><td>"+ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_FMM_LEVEL)+"</td></tr>\r\n");
     if (xml || json || ttl) {
       b.append(" <tr><td>"+translate("vs.summary", "Source Resource")+":</td><td>");
       boolean first = true;
