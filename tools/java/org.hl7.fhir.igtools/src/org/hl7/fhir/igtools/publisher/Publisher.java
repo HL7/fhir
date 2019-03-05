@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
@@ -392,6 +393,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private boolean debug;
   private boolean isChild;
   private boolean cacheVersion;
+  private boolean appendTrailingSlashInDataFile;
 
   private Publisher childPublisher = null;
   private String childOutput = "";
@@ -626,7 +628,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       processTxLog(Utilities.path(destDir != null ? destDir : outputDir, "qa-tx.html"));
       log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
     }
-    log("Checking on package: the file "+Utilities.path(outputDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "package.tgz")).exists()));
     recordOutcome(null, val);
   }
 
@@ -1253,6 +1254,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     igArtifactsPage = configuration.has("igArtifactsPage") ? configuration.get("igArtifactsPage").getAsString() : null;
     genExamples = "true".equals(ostr(configuration, "gen-examples"));
     doTransforms = "true".equals(ostr(configuration, "do-transforms"));
+    appendTrailingSlashInDataFile = "true".equals(ostr(configuration, "append-slash-to-dependency-urls"));
+    
     JsonArray array = configuration.getAsJsonArray("spreadsheets");
     if (array != null) {
       for (JsonElement be : array) 
@@ -3456,6 +3459,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     exec.setStreamHandler(pump);
     exec.setWorkingDirectory(new File(tempDir));
 
+    dumpVars();
+
     try {
 	    if (SystemUtils.IS_OS_WINDOWS)
 	      exec.execute(org.apache.commons.exec.CommandLine.parse("cmd /C "+jekyllCommand+" build --destination \""+outputDir+"\""));
@@ -3465,9 +3470,20 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     	log("Jekyll has failed - not installed (correcty?). Complete output from running Jekyll: " + pumpHandler.getBufferString());
     	throw ioex;
     }
-
     return true;
   }
+
+  private void dumpVars() {
+    log("---- Props -------------");
+    Properties properties = System.getProperties();
+    properties.forEach((k, v) -> log((String) k + ": "+ v));
+    log("---- Vars -------------");
+    System.getenv().forEach((k, v) -> {
+      log(k + ":" + v);
+    });
+    log("-----------------------");
+  }
+
 
   private void generateSummaryOutputs() throws Exception {
     log("Generating Summary Outputs");
@@ -3882,7 +3898,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     for (SpecMapManager sm : specMaps) {
       if (sm.getName() != null)
-        data.addProperty(sm.getName(), sm.getBase());
+        data.addProperty(sm.getName(), appendTrailingSlashInDataFile ? sm.getBase() : Utilities.appendForwardSlash(sm.getBase()));
     }
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(data);
@@ -4465,8 +4481,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateOutputsCapabilityStatement(FetchedFile f, FetchedResource r, CapabilityStatement cpbs, Map<String, String> vars) throws Exception {
-    if (igpkp.wantGen(r, "swagger")) {
-
+    if (igpkp.wantGen(r, "swagger") || igpkp.wantGen(r, "openapi")) {
       Writer oa = null;
       if (openApiTemplate != null) 
         oa = new Writer(new FileOutputStream(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")), new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), openApiTemplate)));
