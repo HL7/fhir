@@ -181,6 +181,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           res.append(s);
         res.append("\r\n</ul>\r\n\r\n");
       }
+      if (ToolingExtensions.hasExtension(sd, ToolingExtensions.EXT_FMM_LEVEL))
+        res.append("<p><b><a class=\"fmm\" href=\"versions.html#maturity\" title=\"Maturity Level\">"+translate("cs.summary", "Maturity")+"</a></b>: "+ToolingExtensions.readStringExtension(sd, ToolingExtensions.EXT_FMM_LEVEL)+"</p>\r\n");
+      
       return res.toString();
     } catch (Exception e) {
       return "<p><i>"+Utilities.escapeXml(e.getMessage())+"</i></p>";
@@ -302,14 +305,10 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     if ("http://loinc.org".equals(coding.getSystem()))
       return ""+translate("sd.summary", "LOINC code")+" "+coding.getCode()+ (!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
     CodeSystem cs = context.fetchCodeSystem(coding.getSystem());
-    if (cs !=  null) {
-      return "<a href=\""+cs.getUserData("filename")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
-    }
-    throw new FHIRException("Unknown system "+coding.getSystem()+" generating fixed value description");
-  }
-
-  private String root(String path) {
-    return path.contains(".") ? path.substring(0, path.lastIndexOf('.')) : path;
+    if (cs == null) 
+      return "<span title=\""+coding.getSystem()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
+    else
+      return "<a title=\""+cs.present()+"\" href=\""+cs.getUserData("filename")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
   }
 
   public String diff(String defnFile, Set<String> outputTracker) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {

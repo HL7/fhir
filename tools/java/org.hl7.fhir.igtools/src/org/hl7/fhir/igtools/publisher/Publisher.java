@@ -167,6 +167,7 @@ import org.hl7.fhir.r5.utils.NarrativeGenerator.ITypeParser;
 import org.hl7.fhir.r5.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.r5.utils.StructureMapUtilities;
 import org.hl7.fhir.r5.utils.StructureMapUtilities.StructureMapAnalysis;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.r5.utils.client.FHIRToolingClient;
 import org.hl7.fhir.r5.utils.formats.Turtle;
 import org.hl7.fhir.r5.validation.CodeSystemValidator;
@@ -177,6 +178,7 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.JsonMerger;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
@@ -3506,8 +3508,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     // now, list the profiles - all the profiles
     JsonObject data = new JsonObject();
     int i = 0;
+    JsonObject maturities = new JsonObject();
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
+        if (r.getResource() != null && r.getResource() instanceof DomainResource) {
+          String fmm = ToolingExtensions.readStringExtension((DomainResource) r.getResource(), ToolingExtensions.EXT_FMM_LEVEL);
+          if (fmm != null)
+            maturities.addProperty(r.getResource().fhirType()+"-"+r.getId(), fmm);
+        }
         if (r.getElement().fhirType().equals("StructureDefinition")) {
           StructureDefinition sd = (StructureDefinition) r.getResource();
 
@@ -3544,6 +3552,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         }
       }
     }
+    if (maturities.keySet().size() > 0)
+      data.add("maturities", maturities);
 
     for (FetchedResource r: examples) {
       FetchedResource baseRes = getResourceForUri(r.getExampleUri());
@@ -3964,13 +3974,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       StringBuilder list = new StringBuilder();
       StringBuilder lists = new StringBuilder();
       StringBuilder table = new StringBuilder();
+      StringBuilder listMM = new StringBuilder();
+      StringBuilder listsMM = new StringBuilder();
+      StringBuilder tableMM = new StringBuilder();
       for (Item i : items) {
         StructureDefinition sd = (StructureDefinition) i.r.getResource();
-        genEntryItem(list, lists, table, i.f, i.r, i.sort, null);
+        genEntryItem(list, lists, table, listMM, listsMM, tableMM, i.f, i.r, i.sort, null);
       }
       fragment("list-profiles", list.toString(), otherFilesRun);
       fragment("list-simple-profiles", lists.toString(), otherFilesRun);
       fragment("table-profiles", table.toString(), otherFilesRun);
+      fragment("list-profiles-mm", listMM.toString(), otherFilesRun);
+      fragment("list-simple-profiles-mm", listsMM.toString(), otherFilesRun);
+      fragment("table-profiles-mm", tableMM.toString(), otherFilesRun);
     }
   }
 
@@ -3990,13 +4006,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     StringBuilder list = new StringBuilder();
     StringBuilder lists = new StringBuilder();
     StringBuilder table = new StringBuilder();
+    StringBuilder listMM = new StringBuilder();
+    StringBuilder listsMM = new StringBuilder();
+    StringBuilder tableMM = new StringBuilder();
     for (Item i : items) {
       StructureDefinition sd = (StructureDefinition) i.r.getResource();
-      genEntryItem(list, lists, table, i.f, i.r, i.sort, null);
+      genEntryItem(list, lists, table, listMM, listsMM, tableMM, i.f, i.r, i.sort, null);
     }
     fragment("list-extensions", list.toString(), otherFilesRun);
     fragment("list-simple-extensions", lists.toString(), otherFilesRun);
     fragment("table-extensions", table.toString(), otherFilesRun);
+    fragment("list-extensions-mm", listMM.toString(), otherFilesRun);
+    fragment("list-simple-extensions-mm", listsMM.toString(), otherFilesRun);
+    fragment("table-extensions-mm", tableMM.toString(), otherFilesRun);
   }
 
   private void generateLogicals() throws Exception {
@@ -4015,16 +4037,25 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     StringBuilder list = new StringBuilder();
     StringBuilder lists = new StringBuilder();
     StringBuilder table = new StringBuilder();
+    StringBuilder listMM = new StringBuilder();
+    StringBuilder listsMM = new StringBuilder();
+    StringBuilder tableMM = new StringBuilder();
     for (Item i : items) {
       StructureDefinition sd = (StructureDefinition) i.r.getResource();
-      genEntryItem(list, lists, table, i.f, i.r, i.sort, null);
+      genEntryItem(list, lists, table, listMM, listsMM, tableMM, i.f, i.r, i.sort, null);
     }
     fragment("list-logicals", list.toString(), otherFilesRun);
     fragment("list-simple-logicals", lists.toString(), otherFilesRun);
     fragment("table-logicals", table.toString(), otherFilesRun);
+    fragment("list-logicals-mm", listMM.toString(), otherFilesRun);
+    fragment("list-simple-logicals-mm", listsMM.toString(), otherFilesRun);
+    fragment("table-logicals-mm", tableMM.toString(), otherFilesRun);
   }
 
-  private void genEntryItem(StringBuilder list, StringBuilder lists, StringBuilder table, FetchedFile f, FetchedResource r, String name, String prefixType) throws Exception {
+  private void genEntryItem(
+        StringBuilder list, StringBuilder lists, StringBuilder table, 
+        StringBuilder listMM, StringBuilder listsMM, StringBuilder tableMM, 
+        FetchedFile f, FetchedResource r, String name, String prefixType) throws Exception {
     String ref = igpkp.doReplacements(igpkp.getLinkFor(r), r, null, null);
     if (Utilities.noString(ref))
       throw new Exception("No reference found for "+r.getId());
@@ -4041,6 +4072,18 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> "+Utilities.escapeXml(desc.asStringValue())+"</li>\r\n");
     lists.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a></li>\r\n");
     table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> </td><td>"+new BaseRenderer(context, null, igpkp, specMaps, markdownEngine, packge).processMarkdown("description", desc )+"</td></tr>\r\n");
+    
+    if (listMM != null) {
+      String mm = "";
+      if (r.getResource() != null && r.getResource() instanceof DomainResource) {
+        String fmm = ToolingExtensions.readStringExtension((DomainResource) r.getResource(), ToolingExtensions.EXT_FMM_LEVEL);
+        if (fmm != null)
+          mm = " <a class=\"fmm\" href=\"versions.html#maturity\" title=\"Maturity Level\">"+fmm+"</a>";
+      }
+      listMM.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a>"+mm+" "+Utilities.escapeXml(desc.asStringValue())+"</li>\r\n");
+      listsMM.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a>"+mm+"</li>\r\n");
+      tableMM.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> </td><td>"+new BaseRenderer(context, null, igpkp, specMaps, markdownEngine, packge).processMarkdown("description", desc )+"</td><td>"+mm+"</td></tr>\r\n");
+    }
   }
 
   private void generateResourceReferences(ResourceType rt) throws Exception {
@@ -4060,6 +4103,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     StringBuilder list = new StringBuilder();
     StringBuilder lists = new StringBuilder();
     StringBuilder table = new StringBuilder();
+    StringBuilder listMM = new StringBuilder();
+    StringBuilder listsMM = new StringBuilder();
+    StringBuilder tableMM = new StringBuilder();
     StringBuilder listJ = new StringBuilder();
     StringBuilder listsJ = new StringBuilder();
     StringBuilder tableJ = new StringBuilder();
@@ -4071,9 +4117,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         String name = i.r.getTitle();
         if (Utilities.noString(name))
           name = rt.toString();
-        genEntryItem(list, lists, table, i.f, i.r, i.sort, null);
-        genEntryItem(listJ, listsJ, tableJ, i.f, i.r, i.sort, "json");
-        genEntryItem(listX, listsX, tableX, i.f, i.r, i.sort, "xml");
+        genEntryItem(list, lists, table, listMM, listsMM, tableMM, i.f, i.r, i.sort, null);
+        genEntryItem(listJ, listsJ, tableJ, null, null, null, i.f, i.r, i.sort, "json");
+        genEntryItem(listX, listsX, tableX, null, null, null, i.f, i.r, i.sort, "xml");
       }
     }
     fragment("list-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), list.toString(), otherFilesRun);
@@ -4306,6 +4352,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         output = r.getElement().fhirType()+"-"+r.getId()+"-"+templateName+".html";
       genWrapper(null, r, igpkp.getProperty(r, "template-"+templateName), output, f.getOutputNames(), vars, null, templateName);
     }
+    if (igpkp.wantGen(r, "maturity") && r.getResource() != null)
+      fragment(r.getResource().fhirType()+"-"+r.getId()+"-maturity",  genFmmBanner(r), f.getOutputNames());
 
     String template = igpkp.getProperty(r, "template-format");
     if (igpkp.wantGen(r, "xml")) {
@@ -4357,6 +4405,25 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     //  html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
     //  fragment(f.getId()+"-gen-html", html);
   }
+
+  private String genFmmBanner(FetchedResource r) throws FHIRException {
+    String fmm = null;
+    StandardsStatus ss = null;
+    if (r.getResource() instanceof DomainResource) {
+      fmm = ToolingExtensions.readStringExtension((DomainResource) r.getResource(), ToolingExtensions.EXT_FMM_LEVEL);
+      ss = ToolingExtensions.getStandardsStatus((DomainResource) r.getResource());
+    }
+    if (ss == null)
+      ss = StandardsStatus.TRIAL_USE;
+    if (fmm != null)
+      return "<table class=\"cols\"><tbody><tr>"+
+        "<td><a href=\""+checkAppendSlash(specPath)+"versions.html#maturity\">Maturity Level</a>: "+fmm+"</td>"+
+        "<td>&nbsp;<a href=\""+checkAppendSlash(specPath)+"versions.html#std-process\" title=\"Standard Status\">"+ss.toDisplay()+"</a></td>"+
+        "</tr></tbody></table>";
+    else
+      return "";
+  }
+
 
   private void genWrapper(FetchedFile ff, FetchedResource r, String template, String outputName, Set<String> outputTracker, Map<String, String> vars, String format, String extension) throws FileNotFoundException, IOException, FHIRException {
     if (template != null && !template.isEmpty()) {

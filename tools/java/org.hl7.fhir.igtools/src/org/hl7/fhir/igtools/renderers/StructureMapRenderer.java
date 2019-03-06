@@ -11,6 +11,7 @@ import org.hl7.fhir.r5.context.IWorkerContext;
 import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.r5.model.StructureMap;
 import org.hl7.fhir.r5.utils.StructureMapUtilities;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.r5.utils.StructureMapUtilities.StructureMapAnalysis;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.Utilities;
@@ -47,6 +48,8 @@ public class StructureMapRenderer extends BaseRenderer {
       b.append(" <tr><td>"+translate("sm.summary", "Publisher")+":</td><td>"+Utilities.escapeXml(gt(map.getPublisherElement()))+"</td></tr>\r\n");
     if (map.hasCopyright())
       b.append(" <tr><td>"+translate("sm.summary", "Copyright")+":</td><td>"+Utilities.escapeXml(gt(map.getCopyrightElement()))+"</td></tr>\r\n");
+    if (ToolingExtensions.hasExtension(map, ToolingExtensions.EXT_FMM_LEVEL))
+      b.append(" <tr><td><a class=\"fmm\" href=\"versions.html#maturity\" title=\"Maturity Level\">"+translate("cs.summary", "Maturity")+"</a>:</td><td>"+ToolingExtensions.readStringExtension(map, ToolingExtensions.EXT_FMM_LEVEL)+"</td></tr>\r\n");
     if (xml || json || ttl) {
       b.append(" <tr><td>"+translate("sm.summary", "Source Resource")+":</td><td>");
       boolean first = true;
@@ -83,10 +86,18 @@ public class StructureMapRenderer extends BaseRenderer {
   }
 
   public String script() throws FHIRException {
-    return utils.render(map);
+    return StructureMapUtilities.render(map);
   }
 
   public String content() throws IOException {
+    if (analysis == null) {
+      try {
+        analysis = utils.analyse(null, map);
+      } catch (FHIRException e) {
+        return "Error in Map: "+e.getMessage();  
+      }
+      map.setUserData("analysis", analysis);
+    }      
     return new XhtmlComposer(XhtmlComposer.HTML).compose(analysis.getSummary());
   }
 
