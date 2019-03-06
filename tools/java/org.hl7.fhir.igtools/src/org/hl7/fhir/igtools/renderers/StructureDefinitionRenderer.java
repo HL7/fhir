@@ -305,14 +305,10 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     if ("http://loinc.org".equals(coding.getSystem()))
       return ""+translate("sd.summary", "LOINC code")+" "+coding.getCode()+ (!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
     CodeSystem cs = context.fetchCodeSystem(coding.getSystem());
-    if (cs !=  null) {
-      return "<a href=\""+cs.getUserData("filename")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
-    }
-    throw new FHIRException("Unknown system "+coding.getSystem()+" generating fixed value description");
-  }
-
-  private String root(String path) {
-    return path.contains(".") ? path.substring(0, path.lastIndexOf('.')) : path;
+    if (cs == null) 
+      return "<span title=\""+coding.getSystem()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
+    else
+      return "<a title=\""+cs.present()+"\" href=\""+cs.getUserData("filename")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
   }
 
   public String diff(String defnFile, Set<String> outputTracker) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {

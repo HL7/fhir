@@ -86,10 +86,18 @@ public class StructureMapRenderer extends BaseRenderer {
   }
 
   public String script() throws FHIRException {
-    return utils.render(map);
+    return StructureMapUtilities.render(map);
   }
 
   public String content() throws IOException {
+    if (analysis == null) {
+      try {
+        analysis = utils.analyse(null, map);
+      } catch (FHIRException e) {
+        return "Error in Map: "+e.getMessage();  
+      }
+      map.setUserData("analysis", analysis);
+    }      
     return new XhtmlComposer(XhtmlComposer.HTML).compose(analysis.getSummary());
   }
 
