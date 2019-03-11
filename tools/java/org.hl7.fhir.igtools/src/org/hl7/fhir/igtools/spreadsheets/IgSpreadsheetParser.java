@@ -168,7 +168,7 @@ public class IgSpreadsheetParser {
       loadExtensions(f.getErrors());
       List<String> namedSheets = new ArrayList<String>();
       if (hasMetadata("title")) {
-        f.setName(metadata("title"));
+        f.setTitle(metadata("title"));
         if (hasMetadata("name"))
           f.setName(metadata("name"));
       } else {
@@ -304,7 +304,10 @@ public class IgSpreadsheetParser {
       sd.setAbstract(false);
       sd.setId(n.toLowerCase());
       sd.setType(sd.getDifferential().getElementFirstRep().getPath());
-      sd.getDifferential().getElementFirstRep().setSliceName(null);
+      if (sd.getDifferential().getElementFirstRep().hasSliceName()) {
+        sd.setName(sd.getDifferential().getElementFirstRep().getSliceName());
+        sd.getDifferential().getElementFirstRep().setSliceName(null);
+      }
       if (sd.getDifferential().getElementFirstRep().getType().size() == 1 && sd.getDifferential().getElementFirstRep().getType().get(0).hasProfile())
         sd.setBaseDefinition(sd.getDifferential().getElementFirstRep().getType().get(0).getProfile().get(0).getValue());
       else
@@ -320,6 +323,8 @@ public class IgSpreadsheetParser {
 
     // Changed the default from metadata to Short because the former caused problems when there are multiple sheets in a workbook
     if (sd.getDifferential().getElementFirstRep().hasShort())
+      sd.setTitle(sd.getDifferential().getElementFirstRep().getShort());
+    if (!sd.hasName() && sd.getDifferential().getElementFirstRep().hasShort())
       sd.setName(sd.getDifferential().getElementFirstRep().getShort());
     else if (hasMetadata("name"))
       sd.setName(metadata("name"));
@@ -1129,7 +1134,7 @@ public class IgSpreadsheetParser {
     String sl = exe.getShort();
     ex.setName(sheet.getColumn(row, "Name"));
     if (!ex.hasName())
-      ex.setName(ex.getTitle());
+      ex.setName(name);
     if (!Utilities.noString(sl) && (!sl.contains("|") || !ex.hasName()))
       ex.setName(sl);
 //    ex.setName("Extension "+ex.getId()+(ex.hasDisplay() ? " "+ex.getDisplay() : ""));
