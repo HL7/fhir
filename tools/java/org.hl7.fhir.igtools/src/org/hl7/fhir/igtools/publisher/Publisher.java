@@ -3871,6 +3871,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     data.addProperty("canonical", igpkp.getCanonical());
     data.addProperty("igId", sourceIg.getId());
     data.addProperty("igName", sourceIg.getName());
+    data.addProperty("igTitle", sourceIg.getTitle());
     data.addProperty("igVer", businessVersion);
     data.addProperty("errorCount", getErrorCount());
     data.addProperty("version", specMaps.get(0).getVersion());
@@ -3886,6 +3887,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     data.add("ig", ig);
     ig.addProperty("id", sourceIg.getId());
     ig.addProperty("name", sourceIg.getName());
+    ig.addProperty("title", sourceIg.getTitle());
     ig.addProperty("url", sourceIg.getUrl());
     if (businessVersion!=null)
       ig.addProperty("version", businessVersion);
