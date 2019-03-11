@@ -322,21 +322,20 @@ public class IgSpreadsheetParser {
     bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
 
     // Changed the default from metadata to Short because the former caused problems when there are multiple sheets in a workbook
-    if (sd.getDifferential().getElementFirstRep().hasShort())
-      sd.setTitle(sd.getDifferential().getElementFirstRep().getShort());
-    if (!sd.hasName() && sd.getDifferential().getElementFirstRep().hasShort())
-      sd.setName(sd.getDifferential().getElementFirstRep().getShort());
-    else if (hasMetadata("name"))
-      sd.setName(metadata("name"));
-    else
-      sd.setName("UNKNOWN");
-    if (!sd.hasName())
-      sd.setName("Profile "+sd.getId());
-    if (sheet.hasColumn(0, "Profile.name"))
-      sd.setName(sheet.getColumn(0, "Profile.name"));
     if (sheet.hasColumn(0, "Profile.title"))
       sd.setTitle(sheet.getColumn(0, "Profile.title"));
-
+    else if (sd.getDifferential().getElementFirstRep().hasShort())
+      sd.setTitle(sd.getDifferential().getElementFirstRep().getShort());
+    if (!sd.hasName()) {
+      if (!sd.hasName() && sd.getDifferential().getElementFirstRep().hasShort())
+        sd.setName(sd.getDifferential().getElementFirstRep().getShort());
+      else if (hasMetadata("name"))
+        sd.setName(metadata("name"));
+      else if (sheet.hasColumn(0, "Profile.name"))
+        sd.setName(sheet.getColumn(0, "Profile.name"));
+      else
+        sd.setName("UNKNOWN");
+    }
     sheet = loadSheet(n + "-Extensions");
     if (sheet != null) {
       int row = 0;
