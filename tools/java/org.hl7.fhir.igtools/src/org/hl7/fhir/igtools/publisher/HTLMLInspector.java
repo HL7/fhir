@@ -397,6 +397,11 @@ public class HTLMLInspector {
       }
     }
       
+    // special case end-pointsvthat are always valid:
+    if (!resolved)
+      resolved = Utilities.existsInList(Utilities.appendForwardSlash(ref), "http://hl7.org/", "http://hl7.org/fhir/DSTU2/", "http://hl7.org/fhir/STU3/", "http://hl7.org/fhir/R4/");
+    
+    
     if (!resolved) {
       if (rref.startsWith("http://") || rref.startsWith("https://")) {
         resolved = true;
