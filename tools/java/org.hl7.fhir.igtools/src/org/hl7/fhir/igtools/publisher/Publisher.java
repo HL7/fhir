@@ -1172,6 +1172,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     inspector.getManual().add("qa-tx.html");
     allowBrokenHtml = "true".equals(ostr(configuration, "allow-broken-links"));
     inspector.setStrict("true".equals(ostr(configuration, "allow-malformed-html")));
+    inspector.setPcm(pcm);
     makeQA = mode == IGBuildMode.WEBSERVER ? false : !"true".equals(ostr(configuration, "suppress-qa"));
     
     JsonArray deps = configuration.getAsJsonArray("dependencyList");

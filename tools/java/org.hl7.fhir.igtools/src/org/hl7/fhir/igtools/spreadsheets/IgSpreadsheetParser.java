@@ -1082,7 +1082,6 @@ public class IgSpreadsheetParser {
     ex.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Extension");
     ex.setDerivation(TypeDerivationRule.CONSTRAINT);
     ex.setAbstract(false);
-    ex.setFhirVersion(FHIRVersion.fromCode(Constants.VERSION));
     if ("http://hl7.org/fhir".equals(base))
       ex.setVersion(Constants.VERSION);
 

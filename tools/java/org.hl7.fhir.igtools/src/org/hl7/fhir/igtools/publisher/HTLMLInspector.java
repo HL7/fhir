@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,7 +19,11 @@ import java.util.UUID;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.r5.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.r5.context.IWorkerContext.ILoggingService.LogCategory;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.cache.NpmPackage;
+import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.PackageCacheManager.VersionHistory;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
@@ -130,6 +137,10 @@ public class HTLMLInspector {
   private List<String> manual = new ArrayList<String>(); // pages that will be provided manually when published, so allowed to be broken links
   private ILoggingService log;
   private boolean forHL7;
+  private List<String> igs;
+  private PackageCacheManager pcm;
+  private Map<String, SpecMapManager> otherSpecs = new HashMap<String, SpecMapManager>();
+  private List<String> errorPackages = new ArrayList<>();
 
   public HTLMLInspector(String rootFolder, List<SpecMapManager> specs, ILoggingService log, boolean forHL7) {
     this.rootFolder = rootFolder.replace("/", File.separator);
@@ -397,6 +408,11 @@ public class HTLMLInspector {
       }
     }
       
+    // special case end-points that are always valid:
+    if (!resolved)
+      resolved = Utilities.existsInList(ref, "http://hl7.org/fhir/fhir-spec-r4.zip", "http://hl7.org/fhir/R4/fhir-spec-r4.zip", "http://hl7.org/fhir/STU3/fhir-spec.zip", "http://hl7.org/fhir/DSTU2/fhir-spec.zip") || 
+          matchesTarget(ref, "http://hl7.org", "http://hl7.org/fhir/DSTU2", "http://hl7.org/fhir/STU3", "http://hl7.org/fhir/R4", "http://hl7.org/fhir/smart-app-launch", "http://hl7.org/fhir/validator");
+    
     if (!resolved) {
       if (rref.startsWith("http://") || rref.startsWith("https://")) {
         resolved = true;
@@ -433,13 +449,79 @@ public class HTLMLInspector {
         }
       }
     }
-      
+    if (!resolved)
+      for (String url : pcm.getUrls()) {
+        if (!"http://hl7.org/fhir".equals(url)) {
+          if (matchesTarget(ref, url))
+            resolved = true;
+          if (ref.startsWith(url) && !errorPackages.contains(url)) {
+            // now, iterate the package list to see if we have a version match
+            VersionHistory vers = null; 
+            try {
+              vers = pcm.listVersions(url);
+            } catch (Exception e) {
+              errorPackages.add(url);
+              System.out.println("Error checking links for "+url+": "+e.getMessage());
+            }
+            if (vers != null) {
+              for (String ver : vers.getVersions().keySet()) {
+                String v = vers.getId()+"#"+ver;
+                if (!errorPackages.contains(v)) {
+                  try {
+                    if (ref.startsWith(vers.getVersions().get(ver))) {
+                      SpecMapManager sm = otherSpecs.get(v);
+                      if (sm == null) {
+                        sm = loadSpecMap(vers.getId(), ver, vers.getVersions().get(ver));
+                        otherSpecs.put(v, sm);
+                      }
+                      if (sm.getBase().equals(rref) || (sm.getBase()).equals(rref+"/") || sm.hasTarget(rref)) {
+                        resolved = true;
+                        break;
+                      }
+                    }
+                  } catch (Exception e) {
+                    errorPackages.add(v);
+                    System.out.println("Error checking links for "+v+": "+e.getMessage());
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
     if (resolved) {
       return false;
     } else {
       messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path+(loc == null ? "" : " at "+loc.toString())), "The link '"+ref+"' for \""+text.replaceAll("[\\s\\n]+", " ").trim()+"\" cannot be resolved"+tgtList, IssueSeverity.ERROR).setLocationLink(uuid == null ? null : makeLocal(filename)+"#"+uuid));
       return true;
     } 
+  }
+
+  private boolean matchesTarget(String ref, String... url) {
+    for (String s : url) {
+      if (ref.equals(s))
+        return true;
+      if (ref.equals(s+"/"))
+        return true;
+      if (ref.equals(s+"/index.html"))
+        return true;
+    }
+    return false;
+  }
+
+  private SpecMapManager loadSpecMap(String id, String ver, String url) throws IOException {
+    NpmPackage pi = pcm.loadPackageFromCacheOnly(id, ver);
+    if (pi == null) {
+      System.out.println("Fetch "+id+" package from "+url);
+      URL url1 = new URL(Utilities.pathURL(url, "package.tgz")+"?nocache=" + System.currentTimeMillis());
+      URLConnection c = url1.openConnection();
+      InputStream src = c.getInputStream();
+      pi = pcm.addPackageToCache(id, ver, src);
+    }    
+    SpecMapManager sm = new SpecMapManager(TextFile.streamToBytes(pi.load("other", "spec.internals")), pi.getNpm().getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString());
+    sm.setBase(url);
+    return sm;
   }
 
   private String makeLocal(String filename) {
@@ -546,4 +628,14 @@ public class HTLMLInspector {
     return specs;
   }
 
+  public List<String> getIgs() {
+    return igs;
+  }
+
+  public void setPcm(PackageCacheManager pcm) {
+    this.pcm = pcm;
+    
+  }
+
+  
 }
