@@ -308,7 +308,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     if (cs == null) 
       return "<span title=\""+coding.getSystem()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
     else
-      return "<a title=\""+cs.present()+"\" href=\""+cs.getUserData("filename")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
+      return "<a title=\""+cs.present()+"\" href=\""+cs.getUserData("path")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
   }
 
   public String diff(String defnFile, Set<String> outputTracker) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
@@ -791,7 +791,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     if (t.getCode().startsWith("xs:")) {
       b.append(t.getCode());
     } else {
-      String s = igp.getLinkFor("", t.getCode());
+      String s = igp.getLinkFor(sd.getUserString("path"), t.getCode());
       if (s != null) {
         b.append("<a href=\"");
         //    GG 13/12/2016 - I think that this is always wrong now. 

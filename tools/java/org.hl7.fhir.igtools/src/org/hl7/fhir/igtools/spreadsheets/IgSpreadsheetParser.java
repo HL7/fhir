@@ -372,6 +372,8 @@ public class IgSpreadsheetParser {
     }
 
     sd.setPublisher(metadata("author.name"));
+    if (Utilities.noString(metadata("experimental")))
+      sd.setExperimental("true".equals(metadata("experimental")));
     if (hasMetadata("author.reference"))
       sd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, metadata("author.reference")));
     if (hasMetadata("date"))
@@ -519,6 +521,13 @@ public class IgSpreadsheetParser {
         ValueSet vs = ValueSetUtilities.makeShareable(new ValueSet());
         vs.setId(ref.substring(1));
         vs.setUrl(base+"/ValueSet/"+ref.substring(1));
+        if (sheet.hasColumn("Version"))
+          vs.setVersion(sheet.getColumn(row, "Version"));
+        else
+          vs.setVersion(metadata("version"));
+        if (Utilities.noString(metadata("experimental")))
+          vs.setExperimental("true".equals(metadata("experimental")));
+        vs.setPublisher(metadata("author.name"));
         bs.setValueSet(vs.getUrl()+"|");
         bundle.addEntry().setResource(vs).setFullUrl(vs.getUrl());
         vs.setName(bindingName);
@@ -1146,6 +1155,8 @@ public class IgSpreadsheetParser {
     ex.setDescription(exe.getDefinition());
 
     ex.setPublisher(metadata("author.name"));
+    if (Utilities.noString(metadata("experimental")))
+      ex.setExperimental("true".equals(metadata("experimental")));
     if (hasMetadata("author.reference"))
       ex.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, metadata("author.reference")));
     //  <code> opt Zero+ Coding assist with indexing and finding</code>

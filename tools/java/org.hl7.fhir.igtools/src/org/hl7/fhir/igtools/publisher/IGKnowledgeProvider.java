@@ -323,7 +323,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(name, null));
     if (sd != null && sd.hasUserData("path"))
         return sd.getUserString("path");
-    brokenLinkWarning(name, name);
+    brokenLinkWarning(corepath, name);
     return name+".html";
   }
 
