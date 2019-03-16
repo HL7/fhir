@@ -1142,7 +1142,7 @@ public class IgSpreadsheetParser {
     ex.setName(sheet.getColumn(row, "Name"));
     if (!ex.hasName())
       ex.setName(name);
-    if (!Utilities.noString(sl) && (!sl.contains("|") || !ex.hasName()))
+    if (!Utilities.noString(sl) && !sl.contains("|") && !ex.hasTitle())
       ex.setName(sl);
 //    ex.setName("Extension "+ex.getId()+(ex.hasDisplay() ? " "+ex.getDisplay() : ""));
     if (sheet.hasColumn(0, "Profile.name"))
