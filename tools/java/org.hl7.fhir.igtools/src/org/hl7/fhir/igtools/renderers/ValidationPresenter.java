@@ -198,7 +198,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
 
   private final String startTemplateNoErrors = 
       "   <tr>\r\n"+
-      "     <td>&u2705;</td>\r\n"+
+      "     <td>&check;</td>\r\n"+
       "   </tr>\r\n";
 
   private final String detailsTemplate = 
