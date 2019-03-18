@@ -520,6 +520,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private List<String> bundles = new ArrayList<>();
 
   private IGPublisherLiquidTemplateServices templateProvider;
+
+  private List<NpmPackage> npmList = new ArrayList<>();
   
   private class PreProcessInfo {
     private String xsltName;
@@ -1228,7 +1230,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (!suppressPath.isEmpty())
         loadSuppressedMessages(Utilities.path(rootDir, suppressPath));
     }
-    validator.setFetcher(new ValidationServices(context, igpkp, fileList));
+    validator.setFetcher(new ValidationServices(context, igpkp, fileList, npmList ));
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
         if (makeQA)
@@ -1481,6 +1483,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     log("Load hl7.fhir.core-"+v+" package from "+pi.description());
+    npmList.add(pi);
     return loadPack(pi);
   }
 
@@ -1557,6 +1560,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       throw new Exception("You must specify a canonical URL for the IG "+name);
     
     NpmPackage pi = packageId == null ? null : pcm.loadPackageFromCacheOnly(packageId, igver);
+    npmList.add(pi);
     if (pi == null) {
       pi = resolveDependency(canonical, packageId, igver);
       if (pi == null) {
