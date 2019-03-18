@@ -42,6 +42,8 @@ public class ValidationServices implements IValidatorResourceFetcher {
 
   @Override
   public Element fetch(Object appContext, String url) throws FHIRException, IOException {
+    if (url == null)
+      return null;
     String turl = (!Utilities.isAbsoluteUrl(url)) ? Utilities.pathURL(ipg.getCanonical(), url) : url;
     Resource res = context.fetchResource(getResourceType(turl), turl);
     if (res != null) {
@@ -57,7 +59,7 @@ public class ValidationServices implements IValidatorResourceFetcher {
       return new ObjectConverter(context).convert(vs);
     
     for (NpmPackage npm : packages) {
-      if (url.startsWith(npm.canonical())) {
+      if (npm.canonical() != null && url.startsWith(npm.canonical())) {
         String u = url.substring(npm.canonical().length());
         if (u.startsWith("/"))
           u = u.substring(1);
