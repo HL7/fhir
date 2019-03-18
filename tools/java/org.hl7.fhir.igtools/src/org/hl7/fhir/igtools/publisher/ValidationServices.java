@@ -1,11 +1,14 @@
 package org.hl7.fhir.igtools.publisher;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r5.context.IWorkerContext;
 import org.hl7.fhir.r5.elementmodel.Element;
+import org.hl7.fhir.r5.elementmodel.Manager;
+import org.hl7.fhir.r5.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.r5.elementmodel.ObjectConverter;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.OperationDefinition;
@@ -17,19 +20,23 @@ import org.hl7.fhir.r5.terminologies.ImplicitValueSets;
 import org.hl7.fhir.r5.utils.IResourceValidator.IValidatorResourceFetcher;
 import org.hl7.fhir.r5.utils.IResourceValidator.ReferenceValidationPolicy;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.cache.NpmPackage;
+import org.hl7.fhir.utilities.cache.PackageCacheManager;
 
 public class ValidationServices implements IValidatorResourceFetcher {
 
   private IWorkerContext context;
   private IGKnowledgeProvider ipg;
   private List<FetchedFile> files;
+  private List<NpmPackage> packages;
   
   
-  public ValidationServices(IWorkerContext context, IGKnowledgeProvider ipg, List<FetchedFile> files) {
+  public ValidationServices(IWorkerContext context, IGKnowledgeProvider ipg, List<FetchedFile> files, List<NpmPackage> packages) {
     super();
     this.context = context;
     this.ipg = ipg;
     this.files = files;
+    this.packages = packages;
   }
 
 
@@ -49,6 +56,17 @@ public class ValidationServices implements IValidatorResourceFetcher {
     if (vs != null)
       return new ObjectConverter(context).convert(vs);
     
+    for (NpmPackage npm : packages) {
+      if (url.startsWith(npm.canonical())) {
+        String u = url.substring(npm.canonical().length());
+        if (u.startsWith("/"))
+          u = u.substring(1);
+        String[] ul = u.split("\\/");
+        InputStream s = npm.loadResource(ul[0], ul[1]);
+        if (s != null)
+          return Manager.makeParser(context, FhirFormat.JSON).parse(s);
+      }
+    }
     String[] parts = url.split("\\/");
     
     if (appContext != null) {
@@ -98,7 +116,6 @@ public class ValidationServices implements IValidatorResourceFetcher {
     }
     return null;
   }
-
 
   private Class getResourceType(String url) {
     if (url.contains("/ValueSet/"))
