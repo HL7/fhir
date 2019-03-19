@@ -39,7 +39,6 @@ public class ValidationServices implements IValidatorResourceFetcher {
     this.packages = packages;
   }
 
-
   @Override
   public Element fetch(Object appContext, String url) throws FHIRException, IOException {
     if (url == null)
@@ -60,6 +59,10 @@ public class ValidationServices implements IValidatorResourceFetcher {
     
     for (NpmPackage npm : packages) {
       if (npm.canonical() != null && url.startsWith(npm.canonical())) {
+        if (url == null)
+          throw new Error("Imopssible outcome 1");
+        if (npm.canonical() == null)
+          throw new Error("Imopssible outcome 2");
         String u = url.substring(npm.canonical().length());
         if (u.startsWith("/"))
           u = u.substring(1);
