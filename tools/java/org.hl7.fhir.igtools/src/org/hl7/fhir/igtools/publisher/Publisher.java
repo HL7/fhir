@@ -3882,7 +3882,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     data.addProperty("canonical", igpkp.getCanonical());
     data.addProperty("igId", sourceIg.getId());
     data.addProperty("igName", sourceIg.getName());
-    data.addProperty("packageId", sourceIg.getPackageId());
+    data.addProperty("packageId", npmName);
     data.addProperty("igVer", businessVersion);
     data.addProperty("errorCount", getErrorCount());
     data.addProperty("version", specMaps.get(0).getVersion());
