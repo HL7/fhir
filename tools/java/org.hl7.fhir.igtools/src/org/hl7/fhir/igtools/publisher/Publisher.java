@@ -573,7 +573,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           clean();
           long endTime = System.nanoTime();
           processTxLog(Utilities.path(destDir != null ? destDir : outputDir, "qa-tx.html"));
-          ValidationPresenter val = new ValidationPresenter(version, igpkp, childPublisher == null? null : childPublisher.getIgpkp(), outputDir);
+          ValidationPresenter val = new ValidationPresenter(version, igpkp, childPublisher == null? null : childPublisher.getIgpkp(), outputDir, npmName, childPublisher == null? null : childPublisher.npmName);
           log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
           recordOutcome(null, val);
         }
@@ -625,7 +625,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generate();
     long endTime = System.nanoTime();
     clean();
-    ValidationPresenter val = new ValidationPresenter(version, igpkp, childPublisher == null? null : childPublisher.getIgpkp(), outputDir);
+    ValidationPresenter val = new ValidationPresenter(version, igpkp, childPublisher == null? null : childPublisher.getIgpkp(), outputDir, npmName, childPublisher == null? null : childPublisher.npmName);
     if (isChild()) {
       log("Finished. "+presentDuration(endTime - startTime));      
     } else {
@@ -706,10 +706,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void generateNarratives() throws Exception {
     dlog(LogCategory.PROGRESS, "gen narratives");
-    gen = new NarrativeGenerator("", "", context, this).setLiquidServices(templateProvider, validator.getExternalHostServices());
-    gen.setCorePath(checkAppendSlash(specPath));
-    gen.setDestDir(Utilities.path(tempDir));
-    gen.setPkp(igpkp);
     for (FetchedFile f : fileList) {
       System.out.println(f.getName());
       for (FetchedResource r : f.getResources()) {
@@ -1882,6 +1878,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     npm = new NPMPackageGenerator(Utilities.path(outputDir, "package.tgz"), igpkp.getCanonical(), targetUrl(), PackageType.IG,  publishedIg, genTime());
     execTime = Calendar.getInstance();
+
+    gen = new NarrativeGenerator("", "", context, this).setLiquidServices(templateProvider, validator.getExternalHostServices());
+    gen.setCorePath(checkAppendSlash(specPath));
+    gen.setDestDir(Utilities.path(tempDir));
+    gen.setPkp(igpkp);
+
     return needToBuild;
   }
 
@@ -2531,8 +2533,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       for (FetchedResource r : f.getResources()) {
         if (r.getElement().fhirType().equals(type)) {
           log(LogCategory.PROGRESS, "process res: "+r.getId());
-           if (!r.isValidated())
-            validate(f, r);
           if (r.getResource() == null)
             try {
               if (f.getBundleType() == FetchedBundleType.NATIVE)
@@ -2543,6 +2543,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             } catch (Exception e) {
               throw new Exception("Error parsing "+f.getName()+": "+e.getMessage(), e);
             }
+          if (!r.isValidated()) {
+            if (r.getResource() instanceof DomainResource && !(((DomainResource) r.getResource()).hasText() && ((DomainResource) r.getResource()).getText().hasDiv())) {
+              gen.setDefinitionsTarget(igpkp.getDefinitionsName(r));
+              gen.generate((DomainResource) r.getResource(), otherFilesStartup);
+              r.setElement(convertToElement(r.getResource()));
+            }
+            validate(f, r);
+          }
           if (r.getResource() instanceof MetadataResource) {
             MetadataResource bc = (MetadataResource) r.getResource();
             if (bc == null)

@@ -34,13 +34,17 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   int warn = 0;
   int info = 0;
   private String root;
+  private String packageId;
+  private String altPackageId;
 
-  public ValidationPresenter(String statedVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider, String root) {
+  public ValidationPresenter(String statedVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider, String root, String packageId, String altPackageId) {
     super();
     this.statedVersion = statedVersion;
     this.provider = provider;
     this.altProvider = altProvider;
     this.root = root;
+    this.packageId = packageId;
+    this.altPackageId = altPackageId;
   }
 
   private List<FetchedFile> sorted(List<FetchedFile> files) {
@@ -171,7 +175,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
       "</head>\r\n"+
       "<body style=\"margin: 20px; background-color: #ffffff\">\r\n"+
       " <h1>Validation Results for $title$</h1>\r\n"+
-      " <p>Generated $time$. FHIR version $version$ for $igversion$</p>\r\n"+
+      " <p>Generated $time$. FHIR version $version$ for $packageId$#$igversion$ (canonical = $canonical$)</p>\r\n"+
       " <table class=\"grid\">\r\n"+
       "   <tr>\r\n"+
       "     <td><b>Filename</b></td><td><b>Errors</b></td><td><b>Information messages &amp; Warnings</b></td>\r\n"+
@@ -225,7 +229,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
       "$title$ : Validation Results\r\n"+
       "=========================================\r\n\r\n"+
       "err = $err$, warn = $warn$, info = $info$\r\n"+
-      "Generated $time$. FHIR version $version$ for $igversion$\r\n\r\n";
+      "Generated $time$. FHIR version $version$ for $packageId$#$igversion$ (canonical = $canonical$)\r\n\r\n";
   
   private final String summaryTemplateText = 
       " $filename$ : $errcount$ / $other$\r\n";
@@ -256,6 +260,8 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     t.add("warn", Integer.toString(warn));
     t.add("info", Integer.toString(info));
     t.add("links", Integer.toString(links));
+    t.add("packageId", packageId);
+    t.add("canonical", provider.getCanonical());
     return t.render();
   }
 
@@ -268,6 +274,8 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     t.add("err",  Integer.toString(err));
     t.add("warn",  Integer.toString(warn));
     t.add("info",  Integer.toString(info));
+    t.add("packageId", packageId);
+    t.add("canonical", provider.getCanonical());
     return t.render();
   }
 
