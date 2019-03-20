@@ -793,6 +793,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return new SimpleDateFormat("EEE, MMM d, yyyy HH:mmZ", new Locale("en", "US")).format(execTime.getTime());
   }
 
+  private String genDate() {
+    return new SimpleDateFormat("dd/MM/yyyy", new Locale("en", "US")).format(execTime.getTime());
+  }
+
   private void checkDependencies() {
     // first, we load all the direct dependency lists
     for (FetchedFile f : fileList)
@@ -3878,6 +3882,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     data.addProperty("canonical", igpkp.getCanonical());
     data.addProperty("igId", sourceIg.getId());
     data.addProperty("igName", sourceIg.getName());
+    data.addProperty("packageId", sourceIg.getPackageId());
     data.addProperty("igVer", businessVersion);
     data.addProperty("errorCount", getErrorCount());
     data.addProperty("version", specMaps.get(0).getVersion());
@@ -3889,6 +3894,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     data.addProperty("totalFiles", fileList.size());
     data.addProperty("processedFiles", changeList.size());
     data.addProperty("genDate", genTime());
+    data.addProperty("genDay", genDate());
     JsonObject ig = new JsonObject();
     data.add("ig", ig);
     ig.addProperty("id", sourceIg.getId());
