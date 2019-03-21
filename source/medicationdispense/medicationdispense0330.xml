@@ -9,7 +9,7 @@
             <code>
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
-                    <code value="0056-1072-70"/>
+                    <code value="0056-0172-70"/>
                     <display value="Coumadin 5mg tablet"/>
                 </coding>
             </code>
