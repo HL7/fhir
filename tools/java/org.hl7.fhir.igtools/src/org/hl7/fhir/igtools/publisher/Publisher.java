@@ -320,7 +320,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
       throw new NotImplementedException("Not done yet (IGPublisherHostServices.conformsToProfile), when item is element");
     }
-
   }
 
   public class TypeParserR2 implements ITypeParser {
