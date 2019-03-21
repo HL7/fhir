@@ -36,10 +36,12 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private String root;
   private String packageId;
   private String altPackageId;
+  private String igVersion;
 
-  public ValidationPresenter(String statedVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider, String root, String packageId, String altPackageId) {
+  public ValidationPresenter(String statedVersion, String igVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider, String root, String packageId, String altPackageId) {
     super();
     this.statedVersion = statedVersion;
+    this.igVersion = igVersion;
     this.provider = provider;
     this.altProvider = altProvider;
     this.root = root;
@@ -175,7 +177,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
       "</head>\r\n"+
       "<body style=\"margin: 20px; background-color: #ffffff\">\r\n"+
       " <h1>Validation Results for $title$</h1>\r\n"+
-      " <p>Generated $time$. FHIR version $version$ for $packageId$#$igversion$ (canonical = $canonical$)</p>\r\n"+
+      " <p>Generated $time$. FHIR version $version$ for $packageId$#$igversion$ (canonical = <a href=\"$canonical$\">$canonical$</a>)</p>\r\n"+
       " <table class=\"grid\">\r\n"+
       "   <tr>\r\n"+
       "     <td><b>Filename</b></td><td><b>Errors</b></td><td><b>Information messages &amp; Warnings</b></td>\r\n"+
@@ -252,8 +254,8 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
 
   private String genHeader(String title, int err, int warn, int info, int links) {
     ST t = template(headerTemplate);
-    t.add("version", Constants.VERSION);
-    t.add("igversion", statedVersion);
+    t.add("version", statedVersion);
+    t.add("igversion", igVersion);
     t.add("title", title);
     t.add("time", new Date().toString());
     t.add("err", Integer.toString(err));
@@ -267,8 +269,8 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
 
   private String genHeaderTxt(String title, int err, int warn, int info) {
     ST t = template(headerTemplateText);
-    t.add("version", Constants.VERSION);
-    t.add("igversion", statedVersion);
+    t.add("version", statedVersion);
+    t.add("igversion", igVersion);
     t.add("title", title);
     t.add("time", new Date().toString());
     t.add("err",  Integer.toString(err));
