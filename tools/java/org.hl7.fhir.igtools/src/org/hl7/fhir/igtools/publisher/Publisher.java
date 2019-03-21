@@ -320,7 +320,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
       throw new NotImplementedException("Not done yet (IGPublisherHostServices.conformsToProfile), when item is element");
     }
-
   }
 
   public class TypeParserR2 implements ITypeParser {
@@ -3907,6 +3906,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     data.add("ig", ig);
     ig.addProperty("id", sourceIg.getId());
     ig.addProperty("name", sourceIg.getName());
+    ig.addProperty("title", sourceIg.getTitle());
     ig.addProperty("url", sourceIg.getUrl());
     if (businessVersion!=null)
       ig.addProperty("version", businessVersion);

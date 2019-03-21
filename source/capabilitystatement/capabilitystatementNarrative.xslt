@@ -25,14 +25,14 @@
             <xsl:choose>
               <xsl:when test="kind/@value='instance'">Implementation Instance Capability Statement</xsl:when>
               <xsl:when test="kind/@value='capability'">Software Capability Capability Statement</xsl:when>
-              <xsl:when test="kind/@value='requirements'">Requirements Definition</xsl:when>
+              <xsl:when test="kind/@value='requirements'">Requirements Definition Capability Statement</xsl:when>
               <xsl:otherwise>**Unknown Capability Statement Kind**</xsl:otherwise>
             </xsl:choose>
             <xsl:text>)</xsl:text>
           </p>
           <p>
             <xsl:variable name="content" as="xs:string+">
-              <xsl:value-of select="url/@value"/>
+              <xsl:value-of select="concat('Canonical URL: ', url/@value)"/>
               <xsl:for-each select="version">
                 <xsl:value-of select="concat('Version: ', @value)"/>
               </xsl:for-each>
