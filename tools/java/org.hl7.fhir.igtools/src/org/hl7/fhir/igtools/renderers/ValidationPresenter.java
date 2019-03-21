@@ -36,10 +36,12 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private String root;
   private String packageId;
   private String altPackageId;
+  private String igVersion;
 
-  public ValidationPresenter(String statedVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider, String root, String packageId, String altPackageId) {
+  public ValidationPresenter(String statedVersion, String igVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider, String root, String packageId, String altPackageId) {
     super();
     this.statedVersion = statedVersion;
+    this.igVersion = igVersion;
     this.provider = provider;
     this.altProvider = altProvider;
     this.root = root;
@@ -252,8 +254,8 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
 
   private String genHeader(String title, int err, int warn, int info, int links) {
     ST t = template(headerTemplate);
-    t.add("version", Constants.VERSION);
-    t.add("igversion", statedVersion);
+    t.add("version", statedVersion);
+    t.add("igversion", igVersion);
     t.add("title", title);
     t.add("time", new Date().toString());
     t.add("err", Integer.toString(err));
@@ -267,8 +269,8 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
 
   private String genHeaderTxt(String title, int err, int warn, int info) {
     ST t = template(headerTemplateText);
-    t.add("version", Constants.VERSION);
-    t.add("igversion", statedVersion);
+    t.add("version", statedVersion);
+    t.add("igversion", igVersion);
     t.add("title", title);
     t.add("time", new Date().toString());
     t.add("err",  Integer.toString(err));
