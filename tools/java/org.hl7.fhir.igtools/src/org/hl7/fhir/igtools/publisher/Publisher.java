@@ -1163,7 +1163,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     igpkp.loadSpecPaths(specMaps.get(0));
     fetcher.setPkp(igpkp);
 
-    inspector = new HTLMLInspector(outputDir, specMaps, this, igpkp.getCanonical().contains("hl7.org/fhir"));
+    inspector = new HTLMLInspector(outputDir, specMaps, this, igpkp.getCanonical());
     inspector.getManual().add("full-ig.zip");
     historyPage = ostr(paths, "history");
     if (historyPage != null) {

@@ -141,12 +141,14 @@ public class HTLMLInspector {
   private PackageCacheManager pcm;
   private Map<String, SpecMapManager> otherSpecs = new HashMap<String, SpecMapManager>();
   private List<String> errorPackages = new ArrayList<>();
+  private String canonical;
 
-  public HTLMLInspector(String rootFolder, List<SpecMapManager> specs, ILoggingService log, boolean forHL7) {
+  public HTLMLInspector(String rootFolder, List<SpecMapManager> specs, ILoggingService log, String canonical) {
     this.rootFolder = rootFolder.replace("/", File.separator);
     this.specs = specs;
     this.log = log;
-    this.forHL7 = forHL7;
+    this.canonical = canonical;
+    this.forHL7 = canonical.contains("hl7.org/fhir");
   }
 
   public void setAltRootFolder(String altRootFolder) throws IOException {
@@ -400,6 +402,8 @@ public class HTLMLInspector {
     }
     String tgtList = "";
     boolean resolved = Utilities.existsInList(ref, "qa.html", "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm") || ref.startsWith("http://gforge.hl7.org/gf/project/fhir/tracker/") || ref.startsWith("mailto:") || ref.startsWith("javascript:");
+    if (!resolved && forHL7)
+      resolved = Utilities.pathURL(canonical, "history.html").equals(ref) || Utilities.pathURL(canonical, "history.cfml").equals(ref); 
     if (!resolved)
       resolved = manual.contains(rref);
     if (!resolved && specs != null){
@@ -583,7 +587,7 @@ public class HTLMLInspector {
   }
 
   public static void main(String[] args) throws Exception {
-    HTLMLInspector inspector = new HTLMLInspector(args[0], null, null, true);
+    HTLMLInspector inspector = new HTLMLInspector(args[0], null, null, "http://hl7.org/fhir/us/core");
     inspector.setStrict(false);
     List<ValidationMessage> linkmsgs = inspector.check();
     int bl = 0;
