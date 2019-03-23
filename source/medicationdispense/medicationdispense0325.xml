@@ -7,8 +7,8 @@
     <medicationCodeableConcept>
         <coding>
             <system value="http://hl7.org/fhir/sid/ndc"/>
-            <code value="50458-090-05"/>
-            <display value="72 HR Fentanyl 0.012 MG/HR Transdermal System"/>
+            <code value="0406-9025-76"/>
+            <display value="fentanyl 25mcg/hour Patch, Extended Release (Apotex)"/>
         </coding>
     </medicationCodeableConcept>
     <subject>
