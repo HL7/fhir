@@ -10,8 +10,8 @@
     <code>
       <coding>
         <system value="http://hl7.org/fhir/sid/ndc"/>
-        <code value="50580-833-01"/>
-        <display value="50580-608-02"/>
+        <code value="50580-608-02"/>
+        <display value="Tylenol PM"/>
       </coding>
     </code>
       <form>
