@@ -13001,6 +13001,10 @@
     <display value="Emulsion for injection"/>
     <display value="Injection emulsion (qualifier value)"/>
   </concept>
+  <concept id="385268001" display="Oral dose form">
+    <display value="Oral dose form"/>
+    <display value="Oral dose form (dose form)"/>
+  </concept>
   <concept id="385356007" display="Tumour stage finding">
     <display value="Tumor stage finding (finding)"/>
     <display value="Tumour stage finding"/>
@@ -15675,6 +15679,12 @@
     <display value="Ventriculus"/>
     <display value="Stomach structure"/>
     <display value="Stomach structure (body structure)"/>
+  </concept>
+  <concept id="700146008" display="No history of malignant tumor of breast">
+    <display value="No history of malignant tumor of breast"/>
+    <display value="No history of malignant neoplasm of breast"/>
+    <display value="No history of malignant tumour of breast"/>
+    <display value="No history of malignant neoplasm of breast (situation)"/>
   </concept>
   <concept id="70210006" display="Orloff chicken">
     <display value="Orloff chicken"/>

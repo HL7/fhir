@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0325"/>
     <status value="in-progress"/>
     <medicationCodeableConcept>
         <coding>
             <system value="http://hl7.org/fhir/sid/ndc"/>
-            <code value="60505-7001-2"/>
-            <display value="fentanyl 25mcg/hour Patch, Extended Release (Apotex)"/>
+            <code value="50458-090-05"/>
+            <display value="72 HR Fentanyl 0.012 MG/HR Transdermal System"/>
         </coding>
     </medicationCodeableConcept>
     <subject>

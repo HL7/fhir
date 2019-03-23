@@ -39,7 +39,7 @@
                     <itemCodeableConcept>
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
-                            <code value="0264751010"/>
+                            <code value="0338-0551-18"/>
                             <display value="Dextrose 5% injection USP"/>
                         </coding>
                     </itemCodeableConcept>
