@@ -37,8 +37,9 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private String packageId;
   private String altPackageId;
   private String igVersion;
+  private String packageListStatus;
 
-  public ValidationPresenter(String statedVersion, String igVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider, String root, String packageId, String altPackageId) {
+  public ValidationPresenter(String statedVersion, String igVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider, String root, String packageId, String altPackageId, String packageListStatus) {
     super();
     this.statedVersion = statedVersion;
     this.igVersion = igVersion;
@@ -47,6 +48,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     this.root = root;
     this.packageId = packageId;
     this.altPackageId = altPackageId;
+    this.packageListStatus = packageListStatus;
   }
 
   private List<FetchedFile> sorted(List<FetchedFile> files) {
@@ -177,7 +179,8 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
       "</head>\r\n"+
       "<body style=\"margin: 20px; background-color: #ffffff\">\r\n"+
       " <h1>Validation Results for $title$</h1>\r\n"+
-      " <p>Generated $time$. FHIR version $version$ for $packageId$#$igversion$ (canonical = <a href=\"$canonical$\">$canonical$</a>)</p>\r\n"+
+      " <p>Generated $time$. FHIR version $version$ for $packageId$#$igversion$ (canonical = <a href=\"$canonical$\">$canonical$</a> (<a href=\"$canonical$/history.html\">history</a>))</p>\r\n"+
+      " <p>package-list status: $packageListStatus$</p>\r\n"+
       " <table class=\"grid\">\r\n"+
       "   <tr>\r\n"+
       "     <td><b>Filename</b></td><td><b>Errors</b></td><td><b>Information messages &amp; Warnings</b></td>\r\n"+
@@ -264,6 +267,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     t.add("links", Integer.toString(links));
     t.add("packageId", packageId);
     t.add("canonical", provider.getCanonical());
+    t.add("packageListStatus", packageListStatus);
     return t.render();
   }
 
@@ -278,6 +282,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     t.add("info",  Integer.toString(info));
     t.add("packageId", packageId);
     t.add("canonical", provider.getCanonical());
+    t.add("packageListStatus", packageListStatus);
     return t.render();
   }
 

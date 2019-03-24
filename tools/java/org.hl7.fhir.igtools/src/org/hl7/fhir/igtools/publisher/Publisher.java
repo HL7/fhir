@@ -572,7 +572,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           clean();
           long endTime = System.nanoTime();
           processTxLog(Utilities.path(destDir != null ? destDir : outputDir, "qa-tx.html"));
-          ValidationPresenter val = new ValidationPresenter(version, businessVersion, igpkp, childPublisher == null? null : childPublisher.getIgpkp(), outputDir, npmName, childPublisher == null? null : childPublisher.npmName);
+          ValidationPresenter val = new ValidationPresenter(version, businessVersion, igpkp, childPublisher == null? null : childPublisher.getIgpkp(), outputDir, npmName, childPublisher == null? null : childPublisher.npmName, 
+              new PackageListChecker(Utilities.getDirectoryForFile(configFile)).check(igpkp.getCanonical(), npmName, businessVersion));
           log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
           recordOutcome(null, val);
         }
@@ -624,7 +625,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generate();
     long endTime = System.nanoTime();
     clean();
-    ValidationPresenter val = new ValidationPresenter(version, businessVersion, igpkp, childPublisher == null? null : childPublisher.getIgpkp(), outputDir, npmName, childPublisher == null? null : childPublisher.npmName);
+    ValidationPresenter val = new ValidationPresenter(version, businessVersion, igpkp, childPublisher == null? null : childPublisher.getIgpkp(), outputDir, npmName, childPublisher == null? null : childPublisher.npmName, 
+        new PackageListChecker(Utilities.getDirectoryForFile(configFile)).check(igpkp.getCanonical(), npmName, businessVersion));
     if (isChild()) {
       log("Finished. "+presentDuration(endTime - startTime));      
     } else {
