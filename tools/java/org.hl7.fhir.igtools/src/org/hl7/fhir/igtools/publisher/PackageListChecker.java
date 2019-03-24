@@ -36,11 +36,12 @@ public class PackageListChecker {
       if (!json.has("package-id"))
         errors.add("No Package Id");
       else if (!json.get("package-id").getAsString().equals(packageId))
-        errors.add("package-id is wrong - is '"+json.get("package-id").getAsString()+"' should +'"+packageId+"'");      
+        errors.add("package-id is wrong - is '"+json.get("package-id").getAsString()+"' should be '"+packageId+"'");
+      
       if (!json.has("canonical"))
         errors.add("No Canonical URL");
-      else if (json.get("canonical").getAsString().equals(canonical))
-        errors.add("canonical is wrong - is '"+json.get("canonical").getAsString()+"' should +'"+canonical+"'");
+      else if (!json.get("canonical").getAsString().equals(canonical))
+        errors.add("canonical is wrong - is '"+json.get("canonical").getAsString()+"' should be '"+canonical+"'");
 
       JsonArray list = json.getAsJsonArray("list");
       boolean found = false;
@@ -59,7 +60,7 @@ public class PackageListChecker {
           if (!o.has("path"))
             errors.add("package-list entry must have a 'path' where it will be published");
           else if (!o.get("path").getAsString().startsWith(canonical))
-            errors.add("package-list entry must have a 'path' that starts with the canonical");
+            errors.add("package-list entry must have a 'path' that starts with the canonical (is '"+o.get("path").getAsString()+"', should start with '"+canonical+"'");
           if (errors.size() > 0)
             return "Errors: "+errors.toString();              
           else
