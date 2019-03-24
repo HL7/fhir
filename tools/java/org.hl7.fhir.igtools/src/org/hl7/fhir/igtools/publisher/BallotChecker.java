@@ -12,15 +12,15 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-public class PackageListChecker {
+public class BallotChecker {
 
   private String folder;
   
-  public PackageListChecker(String folder) {
+  public BallotChecker(String folder) {
     this.folder = folder;
   }
 
-  public String check(String canonical, String packageId, String version) throws IOException {
+  public String check(String canonical, String packageId, String version, String historyPage) throws IOException {  
     String plfn = Utilities.path(folder, "package-list.json");
     File f = new File(plfn);
     if (!f.exists())
@@ -33,6 +33,8 @@ public class PackageListChecker {
         return "Error parsing Package List: " +e.getMessage();
       }
       List<String> errors = new ArrayList<String>();
+      if (!Utilities.existsInList(historyPage, Utilities.path(canonical, "history.html"), Utilities.path(canonical, "history.cfml")))
+        errors.add("History Page '"+historyPage+"' is wrong (ig.json#paths/history) - must be '"+Utilities.path(canonical, "history.html")+"' or '"+Utilities.path(canonical, "history.cfml")+"'");
       if (!json.has("package-id"))
         errors.add("No Package Id");
       else if (!json.get("package-id").getAsString().equals(packageId))
