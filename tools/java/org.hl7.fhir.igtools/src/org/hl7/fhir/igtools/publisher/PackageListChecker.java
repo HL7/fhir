@@ -24,7 +24,7 @@ public class PackageListChecker {
     String plfn = Utilities.path(folder, "package-list.json");
     File f = new File(plfn);
     if (!f.exists())
-      return "No Package-list.json file found";
+      return "No package-list.json file found in "+folder;
     else {
       JsonObject json = null;
       try {
@@ -35,7 +35,7 @@ public class PackageListChecker {
       List<String> errors = new ArrayList<String>();
       if (!json.has("package-id"))
         errors.add("No Package Id");
-      else if (json.get("package-id").getAsString().equals(packageId))
+      else if (!json.get("package-id").getAsString().equals(packageId))
         errors.add("package-id is wrong - is '"+json.get("package-id").getAsString()+"' should +'"+packageId+"'");      
       if (!json.has("canonical"))
         errors.add("No Canonical URL");

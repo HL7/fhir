@@ -521,6 +521,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private IGPublisherLiquidTemplateServices templateProvider;
 
   private List<NpmPackage> npmList = new ArrayList<>();
+
+  private String repoRoot;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -573,7 +575,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           long endTime = System.nanoTime();
           processTxLog(Utilities.path(destDir != null ? destDir : outputDir, "qa-tx.html"));
           ValidationPresenter val = new ValidationPresenter(version, businessVersion, igpkp, childPublisher == null? null : childPublisher.getIgpkp(), outputDir, npmName, childPublisher == null? null : childPublisher.npmName, 
-              new PackageListChecker(Utilities.getDirectoryForFile(configFile)).check(igpkp.getCanonical(), npmName, businessVersion));
+              new PackageListChecker(repoRoot).check(igpkp.getCanonical(), npmName, businessVersion));
           log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
           recordOutcome(null, val);
         }
@@ -626,7 +628,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     long endTime = System.nanoTime();
     clean();
     ValidationPresenter val = new ValidationPresenter(version, businessVersion, igpkp, childPublisher == null? null : childPublisher.getIgpkp(), outputDir, npmName, childPublisher == null? null : childPublisher.npmName, 
-        new PackageListChecker(Utilities.getDirectoryForFile(configFile)).check(igpkp.getCanonical(), npmName, businessVersion));
+        new PackageListChecker(repoRoot).check(igpkp.getCanonical(), npmName, businessVersion));
     if (isChild()) {
       log("Finished. "+presentDuration(endTime - startTime));      
     } else {
@@ -993,6 +995,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } catch (Exception e) {
       throw new Exception("Error Reading JSON Config file at "+configFile+": "+e.getMessage(), e);
     }
+    repoRoot = Utilities.getDirectoryForFile(configFile);
     if (configuration.has("redirect")) { // redirect to support auto-build for complex projects with IG folder in subdirectory
       String redirectFile = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("redirect").getAsString());
       log("Redirecting to Configuration from " + redirectFile);
