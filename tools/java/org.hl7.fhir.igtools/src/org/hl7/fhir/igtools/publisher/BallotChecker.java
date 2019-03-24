@@ -21,7 +21,7 @@ public class BallotChecker {
   }
 
   public String check(String canonical, String packageId, String version, String historyPage) throws IOException { 
-    if (!canonical.startsWith("http://hl7.org") && !canonical.startsWith("http://fhir.org"))
+    if (!canonical.contains("hl7.org") && !canonical.contains("fhir.org"))
       return "<ul><li>n/a - not an HL7.org or FHIR.org implementation guide</li></ul>\r\n";
     
     List<String> errors = new ArrayList<String>();
