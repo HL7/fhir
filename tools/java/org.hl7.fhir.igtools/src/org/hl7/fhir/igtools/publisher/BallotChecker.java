@@ -25,8 +25,8 @@ public class BallotChecker {
       return "<ul><li>n/a - not an HL7.org or FHIR.org implementation guide</li></ul>\r\n";
     
     List<String> errors = new ArrayList<String>();
-    if (!Utilities.existsInList(historyPage, Utilities.path(canonical, "history.html"), Utilities.path(canonical, "history.cfml")))
-      errors.add("History Page '"+historyPage+"' is wrong (ig.json#paths/history) - must be '"+Utilities.path(canonical, "history.html")+"' or '"+Utilities.path(canonical, "history.cfml")+"'");
+    if (!Utilities.existsInList(historyPage, Utilities.pathURL(canonical, "history.html"), Utilities.pathURL(canonical, "history.cfml")))
+      errors.add("History Page '"+historyPage+"' is wrong (ig.json#paths/history) - must be '"+Utilities.pathURL(canonical, "history.html")+"' or '"+Utilities.pathURL(canonical, "history.cfml")+"'");
     
     JsonObject json = null;
     String plfn = Utilities.path(folder, "package-list.json");
@@ -71,7 +71,7 @@ public class BallotChecker {
           else if (!o.get("path").getAsString().startsWith(canonical))
             errors.add("package-list.json entry: must have a 'path' that starts with the canonical (is '"+o.get("path").getAsString()+"', should start with '"+canonical+"'");
           if (errors.size() == 0)
-            errors.add("All ok (path - "+o.get("path").getAsString());              
+            errors.add("All ok (path - "+o.get("path").getAsString()+")");              
             
         }
       }
