@@ -18,6 +18,7 @@
   
   
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -450,7 +451,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration</Data></Cell>
     <Cell><Data ss:Type="String">patient | performer | subject</Data></Cell>
-    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">device</Data></Cell>
@@ -458,6 +459,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationDispense</Data></Cell>
     <Cell><Data ss:Type="String">subject | patient | receiver</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">performer | receiver</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -469,7 +471,8 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationStatement</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">source</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">source</Data></Cell>
     <Cell><Data ss:Type="String">source</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -805,7 +808,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>47</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

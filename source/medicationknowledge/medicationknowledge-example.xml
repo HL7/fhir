@@ -21,8 +21,8 @@
   <doseForm>
     <coding>
       <system value="http://snomed.info/sct"/>
-      <code value="385219001"/>
-      <display value="Injection Solution (qualifier value)"/>
+      <code value="385268001"/>
+      <display value="Oral Dose Form (qualifier value)"/>
     </coding>
   </doseForm>
   <amount>

@@ -20,9 +20,9 @@
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </subject>
-  <context>
+  <encounter>
     <reference value="Encounter/f203"></reference>
-  </context>
+  </encounter>
   <effectiveDateTime value="2014-01-23"></effectiveDateTime>
   <dateAsserted value="2015-02-22"/>
   <informationSource>
