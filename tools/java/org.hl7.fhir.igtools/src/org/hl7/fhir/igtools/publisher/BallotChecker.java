@@ -58,10 +58,10 @@ public class BallotChecker {
         JsonObject o = (JsonObject) n;
         if (o.has("version") && o.get("version").getAsString().equals(version)) {
           found = true;
-          if (!o.has("desc") && !o.has("changes"))
-            errors.add("package-list.json entry: must have a 'desc' or 'changes' (or both)");
+          if (!o.has("desc") && !o.has("descmd") && !o.has("changes"))
+            errors.add("package-list.json entry: must have a 'desc' / 'descmd' or 'changes' (or both)");
           if (!o.has("date"))
-            errors.add("package-list.json entry: must have a 'desc' (though the value doesn't matter)");
+            errors.add("package-list.json entry: must have a 'date' (though the value doesn't matter)");
           if (!o.has("status"))
             errors.add("package-list.json entry: must have a 'status' that describes the ballot status");
           if (!o.has("sequence"))
