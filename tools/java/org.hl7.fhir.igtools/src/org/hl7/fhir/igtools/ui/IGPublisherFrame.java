@@ -1,5 +1,6 @@
 package org.hl7.fhir.igtools.ui;
 
+import java.awt.Desktop;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -24,10 +25,6 @@ import org.hl7.fhir.r5.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 
-import javafx.application.Platform;
-import javafx.scene.Scene;
-import javafx.scene.web.WebView;
-
 public class IGPublisherFrame extends javax.swing.JFrame {
 
   private static final String LOG_PREFIX = "--$%^^---";
@@ -35,10 +32,9 @@ public class IGPublisherFrame extends javax.swing.JFrame {
   private javax.swing.JButton btnExecute;
   private javax.swing.JButton btnChoose;
   private javax.swing.JButton btnGetHelp;
+  private javax.swing.JButton btnQA;
+  private javax.swing.JButton btnIG;
   private javax.swing.JPanel jPanel1;
-  private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JScrollPane jScrollPane2;
-  private javax.swing.JSplitPane jSplitPane1;
   private javax.swing.JTextArea txtLog;
   private javafx.embed.swing.JFXPanel txtValidation;
   private javax.swing.JComboBox<String> cbxIGName;
@@ -77,10 +73,9 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     cbxIGName = new javax.swing.JComboBox<String>();
     jPanel1 = new javax.swing.JPanel();
     btnGetHelp = new javax.swing.JButton();
-    jSplitPane1 = new javax.swing.JSplitPane();
-    jScrollPane1 = new javax.swing.JScrollPane();
+    btnQA = new javax.swing.JButton();
+    btnIG = new javax.swing.JButton();
     txtLog = new javax.swing.JTextArea();
-    jScrollPane2 = new javax.swing.JScrollPane();
     txtValidation = new javafx.embed.swing.JFXPanel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,6 +124,22 @@ public class IGPublisherFrame extends javax.swing.JFrame {
         btnGetHelpClick(evt);
       }
     });
+    btnQA.setText("View QA");
+    btnQA.setEnabled(false);
+    btnQA.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnQAClick(evt);
+      }
+    });
+    btnIG.setText("View IG");
+    btnIG.setEnabled(false);
+    btnIG.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnIGClick(evt);
+      }
+    });
+
+    
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
@@ -136,12 +147,16 @@ public class IGPublisherFrame extends javax.swing.JFrame {
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addContainerGap()
             .addComponent(btnGetHelp)
+            .addComponent(btnQA)
+            .addComponent(btnIG)
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addComponent(btnGetHelp)
+            .addComponent(btnQA)
+            .addComponent(btnIG)
             .addGap(0, 13, Short.MAX_VALUE))
         );
 
@@ -149,23 +164,6 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     txtLog.setRows(5);
     txtLog.setEditable(false);
     txtLog.getCaret().setVisible(false);
-    jScrollPane1.setViewportView(txtLog);
-
-    jSplitPane1.setLeftComponent(jScrollPane1);
-
-    jScrollPane2.setViewportView(txtValidation);
-
-    jSplitPane1.setRightComponent(jScrollPane2);
-    if (ini.getProperties("layout") != null && ini.getProperties("layout").containsKey("split")) 
-      jSplitPane1.setDividerLocation(ini.getIntegerProperty("layout", "split"));
-
-    jSplitPane1.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY, 
-        new PropertyChangeListener() {
-      @Override
-      public void propertyChange(PropertyChangeEvent evt) {
-        splitResize(evt);              
-      }
-    });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -173,14 +171,14 @@ public class IGPublisherFrame extends javax.swing.JFrame {
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
+        .addComponent(txtLog, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
         );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
             .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+            .addComponent(txtLog, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -221,10 +219,6 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     int index = cbxIGName.getSelectedIndex();
     ini.setIntegerProperty("igs", "selected", index, null);
   }                                          
-
-  protected void splitResize(PropertyChangeEvent evt) {
-    ini.setIntegerProperty("layout", "split", jSplitPane1.getDividerLocation(), null); 
-  }
 
   protected void frameClose() {
     ini.setIntegerProperty("layout", "X", getX(), null); 
@@ -286,13 +280,9 @@ public class IGPublisherFrame extends javax.swing.JFrame {
       btnChoose.setEnabled(true);
       cbxIGName.setEnabled(true);
       btnGetHelp.setEnabled(true);      
+      btnQA.setEnabled(true);      
+      btnIG.setEnabled(true);      
       btnExecute.setLabel("Execute");
-      Platform.runLater( () -> { // FX components need to be managed by JavaFX
-        
-        WebView webView = new WebView();
-        webView.getEngine().load("file:"+qa);
-        txtValidation.setScene( new Scene( webView ) );
-     });
     }
 
 
@@ -303,18 +293,42 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     btnChoose.setEnabled(false);
     cbxIGName.setEnabled(false);
     btnGetHelp.setEnabled(false);
+    btnQA.setEnabled(false);
+    btnIG.setEnabled(false);
     btnExecute.setLabel("Running");
     txtLog.setText("");
     fullLog.setLength(0);
-    Platform.runLater( () -> { // FX components need to be managed by JavaFX
-      WebView webView = new WebView();
-      webView.getEngine().loadContent( "<html> Publication in Process!" );
-      txtValidation.setScene( new Scene( webView ) );
-   });
     task = new BackgroundPublisherTask();
     task.execute();
   }
 
+  private String folder() {
+    return Utilities.getDirectoryForFile((String) cbxIGName.getSelectedItem());
+  }
+  
+  protected void btnQAClick(ActionEvent evt) {
+    try {
+      String path = Utilities.path(folder(), "output", "qa.html");
+      openFile(path);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  private void openFile(String url) throws IOException {
+    File htmlFile = new File(url);
+    Desktop.getDesktop().browse(htmlFile.toURI());  
+  }
+
+  protected void btnIGClick(ActionEvent evt) {
+    try {
+      String path = Utilities.path(folder(), "output", "index.html");
+      openFile(path);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
   protected void btnGetHelpClick(ActionEvent evt) {
     try {
       String text = Publisher.buildReport((String) cbxIGName.getSelectedItem(), null, fullLog.toString(), qa == null ? null : Utilities.changeFileExt(qa, ".txt"));
