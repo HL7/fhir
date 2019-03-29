@@ -441,3 +441,224 @@ v: {
   "error" : "The display \"Vagistat-3\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0067-2091-03 - should be one of [\"1 KIT in 1 CARTON (0067-2091-03)  *  3 SUPPOSITORY in 1 BLISTER PACK *  1 TUBE in 1 CARTON > 9 g in 1 TUBE\"]"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0409-6531-02"
+}, "valueSet" :null}####
+v: {
+  "display" : "10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "24208-813-10"
+}, "valueSet" :null}####
+v: {
+  "display" : "1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10)  > 10 mL in 1 BOTTLE, DISPENSING",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "63481-623-70"
+}, "valueSet" :null}####
+v: {
+  "display" : "100 TABLET in 1 BOTTLE (63481-623-70)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "50580-608-02"
+}, "valueSet" :null}####
+v: {
+  "display" : "1 BOTTLE in 1 CARTON (50580-608-02)  > 100 TABLET, FILM COATED in 1 BOTTLE",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0713-0118"
+}, "valueSet" :null}####
+v: {
+  "display" : "ACEPHEN",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0378-1800-10"
+}, "valueSet" :null}####
+v: {
+  "display" : "1000 TABLET in 1 BOTTLE, PLASTIC (0378-1800-10)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "33261-141-20"
+}, "valueSet" :null}####
+v: {
+  "display" : "20 TABLET in 1 BOTTLE, PLASTIC (33261-141-20)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0074-3043-13"
+}, "valueSet" :null}####
+v: {
+  "display" : "100 TABLET in 1 BOTTLE (0074-3043-13)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0406-9025-76"
+}, "valueSet" :null}####
+v: {
+  "display" : "5 POUCH in 1 CARTON (0406-9025-76)  > 1 PATCH in 1 POUCH > 72 h in 1 PATCH",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0056-0172-70"
+}, "valueSet" :null}####
+v: {
+  "display" : "1 BOTTLE in 1 CARTON (0056-0172-70)  > 100 TABLET in 1 BOTTLE",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0409-6531-02",
+  "display" : "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"
+}, "valueSet" :null}####
+v: {
+  "display" : "10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL",
+  "severity" : "warning",
+  "error" : "The display \"Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0409-6531-02 - should be one of [\"10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "24208-813-10",
+  "display" : "Timoptic 5mg/ml solution"
+}, "valueSet" :null}####
+v: {
+  "display" : "1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10)  > 10 mL in 1 BOTTLE, DISPENSING",
+  "severity" : "warning",
+  "error" : "The display \"Timoptic 5mg/ml solution\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}24208-813-10 - should be one of [\"1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10)  > 10 mL in 1 BOTTLE, DISPENSING\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "63481-623-70",
+  "display" : "Percocet tablet"
+}, "valueSet" :null}####
+v: {
+  "display" : "100 TABLET in 1 BOTTLE (63481-623-70)",
+  "severity" : "warning",
+  "error" : "The display \"Percocet tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}63481-623-70 - should be one of [\"100 TABLET in 1 BOTTLE (63481-623-70)\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "50580-608-02",
+  "display" : "Tylenol PM"
+}, "valueSet" :null}####
+v: {
+  "display" : "1 BOTTLE in 1 CARTON (50580-608-02)  > 100 TABLET, FILM COATED in 1 BOTTLE",
+  "severity" : "warning",
+  "error" : "The display \"Tylenol PM\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}50580-608-02 - should be one of [\"1 BOTTLE in 1 CARTON (50580-608-02)  > 100 TABLET, FILM COATED in 1 BOTTLE\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0713-0118",
+  "display" : "Acetaminophen 120mg Suppository"
+}, "valueSet" :null}####
+v: {
+  "display" : "ACEPHEN",
+  "severity" : "warning",
+  "error" : "The display \"Acetaminophen 120mg Suppository\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0713-0118 - should be one of [\"ACEPHEN \"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0378-1800-10",
+  "display" : "Levothyroxine Sodium Tablets, USP (75mcg)"
+}, "valueSet" :null}####
+v: {
+  "display" : "1000 TABLET in 1 BOTTLE, PLASTIC (0378-1800-10)",
+  "severity" : "warning",
+  "error" : "The display \"Levothyroxine Sodium Tablets, USP (75mcg)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0378-1800-10 - should be one of [\"1000 TABLET in 1 BOTTLE, PLASTIC (0378-1800-10)\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "33261-141-20",
+  "display" : "Azithromycin 250mg tablet, film coated (Aidarex Pharmaceuticals LLC)"
+}, "valueSet" :null}####
+v: {
+  "display" : "20 TABLET in 1 BOTTLE, PLASTIC (33261-141-20)",
+  "severity" : "warning",
+  "error" : "The display \"Azithromycin 250mg tablet, film coated (Aidarex Pharmaceuticals LLC)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}33261-141-20 - should be one of [\"20 TABLET in 1 BOTTLE, PLASTIC (33261-141-20)\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0074-3043-13",
+  "display" : "Vicodin 5mg Hydrocodone, 500mg Acetaminophen tablet "
+}, "valueSet" :null}####
+v: {
+  "display" : "100 TABLET in 1 BOTTLE (0074-3043-13)",
+  "severity" : "warning",
+  "error" : "The display \"Vicodin 5mg Hydrocodone, 500mg Acetaminophen tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0074-3043-13 - should be one of [\"100 TABLET in 1 BOTTLE (0074-3043-13)\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0406-9025-76",
+  "display" : "fentanyl 25mcg/hour Patch, Extended Release (Apotex)"
+}, "valueSet" :null}####
+v: {
+  "display" : "5 POUCH in 1 CARTON (0406-9025-76)  > 1 PATCH in 1 POUCH > 72 h in 1 PATCH",
+  "severity" : "warning",
+  "error" : "The display \"fentanyl 25mcg/hour Patch, Extended Release (Apotex)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0406-9025-76 - should be one of [\"5 POUCH in 1 CARTON (0406-9025-76)  > 1 PATCH in 1 POUCH > 72 h in 1 PATCH\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0056-0172-70",
+  "display" : "Coumadin 5mg tablet"
+}, "valueSet" :null}####
+v: {
+  "display" : "1 BOTTLE in 1 CARTON (0056-0172-70)  > 100 TABLET in 1 BOTTLE",
+  "severity" : "warning",
+  "error" : "The display \"Coumadin 5mg tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0056-0172-70 - should be one of [\"1 BOTTLE in 1 CARTON (0056-0172-70)  > 100 TABLET in 1 BOTTLE\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0264-7510-10",
+  "display" : "Dextrose 5% injection USP"
+}, "valueSet" :null}####
+v: {
+  "display" : "24 CONTAINER in 1 CASE (0264-7510-10)  > 500 mL in 1 CONTAINER",
+  "severity" : "warning",
+  "error" : "The display \"Dextrose 5% injection USP\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0264-7510-10 - should be one of [\"24 CONTAINER in 1 CASE (0264-7510-10)  > 500 mL in 1 CONTAINER\"]"
+}
+-------------------------------------------------------------------------------------

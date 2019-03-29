@@ -792,8 +792,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2-3.7.20-SNAPSHOT.jar"), names);
     
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools",           "java", "org.hl7.fhir.igtools",     "bin")), Utilities.path(folders.rootDir, "tools",           "java", "org.hl7.fhir.igtools",     "bin").length()+1, names);
-//   
-//    AddToJar(jar, new File(Utilities.path(folders.rootDir,"publish", "version.info")), Utilities.path(folders.rootDir,"publish").length()+1, names);
     jar.close();
     
   }
