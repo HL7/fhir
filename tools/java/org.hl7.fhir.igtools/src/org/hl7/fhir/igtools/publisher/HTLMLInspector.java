@@ -2,12 +2,14 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -92,12 +94,14 @@ public class HTLMLInspector {
     private XhtmlNode xhtml;
     private int iteration;
     private Set<String> targets = new HashSet<String>();
+    private Boolean hl7State;
 
-    public LoadedFile(String filename, long lastModified, XhtmlNode xhtml, int iteration) {
+    public LoadedFile(String filename, long lastModified, XhtmlNode xhtml, int iteration, Boolean hl7State) {
       this.filename = filename;
       this.lastModified = lastModified;
       this.xhtml = xhtml;
       this.iteration = iteration;
+      this.hl7State = hl7State;
     }
 
     public long getLastModified() {
@@ -123,8 +127,14 @@ public class HTLMLInspector {
     public String getFilename() {
       return filename;
     }
+
+    public Boolean getHl7State() {
+      return hl7State;
+    }
     
   }
+
+  private static final String RELEASE_HTML_MARKER = "<!--ReleaseHeader--><p id=\"publish-box\">Publish Box goes here</p><!--EndReleaseHeader-->";
 
   private boolean strict;
   private String rootFolder;
@@ -142,13 +152,15 @@ public class HTLMLInspector {
   private Map<String, SpecMapManager> otherSpecs = new HashMap<String, SpecMapManager>();
   private List<String> errorPackages = new ArrayList<>();
   private String canonical;
+  private boolean hl7Checks;
 
-  public HTLMLInspector(String rootFolder, List<SpecMapManager> specs, ILoggingService log, String canonical) {
+  public HTLMLInspector(String rootFolder, List<SpecMapManager> specs, ILoggingService log, String canonical, boolean hl7Checks) {
     this.rootFolder = rootFolder.replace("/", File.separator);
     this.specs = specs;
     this.log = log;
     this.canonical = canonical;
     this.forHL7 = canonical.contains("hl7.org/fhir");
+    this.hl7Checks = hl7Checks;
   }
 
   public void setAltRootFolder(String altRootFolder) throws IOException {
@@ -177,8 +189,14 @@ public class HTLMLInspector {
     log.logDebugMessage(LogCategory.HTML, "Checking Files");
     links = 0;
     // check links
-    for (String s : cache.keySet()) {
+    boolean first = true;
+    for (String s : sorted(cache.keySet())) {
       LoadedFile lf = cache.get(s);
+      if (lf.getHl7State() != null && !lf.getHl7State()) {
+        messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, s, "The html source does not contain the header marker" 
+            + (first ? " "+RELEASE_HTML_MARKER+" (see note at http://wiki.hl7.org/index.php?title=FHIR_Implementation_Guide_Publishing_Requirements#HL7_HTML_Standards_considerations)" : ""), IssueSeverity.ERROR));
+        first = false;
+      }
       if (lf.getXhtml() != null)
         if (checkLinks(s, "", lf.getXhtml(), null, messages, false) != NodeChangeType.NONE) // returns true if changed
           saveFile(lf);
@@ -195,6 +213,13 @@ public class HTLMLInspector {
     return messages;
   }
 
+
+  private List<String> sorted(Set<String> keys) {
+    List<String> res = new ArrayList<>();
+    res.addAll(keys);
+    Collections.sort(res);
+    return res;
+  }
 
   private void saveFile(LoadedFile lf) throws IOException {
     new File(lf.getFilename()).delete();
@@ -230,6 +255,7 @@ public class HTLMLInspector {
 
   private void loadFile(String s, List<ValidationMessage> messages) {
     File f = new File(s);
+    Boolean hl7State = null;
     XhtmlNode x = null;
     boolean htmlName = f.getName().endsWith(".html") || f.getName().endsWith(".xhtml");
     try {
@@ -243,7 +269,16 @@ public class HTLMLInspector {
       if (htmlName || !(e.getMessage().startsWith("Unable to Parse HTML - does not start with tag.") || e.getMessage().startsWith("Malformed XHTML")))
     	messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, e.getMessage(), IssueSeverity.ERROR));    	
     }
-    LoadedFile lf = new LoadedFile(s, f.lastModified(), x, iteration);
+    if (hl7Checks && x != null) {
+      String src;
+      try {
+        src = TextFile.fileToString(f);
+        hl7State = src.contains(RELEASE_HTML_MARKER);
+      } catch (Exception e1) {
+        hl7State = false;
+      }
+    }
+    LoadedFile lf = new LoadedFile(s, f.lastModified(), x, iteration, hl7State);
     cache.put(s, lf);
     if (x != null) {
       checkHtmlStructure(s, x, messages);
@@ -587,7 +622,7 @@ public class HTLMLInspector {
   }
 
   public static void main(String[] args) throws Exception {
-    HTLMLInspector inspector = new HTLMLInspector(args[0], null, null, "http://hl7.org/fhir/us/core");
+    HTLMLInspector inspector = new HTLMLInspector(args[0], null, null, "http://hl7.org/fhir/us/core", true);
     inspector.setStrict(false);
     List<ValidationMessage> linkmsgs = inspector.check();
     int bl = 0;
