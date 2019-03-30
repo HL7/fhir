@@ -1167,6 +1167,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     igpkp.loadSpecPaths(specMaps.get(0));
     fetcher.setPkp(igpkp);
 
+    if (configuration.has("fixed-business-version")) {
+      businessVersion = configuration.getAsJsonPrimitive("fixed-business-version").getAsString();
+    }
+    
     inspector = new HTLMLInspector(outputDir, specMaps, this, igpkp.getCanonical(), igpkp.isHL7Checks());
     inspector.getManual().add("full-ig.zip");
     historyPage = ostr(paths, "history");
@@ -1225,9 +1229,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         if (vr.getDisplay() != null)
           c.setDisplay(vr.getDisplay());
       }
-    }
-    if (configuration.has("fixed-business-version")) {
-      businessVersion = configuration.getAsJsonPrimitive("fixed-business-version").getAsString();
     }
     if (configuration.has("suppressedWarningFile")) {
       String suppressPath = configuration.getAsJsonPrimitive("suppressedWarningFile").getAsString();
@@ -2988,7 +2989,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
     if (!isChild()) {
       log("Checking Output HTML");
-      List<ValidationMessage> linkmsgs = inspector.check();
+      List<ValidationMessage> linkmsgs = inspector.check(mode == IGBuildMode.AUTOBUILD ? 
+          Utilities.escapeXml(sourceIg.getTitle())+" - CI build (v"+businessVersion+"). See the <a href=\""+igpkp.getCanonical()+"/history.html\">Directory of published versions</a></p>" : mode == IGBuildMode.PUBLICATION ? 
+              "This will be filled in by the publication tooling" : 
+              Utilities.escapeXml(sourceIg.getTitle())+" - Local Development build (v"+businessVersion+"). See the <a href=\""+igpkp.getCanonical()+"/history.html\">Directory of published versions</a></p>");
       ValidationPresenter.filterMessages(linkmsgs, suppressedMessages, true);
       int bl = 0;
       int lf = 0;
