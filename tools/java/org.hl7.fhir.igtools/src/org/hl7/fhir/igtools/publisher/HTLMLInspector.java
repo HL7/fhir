@@ -135,6 +135,8 @@ public class HTLMLInspector {
   }
 
   private static final String RELEASE_HTML_MARKER = "<!--ReleaseHeader--><p id=\"publish-box\">Publish Box goes here</p><!--EndReleaseHeader-->";
+  private static final String START_HTML_MARKER = "<!--ReleaseHeader--><p id=\"publish-box\">";
+  private static final String END_HTML_MARKER = "</p><!--EndReleaseHeader-->";
 
   private boolean strict;
   private String rootFolder;
@@ -154,6 +156,8 @@ public class HTLMLInspector {
   private String canonical;
   private boolean hl7Checks;
 
+  private String statusText;
+
   public HTLMLInspector(String rootFolder, List<SpecMapManager> specs, ILoggingService log, String canonical, boolean hl7Checks) {
     this.rootFolder = rootFolder.replace("/", File.separator);
     this.specs = specs;
@@ -167,7 +171,8 @@ public class HTLMLInspector {
     this.altRootFolder = Utilities.path(rootFolder, altRootFolder.replace("/", File.separator));
   }
   
-  public List<ValidationMessage> check() throws IOException {
+  public List<ValidationMessage> check(String statusText) throws IOException {  
+    this.statusText = statusText;
     iteration ++;
 
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
@@ -274,6 +279,11 @@ public class HTLMLInspector {
       try {
         src = TextFile.fileToString(f);
         hl7State = src.contains(RELEASE_HTML_MARKER);
+        if (hl7State) {
+          src = src.replace(RELEASE_HTML_MARKER, START_HTML_MARKER + statusText+END_HTML_MARKER);
+          TextFile.stringToFile(src, f, false);
+        }
+          
       } catch (Exception e1) {
         hl7State = false;
       }
@@ -624,7 +634,7 @@ public class HTLMLInspector {
   public static void main(String[] args) throws Exception {
     HTLMLInspector inspector = new HTLMLInspector(args[0], null, null, "http://hl7.org/fhir/us/core", true);
     inspector.setStrict(false);
-    List<ValidationMessage> linkmsgs = inspector.check();
+    List<ValidationMessage> linkmsgs = inspector.check("test text");
     int bl = 0;
     int lf = 0;
     for (ValidationMessage m : linkmsgs) {
