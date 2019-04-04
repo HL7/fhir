@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.r5.utils.formats.JsonTrackingParser;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -56,7 +57,7 @@ public class SpecMapManager {
 
   public SpecMapManager(byte[] bytes, String version) throws JsonSyntaxException, IOException {
     this.version = version;
-    spec = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.bytesToString(bytes));
+    spec = JsonTrackingParser.parseJson(bytes);
     paths = spec.getAsJsonObject("paths");
     pages = spec.getAsJsonObject("pages");
     targets = spec.getAsJsonArray("targets");

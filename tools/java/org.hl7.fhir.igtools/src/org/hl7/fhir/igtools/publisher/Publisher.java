@@ -169,6 +169,7 @@ import org.hl7.fhir.r5.utils.StructureMapUtilities;
 import org.hl7.fhir.r5.utils.StructureMapUtilities.StructureMapAnalysis;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.r5.utils.client.FHIRToolingClient;
+import org.hl7.fhir.r5.utils.formats.JsonTrackingParser;
 import org.hl7.fhir.r5.utils.formats.Turtle;
 import org.hl7.fhir.r5.validation.CodeSystemValidator;
 import org.hl7.fhir.r5.validation.InstanceValidator;
@@ -992,7 +993,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else
       log("Load Configuration from "+configFile);
     try {
-      configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+      configuration = JsonTrackingParser.parseJsonFile(configFile);
     } catch (Exception e) {
       throw new Exception("Error Reading JSON Config file at "+configFile+": "+e.getMessage(), e);
     }
@@ -1001,7 +1002,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       String redirectFile = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("redirect").getAsString());
       log("Redirecting to Configuration from " + redirectFile);
       configFile = redirectFile;
-      configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(redirectFile));
+      configuration = JsonTrackingParser.parseJsonFile(redirectFile);
     }
     if (configuration.has("logging")) {
       for (JsonElement n : configuration.getAsJsonArray("logging")) {
@@ -1665,7 +1666,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private JsonObject fetchJson(String source) throws IOException {
     URL url = new URL(source+"?nocache=" + System.currentTimeMillis());
     URLConnection c = url.openConnection();
-    return (JsonObject) new com.google.gson.JsonParser().parse(TextFile.streamToString(c.getInputStream()));
+    return JsonTrackingParser.parseJson(c.getInputStream());
   }
 
 
@@ -1919,7 +1920,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     copyFiles(Utilities.path(templateDir, "jekyll"), Utilities.path(templateDir, "jekyll"), tempDir, files); 
     for (String s : files)
       otherFilesStartup.add(Utilities.path(tempDir, s)); 
-    JsonObject tc = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.streamToString(template.load("template", "config.json")));
+    JsonObject tc = JsonTrackingParser.parseJson(template.load("template", "config.json"));
     new JsonMerger().merge(configuration, tc);
     templateLoaded = true;
     templatePck = template.name();
@@ -4988,6 +4989,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       conv.setLicense(getNamedParam(args, "-license"));
       conv.setWebsite(getNamedParam(args, "-website"));
       conv.execute();
+    } else if (hasParam(args, "publish-update")) {
+      throw new Error("not done yet");      
     } else if (hasParam(args, "-multi")) {
       int i = 1;
       for (String ig : TextFile.fileToString(getNamedParam(args, "-multi")).split("\\r?\\n")) {

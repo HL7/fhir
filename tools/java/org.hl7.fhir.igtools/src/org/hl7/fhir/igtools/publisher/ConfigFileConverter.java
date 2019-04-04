@@ -38,6 +38,7 @@ import org.hl7.fhir.r5.model.Resource;
 import org.hl7.fhir.r5.model.StringType;
 import org.hl7.fhir.r5.utils.IGHelper;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
+import org.hl7.fhir.r5.utils.formats.JsonTrackingParser;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -59,11 +60,11 @@ public class ConfigFileConverter {
    * 
    */
   public void convert(String configFile, IWorkerContext context, PackageCacheManager pcm) throws Exception {
-    JsonObject configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+    JsonObject configuration = JsonTrackingParser.parseJsonFile(configFile);
     if (configuration.has("redirect")) { // redirect to support auto-build for complex projects with IG folder in subdirectory
       String redirectFile = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("redirect").getAsString());
       configFile = redirectFile;
-      configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(redirectFile));
+      configuration = JsonTrackingParser.parseJsonFile(redirectFile);
     }
     String version = ostr(configuration, "version");
     if (Utilities.noString(version))
