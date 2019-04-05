@@ -1582,7 +1582,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       dep.addProperty("package", packageId);
 
     String webref = pi.getWebLocation();
-    String location = dep.has("location") ? "" : dep.get("location").getAsString(); 
+    String location = dep.has("location") ? dep.get("location").getAsString() : ""; 
     if (location.startsWith(".."))
       webref = location;
     
