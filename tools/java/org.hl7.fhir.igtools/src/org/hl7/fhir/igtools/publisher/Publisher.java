@@ -525,6 +525,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private List<NpmPackage> npmList = new ArrayList<>();
 
   private String repoRoot;
+
+  private ValidationServices validationFetcher;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -1237,7 +1239,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (!suppressPath.isEmpty())
         loadSuppressedMessages(Utilities.path(rootDir, suppressPath));
     }
-    validator.setFetcher(new ValidationServices(context, igpkp, fileList, npmList ));
+    validationFetcher = new ValidationServices(context, igpkp, fileList, npmList );
+    validator.setFetcher(validationFetcher);
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
         if (makeQA)
@@ -2228,6 +2231,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void loadConformance() throws Exception {
+    scan("NamingSystem");
+    scan("CodeSystem");
+    scan("ValueSet");
+    scan("ConceptMap");
+    scan("DataElement");
+    scan("StructureDefinition");
+    scan("OperationDefinition");
+    scan("CapabilityStatement");
+    scan("Questionnaire");
+    scan("PlanDefinition");
+    
     load("NamingSystem");
     load("CodeSystem");
     load("ValueSet");
@@ -2534,6 +2548,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     throw new Exception("Version converting JSON resources is not supported yet"); // because the only know reason to do this is Forge, and it only works with XML
   }
 
+  private void scan(String type) throws Exception {
+    log(LogCategory.PROGRESS, "process type: "+type);
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getElement().fhirType().equals(type)) {
+          String url = r.getElement().getChildValue("url");
+          if (url != null)
+            validationFetcher.getOtherUrls().add(url);
+        }
+      }
+    }
+  }
+        
   private void load(String type) throws Exception {
     log(LogCategory.PROGRESS, "process type: "+type);
     for (FetchedFile f : fileList) {
@@ -4597,7 +4624,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         oa = new Writer(new FileOutputStream(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")), new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), openApiTemplate)));
       else
         oa = new Writer(new FileOutputStream(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")));
-      new OpenApiGenerator(cpbs, oa).generate(license());
+      String lic = license();
+      String displ = context.doValidateCode(new Coding("http://hl7.org/fhir/spdx-license",  lic, null), null, false).getDisplay();
+      new OpenApiGenerator(context, cpbs, oa).generate(displ, "http://spdx.org/licenses/"+lic+".html");
       oa.commit();
       otherFilesRun.add(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json"));
       npm.addFile(Category.OPENAPI, cpbs.getId()+ ".openapi.json", TextFile.fileToBytes(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")));

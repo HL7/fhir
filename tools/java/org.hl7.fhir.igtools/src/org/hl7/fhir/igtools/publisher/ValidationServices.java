@@ -2,6 +2,7 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.exceptions.FHIRException;
@@ -29,6 +30,7 @@ public class ValidationServices implements IValidatorResourceFetcher {
   private IGKnowledgeProvider ipg;
   private List<FetchedFile> files;
   private List<NpmPackage> packages;
+  private List<String> otherUrls = new ArrayList<>();
   
   
   public ValidationServices(IWorkerContext context, IGKnowledgeProvider ipg, List<FetchedFile> files, List<NpmPackage> packages) {
@@ -37,6 +39,9 @@ public class ValidationServices implements IValidatorResourceFetcher {
     this.ipg = ipg;
     this.files = files;
     this.packages = packages;
+    
+    otherUrls.add("http://hl7.org/fhir/sid/us-ssn");
+    otherUrls.add("http://hl7.org/fhir/sid/us-npi");
   }
 
   @Override
@@ -140,9 +145,22 @@ public class ValidationServices implements IValidatorResourceFetcher {
 
 
   @Override
-  public boolean resolveURL(Object appContext, String path, String url) throws IOException, FHIRException {
+  public boolean resolveURL(Object appContext, String path, String url) throws IOException {
+    if (otherUrls.contains(url))
+      return true;
+    
+    if (url.startsWith("http://hl7.org/fhir"))
+      try {
+        return context.fetchResourceWithException(Resource.class, url) != null;
+      } catch (FHIRException e) {
+        return false;
+      }
     // todo: what to do here?
     return true;
+  }
+
+  public List<String> getOtherUrls() {
+    return otherUrls;
   }
 
 }
