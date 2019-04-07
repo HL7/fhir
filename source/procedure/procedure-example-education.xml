@@ -29,7 +29,7 @@
   <subject>
 	<display value="Jane Doe"/>
   </subject>
-  <performedDateTime value="2014-08-16"/>
+  <occurrenceDateTime value="2014-08-16"/>
   <performer>
     <actor>
       <display value="Pamela Educator, RN"/>
