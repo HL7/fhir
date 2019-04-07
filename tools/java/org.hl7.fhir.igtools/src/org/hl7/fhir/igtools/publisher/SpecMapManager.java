@@ -57,7 +57,7 @@ public class SpecMapManager {
 
   public SpecMapManager(byte[] bytes, String version) throws JsonSyntaxException, IOException {
     this.version = version;
-    spec = JsonTrackingParser.parseJson(bytes);
+    spec = JsonTrackingParser.parseJson(bytes, true);
     paths = spec.getAsJsonObject("paths");
     pages = spec.getAsJsonObject("pages");
     targets = spec.getAsJsonArray("targets");
