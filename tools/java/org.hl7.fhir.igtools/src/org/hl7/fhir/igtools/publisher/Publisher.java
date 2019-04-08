@@ -1183,6 +1183,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     inspector.getManual().add("qa.html");
     inspector.getManual().add("qa-tx.html");
+    if (configuration.has("exemptHtmlPatterns")) {
+      for (JsonElement e : configuration.getAsJsonArray("exemptHtmlPatterns"))
+        inspector.getExemptHtmlPatterns().add(e.getAsString());
+    }
     allowBrokenHtml = "true".equals(ostr(configuration, "allow-broken-links"));
     inspector.setStrict("true".equals(ostr(configuration, "allow-malformed-html")));
     inspector.setPcm(pcm);
