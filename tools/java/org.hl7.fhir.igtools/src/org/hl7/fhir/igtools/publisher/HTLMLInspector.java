@@ -208,9 +208,10 @@ public class HTLMLInspector {
             break;
           }
         }
-        if (check)
+        if (check) {
           messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, s, "The html source does not contain the header marker" 
             + (first ? " "+RELEASE_HTML_MARKER+" (see note at http://wiki.hl7.org/index.php?title=FHIR_Implementation_Guide_Publishing_Requirements#HL7_HTML_Standards_considerations)" : ""), IssueSeverity.ERROR));
+        }
         first = false;
       }
       if (lf.getXhtml() != null)
