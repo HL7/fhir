@@ -95,13 +95,15 @@ public class HTLMLInspector {
     private int iteration;
     private Set<String> targets = new HashSet<String>();
     private Boolean hl7State;
+    private String path;
 
-    public LoadedFile(String filename, long lastModified, XhtmlNode xhtml, int iteration, Boolean hl7State) {
+    public LoadedFile(String filename, String path, long lastModified, XhtmlNode xhtml, int iteration, Boolean hl7State) {
       this.filename = filename;
       this.lastModified = lastModified;
       this.xhtml = xhtml;
       this.iteration = iteration;
       this.hl7State = hl7State;
+      this.path = path;
     }
 
     public long getLastModified() {
@@ -157,6 +159,7 @@ public class HTLMLInspector {
   private boolean hl7Checks;
 
   private String statusText;
+  private List<String> exemptHtmlPatterns = new ArrayList<>();
 
   public HTLMLInspector(String rootFolder, List<SpecMapManager> specs, ILoggingService log, String canonical, boolean hl7Checks) {
     this.rootFolder = rootFolder.replace("/", File.separator);
@@ -188,7 +191,7 @@ public class HTLMLInspector {
     log.logDebugMessage(LogCategory.HTML, "Loading Files");
     // load files
     for (String s : loadList)
-      loadFile(s, messages);
+      loadFile(s, rootFolder, messages);
 
 
     log.logDebugMessage(LogCategory.HTML, "Checking Files");
@@ -198,7 +201,15 @@ public class HTLMLInspector {
     for (String s : sorted(cache.keySet())) {
       LoadedFile lf = cache.get(s);
       if (lf.getHl7State() != null && !lf.getHl7State()) {
-        messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, s, "The html source does not contain the header marker" 
+        boolean check = true;
+        for (String pattern : exemptHtmlPatterns ) {
+          if (lf.path.matches(pattern)) {
+            check = false;
+            break;
+          }
+        }
+        if (check)
+          messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, s, "The html source does not contain the header marker" 
             + (first ? " "+RELEASE_HTML_MARKER+" (see note at http://wiki.hl7.org/index.php?title=FHIR_Implementation_Guide_Publishing_Requirements#HL7_HTML_Standards_considerations)" : ""), IssueSeverity.ERROR));
         first = false;
       }
@@ -258,7 +269,7 @@ public class HTLMLInspector {
     }
   }
 
-  private void loadFile(String s, List<ValidationMessage> messages) {
+  private void loadFile(String s, String base, List<ValidationMessage> messages) {
     File f = new File(s);
     Boolean hl7State = null;
     XhtmlNode x = null;
@@ -288,7 +299,7 @@ public class HTLMLInspector {
         hl7State = false;
       }
     }
-    LoadedFile lf = new LoadedFile(s, f.lastModified(), x, iteration, hl7State);
+    LoadedFile lf = new LoadedFile(s, getPath(s, base), f.lastModified(), x, iteration, hl7State);
     cache.put(s, lf);
     if (x != null) {
       checkHtmlStructure(s, x, messages);
@@ -318,6 +329,11 @@ public class HTLMLInspector {
 //    } catch (IOException e) {
 //      messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "failed security testing: "+e.getMessage(), IssueSeverity.ERROR));
 //    } 
+  }
+
+  private String getPath(String s, String base) {
+    String t = s.substring(base.length()+1);
+    return t.replace("\\", "/");
   }
 
   private boolean isRedirect(XhtmlNode x) {
@@ -684,8 +700,11 @@ public class HTLMLInspector {
   }
 
   public void setPcm(PackageCacheManager pcm) {
-    this.pcm = pcm;
-    
+    this.pcm = pcm; 
+  }
+
+  public List<String> getExemptHtmlPatterns() {
+    return exemptHtmlPatterns;
   }
 
   
