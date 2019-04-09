@@ -351,10 +351,7 @@ public class HTLMLInspector {
   }
 
   private void checkTemplatePoints(XhtmlNode x, List<ValidationMessage> messages, String s) {
-    // first, look for the insertion point, which is <!--status-bar-->
-    if (!findStatusBarComment(x))
-      messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "The html must include a comment \"<!--status-bar-->\" that marks the insertion point for the status bar", IssueSeverity.ERROR));
-    // now, look for a footer: a div tag with igtool=footer on it 
+    // look for a footer: a div tag with igtool=footer on it 
     XhtmlNode footer = findFooterDiv(x);
     if (footer == null) 
       messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "The html must include a div with an attribute igtool=\"footer\" that marks the footer in the template", IssueSeverity.ERROR));
