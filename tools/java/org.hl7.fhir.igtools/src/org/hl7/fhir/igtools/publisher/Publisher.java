@@ -3028,9 +3028,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (!isChild()) {
       log("Checking Output HTML");
       List<ValidationMessage> linkmsgs = inspector.check(mode == IGBuildMode.AUTOBUILD ? 
-          Utilities.escapeXml(sourceIg.getTitle())+" - CI build (v"+businessVersion+"). See the <a href=\""+igpkp.getCanonical()+"/history.html\">Directory of published versions</a></p>" : mode == IGBuildMode.PUBLICATION ? 
+          Utilities.escapeXml(sourceIg.present())+" - CI build (v"+businessVersion+"). See the <a href=\""+igpkp.getCanonical()+"/history.html\">Directory of published versions</a></p>" : mode == IGBuildMode.PUBLICATION ? 
               "This will be filled in by the publication tooling" : 
-              Utilities.escapeXml(sourceIg.getTitle())+" - Local Development build (v"+businessVersion+"). See the <a href=\""+igpkp.getCanonical()+"/history.html\">Directory of published versions</a></p>");
+              Utilities.escapeXml(sourceIg.present())+" - Local Development build (v"+businessVersion+"). See the <a href=\""+igpkp.getCanonical()+"/history.html\">Directory of published versions</a></p>");
       ValidationPresenter.filterMessages(linkmsgs, suppressedMessages, true);
       int bl = 0;
       int lf = 0;
