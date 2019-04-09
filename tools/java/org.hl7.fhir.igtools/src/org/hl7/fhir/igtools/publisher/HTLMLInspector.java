@@ -473,9 +473,14 @@ public class HTLMLInspector {
         resolved = resolved || spec.getBase().equals(rref) || (spec.getBase()).equals(rref+"/") || spec.hasTarget(rref); 
       }
     }
-      
+    
+    if (!resolved) {
+      String fref = Utilities.path(Utilities.getDirectoryForFile(filename), ref);
+      if (fref.equals(Utilities.path(rootFolder, "qa.html")))
+        resolved = true;
+    }
     // special case end-points that are always valid:
-    if (!resolved)
+     if (!resolved)
       resolved = Utilities.existsInList(ref, "http://hl7.org/fhir/fhir-spec-r4.zip", "http://hl7.org/fhir/R4/fhir-spec-r4.zip", "http://hl7.org/fhir/STU3/fhir-spec.zip", "http://hl7.org/fhir/DSTU2/fhir-spec.zip") || 
           matchesTarget(ref, "http://hl7.org", "http://hl7.org/fhir/DSTU2", "http://hl7.org/fhir/STU3", "http://hl7.org/fhir/R4", "http://hl7.org/fhir/smart-app-launch", "http://hl7.org/fhir/validator");
     

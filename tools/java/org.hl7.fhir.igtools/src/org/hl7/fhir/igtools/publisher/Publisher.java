@@ -1801,6 +1801,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
 
   private boolean load() throws Exception {
+    validationFetcher.getOtherUrls().clear();
     fileList.clear();
     changeList.clear();
     bndIds.clear();
@@ -1816,6 +1817,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else {
       // special case; the source is updated during the build, so we track it differently
       altMap.get(IG_NAME).getResources().get(0).setResource(sourceIg);
+    }
+    validationFetcher.getOtherUrls().add(sourceIg.getUrl());
+    for (SpecMapManager s :  specMaps) {
+      validationFetcher.getOtherUrls().add(s.getBase());
     }
 
     if (npmName == null)
