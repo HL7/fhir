@@ -10,9 +10,9 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r5.utils.formats.JsonTrackingParser;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.json.JsonTrackingParser;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

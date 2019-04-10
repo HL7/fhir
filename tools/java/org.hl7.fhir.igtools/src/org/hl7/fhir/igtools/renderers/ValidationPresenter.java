@@ -73,7 +73,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     
     List<ValidationMessage> linkErrors = removeDupMessages(allErrors); 
     StringBuilder b = new StringBuilder();
-    b.append(genHeader(title, err, warn, info, linkErrors.size()));
+    b.append(genHeader(title, err, warn, info, linkErrors.size(), filteredMessages.size()));
     b.append(genSummaryRowInteral(linkErrors));
     files = sorted(files);
     for (FetchedFile f : files) 
@@ -100,6 +100,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
       }
       b.append(genEnd());
     }    
+    b.append(genSuppressedMessages(filteredMessages));
     b.append(genFooter(title));
     TextFile.stringToFile(b.toString(), path);
 
@@ -147,6 +148,18 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     return path + "\r\n" + summary;
   }
 
+  private String genSuppressedMessages(List<String> filteredMessages) {
+    if (filteredMessages.size() == 0)
+      return "";
+    StringBuilder b = new StringBuilder();
+    b.append("<a name=\"suppressed\"> </a>\r\n<p><b>Suppressed Error Messages</b></p><ul>\r\n");
+    for (String s : filteredMessages) {
+      b.append(" <li>"+Utilities.escapeXml(s)+"</li>\r\n");
+    }
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
   public static void filterMessages(List<ValidationMessage> messages, List<String> suppressedMessages, boolean suppressErrors) {
     List<ValidationMessage> filteredMessages = new ArrayList<ValidationMessage>();
     for (ValidationMessage message : removeDupMessages(messages)) {
@@ -180,6 +193,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
       "<body style=\"margin: 20px; background-color: #ffffff\">\r\n"+
       " <h1>Validation Results for $title$</h1>\r\n"+
       " <p>Generated $time$. FHIR version $version$ for $packageId$#$igversion$ (canonical = <a href=\"$canonical$\">$canonical$</a> (<a href=\"$canonical$/history.html\">history</a>))</p>\r\n"+
+      "$suppressed-msgs-summary$"+
       " <p>HL7 Publication check:</p> $ballotCheck$\r\n"+
       " <table class=\"grid\">\r\n"+
       "   <tr>\r\n"+
@@ -255,7 +269,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     return new ST(t, '$', '$');
   }
 
-  private String genHeader(String title, int err, int warn, int info, int links) {
+  private String genHeader(String title, int err, int warn, int info, int links, int msgCount) {
     ST t = template(headerTemplate);
     t.add("version", statedVersion);
     t.add("igversion", igVersion);
@@ -268,6 +282,10 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     t.add("packageId", packageId);
     t.add("canonical", provider.getCanonical());
     t.add("ballotCheck", ballotCheck);
+    if (msgCount == 0)
+      t.add("suppressed-msgs-summary", "<p>No Suppressed Errors</p>\r\n");
+    else
+      t.add("suppressed-msgs-summary", "<p><a href=\"#suppressed\">"+msgCount+" Suppressed "+Utilities.pluralize("Error", msgCount)+"</a></p>\r\n");
     return t.render();
   }
 
