@@ -782,14 +782,14 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
     
     AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.7.0-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu3-3.7.25-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2016may-3.7.25-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r4-3.7.25-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r5-3.7.25-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.utilities-3.7.25-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.validation-3.7.25-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.convertors-3.7.25-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2-3.7.25-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu3-3.7.26-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2016may-3.7.26-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r4-3.7.26-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r5-3.7.26-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.utilities-3.7.26-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.validation-3.7.26-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.convertors-3.7.26-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2-3.7.26-SNAPSHOT.jar"), names);
     
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools",           "java", "org.hl7.fhir.igtools",     "bin")), Utilities.path(folders.rootDir, "tools",           "java", "org.hl7.fhir.igtools",     "bin").length()+1, names);
     jar.close();

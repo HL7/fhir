@@ -169,7 +169,6 @@ import org.hl7.fhir.r5.utils.StructureMapUtilities;
 import org.hl7.fhir.r5.utils.StructureMapUtilities.StructureMapAnalysis;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.r5.utils.client.FHIRToolingClient;
-import org.hl7.fhir.r5.utils.formats.JsonTrackingParser;
 import org.hl7.fhir.r5.utils.formats.Turtle;
 import org.hl7.fhir.r5.validation.CodeSystemValidator;
 import org.hl7.fhir.r5.validation.InstanceValidator;
@@ -186,6 +185,7 @@ import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
+import org.hl7.fhir.utilities.json.JsonTrackingParser;
 import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
@@ -4380,14 +4380,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     new org.hl7.fhir.r5.elementmodel.JsonParser(context).compose(r.getElement(), bs, OutputStyle.NORMAL, igpkp.getCanonical());
     npm.addFile(Category.RESOURCE, r.getElement().fhirType()+"-"+r.getId()+".json", bs.toByteArray());
-    if (igpkp.wantGen(r, "xml")) {
+    if (igpkp.wantGen(r, "xml") || forHL7orFHIR()) {
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".xml");
       f.getOutputNames().add(path);
       FileOutputStream stream = new FileOutputStream(path);
       new org.hl7.fhir.r5.elementmodel.XmlParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
       stream.close();
     }
-    if (igpkp.wantGen(r, "json")) {
+    if (igpkp.wantGen(r, "json") || forHL7orFHIR()) {
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".json");
       f.getOutputNames().add(path);
       FileOutputStream stream = new FileOutputStream(path);
@@ -4402,6 +4402,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       stream.close();
     }    
   }
+
+  private boolean forHL7orFHIR() {
+    return igpkp.getCanonical().contains("hl7.org") || igpkp.getCanonical().contains("fhir.org") ;
+  }
+
 
   private void saveDirectResourceOutputs(FetchedFile f, FetchedResource r, Map<String, String> vars) throws FileNotFoundException, Exception {
     String baseName = igpkp.getProperty(r, "base");

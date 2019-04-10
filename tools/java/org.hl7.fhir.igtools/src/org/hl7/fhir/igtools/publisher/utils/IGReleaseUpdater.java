@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.r5.utils.formats.JsonTrackingParser;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.json.JsonTrackingParser;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -33,7 +33,7 @@ public class IGReleaseUpdater {
       if (!new File(f).exists())
         errs.add("unable to find package-list.json");
       else {
-        JsonObject json = JsonTrackingParser.parseJson(f);
+        JsonObject json = JsonTrackingParser.parseJsonFile(f);
         String canonical = json.get("canonical").getAsString();
         JsonArray list = json.getAsJsonArray("list");
         JsonObject root = null;
@@ -92,6 +92,9 @@ public class IGReleaseUpdater {
     IGReleaseVersionUpdater igvu = new IGReleaseVersionUpdater(vf, ignoreList, version);
     igvu.updateStatement(fragment);
     System.out.println("    .. "+igvu.getCount()+" files updated");
+    IGReleaseRedirectionBuilder rb = new IGReleaseRedirectionBuilder(vf, canonical, version.get("path").getAsString());
+    rb.buildAspRedirections();
+    System.out.println("    .. "+rb.getCountTotal()+" redirections ("+rb.getCountUpdated()+" created/updated)");
   }
 
   /**
