@@ -11,7 +11,8 @@ import com.google.gson.JsonObject;
 
 public class IGReleaseVersionUpdater {
 
-  private int count = 0;
+  private int countTotal = 0;
+  private int countUpdated = 0;
   
   private static final String START_HTML_MARKER = "<!--ReleaseHeader--><p id=\"publish-box\">";
   private static final String END_HTML_MARKER = "</p><!--EndReleaseHeader-->";
@@ -53,6 +54,7 @@ public class IGReleaseVersionUpdater {
       }
       if (f.getName().endsWith(".html")) {
         String src = TextFile.fileToString(f);
+        String o = src;
         int b = src.indexOf(START_HTML_MARKER);
         int e = src.indexOf(END_HTML_MARKER);
         if (b > -1 && e == -1) {
@@ -63,15 +65,22 @@ public class IGReleaseVersionUpdater {
         }
         if (b > -1 && e > -1) {
           src = src.substring(0, b+START_HTML_MARKER.length()) + fragment+src.substring(e);
-          TextFile.stringToFile(src, f, false);
-          count++;
+          if (!src.equals(o)) {
+            TextFile.stringToFile(src, f, false);
+            countUpdated++;
+          }
+          countTotal++;
         }
       }
     }
   }
 
-  public int getCount() {
-    return count;
+  public int getCountTotal() {
+    return countTotal;
+  }
+
+  public int getCountUpdated() {
+    return countUpdated;
   }
 
   

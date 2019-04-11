@@ -193,7 +193,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
       "<body style=\"margin: 20px; background-color: #ffffff\">\r\n"+
       " <h1>Validation Results for $title$</h1>\r\n"+
       " <p>Generated $time$. FHIR version $version$ for $packageId$#$igversion$ (canonical = <a href=\"$canonical$\">$canonical$</a> (<a href=\"$canonical$/history.html\">history</a>))</p>\r\n"+
-      "$suppressed-msgs-summary$"+
+      "$suppressedmsgssummary$"+
       " <p>HL7 Publication check:</p> $ballotCheck$\r\n"+
       " <table class=\"grid\">\r\n"+
       "   <tr>\r\n"+
@@ -283,9 +283,9 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     t.add("canonical", provider.getCanonical());
     t.add("ballotCheck", ballotCheck);
     if (msgCount == 0)
-      t.add("suppressed-msgs-summary", "<p>No Suppressed Errors</p>\r\n");
+      t.add("suppressedmsgssummary", "<p>No Suppressed Errors</p>\r\n");
     else
-      t.add("suppressed-msgs-summary", "<p><a href=\"#suppressed\">"+msgCount+" Suppressed "+Utilities.pluralize("Error", msgCount)+"</a></p>\r\n");
+      t.add("suppressedmsgssummary", "<p><a href=\"#suppressed\">"+msgCount+" Suppressed "+Utilities.pluralize("Error", msgCount)+"</a></p>\r\n");
     return t.render();
   }
 

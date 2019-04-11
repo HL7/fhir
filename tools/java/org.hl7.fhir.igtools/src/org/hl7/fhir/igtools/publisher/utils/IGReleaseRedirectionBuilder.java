@@ -51,6 +51,9 @@ public class IGReleaseRedirectionBuilder {
    countUpdated = 0;
   }
 
+  public void buildApacheRedirections() {    
+  }
+  
   public void buildAspRedirections() throws IOException {
     Map<String, String> map = createMap();
     if (map != null) {
@@ -81,7 +84,12 @@ public class IGReleaseRedirectionBuilder {
     if (!f.exists())
       return null;
     pkg = NpmPackage.fromPackage(new FileInputStream(f));
-    JsonObject json = JsonTrackingParser.parseJson(pkg.load("other", "spec.internals"));
+    JsonObject json = null;
+    try {
+      json = JsonTrackingParser.parseJson(pkg.load("other", "spec.internals"));
+    } catch (Exception e) {
+      return null;
+    }
     Map<String, String> res = new HashMap<>();
     for (Entry<String, JsonElement> p : json.getAsJsonObject("paths").entrySet()) {
       String key = p.getKey();
@@ -102,6 +110,11 @@ public class IGReleaseRedirectionBuilder {
   public int getCountUpdated() {
     return countUpdated;
   }
+
+  public String getFhirVersion() {
+    return pkg == null ? null : pkg.fhirVersion();
+  }
+
 
   
 }

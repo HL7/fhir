@@ -10,6 +10,8 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.json.JsonTrackingParser;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -46,6 +48,7 @@ public class IGReleaseUpdater {
               root = o;
           }
         }
+        boolean save = false;
         
         List<String> folders = new ArrayList<>();
         for (JsonElement n : list) {
@@ -62,7 +65,7 @@ public class IGReleaseUpdater {
                   errs.add("version "+v+" path "+vf+" not found (canonical = "+canonical+", path = "+path+")");
                 else {
                   folders.add(vf);
-                  updateStatement(vf, null, json, o, errs, root, canonical);
+                  save = updateStatement(vf, null, json, o, errs, root, canonical) | save;
                 }
               }
               if (o.has("current"))
@@ -72,7 +75,10 @@ public class IGReleaseUpdater {
         }
         if (root != null)
           updateStatement(folder, folders, json, root, errs, root, canonical);
+        if (save)
+          TextFile.stringToFile(new GsonBuilder().setPrettyPrinting().create().toJson(json), f, false);
       }
+        
     } catch (Exception e) {
       errs.add(e.getMessage());
     }
@@ -86,15 +92,28 @@ public class IGReleaseUpdater {
     }
   }
 
-  private void updateStatement(String vf, List<String> ignoreList, JsonObject ig, JsonObject version, List<String> errs, JsonObject root, String canonical) throws FileNotFoundException, IOException {
+  private boolean updateStatement(String vf, List<String> ignoreList, JsonObject ig, JsonObject version, List<String> errs, JsonObject root, String canonical) throws FileNotFoundException, IOException {
+    boolean vc = false;
     String fragment = genFragment(ig, version, root, canonical);
     System.out.println("  "+vf+": "+fragment);
     IGReleaseVersionUpdater igvu = new IGReleaseVersionUpdater(vf, ignoreList, version);
     igvu.updateStatement(fragment);
-    System.out.println("    .. "+igvu.getCount()+" files updated");
+    System.out.println("    .. "+igvu.getCountTotal()+" files checked, "+igvu.getCountUpdated()+" updated");
     IGReleaseRedirectionBuilder rb = new IGReleaseRedirectionBuilder(vf, canonical, version.get("path").getAsString());
-    rb.buildAspRedirections();
+    if (canonical.contains("fhir.org"))
+      rb.buildApacheRedirections();
+    else
+      rb.buildAspRedirections();
     System.out.println("    .. "+rb.getCountTotal()+" redirections ("+rb.getCountUpdated()+" created/updated)");
+    if (!version.has("fhirversion")) {
+      if (rb.getFhirVersion() == null)
+        System.out.println("Unable to determine FHIR version for "+vf);
+      else {
+        version.addProperty("fhir-version", rb.getFhirVersion());
+        vc = true;
+      }
+    }
+    return vc;
   }
 
   /**
@@ -111,9 +130,20 @@ public class IGReleaseUpdater {
    */
   private String genFragment(JsonObject ig, JsonObject version, JsonObject root, String canonical) {
     String p1 = ig.get("title").getAsString()+" (v"+version.get("version").getAsString()+": "+state(ig, version)+").";
-    String p2 = root == null ? "" : version == root ? " This is the current published version. " : " The current version is <a href=\""+(root.get("path").getAsString().startsWith(canonical) ? canonical : root.get("path").getAsString())+"\">"+root.get("version").getAsString()+"</a>.";
+    String p2 = root == null ? "" : version == root ? " This is the current published version" : " The current version is <a href=\""+(root.get("path").getAsString().startsWith(canonical) ? canonical : root.get("path").getAsString())+"\">"+root.get("version").getAsString()+"</a>";
+    p2 = p2 + (version.has("fhirversion") ? " based on <a href=\"http://hl7.org/fhir/"+version.get("fhirversion").getAsString()+"\">FHIR "+fhirRef(version.get("fhirversion").getAsString())+"</a>" : "")+". ";
     String p3 = " See the <a href=\""+Utilities.pathURL(canonical, "history.cfml")+"\">Directory of published versions</a>";
     return p1+p2+p3;
+  }
+
+  private String fhirRef(String v) {
+    if ("1.0.2".equals(v))
+      return "R2";
+    if ("3.0.1".equals(v))
+      return "R3";
+    if ("4.0.0".equals(v))
+      return "R4";    
+    return "v"+v;
   }
 
   private String state(JsonObject ig, JsonObject version) {
@@ -122,6 +152,8 @@ public class IGReleaseUpdater {
     String desc = version.get("sequence").getAsString();
     if ("trial-use".equals(status))
       return decorate(sequence);
+    else if ("release".equals(status))
+      return "Release";
     else if ("ballot".equals(status))
       return decorate(sequence)+" Ballot "+ballotCount(ig, sequence, version);
     else if ("draft".equals(status))
