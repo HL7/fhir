@@ -21,7 +21,7 @@ public class BallotChecker {
     this.folder = folder;
   }
 
-  public String check(String canonical, String packageId, String version, String historyPage) throws IOException { 
+  public String check(String canonical, String packageId, String version, String historyPage, String fhirVersion) throws IOException { 
     if (!canonical.contains("hl7.org") && !canonical.contains("fhir.org"))
       return "<ul><li>n/a - not an HL7.org or FHIR.org implementation guide</li></ul>\r\n";
     
@@ -72,6 +72,10 @@ public class BallotChecker {
             errors.add("package-list.json entry: must have a 'status' that describes the ballot status");
           if (!o.has("sequence"))
             errors.add("package-list.json entry: must have a 'sequence' that describes the ballot goal");
+          if (!o.has("fhir-version"))
+            errors.add("package-list.json entry: must have a 'fhir-version' that specifies the FHIR version ("+fhirVersion+")");
+          else if (!o.get("fhir-version").getAsString().equals(fhirVersion))
+            errors.add("package-list.json entry: must have a 'fhir-version' that entry with the right value - is '"+o.get("fhir-version").getAsString()+"', should start with '"+fhirVersion+"'");
           if (!o.has("path"))
             errors.add("package-list.json entry: must have a 'path' where it will be published");
           else if (!o.get("path").getAsString().startsWith(canonical))
