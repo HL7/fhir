@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="etsi-signature-type"/>
+  <url value="http://uri.etsi.org/01903/v1.2.2"/>
+  <name value="ETSISignatureTypeCodes"/>
+  <title value="ETSI Signature Type Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="ETSI"/>
+  <description value="The ETSI TS 101 733 V2.2.1 (2013-04) - Electronic Signatures and Infrastructures (ESI) - defines a set of Commitment Types (Purpose of Signature). ETSI TS 101 903 V1.2.2 defines vocabulary identifiers for these Commitment Types. Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. "/>
+  <copyright value="These codes are excerpted from ETSI Standard for Digital Signatures and XAdES, Copyright by ETSI International. Copies of this standard are available through the ETSI Web Site at www.etsi.org."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="ProofOfOrigin"/>
+    <display value="Proof of origin"/>
+    <definition value="indicates that the signer recognizes to have created, approved and sent the signed data object."/>
+  </concept>
+  <concept>
+    <code value="ProofOfReceipt"/>
+    <display value="Proof of receipt"/>
+    <definition value="indicates that signer recognizes to have received the content of the signed data object."/>
+  </concept>
+  <concept>
+    <code value="ProofOfDelivery"/>
+    <display value="Proof of delivery"/>
+    <definition value="indicates that the TSP providing that indication has delivered a signed data object in a local store accessible to the recipient of the signed data object."/>
+  </concept>
+  <concept>
+    <code value="ProofOfSender"/>
+    <display value="Proof of sender"/>
+    <definition value="indicates that the entity providing that indication has sent the signed data object (but not necessarily created it)."/>
+  </concept>
+  <concept>
+    <code value="ProofOfapproval"/>
+    <display value="Proof of approval"/>
+    <definition value="indicates that the signer has approved the content of the signed data object."/>
+  </concept>
+  <concept>
+    <code value="ProofOfCreation"/>
+    <display value="Proof of creation"/>
+    <definition value="indicates that the signer has created the signed data object (but not necessarily approved, nor sent it)."/>
+  </concept>
+</CodeSystem>
