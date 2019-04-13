@@ -511,6 +511,11 @@ public class IgSpreadsheetParser {
       if (sheet.hasColumn("max-valueset") && !Utilities.noString(sheet.getColumn(row, "max-valueset"))) {
         bs.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").setValue(new CanonicalType(sheet.getColumn(row, "max-valueset")));
       }
+
+      if (sheet.hasColumn("min-valueset") && !Utilities.noString(sheet.getColumn(row, "min-valueset"))) {
+                bs.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-minValueSet").setValue(new CanonicalType(sheet.getColumn(row, "min-valueset")));
+      }
+
       String type = sheet.getColumn(row, "Binding");
       if (type == null || "".equals(type) || "unbound".equals(type)) {
         // nothing
@@ -959,14 +964,14 @@ public class IgSpreadsheetParser {
       try {
         return json.parseType(source, type);
       } catch (Exception e2) {
-        throw new Exception("Unable to parse json string: " + source+" as "+type+" because "+e2.getMessage(), e2); 
+        throw new Exception("Unable to parse json string: " + source+" as "+type+" because "+e2.getMessage(), e2);
       }
     } else if (source.startsWith("<")) {
       XmlParser xml = new XmlParser();
       try {
         return xml.parseType(source, type);
       } catch (Exception e2) {
-        throw new Exception("Unable to parse xml string: " + source+" as "+type+" because "+e2.getMessage(), e2); 
+        throw new Exception("Unable to parse xml string: " + source+" as "+type+" because "+e2.getMessage(), e2);
       }
     } else {
       source = source.trim();
