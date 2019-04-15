@@ -11,12 +11,14 @@ public class IgExistenceScanner {
   public static void main(String[] args) throws FileNotFoundException, IOException {
     System.out.println("looking for IGs in "+args[0]);
     List<String> igs = scanForIgs(args[0]);
+    IGRegistryMaintainer reg = new IGRegistryMaintainer(args.length > 2 ? args[2] : null);
     System.out.println("found: ");
     for (String s : igs) {
       System.out.println(s);
-      new IGReleaseUpdater(s, args[1], args[0]).check();
+      new IGReleaseUpdater(s, args[1], args[0], reg).check();
     }
     System.out.println("==================== ");
+    reg.finish();
   }
   
   public static List<String> scanForIgs(String folder) {

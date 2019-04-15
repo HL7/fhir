@@ -39,11 +39,7 @@ public class ValidationServices implements IValidatorResourceFetcher {
     this.ipg = ipg;
     this.files = files;
     this.packages = packages;
-    
-    otherUrls.add("http://hl7.org/fhir/sid/us-ssn");
-    otherUrls.add("http://hl7.org/fhir/sid/us-npi");
-    otherUrls.add("http://hl7.org/fhir/sid/icd-10-vn");
-    otherUrls.add("http://hl7.org/fhir/w5");
+    initOtherUrls();
   }
 
   @Override
@@ -163,6 +159,14 @@ public class ValidationServices implements IValidatorResourceFetcher {
 
   public List<String> getOtherUrls() {
     return otherUrls;
+  }
+
+  public void initOtherUrls() {
+    otherUrls.clear();
+    otherUrls.add("http://hl7.org/fhir/sid/us-ssn");
+    otherUrls.add("http://hl7.org/fhir/sid/us-npi");
+    otherUrls.add("http://hl7.org/fhir/sid/icd-10-vn");
+    otherUrls.add("http://hl7.org/fhir/w5");
   }
 
 }

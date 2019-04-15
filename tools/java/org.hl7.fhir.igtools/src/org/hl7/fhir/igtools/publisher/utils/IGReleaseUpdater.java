@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.igtools.publisher.utils.IGRegistryMaintainer.ImplementationGuideEntry;
+import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.json.JsonTrackingParser;
@@ -21,11 +24,13 @@ public class IGReleaseUpdater {
   private String folder;
   private String url;
   private String rootFolder;
+  private IGRegistryMaintainer reg;
 
-  public IGReleaseUpdater(String folder, String url, String rootFolder) {
+  public IGReleaseUpdater(String folder, String url, String rootFolder, IGRegistryMaintainer reg) {
     this.folder = folder;
     this.url = url;
     this.rootFolder = rootFolder;
+    this.reg = reg;
   }
 
   public void check()  {
@@ -49,11 +54,14 @@ public class IGReleaseUpdater {
           }
         }
         boolean save = false;
-        
+        ImplementationGuideEntry rc = reg.seeIg(json.get("package-id").getAsString(), canonical, json.get("title").getAsString());
+        boolean hasRelease = false;
         List<String> folders = new ArrayList<>();
         for (JsonElement n : list) {
           JsonObject o = (JsonObject) n;
-          if (!o.get("version").getAsString().equals("current")) {
+          if (o.get("version").getAsString().equals("current")) {
+            reg.seeCiBuild(rc, o.get("path").getAsString());
+          } else {
             String v = o.get("version").getAsString();
             if (!o.has("path"))
               errs.add("version "+v+" has no path'"); 
@@ -70,6 +78,11 @@ public class IGReleaseUpdater {
               }
               if (o.has("current"))
                 root = o;
+              if (o.get("status").getAsString().equals("release") || o.get("status").getAsString().equals("trial-use") ) {
+                reg.seeRelease(rc, o.get("sequence").getAsString(), o.get("version").getAsString(), o.get("fhirversion").getAsString(), o.get("path").getAsString());
+                hasRelease = true;
+              } else if (!hasRelease && FHIRVersion.isValidCode(o.get("fhirversion").getAsString()))
+                reg.seeCandidate(rc, o.get("sequence").getAsString()+" "+Utilities.titleize(o.get("status").getAsString()), o.get("version").getAsString(), o.get("fhirversion").getAsString(), o.get("path").getAsString());
             }
           }
         }
@@ -79,7 +92,7 @@ public class IGReleaseUpdater {
           TextFile.stringToFile(new GsonBuilder().setPrettyPrinting().create().toJson(json), f, false);
       }
         
-    } catch (Exception e) {
+    } catch (Exception e) {e.printStackTrace();
       errs.add(e.getMessage());
     }
     if (errs.size() == 0)
@@ -92,13 +105,15 @@ public class IGReleaseUpdater {
     }
   }
 
-  private boolean updateStatement(String vf, List<String> ignoreList, JsonObject ig, JsonObject version, List<String> errs, JsonObject root, String canonical) throws FileNotFoundException, IOException {
+  private boolean updateStatement(String vf, List<String> ignoreList, JsonObject ig, JsonObject version, List<String> errs, JsonObject root, String canonical) throws FileNotFoundException, IOException, FHIRException {
     boolean vc = false;
     String fragment = genFragment(ig, version, root, canonical);
     System.out.println("  "+vf+": "+fragment);
     IGReleaseVersionUpdater igvu = new IGReleaseVersionUpdater(vf, ignoreList, version);
     igvu.updateStatement(fragment);
     System.out.println("    .. "+igvu.getCountTotal()+" files checked, "+igvu.getCountUpdated()+" updated");
+    IGPackageChecker pc = new IGPackageChecker(vf, canonical, version.get("path").getAsString(), ig.get("package-id").getAsString());
+    pc.check(version.get("version").getAsString(), version.get("fhirversion").getAsString(), ig.get("title").getAsString(), version.get("date").getAsString());
     IGReleaseRedirectionBuilder rb = new IGReleaseRedirectionBuilder(vf, canonical, version.get("path").getAsString());
     if (canonical.contains("fhir.org"))
       rb.buildApacheRedirections();
@@ -129,11 +144,55 @@ public class IGReleaseUpdater {
    * @return
    */
   private String genFragment(JsonObject ig, JsonObject version, JsonObject root, String canonical) {
-    String p1 = ig.get("title").getAsString()+" (v"+version.get("version").getAsString()+": "+state(ig, version)+").";
-    String p2 = root == null ? "" : version == root ? " This is the current published version" : " The current version is <a href=\""+(root.get("path").getAsString().startsWith(canonical) ? canonical : root.get("path").getAsString())+"\">"+root.get("version").getAsString()+"</a>";
-    p2 = p2 + (version.has("fhirversion") ? " based on <a href=\"http://hl7.org/fhir/"+version.get("fhirversion").getAsString()+"\">FHIR "+fhirRef(version.get("fhirversion").getAsString())+"</a>" : "")+". ";
-    String p3 = " See the <a href=\""+Utilities.pathURL(canonical, "history.cfml")+"\">Directory of published versions</a>";
+    String p1 = ig.get("title").getAsString()+" (v"+version.get("version").getAsString()+": "+state(ig, version)+")";
+    String p2 = root == null ? "" : version == root ? ". This is the current published version" : ". The current version is <a href=\""+(root.get("path").getAsString().startsWith(canonical) ? canonical : root.get("path").getAsString())+"\">"+root.get("version").getAsString()+"</a>";
+    p2 = p2 + (version.has("fhirversion") ? " based on <a href=\"http://hl7.org/fhir/"+getPath(version.get("fhirversion").getAsString())+"\">FHIR "+fhirRef(version.get("fhirversion").getAsString())+"</a>" : "")+". ";
+    String p3 = " See the <a href=\""+Utilities.pathURL(canonical, canonical.contains("fhir.org") ? "history.shtml" : "history.cfml")+"\">Directory of published versions</a>";
     return p1+p2+p3;
+  }
+
+  private String getPath(String v) {
+    if ("4.0.0".equals(v))
+      return "R4";
+    if ("3.5a.0".equals(v))
+      return "2018Dec";
+    if ("3.5.0".equals(v))
+      return "2018Sep";
+    if ("3.3.0".equals(v))
+      return "2018May";
+    if ("3.2.0".equals(v))
+      return "2018Jan";
+    if ("3.0.1".equals(v))
+      return "STU3";
+    if ("1.8.0".equals(v))
+      return "2017Jan";
+    if ("1.6.0".equals(v))
+      return "2016Sep";
+    if ("1.4.0".equals(v))
+      return "2016May";
+    if ("1.1.0".equals(v))
+      return "2015Dec";
+    if ("1.0.2".equals(v))
+      return "DSTU2";
+    if ("1.0.0".equals(v))
+      return "2015Sep";
+    if ("0.5.0".equals(v))
+      return "2015May";
+    if ("0.4.0".equals(v))
+      return "2015Jan";
+    if ("0.0.82".equals(v))
+      return "DSTU1";
+    if ("0.11".equals(v))
+      return "2013Sep";
+    if ("0.06".equals(v))
+      return "2013Jan";
+    if ("0.05".equals(v))
+      return "2012Sep";
+    if ("0.01".equals(v))
+      return "2012May";
+    if ("current".equals(v))
+      return "2011Aug";
+    return v;
   }
 
   private String fhirRef(String v) {
