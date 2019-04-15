@@ -22,7 +22,7 @@
               <display value="Potassium Chloride"/>
             </coding>
           </itemCodeableConcept>
-          <strength>
+          <strengthRatio>
             <numerator>
               <value value="2"/>
               <system value="http://unitsofmeasure.org"/>
@@ -33,7 +33,7 @@
               <system value="http://unitsofmeasure.org"/>
               <code value="mL"/>
             </denominator>
-          </strength>
+          </strengthRatio>
         </ingredient>
         <ingredient>
           <itemCodeableConcept>
@@ -43,7 +43,7 @@
               <display value="Sodium Chloride 0.9% injectable solution"/>
             </coding>
           </itemCodeableConcept>
-          <strength>
+          <strengthRatio>
             <numerator>
               <value value="0.9"/>
               <system value="http://unitsofmeasure.org"/>
@@ -54,7 +54,7 @@
               <system value="http://unitsofmeasure.org"/>
               <code value="mL"/>
             </denominator>
-          </strength>
+          </strengthRatio>
         </ingredient>   
     </Medication>
   </contained>

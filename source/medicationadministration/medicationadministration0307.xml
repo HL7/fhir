@@ -28,7 +28,7 @@
               <display value="Lorazepam (substance)"/>
             </coding>
           </itemCodeableConcept>
-          <strength>
+          <strengthRatio>
             <numerator>
               <value value="2"/>
               <system value="http://unitsofmeasure.org"/>
@@ -39,7 +39,7 @@
               <system value="http://unitsofmeasure.org"/>
               <code value="mL"/>
             </denominator>
-          </strength>
+          </strengthRatio>
         </ingredient>
       
     </Medication>

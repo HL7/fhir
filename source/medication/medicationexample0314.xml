@@ -24,7 +24,7 @@
           <display value="Alprazolam (substance)"/>
         </coding>
       </itemCodeableConcept>
-      <strength>
+      <strengthRatio>
         <numerator>
           <value value="0.25"/>
           <system value="http://unitsofmeasure.org"/>
@@ -36,7 +36,7 @@
           <system value="http://snomed.info/sct"/>
           <code value="385055001"/>
         </denominator>
-      </strength>
+      </strengthRatio>
     </ingredient>
   
 </Medication>

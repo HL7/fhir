@@ -34,7 +34,7 @@
         </coding>
       </itemCodeableConcept>
       <isActive value="true"></isActive>
-      <strength>
+      <strengthRatio>
         <numerator>
           <value value="500"/>
           <system value="http://unitsofmeasure.org"/>
@@ -45,7 +45,7 @@
           <system value="http://unitsofmeasure.org"/>
           <code value="mL"/>
         </denominator>
-      </strength>
+      </strengthRatio>
     </ingredient>
   <batch>
     <lotNumber value="9494788"/>

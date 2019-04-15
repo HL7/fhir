@@ -117,7 +117,7 @@
         <itemReference>
           <reference value="#metoprololTartrate25Substance" />
         </itemReference>
-        <strength>
+        <strengthRatio>
           <numerator>
             <value value="25" />
             <unit value="mg" />
@@ -126,7 +126,7 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </strength>
+        </strengthRatio>
       </ingredient>
     </Medication>
   </contained>
@@ -211,7 +211,7 @@
         <itemReference>
           <reference value="#metoprololTartrate50Substance" />
         </itemReference>
-        <strength>
+        <strengthRatio>
           <numerator>
             <value value="50" />
             <unit value="mg" />
@@ -220,7 +220,7 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </strength>
+        </strengthRatio>
       </ingredient>
     </Medication>
   </contained>
@@ -400,7 +400,7 @@
         <itemReference>
           <reference value="#nitroglycerinSubstance" />
         </itemReference>
-        <strength>
+        <strengthRatio>
           <numerator>
             <value value="0.4" />
             <unit value="mg" />
@@ -409,7 +409,7 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </strength>
+        </strengthRatio>
       </ingredient>
     </Medication>
   </contained>
