@@ -32,7 +32,7 @@
       <itemReference>
         <reference value="#sub03"/>
       </itemReference>
-      <strength>
+      <strengthRatio>
         <numerator>
           <value value="500"/>
           <system value="http://unitsofmeasure.org"/>
@@ -44,7 +44,7 @@
           <system value="http://snomed.info/sct"/>
           <code value="385055001"/>
         </denominator>
-      </strength>
+      </strengthRatio>
     </ingredient>
   
 </Medication>

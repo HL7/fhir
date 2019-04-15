@@ -33,7 +33,7 @@
           <display value="Oxycodone HCl"/>
         </coding>
       </itemCodeableConcept>
-      <strength>
+      <strengthRatio>
         <numerator>
           <value value="5"/>
           <system value="http://unitsofmeasure.org"/>
@@ -44,7 +44,7 @@
           <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
           <code value="TAB"/>
         </denominator>
-      </strength>
+      </strengthRatio>
     </ingredient>
     <ingredient>
       <itemCodeableConcept>
@@ -54,7 +54,7 @@
           <display value="Acetaminophen"/>
         </coding>
       </itemCodeableConcept>
-      <strength>
+      <strengthRatio>
         <numerator>
           <value value="325"/>
           <system value="http://unitsofmeasure.org"/>
@@ -65,7 +65,7 @@
           <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
           <code value="TAB"/>
         </denominator>
-      </strength>
+      </strengthRatio>
     </ingredient>
   <batch>
     <lotNumber value="658484"/>
