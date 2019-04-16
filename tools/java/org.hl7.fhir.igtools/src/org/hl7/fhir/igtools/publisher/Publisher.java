@@ -1800,7 +1800,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
 
   private boolean load() throws Exception {
-    validationFetcher.getOtherUrls().clear();
+    validationFetcher.initOtherUrls();
     fileList.clear();
     changeList.clear();
     bndIds.clear();
