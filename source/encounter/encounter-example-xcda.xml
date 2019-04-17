@@ -6,7 +6,7 @@
     <system value="http://healthcare.example.org/identifiers/enocunter"/>
     <value value="1234213.52345873"/>
   </identifier>
-  <status value="finished"/>
+  <status value="completed"/>
     <class>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
         <code value="AMB"/> <!-- outpatient -->

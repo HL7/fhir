@@ -6,14 +6,14 @@
         <use value="temp"/>
         <value value="Encounter_Roel_20130311"/>
     </identifier>
-    <status value="finished"/>
+    <status value="completed"/>
     <statusHistory>
-        <status value="arrived"/>
+        <status value="in-progress"/>
         <period>
             <start value="2013-03-08"/>
         </period>
     </statusHistory>
-    <!--Encounter has finished-->
+    <!--Encounter has been completed-->
     <class>
         <!--Inpatient encounter for straphylococcus infection-->
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
