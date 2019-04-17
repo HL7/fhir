@@ -6,7 +6,7 @@
 		<system value="http://www.bmc.nl/zorgportal/identifiers/encounters"/>
 		<value value="v6751"/>
 	</identifier>
-	<status value="finished"/>
+	<status value="completed"/>
 	<class>
 		<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
 		<code value="AMB"/>

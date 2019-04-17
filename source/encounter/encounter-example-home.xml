@@ -13,7 +13,7 @@
 			<mode value="kind"/>
 		</Location>
 	</contained>
-	<status value="finished" />
+	<status value="completed" />
 	<class>
 		<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
 		<!-- Note that this value implies that the practitioner was at the patients home, 
