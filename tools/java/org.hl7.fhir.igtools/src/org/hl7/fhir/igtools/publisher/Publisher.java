@@ -4926,6 +4926,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       logMessage(msg);
   }
 
+  public static void prop(StringBuilder b, String name, String value) {
+    b.append(name+": ");
+    b.append(value);
+    b.append("\r\n");
+  }
+  
   public static String buildReport(String ig, String source, String log, String qafile) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("= Log =\r\n");
@@ -4933,35 +4939,18 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     b.append("\r\n\r\n");
     b.append("= System =\r\n");
 
-    b.append("ig: ");
-    b.append(ig);
-    b.append("\r\n");
-
-    b.append("current.dir: ");
-    b.append(getCurentDirectory());
-    b.append("\r\n");
-
-    b.append("ig: ");
-    b.append(ig);
-    b.append("\r\n");
-
-    b.append("source: ");
-    b.append(source);
-    b.append("\r\n");
-
-    b.append("user.dir: ");
-    b.append(System.getProperty("user.home"));
-    b.append("\r\n");
-
-    b.append("tx.server: ");
-    b.append(txServer);
-    b.append("\r\n");
-
-    b.append("tx.cache: ");
-    b.append(Utilities.path(System.getProperty("user.home"), "fhircache"));
-    b.append("\r\n");
-
-    b.append("\r\n");
+    prop(b, "ig", ig);
+    prop(b, "current.dir:", getCurentDirectory());
+    prop(b, "source", source);
+    prop(b, "user.dir", System.getProperty("user.home"));
+    prop(b, "tx.server", txServer);
+    prop(b, "tx.cache", Utilities.path(System.getProperty("user.home"), "fhircache"));
+    prop(b, "system.type", System.getProperty("sun.arch.data.model"));
+    prop(b, "system.cores", Integer.toString(Runtime.getRuntime().availableProcessors()));   
+    prop(b, "system.mem.free", Long.toString(Runtime.getRuntime().freeMemory()));   
+    long maxMemory = Runtime.getRuntime().maxMemory();
+    prop(b, "system.mem.max", maxMemory == Long.MAX_VALUE ? "no limit" : Long.toString(maxMemory));   
+    prop(b, "system.mem.total", Long.toString(Runtime.getRuntime().totalMemory()));   
 
     b.append("= Validation =\r\n");
     if (qafile != null && new File(qafile).exists())
