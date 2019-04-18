@@ -18,13 +18,13 @@
   <manufacturer>
     <reference value="#org3" />
   </manufacturer>
-    <form>
+    <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="421637006"/>
         <display value="Lyophilized powder for injectable solution (qualifier value) "/>
       </coding>
-    </form>
+    </doseForm>
   <batch>
     <lotNumber value="12345"/>
     <expirationDate value="2019-10-31"/>

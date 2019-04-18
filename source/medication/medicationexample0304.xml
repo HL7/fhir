@@ -18,13 +18,13 @@
   <manufacturer>
     <reference value="#org6"/>
   </manufacturer>
-    <form>
+    <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385057009"/>
         <display value="Film-coated tablet (qualifier value)"/>
       </coding>
-    </form>
+    </doseForm>
     <ingredient>
       <itemCodeableConcept>
         <coding>

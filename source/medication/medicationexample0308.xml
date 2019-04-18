@@ -18,13 +18,13 @@
   <manufacturer>
     <reference value="#org1"/>
   </manufacturer>
-    <form>
+    <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385055001"/>
         <display value="Tablet dose form (qualifier value)"/>
       </coding>
-    </form>
+    </doseForm>
     <ingredient>
       <itemCodeableConcept>
         <coding>

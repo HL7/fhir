@@ -14,13 +14,13 @@
                 </coding>
             </code>
 
-                <form>
+                <doseForm>
                     <coding>
                         <system value="http://snomed.info/sct"/>
                         <code value="385219001"/>
                         <display value="Injection solution (qualifier value)"/>
                     </coding>
-                </form>
+                </doseForm>
                 <ingredient>
                     <itemCodeableConcept>
                         <coding>
