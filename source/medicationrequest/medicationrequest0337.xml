@@ -6,14 +6,14 @@
     <contained>
         <Medication>
             <id value="med0337"/>
-                <form>
+                <doseForm>
                     <coding>
                         <system value="http://snomed.info/sct"/>
                         <code value="385219001"/>
                         <display value="Injection Solution (qualifier value)"/>
                     </coding>
                     <text value="Injection Solution (qualifier value)"/>
-                </form>
+                </doseForm>
                 <ingredient>
                     <itemCodeableConcept>
                         <coding>
