@@ -2886,36 +2886,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.close();
     
-      page.log("....IG Builder (1)", LogMessageType.Process);
-      zip = new ZipGenerator(page.getFolders().tmpDir + "ig-template.zip");
-      zip.addFolder(Utilities.path(page.getFolders().rootDir, "tools", "ig"), "", false, null);
-      zip.close();
-
-      zip = new ZipGenerator(page.getFolders().dstDir + "igpack.zip");
-      zip.addFileName("fhir.css", page.getFolders().dstDir + "fhir.css", false);
-      zip.addFileName("spec.internals", page.getFolders().dstDir + "spec.internals", false);
-      zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
-      zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
-      zip.addFileName("profiles-others.xml", page.getFolders().dstDir + "profiles-others.xml", false);
-      zip.addFileName("extension-definitions.xml", page.getFolders().dstDir + "extension-definitions.xml", false);
-      zip.addFileName("search-parameters.xml", page.getFolders().dstDir + "search-parameters.xml", false);
-      zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
-      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
-      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
-      zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
-      zip.addFileName("dataelements.xml", page.getFolders().dstDir + "dataelements.xml", false);
-      zip.addFileName("version.info", page.getFolders().dstDir + "version.info", false);
-      zip.addFileName("mappingSpaces.details", page.getFolders().srcDir + "mappingSpaces.xml", false);
-      zip.addFileName("redirect.asp.template", page.getFolders().srcDir + "redirect.asp", false);
-      zip.addFileName("redirect.cgi.template", page.getFolders().srcDir + "redirect.cgi", false);
-      zip.addFileName("redirect.php.template", page.getFolders().srcDir + "redirect.php", false);
-      zip.addFileName("ig-template.zip", Utilities.path(page.getFolders().tmpDir, "ig-template.zip"), false);
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".png", null);
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".gif", null);
-      zip.close();
-      page.log("....IG Builder (2)", LogMessageType.Process);
-      javaReferencePlatform.buildIGPublisher(page.getFolders().dstDir + "igpack.zip");
-
       SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
       self.generate(page.getFolders().dstDir, page.getBaseURL(), false, new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()));
 
