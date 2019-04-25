@@ -149,8 +149,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   public void generate(Definitions definitions, String destDir, String actualImpl, String implDir, String version, Date genDate, Logger logger, String buildId) throws Exception {
     char sl = File.separatorChar;
     this.genDate = genDate;
-    javaDir       =  implDir+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl;
-    javaParserDir =  implDir+"org.hl7.fhir.r5"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl;
+    javaDir       =  implDir+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"model"+sl;
+    javaParserDir =  implDir+"org.hl7.fhir.r5"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"formats"+sl;
     Utilities.createDirectory(javaDir);
     Utilities.createDirectory(Utilities.path(javaDir, "codesystems"));
     Utilities.createDirectory(javaParserDir);
@@ -273,12 +273,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jConv.generate(definitions, version, genDate);
     jConv.flush();
     jConv.close();
-    TextFile.stringToFileNoPrefix(makeConstantsClass(version, buildId, genDate), implDir+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+"Constants.java");
+    TextFile.stringToFileNoPrefix(makeConstantsClass(version, buildId, genDate), implDir+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"model"+sl+"Constants.java");
 
     // FIXME: JA - Commented out, maybe even more can be
 //    ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
-//    zip.addFiles(actualImpl+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl, "org/hl7/fhir/r4/formats/", ".java", null);
-//    zip.addFiles(actualImpl+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl, "org/hl7/fhir/r4/model/", ".java", null);
+//    zip.addFiles(actualImpl+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"formats"+sl, "org/hl7/fhir/r5/formats/", ".java", null);
+//    zip.addFiles(actualImpl+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"model"+sl, "org/hl7/fhir/r5/model/", ".java", null);
 //    zip.addFiles(actualImpl+"org.hl7.fhir.rdf"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"rdf"+sl, "org/hl7/fhir/rdf/", ".java", null);
 //    zip.addFiles(actualImpl+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl, "org/hl7/fhir/utilities/", ".java", null);
 //    zip.addFiles(actualImpl+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xhtml"+sl, "org/hl7/fhir/utilities/xhtml/", ".java", null);
@@ -304,7 +304,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     saveEnumInfo();
   }
 
-  private static final String CACHEFILE = "c:\\temp\\java.enums.r4.cache";
+  private static final String CACHEFILE = "c:\\temp\\java.enums.r5.cache";
   
   private void saveEnumInfo() throws IOException {
     if (new File("C:\\temp").exists()) {
@@ -445,7 +445,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 //
 //
 //
-//    int r = ToolProvider.getSystemJavaCompiler().run(null, null, null, folders.rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.r5"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+"Type.java");
+//    int r = ToolProvider.getSystemJavaCompiler().run(null, null, null, folders.rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.r5"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"model"+sl+"Type.java");
 //    return r == 0;
 //  }
 
@@ -782,14 +782,14 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
     
     AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.7.0-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu3-3.7.27-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2016may-3.7.27-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r4-3.7.27-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r5-3.7.27-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.utilities-3.7.27-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.validation-3.7.27-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.convertors-3.7.27-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2-3.7.27-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu3-3.7.29-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2016may-3.7.29-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r5-3.7.29-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r5-3.7.29-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.utilities-3.7.29-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.validation-3.7.29-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.convertors-3.7.29-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2-3.7.29-SNAPSHOT.jar"), names);
     
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools",           "java", "org.hl7.fhir.igtools",     "bin")), Utilities.path(folders.rootDir, "tools",           "java", "org.hl7.fhir.igtools",     "bin").length()+1, names);
     jar.close();

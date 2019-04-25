@@ -1133,7 +1133,9 @@ public class ResourceValidator extends BaseValidator {
 
   // grand fathered in, to be removed
 	private boolean isExemptFromProperBindingRules(String path) {
-    return Utilities.existsInList(path, "ModuleMetadata.type", "ActionDefinition.type", "ElementDefinition.type.code", "Account.status", "MedicationOrder.category", "MedicationStatement.category", "Sequence.type", "StructureDefinition.type", "TriggerDefinition.condition.language");
+    return Utilities.existsInList(path, "ModuleMetadata.type", 
+        "ActionDefinition.type", "ElementDefinition.type.code", "Account.status", "MedicationOrder.category", "MedicationStatement.category", "Sequence.type", 
+        "StructureDefinition.type", "ImplementationGuide.definition.parameter.code", "TriggerDefinition.condition.language");
   }
 
   private boolean hasInternalReference(ValueSet vs) {

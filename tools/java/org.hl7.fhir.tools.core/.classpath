@@ -27,7 +27,6 @@
 	<classpathentry kind="lib" path="../imports/commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="lib" path="../imports/junit-4.11.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.igtools"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu2"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.convertors"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.validation"/>
@@ -54,5 +53,6 @@
 	<classpathentry kind="lib" path="../imports/hapi-fhir-base-3.7.0-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="../imports/gson-2.8.5.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.publisher.core"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
