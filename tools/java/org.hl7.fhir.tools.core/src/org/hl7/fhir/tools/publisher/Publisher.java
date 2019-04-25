@@ -124,7 +124,6 @@ import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
-import org.hl7.fhir.igtools.tests.AllGuidesTests;
 import org.hl7.fhir.r5.conformance.ProfileComparer;
 import org.hl7.fhir.r5.conformance.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
