@@ -2886,7 +2886,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.close();
     
-      page.log("....IG Builder (1)", LogMessageType.Process);
+      page.log("....IG Builder Resources", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().tmpDir + "ig-template.zip");
       zip.addFolder(Utilities.path(page.getFolders().rootDir, "tools", "ig"), "", false, null);
       zip.close();
@@ -2914,7 +2914,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "publish", ""), "", ".gif", null);
       zip.close();
       page.log("....IG Builder (2)", LogMessageType.Process);
-      javaReferencePlatform.buildIGPublisher(page.getFolders().dstDir + "igpack.zip");
 
       SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
       self.generate(page.getFolders().dstDir, page.getBaseURL(), false, new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()));

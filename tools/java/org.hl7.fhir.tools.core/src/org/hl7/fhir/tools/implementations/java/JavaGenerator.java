@@ -743,59 +743,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
   }
 
-  public void buildIGPublisher(String packFileName) throws Exception {
-    Manifest manifest = new Manifest();
-    manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
-    manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
-    manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.igtools.publisher.Publisher");
-
-    JarOutputStream jar = new JarOutputStream(new FileOutputStream(Utilities.path(folders.dstDir, "org.hl7.fhir.igpublisher.jar")), manifest);
-    List<String> names = new ArrayList<String>();
-    names.add("META-INF/");
-    names.add("META-INF/MANIFEST.MF");
-
-    String importsDir = Utilities.path(folders.rootDir, "tools", "java", "imports");
-    AddJarToJar(jar, Utilities.path(importsDir, "xmlbeans-2.6.0.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "xpp3-1.1.4c.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "gson-2.8.5.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-codec-1.9.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-collections4-4.1.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-compress-1.16.1.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-io-1.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-lang3-3.3.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-1.1.1.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-api-1.1.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-exec-1.3.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "poi-3.17.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "poi-ooxml-3.17.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "ooxml-schemas-1.3.jar"), names);
-
-    AddJarToJar(jar, Utilities.path(importsDir, "Saxon-HE-9.5.1-5.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "xpp3_xpath-1.1.4c.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "ST4-4.0.7.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "txtmark-0.11.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commonmark-0.12.1.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commonmark-ext-gfm-tables-0.12.1.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "antlr-runtime-3.5.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
-    
-    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.7.0-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu3-3.7.29-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2016may-3.7.29-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r5-3.7.29-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.r5-3.7.29-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.utilities-3.7.29-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.validation-3.7.29-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.convertors-3.7.29-SNAPSHOT.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "org.hl7.fhir.dstu2-3.7.29-SNAPSHOT.jar"), names);
-    
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools",           "java", "org.hl7.fhir.igtools",     "bin")), Utilities.path(folders.rootDir, "tools",           "java", "org.hl7.fhir.igtools",     "bin").length()+1, names);
-    jar.close();
-    
-  }
-
   private boolean hasBinIGTools(String path) {
     File file = new File(path);
     return containsClassFiles(file);

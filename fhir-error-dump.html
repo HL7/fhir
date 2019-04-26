@@ -1,18 +1,16 @@
 ﻿<!DOCTYPE HTML>
 
 
-      
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Validation - FHIR v4.1.0</title>
+  <title>Downloads - FHIR v4.1.0</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="author" content="http://hl7.org/fhir"/>
 
   <link href="fhir.css" rel="stylesheet"/>
-  <link rel="Prev" href="http://hl7.org/fhir/validation.html"/>
+  <link rel="Prev" href="http://hl7.org/fhir/downloads.html"/>
 
   <!-- Bootstrap core CSS -->
   <link href="./dist/css/bootstrap.css" rel="stylesheet"/>
@@ -93,7 +91,7 @@
 		<div class="container"><!-- container -->	
 			<ul class="breadcrumb">
         <li><a href="implsupport-module.html"><img src="implsupport.png"/> Implementation Support</a></li>
-        <li><b>Validating Resources</b></li>        <!-- validation.html / page / -->
+        <li><b>Downloads</b></li>        <!-- downloads.html / page / -->
 
 			</ul>	
 		</div><!-- /container -->
@@ -110,333 +108,191 @@
 <div class="col-12">
 
 
-<h2>Validating Resources</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<h1>Downloads</h1>
 
-<p>
-This page provides an overview of how the FHIR specification supports validation of resources. 
-</p>
+<table class="colis"><tr><td id="wg"><a _target="blank" href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
-<p>
-Validating a resource means, checking that the following aspects of the resource are valid:
-</p>
-<ul>
-<li><b>Structure</b>: Check that all the content in the resource is described by the specification, and nothing extra is present</li>
-<li><b>Cardinality</b>: Check that the cardinality of all properties is correct (min &amp; max)</li>
-<li><b>Value Domains</b>: Check that the values of all properties conform to the rules for the specified types (including checking that enumerated codes are valid)</li>
-<li><b>Coding/CodeableConcept bindings</b>: Check that codes/displays provided in the <a href="datatypes.html#Coding">Coding</a>/<a href="datatypes.html#CodeableConcept">CodeableConcept</a> types are valid</li>
-<li><b>Invariants</b>: Check that the <a href="conformance-rules.html#constraints">invariants</a> (co-occurrence rules, etc.) have been followed correctly</li>
-<li><b>Profiles</b>: Check that any rules in <a href="profiling.html">profiles have been followed</a> (including those listed in the 
-  <a href="resource.html#Meta">Resource.meta.profile</a>, or in <a href="profiling.html#profile-uses">CapabilityStatement</a>, or 
-  in an <a href="implementationguide.html">ImplementationGuide</a>, or otherwise required by context)</li>
-<li><b>Questionnaires</b>: Check that a <a href="questionnaireresponse.html">QuestionnaireResponse</a> is valid against its matching <a href="questionnaire.html">Questionnaire</a></li>
-<li><b>Business Rules</b>: Business rules are made outside the specification, such as checking for duplicates, checking that references resolve, checking that a user is authorized to do what they want to do, etc.</li>
-</ul>
+<table class="lines">
 
-<p>
-There are multiple ways to validate resources. This table summarizes the options
-described in this specification, and which of the aspects above they can validate:
-</p>
+  <tr>
+    <td colspan="2" style="background: #eeeeee"><b>Specification Downloads</b></td>
+  </tr>
 
-<table class="grid">
- <tr>
-  <td><b>Method</b></td>
-  <td><b>XML</b></td>
-  <td><b>JSON</b></td>
-  <td><b>RDF</b></td>
-  <td><b>Structure</b></td>
-  <td><b>Cardinality</b></td>
-  <td><b>Values</b></td>
-  <td><b>Bindings</b></td>
-  <td><b>Invariants</b></td>
-  <td><b>Profiles</b></td>
-  <td><b>Questionnaires</b></td>
-  <td><b>Business Rules</b></td>
- </tr>
+  <tr>
+    <td>FHIR Definitions</td>
+    <td>All the value sets, profiles, etc. defined as part of the FHIR specification, and the included implementation guides:
+      <ul>
+       <li><a href="definitions.xml.zip">XML</a></li>
+       <li><a href="definitions.json.zip">JSON</a></li>
+       <li><a href="definitions-r2.xml.zip">Forge</a>: Special version of definitions for <a href="https://simplifier.net/Forge">Forge</a> (temporary)</li>
+      </ul>
+      This is the master set of definitions that should be the first choice whenever generating any implementation artifacts. All
+      the other forms below include only subsets of the information available in these definition files, and do not contain all of the rules about what makes resources valid. Implementers
+      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
 
- <tr>
-  <td><a href="#schema">XML Schema</a></td>
-  <td><img src="assets/images/tick.png"/></td> <!-- XML -->
-  <td></td> <!-- JSON -->
-  <td></td> <!-- RDF -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Structure -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Cardinality -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Values -->
-  <td></td> <!-- Bindings -->
-  <td></td> <!-- Invariants -->
-  <td></td> <!-- Profiles -->
-  <td></td> <!-- Questionnaires -->
-  <td></td> <!-- Business Rules -->
- </tr>
+  <tr>
+    <td>XML</td>
+    <td>
+      <ul>
+       <li><a href="examples.zip">Examples</a> - all the example resources in XML format</li>
+       <li><a href="fhir-all-xsd.zip">Validation Schemas</a> (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons)</li>
+       <li><a href="fhir-codegen-xsd.zip">Code Generation Schemas</a> (see <a href="xml.html#schema-gen">notes about code-generation schemas</a>)<br/>
+       <i>Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</i></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
 
- <tr>
-  <td><a href="#schema">XML Schema + Schematron</a></td>
-  <td><img src="assets/images/tick.png"/></td> <!-- XML -->
-  <td></td> <!-- JSON -->
-  <td></td> <!-- RDF -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Structure -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Cardinality -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Values -->
-  <td></td> <!-- Bindings -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Invariants -->
-  <td><img src="assets/images/tick.png"/><sup><b>1</b></sup></td> <!-- Profiles -->
-  <td></td> <!-- Questionnaires -->
-  <td></td> <!-- Business Rules -->
- </tr>
- 
- <tr>
-  <td><a href="#json-schema">JSON Schema</a></td>
-  <td></td> <!-- XML -->
-  <td><img src="assets/images/tick.png"/></td> <!-- JSON -->
-  <td></td> <!-- RDF -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Structure -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Cardinality -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Values -->
-  <td></td> <!-- Bindings -->
-  <td></td> <!-- Invariants -->
-  <td><img src="assets/images/tick.png"/><sup><b>2</b></sup></td> <!-- Profiles -->
-  <td></td> <!-- Questionnaires -->
-  <td></td> <!-- Business Rules -->
- </tr>
+  <tr>
+    <td>JSON</td>
+    <td>
+      <ul>
+       <li><a href="examples-json.zip">Examples</a> - all the example resources in JSON format</li>
+       <li><a href="fhir.schema.json.zip">JSON Schema</a> (Needs JSON Schema v1.6)</li>
+       <li><a href="examples-ndjson.zip">Examples</a> - all the example resources in <a href="nd-json.html">ND-JSON format</a> (bulk data format)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
 
- <tr>
-  <td><a href="rdf.html#schema">ShEx</a></td>
-  <td></td> <!-- XML -->
-  <td></td> <!-- JSON -->
-  <td><img src="assets/images/tick.png"/></td> <!-- RDF -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Structure -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Cardinality -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Values -->
-  <td><img src="assets/images/tick.png"/><sup><b>3</b></sup></td> <!-- Bindings -->
-  <td></td> <!-- Invariants -->
-  <td></td> <!-- Profiles -->
-  <td></td> <!-- Questionnaires -->
-  <td></td> <!-- Business Rules -->
- </tr>
- <tr>
-  <td><a href="#jar">Validator</a></td>
-  <td><img src="assets/images/tick.png"/></td> <!-- XML -->
-  <td><img src="assets/images/tick.png"/></td> <!-- JSON -->
-  <td><img src="assets/images/tick.png"/></td> <!-- RDF -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Structure -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Cardinality -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Values -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Bindings -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Invariants -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Profiles -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Questionnaires -->
-  <td></td> <!-- Business Rules -->
- </tr>
- <tr>
-  <td><a href="#op">Validation Operation</a><sup><b>4</b></sup></td>
-  <td><img src="assets/images/tick.png"/></td> <!-- XML -->
-  <td><img src="assets/images/tick.png"/></td> <!-- JSON -->
-  <td><img src="assets/images/tick.png"/></td> <!-- RDF -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Structure -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Cardinality -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Values -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Bindings -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Invariants -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Profiles -->
-  <td><img src="assets/images/tick.png"/></td> <!-- Questionnaires -->
-  <td></td> <!-- Business Rules -->
- </tr>
-</table>
-<p>
-Notes:
-</p>
-<ol>
- <li>Schematron generated for a profile can test cardinality and invariants, but not bindings, and slicing is not really supported well</li>
- <li>JSON schema generated for a profile can test cardinality, and slicing is partially supported</li>
- <li>ShEx can enforce some bindings for well understood terminologies, but this is an ongoing area of development</li>
- <li>It is at the discretion of the server how much validation to perform, but most servers use the validation jar, 
-   or code derived from it, and offer the same services. Some servers also offer <a href="#web">a web interface</a></li>
-</ol>
+  <tr>
+    <td>RDF</td>
+    <td>
+      <ul>
+       <li><a href="examples-ttl.zip">Turtle Examples</a> - all the example resources in Turtle format</li>
+       <li><a href="fhir.schema.shex.zip">ShEx Schemas</a> - <a href="https://www.w3.org/2001/sw/wiki/ShEx">ShEx</a> definitions for validating RDF resources</li>
+       <li><a href="fhir.rdf.ttl.zip">Definitions</a> - the formal definitions that define the predicates and classes used in the RDF format (not up to date)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
 
-<p>
-Note that all these validation methods are incomplete; they 
-can only validate the computable aspects of conformance. There are always 
-additional rules made in narrative that they are not able to check (e.g. a rule 
-such as "All the clinically important content in the data SHALL be in the 
-narrative", which might be made in an implementation guide, but could never be checked 
-by a conformance tool).
-</p>
-<p>
-In case of disagreement between these conformance methods, note that:
-</p>
-<ul>
- <li>The schema/schematron is the least capable - mainly because it is not connected to a terminology server</li>
- <li>The java validator is only as good as the underlying definitions, and depends on whether the underlying terminology server supports all the relevant terminologies</li>
- <li>In general, the server validation operations use or derive from the java validation code, so have the same caveats</li>
- <li>The final arbiter is human inspection of the content of the resources, and the relevant implementation guides and base specification</li>
-</ul>
+  <tr>
+    <td>FHIR Specification</td>
+    <td><!--<a href="fhir-spec.zip"> -->The whole specification<!--</a>--> so that you can host your own local copy (does not include the downloads) (not downloadable from build.fhir.org)</td>
+  </tr>
 
-<p>
-Also, note that static testing of resource content is not enough to
-prove conformance to the specification. For further information, see
-<a href="http://fhir.org/conformance-testing">FHIR Conformance Testing</a>.
-</p>
+  <tr>
+    <td colspan="2" style="background: #eeeeee"><b>Implementation Tools</b></td>
+  </tr>
 
-<a name="correct-use"></a>
-<h3>Correct Use of Validation</h3>
+  <tr>
+    <td>Validator</td>
+    <td>The <a href="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=ca.uhn.hapi.fhir&amp;a=org.hl7.fhir.validation.cli&amp;v=LATEST&amp;e=jar">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information, or <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">Using the FHIR Validator</a> for parameter documentation</td>
+  </tr>
 
-<p>
-Servers and clients may be configured to validate content when it is received (e.g. some of 
-the public testing services validate resources on create/update). This can be done both 
-during development and in production use of applications in healthcare processes. 
-While use during the development cycle is highly recommended, use during production 
-might not always be a good idea:
-</p>
-<ul>
- <li>Validation - particularly full validation including terminology - can be quite computationally demanding. 
-   This can impose unacceptable time delays in a production system</li>
- <li>In production, validation can cause the loss of critical health care data (e.g. one field 
-    has an unexpected value due to poor data entry, so all data associated with the resource is lost)</li>
- <li>Validation may fail poor historical data that cannot be fixed - and this is usually difficult to test (and poorly tested)</li>
-</ul>
-<p>
-On the other hand, validation during production use may be very important:
-</p>
-<ul>
- <li>Validation may be required for security reasons.  In particular, validation of narrative may be required to prevent active content or external references.</li>
- <li>Validating resources at specific control points in the data flow can allow for better detection and recovery as opposed to specific application logic failing on bad data</li>
-</ul>
-<p>
-Generally, following <a href="https://tools.ietf.org/html/rfc760">Postel's law</a> is recommended:
-</p>
-<blockquote>
-An implementation should be conservative in its sending behavior, and liberal in its receiving behavior.
-</blockquote>
-<p>
-Applications should consider carefully how much validation beyond the security related issues to perform at run-time, and how errors will be handled.
-</p>
+  <tr>
+    <td>IG Publisher</td>
+    <td>The <a href="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=org.hl7.fhir.publisher&a=org.hl7.fhir.publisher.cli&v=LATEST&e=jar">Implementation Guide Publishing Tool</a> (see <a href="https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation">IG Publishing documentation</a>)</td>
+  </tr>
 
-<a name="schema"></a>
-<h3>Using the XML schema</h3>
+  <tr>
+    <td>NPM Package</td>
+    <td>The <a href="package.tgz">NPM Package used by many of the FHIR tools</a> (particularly the IG publisher and the validator). 
+		This contains all the conformance &amp; example resources, and various publishing support files. Note that the tools usually find this package directly, and there's no need to download it</td>
+  </tr>
 
+  <tr>
+    <td>Translation File</td>
+    <td><a href="translations.xml">Translations of common FHIR names and messages</a> into multiple languages (see <a href="https://chat.fhir.org/#narrow/stream/10-translations">chat.fhir.org translations stream</a> for guidance on how to add to more)</td>
+  </tr>
+
+  <tr>
+    <td>Icon Pack</td>
+    <td>The <a href="icon-pack.zip">FHIR Icon at various resolutions</a>. Any FHIR Implementation created by an organization that has attended a connectathon is allowed to use the FHIR icon in association with the application (this policy will be reviewed in the future).</td>
+  </tr>
+
+  <tr>
+    <td>Test Cases</td>
+    <td>Test cases can mainly be found in the <a href="https://github.com/hapifhir/org.hl7.fhir.core/tree/master/org.hl7.fhir.r4/src/main/resources">org.hl7.fhir.core</a> repository</td>
+  </tr>
+
+  <tr>
+    <td>Code Generation Support</td>
+    <td>ValueSet expansions for the value sets used in schema generation (<a href="expansions.xml">XML</a> or <a href="expansions.json">JSON</a>) + a list of all <a href="choice-elements.json">choice elements</a> &amp; <a href="backbone-elements.json">backbone elements</a>.
+    Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" style="background: #eeeeee"><b>Reference Implementations</b><a name="refimpl"></a></td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+    There are many open source reference implementations available to help implementers.
+    Here are a list of the more common implementations used by implementers:
+    </td>
+  </tr>
+
+  <tr>
+   <td>Java</td>
+   <td>
+     <a href="http://jamesagnew.github.io/hapi-fhir/">HAPI-FHIR</a>:
+     Object Models, Parsers, Client + Server Framework, FHIR Validator, &amp; Utilities. The specification is built with this Java code
+   </td>
+  </tr>
+  <tr>
+   <td>C#</td>
+   <td>
+    <a href="http://www.nuget.org/packages/Hl7.Fhir">HL7.FHIR</a>:
+    Object models, Parsers/Serializers, Utilities, and a Client. Source code on GitHub at <a href="http://github.com/ewoutkramer/fhir-net-api">http://github.com/ewoutkramer/fhir-net-api</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Pascal</td>
+   <td>
+    <a href="http://github.com/grahamegrieve/fhirserver">FhirServer</a>:
+    Object models, Parsers/Serializers, Validator, Utilities, Client, and the FHIR Reference server. Requires <a href="https://www.embarcadero.com/products/delphi">Delphi</a> (Unicode versions)
+   </td>
+  </tr>
+  <tr>
+   <td>XML</td>
+   <td>
+    <a href="fhir-4.1.0-XMLTools-0.01.zip">XML Tools</a>:
+    Document Rendering Stylesheet, supplementary implementation schemas and transforms
+   </td>
+  </tr>
+  <tr>
+   <td>Javascript</td>
+   <td>See the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=35718838#OpenSourceImplementations-Javascript">HL7 wiki for Javascript libraries</a> (Clients and Utilities for both servers and clients)
+   </td>
+  </tr>
+  <tr>
+   <td>Swift</td>
+   <td>
+    <a href="https://github.com/smart-on-fhir/Swift-FHIR">Swift-FHIR</a>:
+    Object Model, Client and Utilities
+   </td>
+  </tr>
+ </table>
+
+<blockquote><p> <b>Implementation Note:</b> 
+These reference implementations are provided for implementer interest and assistance.
+While they may be used (and are) in production systems, HL7 and their various contributors accept no
+liability for their use. <span style="color: Maroon">Note that these reference implementations are
+provided to assist to implementers to adopt the specification, and some are maintained by the FHIR
+project team, but are not part of the specification, and implementations are not required to
+conform to these, nor are they subject to the formal standards process.</span>
+</p></blockquote>
+<hr/>
 <p>
-The XML schema can be used to validate XML representations of the resources. 
-When validating a resource, you can nominate one of the following schema: 
-</p>
-<ul>
- <li>fhir-all.xsd: links in all the individual modular schemas</li>
- <li>fhir-single.xsd: a single large file, mainly provided for schema processors that can't support circular references</li>
-</ul>
-<p>
-In addition, the validation schema includes schematron
-that can be initiated with transform "iso_svrl_for_xslt2.xsl" included in the 
-<a href="downloads.html#refimpl">XML Tools</a> download. Note that 
-XSLT2 is required to run the schematrons. 
+Full blown open source implementations for FHIR, some of which use these reference implementations, are
+listed on <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7 Confluence</a>.
 </p>
 <p>
-When running the schematron, use the file "fhir-invariants.sch". This
-includes all the schematrons. The individual schematron files for each
-resource are provided to allow implementers to build their own smaller
-combined file that covers the relevant resource types for them.
-</p>
-
-<a name="json-schema"></a>
-<h3>Using the JSON schema</h3>
-<p>
-The JSON schema can be used with JSON schema validation software. 
-Links:
-</p>
-<ul>
- <li><a href="fhir.schema.json.zip">JSON Schema</a></li>
- <li><a href="http://json-schema.org/implementations">JSON Validation Software</a></li>
-</ul>
-
-
-<a name="jar"></a>
-<h3>Using the FHIR Validator</h3>
-
-<p>
-The FHIR Validator is a Java jar that is provided as part of the specification, and that is used 
-during the publication process to validate all the published examples. To 
-execute the FHIR validator, follow the following steps:
-</p>
-<ul>
- <li><a href="downloads.html">Download</a> the FHIR Validator</li>
- <li>Execute the validator, specifying the version, and a reference to the resource to validate</li>
-</ul>
-<p>
-Here is an example windows batch file that demonstrates the process (using the common utilities <a href="http://gnuwin32.sourceforge.net/packages/wget.htm">wget</a> and <a href="http://www.7-zip.org/">7z</a>):
-</p>
-<pre>
-@ECHO OFF
-
- ECHO get the validator and unzip it 
- wget https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=ca.uhn.hapi.fhir&a=org.hl7.fhir.validation.cli&v=LATEST&e=jar
- rename *.jar validator.jar
-
- ECHO 1. First example shows how to validate against the base spec:
- ECHO   a. get an example to validate
- wget http://build.fhir.org/patient-example.xml -O pat-ex.xml
-
- ECHO   b. validate it against FHIR R3 
- java -jar org.hl7.fhir.validator.jar pat-ex.xml -version 3.0
-
- ECHO 2. Second example shows how to validate against a profile in the spec:
- ECHO   a. get an example to validate
- wget http://build.fhir.org/observation-example-heart-rate.xml -O obs-ex.xml
-
- ECHO   b. validate it
- java -jar org.hl7.fhir.validator.jar obs-ex.xml -version 4.1.0 -profile http://hl7.org/fhir/StructureDefinition/heartrate
-
- ECHO 3. Third example shows how to validate against a profile in an implementation guide:
- ECHO   a. get an example to validate
- wget http://build.fhir.org/observation-example-heart-rate.xml -O obs-ex.xml
-
- ECHO   b. validate it. note that you have to tell the validator where to get the implementation guide information
- java -jar org.hl7.fhir.validator.jar obs-ex.xml -version 3.0 -ig http://hl7.org/fhir/us/core -profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-
- ECHO Press Any Key to Close
- pause
-</pre>
-<p>
-Note that it is not necessary to download the resource first; the http address can be supplied directly:
-</p>
-<pre>
- java -jar org.hl7.fhir.validator.jar http://build.fhir.org//patient-example.html -profile http://hl7.org/fhir/StructureDefinition/Patient
-</pre>
-<p>
-The validator requires an underlying terminology server. By default, this is http://fhir3.healthintersections.com.au. 
-For further details of the parameters supported by the validator, see <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">Using the FHIR Validator</a>
-</p>
-
-<a name="op"></a>
-<h3>Asking a FHIR Server</h3>
-
-<p>
-The <a href="operations.html">operation</a> <a href="resource-operation-validate.html">validate</a> can 
-be used to check whether a resource conforms to a profile. The simplest way to execute this operation is
-to post the resource to a server:
-</p>
-<pre>
- POST [base]/Observation/$validate?profile=http://hl7.org/fhir/StructureDefinition/heartrate
- [other HTTP headers]
- 
- &lt;Observation&gt;... resource to check as the body
-</pre>
-<p>
-The server will return an <a href="operationoutcome.html">OperationOutcome</a> resource listing issues found in the resource.
-</p>
-<p>
-There are several things to consider when using this operation:
-</p>
-<ul>
- <li>Not all servers support the $validate operation, though some of the public test servers do</li>
- <li>Servers support the $validate operation generally will only validate against profiles already registered with the server</li>
- <li>Servers may choose to support either XML, JSON, or both</li>
-</ul>
-
-<a name="web"></a>
-<h3>Via a web interface</h3>
-
-<p>
-Some servers expose the $validate functionality 
-through a web page. For known public implementations,
-see the <a href="https://confluence.hl7.org/display/FHIR/Public+FHIR+Validation+Services">FHIR Confluence page</a>
+It is not necessary to use these particular implementations in order to be conformant. Any other approach
+may be used, including code generated from the schemas.
 </p>
 
 </div>
@@ -453,14 +309,14 @@ see the <a href="https://confluence.hl7.org/display/FHIR/Public+FHIR+Validation+
 		<div class="container"><!-- container -->
 			<div class="inner-wrapper">
 				<p>
-        &reg;© HL7.org 2011+. FHIR Release 4 Candidate (v4.1.0-89e7fddd81) generated on Mon, Mar 4, 2019 13:42+1100. <a  style="color: #ffffff" href="qa.html">QA Page</a>
+        &reg;© HL7.org 2011+. FHIR Release 4 Candidate (v4.1.0-56ceb0df08) generated on Fri, Apr 26, 2019 06:44+1000. <a  style="color: #ffffff" href="qa.html">QA Page</a>
         <br/>
         <span style="color: #FFFF77">
         Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search</a> | 
                <a style="color: #b8dcf9" href="history.html">Version History</a> | 
                <a style="color: #b8dcf9" href="toc.html">Table of Contents</a> | 
                <a style="color: #b8dcf9" href="credits.html">Credits</a> | 
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Fvalidation.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalidation.html">Compare to R3</a> |                
+               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Fdownloads.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fdownloads.html">Compare to R3</a> |                
                <a style="color: #b8dcf9" rel="license" href="license.html"><img src="cc0.png" style="border-style: none;" alt="CC0"/></a> | 
                <a style="color: #b8dcf9" target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a>   
         </span>
