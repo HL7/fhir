@@ -329,6 +329,9 @@ signatures.html
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
       </page>
       <page type="resource" resource="MedicinalProduct"/>
+      <page type="resource" resource="RegulatedMedicinalProduct"/>
+      <page type="resource" resource="RegulatedPackagedProduct"/>
+      <page type="resource" resource="RegulatedManufacturedItem"/>
       <page type="resource" resource="MedicinalProductAuthorization"/>
       <page type="resource" resource="MedicinalProductContraindication"/>
       <page type="resource" resource="ClinicalParticulars"/>

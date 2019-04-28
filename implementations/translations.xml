@@ -574,6 +574,15 @@
 		<translation lang="en">MedicinalProduct</translation>
 		<translation lang="it">ProdottoMedicinale</translation>
 	</item>
+	<item id="RegulatedMedicinalProduct">
+		<translation lang="en">RegulatedMedicinalProduct</translation>
+	</item>
+	<item id="RegulatedPackagedProduct">
+		<translation lang="en">RegulatedPackagedProduct</translation>
+	</item>
+	<item id="RegulatedManufacturedItem">
+		<translation lang="en">RegulatedManufacturedItem</translation>
+	</item>
 	<item id="MedicinalProductAuthorization">
 		<translation lang="en">MedicinalProductAuthorization</translation>
 		<translation lang="it">AutorizzazioneProdottoMedicinale</translation>
