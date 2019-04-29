@@ -694,10 +694,10 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">The interactions of the medicinal product with other medicinal products, or other forms of interactions</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22"><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row>
+   <Row ss:Height="28">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductInteraction.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5" ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Reference(MedicinalProduct|Medication|Substance)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5" ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Reference(RegulatedMedicinalProduct|Medication|Substance)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">The medication for which this is a described interaction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
@@ -738,7 +738,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Reference(MedicinalProduct|Medication|Substance|ObservationDefinition)|CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Reference(RegulatedMedicinalProduct|Medication|Substance|ObservationDefinition)|CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -833,7 +833,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>16</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
