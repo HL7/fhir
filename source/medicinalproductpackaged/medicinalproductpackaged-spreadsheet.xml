@@ -698,7 +698,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(MedicinalProduct)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(RegulatedMedicinalProduct)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1077,7 +1077,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
