@@ -716,9 +716,6 @@
     <Cell><Data ss:Type="String">OrganizationAffiliation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProduct</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">RegulatedMedicinalProduct</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
