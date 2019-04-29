@@ -570,10 +570,10 @@
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>
 	</item>
-	<item id="MedicinalProduct">
+	<!--item id="MedicinalProduct">
 		<translation lang="en">MedicinalProduct</translation>
 		<translation lang="it">ProdottoMedicinale</translation>
-	</item>
+	</item-->
 	<item id="RegulatedMedicinalProduct">
 		<translation lang="en">RegulatedMedicinalProduct</translation>
 	</item>
