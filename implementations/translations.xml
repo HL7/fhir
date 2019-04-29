@@ -583,6 +583,9 @@
 	<item id="RegulatedManufacturedItem">
 		<translation lang="en">RegulatedManufacturedItem</translation>
 	</item>
+	<item id="RegulatedAdministrableProduct">
+		<translation lang="en">RegulatedAdministrableProduct</translation>
+	</item>
 	<item id="MedicinalProductAuthorization">
 		<translation lang="en">MedicinalProductAuthorization</translation>
 		<translation lang="it">AutorizzazioneProdottoMedicinale</translation>
