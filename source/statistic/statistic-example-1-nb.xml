@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Statistic xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="Statistic-example-1"/>
+	<status value="draft"/>
+	<date value="2017-01-05T17:18:19+01:00"/>
+	<publisher>
+		<name value="Cochrane"/>
+	</publisher>
+	<contributor>
+		<type value="author"/>
+		<name value="Jan L. Brozek"/>
+		<contact>
+			<name value="Jan L. Brozek"/>
+		</contact>
+	</contributor>
+	<synthesisType>
+		<coding>
+			<code value="std-MA"/>
+		</coding>
+	</synthesisType>
+	<studyType>
+		<coding>
+			<code value="RCT"/>
+		</coding>
+	</studyType>
+	<exposureBackground>
+		<reference value="Group/AllergicRhinitisNOTasthma"/>
+		<type value="Group"/>
+		<display value="Allergic rhinitis in adults without concomitant asthma"/>
+	</exposureBackground>
+	<exposure>
+		<reference value="Group/SLimmunotherapy"/>
+		<type value="Group"/>
+		<display value="Sublingual specific immunotherapy exposure"/>
+	</exposure>
+	<exposureVariant>
+		<reference value="Group/noSLimmunotherapy"/>
+		<type value="Group"/>
+		<display value="No sublingual specific immunotherapy exposure"/>
+	</exposureVariant>
+	<measuredVariable>
+		<reference value="EvidenceVariable/RQLQrhinitisQOL"/>
+		<type value="EvidenceVariable"/>
+		<display value="No sublingual specific immunotherapy exposure"/>
+	</measuredVariable>
+	<statisticType>
+		<coding>
+			<system value="http://build.fhir.org/valueset-effect-estimate-type.html"/>
+			<code value="absolute-SMD"/>
+			<display value="standardized mean difference"/>
+		</coding>
+		<text value="SMD 0.36 lower (0.46 lower to 0.26 lower)"/>
+	</statisticType>
+	<quantity>
+		<value value="-0.36"/>
+		<unit value="points"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="score"/>
+	</quantity>
+	<sampleSize>
+		<numberOfStudies value="6"/>
+		<numberOfParticipants value="1658"/>
+	</sampleSize>
+	<precisionEstimate>
+		<type>
+			<coding>
+				<system value="http://build.fhir.org/valueset-precision-estimate-type.html"/>
+				<code value="CI"/>
+				<display value="confidence interval"/>
+			</coding>
+		</type>
+		<level value="0.95"/>
+		<from value="-0.46"/>
+		<to value="-0.26"/>
+	</precisionEstimate>
+	<pValue>
+		<quantity>
+			<value value="0.05"/>
+			<comparator value="&lt;"/>
+		</quantity>
+	</pValue>
+	<certainty>
+		<rating>
+			<coding>
+				<code value="3"/>
+				<display value="Moderate"/>
+			</coding>
+		</rating>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<code value="RiskOfBias"/>
+					<display value="Risk of bias"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<code value="no-concern"/>
+					<display value="no serious concern"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<note>
+				<text value="No explanation was provided"/>
+			</note>
+			<type>
+				<coding>
+					<code value="Inconsistency"/>
+					<display value="Inconsistency"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<code value="serious-concern"/>
+					<display value="serious concern"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<code value="Indirectness"/>
+					<display value="Indirectness"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<code value="no-concern"/>
+					<display value="no serious concern"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<code value="Imprecision"/>
+					<display value="Imprecision"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<code value="no-concern"/>
+					<display value="no serious concern"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<code value="PublicationBias"/>
+					<display value="Publication bias"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<code value="no-concern"/>
+					<display value="no serious concern"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<code value="DoseResponseGradient"/>
+					<display value="Dose response gradient"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<code value="absent"/>
+					<display value="absent"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<code value="PlausibleConfounding"/>
+					<display value="Plausible confounding"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<code value="absent"/>
+					<display value="absent"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<code value="LargeEffect"/>
+					<display value="Large effect"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<code value="absent"/>
+					<display value="absent"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+	</certainty>
+</Statistic>
