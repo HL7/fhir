@@ -906,6 +906,9 @@
 		<translation lang="it">Campione</translation>
 		<translation lang="es">Especimen</translation>
 	</item>
+        <item id="Statistic">
+               <translation lang="en">Statistic</translation>
+        </item>
 	<item id="SpecimenDefinition">
 		<translation lang="en">SpecimenDefinition</translation>
 		<translation lang="it">DefinizioneCampione</translation>
