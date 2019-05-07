@@ -599,12 +599,12 @@
 	<!--item id="MedicinalProductIndication">
 		<translation lang="en">MedicinalProductInteraction</translation>
 	</item-->
-	<item id="MedicinalProductInteraction">
+	<!--item id="MedicinalProductInteraction">
 		<translation lang="en">MedicinalProductInteraction</translation>
 	</item>
 	<item id="MedicinalProductUndesirableEffect">
 		<translation lang="en">MedicinalProductUndesirableEffect</translation>
-	</item>
+	</item-->
 	<item id="MedicinalProductIngredient">
 		<translation lang="en">MedicinalProductIngredient</translation>
 		<translation lang="it">IngredienteProdottoMedicinale</translation>
