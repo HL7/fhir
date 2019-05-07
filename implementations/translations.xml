@@ -596,9 +596,9 @@
 	<item id="MedicinalProductContraindication">
 		<translation lang="en">MedicinalProductContraindication</translation>
 	</item>
-	<item id="MedicinalProductIndication">
+	<!--item id="MedicinalProductIndication">
 		<translation lang="en">MedicinalProductInteraction</translation>
-	</item>
+	</item-->
 	<item id="MedicinalProductInteraction">
 		<translation lang="en">MedicinalProductInteraction</translation>
 	</item>

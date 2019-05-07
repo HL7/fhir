@@ -336,7 +336,7 @@ signatures.html
       <page type="resource" resource="MedicinalProductContraindication"/>
       <!--page type="resource" resource="ClinicalParticulars"/-->
       <page type="resource" resource="ClinicalUseIssue"/>
-      <page type="resource" resource="MedicinalProductIndication"/>
+      <!--page type="resource" resource="MedicinalProductIndication"/-->
       <page type="resource" resource="MedicinalProductInteraction"/>
       <page type="resource" resource="MedicinalProductUndesirableEffect"/>
       <page type="resource" resource="MedicinalProductIngredient"/>
