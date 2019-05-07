@@ -593,12 +593,12 @@
 		<translation lang="en">MedicinalProductAuthorization</translation>
 		<translation lang="it">AutorizzazioneProdottoMedicinale</translation>
 	</item>
-	<item id="MedicinalProductContraindication">
+	<!--item id="MedicinalProductContraindication">
 		<translation lang="en">MedicinalProductContraindication</translation>
-	</item>
-	<item id="MedicinalProductIndication">
+	</item-->
+	<!--item id="MedicinalProductIndication">
 		<translation lang="en">MedicinalProductInteraction</translation>
-	</item>
+	</item-->
 	<item id="MedicinalProductInteraction">
 		<translation lang="en">MedicinalProductInteraction</translation>
 	</item>

@@ -734,12 +734,6 @@
     <Cell><Data ss:Type="String">MedicinalProductAuthorization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductContraindication</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductIndication</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicinalProductInteraction</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
