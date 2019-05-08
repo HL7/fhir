@@ -4618,11 +4618,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     n = n.toLowerCase();
 
     b.append("<ul class=\"nav nav-tabs\">");
-
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
     b.append(makeHeaderTab("Implementations", n+"-implementations.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
+    b.append(makeHeaderTab("Detailed Analysis", n+"-analysis.html", "analysis".equals(mode)));
     if (hasXMlJson) {
       b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
       b.append(makeHeaderTab("JSON", n+".profile.json.html", "json".equals(mode)));
@@ -6456,6 +6456,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + s3;
       else if (com[0].equals("search-footer"))
         src = s1+searchFooter(level)+s3;
+      else if (com[0].equals("pattern-title"))
+        src = s1+resource.getName()+s3;
       else if (com[0].equals("search-header"))
         src = s1+searchHeader(level)+s3;
       else if (com[0].equals("diff-analysis"))
@@ -6478,6 +6480,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genNoExtensionsWarning(resource)+s3; 
       else if (com[0].equals("res-ext-link"))  
         src = s1+genResExtLink(resource)+s3;
+      else if (com[0].equals("pattern-analysis"))  
+        src = s1+genLogicalAnalysis(resource, genlevel(level))+s3;
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -6487,7 +6491,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
-
     }
     return src;
   }
@@ -6536,10 +6539,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     List<ElementDefn> elements = new ArrayList<ElementDefn>();
     listAllElements(elements, logical.getRoot().getName(), logical.getRoot());
     for (ElementDefn e : elements) {
-      if (logical.getRoot().getElements().contains(e))
+      if (logical.getRoot().getElements().contains(e)) {
         b.append("<td><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">"+e.getName()+"</a></td>\r\n");
-      else
+      } else {
         b.append("<td><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">."+e.getName()+"</a></td>\r\n");
+      }
     }      
     b.append(" </tr>\r\n");
 
@@ -6558,7 +6562,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           b.append(" <tr>\r\n");
           b.append("  <td><a href=\""+rd.getName().toLowerCase()+".html\">"+rd.getName()+"</a></td>\r\n");
           for (ElementDefn e : elements) {
-            populateLogicalMappingColumn(b, logical.getRoot().getName(), rd.getName().toLowerCase()+"-definitions.html#", e, sd, rd.getName(), code, url);
+            populateLogicalMappingColumn(b, logical.getRoot().getName(), rd.getName().toLowerCase()+"-definitions.html#", e, sd, rd.getName(), code, url, null, null, null);
           }
           b.append(" </tr>\r\n");
         }
@@ -6571,6 +6575,57 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "";
   }
 
+  private String genLogicalAnalysis(ResourceDefn logical, String genlevel) throws FHIRException, IOException {
+    IniFile ini = new IniFile(Utilities.path(getFolders().srcDir, logical.getName(), logical.getName()+"-tasks.ini"));
+    String url = getLogicalMappingUrl(logical);
+    Map<ElementDefn, StringBuilder> bm = new HashMap<>();
+    List<ElementDefn> elements = new ArrayList<ElementDefn>();
+    listAllElements(elements, logical.getRoot().getName(), logical.getRoot());
+    for (ElementDefn e : elements) {
+      StringBuilder b2 = new StringBuilder();
+      bm.put(e, b2);
+    }      
+
+    boolean any = false;
+    for (String s : sorted(definitions.getResources().keySet())) {
+      ResourceDefn rd = definitions.getResourceByName(s);
+      StructureDefinition sd = rd.getProfile();
+      String code = null;
+      for (StructureDefinitionMappingComponent m : sd.getMapping()) {
+        if (m.getUri().equals(url))
+          code = m.getIdentity();
+      }
+      if (code != null) {
+        if (hasLogicalMapping(sd, logical, code)) {
+          any = true;
+          for (ElementDefn e : elements) {
+            StringBuilder b2 = bm.get(e);
+            populateLogicalMappingColumn(null, logical.getRoot().getName(), rd.getName().toLowerCase()+"-definitions.html#", e, sd, rd.getName(), code, url, b2, ini, e.getPath());
+          }
+        }
+      }
+    }
+    if (any) {
+      StringBuilder bx = new StringBuilder();
+      bx.append("<a name=\"mappings\"></a><h3>Mappings</h3>\r\n");
+      bx.append("<table class=\"grid\">\r\n");
+      for (ElementDefn e : elements) {
+        if (logical.getRoot().getElements().contains(e)) {
+          bx.append("<tr><td colspan=\"4\"><b><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">"+e.getPath()+"</a></b></td></tr>\r\n");
+        } else {
+          bx.append("<tr><td colspan=\"4\"><b><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">."+e.getPath()+"</a></b></td></tr>\r\n");
+        }
+        bx.append("<tr><td colspan=\"4\">"+e.getPath()+" : "+e.typeCode()+" ["+e.describeCardinality()+"]</td></tr>\r\n");
+        bx.append("<tr><td>Resource</td><td>Matches</td><td>Issues</td><td>Tasks</td></tr>\r\n");
+        bx.append(bm.get(e).toString());
+      }
+      bx.append("</table>\r\n");
+      return bx.toString();
+    }
+    else
+      return "";
+  }
+  
   public String getLogicalMappingUrl(ResourceDefn logical) {
     String url = null;
     if (logical.getName().equals("fivews"))
@@ -6590,6 +6645,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private class LogicalModelSupportInformation {
     int elementcount;
+    CommaSeparatedStringBuilder elementlist = new CommaSeparatedStringBuilder();
     boolean extension;
     boolean nameChanged;
     boolean typeMismatch;
@@ -6602,7 +6658,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private final static String LOGICAL_MAPPING_MAPPED_COLOR = "#ffffff";
   private final static String LOGICAL_MAPPING_NOTMAPPED_COLOR = "#f2f2f2";
   
-  private void populateLogicalMappingColumn(StringBuilder b, String n, String page, ElementDefn e, StructureDefinition sd, String rn, String code, String url) {
+  private void populateLogicalMappingColumn(StringBuilder b, String n, String page, ElementDefn e, StructureDefinition sd, String rn, String code, String url, StringBuilder b2, IniFile ini, String iniPath) {
     LogicalModelSupportInformation info = new LogicalModelSupportInformation();
 
     for (ElementDefinition ed : sd.getSnapshot().getElement()) { 
@@ -6612,7 +6668,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           for (String p : s.split("\\,")) {
             String f = p.contains("{") ? p.substring(0, p.indexOf("{")) : p;
             if (f.equals(e.getPath())) {
-              checkMapping(info, e, ed);
+              checkMapping(info, e, ed, b2 == null);
            }
           }
         }
@@ -6657,25 +6713,69 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     else 
       color = LOGICAL_MAPPING_NOTMAPPED_COLOR;
     
+    if (b != null) {
+      StringBuilder ns = new StringBuilder();
+      for (String s : info.notes) {
+        if (ns.length() > 0)
+          ns.append("; ");
+        ns.append(s);
+      }
+      b.append("  <td style=\"background-color: "+color+"\" title=\""+ns.toString()+"\">");
+      if (info.elementcount > 0)
+        b.append(info.elementcount);
+      else if (info.extension)
+        b.append("E");
+      b.append(" ");
+      if (info.nameChanged)
+        b.append("N");
+      if (info.typeMismatch)
+        b.append("T");
+      if (info.cardinalityProblem)
+        b.append("C");
+      b.append("</td>\r\n");
+    }
     StringBuilder ns = new StringBuilder();
     for (String s : info.notes) {
-      if (ns.length() > 0)
-        ns.append("; ");
       ns.append(s);
     }
-    b.append("  <td style=\"background-color: "+color+"\" title=\""+ns.toString()+"\">");
-    if (info.elementcount > 0)
-      b.append(info.elementcount);
-    else if (info.extension)
-      b.append("E");
-    b.append(" ");
-    if (info.nameChanged)
-      b.append("N");
-    if (info.typeMismatch)
-      b.append("T");
-    if (info.cardinalityProblem)
-      b.append("C");
-    b.append("</td>\r\n");
+    
+    String tasks = ini == null ? null : ini.getStringProperty(iniPath, sd.getName());
+    if (b2 != null && !(Utilities.noString(ns.toString()) && Utilities.noString(tasks))) {
+      b2.append("<tr style=\"background-color: "+color+"\"><td><b>"+sd.getName()+"</b></td><td><ul>"+ns.toString()+"</ul>");
+      if (info.extension)
+        b2.append(" (as an extension)");
+      b2.append("</td><td>");
+      if (info.nameChanged || info.typeMismatch || info.cardinalityProblem) {
+        boolean first = true;
+        if (info.nameChanged) {
+          b2.append("Names are different. " );
+          first = false;
+        }
+        if (info.typeMismatch) {
+          if (!first)
+            b2.append("<br/>");
+          b2.append("Type Mismatch. ");
+          first = false;
+        }
+        if (info.cardinalityProblem) {
+          if (!first)
+            b2.append("<br/>");
+          b2.append("Cardinality Problem. ");
+        }
+      }
+      b2.append("</td><td>");
+      boolean first = true;
+      if (!Utilities.noString(tasks)) {
+        for (String id : tasks.split("\\;")) {
+          if (!first)
+            b2.append(" | ");
+          b2.append("<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+id.trim()+"\">GF#"+id.trim()+"</a>");
+          first = false;
+        }
+      }
+      
+      b2.append("</td></tr>\r\n");
+    }
   }
 
   private String getWorkflowMapping(StructureDefinition ext, String url) {
@@ -6694,9 +6794,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return null;
   }
 
-  private void checkMapping(LogicalModelSupportInformation info, ElementDefn logical, ElementDefinition resource) {
+  private void checkMapping(LogicalModelSupportInformation info, ElementDefn logical, ElementDefinition resource, boolean inline) {
     info.elementcount++;
-    String s = logical.getPath()+" : "+logical.typeCode()+" ["+logical.describeCardinality()+"] =&gt; "+resource.getPath()+" : "+resource.typeSummary()+" ["+resource.getMin()+".."+resource.getMax()+"]";
+    info.elementlist.append(resource.getPath());
+    String s;
+    if (inline)
+      s = logical.getPath()+" : "+logical.typeCode()+" ["+logical.describeCardinality()+"] =&gt; "+resource.getPath()+" : "+resource.typeSummary()+" ["+resource.getMin()+".."+resource.getMax()+"]";
+    else 
+      s = "<li>"+resource.getPath()+" : "+resource.typeSummary()+" ["+resource.getMin()+".."+resource.getMax()+"]</li>";
     if (!logical.getName().equals(edPathTail(resource.getPath()))) {
       info.nameChanged = true;
     }

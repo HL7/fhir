@@ -5438,6 +5438,16 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getFolders().dstDir + fn + "-mappings.html");
     page.getHTMLChecker().registerFile(fn+"-mappings.html", "Formal Mappings for " + n, HTMLLinkChecker.XHTML_TYPE, true);
 
+    src = TextFile.fileToString(page.getFolders().srcDir + "template-logical-analysis.html");
+    if (lm.hasResource())
+      TextFile.stringToFile(
+          insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "res-Analysis", n + "-analysis.html", ig, values, lm.getWg(), examples), st, n + "-analysis.html", ig.getLevel(), null),
+          page.getFolders().dstDir + fn + "-analysis.html");
+    else
+      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions()).process(src), st, n + "-analysis.html", ig.getLevel(), null),
+        page.getFolders().dstDir + fn + "-analysis.html");
+    page.getHTMLChecker().registerFile(fn+"-analysis.html", "Analysis for " + n, HTMLLinkChecker.XHTML_TYPE, true);
+
     tmp.delete();
   }
 

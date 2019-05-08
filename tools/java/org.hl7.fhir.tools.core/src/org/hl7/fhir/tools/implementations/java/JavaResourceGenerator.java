@@ -1,7 +1,9 @@
 package org.hl7.fhir.tools.implementations.java;
+
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
+import java.io.FileOutputStream;
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -50,12 +52,15 @@ import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.utils.TypesUtilities;
+import org.hl7.fhir.tools.implementations.java.JavaResourceGenerator.JavaGenClass;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -79,12 +84,19 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	private JavaGenClass clss;
   private Map<String, String> adornments;
   private Map<String, String> enumInfo;
+  private Map<String, ResourceDefn> patterns = new HashMap<>();
 	
-	public JavaResourceGenerator(OutputStream out, Definitions definitions, Map<String, String> adornments, Map<String, String> enumInfo) throws UnsupportedEncodingException {
+	public JavaResourceGenerator(OutputStream out, Definitions definitions, Map<String, String> adornments, Map<String, String> enumInfo, String javaPatternDir) throws UnsupportedEncodingException {
 		super(out);
 		this.definitions = definitions;
 		this.adornments = adornments; 
 		this.enumInfo = enumInfo;
+		for (ImplementationGuideDefn ig : definitions.getIgs().values()) {
+		  for (LogicalModel lm : ig.getLogicalModels()) {
+		    patterns.put(Utilities.capitalize(lm.getResource().getName()), lm.getResource());
+		  }
+		}
+		this.javaPatternDir = javaPatternDir;
 	}
 
 	private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
@@ -96,6 +108,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   private String allfields;
   private long hashSum;
   private String inheritedHash;
+  private String javaPatternDir;
 
 
 	public Map<ElementDefn, String> getTypeNames() {
@@ -310,6 +323,16 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       generatePropertyTypeGetter(root, "    ");
       generateChildAdder(root, "    ", classname);
       generateFhirType(root.getName());
+      
+      // check for mappings
+      for (String map : root.getMappings().keySet()) {
+        if ("http://hl7.org/fhir/workflow".equals(map)) {
+          String namenn = root.getMapping(map);
+          if (patterns.containsKey(namenn)) {
+            generateImpl(namenn, patterns.get(namenn), upFirst(name), root, version, genDate);
+          }
+        }
+      }
 		} else {
       write("    private static final long serialVersionUID = "+inheritedHash+"L;\r\n\r\n");
 		}
@@ -416,6 +439,18 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		write("\r\n");
 		flush();
 	}
+
+  private void generateImpl(String namenn, ResourceDefn resourceDefn, String jn, ElementDefn root, String version, Date genDate) throws Exception {
+    write("  public "+namenn+" get"+namenn+"() {\r\n"); 
+    write("    return new "+jn+namenn+"Impl(this);\r\n"); 
+    write("  }\r\n"); 
+
+    // now, generate the implementation
+    JavaPatternImplGenerator jrg = new JavaPatternImplGenerator(new FileOutputStream(javaPatternDir+jn+namenn+"Impl.java"), definitions, adornments, enumInfo);
+    jrg.generate(resourceDefn.getRoot(), jn, JavaGenClass.Resource, null, genDate, version, false, null, null, namenn, root);
+    jrg.close();
+
+  }
 
   private boolean doGenerateField(ElementDefn e) throws Exception {
     String gen = e.getMapping("http://hl7.org/fhir/object-implementation");
@@ -1850,17 +1885,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				writeWithHash(indent+"protected List<"+root.getName()+"> "+getElementName(e.getName(), true)+";\r\n");
 			else {
 			  writeWithHash(indent+"protected List<"+tn+"> "+getElementName(e.getName(), true)+";\r\n");
-	      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
-	        List<String> params = e.getTypes().get(0).getParams();
-	        String rn = params.size() == 1 ? params.get(0) : "Resource";
-	        if (rn.equals("Any"))
-	          rn = "Resource";
-	        else if (rn.equals("List"))
-            rn = "ListResource";
-	        jdoc(indent, "The actual objects that are the target of the reference ("+e.getDefinition()+")");
-	        writeWithHash(indent+"protected List<"+rn+"> "+getElementName(e.getName(), true)+"Target;\r\n");
-	        write("\r\n");
-	      }
 			}
 			write("\r\n");
 		} else {
@@ -1875,9 +1899,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           rn = "Resource";
         else if (rn.equals("List"))
           rn = "ListResource";
-        jdoc(indent, "The actual object that is the target of the reference ("+e.getDefinition()+")");
-        writeWithHash(indent+"protected "+rn+" "+getElementName(e.getName(), true)+"Target;\r\n");
-        write("\r\n");
       }
 		}
 	}
@@ -2155,26 +2176,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		        rn = "Resource";
 		      else if (rn.equals("List"))
 		        rn = "ListResource";
-		      jdoc(indent, "@deprecated Use Reference#setResource(IBaseResource) instead");
-		      write(indent+"@Deprecated\r\n");
-		      write(indent+"public List<"+rn+"> get"+getTitle(getElementName(e.getName(), false))+"Target() { \r\n");
-		      write(indent+"  if (this."+getElementName(e.getName(), true)+"Target == null)\r\n");
-		      write(indent+"    this."+getElementName(e.getName(), true)+"Target = new ArrayList<"+rn+">();\r\n");
-		      write(indent+"  return this."+getElementName(e.getName(), true)+"Target;\r\n");
-		      write(indent+"}\r\n");
-		      write("\r\n");
-		      if (!rn.equals("Resource")) {
-		        jdoc(indent, "@deprecated Use Reference#setResource(IBaseResource) instead");
-		        write(indent+"@Deprecated\r\n");
-		        write(indent+"public "+rn+" add"+getTitle(getElementName(e.getName(), false))+"Target() { \r\n");
-		        write(indent+"  "+rn+" r = new "+rn+"();\r\n");
-		        write(indent+"  if (this."+getElementName(e.getName(), true)+"Target == null)\r\n");
-		        write(indent+"    this."+getElementName(e.getName(), true)+"Target = new ArrayList<"+rn+">();\r\n");
-		        write(indent+"  this."+getElementName(e.getName(), true)+"Target.add(r);\r\n");
-		        write(indent+"  return r;\r\n");
-		        write(indent+"}\r\n");
-		        write("\r\n");
-		      }
 		    }
 		  }
 		} else {
@@ -2317,24 +2318,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
             rn = "Resource";
           else if (rn.equals("List"))
             rn = "ListResource";
-          jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. ("+e.getDefinition()+")");
-          write(indent+"public "+rn+" get"+getTitle(getElementName(e.getName(), false))+"Target() { \r\n");
-          if (!rn.equals("Resource")) {
-            write(indent+"  if (this."+getElementName(e.getName(), true)+"Target == null)\r\n");
-            write(indent+"    if (Configuration.errorOnAutoCreate())\r\n");
-            write(indent+"      throw new Error(\"Attempt to auto-create "+className+"."+getElementName(e.getName(), true)+"\");\r\n");
-            write(indent+"    else if (Configuration.doAutoCreate())\r\n");
-            write(indent+"      this."+getElementName(e.getName(), true)+"Target = new "+rn+"(); // aa\r\n");
-          }
-          write(indent+"  return this."+getElementName(e.getName(), true)+"Target;\r\n");
-          write(indent+"}\r\n");
-          write("\r\n");
-			    jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. ("+e.getDefinition()+")");
-			    write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"Target("+rn+" value) { \r\n");
-			    write(indent+"  this."+getElementName(e.getName(), true)+"Target = value;\r\n");
-			    write(indent+"  return this;\r\n");
-			    write(indent+"}\r\n");
-			    write("\r\n");
 			  }			  
 			}
 		}
