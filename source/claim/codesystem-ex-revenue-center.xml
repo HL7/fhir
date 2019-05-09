@@ -6,8 +6,8 @@
   <title value="Example Revenue Center Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set includes sample Revenue Center codes."/>
-  <copyright value="This is an example set."/>
+  <description value="This value set includes sample Revenue Center codes from the National Uniform Billing Committee (NUBC04). See www.nubc.org for license terms and and conditions"/>
+  <copyright value="This is an example set drawn from the NUBC set of revenue codes for which NUBC holds the copyright."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
