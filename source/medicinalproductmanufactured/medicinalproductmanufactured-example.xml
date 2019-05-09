@@ -21,7 +21,7 @@
       <reference value="Organization/example"/>
     </manufacturer>
     <ingredient>
-      <reference value="MedicinalProductIngredient/example"/>
+      <reference value="Ingredient/example"/>
     </ingredient>
     <physicalCharacteristics>
       <shape value="Oval"/>
