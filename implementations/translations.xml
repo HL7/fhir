@@ -593,6 +593,9 @@
 		<translation lang="en">MedicinalProductAuthorization</translation>
 		<translation lang="it">AutorizzazioneProdottoMedicinale</translation>
 	</item>
+	<item id="RegulatedAuthorization">
+		<translation lang="en">RegulatedAuthorization</translation>
+	</item>
 	<!--item id="MedicinalProductContraindication">
 		<translation lang="en">MedicinalProductContraindication</translation>
 	</item-->
@@ -608,6 +611,10 @@
 	<item id="MedicinalProductIngredient">
 		<translation lang="en">MedicinalProductIngredient</translation>
 		<translation lang="it">IngredienteProdottoMedicinale</translation>
+	</item>
+	<item id="Ingredient">
+		<translation lang="en">Ingredient</translation>
+		<!--translation lang="it">IngredienteProdottoMedicinale</translation-->
 	</item>
 	<item id="MedicinalProductManufactured">
 		<translation lang="en">MedicinalProductManufactured</translation>
