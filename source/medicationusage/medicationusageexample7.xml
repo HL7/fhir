@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example where a patient reports is not taking now but will be taking in future  -->
-<MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationstatement.xsd"
+<MedicationUsage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
   xmlns="http://hl7.org/fhir">
   <id value="example007"/>
   <contained>
@@ -41,5 +41,5 @@
   <note>
     <text value="patient plans to start using for seasonal allergies in the Spring when pollen is in the air"/>
   </note>
-</MedicationStatement>
+</MedicationUsage>
 

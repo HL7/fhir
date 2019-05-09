@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is a fully populated example where a patient reports they are taking a certain medication and has the bottle  -->
-<MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationstatement.xsd"
+<MedicationUsage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example001"/>
   <contained>
@@ -164,4 +164,4 @@
     </doseAndRate>
     
   </dosage>
-</MedicationStatement>
+</MedicationUsage>
