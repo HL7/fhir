@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../../__FHIRr4Tools/fhir-all-xsd/consent.xsd">
+	<id value="consent-regionalEHRS-01b"/>
+	<text>
+		<status value="generated"/>
+		<xhtml:div>
+			<xhtml:div lang="it-IT">Consenso all'alimentazione per l'attivazione del suo FSE, che consentirà il perseguimento
+delle finalità di ricerca e di governo [C1]</xhtml:div>
+			<xhtml:div lang="en">Consent to the feeding and activation of your regional EHR, which will allow the pursuit
+of research and government purposes [C1]</xhtml:div>
+			<xhtml:div lang="it-IT">Consenso per il recupero dei Suoi dati di salute pregressi, ove disponibili, a partire dalla data di istituzione del FSE in Regione. [C2]</xhtml:div>
+			<xhtml:div lang="en">Consent for the recovery of your previous health data, where available, starting from the date of establishment of the EHR in the Region [C2]</xhtml:div>
+		</xhtml:div>
+	</text>
+	<status value="active"/>
+	<scope>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
+			<code value="patient-privacy"/>
+		</coding>
+	</scope>
+	<category>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="59284-0"/>
+		</coding>
+	</category>
+	<patient>
+		<reference value="Patient/IPS-examples-Patient-01"/>
+		<display value="Martha DeLarosa"/>
+	</patient>
+	<dateTime value="2015-04-23"/>
+	<organization>
+		<identifier id="2.16.840.1.113883.2.9.2.90"/>
+		<display value="Very Nice Region"/>
+	</organization>
+	<policy>
+		<!-- consent for the creation of the regional EHR -->
+		<uri value="https://www.regional-ehr.example/consentPolicy/C1"/>
+	</policy>
+	<policy>
+		<!-- consent for recovering the history -->
+		<uri value="https://www.regional-ehr.example/consentPolicy/C2"/>
+	</policy>
+	<policyRule>
+		<coding>
+			<system value="https://www.regional-ehr.example/CodeSystem/consentpolicycodes"/>
+			<code value="it-fse"/>
+			<display value="IT FSE Opt-in consent"/>
+		</coding>
+	</policyRule>
+	<provision>
+		<type value="permit"/>
+		<purpose>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+			<code value="CAREMGT"/>
+			<display value="care management"/>
+		</purpose>
+	</provision>
+</Consent>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../../__FHIRr4Tools/fhir-all-xsd/consent.xsd">
+	<id value="consent-labRep-01"/>
+	<text>
+		<status value="generated"/>
+		<!--
+Consent to use the results of this lab report for Clinical Research Purposes.
+-->
+		<xhtml:div>
+			<xhtml:div lang="it-IT">Consenso all'uso dei risultati del referto di laboratorio ID 1234567, del 10-10-2015 da Nice Lab Organization per finalità di ricerca e studi clinci , porjectto XYZ</xhtml:div>
+			<xhtml:div lang="en">Consent for clinical research purposes and for project XYZ for data derived from the report ID 1234567, done on 2015-10-10 by the Nice Lab Organization</xhtml:div>
+		</xhtml:div>
+	</text>
+	<status value="active"/>
+	<scope>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
+			<code value="patient-privacy"/>
+		</coding>
+	</scope>
+	<category>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="59284-0"/>
+		</coding>
+	</category>
+	<patient>
+		<reference value="Patient/IPS-examples-Patient-01"/>
+		<display value="Martha DeLarosa"/>
+	</patient>
+	<dateTime value="2018-12-21"/>
+	<organization>
+		<display value="Nice Lab Organization"/>
+	</organization>
+	<policyRule>
+		<coding>
+			<system value=""/>
+			<code value="CLINTRCH"/>
+			<display value="clinical trial research"/>
+		</coding>
+	</policyRule>
+	<provision>
+		<type value="permit"/>
+		<purpose>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+			<code value="CLINTRCH"/>
+			<display value="clinical trial research"/>
+		</purpose>
+				<purpose>
+			<system value="https://www.regional-ehr.example/CodeSystem/purposeOfUse"/>
+			<code value="CLINTRCH_PRJ_XYZ"/>
+			<display value="Clinical trial research for project XYZ"/>
+		</purpose>
+		<data>
+			<meaning value="dependents"/>
+			<reference>
+				<identifier id="1234567"/>
+				<display value="Lab Result id #1234567"/>
+			</reference>
+		</data>
+	</provision>
+</Consent>
