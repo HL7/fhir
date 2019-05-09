@@ -564,11 +564,8 @@
 		<translation lang="fr">PrescriptionMédicamenteuseTODO</translation>
 		<translation lang="es">PrescripciónMedicaciónTODO  /PrescripcionMedicamento</translation>
 	</item>
-	<item id="MedicationStatement">
-		<translation lang="en">MedicationStatement</translation>
-		<translation lang="zh">药物声明</translation>
-		<translation lang="fr">ÉtatMédication</translation>
-		<translation lang="es">ResumenMedicación /ResumenMedicamento</translation>
+	<item id="MedicationUsage">
+		<translation lang="en">MedicationUsage</translation>
 	</item>
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is a fully populated example where the patient reports not taking  -->
-<MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationstatement.xsd"
+<MedicationUsage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example002"/>
   <contained>
@@ -97,4 +97,4 @@
   <note>
     <text value="Patient cannot take acetaminophen as per Dr instructions" />
   </note>  
-</MedicationStatement>
+</MedicationUsage>

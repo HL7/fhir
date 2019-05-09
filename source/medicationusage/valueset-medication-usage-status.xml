@@ -4,8 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <url value="http://hl7.org/fhir/ValueSet/medication-statement-category"/>
-  <name value="MedicationStatement Category Codes"/>
+  <url value="http://hl7.org/fhir/ValueSet/medication-usage-status"/>
+  <name value="MedicationUsage Status Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -14,10 +14,10 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="MedicationStatement Category Codes"/>
+  <description value="MedicationUsage Status Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/medication-statement-category"/>
+      <system value="http://hl7.org/fhir/CodeSystem/medication-usage-status"/>
     </include>
   </compose>
 </ValueSet>

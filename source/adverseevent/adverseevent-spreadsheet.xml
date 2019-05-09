@@ -17,6 +17,7 @@
   
   <TabRatio>837</TabRatio>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -957,7 +958,7 @@
     <Cell><Data ss:Type="String">AdverseEvent.suspectEntity.instance[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Substance or Medication or Device</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept | Reference(Immunization|Procedure|Substance|Medication|MedicationAdministration|MedicationStatement|Device)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept | Reference(Immunization|Procedure|Substance|Medication|MedicationAdministration|MedicationUsage|Device)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Refers to the specific entity that caused the adverse event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies the actual instance of what caused the adverse event.  May be a substance, medication, medication administration, medication statement or a device</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="25"><Data ss:Type="String">GF#13698</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>

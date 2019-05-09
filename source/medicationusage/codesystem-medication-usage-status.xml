@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/CodeSystem/medication-statement-status"/>
-  <name value="MedicationStatement Status Codes"/>
+  <url value="http://hl7.org/fhir/CodeSystem/medication-usage-status"/>
+  <name value="MedicationUsage Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value=""/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/medication-statement-status"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-status"/>
   <content value="complete"/>
   <concept>
     <code value="active"/>
@@ -22,7 +22,7 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="Some of the actions that are implied by the medication statement may have occurred.  For example, the patient may have taken some of the medication.  Clinical decision support systems should take this status into account."/>
+    <definition value="Some of the actions that are implied by the medication usage may have occurred.  For example, the patient may have taken some of the medication.  Clinical decision support systems should take this status into account."/>
   </concept>
   <concept>
     <code value="intended"/>
@@ -32,12 +32,12 @@
   <concept>
     <code value="stopped"/>
     <display value="Stopped"/>
-    <definition value="Actions implied by the statement have been permanently halted, before all of them occurred. This should not be used if the statement was entered in error."/>
+    <definition value="Actions implied by the usage have been permanently halted, before all of them occurred. This should not be used if the statement was entered in error."/>
   </concept>
   <concept>
     <code value="on-hold"/>
     <display value="On Hold"/>
-    <definition value="Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called 'suspended'."/>
+    <definition value="Actions implied by the usage have been temporarily halted, but are expected to continue later. May also be called 'suspended'."/>
   </concept>
   <concept>
     <code value="unknown"/>
