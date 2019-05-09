@@ -593,9 +593,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R46C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R47C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="46" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="47" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s68" ss:Width="521.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="32.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="24.0"/>
@@ -607,7 +607,7 @@
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Span="1" ss:StyleID="s68" ss:Width="39.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Index="11" ss:StyleID="s68" ss:Width="60.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="74.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="29.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="29.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="290.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="45.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="62.0"/>
@@ -988,7 +988,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">The product's name, including full name and possibly coded parts</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">100;127</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">100;122</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s72"><Data ss:Type="String">RegulatedMedicinalProduct.name.productName</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1005,6 +1005,22 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">The full product name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="42">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">RegulatedMedicinalProduct.name.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Coding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Type of the product name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s70"><Data ss:Type="String">RegulatedMedicinalProduct.name.namePart</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1415,7 +1431,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>36</TopRowBottomPane>
+   <TopRowBottomPane>14</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1424,7 +1440,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R46C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R47C24">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
