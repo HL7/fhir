@@ -1,6 +1,6 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
+<p>
 <!-- content goes here -->
-These are various examples that have been used to drive the creaion of the Consent resource.
-
+These are various examples to show how constraints can be applied using the Consent resource.  At this time, only patient privacy is shown.
+</p>
 </div>
