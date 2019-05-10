@@ -49,7 +49,9 @@
   </sender>
   
   <payload>
-    <contentString value="Patient 1 has a very high serum potassium value (7.2 mmol/L on 2014-Dec-12 at 5:55 pm)"/>
+    <contentCodeableConcept>
+		<text value="Patient 1 has a very high serum potassium value (7.2 mmol/L on 2014-Dec-12 at 5:55 pm)"/>
+	</contentCodeableConcept>
   </payload>
   <payload>
     <!--Reference to the lab result -->

@@ -14,11 +14,11 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\conceptmap-spreadsheet.xml</Path>
+   <Path>ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\conceptmap-spreadsheet.xml</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
   <SupBook>
-   <Path>\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\elementdefinition.xml</Path>
+   <Path>ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\elementdefinition.xml</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
   
@@ -26,7 +26,8 @@
   
   
   <TabRatio>780</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>15</ActiveSheet>
+  <FirstVisibleSheet>8</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -441,7 +442,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="='\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="='ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="43" ss:StyleID="s64" x:FullColumns="1" x:FullRows="1">
@@ -1218,8 +1219,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4600,7 +4599,7 @@
  <Worksheet ss:Name="binding-strength">
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='binding-strength'!R1C1:R1C9"/>
-   <NamedRange ss:Name="Invariantids" ss:RefersTo="='\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
+   <NamedRange ss:Name="Invariantids" ss:RefersTo="='ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s114" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s114" ss:Width="80.0"/>
@@ -5376,7 +5375,7 @@
  </Worksheet>
  <Worksheet ss:Name="event-resource-types">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="35" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="203.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="209.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="639.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="78.0"/>
@@ -5534,8 +5533,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">25</Data></Cell>
-    <Cell><Data ss:Type="String">MedicationStatement</Data></Cell>
-    <Cell><Data ss:Type="String">MedicationStatement</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationUsage</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationUsage</Data></Cell>
     <Cell><Data ss:Type="String">Record of medication being taken by a patient                                                                                                    </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5605,7 +5604,9 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <TopRowVisible>9</TopRowVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

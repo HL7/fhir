@@ -317,7 +317,7 @@ signatures.html
       <page type="resource" resource="MedicationRequest"/>
       <page type="resource" resource="MedicationAdministration"/>
       <page type="resource" resource="MedicationDispense"/>
-      <page type="resource" resource="MedicationStatement"/>
+      <page type="resource" resource="MedicationUsage"/>
       <page type="resource" resource="Medication"/>
       <page type="resource" resource="MedicationKnowledge"/>
       <page type="resource" resource="Immunization"/>
@@ -328,13 +328,20 @@ signatures.html
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
       </page>
-      <page type="resource" resource="MedicinalProduct"/>
+      <page type="resource" resource="RegulatedMedicinalProduct"/>
+      <page type="resource" resource="RegulatedPackagedProduct"/>
+      <page type="resource" resource="RegulatedManufacturedItem"/>
+      <page type="resource" resource="RegulatedAdministrableProduct"/>
       <page type="resource" resource="MedicinalProductAuthorization"/>
-      <page type="resource" resource="MedicinalProductContraindication"/>
-      <page type="resource" resource="MedicinalProductIndication"/>
-      <page type="resource" resource="MedicinalProductInteraction"/>
-      <page type="resource" resource="MedicinalProductUndesirableEffect"/>
+      <page type="resource" resource="RegulatedAuthorization"/>
+      <!--page type="resource" resource="MedicinalProductContraindication"/-->
+      <!--page type="resource" resource="ClinicalParticulars"/-->
+      <page type="resource" resource="ClinicalUseIssue"/>
+      <!--page type="resource" resource="MedicinalProductIndication"/-->
+      <!--page type="resource" resource="MedicinalProductInteraction"/>
+      <page type="resource" resource="MedicinalProductUndesirableEffect"/-->
       <page type="resource" resource="MedicinalProductIngredient"/>
+      <page type="resource" resource="Ingredient"/>
     	<page type="resource" resource="MedicinalProductManufactured"/>
     	<page type="resource" resource="MedicinalProductPackaged"/>
     	<page type="resource" resource="MedicinalProductPharmaceutical"/>
@@ -428,6 +435,7 @@ signatures.html
       <page type="resource" resource="EventDefinition"/>
       <page type="resource" resource="Evidence"/>
       <page type="resource" resource="EvidenceVariable"/>
+      <page type="resource" resource="Statistic"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="GuidanceResponse"/>
       <page type="resource" resource="RequestGroup"/>
