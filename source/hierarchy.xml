@@ -332,7 +332,7 @@ signatures.html
       <page type="resource" resource="RegulatedPackagedProduct"/>
       <page type="resource" resource="RegulatedManufacturedItem"/>
       <page type="resource" resource="RegulatedAdministrableProduct"/>
-      <page type="resource" resource="MedicinalProductAuthorization"/>
+      <!--page type="resource" resource="MedicinalProductAuthorization"/-->
       <page type="resource" resource="RegulatedAuthorization"/>
       <!--page type="resource" resource="MedicinalProductContraindication"/-->
       <!--page type="resource" resource="ClinicalParticulars"/-->
@@ -340,11 +340,11 @@ signatures.html
       <!--page type="resource" resource="MedicinalProductIndication"/-->
       <!--page type="resource" resource="MedicinalProductInteraction"/>
       <page type="resource" resource="MedicinalProductUndesirableEffect"/-->
-      <page type="resource" resource="MedicinalProductIngredient"/>
+      <!--page type="resource" resource="MedicinalProductIngredient"/-->
       <page type="resource" resource="Ingredient"/>
-    	<page type="resource" resource="MedicinalProductManufactured"/>
-    	<page type="resource" resource="MedicinalProductPackaged"/>
-    	<page type="resource" resource="MedicinalProductPharmaceutical"/>
+    	<!--page type="resource" resource="MedicinalProductManufactured"/-->
+    	<!--page type="resource" resource="MedicinalProductPackaged"/-->
+    	<!--page type="resource" resource="MedicinalProductPharmaceutical"/-->
       <page type="resource" resource="SubstanceDefinition"/>
       <page type="resource" resource="SubstancePolymer"/>
       <page type="resource" resource="SubstanceProtein"/>
