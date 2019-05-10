@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Miller,Michelle M</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-10-28T05:04:43Z</LastSaved>
+  <LastSaved>2019-04-19T13:50:18Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,7 +18,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -742,6 +742,12 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s154">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R49C1"/>
@@ -1242,7 +1248,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">string|Attachment|Reference(Any)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Attachment|Reference(Any)|CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1255,7 +1261,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Message part content</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The communicated content (or for multi-part communications, one portion of the communication)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content.  If no code is available, contentCodeableConcept.text can be used for non-codified content.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1263,7 +1269,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Request.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">GF#20770</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.occurrence[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3703,13 +3709,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4248,13 +4253,15 @@
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="27" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="31" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="81.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="65.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="125.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="240.0"/>
+   <Column ss:StyleID="s111" ss:Width="196.0"/>
+   <Column ss:StyleID="s111" ss:Width="289.0"/>
+   <Column ss:StyleID="s111" ss:Width="278.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="437.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="314.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s112">
@@ -4262,18 +4269,24 @@
     <Cell ss:StyleID="s104"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type for parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Target Types</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Comma delimited list of target resources</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Expression</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">XPath</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Description</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s113"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.identifier</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s114"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s115"><Data ss:Type="String">category</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.category</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4282,6 +4295,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.sender</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4290,6 +4305,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.recipient</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4298,6 +4315,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.medium</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4306,6 +4325,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.requester</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4314,6 +4335,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.status</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4322,14 +4345,18 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.encounter</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s115"><Data ss:Type="String">occurrence</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.occurrenceDateTime</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.occurrence[x]</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">CommunicationRequest.occurrence.as(dateTime) | CommunicationRequest.occurrence.as(Period)</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">f:CommunicationRequest/f:occurrenceDateTime | f:CommunicationRequest/f:occurrencePeriod</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4338,6 +4365,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.authoredOn</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4346,6 +4375,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.subject</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4354,6 +4385,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.priority</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4362,6 +4395,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.subject</Data></Cell>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4370,6 +4405,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">CommunicationRequest.basedOn</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4378,6 +4415,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">CommunicationRequest.replaces</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s116"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4385,12 +4424,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">CommunicationRequest.groupIdentifier</Data></Cell>
-    <Cell ss:StyleID="s116"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s116"/>
    </Row>
@@ -4399,12 +4433,7 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s116"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s116"/>
    </Row>
@@ -4413,12 +4442,7 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s116"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s116"/>
    </Row>
@@ -4427,12 +4451,7 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s116"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s116"/>
    </Row>
@@ -4440,6 +4459,44 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s116"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s116"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s116"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s116"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s116"/>
    </Row>
@@ -4448,9 +4505,16 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s121"/>
    </Row>
    <Row ss:AutoFitHeight="0"/>
+   <Row ss:Index="31">
+    <Cell ss:Index="4" ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4463,12 +4527,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4481,7 +4546,7 @@
    <CellRangeList/>
    <Value>"number,date,string,token,reference,composite,quantity"</Value>
   </DataValidation>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C5">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C7">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Operations">

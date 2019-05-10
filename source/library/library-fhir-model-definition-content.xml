@@ -9709,7 +9709,7 @@
         <ns4:element name="MedicationDispense" elementType="FHIR.MedicationDispense"/>
         <ns4:element name="MedicationKnowledge" elementType="FHIR.MedicationKnowledge"/>
         <ns4:element name="MedicationRequest" elementType="FHIR.MedicationRequest"/>
-        <ns4:element name="MedicationStatement" elementType="FHIR.MedicationStatement"/>
+        <ns4:element name="MedicationUsage" elementType="FHIR.MedicationUsage"/>
         <ns4:element name="MedicinalProduct" elementType="FHIR.MedicinalProduct"/>
         <ns4:element name="MedicinalProductAuthorization" elementType="FHIR.MedicinalProductAuthorization"/>
         <ns4:element name="MedicinalProductContraindication" elementType="FHIR.MedicinalProductContraindication"/>
@@ -10962,7 +10962,7 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Claim.SubDetail"/>
         </ns4:element>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MedicationStatement" retrievable="true" primaryCodePath="medicationCodeableConcept" baseType="FHIR.DomainResource">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MedicationUsage" retrievable="true" primaryCodePath="medicationCodeableConcept" baseType="FHIR.DomainResource">
         <ns4:element name="identifier">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </ns4:element>

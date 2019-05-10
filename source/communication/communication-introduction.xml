@@ -14,7 +14,7 @@ The sender and receivers may be patients, practitioners, related persons, organi
 <ul>
 <li>A reminder or alert delivered to a responsible provider</li>
 <li>A recorded notification from the nurse to the on-call physician (or any other specified person) that a patient's temperature exceeds a value</li>
-<li>A notification to a public health agency of a patient presenting with a communicable disease reportable to the public health agency</li>
+<li>A response from a public health agency to a provider caring for a patient presenting with a communicable disease reportable to the public health agency</li>
 <li>Patient educational material sent by a provider to a patient</li>
 <li>Unable to deliver lab results to ordering physician</li>
 </ul>
@@ -45,6 +45,9 @@ a record of a particular communication is itself maintained as part of the revie
 of certain precautions to take or issues to be aware of.  The flags are continuously present as an ongoing reminder.  This is 
 distinct from <b>Communication</b> where there is a specific intended sender and receiver and the information is delivered only
 once.
+</p>
+<p>
+ When there is a need to organize clinical and administrative content into sections, the <a href="composition.html">Composition</a> resource should be used instead.  For example, an initial case report to a public health agency may include organized sections for vital signs, immunizations, social history, etc.
 </p>
 
 <p><b>Communication and Encounter</b></p>

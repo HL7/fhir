@@ -6,18 +6,9 @@
   <title value="Participant Roles"/>
 	<status value="draft"/>
 	<publisher value="FHIR Project"/>
-	<description value="Roles of participants that may be included in a care team.  Defined as: Is a Person, Healthcare professional (occupation) or Healthcare related organization (qualifier value)."/>
+	<description value="Roles of participants that may be included in a care team.  Defined as: Healthcare professional (occupation) or Services (qualifier value)."/>
 	<copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
 	<compose>
-		<include>
-			<system value="http://snomed.info/sct"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<!--Person (person)-->
-				<value value="125676002"/>
-			</filter>
-		</include>
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<filter>
@@ -32,8 +23,8 @@
 			<filter>
 				<property value="concept"/>
 				<op value="is-a"/>
-				<!--Healthcare related organization (qualifier value)-->
-				<value value="394730007"/>
+				<!--Services (qualifier value)-->
+				<value value="224930009"/>
 			</filter>
 		</include>
 	</compose>

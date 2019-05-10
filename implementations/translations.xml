@@ -173,6 +173,12 @@
 		<translation lang="it">ImpressioneClinica</translation>
 		<translation lang="zh">临床印象</translation>
 	</item>
+	<!--item id="ClinicalParticulars">
+		<translation lang="en">ClinicalParticulars</translation>
+	</item-->
+	<item id="ClinicalUseIssue">
+		<translation lang="en">ClinicalUseIssue</translation>
+	</item>
 	<item id="CodeSystem">
 		<translation lang="en">CodeSystem</translation>
 		<translation lang="es">SistemaDeCodigos</translation>
@@ -558,38 +564,54 @@
 		<translation lang="fr">PrescriptionMédicamenteuseTODO</translation>
 		<translation lang="es">PrescripciónMedicaciónTODO  /PrescripcionMedicamento</translation>
 	</item>
-	<item id="MedicationStatement">
-		<translation lang="en">MedicationStatement</translation>
-		<translation lang="zh">药物声明</translation>
-		<translation lang="fr">ÉtatMédication</translation>
-		<translation lang="es">ResumenMedicación /ResumenMedicamento</translation>
+	<item id="MedicationUsage">
+		<translation lang="en">MedicationUsage</translation>
 	</item>
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>
 	</item>
-	<item id="MedicinalProduct">
+	<!--item id="MedicinalProduct">
 		<translation lang="en">MedicinalProduct</translation>
 		<translation lang="it">ProdottoMedicinale</translation>
+	</item-->
+	<item id="RegulatedMedicinalProduct">
+		<translation lang="en">RegulatedMedicinalProduct</translation>
+	</item>
+	<item id="RegulatedPackagedProduct">
+		<translation lang="en">RegulatedPackagedProduct</translation>
+	</item>
+	<item id="RegulatedManufacturedItem">
+		<translation lang="en">RegulatedManufacturedItem</translation>
+	</item>
+	<item id="RegulatedAdministrableProduct">
+		<translation lang="en">RegulatedAdministrableProduct</translation>
 	</item>
 	<item id="MedicinalProductAuthorization">
 		<translation lang="en">MedicinalProductAuthorization</translation>
 		<translation lang="it">AutorizzazioneProdottoMedicinale</translation>
 	</item>
-	<item id="MedicinalProductContraindication">
+	<item id="RegulatedAuthorization">
+		<translation lang="en">RegulatedAuthorization</translation>
+	</item>
+	<!--item id="MedicinalProductContraindication">
 		<translation lang="en">MedicinalProductContraindication</translation>
-	</item>
-	<item id="MedicinalProductIndication">
+	</item-->
+	<!--item id="MedicinalProductIndication">
 		<translation lang="en">MedicinalProductInteraction</translation>
-	</item>
-	<item id="MedicinalProductInteraction">
+	</item-->
+	<!--item id="MedicinalProductInteraction">
 		<translation lang="en">MedicinalProductInteraction</translation>
 	</item>
 	<item id="MedicinalProductUndesirableEffect">
 		<translation lang="en">MedicinalProductUndesirableEffect</translation>
-	</item>
+	</item-->
 	<item id="MedicinalProductIngredient">
 		<translation lang="en">MedicinalProductIngredient</translation>
 		<translation lang="it">IngredienteProdottoMedicinale</translation>
+	</item>
+	<item id="Ingredient">
+		<translation lang="en">Ingredient</translation>
+		<!--translation lang="it">IngredienteProdottoMedicinale</translation-->
 	</item>
 	<item id="MedicinalProductManufactured">
 		<translation lang="en">MedicinalProductManufactured</translation>
@@ -891,6 +913,9 @@
 		<translation lang="it">Campione</translation>
 		<translation lang="es">Especimen</translation>
 	</item>
+        <item id="Statistic">
+               <translation lang="en">Statistic</translation>
+        </item>
 	<item id="SpecimenDefinition">
 		<translation lang="en">SpecimenDefinition</translation>
 		<translation lang="it">DefinizioneCampione</translation>
