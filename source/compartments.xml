@@ -735,15 +735,6 @@
     <Cell><Data ss:Type="String">RegulatedAuthorization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductManufactured</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductPackaged</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductPharmaceutical</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubstanceDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

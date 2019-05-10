@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProductManufactured xmlns="http://hl7.org/fhir">
+<RegulatedManufacturedItem xmlns="http://hl7.org/fhir">
     <id value="example"/>
     <manufacturedDoseForm>
       <coding>
@@ -28,6 +28,6 @@
       <color value="Pink"/>
       <imprint value="894"/>
     </physicalCharacteristics>
-</MedicinalProductManufactured>
+</RegulatedManufacturedItem>
   
 
