@@ -62,7 +62,7 @@
           </coding>
         </material>
         <manufacturedItem>
-          <reference value="MedicinalProductManufactured/example"/>
+          <reference value="RegulatedManufacturedItem/example"/>
         </manufacturedItem>
         <physicalCharacteristics>
           <height>
