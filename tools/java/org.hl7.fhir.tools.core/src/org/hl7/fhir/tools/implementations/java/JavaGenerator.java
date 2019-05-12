@@ -49,9 +49,13 @@ import java.util.jar.Manifest;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import javax.annotation.Resource;
+
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
@@ -104,6 +108,10 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   private Map<String, String> enumInfo = new HashMap<String, String>();
 
   private Date genDate;
+
+  private String javaPatternsDir;
+
+  private String javaIntfDir;
   
   public JavaGenerator(FolderManager folders) throws FileNotFoundException, IOException {
     super();
@@ -150,10 +158,14 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     char sl = File.separatorChar;
     this.genDate = genDate;
     javaDir       =  implDir+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"model"+sl;
+    javaPatternsDir       =  implDir+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"patterns"+sl;
+    javaIntfDir       =  implDir+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"interfaces"+sl;
     javaParserDir =  implDir+"org.hl7.fhir.r5"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"formats"+sl;
     Utilities.createDirectory(javaDir);
     Utilities.createDirectory(Utilities.path(javaDir, "codesystems"));
     Utilities.createDirectory(javaParserDir);
+    Utilities.createDirectory(javaPatternsDir);
+    Utilities.createDirectory(javaIntfDir);
     Utilities.createDirectory(implDir+"org.hl7.fhir.convertors"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"convertors");
     this.definitions = definitions;
 
@@ -163,9 +175,17 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     JavaEnumerationsGenerator jEnums = new JavaEnumerationsGenerator(new FileOutputStream(javaDir+"Enumerations.java"), definitions, enumInfo);
     jEnums.generate(genDate, version);
 
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
+      for (LogicalModel lm : ig.getLogicalModels()) {
+        String name = Utilities.capitalize(lm.getResource().getName());
+        JavaPatternIntfGenerator jrg = new JavaPatternIntfGenerator(new FileOutputStream(javaPatternsDir+javaClassName(name)+".java"), definitions, adornments, enumInfo);
+        jrg.generate(lm.getResource().getRoot(), javaClassName(name), JavaGenClass.Resource, null, genDate, version, false, null, null);
+        jrg.close();        
+      }
+    }
     for (String n : definitions.getBaseResources().keySet()) {
       ResourceDefn root = definitions.getBaseResources().get(n);
-      JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
+      JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo, javaPatternsDir);
       jrg.generate(root.getRoot(), javaClassName(root.getName()), JavaGenClass.Resource, null, genDate, version, root.isAbstract(), null, null);
       jrg.close();
       hashes.put(n, Long.toString(jrg.getHashSum()));
@@ -177,7 +197,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     for (String n : definitions.getResources().keySet()) {
       ResourceDefn root = definitions.getResourceByName(n);
-      JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
+      JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo, javaPatternsDir);
       jrg.generate(root.getRoot(), javaClassName(root.getName()), JavaGenClass.Resource, null, genDate, version, false, root.getSearchParams(), root.getTemplate());
       jrg.close();
       hashes.put(n, Long.toString(jrg.getHashSum()));
@@ -186,7 +206,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     for (String n : definitions.getInfrastructure().keySet()) {
       ElementDefn root = definitions.getInfrastructure().get(n);
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo, javaPatternsDir);
       jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Structure, null, genDate, version, false, null, null);
       jgen.close();
       hashes.put(n, Long.toString(jgen.getHashSum()));
@@ -195,7 +215,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
     for (String n : definitions.getTypes().keySet()) {
       ElementDefn root = definitions.getTypes().get(n);
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo, javaPatternsDir);
       jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Type, null, genDate, version, false, null, null);
       jgen.close();
       hashes.put(n, Long.toString(jgen.getHashSum()));
@@ -212,7 +232,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
     for (ProfiledType cd : definitions.getConstraints().values()) {
       ElementDefn root = definitions.getTypes().get(cd.getBaseType());
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(cd.getName())+".java"), definitions, adornments, enumInfo);
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(cd.getName())+".java"), definitions, adornments, enumInfo, javaPatternsDir);
       jgen.setInheritedHash(hashes.get(cd.getBaseType()));
       jgen.generate(root, javaClassName(cd.getName()), JavaGenClass.Constraint, cd, genDate, version, false, null, null);
       jFactoryGen.registerType(cd.getName(), cd.getName());
@@ -222,7 +242,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     for (String n : definitions.getStructures().keySet()) {
       ElementDefn root = definitions.getStructures().get(n);
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo, javaPatternsDir);
       jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Type, null, genDate, version, false, null, null);
       jFactoryGen.registerType(n,  root.getName());
       jgen.close();
@@ -230,7 +250,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     for (String r : definitions.getResourceTemplates().keySet()) {
       ResourceDefn root = definitions.getResourceTemplates().get(r);
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo, javaPatternsDir);
       jgen.generate(root.getRoot(), root.getName(), JavaGenClass.Resource, null, genDate, version, true, null, null);
       jgen.close();
     }
