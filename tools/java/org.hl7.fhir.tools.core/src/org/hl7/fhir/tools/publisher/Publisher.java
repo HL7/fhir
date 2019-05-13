@@ -1820,6 +1820,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void validate() throws Exception {
     page.log("Validating", LogMessageType.Process);
     ResourceValidator val = new ResourceValidator(page.getDefinitions(), page.getTranslations(), page.getCodeSystems(), page.getFolders().srcDir, fpUsages, page.getSuppressedMessages(), page.getWorkerContext());
+    val.resolvePatterns();
     ProfileValidator valp = new ProfileValidator();
     valp.setContext(page.getWorkerContext());
 

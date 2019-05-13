@@ -1,0 +1,40 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This is <b>NOT</b> a resource.  It is not part of the FHIR schema and cannot appear directly in FHIR instances.  It is a logical model that defines a pattern adhered to by
+other resources.  This pattern is defined to provide a standard "view" that might be useful for implementers in processing and manipulating all resources that adhere 
+to this pattern. Typically, this appears in object frameworks as an interface that the various resources that adhere to the pattern implement.
+</p>
+<p>
+A "<a href="participant.html">participant</a>" takes part in a process, and may be the subject of process, or responsible for the event occurring, or may 
+be responsible for recording or reporting information about the event. Examples include patients, practitioners, organizations, 
+groups of patients or practitioners. 
+</p>
+<p>
+A contactable participant is a participant that has a phone number and an address at which it may be contacted.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This pattern applies to some participants. Some of the participants share other properties, and 
+richer patterns are described for these:
+</p>
+<ul>
+ <li><a href="participantliving.html"><b>ParticipantLiving</b></a>: a living participant, usually a human</li>
+</ul>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+Though this pattern is intended instantiated by many resources, as listed below), there is some variation in the value domains of the underlying 
+resources, and any use of the pattern will need to account for this. <a href="conceptmap.html">ConceptMaps</a> describing the relationship in a 
+computable manner are provided as part of the definition.
+</p>
+</div>
+
+</div>

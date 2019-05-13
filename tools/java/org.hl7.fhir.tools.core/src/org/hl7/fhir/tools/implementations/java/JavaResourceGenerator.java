@@ -538,12 +538,23 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(", target={");
         boolean first = true;
         for (String nextTarget : new TreeSet<String>(targets)) {
-          if (first) {
-            first = false;
+          if (definitions.hasLogicalModel(nextTarget)) {
+            for (String s : definitions.getLogicalModel(nextTarget).getImplementations()) { 
+              if (first) {
+                first = false;
+              } else {
+                write(", ");
+              }
+              write(s);
+            }
           } else {
-            write(", ");
+            if (first) {
+              first = false;
+            } else {
+              write(", ");
+            }
+            write(nextTarget);
           }
-          write(nextTarget);
           write(".class");
         }
         write(" }");
@@ -1033,7 +1044,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	    write(indent+"    super.listChildren(children);\r\n");
 	  for (ElementDefn e : p.getElements()) {
       if (doGenerateAccessors(e) && !e.typeCode().equals("xhtml"))
-	      write(indent+"    children.add(new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+"));\r\n");    
+	      write(indent+"    children.add(new Property(\""+e.getName()+"\", \""+e.resolvedTypeCode(definitions)+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+"));\r\n");    
 	  }
 	  write(indent+"  }\r\n\r\n");  
     write(indent+"  @Override\r\n");
@@ -1042,7 +1053,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     for (ElementDefn e : p.getElements()) {
       if (doGenerateAccessors(e) && !e.typeCode().equals("xhtml")) {
         write(indent+"    case "+propId(e.getName())+": /*"+e.getName()+"*/ ");
-        write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
+        write(" return new Property(\""+e.getName()+"\", \""+e.resolvedTypeCode(definitions)+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
         if (e.getName().endsWith("[x]")) {
           String n = e.getName().substring(0, e.getName().length()-3);
           write(indent+"    case "+propId(n)+": /*"+n+"*/ ");
@@ -1952,7 +1963,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           } else {
             if (p.equals("List"))
               b.append(p+"Resource.class");
-            else
+            else if (definitions.hasLogicalModel(p)) {
+              for (String s : definitions.getLogicalModel(p).getImplementations())
+                b.append(s+".class");
+            } else
               b.append(p+".class");
           }
       } else if (definitions.hasPrimitiveType(tr.getName())) {

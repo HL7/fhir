@@ -737,10 +737,22 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		      b.append("(");
 		      boolean firstp = true;
 		      for (String p : t.getParams()) {
-		        if (!firstp)
-		          b.append(" | ");
-            b.append("<a href=\""+prefix+typeLink(p)+"\">"+p+"</a>");
-		        firstp = false;
+            if (!firstp)
+              b.append(" | ");
+            firstp = false;
+		        if (definitions.hasLogicalModel(p)) {
+              b.append("<a href=\""+prefix+typeLink(p)+"\">"+p+"</a>[");
+              boolean firstpn = true;
+              for (String pn : definitions.getLogicalModel(p).getImplementations()) {
+                if (!firstpn)
+                  b.append(", ");
+                firstpn = false;
+                b.append("<a href=\""+prefix+typeLink(pn)+"\">"+pn+"</a>");
+              }		          
+              b.append("]");
+		        } else {
+		          b.append("<a href=\""+prefix+typeLink(p)+"\">"+p+"</a>");
+		        }
 		      }
 		      b.append(")");
 		    }		  first = false;

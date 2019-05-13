@@ -1,5 +1,9 @@
 package org.hl7.fhir.definitions.generators.specification;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -109,18 +113,32 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
           c.getPieces().add(gen.new Piece(null, "(", null));
           boolean first = true;
           for (String rt : e.getTypes().get(0).getParams()) {
-            if (!first)
-              c.getPieces().add(gen.new Piece(null, " | ", null));
-            if (first && isProfile && e.getTypes().get(0).getProfile() != null)
-              c.getPieces().add(gen.new Piece(null, e.getTypes().get(0).getProfile(), null));
-            else
-              c.getPieces().add(gen.new Piece(prefix+findPage(rt)+".html", rt, null));
-            first = false;
+            if (definitions.hasLogicalModel(rt)) {
+             for (String rtn : definitions.getLogicalModel(rt).getImplementations()) {
+               if (!first)
+                 c.getPieces().add(gen.new Piece(null, " | ", null));
+               c.getPieces().add(gen.new Piece(prefix+findPage(rtn)+".html", rtn, null));
+               first = false;               
+             }
+            } else {
+              if (!first)
+                c.getPieces().add(gen.new Piece(null, " | ", null));
+              if (first && isProfile && e.getTypes().get(0).getProfile() != null)
+                c.getPieces().add(gen.new Piece(null, e.getTypes().get(0).getProfile(), null));
+              else
+                c.getPieces().add(gen.new Piece(prefix+findPage(rt)+".html", rt, null));
+              first = false;
+            }
           }
           c.getPieces().add(gen.new Piece(null, ")", null));
           row.getCells().add(dc = gen.new Cell()); // analysis 
           for (String rt : e.getTypes().get(0).getParams()) 
-            addTypeToAnalysis(gen, row, dc, true, e.getStandardsStatus(), rt);
+            if (definitions.hasLogicalModel(rt)) {
+              for (String rtn : definitions.getLogicalModel(rt).getImplementations()) {
+                addTypeToAnalysis(gen, row, dc, true, e.getStandardsStatus(), rtn);                
+              }
+            } else
+              addTypeToAnalysis(gen, row, dc, true, e.getStandardsStatus(), rt);
         } else if (definitions.getPrimitives().containsKey(t)) {
           row.setIcon("icon_primitive.png", HierarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
           row.getCells().add(c = gen.new Cell(null, prefix+"datatypes.html#"+t, t, null, null));
@@ -176,16 +194,23 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
             c.getPieces().add(gen.new Piece(prefix+"references.html", "Reference", null));
             c.getPieces().add(gen.new Piece(null, "(", null));
           boolean first = true;
+          List<String> tt = new ArrayList<>();
           for (String rt : tr.getParams()) {
+            if (definitions.hasLogicalModel(rt))
+              tt.addAll(definitions.getLogicalModel(rt).getImplementations());
+            else
+              tt.add(rt);
+          }
+          Collections.sort(tt);
+          for (String rt : tt) {
             if (!first)
               c.getPieces().add(gen.new Piece(null, " | ", null));
             c.getPieces().add(gen.new Piece(prefix+findPage(rt)+".html", rt, null));
             first = false;
           }
           choicerow.getCells().add(dc = gen.new Cell()); // analysis 
-          for (String rt : e.getTypes().get(0).getParams()) 
-            addTypeToAnalysis(gen, choicerow, dc, true, e.getStandardsStatus(), rt);
-          
+          for (String rt : tt) 
+            addTypeToAnalysis(gen, choicerow, dc, true, e.getStandardsStatus(), rt);          
         } else if (definitions.getPrimitives().containsKey(t)) {
           choicerow.getCells().add(gen.new Cell(null, null, e.getName().replace("[x]",  Utilities.capitalize(t)), definitions.getPrimitives().get(t).getDefinition(), null));
           choicerow.getCells().add(gen.new Cell(null, null, "", null, null));
@@ -209,7 +234,6 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
           choicerow.getCells().add(dc = gen.new Cell()); // analysis 
           addTypeToAnalysis(gen, choicerow, dc, false, e.getStandardsStatus(), t);
         }
-      
         row.getSubRows().add(choicerow);
       }
     } else
@@ -289,7 +313,8 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
       if (ok)
         ; // addInfo(gen, row, dc, "OK ("+type+" = FMM"+tgtFMM+"-"+tgtSS.toDisplay()+" vs. Element = FMM"+fmm+"-"+elementStatus.toDisplay()+")", null);
       else if (ref)
-        addWarning(gen, row, dc, "Type Warning: ("+type+" = FMM"+tgtFMM+"-"+tgtSS.toDisplay()+" vs. Element = FMM"+fmm+"-"+elementStatus.toDisplay()+")", null);
+        addWarning(gen, row, dc, "Type Warning: ("+type+" = FMM"+tgtFMM+"-"+(tgtSS == null ? "null" : tgtSS.toDisplay())+" vs. Element = FMM"+fmm+"-"+elementStatus.toDisplay()+")", null);
+        
       else
         addError(gen, row, dc, "Type Error: ("+type+" = FMM"+tgtFMM+"-"+tgtSS.toDisplay()+" vs. Element = FMM"+fmm+"-"+elementStatus.toDisplay()+")", null);
     }      

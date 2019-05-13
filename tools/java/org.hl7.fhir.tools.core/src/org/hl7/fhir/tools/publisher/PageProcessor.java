@@ -48,9 +48,11 @@ import java.util.Date;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Queue;
 import java.util.Set;
 import java.util.UUID;
 
@@ -960,6 +962,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildShortParameterList(com[1])+s3;
       } else if (com[0].equals("op-example-link")) {
         src = s1+buildOpReferenceList(com[1])+s3;       
+      } else if (com[0].equals("pattern-impls")) {
+        src = s1+buildPatternList(com[1])+s3;       
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -1358,6 +1362,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String buildPatternList(String name) {
+    if (!definitions.hasLogicalModel(name))
+      throw new Error("Unable to find Logical Model "+name);
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (String s : definitions.getLogicalModel(name).getImplementations()) {
+      b.append("<a href=\""+s.toLowerCase()+".html#"+s+"\">"+s+"</a>");
+    }
+    return b.toString();
   }
 
   private String buildOpReferenceList(String rt) {
@@ -4619,9 +4633,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
-    b.append(makeHeaderTab("Implementations", n+"-implementations.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
+    b.append(makeHeaderTab("Implementations", n+"-implementations.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Analysis", n+"-analysis.html", "analysis".equals(mode)));
     if (hasXMlJson) {
       b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
@@ -5674,6 +5688,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+s3;
       } else if (com[0].equals("mixednormative")) {
         src = s1+s3;
+      } else if (com[0].equals("pattern-impls")) {
+        src = s1+buildPatternList(com[1])+s3;       
       } else if (com[0].equals("StandardsStatus")) {
         src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com.length == 4 ? com[3] : null)+s3;
       } else if (com[0].equals("diff-analysis")) {
@@ -6504,7 +6520,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String genImplementationList(ResourceDefn logical) throws FHIRException {
-    String url = getLogicalMappingUrl(logical);
+    String url = logical.getMappingUrl();
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"lines\">\r\n");
     for (String s : sorted(definitions.getResources().keySet())) {
@@ -6531,7 +6547,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String genLogicalMappings(ResourceDefn logical, String genlevel) throws FHIRException {
-    String url = getLogicalMappingUrl(logical);
+    String url = logical.getMappingUrl();
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"lmap\">");
     b.append(" <tr>");
@@ -6577,7 +6593,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String genLogicalAnalysis(ResourceDefn logical, String genlevel) throws FHIRException, IOException {
     IniFile ini = new IniFile(Utilities.path(getFolders().srcDir, logical.getName(), logical.getName()+"-tasks.ini"));
-    String url = getLogicalMappingUrl(logical);
+    String url = logical.getMappingUrl();
     Map<ElementDefn, StringBuilder> bm = new HashMap<>();
     List<ElementDefn> elements = new ArrayList<ElementDefn>();
     listAllElements(elements, logical.getRoot().getName(), logical.getRoot());
@@ -6626,15 +6642,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "";
   }
   
-  public String getLogicalMappingUrl(ResourceDefn logical) {
-    String url = null;
-    if (logical.getName().equals("fivews"))
-      url = "http://hl7.org/fhir/fivews";
-    else
-      url = "http://hl7.org/fhir/workflow";
-    return url;
-  }
-
   private void listAllElements(List<ElementDefn> elements,  String path, ElementDefn logical) {
     for (ElementDefn c : logical.getElements()) {
       c.setPath(path+"."+c.getName());
@@ -7326,20 +7333,60 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String getReferences(String name) throws Exception {
     List<String> refs = new ArrayList<String>();
-    for (String tn : definitions.sortedTypeNames()) {
-      checkReferences(name, refs, tn, definitions.getElementDefn(tn));
+    if (definitions.hasLogicalModel(name)) {
+      ElementDefn r = definitions.getLogicalModel(name).getResource().getRoot();
+      List<String> names = definitions.listAllPatterns(r.getName());
+      for (String rn : definitions.sortedResourceNames()) {
+        checkPatternReferences(names, refs, rn, definitions.getResourceByName(rn).getRoot(), definitions.getLogicalModel(name).getMappingUrl());
+      }
+      if (refs.size() == 1)
+        return "<h2>References</h2><p>This pattern is implemented by "+renderRef(refs.get(0), name)+".</p>\r\n";
+      else if (refs.size() > 1)
+        return "<h2>References</h2><p>This pattern is implemented by "+asLinks(refs, name)+".</p>\r\n";
+      else
+        return "<h2>References</h2><p>No resources follow this pattern.</p>";
+    
+    } else {
+      for (String tn : definitions.sortedTypeNames()) {
+        checkReferences(name, refs, tn, definitions.getElementDefn(tn));
+      }
+      for (String rn : definitions.sortedResourceNames()) {
+        checkReferences(name, refs, rn, definitions.getResourceByName(rn).getRoot());
+      }
+      String r;
+      if (refs.size() == 1)
+        r = "<h2>References</h2><p>This resource is referenced by "+renderRef(refs.get(0), name)+".</p>\r\n";
+      else if (refs.size() > 1)
+        r = "<h2>References</h2><p>This resource is referenced by "+asLinks(refs, name)+".</p>\r\n";
+      else
+        r = "<h2>References</h2><p>No resources refer to this resource directly.</p>";
+      refs.clear();
+      for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
+        for (LogicalModel lm : ig.getLogicalModels()) {
+          checkPatternUsage(lm.getResource().getRoot().getName(), refs, definitions.getResourceByName(name).getRoot(), lm.getMappingUrl());
+        }
+      }
+      if (refs.size() == 1)
+        return r + "<p>This resource implements the "+renderRef(refs.get(0), name)+" pattern.</p>\r\n";
+      else if (refs.size() > 1)
+        return r + "<p>This resource implements the "+asLinks(refs, name)+" patterns.</p>\r\n";
+      else
+        return r + "<p>This resource does not implement any patterns.</p>";
     }
-    for (String rn : definitions.sortedResourceNames()) {
-      checkReferences(name, refs, rn, definitions.getResourceByName(rn).getRoot());
-    }
-    if (refs.size() == 1)
-      return "<p>This resource is referenced by "+renderRef(refs.get(0), name)+"</p>\r\n";
-    else if (refs.size() > 1)
-      return "<p>This resource is referenced by "+asLinks(refs, name)+"</p>\r\n";
-    else
-      return "";
   }
 
+  private void checkPatternUsage(String name, List<String> refs, TypeDefn e, String url) {
+    String p = e.getMapping(url);
+    if (name.equals(p))
+      refs.add(name);
+  }
+
+  public void checkPatternReferences(List<String> names, List<String> refs, String rn, ElementDefn r, String url) throws FHIRException {
+    if (followsPattern(r, names, url)) {
+      refs.add(rn);
+    }
+  }
+  
   public void checkReferences(String name, List<String> refs, String rn, ElementDefn r) throws FHIRException {
     if (usesReference(r, name)) {
       refs.add(rn);
@@ -7367,6 +7414,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
+  private boolean followsPattern(ElementDefn e, List<String> names, String url) {
+    String p = e.getMapping(url);
+    if (names.contains(p))
+      return true;
+    return false;
+  }
+  
   private boolean usesReference(ElementDefn e, String name) {
     if (usesReference(e.getTypes(), name))
       return true;

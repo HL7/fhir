@@ -34,6 +34,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
@@ -732,7 +733,15 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       if (t.hasParams()) {
         write("(");
         boolean firstp = true;
+        List<String> ap = new ArrayList<>();
         for (String p : t.getParams()) {
+          if (definitions.hasLogicalModel(p))
+            ap.addAll(definitions.getLogicalModel(p).getImplementations());
+          else
+            ap.add(p);
+        }
+        Collections.sort(ap);
+        for (String p : ap) {
           if (!firstp) {
             write("|");
             w++;
