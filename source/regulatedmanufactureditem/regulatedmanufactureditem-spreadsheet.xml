@@ -17,6 +17,7 @@
   
   <TabRatio>837</TabRatio>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -733,7 +734,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Reference(MedicinalProductIngredient)</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Reference(Ingredient)</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
@@ -800,7 +801,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
