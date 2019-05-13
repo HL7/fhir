@@ -44,6 +44,8 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.Operation.OperationExample;
 import org.hl7.fhir.definitions.model.ResourceDefn;
@@ -51,6 +53,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.context.IWorkerContext;
@@ -94,6 +97,7 @@ public class ResourceValidator extends BaseValidator {
   }
 
   private Definitions definitions;
+  private PatternFinder patternFinder;
   private final Map<String, Usage> usages = new HashMap<String, Usage>();
   private final Map<String, Integer> names = new HashMap<String, Integer>();
   private final Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
@@ -117,6 +121,7 @@ public class ResourceValidator extends BaseValidator {
 		this.codeSystems = map;
 		this.fpUsages = fpUsages;
 		this.context = context;
+	  patternFinder = new PatternFinder(definitions);
 		speller = new SpellChecker(srcFolder, definitions);
 		int l = 0;
 		for (String n : definitions.getTypes().keySet())
@@ -333,7 +338,10 @@ public class ResourceValidator extends BaseValidator {
             for (TypeRef t : e.getTypes()) {
               if (t.getName().equals("Reference") || t.getName().equals("canonical") ) {
                 for (String pn : t.getParams()) {
-                  p.getTargets().add(pn);
+                  if (definitions.hasLogicalModel(pn))
+                    p.getTargets().addAll(definitions.getLogicalModel(pn).getImplementations());
+                  else
+                    p.getTargets().add(pn);
                 }
               }
             }
@@ -629,6 +637,9 @@ public class ResourceValidator extends BaseValidator {
 		rule(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
 		rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("div") || e.typeCode().equals("xhtml"), "Any element named 'div' must have a type of 'xhtml'");
 
+		if (e.typeCode().startsWith("Reference"))
+		  patternFinder.registerReference(parent.getRoot(), e);
+		
 		if (status == StandardsStatus.NORMATIVE && e.getStandardsStatus() == null && e.getTypes().size() == 1) {
 		  if (definitions.hasElementDefn(e.typeCode())) {
 		    TypeDefn t = definitions.getElementDefn(e.typeCode());
@@ -1186,6 +1197,7 @@ public class ResourceValidator extends BaseValidator {
 
   public void close() throws Exception {
     speller.close();
+    patternFinder.report();
   }
 
   public String searchParamGroups() {
@@ -1226,7 +1238,10 @@ public class ResourceValidator extends BaseValidator {
                 if (ed != null) {
                   for (TypeRef tr : ed.getTypes()) {
                     for (String tp : tr.getParams()) {
-                      ok = ok || tp.equals(cmp.getTitle()) || tp.equals("Any");
+                      if (definitions.hasLogicalModel(tp)) {
+                        ok = ok || definitions.getLogicalModel(tp).getImplementations().contains(cmp.getTitle());
+                      } else
+                        ok = ok || tp.equals(cmp.getTitle()) || tp.equals("Any");
                     }
                   }
                 }
@@ -1238,5 +1253,36 @@ public class ResourceValidator extends BaseValidator {
       }
     }
     return errors;
+  }
+
+  public void resolvePatterns() throws FHIRException {
+    List<LogicalModel> list = new ArrayList<>();
+    
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
+      for (LogicalModel lm : ig.getLogicalModels()) {
+        list.add(lm);
+      }
+    }
+    
+    for (LogicalModel lm : list) {
+      String name = lm.getResource().getRoot().getName();
+      List<String> names = definitions.listAllPatterns(name);
+      for (String rn : definitions.sortedResourceNames()) {
+        ResourceDefn r = definitions.getResourceByName(rn);
+        if (names.contains(r.getRoot().getMapping(lm.getMappingUrl()))) {
+          lm.getImplementations().add(rn);
+        }            
+      }
+    }
+    for (ResourceDefn rd : definitions.getResources().values()) {
+      for (SearchParameterDefn sp : rd.getSearchParams().values()) {
+        for (LogicalModel lm : list) {
+          if (sp.getTargets().contains(lm.getResource().getRoot().getName())) {
+            sp.getTargets().remove(lm.getResource().getRoot().getName());
+            sp.getTargets().addAll(lm.getImplementations());            
+          }
+        }        
+      }
+    }
   }
 }

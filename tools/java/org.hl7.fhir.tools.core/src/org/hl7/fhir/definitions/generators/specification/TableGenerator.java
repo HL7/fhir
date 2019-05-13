@@ -180,7 +180,7 @@ public class TableGenerator extends BaseGenerator {
       ElementDefn f = definitions.getElementDefn(e.typeCode());
       while (f != null) {
         ancestors.add(0, f);
-        f = Utilities.noString(f.typeCode()) ? null : definitions.getElementDefn(f.typeCode());
+        f = Utilities.noString(f.typeCode()) || "Logical".equals(f.typeCode()) ? null : definitions.getElementDefn(f.typeCode());
       }
       
       cc.getPieces().add(gen.new Piece("br"));

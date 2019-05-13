@@ -19,6 +19,7 @@ signatures.html
     <page title="Table of Contents" filename="toc.html" icon="index.png">
       <page title="Documentation Index" filename="documentation.html"/>
       <page title="Resources" filename="resourcelist.html"/>
+      <page title="Patterns" filename="patterns.html"/>
       <page title="Profiles" filename="profilelist.html"/>
       <page title="Extensions" filename="extensibility-registry.html"/>
       <page title="Operations" filename="operationslist.html"/>
@@ -386,6 +387,9 @@ signatures.html
       <page title="Definition Pattern" filename="definition.html"/>
       <page title="Request Pattern" filename="request.html"/>
       <page title="Event Pattern" filename="event.html"/>
+      <page title="Participant Pattern" filename="participant.html"/>
+      <page title="Participant - Contactable Pattern" filename="participantcontactable.html"/>
+      <page title="Participant - Living Pattern" filename="participantliving.html"/>
       <page title="Workflow Overview" filename="workflow.html"/>
       <page title="Workflow Communication Patterns" filename="workflow-communications.html"/>
       <page title="Workflow Ad-Hoc Patterns" filename="workflow-ad-hoc.html"/>

@@ -502,6 +502,38 @@ public class ElementDefn {
 		return tn.toString();
 	}
 
+  public String resolvedTypeCode(Definitions definitions) {
+    StringBuilder tn = new StringBuilder();
+    boolean first = true;
+    for (TypeRef t : types) {
+      if (!first)
+        tn.append("|");
+      first = false;
+      tn.append(t.getName());
+      if (t.hasParams()) {
+        tn.append("(");
+        boolean f = true;
+        for (String s : t.getParams()) {
+          if (definitions.hasLogicalModel(s)) {
+            for (String sn : definitions.getLogicalModel(s).getImplementations()) {
+              if (!f)
+                tn.append("|");
+              f = false;
+              tn.append(sn);
+            }
+          } else {
+            if (!f)
+              tn.append("|");
+            f = false;
+            tn.append(s);
+          }
+        }
+        tn.append(")");
+      }
+    }
+    return tn.toString();
+  }
+
 	
 	public boolean usesCompositeType() {
 		return this.typeCode().startsWith("@");
