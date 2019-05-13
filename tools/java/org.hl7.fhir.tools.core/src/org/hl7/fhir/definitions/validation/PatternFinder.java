@@ -43,14 +43,22 @@ public class PatternFinder {
     list.add(new ReferenceElement(root, focus));
   }
   
+  public static List<String> sorted(Set<String> set) {
+    List<String> list = new ArrayList<>();
+    list.addAll(set);
+    Collections.sort(list);
+    return list;
+  }
+
+
   public void report() throws FHIRException {
     
-    for (String rn : Utilities.sorted(definitions.getResources().keySet())) {
+    for (String rn : sorted(definitions.getResources().keySet())) {
       ResourceDefn r = definitions.getResourceByName(rn);
       System.out.println(rn+": "+r.getRoot().getMapping("http://hl7.org/v3"));
     }
     
-    for (String rn : Utilities.sorted(definitions.getResources().keySet())) {
+    for (String rn : sorted(definitions.getResources().keySet())) {
       ResourceDefn r = definitions.getResourceByName(rn);
       System.out.println(rn+": "+r.getRimClass().toString());    
       
