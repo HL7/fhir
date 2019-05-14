@@ -114,6 +114,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.OIDRegistry;
+import org.hl7.fhir.definitions.validation.PatternFinder;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -421,6 +422,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private List<String> normativePages = new ArrayList<String>();
   private MarkDownProcessor processor = new MarkDownProcessor(Dialect.COMMON_MARK);
 
+  private PatternFinder patternFinder;
   private Map<String, String> macros = new HashMap<String, String>();
   
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
@@ -1356,6 +1358,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+listSpecialParameters()+s3;
       } else if (com[0].equals("diff-links-all")) { 
         src = s1+genDiffLinks()+s3;
+      } else if (com[0].equals("patterns-analysis")) { 
+        src = s1+patternFinder.generateReport()+s3;
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
@@ -5956,6 +5960,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+listCanonicalResources()+s3;      
       else if (com[0].equals("special-search-parameters")) { 
         src = s1+listSpecialParameters()+s3;
+      } else if (com[0].equals("patterns-analysis")) { 
+        src = s1+patternFinder.generateReport()+s3;
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
@@ -11086,4 +11092,13 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     else
       return "";
   }
+
+  public PatternFinder getPatternFinder() {
+    return patternFinder;
+  }
+
+  public void setPatternFinder(PatternFinder patternFinder) {
+    this.patternFinder = patternFinder;
+  }
+  
 }

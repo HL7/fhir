@@ -1197,7 +1197,6 @@ public class ResourceValidator extends BaseValidator {
 
   public void close() throws Exception {
     speller.close();
-    patternFinder.report();
   }
 
   public String searchParamGroups() {
@@ -1248,7 +1247,7 @@ public class ResourceValidator extends BaseValidator {
               }
               rule(errors, IssueType.STRUCTURE, "compartment."+cmp.getName()+"."+rd.getName()+"."+s, ok, "No target match for "+cmp.getTitle());
             }
-          } 
+          }
         }
       }
     }
@@ -1285,4 +1284,10 @@ public class ResourceValidator extends BaseValidator {
       }
     }
   }
+
+  public PatternFinder getPatternFinder() {
+    return patternFinder;
+  }
+  
+  
 }
