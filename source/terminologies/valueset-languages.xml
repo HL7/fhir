@@ -59,6 +59,14 @@
                     </use>
                     <value value="Arabisch"/>
                 </designation>
+                <designation>
+                    <language value="zh"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="阿拉伯语"/>
+                </designation>
             </concept>
             <concept>
                 <code value="bn"/>
@@ -1239,6 +1247,14 @@
                     </use>
                     <value value="Finsk (Belgien)"/>
                 </designation>
+                <designation>
+                    <language value="zh"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="法语 （比利时）"/>
+                </designation>
             </concept>
             <concept>
                 <code value="fr-CH"/>
@@ -1273,7 +1289,7 @@
                       <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
                       <code value="display"/>
                     </use>
-                    <value value="法语 （比利时）"/>
+                    <value value="法语 （瑞士）"/>
                 </designation>
                 <designation>
                     <language value="de"/>
@@ -1325,7 +1341,7 @@
                       <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
                       <code value="display"/>
                     </use>
-                    <value value="法语 （瑞士）"/>
+                    <value value="法语 （法国）"/>
                 </designation>
                 <designation>
                     <language value="de"/>
@@ -1458,6 +1474,14 @@
                       <code value="display"/>
                     </use>
                     <value value="Hindi"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="印地语"/>
                 </designation>
             </concept>
             <concept>
@@ -2051,6 +2075,14 @@
                     </use>
                     <value value="Punjabi"/>
                 </designation>
+                <designation>
+                    <language value="zh"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="旁遮普语"/>
+                </designation>
             </concept>
             <concept>
                 <code value="pl"/>
@@ -2062,6 +2094,14 @@
                       <code value="display"/>
                     </use>
                     <value value="Polskie"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="波兰语"/>
                 </designation>
             </concept>
             <concept>

@@ -43,7 +43,19 @@ import org.w3c.dom.Element;
 public class ResourceDefn  {
 
   public enum RimClass {
-    UNKNOWN, ANY, ENTITY, ROLE, ACT, SPECIAL
+    UNKNOWN, ANY, ENTITY, ROLE, ACT, SPECIAL;
+    
+    public String toCode() {
+      switch (this) {
+      case ACT: return "Act";
+      case ANY: return "*";
+      case ENTITY: return "Entity";
+      case ROLE: return "Role";
+      case SPECIAL: return "(special)";
+      case UNKNOWN: return "??";
+      }
+      return null;
+    }
   }
 
   public enum SecurityCategorization {
