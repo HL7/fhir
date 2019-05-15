@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../../__FHIRr4Tools/fhir-all-xsd/consent.xsd">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir">
 	<id value="consent-labRep-01"/>
 	<text>
 		<status value="generated"/>
@@ -34,7 +34,7 @@ Consent to use the results of this lab report for Clinical Research Purposes.
 	</organization>
 	<policyRule>
 		<coding>
-			<system value=""/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
 			<code value="CLINTRCH"/>
 			<display value="clinical trial research"/>
 		</coding>
