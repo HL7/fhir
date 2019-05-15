@@ -65,6 +65,7 @@ import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r5.utils.Translations;
 import org.hl7.fhir.r5.validation.BaseValidator;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -631,6 +632,8 @@ public class ResourceValidator extends BaseValidator {
 	    names.put(e.getName(), 0);
     names.put(e.getName(), names.get(e.getName())+1);
 	  
+    checkPatterns(e);
+
     rule(errors, IssueType.STRUCTURE, path, e.getName().length() < maxElementLength, "Name "+e.getName()+" is too long (max element name length = "+Integer.toString(maxElementLength));
     rule(errors, IssueType.STRUCTURE, path, isValidToken(e.getName(), !path.contains(".")), "Name "+e.getName()+" is not a valid element name");
 	  rule(errors, IssueType.STRUCTURE, path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
@@ -1119,11 +1122,43 @@ public class ResourceValidator extends BaseValidator {
         // don't disable this without discussion on Zulip
       }
     }
+    
   }
     
   
 
-	private boolean externalException(String path) {
+	private void checkPatterns(ElementDefn e) {
+	  for (TypeRef tr : e.getTypes()) {
+	    List<String> types = new ArrayList<>();
+	    for (String p : tr.getParams()) {
+	      if (definitions.hasLogicalModel(p)) 
+	        types.addAll(definitions.getLogicalModel(p).getImplementations());
+	      else
+	        types.add(p);
+	    }
+
+	    if (types.size() > 1) {
+	      List<String> patterns = new ArrayList<>();
+	      for (ImplementationGuideDefn ig : definitions.getIgs().values()) {
+	        for (LogicalModel lm : ig.getLogicalModels()) {
+	          patterns.add(lm.getResource().getRoot().getName());
+	        }
+	      }
+
+	      for (String t : types) {
+	        List<String> remove = new ArrayList<>();
+	        for (String n : patterns) {
+	          if (!definitions.getLogicalModel(n).getImplementations().contains(t))
+	            remove.add(n);
+	        }
+	        patterns.removeAll(remove);
+	      }
+	      tr.setPatterns(patterns);
+	    }
+	  }
+	}
+
+  private boolean externalException(String path) {
     return Utilities.existsInList(path, "Attachment.language", "Binary.contentType", "Composition.confidentiality");
 }
 

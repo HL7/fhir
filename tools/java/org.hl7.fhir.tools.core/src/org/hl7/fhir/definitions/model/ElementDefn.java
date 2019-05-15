@@ -1061,7 +1061,7 @@ public class ElementDefn {
     else
       return rd.getNormativeVersion();
   }
-  
+
   
 }
 
