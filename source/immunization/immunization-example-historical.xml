@@ -19,13 +19,13 @@
 	</patient>
 	<occurrenceString value="January 2012"/>
 	<primarySource value="false"/>
-	<reportOrigin>
+	<informationSourceCodeableConcept>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/immunization-origin"/>
 			<code value="record"/>
 		</coding>
 		<text value="Written Record"/>
-	</reportOrigin>
+	</informationSourceCodeableConcept>
 	<location>
 		<reference value="Location/1"/>
 	</location>
