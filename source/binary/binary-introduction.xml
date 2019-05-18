@@ -29,12 +29,12 @@ response directly rather than leaving them by reference).
 When a FHIR server finds it convenient to manage the content within the same overall REST framework 
 as the other resources, the Binary resource is generally used as the target in the 
 <a href="datatypes.html#Attachment">Attachment</a> data type to reference content via the <code>.url</code> 
-element, such as in the DocumentReference and Media resources. Consequently, the Binary resource can 
+element, such as in the DocumentReference resources. Consequently, the Binary resource can 
 be a target wherever the Attachment data type is used such as in the DocumentReference resource. 
 </p>
 <p>
-The <a href="documentreference.html">DocumentReference</a> and <a href="media.html">Media</a> resources 
-allow conveying binary content (via attachment) or pointing to one (as a <code>Binary</code> or non-FHIR 
+The <a href="documentreference.html">DocumentReference</a> resource 
+allows conveying binary content (via attachment) or pointing to one (as a <code>Binary</code> or non-FHIR 
 URI) along with the metadata around that resource, and as such are searchable.  
 Binary resources do not support 'search'.
 </p>
@@ -46,12 +46,12 @@ as a Binary if there is a need to treat them the same as other types of document
 </p>
 <p>
 The Binary resource does not convey context of the file. If the context (information such as 
-author, procedure, technique, etc.) should be conveyed, Media or DocumentReference resources are 
-appropriate. The Binary resource may be used to convey actual binary file content conveyed by 
-those resources.
+author, procedure, technique, etc.) is needed it should be conveyed in a DocumentReference resource.  
+The Binary resource may be used to convey actual binary file content conveyed by 
+the DocumentReference resource.
 </p>
 <p>
-The <a href="media.html">Media</a> resource is preferred for handling images, but this is not possible when the content is already binary (e.g. in some uses of <a href="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing">IHE XDS</a>).
+See some uses of Binary and DocumentReferece in the <a href="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing">IHE XDS</a> Implementation Guide.
 </p>
 </div>
 

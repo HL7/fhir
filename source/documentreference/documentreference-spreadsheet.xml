@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>John Moehrke</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-08-04T19:43:44Z</LastSaved>
+  <LastSaved>2019-05-17T21:53:17Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>684</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -749,7 +749,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -3441,14 +3440,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3923,7 +3920,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4153,7 +4149,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4738,7 +4733,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4994,7 +4988,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5273,7 +5266,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5318,7 +5310,7 @@
     <Cell ss:StyleID="s138"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"><Data ss:Type="String">Generic exampl</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Generic example</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Generic example</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
@@ -5327,40 +5319,40 @@
     <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">example diagram</Data></Cell>
     <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Generic Diagram Image</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">example-diagram</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">documentreference-example-diagram.xml</Data></Cell>
     <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">DICOM example</Data></Cell>
     <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">DICOM Ultrasound Image </Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">1.2.840.11361907579238403408700.3.1.04.19970327150033</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">documentreference-example-dicom.xml</Data></Cell>
     <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Sound example</Data></Cell>
     <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Sound recording of speech </Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">sound</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">documentreference-example-sound.xml</Data></Cell>
     <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Xray example</Data></Cell>
     <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Xray of left hand </Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">xray</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">documentreference-example-xray.xml</Data></Cell>
     <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s139"/>
@@ -5667,7 +5659,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6163,7 +6155,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -6753,7 +6744,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7338,7 +7328,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

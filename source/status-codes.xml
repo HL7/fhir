@@ -2322,39 +2322,6 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Media.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">preparation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">suspended</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">aborted</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">completed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">inactive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="31" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">not-done</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MeasureReport.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>

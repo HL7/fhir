@@ -5457,7 +5457,7 @@
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
-    <Cell><Data ss:Type="String">A reference to a document                                                                                                                            </Data></Cell>
+    <Cell><Data ss:Type="String">A reference to a document of any kind for any purpose with metadata (e.g. CDA, clinical notes, scanned paper, photo, video, audio, policy text). </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">13</Data></Cell>
@@ -5515,78 +5515,72 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">22</Data></Cell>
-    <Cell><Data ss:Type="String">Media</Data></Cell>
-    <Cell><Data ss:Type="String">Media</Data></Cell>
-    <Cell><Data ss:Type="String">A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference                                          </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">23</Data></Cell>
     <Cell><Data ss:Type="String">MedicationAdministration</Data></Cell>
     <Cell><Data ss:Type="String">MedicationAdministration</Data></Cell>
     <Cell><Data ss:Type="String">Administration of medication to a patient                                                                                              </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell><Data ss:Type="Number">23</Data></Cell>
     <Cell><Data ss:Type="String">MedicationDispense</Data></Cell>
     <Cell><Data ss:Type="String">MedicationDispense</Data></Cell>
     <Cell><Data ss:Type="String">Dispensing a medication to a named patient                                                                                                         </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="Number">24</Data></Cell>
     <Cell><Data ss:Type="String">MedicationUsage</Data></Cell>
     <Cell><Data ss:Type="String">MedicationUsage</Data></Cell>
     <Cell><Data ss:Type="String">Record of medication being taken by a patient                                                                                                    </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">26</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
     <Cell><Data ss:Type="String">Observation</Data></Cell>
     <Cell><Data ss:Type="String">Observation</Data></Cell>
     <Cell><Data ss:Type="String">Measurements and simple assertions                                                                                                                               </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">27</Data></Cell>
+    <Cell><Data ss:Type="Number">26</Data></Cell>
     <Cell><Data ss:Type="String">PaymentNotice</Data></Cell>
     <Cell><Data ss:Type="String">PaymentNotice</Data></Cell>
     <Cell><Data ss:Type="String">PaymentNotice request                                                                                                                                        </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">28</Data></Cell>
+    <Cell><Data ss:Type="Number">27</Data></Cell>
     <Cell><Data ss:Type="String">PaymentReconciliation</Data></Cell>
     <Cell><Data ss:Type="String">PaymentReconciliation</Data></Cell>
     <Cell><Data ss:Type="String">PaymentReconciliation resource                                                                                                               </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">29</Data></Cell>
+    <Cell><Data ss:Type="Number">28</Data></Cell>
     <Cell><Data ss:Type="String">Procedure</Data></Cell>
     <Cell><Data ss:Type="String">Procedure</Data></Cell>
     <Cell><Data ss:Type="String">An action that is being or was performed on a patient                                                                                                                </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">29</Data></Cell>
     <Cell><Data ss:Type="String">ProcessResponse</Data></Cell>
     <Cell><Data ss:Type="String">ProcessResponse</Data></Cell>
     <Cell><Data ss:Type="String">ProcessResponse resource                                                                                                                                 </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">31</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell><Data ss:Type="String">QuestionnaireResponse</Data></Cell>
     <Cell><Data ss:Type="String">QuestionnaireResponse</Data></Cell>
     <Cell><Data ss:Type="String">A structured set of questions and their answers                                                                                              </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">32</Data></Cell>
+    <Cell><Data ss:Type="Number">31</Data></Cell>
     <Cell><Data ss:Type="String">RiskAssessment</Data></Cell>
     <Cell><Data ss:Type="String">RiskAssessment</Data></Cell>
     <Cell><Data ss:Type="String">Potential outcomes for a subject with likelihood                                                                                                           </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">33</Data></Cell>
+    <Cell><Data ss:Type="Number">32</Data></Cell>
     <Cell><Data ss:Type="String">SupplyDelivery</Data></Cell>
     <Cell><Data ss:Type="String">SupplyDelivery</Data></Cell>
     <Cell><Data ss:Type="String">Delivery of bulk Supplies                                                                                                                                  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">34</Data></Cell>
+    <Cell><Data ss:Type="Number">33</Data></Cell>
     <Cell><Data ss:Type="String">Task</Data></Cell>
     <Cell><Data ss:Type="String">Task</Data></Cell>
     <Cell><Data ss:Type="String">A task to be performed                                                                                                                                                         </Data></Cell>

@@ -1009,7 +1009,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="29">
     <Cell><Data ss:Type="String">AdverseEvent.supportingInfo.item</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Reference(Condition|Observation|AllergyIntolerance|FamilyMemberHistory|Immunization|Procedure|Media|DocumentReference)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Condition|Observation|AllergyIntolerance|FamilyMemberHistory|Immunization|Procedure|DocumentReference)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Subject medical history or document relevant to this adverse event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Relevant past history for the subject.  In a clinical care context, an example being a patient had an adverse event following penciliin and the patient was given penicillin in the past.  In a clinical trials context, an example is a bunion or rash that was present prior to the study.&#10;Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject's medical history.  For example, a clinical note, staff list, or material safety data sheet (MSDS)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="25"><Data ss:Type="String">GF#14151, GF#20593</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
