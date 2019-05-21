@@ -2774,6 +2774,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("fhir.schema.json.zip", page.getFolders().dstDir + "fhir.schema.json.zip", false);
       zip.close();
 
+      zip = new ZipGenerator(page.getFolders().dstDir + "definitions.xlsx.zip");
+      for (String rn : page.getDefinitions().sortedResourceNames()) {
+        zip.addFileName(rn.toLowerCase()+".xlsx", page.getFolders().dstDir + rn.toLowerCase()+".xlsx", false);
+      }
+      zip.close();
+
       // this is the actual package used by the validator. 
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.pack");
       // conformance resources
@@ -4222,6 +4228,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     tmp.delete();
 
+    new ProfileUtilities(page.getWorkerContext(), page.getValidationErrors(), page).generateXlsx(new FileOutputStream(Utilities.path(page.getFolders().dstDir, n + ".xlsx")), resource.getProfile(), false, false);
+    
     // because we'll pick up a little more information as we process the
     // resource
     StructureDefinition p = generateProfile(resource, n, xml, json, ttl, !logicalOnly);
