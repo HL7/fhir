@@ -11,16 +11,22 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the disease that the dose is being administered against. This value set is provided as a suggestive example and includes the SNOMED CT concepts from the 64572001 (Disease) hierarchy."/>
+	<description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the disease that the dose is being administered against. This value set is provided as a suggestive example and includes SNOMED CT concepts from the 64572001 (Disease) hierarchy."/>
 	<copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
 	<compose>
 		<include>
 			<system value="http://snomed.info/sct"/>
 			<concept>
-				<code value="1857005"/>
+				<code value="397428000"/>
 			</concept>
 			<concept>
-				<code value="397430003"/>
+				<code value="27836007"/>
+			</concept>
+			<concept>
+				<code value="76902006"/>
+			</concept>
+			<concept>
+				<code value="721764008"/>
 			</concept>
 			<concept>
 				<code value="14189004"/>
@@ -30,18 +36,114 @@
 			</concept>
 			<concept>
 				<code value="36653000"/>
+			</concept> 
+			<concept>
+				<code value="16814004"/>
 			</concept>
 			<concept>
-				<code value="76902006"/>
+				<code value="23511006"/>
 			</concept>
 			<concept>
 				<code value="709410003"/>
-			</concept> 
-			<concept>
-				<code value="27836007"/>
 			</concept>
 			<concept>
-				<code value="398102009"/>
+				<code value="56717001"/>
+			</concept>
+			<concept>
+				<code value="363354003"/>
+			</concept>
+			<concept>
+				<code value="266113007"/>
+			</concept>
+			<concept>
+				<code value="415822001"/>
+			</concept>
+			<concept>
+				<code value="66071002"/>
+			</concept>
+			<concept>
+				<code value="40468003"/>
+			</concept>
+			<concept>
+				<code value="7111000119109"/>
+			</concept>
+			<concept>
+				<code value="719590007"/>
+			</concept>
+			<concept>
+				<code value="719865001"/>
+			</concept>
+			<concept>
+				<code value="38907003"/>
+			</concept>
+			<concept>
+				<code value="4740000"/>
+			</concept>
+			<concept>
+				<code value="55735004"/>
+			</concept>
+			<concept>
+				<code value="240613006"/>
+			</concept>
+			<concept>
+				<code value="4834000"/>
+			</concept>
+			<concept>
+				<code value="85904008"/>
+			</concept>
+			<concept>
+				<code value="63650001"/>
+			</concept>
+			<concept>
+				<code value="16541001"/>
+			</concept>
+			<concept>
+				<code value="38362002"/>
+			</concept>
+			<concept>
+				<code value="61462000"/>
+			</concept>
+			<concept>
+				<code value="14168008"/>
+			</concept>
+			<concept>
+				<code value="186772009"/>
+			</concept>
+			<concept>
+				<code value="712986001"/>
+			</concept>
+			<concept>
+				<code value="52947006"/>
+			</concept>
+			<concept>
+				<code value="186788009"/>
+			</concept>
+			<concept>
+				<code value="409498004"/>
+			</concept>
+			<concept>
+				<code value="58750007"/>
+			</concept>
+			<concept>
+				<code value="19265001"/>
+			</concept>
+			<concept>
+				<code value="23502006"/>
+			</concept>
+			<concept>
+				<code value="75702008"/>
+			</concept>
+			<concept>
+				<code value="80612004"/>
+			</concept>
+			<concept>
+				<code value="186747009"/>
+			</concept>
+			<concept>
+				<code value="67924001"/>
+			</concept>
+			<concept>
+				<code value="70090004"/>
 			</concept>
 		</include>
 	</compose>
