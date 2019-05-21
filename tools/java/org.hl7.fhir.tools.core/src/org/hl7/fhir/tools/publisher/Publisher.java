@@ -5706,7 +5706,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       for (int i = 0; i < level; i++)
         s = "../"+s;
       img.attribute("src", s);
-      img.attribute("style", "text-align: baseline");
+      img.attribute("style", "vertical-align: baseline");
     }
 
     if (node.getNodeType() == NodeType.Element

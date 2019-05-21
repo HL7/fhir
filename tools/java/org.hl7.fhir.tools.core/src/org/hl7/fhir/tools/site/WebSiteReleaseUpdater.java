@@ -51,7 +51,7 @@ public class WebSiteReleaseUpdater {
 
     if (exempt != null)
       return "<p id=\"publish-box-current\">This is the current officially released version of FHIR, which is <a href=\"history.html\">"+sequence+
-          "</a> (v"+version+"). For a full list of all versions, see the <a href=\"http://hl7.org/fhir/directory.cfml\">Directory of published versions <img src=\"{pd}external.png\" style=\"text-align: baseline\"></a>.</p>";
+          "</a> (v"+version+"). For a full list of all versions, see the <a href=\"http://hl7.org/fhir/directory.cfml\">Directory of published versions <img src=\"{pd}external.png\" style=\"vertical-align: baseline\"></a>.</p>";
     
     String desc = JSONUtil.str(ver, "desc");
     String status = JSONUtil.str(ver, "status");
@@ -61,14 +61,14 @@ public class WebSiteReleaseUpdater {
       if (ver == currentVer)
         return "<p id=\"publish-box-milestone\">This page is part of FHIR "+sequence+" - the current version v"+version+" - in it's permanent home (it will always be available at this URL). "+
              "For a full list of available versions, see the "+
-             "<a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions <img style=\"text-align: baseline\" src=\"{pd}external.png\"></a>.</p>";
+             "<a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions <img style=\"vertical-align: baseline\" src=\"{pd}external.png\"></a>.</p>";
       else
         return "<p id=\"publish-box-milestone\">This page is part of FHIR "+sequence+"  (v"+version+") in it's permanent home (it will always be available at this URL). "+
       "It has been superceded by <a href=\"http://hl7.org/fhir/{ref}\">"+cSeq+"</a>. For a full list of available versions, see the "+
-      "<a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions <img style=\"text-align: baseline\" src=\"{pd}external.png\"></a>.</p>";
+      "<a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions <img style=\"vertical-align: baseline\" src=\"{pd}external.png\"></a>.</p>";
     } else {
       return "<p id=\"publish-box-past\">This page was published as part of FHIR v"+version+": "+desc+". It has been superceded by <a href=\"http://hl7.org/fhir/{ref}\">"+cSeq+"</a>. For a full list of available versions, see the "+
-          "<a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions <img style=\"text-align: baseline\" src=\"{pd}external.png\"></a>.</p>";
+          "<a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions <img style=\"vertical-align: baseline\" src=\"{pd}external.png\"></a>.</p>";
     }
   }
 
