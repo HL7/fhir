@@ -48,7 +48,7 @@ public class XLSXConvertor {
         String rn = sd.getId();
         System.out.println("  .. "+rn);
         new ProfileUtilities(context, null, null).generateXlsx(new FileOutputStream(Utilities.path(td, rn.toLowerCase()+".xlsx")), sd, false, false);
-        zip.addFileName(rn.toLowerCase()+".zip", Utilities.path(td, rn.toLowerCase()+".xlsx"), false);
+        zip.addFileName(rn.toLowerCase()+".xlsx", Utilities.path(td, rn.toLowerCase()+".xlsx"), false);
       }
     }
     zip.close();

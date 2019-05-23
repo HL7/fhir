@@ -70,16 +70,18 @@ public class PatternFinder {
       sorted.add(n);
     Collections.sort(sorted);
     
+    output.append("<p>Participation type Patterns</p>\r\n");
     output.append("<table class=\"grid\">\r\n");
-    output.append("<tr><td>Resources</td><td>Pattern</td><td>RIM Classes</td><td>Locations</td></tr>\r\n");
+    output.append("<tr><td><b>Resources</b></td><td><b>Pattern</b> (or candidates)</td><td></td><td><b>Locations</b></td></tr>\r\n"); // <b>RIM Classes</b>
     for (String s : sorted) {
       if (s.contains(",") && (s.contains("Patient") || s.contains("Practitioner") || s.contains("Organization") )) {
         addPatternToTable(s, set.get(s), output);
       }
     }
     output.append("</table>\r\n");
+    output.append("<p>Other Patterns</p>\r\n");
     output.append("<table class=\"grid\">\r\n");
-    output.append("<tr><td>Resources</td><td>Pattern</td><td>RIM Classes</td><td>Locations</td></tr>\r\n");
+    output.append("<tr><td><b>Resources</b></td><td><b>Pattern</b> (or candidates)</td><td></td><td><b>Locations</b></td></tr>\r\n");
     for (String s : sorted)
       if (s.contains(",") && !(s.contains("Patient") || s.contains("Practitioner") || s.contains("Organization") ))
         addPatternToTable(s, set.get(s), output);
@@ -98,16 +100,16 @@ public class PatternFinder {
     output.append("</td><td>");
     output.append(findMatchingPattern(s));
     output.append("</td><td>");
-    first = true;
-    Set<String> rc = new HashSet<>();
-    for (String r : s.split("\\,")) {
-      rc.add(definitions.getResourceByName(r.trim()).getRimClass().toCode());
-    }      
-    for (String r : rc) {
-      if (first) first = false; else output.append(", ");
-      output.append(r);
-    }
-    output.append("</td><td>");
+//    first = true;
+//    Set<String> rc = new HashSet<>();
+//    for (String r : s.split("\\,")) {
+//      rc.add(definitions.getResourceByName(r.trim()).getRimClass().toCode());
+//    }      
+//    for (String r : rc) {
+//      if (first) first = false; else output.append(", ");
+//      output.append(r);
+//    }
+//    output.append("</td><td>");
     first = true;
     for (ReferenceElement e : list2) {
       if (first) first = false; else output.append("<br/>");
@@ -122,6 +124,7 @@ public class PatternFinder {
   }
 
   private String findMatchingPattern(String p) {
+    // try and find a direct pattern match
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       for (LogicalModel lm : ig.getLogicalModels()) {
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -131,7 +134,35 @@ public class PatternFinder {
           return "<a href=\""+lm.getResource().getName()+".html#"+lm.getResource().getRoot().getName()+"\">"+lm.getResource().getRoot().getName()+"</a>";
       }
     }
-    return "";
+    String[] pl = p.split("\\,");
+    Set<String> ps = new HashSet<>();
+    for (String s : pl)
+      ps.add(s.trim());
+    
+    // note any close patterns
+    CommaSeparatedStringBuilder pb = new CommaSeparatedStringBuilder("<br/>");
+    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
+      for (LogicalModel lm : ig.getLogicalModels()) {
+        Set<String> bs = new HashSet<>();
+        for (String s : lm.getImplementations())
+          bs.add(s);
+        if (!bs.isEmpty()) {
+        Set<String> missed = new HashSet<>();
+        Set<String> extra = new HashSet<>();
+        Utilities.analyseStringDiffs(ps, bs, missed, extra);
+        if (missed.size() + extra.size() <= 3) {
+          String s = "<a href=\""+lm.getResource().getName()+".html#"+lm.getResource().getRoot().getName()+"\">"+lm.getResource().getRoot().getName()+"</a>";
+          if (missed.size() > 0)
+            s = s + " + " + missed.toString();
+          if (extra.size() > 0)
+            s = s + " - " + extra.toString();
+          pb.append(s);
+        }
+        }
+      }
+    }
+    
+    return pb.toString();
   }
 
   private String sortRefs(ElementDefn focus) {

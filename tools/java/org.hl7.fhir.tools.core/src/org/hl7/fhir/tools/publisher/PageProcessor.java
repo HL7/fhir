@@ -143,6 +143,10 @@ import org.hl7.fhir.r5.model.CodeType;
 import org.hl7.fhir.r5.model.CodeableConcept;
 import org.hl7.fhir.r5.model.Coding;
 import org.hl7.fhir.r5.model.ConceptMap;
+import org.hl7.fhir.r5.model.ConceptMap.ConceptMapGroupComponent;
+import org.hl7.fhir.r5.model.ConceptMap.ConceptMapGroupUnmappedMode;
+import org.hl7.fhir.r5.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.r5.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.r5.model.ContactDetail;
 import org.hl7.fhir.r5.model.ContactPoint;
 import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
@@ -156,6 +160,7 @@ import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingComponent
 import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.r5.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r5.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r5.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r5.model.ExpressionNode.CollectionStatus;
@@ -204,6 +209,7 @@ import org.hl7.fhir.r5.utils.TypesUtilities.TypeClassification;
 import org.hl7.fhir.r5.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
+import org.hl7.fhir.tools.publisher.PageProcessor.TypeMappingStatus;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -6656,12 +6662,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
+  public enum TypeMappingStatus { OK, ERROR, NEEDS_MAPPING };
+
   private class LogicalModelSupportInformation {
     int elementcount;
     CommaSeparatedStringBuilder elementlist = new CommaSeparatedStringBuilder();
     boolean extension;
     boolean nameChanged;
-    boolean typeMismatch;
+    TypeMappingStatus typeMismatch = TypeMappingStatus.OK;
     boolean cardinalityProblem;
     List<String> notes = new ArrayList<String>();
   }
@@ -6671,7 +6679,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private final static String LOGICAL_MAPPING_MAPPED_COLOR = "#ffffff";
   private final static String LOGICAL_MAPPING_NOTMAPPED_COLOR = "#f2f2f2";
   
-  private void populateLogicalMappingColumn(StringBuilder b, String n, String page, ElementDefn e, StructureDefinition sd, String rn, String code, String url, StringBuilder b2, IniFile ini, String iniPath) {
+  private void populateLogicalMappingColumn(StringBuilder b, String n, String page, ElementDefn e, StructureDefinition sd, String rn, String code, String url, StringBuilder b2, IniFile ini, String iniPath) throws FHIRException {
     LogicalModelSupportInformation info = new LogicalModelSupportInformation();
 
     for (ElementDefinition ed : sd.getSnapshot().getElement()) { 
@@ -6679,9 +6687,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (m.getIdentity().equals(code)) {
           String s = m.getMap();
           for (String p : s.split("\\,")) {
-            String f = p.contains("{") ? p.substring(0, p.indexOf("{")) : p;
+            String f = p.contains("{") ? p.substring(0, p.indexOf("{")).trim() : p;
+            String cm = p.contains("{") ? p.substring(p.indexOf("{")) : null;
+            if (cm != null) {
+              cm = cm.trim();
+            }
             if (f.equals(e.getPath())) {
-              checkMapping(info, e, ed, b2 == null);
+              checkMapping(info, e, ed, b2 == null, cm);
            }
           }
         }
@@ -6715,9 +6727,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     //   one coor when color extension  
     //   blank for no mapping
     String color;
-    if (info.typeMismatch || info.cardinalityProblem) 
+    if (info.typeMismatch == TypeMappingStatus.ERROR || info.cardinalityProblem) 
       color = LOGICAL_MAPPING_MISMATCH_COLOR;
-    else if (info.nameChanged) 
+    else if (info.nameChanged || info.typeMismatch == TypeMappingStatus.NEEDS_MAPPING) 
       color = LOGICAL_MAPPING_NAMECHANGE_COLOR;
     else if (info.extension) 
       color = LOGICAL_MAPPING_EXTENSION_COLOR;
@@ -6741,7 +6753,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append(" ");
       if (info.nameChanged)
         b.append("N");
-      if (info.typeMismatch)
+      if (info.typeMismatch == TypeMappingStatus.ERROR)
         b.append("T");
       if (info.cardinalityProblem)
         b.append("C");
@@ -6754,17 +6766,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     
     String tasks = ini == null ? null : ini.getStringProperty(iniPath, sd.getName());
     if (b2 != null && !(Utilities.noString(ns.toString()) && Utilities.noString(tasks))) {
-      b2.append("<tr style=\"background-color: "+color+"\"><td><b>"+sd.getName()+"</b></td><td><ul>"+ns.toString()+"</ul>");
+      b2.append("<tr style=\"background-color: "+color+"\"><td><b><a href=\""+sd.getName().toLowerCase()+".html\">"+sd.getName()+"</a></b></td><td><ul>"+ns.toString()+"</ul>");
       if (info.extension)
         b2.append(" (as an extension)");
       b2.append("</td><td>");
-      if (info.nameChanged || info.typeMismatch || info.cardinalityProblem) {
+      if (info.nameChanged || info.typeMismatch != TypeMappingStatus.OK || info.cardinalityProblem) {
         boolean first = true;
         if (info.nameChanged) {
           b2.append("Names are different. " );
           first = false;
         }
-        if (info.typeMismatch) {
+        if (info.typeMismatch != TypeMappingStatus.OK) {
           if (!first)
             b2.append("<br/>");
           b2.append("Type Mismatch. ");
@@ -6807,7 +6819,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return null;
   }
 
-  private void checkMapping(LogicalModelSupportInformation info, ElementDefn logical, ElementDefinition resource, boolean inline) {
+  private void checkMapping(LogicalModelSupportInformation info, ElementDefn logical, ElementDefinition resource, boolean inline, String cm) throws FHIRException {
     info.elementcount++;
     info.elementlist.append(resource.getPath());
     String s;
@@ -6823,9 +6835,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       info.cardinalityProblem = true;
       s = s + " " +cardinalityError;
     }
-    String typeError = checkType(logical, resource);
+    String typeError = checkType(logical, resource, cm);
     if (!Utilities.noString(typeError)) {
-      info.typeMismatch = true;
+      if (cm != null && cm.startsWith("{map:"))
+        info.typeMismatch = TypeMappingStatus.NEEDS_MAPPING;
+      else
+        info.typeMismatch = TypeMappingStatus.OK;
       s = s + " " +typeError;
     }
     info.notes.add(s);
@@ -6835,7 +6850,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return path.substring(path.lastIndexOf(".")+1);
   }
 
-  private void checkExtMapping(LogicalModelSupportInformation info, ElementDefn logical, StructureDefinition extension) {
+  private void checkExtMapping(LogicalModelSupportInformation info, ElementDefn logical, StructureDefinition extension) throws FHIRException {
     info.extension = true;
     ElementDefinition e = extension.getSnapshot().getElementFirstRep();
     ElementDefinition v = null;
@@ -6849,9 +6864,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       info.cardinalityProblem = true;
       s = s + " " +cardinalityError;
     }
-    String typeError = checkType(logical, v);
+    String typeError = checkType(logical, v, null);
     if (!Utilities.noString(typeError)) {
-      info.typeMismatch = true;
+      info.typeMismatch = TypeMappingStatus.ERROR;
       s = s + " " +typeError;
     }
     info.notes.add(s);
@@ -6859,10 +6874,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
 
 
-  private String checkType(ElementDefn logical, ElementDefinition resource) {
+  private String checkType(ElementDefn logical, ElementDefinition resource, String cm) throws FHIRException {
     String s = "";
     for (TypeRefComponent rt : resource.getType()) {
-      if (!checkType(logical, rt)) {
+      if (!checkType(logical, rt, cm, resource)) {
         String m = "The type '"+rt.getCode()+"' is not legal according to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
         s = Utilities.noString(s) ? m : s + ", "+m;
       }
@@ -6870,14 +6885,66 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return s;
   }
 
-  private boolean checkType(ElementDefn logical, TypeRefComponent rt) {
+  private boolean checkType(ElementDefn logical, TypeRefComponent rt, String cm, ElementDefinition resource) throws FHIRException {
     for (TypeRef lt : logical.getTypes()) {
       if (lt.getName().equals(rt.getCode()))
         return true;
     }
+    if (cm != null) {
+      ConceptMap map = parseConceptMapMapping(logical, resource, cm);
+      if (map != null) {
+        for (TypeRef lt : logical.getTypes()) {
+          if (canBeType(map, lt.getName()))
+            return true;
+        }
+      }
+    }
     return false;
   }
 
+  private boolean canBeType(ConceptMap map, String name) {
+    if ("boolean".equals(name)) {
+      for (ConceptMapGroupComponent grp : map.getGroup()) {
+        if (grp.hasUnmapped() && !Utilities.existsInList(grp.getUnmapped().getCode(), "true", "false"))
+          return false;
+        for (SourceElementComponent e : grp.getElement()) {
+          for (TargetElementComponent t : e.getTarget()) {
+            if (!Utilities.existsInList(t.getCode(), "true", "false"))
+              return false;
+          }
+        }
+      }
+      return true;
+    }
+    return false;
+  }
+
+  private ConceptMap parseConceptMapMapping(ElementDefn logical, ElementDefinition resource, String src) throws FHIRException {
+    if (!src.startsWith("{map:"))
+      return null;
+    
+    ConceptMap map = new ConceptMap();
+    map.setId(logical.getPath()+"2"+resource.getPath());
+    map.setUrl("http://hl7.org/fhir/ConceptMap/"+map.getId());
+    map.setVersion(version.toCode());
+    ConceptMapGroupComponent grp = map.addGroup();
+    String[] statements = src.substring(0, src.length()-1).substring(5).split("\\;");
+    if (statements.length == 0)
+      throw new FHIRException("Unable to parse map details '"+src+"'");
+    for (String s : statements) {
+      String[] p = s.split("\\=");
+      if (p.length < 2)
+        throw new FHIRException("Unable to parse map details '"+src+"'");
+      if (":default".equals(p[0].trim())) {
+        grp.getUnmapped().setMode(ConceptMapGroupUnmappedMode.FIXED);
+        grp.getUnmapped().setCode(p[1].trim());
+      } else {
+        grp.addElement().setCode(p[0].trim()).addTarget().setEquivalence(ConceptMapEquivalence.EQUIVALENT).setCode(p[1].trim());
+      }
+    }
+    return map;
+  }
+  
   private String checkCardinality(ElementDefn logical, ElementDefinition resource) {
     String s = "";
     if (resource.getMin() < logical.getMinCardinality())
