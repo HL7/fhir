@@ -72,7 +72,7 @@ public class PatternFinder {
     
     output.append("<p>Participation type Patterns</p>\r\n");
     output.append("<table class=\"grid\">\r\n");
-    output.append("<tr><td><b>Resources</b></td><td><b>Pattern</b> (or candidates)</td><td></td><td><b>Locations</b></td></tr>\r\n"); // <b>RIM Classes</b>
+    output.append("<tr><td><b>Resources</b></td><td><b>Pattern</b> (or candidates)</td><td><b>Locations</b></td></tr>\r\n"); // <b>RIM Classes</b>
     for (String s : sorted) {
       if (s.contains(",") && (s.contains("Patient") || s.contains("Practitioner") || s.contains("Organization") )) {
         addPatternToTable(s, set.get(s), output);
@@ -81,7 +81,7 @@ public class PatternFinder {
     output.append("</table>\r\n");
     output.append("<p>Other Patterns</p>\r\n");
     output.append("<table class=\"grid\">\r\n");
-    output.append("<tr><td><b>Resources</b></td><td><b>Pattern</b> (or candidates)</td><td></td><td><b>Locations</b></td></tr>\r\n");
+    output.append("<tr><td><b>Resources</b></td><td><b>Pattern</b> (or candidates)</td><td><b>Locations</b></td></tr>\r\n");
     for (String s : sorted)
       if (s.contains(",") && !(s.contains("Patient") || s.contains("Practitioner") || s.contains("Organization") ))
         addPatternToTable(s, set.get(s), output);
