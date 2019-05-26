@@ -15400,6 +15400,15 @@
     <display value="Respiratory syncytial virus infection (disorder)"/>
     <display value="RSV - Respiratory syncytial virus infection"/>
   </concept>
+  <concept id="55822004" display="Hyperlipidemia">
+    <display value="Hyperlipidemia"/>
+    <display value="Lipidemia"/>
+    <display value="HLD - Hyperlipidemia"/>
+    <display value="HLD - Hyperlipidaemia"/>
+    <display value="Hyperlipidaemia"/>
+    <display value="Lipidaemia"/>
+    <display value="Hyperlipidemia (disorder)"/>
+  </concept>
   <concept id="5584006" display="Hospital-based outpatient peripheral vascular clinic">
     <display value="Hospital-based outpatient peripheral vascular clinic"/>
     <display value="Hospital-based outpatient peripheral vascular clinic (environment)"/>

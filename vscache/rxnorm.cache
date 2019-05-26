@@ -734,3 +734,45 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "C0017245"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code \"C0017245\" is not valid in the system http://www.nlm.nih.gov/research/umls/rxnorm; The code provided (http://www.nlm.nih.gov/research/umls/rxnorm#C0017245) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "C0017245",
+  "display" : "Gemfibrozil"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code \"C0017245\" is not valid in the system http://www.nlm.nih.gov/research/umls/rxnorm; The code provided (http://www.nlm.nih.gov/research/umls/rxnorm#C0017245) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "203151"
+}, "valueSet" :null}####
+v: {
+  "display" : "Fenoldopam Mesylate",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "203151",
+  "display" : "Gemfibrozil"
+}, "valueSet" :null}####
+v: {
+  "display" : "Fenoldopam Mesylate",
+  "severity" : "warning",
+  "error" : "The display \"Gemfibrozil\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}203151 - should be one of [\"Fenoldopam Mesylate\"]"
+}
+-------------------------------------------------------------------------------------
