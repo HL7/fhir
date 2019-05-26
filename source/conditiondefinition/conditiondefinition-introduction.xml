@@ -1,0 +1,39 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- https://chat.fhir.org/#narrow/stream/179230-Clinicians-on.20FHIR/topic/Proposal.20for.20a.20new.20resource -->
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+<p>
+A condition definition defines a set of system properties for a particular condition. 
+</p>
+<p>
+It is important to understand the condition definition resource is not intended to be 
+used to define the underlying biological or ontological basis for the condition; instead 
+the focus is on how the the condition is identified, managed, and treated.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<ul>
+<li>Conditions may have a matching condition definition, but need not do so</li>
+<li>Condition definitions may identify observations and signs (including, but not limited to) lab tests that are indicative of the condition</li>
+<li>Condition definitions often identify ongoing observations to prioritize when viewing the chart of patients with the conditions</li>
+<li>Condition definitions may identify applicable care plans</li>
+</ul>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+One frequent criticism of information systems in healthcare is that they do not adapt well to changing context, 
+particularly the context of what is specifically wrong. A typical institution will have 20-30,000 different kinds
+of observational data, but only a small portion of these are relevant to any particular condition. Information 
+systems supporting clinical care provision are increasingly investigating the use of AI, but ConditionDefinition
+provides a simple way to help the system be more adaptive.
+</p>
+</div>
+
+</div>
