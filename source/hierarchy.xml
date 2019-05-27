@@ -193,6 +193,7 @@ signatures.html
         <page title="Examples" filename="profiling-examples.html"/>
       </page>
       <page type="resource" resource="CapabilityStatement"/>
+      <page type="resource" resource="CapabilityStatement2"/>
       <page type="resource" resource="StructureDefinition"/>
       <page type="resource" resource="OperationDefinition"/>
       <page type="resource" resource="SearchParameter"/>

@@ -126,6 +126,9 @@
 		<translation lang="es">DeclaracionDeCapacidad</translation>
 		<translation lang="zh">能力声明</translation>
 	</item>
+	<item id="CapabilityStatement2">
+		<translation lang="en">CapabilityStatement2</translation>
+	</item>
 	<item id="CarePlan">
 		<translation lang="en">CarePlan</translation>
 		<translation lang="es">PlanDeCuidado</translation>
