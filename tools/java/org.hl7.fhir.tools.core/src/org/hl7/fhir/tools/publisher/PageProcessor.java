@@ -6639,12 +6639,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       bx.append("<table class=\"grid\">\r\n");
       for (ElementDefn e : elements) {
         if (logical.getRoot().getElements().contains(e)) {
-          bx.append("<tr><td colspan=\"4\"><b><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">"+e.getPath()+"</a></b></td></tr>\r\n");
+          bx.append("<tr><td colspan=\"6\"><b><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">"+e.getPath()+"</a></b></td></tr>\r\n");
         } else {
-          bx.append("<tr><td colspan=\"4\"><b><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">."+e.getPath()+"</a></b></td></tr>\r\n");
+          bx.append("<tr><td colspan=\"6\"><b><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">."+e.getPath()+"</a></b></td></tr>\r\n");
         }
-        bx.append("<tr><td colspan=\"4\">"+e.getPath()+" : "+e.typeCode()+" ["+e.describeCardinality()+"]</td></tr>\r\n");
-        bx.append("<tr><td>Resource</td><td>Matches</td><td>Issues</td><td>Tasks</td></tr>\r\n");
+        bx.append("<tr><td colspan=\"6\">"+e.getPath()+" : "+e.typeCode()+" ["+e.describeCardinality()+"]</td></tr>\r\n");
+        bx.append("<tr><td>Resource</td><td>Matches</td><td>Issues</td><td>Tasks</td><td>Status</td><td>Notes</td></tr>\r\n");
         bx.append(bm.get(e).toString());
       }
       bx.append("</table>\r\n");
@@ -6764,7 +6764,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       ns.append(s);
     }
     
-    String tasks = ini == null ? null : ini.getStringProperty(iniPath, sd.getName());
+    String tasks = ini == null ? null : ini.getStringProperty(iniPath, sd.getName()+".tasks");
+    String status = ini == null ? null : ini.getStringProperty(iniPath, sd.getName()+".status");
+    String notes = ini == null ? null : ini.getStringProperty(iniPath, sd.getName()+".notes");
     if (b2 != null && !(Utilities.noString(ns.toString()) && Utilities.noString(tasks))) {
       b2.append("<tr style=\"background-color: "+color+"\"><td><b><a href=\""+sd.getName().toLowerCase()+".html\">"+sd.getName()+"</a></b></td><td><ul>"+ns.toString()+"</ul>");
       if (info.extension)
@@ -6797,7 +6799,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           b2.append("<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+id.trim()+"\">GF#"+id.trim()+"</a>");
           first = false;
         }
+        b2.append("</td><td>");
       }
+      if (!Utilities.noString(status))
+        b2.append(Utilities.escapeXml(status));
+      b2.append("</td><td>");
+      if (!Utilities.noString(notes))
+        b2.append(Utilities.escapeXml(notes));
       
       b2.append("</td></tr>\r\n");
     }
