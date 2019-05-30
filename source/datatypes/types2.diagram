@@ -1,5 +1,5 @@
 [diagram]
-classes=Identifier,HumanName,Address,ContactPoint,Timing,Signature,SampledData,BackboneElement,Statistic,OrderedDistribution
+classes=Identifier,HumanName,Address,ContactPoint,Signature,BackboneElement
 element-attributes=true
 
 [directions]
@@ -8,8 +8,4 @@ Address=-30;-200
 ContactPoint=180;-170
 Identifier=-250;-20
 BackboneElement=250;-50
-SampledData=70;110
-Timing=250;40
-Timing.repeat=260;170
-Signature=-270;110
-Statistic=440;-170
+Signature=200;40

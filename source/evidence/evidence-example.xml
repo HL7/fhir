@@ -1,4 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Evidence>
+<Evidence xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="example"/>
+	<title value="Corticosteroids vs No corticosteroids"/>
+	<status value="draft"/>
+	<summaryPublisher>
+		<name value="MAGIC"/>
+	</summaryPublisher>
+	<relatedArtifact>
+		<url value="https://app.magicapp.org/public/guideline/EZ1w8n/pico/31831/widget?tab=outcome"/>
+	</relatedArtifact>
+	<description value="Corticosteroids vs no corticosteroids for patients with sepsis"/>
+	<synthesisType>
+		<coding>
+			<system value="http://hl7.org/fhir/ValueSet/synthesis-type"/>
+			<code value="std-MA"/>
+			<display value="summary data meta-analysis"/>
+		</coding>
+	</synthesisType>
+	<studyType>
+		<coding>
+			<system value="http://hl7.org/fhir/ValueSet/study-type"/>
+			<code value="RCT"/>
+			<display value="randomized trial"/>
+		</coding>
+	</studyType>
+	<population>
+		<description value="Patients with sepsis"/>
+		<intendedCohort>
+			<type value="Group"/>
+			<identifier value="Group-Sepsis"/>
+			<display value="Patients with sepsis"/>
+		</intendedCohort>
+		<evidenceVariable>
+			<description value="Mortality Longer term (60 days to 1 year)"/>
+			<variableRole value="measuredVariable"/>
+			<variableDefinition>
+				<type value="EvidenceVariable"/>
+				<identifier value="EvidenceVariable-Mortality-Long-Term"/>
+				<display value="Mortality Longer term (Follow up: 60 days to 1 year)"/>
+			</variableDefinition>
+			<nestedVariable>
+				<description value="Corticosteroids"/>
+				<variableRole value="exposure"/>
+				<variableDefinition>
+					<type value="EvidenceVariable"/>
+					<identifier value="EvidenceVariable-Steroids"/>
+					<display value="Corticosteroids"/>
+				</variableDefinition>
+				<statisticCollection>
+					<description value="349 per 1000"/>
+					<statistic>
+						<description value="349 per 1000"/>
+						<statisticType>
+							<coding>
+								<system value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+								<code value="proportion"/>
+								<display value="proportion"/>
+							</coding>
+						</statisticType>
+						<quantity>
+							<value value="0.349"/>
+						</quantity>
+					</statistic>
+				</statisticCollection>
+				<statisticCollection>
+					<description value="Corticosteroids possibly achieve a small reduction in long-term mortality."/>
+					<additionalVariable>
+						<variableRole value="exposure"/>
+						<variableDefinition>
+							<type value="EvidenceVariable"/>
+							<identifier value="EvidenceVariable-No-Steroids"/>
+							<display value="No corticosteroids"/>
+						</variableDefinition>
+					</additionalVariable>
+					<statistic>
+						<description value="Relative risk 0.94"/>
+						<note>
+							<text value="Based on data from 6438 patients in 9 studies "/>
+						</note>
+						<statisticType>
+							<coding>
+								<system value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+								<code value="relative-RR"/>
+								<display value="relative risk"/>
+							</coding>
+						</statisticType>
+						<quantity>
+							<value value="0.94"/>
+						</quantity>
+						<sampleSize>
+							<description value="Based on data from 6438 patients in 9 studies"/>
+							<numberOfStudies value="9"/>
+							<numberOfParticipants value="6438"/>
+						</sampleSize>
+						<precisionEstimate>
+							<description value="(CI 95% 0.89 - 1.00)"/>
+							<type>
+								<coding>
+									<system value="http://hl7.org/fhir/ValueSet/precision-estimate-type"/>
+									<code value="CI"/>
+									<display value="confidence interval"/>
+								</coding>
+							</type>
+							<level value="0.95"/>
+							<range>
+								<low>
+									<value value="0.89"/>
+								</low>
+								<high>
+									<value value="1"/>
+								</high>
+							</range>
+						</precisionEstimate>
+						<certainty>
+							<description value="Low, due to serious imprecision and indirectness."/>
+							<rating>
+								<coding>
+									<system value="http://hl7.org/fhir/ValueSet/certainty-rating"/>
+									<code value="low"/>
+									<display value="Low quality"/>
+								</coding>
+							</rating>
+							<certaintySubcomponent>
+								<note>
+									<text value="Note that all studies that reported 90 day to 1 year mortality also reported 28-30 day mortality: the CI 95% around the pooled effect for short term mortality also excludes no effect: RR 0.91 (CI 95% 0.84 - 0.98)."/>
+								</note>
+								<type>
+									<coding>
+										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+										<code value="RiskOfBias"/>
+										<display value="Risk of bias"/>
+									</coding>
+								</type>
+								<rating>
+									<coding>
+										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+										<code value="no-concern"/>
+										<display value="no serious concern"/>
+									</coding>
+								</rating>
+							</certaintySubcomponent>
+							<certaintySubcomponent>
+								<type>
+									<coding>
+										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+										<code value="Inconsistency"/>
+										<display value="Inconsistency"/>
+									</coding>
+								</type>
+								<rating>
+									<coding>
+										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+										<code value="no-concern"/>
+										<display value="no serious concern"/>
+									</coding>
+								</rating>
+							</certaintySubcomponent>
+							<certaintySubcomponent>
+								<note>
+									<text value="Only a small proportion of studies reported longer-term mortality."/>
+								</note>
+								<type>
+									<coding>
+										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+										<code value="Indirectness"/>
+										<display value="Indirectness"/>
+									</coding>
+								</type>
+								<rating>
+									<coding>
+										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+										<code value="serious-concern"/>
+										<display value="serious concern"/>
+									</coding>
+								</rating>
+							</certaintySubcomponent>
+							<certaintySubcomponent>
+								<note>
+									<text value="Confidence interval includes no effect."/>
+								</note>
+								<type>
+									<coding>
+										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+										<code value="Imprecision"/>
+										<display value="Imprecision"/>
+									</coding>
+								</type>
+								<rating>
+									<coding>
+										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+										<code value="serious-concern"/>
+										<display value="serious concern"/>
+									</coding>
+								</rating>
+							</certaintySubcomponent>
+							<certaintySubcomponent>
+								<type>
+									<coding>
+										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+										<code value="PublicationBias"/>
+										<display value="Publication bias"/>
+									</coding>
+								</type>
+								<rating>
+									<coding>
+										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+										<code value="no-concern"/>
+										<display value="no serious concern"/>
+									</coding>
+								</rating>
+							</certaintySubcomponent>
+						</certainty>
+					</statistic>
+				</statisticCollection>
+			</nestedVariable>
+			<nestedVariable>
+				<description value="No corticosteroids"/>
+				<variableDefinition>
+					<type value="EvidenceVariable"/>
+					<identifier value="EvidenceVariable-No-Steroids"/>
+					<display value="No corticosteroids"/>
+				</variableDefinition>
+				<statisticCollection>
+					<description value="371 per 1000"/>
+					<statistic>
+						<description value="371 per 1000"/>
+						<statisticType>
+							<coding>
+								<system value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+								<code value="proportion"/>
+								<display value="proportion"/>
+							</coding>
+						</statisticType>
+						<quantity>
+							<value value="0.371"/>
+						</quantity>
+					</statistic>
+				</statisticCollection>
+			</nestedVariable>
+		</evidenceVariable>
+	</population>
 </Evidence>

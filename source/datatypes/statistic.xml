@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Microsoft Office User</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2019-05-29T17:39:00Z</LastSaved>
+  <LastSaved>2019-05-30T18:38:24Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -1041,7 +1041,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">0;100</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">0;70</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">This type is intended to serve as the backbone of the evidence based medicine collection</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1176,7 +1176,7 @@
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">150;100</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">100;100</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="32" ss:StyleID="s97">
@@ -1521,7 +1521,7 @@
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s134"><Data ss:Type="String">How certain is the effect</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">A description of the certainty of the effect estimate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="23"><Data ss:Type="String">450;100</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">600;100</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="32" ss:StyleID="s132">
     <Cell ss:StyleID="s133"><Data ss:Type="String">Statistic.certainty.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1550,7 +1550,7 @@
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s134"><Data ss:Type="String">A component that contributes to the overall certainty</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">A description of a component of the overall certainty</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="23"><Data ss:Type="String">450;300</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">550;270</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="32" ss:StyleID="s132">
     <Cell ss:StyleID="s133"><Data ss:Type="String">Statistic.certainty.certaintySubcomponent.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3248,7 +3248,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>15</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
