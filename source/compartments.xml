@@ -786,9 +786,6 @@
     <Cell><Data ss:Type="String">RiskEvidenceSynthesis</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">Statistic</Data></Cell>
-   </Row>
-   <Row>
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
   </Table>

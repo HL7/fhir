@@ -441,7 +441,6 @@ signatures.html
       <page type="resource" resource="EventDefinition"/>
       <page type="resource" resource="Evidence"/>
       <page type="resource" resource="EvidenceVariable"/>
-      <page type="resource" resource="Statistic"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="GuidanceResponse"/>
       <page type="resource" resource="RequestGroup"/>
