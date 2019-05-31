@@ -1502,6 +1502,11 @@ public class ProfileGenerator {
           if (profile == null && t.hasParams()) {
             profile = t.getParams().get(0);
           }
+          if (t.getPatterns() != null) {
+            for (String s : t.getPatterns()) {
+              type.addExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-pattern", new CanonicalType("http://hl7.org/fhir/StructureDefinition/"+s));
+            }
+          }
           if (profile != null) {
             if (type.getCode().equals("Extension")) {
               // check that the extension is being used correctly:
@@ -1578,6 +1583,7 @@ public class ProfileGenerator {
       } else if (root && !Utilities.noString(e.typeCode())) 
         defineAncestorElements(e.typeCode(), path, snapshot, containedSlices, p, elements, defType, defaults);
     }
+    
     for (ElementDefn child : e.getElements()) 
       defineElement(ap, p, elements, child, path+"."+child.getName(), containedSlices, myParents, snapshot, false, defType, null, defaults);
 

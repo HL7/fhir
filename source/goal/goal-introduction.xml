@@ -51,6 +51,9 @@ A goal represents a specific goal instance for a particular patient, group, etc.
 <p>
 Goals are often evaluated using <a href="observation.html">Observations</a>.
 </p>
+<p>
+Goal does not include the legal Advance Directives, which should be represented with the Consent resource with Consent.category = Advance Directive or a request resource with the intent = directive.  Legal Advance Directives may specify clinical goals that can be represented as a Goal resource as well.  Informally, advance directives could be represented as a Goal resource regardless of whether it was included in the legal Consent, such as "I want to die at home."
+</p>
 </div>
 
 <!-- (optional):

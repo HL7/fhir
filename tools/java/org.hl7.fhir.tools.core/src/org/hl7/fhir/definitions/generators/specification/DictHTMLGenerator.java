@@ -41,7 +41,9 @@ import java.util.Map;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
@@ -518,6 +520,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		  tableRowNE("Type", null, "<a href=\"#"+type.substring(1)+"\">See "+type.substring(1)+"</a>");
 		else
 		  tableRowNE("Type", "datatypes.html", type);
+		if (e.typeCode().contains("Reference("))
+      tableRowNE("Patterns", "patterns.html", patternAnalysis(e));
 		if (e.hasHierarchy())
 	    tableRow("Hierarchy", "references.html#circular", e.getHierarchy() ? "This reference is part of a strict Hierarchy" : "This reference may point back to the same instance (including transitively)");
     if (path.endsWith("[x]"))
@@ -541,6 +545,29 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		tableRow("To Do", null, e.getTodo());
 	}
 	
+	private String patternAnalysis(ElementDefn e) {
+	  StringBuilder b = new StringBuilder();
+	  boolean first = true;
+	  for (TypeRef tr : e.getTypes()) {
+	    if (tr.getPatterns() != null) {
+	      if (first) first = false; else b.append("<br/>\r\n");
+	      if (tr.getPatterns().isEmpty())
+	        b.append(tr.summary()+": No common pattern");
+	      else {
+	        CommaSeparatedStringBuilder cb = new CommaSeparatedStringBuilder();
+	        for (String s : tr.getPatterns()) {
+	          cb.append("<a href=\""+s.toLowerCase()+".html#"+s+"\">"+s+"</a>");
+	        }
+	        if (tr.getPatterns().size() == 0)
+            b.append(tr.summary()+": Common pattern = "+cb.toString());
+	        else
+	          b.append(tr.summary()+": Common patterns = "+cb.toString());
+	      }
+	    }
+	  }
+	  return b.toString();
+	}
+
   private String getStandardsStatusStyle(StandardsStatus status) {
     return "background-color: "+status.getColor();
   }
