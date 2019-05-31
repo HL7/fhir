@@ -7,19 +7,20 @@
 		<name value="MAGIC"/>
 	</summaryPublisher>
 	<relatedArtifact>
+		<type value="derived-from"/>
 		<url value="https://app.magicapp.org/public/guideline/EZ1w8n/pico/31831/widget?tab=outcome"/>
 	</relatedArtifact>
 	<description value="Corticosteroids vs no corticosteroids for patients with sepsis"/>
 	<synthesisType>
 		<coding>
-			<system value="http://hl7.org/fhir/ValueSet/synthesis-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/synthesis-type"/>
 			<code value="std-MA"/>
 			<display value="summary data meta-analysis"/>
 		</coding>
 	</synthesisType>
 	<studyType>
 		<coding>
-			<system value="http://hl7.org/fhir/ValueSet/study-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/study-type"/>
 			<code value="RCT"/>
 			<display value="randomized trial"/>
 		</coding>
@@ -27,24 +28,24 @@
 	<population>
 		<description value="Patients with sepsis"/>
 		<intendedCohort>
+			<reference value="Group-Sepsis"/>
 			<type value="Group"/>
-			<identifier value="Group-Sepsis"/>
 			<display value="Patients with sepsis"/>
 		</intendedCohort>
 		<evidenceVariable>
 			<description value="Mortality Longer term (60 days to 1 year)"/>
 			<variableRole value="measuredVariable"/>
 			<variableDefinition>
+				<reference value="EvidenceVariable-Mortality-Long-Term"/>
 				<type value="EvidenceVariable"/>
-				<identifier value="EvidenceVariable-Mortality-Long-Term"/>
 				<display value="Mortality Longer term (Follow up: 60 days to 1 year)"/>
 			</variableDefinition>
 			<nestedVariable>
 				<description value="Corticosteroids"/>
 				<variableRole value="exposure"/>
 				<variableDefinition>
+					<reference value="EvidenceVariable-Steroids"/>
 					<type value="EvidenceVariable"/>
-					<identifier value="EvidenceVariable-Steroids"/>
 					<display value="Corticosteroids"/>
 				</variableDefinition>
 				<statisticCollection>
@@ -53,7 +54,7 @@
 						<description value="349 per 1000"/>
 						<statisticType>
 							<coding>
-								<system value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+								<system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
 								<code value="proportion"/>
 								<display value="proportion"/>
 							</coding>
@@ -68,8 +69,8 @@
 					<additionalVariable>
 						<variableRole value="exposure"/>
 						<variableDefinition>
+							<reference value="EvidenceVariable-No-Steroids"/>
 							<type value="EvidenceVariable"/>
-							<identifier value="EvidenceVariable-No-Steroids"/>
 							<display value="No corticosteroids"/>
 						</variableDefinition>
 					</additionalVariable>
@@ -80,7 +81,7 @@
 						</note>
 						<statisticType>
 							<coding>
-								<system value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+								<system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
 								<code value="relative-RR"/>
 								<display value="relative risk"/>
 							</coding>
@@ -97,7 +98,7 @@
 							<description value="(CI 95% 0.89 - 1.00)"/>
 							<type>
 								<coding>
-									<system value="http://hl7.org/fhir/ValueSet/precision-estimate-type"/>
+									<system value="http://terminology.hl7.org/CodeSystem/precision-estimate-type"/>
 									<code value="CI"/>
 									<display value="confidence interval"/>
 								</coding>
@@ -116,7 +117,7 @@
 							<description value="Low, due to serious imprecision and indirectness."/>
 							<rating>
 								<coding>
-									<system value="http://hl7.org/fhir/ValueSet/certainty-rating"/>
+									<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 									<code value="low"/>
 									<display value="Low quality"/>
 								</coding>
@@ -127,14 +128,14 @@
 								</note>
 								<type>
 									<coding>
-										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+										<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
 										<code value="RiskOfBias"/>
 										<display value="Risk of bias"/>
 									</coding>
 								</type>
 								<rating>
 									<coding>
-										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+										<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
 										<code value="no-concern"/>
 										<display value="no serious concern"/>
 									</coding>
@@ -143,14 +144,14 @@
 							<certaintySubcomponent>
 								<type>
 									<coding>
-										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+										<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
 										<code value="Inconsistency"/>
 										<display value="Inconsistency"/>
 									</coding>
 								</type>
 								<rating>
 									<coding>
-										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+										<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
 										<code value="no-concern"/>
 										<display value="no serious concern"/>
 									</coding>
@@ -162,14 +163,14 @@
 								</note>
 								<type>
 									<coding>
-										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+										<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
 										<code value="Indirectness"/>
 										<display value="Indirectness"/>
 									</coding>
 								</type>
 								<rating>
 									<coding>
-										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+										<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
 										<code value="serious-concern"/>
 										<display value="serious concern"/>
 									</coding>
@@ -181,14 +182,14 @@
 								</note>
 								<type>
 									<coding>
-										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+										<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
 										<code value="Imprecision"/>
 										<display value="Imprecision"/>
 									</coding>
 								</type>
 								<rating>
 									<coding>
-										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+										<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
 										<code value="serious-concern"/>
 										<display value="serious concern"/>
 									</coding>
@@ -197,14 +198,14 @@
 							<certaintySubcomponent>
 								<type>
 									<coding>
-										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+										<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
 										<code value="PublicationBias"/>
 										<display value="Publication bias"/>
 									</coding>
 								</type>
 								<rating>
 									<coding>
-										<system value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+										<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
 										<code value="no-concern"/>
 										<display value="no serious concern"/>
 									</coding>
@@ -217,8 +218,8 @@
 			<nestedVariable>
 				<description value="No corticosteroids"/>
 				<variableDefinition>
+					<reference value="EvidenceVariable-No-Steroids"/>
 					<type value="EvidenceVariable"/>
-					<identifier value="EvidenceVariable-No-Steroids"/>
 					<display value="No corticosteroids"/>
 				</variableDefinition>
 				<statisticCollection>
@@ -227,7 +228,7 @@
 						<description value="371 per 1000"/>
 						<statisticType>
 							<coding>
-								<system value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+								<system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
 								<code value="proportion"/>
 								<display value="proportion"/>
 							</coding>
