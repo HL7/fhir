@@ -1898,14 +1898,22 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     String xslt2 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "CategorizeWarnings.xslt");
     FileOutputStream s2 = new FileOutputStream(page.getFolders().dstDir + "work-group-warnings.xml");
-    s2.write(Utilities.saxonTransform(page.getFolders().dstDir + "warnings.xml", xslt2).getBytes("UTF8"));
+    try {
+      s2.write(Utilities.saxonTransform(page.getFolders().dstDir + "warnings.xml", xslt2).getBytes("UTF8"));
+    } catch (Exception e) {
+      // nothing - do not want to know.
+    }
     s2.flush();
     s2.close();
 
     String xslt3 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "RenderWarnings.xslt");
-    String hw = Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3);
-    if (!showOnlyErrors)
-      page.log(hw, LogMessageType.Process);
+    try {
+      String hw = Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3);
+      if (!showOnlyErrors)
+        page.log(hw, LogMessageType.Process);
+    } catch (Exception e) {
+      // nothing - do not want to know.
+    }
 
     int i = 0;
     int w = 0;
