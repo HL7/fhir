@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Topic xmlns="http://hl7.org/fhir">
+	<id value="admission"/>
+	<url value="http://argonautproject.org/subscription-ig/Topic/admission"/>
+	<title value="admission"/>
+	<status value="active"/>
+	<resourceTrigger>
+		<description value="Beginning of a clinical encounter"/>
+		<resourceType value="Encounter"/>
+		<queryCriteria>
+			<previous value="status:not=in-progress"/>
+			<current value="status=in-progress"/>
+			<requireBoth value="true"/>
+		</queryCriteria>
+		<fhirPathCriteria value="%previous.status!='in-progress' and %current.status='in-progress'"/>
+	</resourceTrigger>
+	<canFilterBy>
+		<name value="patient"/>
+		<documentation value="Patient involved in the encounter."/>
+	</canFilterBy>
+	<canFilterBy>
+		<name value="practitioner"/>
+		<documentation value="Practitioner"/>
+	</canFilterBy>
+	<canFilterBy>
+		<name value="patient/birthDate"/>
+		<documentation value="Birthdate of admitted patient"/>
+	</canFilterBy>
+</Topic>

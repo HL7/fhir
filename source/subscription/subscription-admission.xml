@@ -8,8 +8,8 @@
 		<reference value="Topic/admission"/>
 	</topic>
 	<filterBy>
-		<name vlaue="patient"/>
-		<value value="Patinet/123"/>
+		<name value="patient"/>
+		<value value="Patient/123"/>
 	</filterBy>
 	<channel>
 		<type value="rest-hook"/>
