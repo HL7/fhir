@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Microsoft Office User</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2019-05-29T15:11:27Z</LastSaved>
+  <LastSaved>2019-06-03T20:33:56Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -943,6 +943,355 @@
    </Borders>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
+  <Style ss:ID="s191">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s192">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s193">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s194">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s195">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s196">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s197">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s198">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s199">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s200">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#F4B084" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s201">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#F4B084" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s202">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#F4B084" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s203">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#F4B084" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s204">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior ss:Color="#F4B084" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s205">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s206">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s207">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s208">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s209">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s210">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s211">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s212">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s213">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s214">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s215">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s216">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#C9C9C9" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s217">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#BDD7EE" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s218">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#BDD7EE" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s219">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#BDD7EE" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s220">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#BDD7EE" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s221">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#BDD7EE" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s222">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#BDD7EE" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s223">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#BDD7EE" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s224">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#BDD7EE" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s225">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior ss:Color="#BDD7EE" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -998,7 +1347,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="50.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="66.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="119.0"/>
-   <Row ss:AutoFitHeight="0" ss:Height="64" ss:StyleID="s73">
+   <Row ss:Height="65" ss:StyleID="s73">
     <Cell ss:StyleID="s74"><Data ss:Type="String">Element</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Format is ResourceName.componentName.componentName</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Aliases</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Other names - semi-colon separated</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Card.</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Min and max repetitions n..m</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1024,7 +1373,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">Display Hint</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Provides guidance to narrative auto-generator.  Check Confluence documentation</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Not published</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="48" ss:StyleID="s81">
+   <Row ss:Height="65" ss:StyleID="s81">
     <Cell ss:StyleID="s82"><Data ss:Type="String">Evidence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1038,7 +1387,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">A collection of evidence focused statistics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">A collection of evidence focused statistics, considered a summary of evidence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The representation of a collection of statistics for a given population and set of evidence variables</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1050,7 +1399,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="240">
+   <Row ss:Height="241">
     <Cell><Data ss:Type="String">Evidence.url</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1068,7 +1417,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="80">
+   <Row ss:Height="81">
     <Cell><Data ss:Type="String">Evidence.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s96"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1086,7 +1435,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="208">
+   <Row ss:Height="209">
     <Cell><Data ss:Type="String">Evidence.version</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1104,7 +1453,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="33">
     <Cell><Data ss:Type="String">Evidence.title</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1121,7 +1470,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.shortTitle</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1138,7 +1487,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.subTitle</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1155,7 +1504,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="48">
+   <Row ss:Height="65">
     <Cell><Data ss:Type="String">Evidence.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1174,10 +1523,10 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="48">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.useContext</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Use conte3xt</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Use contetxt</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1190,7 +1539,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="128">
+   <Row ss:Height="145">
     <Cell><Data ss:Type="String">Evidence.date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Revision Date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1209,7 +1558,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="128">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.copyright</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Summary copyright notice</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1225,7 +1574,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="80">
+   <Row ss:Height="81">
     <Cell><Data ss:Type="String">Evidence.approvalDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">When the summary was approved by publisher</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1238,7 +1587,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="112">
+   <Row ss:Height="113">
     <Cell><Data ss:Type="String">Evidence.lastReviewDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">When the summary was last reviewed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1252,7 +1601,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="112">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.summaryPublisher</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Evidence publisher</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1265,7 +1614,7 @@
     <Cell ss:StyleID="s93"><Data ss:Type="String">430;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="112">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.summaryPublisher.name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1280,7 +1629,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="112">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.summaryPublisher.contact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">ContactDetail</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1294,7 +1643,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="33">
     <Cell><Data ss:Type="String">Evidence.contributor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Contributor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1309,11 +1658,11 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="33">
     <Cell><Data ss:Type="String">Evidence.relatedArtifact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">RelatedArtifact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Link to artifact associated with summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Link or citation to artifact associated with the summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1324,10 +1673,9 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5" ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Description of the particular summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1339,352 +1687,631 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="48">
+   <Row ss:Height="33">
     <Cell><Data ss:Type="String">Evidence.synthesisType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">StatisticSynthesisType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">The particular type of synthesis if this is a synthesis summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="33">
     <Cell><Data ss:Type="String">Evidence.studyType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">StatisticStudyType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">The type of study that produced this summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The population being summarized</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">400;100</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s194">
+    <Cell ss:StyleID="s191"><Data ss:Type="String">Evidence.population</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">The population being summarized</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s193"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">400;100</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5" ss:StyleID="s102"><Data ss:Type="String">markdown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Description of the particular summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s194">
+    <Cell ss:StyleID="s191"><Data ss:Type="String">Evidence.population.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">markdown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">Textual description of population</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s195"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s196"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s197"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s196"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s198"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s194">
+    <Cell ss:StyleID="s191"><Data ss:Type="String">Evidence.population.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s193"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Evidence.population.intendedCohort</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Reference(Group)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The evidence that the summary indirectly represents</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="49" ss:StyleID="s194">
+    <Cell ss:StyleID="s191"><Data ss:Type="String">Evidence.population.intendedCohort</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Reference(Group)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">Descriptive (not actual) expression of the population this evidence is about, eg inclusion criteria for research study</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s193"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Evidence.population.sampleCohort</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Reference(Evidence)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The evidence from which the sample was drawn</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s70"><Data ss:Type="String">The target reference must conform to the CohortSummary profile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="49" ss:StyleID="s194">
+    <Cell ss:StyleID="s191"><Data ss:Type="String">Evidence.population.sampleCohort</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Reference(Evidence)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Summary statistics describing the actual group for this population</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">The target reference must conform to the CohortSummary profile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Evidence.population.actualCohort</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Reference(Group)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The evidence that the summary directly reprresents</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="33" ss:StyleID="s194">
+    <Cell ss:StyleID="s191"><Data ss:Type="String">Evidence.population.actualCohort</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Reference(Group)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">The actual group (ie list of members) for this population</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s193"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Evidence.population.sampleSize</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Sample description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">730;100</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s204">
+    <Cell ss:StyleID="s200"><Data ss:Type="String">Evidence.population.sampleSize</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">Sample size for the population</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s203"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">730;100</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Evidence.population.sampleSize.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Description of the sample size</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s204">
+    <Cell ss:StyleID="s200"><Data ss:Type="String">Evidence.population.sampleSize.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">Textual description of population sample </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s203"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Evidence.population.sampleSize.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s204">
+    <Cell ss:StyleID="s200"><Data ss:Type="String">Evidence.population.sampleSize.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s203"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Evidence.population.sampleSize.numberOfStudies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">integer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Number of studies included in sample</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s204">
+    <Cell ss:StyleID="s200"><Data ss:Type="String">Evidence.population.sampleSize.numberOfStudies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">integer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">Number of studies included in sample</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s203"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Evidence.population.sampleSize.numberOfParticipants</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">integer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Total number of participants in sample</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s204">
+    <Cell ss:StyleID="s200"><Data ss:Type="String">Evidence.population.sampleSize.numberOfParticipants</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">integer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">Total number of participants in sample</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s203"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s201"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Evidence.population.evidenceVariable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Evidence variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">350;260</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s209">
+    <Cell ss:StyleID="s205"><Data ss:Type="String">Evidence.population.evidenceVariable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s207"><Data ss:Type="String">Evidence variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s208"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">350;260</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5" ss:StyleID="s104"><Data ss:Type="String">markdown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Description of the variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s209">
+    <Cell ss:StyleID="s205"><Data ss:Type="String">Evidence.population.evidenceVariable.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">markdown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s207"><Data ss:Type="String">Description of the variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s210"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s211"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s212"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s211"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s213"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s213"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s213"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s213"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s213"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s209">
+    <Cell ss:StyleID="s205"><Data ss:Type="String">Evidence.population.evidenceVariable.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s207"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s208"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.variableRole</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">EvidenceVariableRole</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">exposure | measuredVariable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s209">
+    <Cell ss:StyleID="s205"><Data ss:Type="String">Evidence.population.evidenceVariable.variableRole</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">EvidenceVariableRole</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s207"><Data ss:Type="String">exposure | measuredVariable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s208"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Evidence.population.evidenceVariable.variableDefinition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Reference(EvidenceVariable)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The definition of a nested variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="33" ss:StyleID="s209">
+    <Cell ss:StyleID="s205"><Data ss:Type="String">Evidence.population.evidenceVariable.variableDefinition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">Reference(EvidenceVariable)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s207"><Data ss:Type="String">Definition of a variable related to the statistic(s)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s210"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s214"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s212"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s214"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s216"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s206"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Set of statistics associated with variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">730;260</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s225">
+    <Cell ss:StyleID="s217"><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s219"><Data ss:Type="String">Set of statistics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s220"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><Data ss:Type="String">730;260</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">markdown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Description of statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="33" ss:StyleID="s225">
+    <Cell ss:StyleID="s217"><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">markdown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s219"><Data ss:Type="String">Textual description related to the set of statistics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s220"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s225">
+    <Cell ss:StyleID="s217"><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s219"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s220"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.synthesisType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">StatisticSynthesisType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The type of synthesis statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="33" ss:StyleID="s225">
+    <Cell ss:StyleID="s217"><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.synthesisType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">StatisticSynthesisType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s219"><Data ss:Type="String">The particular type of synthesis if this is a synthesis summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s220"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.studyType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">StatisticStudyType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The type of study</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s225">
+    <Cell ss:StyleID="s217"><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.studyType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">StatisticStudyType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s219"><Data ss:Type="String">The type of study</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s220"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The statistic value(s)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="33" ss:StyleID="s225">
+    <Cell ss:StyleID="s217"><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">Statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s219"><Data ss:Type="String">Values and parameters for a single statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s220"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.distribution</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">OrderedDistribution</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Ordered distribution </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:Height="17" ss:StyleID="s225">
+    <Cell ss:StyleID="s217"><Data ss:Type="String">Evidence.population.evidenceVariable.statisticCollection.distribution</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">OrderedDistribution</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s219"><Data ss:Type="String">An ordered group of statistics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s220"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="49">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Dependent evvidence variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s84"><Data ss:Type="String">An evidence variable, nested for denoting that statistics relate to both this variable and the previously noted variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22"><Data ss:Type="String">370;400</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s104"><Data ss:Type="String">markdown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1699,20 +2326,20 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.variableRole</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">EvidenceVariableRole</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">exposure | measuredVariable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="33">
     <Cell ss:StyleID="s79"><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.variableDefinition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1726,7 +2353,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The definition of a nested variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String"> Definition of a variable related to the statistic(s)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1738,7 +2365,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="17">
     <Cell ss:StyleID="s79"><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.statisticCollection</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1752,7 +2379,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Set of statistics associated with variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Set of statistics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1764,7 +2391,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="33">
     <Cell ss:StyleID="s79"><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.statisticCollection.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1778,7 +2405,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Description of statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Textual description related to the set of statistics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1790,7 +2417,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.statisticCollection.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1816,7 +2443,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="33">
     <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.statisticCollection.synthesisType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1830,7 +2457,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The type of synthesis statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The particular type of synthesis if this is a synthesis summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1842,7 +2469,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="17">
     <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.statisticCollection.studyType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1868,7 +2495,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="65">
     <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.statisticCollection.additionalVariable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1882,7 +2509,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Additional variables</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">An evidence variable, nested for denoting that statistics relate to this variable, any additional variables, plus the two previously noted variables</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1894,7 +2521,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="33">
     <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.statisticCollection.additionalVariable.variableRole</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1920,7 +2547,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="33">
     <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.statisticCollection.additionalVariable.variableDefinition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1934,7 +2561,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Definition of additional variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Definition of a variable related to the statistic(s)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1946,7 +2573,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
+   <Row ss:Height="33">
     <Cell><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.statisticCollection.statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1960,7 +2587,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The statistic value(s) </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Values and parameters for a single statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1972,47 +2599,21 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32" ss:StyleID="s63">
+   <Row ss:Height="17" ss:StyleID="s63">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Evidence.population.evidenceVariable.nestedVariable.statisticCollection.distribution</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">OrderedDistribution</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="48" ss:StyleID="s63">
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">An ordered group of statistics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2024,33 +2625,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32" ss:StyleID="s63">
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="48" ss:StyleID="s63">
+   <Row ss:StyleID="s63">
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2076,7 +2651,59 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32" ss:StyleID="s63">
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:StyleID="s63">
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2102,7 +2729,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32" ss:StyleID="s63">
+   <Row ss:StyleID="s63">
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2128,7 +2755,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2154,7 +2781,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2180,7 +2807,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2206,7 +2833,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2232,7 +2859,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2258,7 +2885,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2284,7 +2911,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2310,7 +2937,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2336,7 +2963,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2362,7 +2989,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2388,7 +3015,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2414,7 +3041,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2440,7 +3067,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2466,7 +3093,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2492,7 +3119,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2518,7 +3145,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2544,7 +3171,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2570,7 +3197,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2596,7 +3223,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2622,7 +3249,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2648,7 +3275,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2674,7 +3301,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2700,7 +3327,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2726,7 +3353,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2752,7 +3379,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2778,7 +3405,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2804,7 +3431,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2830,7 +3457,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2856,7 +3483,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2882,7 +3509,7 @@
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2901,7 +3528,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2920,7 +3547,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2939,7 +3566,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2958,7 +3585,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2977,7 +3604,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -2996,7 +3623,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3015,7 +3642,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3034,7 +3661,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3053,7 +3680,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3072,7 +3699,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3091,7 +3718,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3110,7 +3737,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3129,7 +3756,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3148,7 +3775,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3167,7 +3794,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3186,7 +3813,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3205,7 +3832,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3224,7 +3851,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3243,7 +3870,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3260,7 +3887,7 @@
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s87"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s80"/>
@@ -3280,13 +3907,14 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Zoom>150</Zoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>45</TopRowBottomPane>
+   <TopRowBottomPane>38</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>17</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
