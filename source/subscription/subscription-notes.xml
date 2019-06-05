@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="safety"></a>
 <h2>Safety and Security</h2>
@@ -139,7 +139,7 @@ replaced by the time at which the client last checked). In this way it can fetch
 relevant <a href="observation.html">Observations</a>.
 </p>
 <p>
-Since payload is missing, the data in the resources is only available through
+Since  is missing, the data in the resources is only available through
 the REST API, which helps consolidate authorization and authentication logic. The
 server must append the headers, if any are given, to the POST request that it
 makes to the client.
@@ -152,12 +152,15 @@ as a healthcare institution.
 </p>
 
 <pre class="json" fragment="Subscription">
-{
-  "channel": {
-    "type": "rest-hook",
-    "endpoint": "https://internal.acme.com/research/saturn",
-    "payload": "application/fhir+json"
-  }
+{  
+   "channel":{
+      "type":"rest-hook",
+      "endpoint":"https://internal.acme.com/research/saturn",
+      "payload":{
+         "contentType":"application/fhir+json",
+         "content":"full-resource"
+      }
+   }
 }
 </pre>
 

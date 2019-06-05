@@ -11,7 +11,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\fhir-clone\source\topic\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
+   <Path>\\ERICS-AIR-2\ehaas\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\fhir-clone\source\topic\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
   
@@ -19,7 +19,7 @@
   
   
   <TabRatio>735</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1093,9 +1093,9 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">from Definition Pattern:</Data></Cell>
+    <Cell><Data ss:Type="String">from Definition Pattern: Topics don't have partOf relations - partOf suggests semantics that would change behavior.</Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Definition.partOf</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Topic.partOf</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">!Topic.partOf</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">container</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1121,7 +1121,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">from Definition Pattern:</Data></Cell>
+    <Cell><Data ss:Type="String">from Definition Pattern: </Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Definition.replaces</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Topic.replaces</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">supersedes, prior, renewed order</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1205,7 +1205,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">from Definition Pattern:</Data></Cell>
+    <Cell><Data ss:Type="String">from Definition Pattern: Removed  since not use case is never tied to a subject - this is defined using the trigger and filterBy semantics below</Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Definition.subject[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">!Topic.subject[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Subject type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1539,7 +1539,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">from Definition Pattern:</Data></Cell>
+    <Cell><Data ss:Type="String">from Definition Pattern: Removed since there are no perfomer type for topics - - this is defined using the trigger and filterBy semantics below</Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Definition.performerType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">!Topic.performerType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1915,11 +1915,10 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>150</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
    <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1936,7 +1935,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C6:R37C6</Range>
    <Type>List</Type>
-   <Value>'\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\fhir-clone\source\topic\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\[Invariants]Invariants'!#REF!</Value>
+   <Value>'\\ERICS-AIR-2\ehaas\ERICS-AIR-2\ehaas\Users\ehaas\Documents\FHIR\fhir-clone\source\topic\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\[Invariants]Invariants'!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -2306,14 +2305,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1,R3C4</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;"",#REF!="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1,R2C4</Range>
+   <Range>R2C1:R3C1,R2C4:R3C4</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;"",#REF!="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
@@ -2325,7 +2317,7 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="23" ss:StyleID="s121" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s121" ss:Width="73.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s121" ss:Width="97.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s121" ss:Width="135.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s121" ss:Width="109.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s121" ss:Width="210.0"/>
@@ -2352,14 +2344,14 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">part-of</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!part-of</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Topic.partOf</Data></Cell>
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">replaces</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!replaces</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Topic.replaces</Data></Cell>
@@ -2493,6 +2485,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Zoom>160</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
