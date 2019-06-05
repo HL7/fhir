@@ -112,7 +112,15 @@ are available - POST to [base]/Subscription:
 <pre class="json" fragment="Subscription">
 {
   "resourceType": "Subscription",
-  ...snip...
+  "topic": {
+   "reference": "Topic/admission"
+ },
+ "filterBy": [
+   {
+     "name": "patient",
+     "value": "Patient/123"
+   }
+ ],
   "channel": {
     "type": "rest-hook",
     "endpoint": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
