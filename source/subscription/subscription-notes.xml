@@ -44,7 +44,7 @@ subscription remains active after the client access tokens expire.
 <p>
 Once the server has activated the subscription, it sets the status
 to "active" (note: the server can do this as it accepts the resource
-if it wants). 
+if it wants).
 </p>
 <p>
 An appropriately authorized client can use search and/or history operations
@@ -112,7 +112,7 @@ are available - POST to [base]/Subscription:
 <pre class="json" fragment="Subscription">
 {
   "resourceType": "Subscription",
-  ...<snip>...
+  ...snip...
   "channel": {
     "type": "rest-hook",
     "endpoint": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
