@@ -5374,7 +5374,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="event-resource-types">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="35" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="34" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="203.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="209.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="639.0"/>
@@ -5457,7 +5457,7 @@
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
-    <Cell><Data ss:Type="String">A reference to a document                                                                                                                            </Data></Cell>
+    <Cell><Data ss:Type="String">A reference to a document of any kind for any purpose with metadata (e.g. CDA, clinical notes, scanned paper, photo, video, audio, policy text).                                                                                                                          </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">13</Data></Cell>
@@ -5512,12 +5512,6 @@
     <Cell><Data ss:Type="String">MeasureReport</Data></Cell>
     <Cell><Data ss:Type="String">MeasureReport</Data></Cell>
     <Cell><Data ss:Type="String">Results of a measure evaluation                                                                                                                              </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">22</Data></Cell>
-    <Cell><Data ss:Type="String">Media</Data></Cell>
-    <Cell><Data ss:Type="String">Media</Data></Cell>
-    <Cell><Data ss:Type="String">A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference                                          </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">23</Data></Cell>
@@ -5606,6 +5600,7 @@
    </Print>
    <Selected/>
    <TopRowVisible>9</TopRowVisible>
+   <LeftColumnVisible>2</LeftColumnVisible>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
