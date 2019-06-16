@@ -17873,3 +17873,95 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "urn:iso:std:iso:3166",
+    "code" : "US",
+    "display" : "United States of America"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166:-2"
+    },
+    {
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "filter" : [{
+        "property" : "class",
+        "op" : "=",
+        "value" : "region"
+      }]
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "United States of America",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "urn:iso:std:iso:3166",
+    "code" : "AU"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166:-2"
+    },
+    {
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "filter" : [{
+        "property" : "class",
+        "op" : "=",
+        "value" : "region"
+      }]
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "Australia",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "urn:iso:std:iso:3166",
+    "code" : "GB",
+    "display" : "United Kingdom of Great Britain and Northern Ireland (the)"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166:-2"
+    },
+    {
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "filter" : [{
+        "property" : "class",
+        "op" : "=",
+        "value" : "region"
+      }]
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "United Kingdom of Great Britain and Northern Ireland",
+  "severity" : "warning",
+  "error" : "The display \"United Kingdom of Great Britain and Northern Ireland (the)\" is not a valid display for the code {urn:iso:std:iso:3166}GB - should be one of [\"United Kingdom of Great Britain and Northern Ireland\"]"
+}
+-------------------------------------------------------------------------------------

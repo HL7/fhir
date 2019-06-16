@@ -343,3 +343,43 @@ v: {
   "error" : "The code system \"urn:iso:std:iso:11073:10101\" is not known; The code provided (urn:iso:std:iso:11073:10101#265201) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "urn:iso:std:iso:11073:10101",
+    "code" : "150456",
+    "display" : "MDC_PULS_OXIM_SAT_O2"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:11073:10101"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:iso:std:iso:11073:10101\" is not known; The code provided (urn:iso:std:iso:11073:10101#150456) is not  valid in the value set DeviceMetricAndComponentTypes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "urn:iso:std:iso:11073:10101",
+    "code" : "262688",
+    "display" : "MDC_DIM_PERCENT"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:11073:10101"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:iso:std:iso:11073:10101\" is not known; The code provided (urn:iso:std:iso:11073:10101#262688) is not  valid in the value set DeviceMetricAndComponentTypes"
+}
+-------------------------------------------------------------------------------------
