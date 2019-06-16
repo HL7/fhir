@@ -10,7 +10,7 @@
       "system" : "http://terminology.hl7.org/CodeSystem/subscriber-relationship"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",

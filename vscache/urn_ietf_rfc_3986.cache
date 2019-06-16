@@ -73,3 +73,23 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:ietf:rfc:3986",
+  "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:ietf:rfc:3986",
+  "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

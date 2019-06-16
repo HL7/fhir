@@ -154,3 +154,23 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:ietf:bcp:13",
+  "code" : "application/hl7-cda+xml"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "application/hl7-cda+xml",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:ietf:bcp:13",
+  "code" : "application/hl7-cda+xml"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "application/hl7-cda+xml",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

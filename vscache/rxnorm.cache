@@ -776,3 +776,346 @@ v: {
   "error" : "The display \"Gemfibrozil\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}203151 - should be one of [\"Fenoldopam Mesylate\"]"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "200371"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "citalopram 20 MG Oral Tablet",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "1160593"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "cashew nut allergenic extract Injectable Product",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "7980"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Penicillin G",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "203151"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Fenoldopam Mesylate",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "213293"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Xeloda 500 MG Oral Tablet",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "66955"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Vancomycin Hydrochloride",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "203134"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Piperacillin Sodium",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "221167"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "TAZOBACTAM SODIUM",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "1594660"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "alemtuzumab 10 MG/ML [Lemtrada]",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "82063"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Oxycodone Hydrochloride",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "161"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Acetaminophen",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "315266"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Acetaminophen 500 MG",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "901813"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "diphenhydrAMINE Hydrochloride 25 MG",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "308047"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ALPRAZolam 0.25 MG Oral Tablet",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "358793"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "mometasone furoate 0.05 MG/ACTUAT",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "204520"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "potassium chloride 2 MEQ in 1 ML Injectable Solution",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "313002"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Sodium Chloride 9 MG/ML Injectable Solution",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "285018"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Lantus 100 UNT/ML Injectable Solution",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "1049623"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ROXICODONE 5 MG Oral Tablet",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "763179"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "predniSONE 5 MG Tablet 12 Day 48 Count Pack",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "206819"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Ativan 2 MG/ML Injectable Solution",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "562721"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Amylases / CELLULASE / Endopeptidases / Hyoscyamine / Lipase / phenyltoloxamine Oral Capsule",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "884375"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Nystex 100,000 UNT/GM Topical Ointment",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "226827"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Zithromax 500 MG Oral Tablet",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "746763"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Proventil HFA 90 MCG/INHAL Metered Dose Inhaler, 200 Actuations",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "1797870"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "NASONEX 50 MCG/ACTUAT Metered Dose Nasal Spray",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "856907"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Vicodin 5 MG / 500 MG Oral Tablet",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "1313112"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "phenytoin 125 MG in 5 mL Oral Suspension",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "884308"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "nystatin 100,000 UNT/GM Topical Ointment",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "114194"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Warfarin Sodium",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "2556"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Citalopram",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "1160593",
+  "display" : "cashew nut allergenic extract Injectable Product"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "cashew nut allergenic extract Injectable Product",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "7980",
+  "display" : "Penicillin G"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Penicillin G",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "562721",
+  "display" : "Alprazolam 0.25mg (Xanax)"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Amylases / CELLULASE / Endopeptidases / Hyoscyamine / Lipase / phenyltoloxamine Oral Capsule",
+  "severity" : "warning",
+  "error" : "The display \"Alprazolam 0.25mg (Xanax)\" is not a valid display for the code {http://www.nlm.nih.gov/research/umls/rxnorm}562721 - should be one of [\"Amylases / CELLULASE / Endopeptidases / Hyoscyamine / Lipase / phenyltoloxamine Oral Capsule\"]"
+}
+-------------------------------------------------------------------------------------
