@@ -9,3 +9,13 @@ v: {
   "error" : "The code system \"http://ema.europa.eu/example/country\" is not known; The code provided (http://ema.europa.eu/example/country#EU) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/country",
+  "code" : "EU"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://ema.europa.eu/example/country\" is not known; The code provided (http://ema.europa.eu/example/country#EU) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

@@ -2454,3 +2454,13 @@ v: {
   "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known; The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#17.000, (specialization)) is not  valid in the value set PracticeSettingCodeValueSet"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.2.4.15.111",
+  "code" : "01.000"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known; The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.000) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
