@@ -10,7 +10,7 @@
       "system" : "http://terminology.hl7.org/CodeSystem/subscriber-relationship"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -28,7 +28,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/library-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -46,7 +46,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/library-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -64,7 +64,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/library-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -82,7 +82,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -100,7 +100,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -118,7 +118,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -136,7 +136,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -154,7 +154,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -172,7 +172,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -190,7 +190,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -208,7 +208,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/composite-measure-scoring"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -226,7 +226,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -244,7 +244,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/action-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -262,7 +262,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/plan-definition-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -280,7 +280,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/synthesis-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -298,7 +298,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/study-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -317,7 +317,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-rating"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -336,7 +336,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -355,7 +355,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -374,7 +374,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -393,7 +393,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -412,7 +412,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -431,7 +431,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -450,7 +450,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -469,7 +469,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -488,7 +488,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -507,7 +507,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -526,7 +526,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
