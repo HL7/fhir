@@ -9,3 +9,13 @@ v: {
   "error" : "The code system \"http://ema.europa.eu/example/ingredientRole\" is not known; The code provided (http://ema.europa.eu/example/ingredientRole#ActiveBase) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/ingredientRole",
+  "code" : "ActiveBase"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://ema.europa.eu/example/ingredientRole\" is not known; The code provided (http://ema.europa.eu/example/ingredientRole#ActiveBase) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

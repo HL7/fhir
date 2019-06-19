@@ -90,3 +90,13 @@ v: {
   "error" : "The code system \"http://acme.com/labs/reports\" is not known; The code provided (http://acme.com/labs/reports#GHP) is not  valid in the value set LOINCDiagnosticReportCodes"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.com/labs/reports",
+  "code" : "GHP"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.com/labs/reports\" is not known; The code provided (http://acme.com/labs/reports#GHP) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
