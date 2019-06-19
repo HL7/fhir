@@ -17,7 +17,6 @@
   
   <TabRatio>837</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -744,7 +743,7 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R29C25"/>
   </Names>
   <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="41" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="285.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="172.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="61.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="28.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="40.0"/>
@@ -795,7 +794,8 @@
     <Cell ss:Index="5"><Data ss:Type="String">DomainResource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">clinical.general</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Medical care, research study or other healthcare event causing physical injury </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject.  The unintended effects may require additional monitoring, treatment or hospitalization or may result in death.  The AdverseEvent resource also extends to potential or avoided events that could have had such effects.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="20"><Data ss:Type="String">Act</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14">
@@ -1006,12 +1006,12 @@
     <Cell><Data ss:Type="String">Supporting information relevant to the event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="25"><Data ss:Type="String">GF#20593</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="29">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">AdverseEvent.supportingInfo.item</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Reference(Condition|Observation|AllergyIntolerance|FamilyMemberHistory|Immunization|Procedure|Media|DocumentReference)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Subject medical history or document relevant to this adverse event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Relevant past history for the subject.  In a clinical care context, an example being a patient had an adverse event following penciliin and the patient was given penicillin in the past.  In a clinical trials context, an example is a bunion or rash that was present prior to the study.&#10;Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject's medical history.  For example, a clinical note, staff list, or material safety data sheet (MSDS)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Relevant past history for the subject.  In a clinical care context, an example being a patient had an adverse event following a penciliin administration and the patient had a previously documented penicillin allergy.  In a clinical trials context, an example is a bunion or rash that was present prior to the study.&#10;Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject's medical history.  For example, a clinical note, staff list, or material safety data sheet (MSDS)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="25"><Data ss:Type="String">GF#14151, GF#20593</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14">
@@ -1074,9 +1074,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>15</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

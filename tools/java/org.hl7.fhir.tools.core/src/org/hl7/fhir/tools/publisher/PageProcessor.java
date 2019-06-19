@@ -48,9 +48,11 @@ import java.util.Date;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Queue;
 import java.util.Set;
 import java.util.UUID;
 
@@ -112,6 +114,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.OIDRegistry;
+import org.hl7.fhir.definitions.validation.PatternFinder;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -140,6 +143,10 @@ import org.hl7.fhir.r5.model.CodeType;
 import org.hl7.fhir.r5.model.CodeableConcept;
 import org.hl7.fhir.r5.model.Coding;
 import org.hl7.fhir.r5.model.ConceptMap;
+import org.hl7.fhir.r5.model.ConceptMap.ConceptMapGroupComponent;
+import org.hl7.fhir.r5.model.ConceptMap.ConceptMapGroupUnmappedMode;
+import org.hl7.fhir.r5.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.r5.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.r5.model.ContactDetail;
 import org.hl7.fhir.r5.model.ContactPoint;
 import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
@@ -153,6 +160,7 @@ import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingComponent
 import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.r5.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r5.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r5.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r5.model.ExpressionNode.CollectionStatus;
@@ -201,6 +209,7 @@ import org.hl7.fhir.r5.utils.TypesUtilities.TypeClassification;
 import org.hl7.fhir.r5.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
+import org.hl7.fhir.tools.publisher.PageProcessor.TypeMappingStatus;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -419,6 +428,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private List<String> normativePages = new ArrayList<String>();
   private MarkDownProcessor processor = new MarkDownProcessor(Dialect.COMMON_MARK);
 
+  private PatternFinder patternFinder;
   private Map<String, String> macros = new HashMap<String, String>();
   
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
@@ -960,6 +970,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildShortParameterList(com[1])+s3;
       } else if (com[0].equals("op-example-link")) {
         src = s1+buildOpReferenceList(com[1])+s3;       
+      } else if (com[0].equals("pattern-impls")) {
+        src = s1+buildPatternList(com[1])+s3;       
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -1352,12 +1364,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+listSpecialParameters()+s3;
       } else if (com[0].equals("diff-links-all")) { 
         src = s1+genDiffLinks()+s3;
+      } else if (com[0].equals("res-type-count")) { 
+        src = s1+definitions.getResources().size()+s3;        
+      } else if (com[0].equals("patterns-analysis")) { 
+        src = s1+patternFinder.generateReport()+s3;
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String buildPatternList(String name) {
+    if (!definitions.hasLogicalModel(name))
+      throw new Error("Unable to find Logical Model "+name);
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (String s : definitions.getLogicalModel(name).getImplementations()) {
+      b.append("<a href=\""+s.toLowerCase()+".html#"+s+"\">"+s+"</a>");
+    }
+    return b.toString();
   }
 
   private String buildOpReferenceList(String rt) {
@@ -4618,11 +4644,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     n = n.toLowerCase();
 
     b.append("<ul class=\"nav nav-tabs\">");
-
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
-    b.append(makeHeaderTab("Implementations", n+"-implementations.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
+    b.append(makeHeaderTab("Implementations", n+"-implementations.html", "examples".equals(mode)));
+    b.append(makeHeaderTab("Detailed Analysis", n+"-analysis.html", "analysis".equals(mode)));
     if (hasXMlJson) {
       b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
       b.append(makeHeaderTab("JSON", n+".profile.json.html", "json".equals(mode)));
@@ -5674,6 +5700,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+s3;
       } else if (com[0].equals("mixednormative")) {
         src = s1+s3;
+      } else if (com[0].equals("pattern-impls")) {
+        src = s1+buildPatternList(com[1])+s3;       
       } else if (com[0].equals("StandardsStatus")) {
         src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com.length == 4 ? com[3] : null)+s3;
       } else if (com[0].equals("diff-analysis")) {
@@ -5940,6 +5968,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+listCanonicalResources()+s3;      
       else if (com[0].equals("special-search-parameters")) { 
         src = s1+listSpecialParameters()+s3;
+      } else if (com[0].equals("patterns-analysis")) { 
+        src = s1+patternFinder.generateReport()+s3;
+      } else if (com[0].equals("res-type-count")) { 
+        src = s1+definitions.getResources().size()+s3;        
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
@@ -6456,6 +6488,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + s3;
       else if (com[0].equals("search-footer"))
         src = s1+searchFooter(level)+s3;
+      else if (com[0].equals("pattern-title"))
+        src = s1+resource.getName()+s3;
       else if (com[0].equals("search-header"))
         src = s1+searchHeader(level)+s3;
       else if (com[0].equals("diff-analysis"))
@@ -6478,16 +6512,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genNoExtensionsWarning(resource)+s3; 
       else if (com[0].equals("res-ext-link"))  
         src = s1+genResExtLink(resource)+s3;
+      else if (com[0].equals("pattern-analysis"))  
+        src = s1+genLogicalAnalysis(resource, genlevel(level))+s3;
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
         else
           src = s1+"<p>The resource name as it appears in a  RESTful URL is <a href=\"http.html#root\">[root]</a>/"+name+"/</p>"+s3;
+      } else if (com[0].equals("res-type-count")) { 
+        src = s1+definitions.getResources().size()+s3;        
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
-
     }
     return src;
   }
@@ -6501,7 +6538,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String genImplementationList(ResourceDefn logical) throws FHIRException {
-    String url = getLogicalMappingUrl(logical);
+    String url = logical.getMappingUrl();
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"lines\">\r\n");
     for (String s : sorted(definitions.getResources().keySet())) {
@@ -6528,7 +6565,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String genLogicalMappings(ResourceDefn logical, String genlevel) throws FHIRException {
-    String url = getLogicalMappingUrl(logical);
+    String url = logical.getMappingUrl();
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"lmap\">");
     b.append(" <tr>");
@@ -6536,10 +6573,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     List<ElementDefn> elements = new ArrayList<ElementDefn>();
     listAllElements(elements, logical.getRoot().getName(), logical.getRoot());
     for (ElementDefn e : elements) {
-      if (logical.getRoot().getElements().contains(e))
+      if (logical.getRoot().getElements().contains(e)) {
         b.append("<td><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">"+e.getName()+"</a></td>\r\n");
-      else
+      } else {
         b.append("<td><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">."+e.getName()+"</a></td>\r\n");
+      }
     }      
     b.append(" </tr>\r\n");
 
@@ -6558,7 +6596,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           b.append(" <tr>\r\n");
           b.append("  <td><a href=\""+rd.getName().toLowerCase()+".html\">"+rd.getName()+"</a></td>\r\n");
           for (ElementDefn e : elements) {
-            populateLogicalMappingColumn(b, logical.getRoot().getName(), rd.getName().toLowerCase()+"-definitions.html#", e, sd, rd.getName(), code, url);
+            populateLogicalMappingColumn(b, logical.getRoot().getName(), rd.getName().toLowerCase()+"-definitions.html#", e, sd, rd.getName(), code, url, null, null, null);
           }
           b.append(" </tr>\r\n");
         }
@@ -6571,15 +6609,57 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "";
   }
 
-  public String getLogicalMappingUrl(ResourceDefn logical) {
-    String url = null;
-    if (logical.getName().equals("fivews"))
-      url = "http://hl7.org/fhir/fivews";
-    else
-      url = "http://hl7.org/fhir/workflow";
-    return url;
-  }
+  private String genLogicalAnalysis(ResourceDefn logical, String genlevel) throws FHIRException, IOException {
+    IniFile ini = new IniFile(Utilities.path(getFolders().srcDir, logical.getName(), logical.getName()+"-tasks.ini"));
+    String url = logical.getMappingUrl();
+    Map<ElementDefn, StringBuilder> bm = new HashMap<>();
+    List<ElementDefn> elements = new ArrayList<ElementDefn>();
+    listAllElements(elements, logical.getRoot().getName(), logical.getRoot());
+    for (ElementDefn e : elements) {
+      StringBuilder b2 = new StringBuilder();
+      bm.put(e, b2);
+    }      
 
+    boolean any = false;
+    for (String s : sorted(definitions.getResources().keySet())) {
+      ResourceDefn rd = definitions.getResourceByName(s);
+      StructureDefinition sd = rd.getProfile();
+      String code = null;
+      for (StructureDefinitionMappingComponent m : sd.getMapping()) {
+        if (m.getUri().equals(url))
+          code = m.getIdentity();
+      }
+      if (code != null) {
+        if (hasLogicalMapping(sd, logical, code)) {
+          any = true;
+          for (ElementDefn e : elements) {
+            StringBuilder b2 = bm.get(e);
+            populateLogicalMappingColumn(null, logical.getRoot().getName(), rd.getName().toLowerCase()+"-definitions.html#", e, sd, rd.getName(), code, url, b2, ini, e.getPath());
+          }
+        }
+      }
+    }
+    if (any) {
+      StringBuilder bx = new StringBuilder();
+      bx.append("<a name=\"mappings\"></a><h3>Mappings</h3>\r\n");
+      bx.append("<table class=\"grid\">\r\n");
+      for (ElementDefn e : elements) {
+        if (logical.getRoot().getElements().contains(e)) {
+          bx.append("<tr><td colspan=\"6\"><b><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">"+e.getPath()+"</a></b></td></tr>\r\n");
+        } else {
+          bx.append("<tr><td colspan=\"6\"><b><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">."+e.getPath()+"</a></b></td></tr>\r\n");
+        }
+        bx.append("<tr><td colspan=\"6\">"+e.getPath()+" : "+e.typeCode()+" ["+e.describeCardinality()+"]</td></tr>\r\n");
+        bx.append("<tr><td>Resource</td><td>Matches</td><td>Issues</td><td>Tasks</td><td>Status</td><td>Notes</td></tr>\r\n");
+        bx.append(bm.get(e).toString());
+      }
+      bx.append("</table>\r\n");
+      return bx.toString();
+    }
+    else
+      return "";
+  }
+  
   private void listAllElements(List<ElementDefn> elements,  String path, ElementDefn logical) {
     for (ElementDefn c : logical.getElements()) {
       c.setPath(path+"."+c.getName());
@@ -6588,11 +6668,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
+  public enum TypeMappingStatus { OK, ERROR, NEEDS_MAPPING };
+
   private class LogicalModelSupportInformation {
     int elementcount;
+    CommaSeparatedStringBuilder elementlist = new CommaSeparatedStringBuilder();
     boolean extension;
     boolean nameChanged;
-    boolean typeMismatch;
+    TypeMappingStatus typeMismatch = TypeMappingStatus.OK;
     boolean cardinalityProblem;
     List<String> notes = new ArrayList<String>();
   }
@@ -6602,7 +6685,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private final static String LOGICAL_MAPPING_MAPPED_COLOR = "#ffffff";
   private final static String LOGICAL_MAPPING_NOTMAPPED_COLOR = "#f2f2f2";
   
-  private void populateLogicalMappingColumn(StringBuilder b, String n, String page, ElementDefn e, StructureDefinition sd, String rn, String code, String url) {
+  private void populateLogicalMappingColumn(StringBuilder b, String n, String page, ElementDefn e, StructureDefinition sd, String rn, String code, String url, StringBuilder b2, IniFile ini, String iniPath) throws FHIRException {
     LogicalModelSupportInformation info = new LogicalModelSupportInformation();
 
     for (ElementDefinition ed : sd.getSnapshot().getElement()) { 
@@ -6610,9 +6693,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (m.getIdentity().equals(code)) {
           String s = m.getMap();
           for (String p : s.split("\\,")) {
-            String f = p.contains("{") ? p.substring(0, p.indexOf("{")) : p;
+            String f = p.contains("{") ? p.substring(0, p.indexOf("{")).trim() : p;
+            String cm = p.contains("{") ? p.substring(p.indexOf("{")) : null;
+            if (cm != null) {
+              cm = cm.trim();
+            }
             if (f.equals(e.getPath())) {
-              checkMapping(info, e, ed);
+              checkMapping(info, e, ed, b2 == null, cm);
            }
           }
         }
@@ -6646,9 +6733,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     //   one coor when color extension  
     //   blank for no mapping
     String color;
-    if (info.typeMismatch || info.cardinalityProblem) 
+    if (info.typeMismatch == TypeMappingStatus.ERROR || info.cardinalityProblem) 
       color = LOGICAL_MAPPING_MISMATCH_COLOR;
-    else if (info.nameChanged) 
+    else if (info.nameChanged || info.typeMismatch == TypeMappingStatus.NEEDS_MAPPING) 
       color = LOGICAL_MAPPING_NAMECHANGE_COLOR;
     else if (info.extension) 
       color = LOGICAL_MAPPING_EXTENSION_COLOR;
@@ -6657,25 +6744,77 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     else 
       color = LOGICAL_MAPPING_NOTMAPPED_COLOR;
     
+    if (b != null) {
+      StringBuilder ns = new StringBuilder();
+      for (String s : info.notes) {
+        if (ns.length() > 0)
+          ns.append("; ");
+        ns.append(s);
+      }
+      b.append("  <td style=\"background-color: "+color+"\" title=\""+ns.toString()+"\">");
+      if (info.elementcount > 0)
+        b.append(info.elementcount);
+      else if (info.extension)
+        b.append("E");
+      b.append(" ");
+      if (info.nameChanged)
+        b.append("N");
+      if (info.typeMismatch == TypeMappingStatus.ERROR)
+        b.append("T");
+      if (info.cardinalityProblem)
+        b.append("C");
+      b.append("</td>\r\n");
+    }
     StringBuilder ns = new StringBuilder();
     for (String s : info.notes) {
-      if (ns.length() > 0)
-        ns.append("; ");
       ns.append(s);
     }
-    b.append("  <td style=\"background-color: "+color+"\" title=\""+ns.toString()+"\">");
-    if (info.elementcount > 0)
-      b.append(info.elementcount);
-    else if (info.extension)
-      b.append("E");
-    b.append(" ");
-    if (info.nameChanged)
-      b.append("N");
-    if (info.typeMismatch)
-      b.append("T");
-    if (info.cardinalityProblem)
-      b.append("C");
-    b.append("</td>\r\n");
+    
+    String tasks = ini == null ? null : ini.getStringProperty(iniPath, sd.getName()+".tasks");
+    String status = ini == null ? null : ini.getStringProperty(iniPath, sd.getName()+".status");
+    String notes = ini == null ? null : ini.getStringProperty(iniPath, sd.getName()+".notes");
+    if (b2 != null && !(Utilities.noString(ns.toString()) && Utilities.noString(tasks))) {
+      b2.append("<tr style=\"background-color: "+color+"\"><td><b><a href=\""+sd.getName().toLowerCase()+".html\">"+sd.getName()+"</a></b></td><td><ul>"+ns.toString()+"</ul>");
+      if (info.extension)
+        b2.append(" (as an extension)");
+      b2.append("</td><td>");
+      if (info.nameChanged || info.typeMismatch != TypeMappingStatus.OK || info.cardinalityProblem) {
+        boolean first = true;
+        if (info.nameChanged) {
+          b2.append("Names are different. " );
+          first = false;
+        }
+        if (info.typeMismatch != TypeMappingStatus.OK) {
+          if (!first)
+            b2.append("<br/>");
+          b2.append("Type Mismatch. ");
+          first = false;
+        }
+        if (info.cardinalityProblem) {
+          if (!first)
+            b2.append("<br/>");
+          b2.append("Cardinality Problem. ");
+        }
+      }
+      b2.append("</td><td>");
+      boolean first = true;
+      if (!Utilities.noString(tasks)) {
+        for (String id : tasks.split("\\;")) {
+          if (!first)
+            b2.append(" | ");
+          b2.append("<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+id.trim()+"\">GF#"+id.trim()+"</a>");
+          first = false;
+        }
+        b2.append("</td><td>");
+      }
+      if (!Utilities.noString(status))
+        b2.append(Utilities.escapeXml(status));
+      b2.append("</td><td>");
+      if (!Utilities.noString(notes))
+        b2.append(Utilities.escapeXml(notes));
+      
+      b2.append("</td></tr>\r\n");
+    }
   }
 
   private String getWorkflowMapping(StructureDefinition ext, String url) {
@@ -6694,9 +6833,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return null;
   }
 
-  private void checkMapping(LogicalModelSupportInformation info, ElementDefn logical, ElementDefinition resource) {
+  private void checkMapping(LogicalModelSupportInformation info, ElementDefn logical, ElementDefinition resource, boolean inline, String cm) throws FHIRException {
     info.elementcount++;
-    String s = logical.getPath()+" : "+logical.typeCode()+" ["+logical.describeCardinality()+"] =&gt; "+resource.getPath()+" : "+resource.typeSummary()+" ["+resource.getMin()+".."+resource.getMax()+"]";
+    info.elementlist.append(resource.getPath());
+    String s;
+    if (inline)
+      s = logical.getPath()+" : "+logical.typeCode()+" ["+logical.describeCardinality()+"] =&gt; "+resource.getPath()+" : "+resource.typeSummary()+" ["+resource.getMin()+".."+resource.getMax()+"]";
+    else 
+      s = "<li>"+resource.getPath()+" : "+resource.typeSummary()+" ["+resource.getMin()+".."+resource.getMax()+"]</li>";
     if (!logical.getName().equals(edPathTail(resource.getPath()))) {
       info.nameChanged = true;
     }
@@ -6705,9 +6849,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       info.cardinalityProblem = true;
       s = s + " " +cardinalityError;
     }
-    String typeError = checkType(logical, resource);
+    String typeError = checkType(logical, resource, cm);
     if (!Utilities.noString(typeError)) {
-      info.typeMismatch = true;
+      if (cm != null && cm.startsWith("{map:"))
+        info.typeMismatch = TypeMappingStatus.NEEDS_MAPPING;
+      else
+        info.typeMismatch = TypeMappingStatus.OK;
       s = s + " " +typeError;
     }
     info.notes.add(s);
@@ -6717,7 +6864,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return path.substring(path.lastIndexOf(".")+1);
   }
 
-  private void checkExtMapping(LogicalModelSupportInformation info, ElementDefn logical, StructureDefinition extension) {
+  private void checkExtMapping(LogicalModelSupportInformation info, ElementDefn logical, StructureDefinition extension) throws FHIRException {
     info.extension = true;
     ElementDefinition e = extension.getSnapshot().getElementFirstRep();
     ElementDefinition v = null;
@@ -6731,9 +6878,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       info.cardinalityProblem = true;
       s = s + " " +cardinalityError;
     }
-    String typeError = checkType(logical, v);
+    String typeError = checkType(logical, v, null);
     if (!Utilities.noString(typeError)) {
-      info.typeMismatch = true;
+      info.typeMismatch = TypeMappingStatus.ERROR;
       s = s + " " +typeError;
     }
     info.notes.add(s);
@@ -6741,10 +6888,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
 
 
-  private String checkType(ElementDefn logical, ElementDefinition resource) {
+  private String checkType(ElementDefn logical, ElementDefinition resource, String cm) throws FHIRException {
     String s = "";
     for (TypeRefComponent rt : resource.getType()) {
-      if (!checkType(logical, rt)) {
+      if (!checkType(logical, rt, cm, resource)) {
         String m = "The type '"+rt.getCode()+"' is not legal according to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
         s = Utilities.noString(s) ? m : s + ", "+m;
       }
@@ -6752,14 +6899,66 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return s;
   }
 
-  private boolean checkType(ElementDefn logical, TypeRefComponent rt) {
+  private boolean checkType(ElementDefn logical, TypeRefComponent rt, String cm, ElementDefinition resource) throws FHIRException {
     for (TypeRef lt : logical.getTypes()) {
       if (lt.getName().equals(rt.getCode()))
         return true;
     }
+    if (cm != null) {
+      ConceptMap map = parseConceptMapMapping(logical, resource, cm);
+      if (map != null) {
+        for (TypeRef lt : logical.getTypes()) {
+          if (canBeType(map, lt.getName()))
+            return true;
+        }
+      }
+    }
     return false;
   }
 
+  private boolean canBeType(ConceptMap map, String name) {
+    if ("boolean".equals(name)) {
+      for (ConceptMapGroupComponent grp : map.getGroup()) {
+        if (grp.hasUnmapped() && !Utilities.existsInList(grp.getUnmapped().getCode(), "true", "false"))
+          return false;
+        for (SourceElementComponent e : grp.getElement()) {
+          for (TargetElementComponent t : e.getTarget()) {
+            if (!Utilities.existsInList(t.getCode(), "true", "false"))
+              return false;
+          }
+        }
+      }
+      return true;
+    }
+    return false;
+  }
+
+  private ConceptMap parseConceptMapMapping(ElementDefn logical, ElementDefinition resource, String src) throws FHIRException {
+    if (!src.startsWith("{map:"))
+      return null;
+    
+    ConceptMap map = new ConceptMap();
+    map.setId(logical.getPath()+"2"+resource.getPath());
+    map.setUrl("http://hl7.org/fhir/ConceptMap/"+map.getId());
+    map.setVersion(version.toCode());
+    ConceptMapGroupComponent grp = map.addGroup();
+    String[] statements = src.substring(0, src.length()-1).substring(5).split("\\;");
+    if (statements.length == 0)
+      throw new FHIRException("Unable to parse map details '"+src+"'");
+    for (String s : statements) {
+      String[] p = s.split("\\=");
+      if (p.length < 2)
+        throw new FHIRException("Unable to parse map details '"+src+"'");
+      if (":default".equals(p[0].trim())) {
+        grp.getUnmapped().setMode(ConceptMapGroupUnmappedMode.FIXED);
+        grp.getUnmapped().setCode(p[1].trim());
+      } else {
+        grp.addElement().setCode(p[0].trim()).addTarget().setEquivalence(ConceptMapEquivalence.EQUIVALENT).setCode(p[1].trim());
+      }
+    }
+    return map;
+  }
+  
   private String checkCardinality(ElementDefn logical, ElementDefinition resource) {
     String s = "";
     if (resource.getMin() < logical.getMinCardinality())
@@ -7221,20 +7420,60 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String getReferences(String name) throws Exception {
     List<String> refs = new ArrayList<String>();
-    for (String tn : definitions.sortedTypeNames()) {
-      checkReferences(name, refs, tn, definitions.getElementDefn(tn));
+    if (definitions.hasLogicalModel(name)) {
+      ElementDefn r = definitions.getLogicalModel(name).getResource().getRoot();
+      List<String> names = definitions.listAllPatterns(r.getName());
+      for (String rn : definitions.sortedResourceNames()) {
+        checkPatternReferences(names, refs, rn, definitions.getResourceByName(rn).getRoot(), definitions.getLogicalModel(name).getMappingUrl());
+      }
+      if (refs.size() == 1)
+        return "<h2>References</h2><p>This pattern is implemented by "+renderRef(refs.get(0), name)+".</p>\r\n";
+      else if (refs.size() > 1)
+        return "<h2>References</h2><p>This pattern is implemented by "+asLinks(refs, name)+".</p>\r\n";
+      else
+        return "<h2>References</h2><p>No resources follow this pattern.</p>";
+    
+    } else {
+      for (String tn : definitions.sortedTypeNames()) {
+        checkReferences(name, refs, tn, definitions.getElementDefn(tn));
+      }
+      for (String rn : definitions.sortedResourceNames()) {
+        checkReferences(name, refs, rn, definitions.getResourceByName(rn).getRoot());
+      }
+      String r;
+      if (refs.size() == 1)
+        r = "<h2>References</h2><p>This resource is referenced by "+renderRef(refs.get(0), name)+".</p>\r\n";
+      else if (refs.size() > 1)
+        r = "<h2>References</h2><p>This resource is referenced by "+asLinks(refs, name)+".</p>\r\n";
+      else
+        r = "<h2>References</h2><p>No resources refer to this resource directly.</p>";
+      refs.clear();
+      for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
+        for (LogicalModel lm : ig.getLogicalModels()) {
+          checkPatternUsage(lm.getResource().getRoot().getName(), refs, definitions.getResourceByName(name).getRoot(), lm.getMappingUrl());
+        }
+      }
+      if (refs.size() == 1)
+        return r + "<p>This resource implements the "+renderRef(refs.get(0), name)+" pattern.</p>\r\n";
+      else if (refs.size() > 1)
+        return r + "<p>This resource implements the "+asLinks(refs, name)+" patterns.</p>\r\n";
+      else
+        return r + "<p>This resource does not implement any patterns.</p>";
     }
-    for (String rn : definitions.sortedResourceNames()) {
-      checkReferences(name, refs, rn, definitions.getResourceByName(rn).getRoot());
-    }
-    if (refs.size() == 1)
-      return "<p>This resource is referenced by "+renderRef(refs.get(0), name)+"</p>\r\n";
-    else if (refs.size() > 1)
-      return "<p>This resource is referenced by "+asLinks(refs, name)+"</p>\r\n";
-    else
-      return "";
   }
 
+  private void checkPatternUsage(String name, List<String> refs, TypeDefn e, String url) {
+    String p = e.getMapping(url);
+    if (name.equals(p))
+      refs.add(name);
+  }
+
+  public void checkPatternReferences(List<String> names, List<String> refs, String rn, ElementDefn r, String url) throws FHIRException {
+    if (followsPattern(r, names, url)) {
+      refs.add(rn);
+    }
+  }
+  
   public void checkReferences(String name, List<String> refs, String rn, ElementDefn r) throws FHIRException {
     if (usesReference(r, name)) {
       refs.add(rn);
@@ -7262,6 +7501,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
+  private boolean followsPattern(ElementDefn e, List<String> names, String url) {
+    String p = e.getMapping(url);
+    if (names.contains(p))
+      return true;
+    return false;
+  }
+  
   private boolean usesReference(ElementDefn e, String name) {
     if (usesReference(e.getTypes(), name))
       return true;
@@ -8392,10 +8638,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
            src = s1+s3;
          else
            src = s1+"The id of this profile is "+pack.metadata("id")+s3;
-      } else if (macros.containsKey(com[0])) {
-        src = s1+macros.get(com[0])+s3;
-      } else
-        throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
+       } else if (com[0].equals("res-type-count")) { 
+         src = s1+definitions.getResources().size()+s3;        
+       } else if (macros.containsKey(com[0])) {
+         src = s1+macros.get(com[0])+s3;
+       } else
+         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
   }
@@ -8854,9 +9102,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (ss == null)
           ss = StandardsStatus.INFORMATIVE;
         src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">Informative</a>"+s3;
-      } else if (com[0].equals("profile-context"))
+      } else if (com[0].equals("profile-context")) {
         src = s1+getProfileContext(ed, genlevel(level))+s3;
-      else if (macros.containsKey(com[0])) {
+      } else if (com[0].equals("res-type-count")) { 
+        src = s1+definitions.getResources().size()+s3;        
+      } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
@@ -9730,6 +9980,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1+"(No assigned work group) ("+wg+") (4)"+s3;
         else
           src = s1+ "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group"+s3;
+      } else if (com[0].equals("res-type-count")) { 
+        src = s1+definitions.getResources().size()+s3;        
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
@@ -10927,4 +11179,13 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     else
       return "";
   }
+
+  public PatternFinder getPatternFinder() {
+    return patternFinder;
+  }
+
+  public void setPatternFinder(PatternFinder patternFinder) {
+    this.patternFinder = patternFinder;
+  }
+  
 }

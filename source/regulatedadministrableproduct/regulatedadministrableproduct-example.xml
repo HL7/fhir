@@ -19,7 +19,7 @@
     </coding>
   </unitOfPresentation>
   <ingredient>
-    <reference value="MedicinalProductIngredient/example"/>
+    <reference value="Ingredient/example"/>
   </ingredient>
   <routeOfAdministration>
      <code>

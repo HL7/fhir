@@ -120,7 +120,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="149" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="146" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
@@ -279,6 +279,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CapabilityStatement</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CapabilityStatement2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DetectedIssue</Data></Cell>
@@ -729,22 +732,10 @@
     <Cell><Data ss:Type="String">RegulatedAdministrableProduct</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductIngredient</Data></Cell>
+    <Cell><Data ss:Type="String">Ingredient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductAuthorization</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductIngredient</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductManufactured</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductPackaged</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductPharmaceutical</Data></Cell>
+    <Cell><Data ss:Type="String">RegulatedAuthorization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubstanceDefinition</Data></Cell>
@@ -797,6 +788,9 @@
    <Row>
     <Cell><Data ss:Type="String">Statistic</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -814,7 +808,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>54</TopRowBottomPane>
+   <TopRowBottomPane>125</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

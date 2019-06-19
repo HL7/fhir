@@ -1629,8 +1629,7 @@
     <Cell ss:StyleID="s97"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">CodeableConcept|Reference(Ingredient)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">CodeableConcept|Reference(Ingredient)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">y</Data><NamedCell
@@ -4426,14 +4425,8 @@
    </Print>
    <Zoom>108</Zoom>
    <Selected/>
-   <TopRowVisible>89</TopRowVisible>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>35</ActiveRow>
-     <ActiveCol>4</ActiveCol>
-    </Pane>
-   </Panes>
+   <TopRowVisible>18</TopRowVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>

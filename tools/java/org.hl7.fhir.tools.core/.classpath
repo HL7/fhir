@@ -20,7 +20,6 @@
 	<classpathentry kind="lib" path="../imports/txtmark-0.11.jar"/>
 	<classpathentry kind="lib" path="../imports/ST4-4.0.7.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-codec-1.9.jar"/>
-	<classpathentry kind="lib" path="../imports/poi-3.17.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-io-1.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.rdf"/>
 	<classpathentry kind="lib" path="../imports/Saxon-HE-9.5.1-5.jar"/>
@@ -54,5 +53,7 @@
 	<classpathentry kind="lib" path="../imports/gson-2.8.5.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.publisher.core"/>
+	<classpathentry kind="lib" path="../imports/poi-4.0.1.jar"/>
+	<classpathentry kind="lib" path="../imports/poi-ooxml-4.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

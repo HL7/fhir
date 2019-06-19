@@ -1456,11 +1456,20 @@ public class ProfileGenerator {
             if (t.getProfile() != null && t.getParams().size() !=1) {
               throw new Exception("Cannot declare profile on a resource reference declaring multiple resource types.  Path " + path + " in profile " + p.getName());
             }
-            for(String param : t.getParams()) {
-              TypeRef childType = new TypeRef(t.getName());
-              childType.getParams().add(param);
-              childType.getAggregations().addAll(t.getAggregations());
-              expandedTypes.add(childType);
+            for (String param : t.getParams()) {
+              if (definitions.hasLogicalModel(param)) {
+                for (String pn : definitions.getLogicalModel(param).getImplementations()) {
+                  TypeRef childType = new TypeRef(t.getName());
+                  childType.getParams().add(pn);
+                  childType.getAggregations().addAll(t.getAggregations());
+                  expandedTypes.add(childType);
+                }
+              } else {
+                TypeRef childType = new TypeRef(t.getName());
+                childType.getParams().add(param);
+                childType.getAggregations().addAll(t.getAggregations());
+                expandedTypes.add(childType);
+              }
             }
           } else if (t.isWildcardType()) {
             // this list is filled out manually because it may be running before the types referred to have been loaded
@@ -1493,6 +1502,11 @@ public class ProfileGenerator {
           if (profile == null && t.hasParams()) {
             profile = t.getParams().get(0);
           }
+          if (t.getPatterns() != null) {
+            for (String s : t.getPatterns()) {
+              type.addExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-pattern", new CanonicalType("http://hl7.org/fhir/StructureDefinition/"+s));
+            }
+          }
           if (profile != null) {
             if (type.getCode().equals("Extension")) {
               // check that the extension is being used correctly:
@@ -1507,17 +1521,24 @@ public class ProfileGenerator {
               if (!srcMod && tgtMod)
                 throw new Exception("The extension '"+profile+"' is not a modifier extension, but is being used as if it is a modifier extension");
             }
-            String pr;
+            List<String> pr = new ArrayList<>();
             if (profile.startsWith("http:") || profile.startsWith("#")) {
-              pr = profile;
+              pr.add(profile);
+            } else if (definitions.hasLogicalModel(profile)) {
+              for (String pn : definitions.getLogicalModel(profile).getImplementations())
+                pr.add("http://hl7.org/fhir/StructureDefinition/" + pn);
             } else 
-              pr = "http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile);
+              pr.add("http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile));
             if (type.getCode().equals("Reference") || type.getCode().equals("canonical") ) {
-              type.addTargetProfile(pr);
-              if (e.hasHierarchy())
-                ToolingExtensions.addBooleanExtension(type, ToolingExtensions.EXT_HIERARCHY, e.getHierarchy());
+              for (String pn : pr) {
+                type.addTargetProfile(pn);
+                if (e.hasHierarchy())
+                  ToolingExtensions.addBooleanExtension(type, ToolingExtensions.EXT_HIERARCHY, e.getHierarchy());
+              }
             } else
-              type.addProfile(pr);
+              for (String pn : pr) {
+                type.addProfile(pn);
+              }
           }
 
           for (String aggregation : t.getAggregations()) {
@@ -1562,6 +1583,7 @@ public class ProfileGenerator {
       } else if (root && !Utilities.noString(e.typeCode())) 
         defineAncestorElements(e.typeCode(), path, snapshot, containedSlices, p, elements, defType, defaults);
     }
+    
     for (ElementDefn child : e.getElements()) 
       defineElement(ap, p, elements, child, path+"."+child.getName(), containedSlices, myParents, snapshot, false, defType, null, defaults);
 
@@ -1919,6 +1941,13 @@ public class ProfileGenerator {
     for (TypeRef t : src.getTypes()) {
       if (t.hasParams()) {
         for (String tp : t.getParams()) {
+          if (definitions.hasLogicalModel(tp)) {
+            for (String tpn : definitions.getLogicalModel(tp).getImplementations()) {
+              ElementDefinition.TypeRefComponent type = dst.getType(t.getName());
+              String pr = "http://hl7.org/fhir/StructureDefinition/"+tpn;
+              type.addTargetProfile(pr); 
+            }   
+          } else {
           ElementDefinition.TypeRefComponent type = dst.getType(t.getName());
           String pr = t.hasProfile() ? t.getProfile() :
              // this should only happen if t.getParams().size() == 1
@@ -1927,6 +1956,7 @@ public class ProfileGenerator {
             type.addTargetProfile(pr); 
           else
             type.addProfile(pr);
+          }
         }
       } else if (t.isWildcardType()) {
         for (String n : TypesUtilities.wildcardTypes()) 

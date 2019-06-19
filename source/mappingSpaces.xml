@@ -32,6 +32,17 @@
     <pattern>true</pattern>
 	</space>
 	<space>
+		<url>http://hl7.org/fhir/interface</url>
+		<link>http://hl7.org/fhir/participant.html</link>
+		<columnName>Interface Mapping</columnName>
+		<title>Interface Pattern</title>
+		<id>interface</id>
+		<sort>0</sort>
+		<publish>true</publish>
+    <sparse>true</sparse>
+    <pattern>true</pattern>
+	</space>
+	<space>
 		<url>http://hl7.org/v2</url>
     <link>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185</link>
 		<columnName>v2 Mapping</columnName>
