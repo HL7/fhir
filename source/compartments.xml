@@ -246,11 +246,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CommunicationRequest</Data></Cell>
-    <Cell><Data ss:Type="String">subject | sender | recipient | requester</Data></Cell>
+    <Cell><Data ss:Type="String">subject | information-provider | recipient | requester</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>
-    <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>
-    <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
+    <Cell><Data ss:Type="String">information-provider | recipient | requester</Data></Cell>
+    <Cell><Data ss:Type="String">information-provider | recipient | requester</Data></Cell>
+    <Cell><Data ss:Type="String">information-provider | recipient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CompartmentDefinition</Data></Cell>
