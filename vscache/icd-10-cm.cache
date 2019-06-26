@@ -2,32 +2,33 @@
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "E84.0"
-}, "valueSet" :null}####
+}, "valueSet" :null, "lang":"null"}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "The code system \"http://hl7.org/fhir/sid/icd-10-cm\" is not known; The code provided (http://hl7.org/fhir/sid/icd-10-cm#E84.0) is not  valid in the value set All codes known to the system"
+  "display" : "Cystic fibrosis with pulmonary manifestations",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "E84.0"
+  "code" : "E84.0",
+  "display" : "Cystic fibrosis with pulmonary manifestations"
 }, "valueSet" :null, "lang":"null"}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "The code system \"http://hl7.org/fhir/sid/icd-10-cm\" is not known; The code provided (http://hl7.org/fhir/sid/icd-10-cm#E84.0) is not  valid in the value set All codes known to the system"
+  "display" : "Cystic fibrosis with pulmonary manifestations",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "M96.1",
-  "display" : "Postlaminectomy syndrome"
+  "display" : "Postlaminectomy syndrome, not elsewhere classified"
 }, "valueSet" :null, "lang":"null"}####
 v: {
   "display" : "Postlaminectomy syndrome, not elsewhere classified",
-  "severity" : "warning",
-  "error" : "The display \"Postlaminectomy syndrome\" is not a valid display for the code {http://hl7.org/fhir/sid/icd-10-cm}M96.1 - should be one of [\"Postlaminectomy syndrome, not elsewhere classified\"]"
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -61,16 +62,5 @@ v: {
   "display" : "Spondylosis without myelopathy or radiculopathy, lumbar region",
   "severity" : null,
   "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "E84.0",
-  "display" : "Cystic fibrosis with pulmonary manifestations"
-}, "valueSet" :null, "lang":"null"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Code \"E84.0\" not found; The code \"E84.0\" is not valid in the system http://hl7.org/fhir/sid/icd-10-cm; The code provided (http://hl7.org/fhir/sid/icd-10-cm#E84.0) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------

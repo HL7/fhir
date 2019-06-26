@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="physiotherapy"/>
 	<!-- demonstrating in this example the reason reference element using contained resources for the purpose of this example only typically this would be a separate independent resource-->
 	<contained>
@@ -47,7 +47,6 @@
 			    <code value="active"/>
 			  </coding>
 		    </clinicalStatus>
-
 		    <verificationStatus>
 			  <coding>
 			    <system value="http://terminology.hl7.org/CodeSystem/condition-ver-status"/>
@@ -106,7 +105,7 @@
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="34431008"/>
-			<display value="Physiotherapy of chest (regime/therapy) "/>
+			<display value="Physiotherapy of chest (regime/therapy)"/>
 		</coding>
 	</code>
 	<subject>
