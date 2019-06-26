@@ -122,7 +122,14 @@ are available - POST to [base]/Subscription:
    }
  ],
   "channel": {
-    "type": "rest-hook",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+        "code": "rest-hook"
+        }
+      ]
+    }
     "endpoint": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
     "header": "Authorization: Bearer secret-token-abc-123"
   }
@@ -152,13 +159,20 @@ as a healthcare institution.
 </p>
 
 <pre class="json" fragment="Subscription">
-{  
+{
    "channel":{
-      "type":"rest-hook",
-      "endpoint":"https://internal.acme.com/research/saturn",
-      "payload":{
-         "contentType":"application/fhir+json",
-         "content":"full-resource"
+   "type": {
+     "coding": [
+       {
+         "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+         "code": "rest-hook"
+         }
+       ]
+     }
+   "endpoint":"https://internal.acme.com/research/saturn",
+   "payload":{
+        "contentType":"application/fhir+json",
+        "content":"full-resource"
       }
    }
 }
@@ -195,7 +209,14 @@ A client can declare its intention to listen via Web Sockets:
 <pre class="json" fragment="Subscription">
 {
   "channel": {
-    "type": "websocket"
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+        "code": "websocket"
+        }
+      ]
+    }
   }
 }
 </pre>
@@ -223,7 +244,13 @@ email:
 <pre class="json" fragment="Subscription">
 {
   "channel": {
-    "type": "email",
+  "coding": [
+    {
+      "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+      "code": "email"
+      }
+    ]
+  }
     "endpoint": "mailto:mt-auburn-results@direct.biliwatch.com",
     "header": "A new bilirubin result has arrived!"
   }
@@ -246,7 +273,13 @@ by the rules of the applicable jurisdictions.
 <pre class="json" fragment="Subscription">
 {
   "channel": {
-    "type": "sms",
+  "coding": [
+    {
+      "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+      "sms": "websocket"
+      }
+    ]
+  }
     "endpoint": "tel:+1555-345-5555"
   }
 }
