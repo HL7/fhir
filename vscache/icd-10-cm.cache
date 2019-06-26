@@ -19,3 +19,47 @@ v: {
   "error" : "The code system \"http://hl7.org/fhir/sid/icd-10-cm\" is not known; The code provided (http://hl7.org/fhir/sid/icd-10-cm#E84.0) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "M96.1",
+  "display" : "Postlaminectomy syndrome"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Postlaminectomy syndrome, not elsewhere classified",
+  "severity" : "warning",
+  "error" : "The display \"Postlaminectomy syndrome\" is not a valid display for the code {http://hl7.org/fhir/sid/icd-10-cm}M96.1 - should be one of [\"Postlaminectomy syndrome, not elsewhere classified\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "G89.4",
+  "display" : "Chronic pain syndrome"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Chronic pain syndrome",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "M53.88",
+  "display" : "Other specified dorsopathies, sacral and sacrococcygeal region"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Other specified dorsopathies, sacral and sacrococcygeal region",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "M47.816",
+  "display" : "Spondylosis without myelopathy or radiculopathy, lumbar region"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Spondylosis without myelopathy or radiculopathy, lumbar region",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
