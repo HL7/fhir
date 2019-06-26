@@ -32,7 +32,7 @@ group ContractTerm(source src, target tgt) extends BackboneElement {
   src.subType -> tgt.subType;
   src.offer as s -> tgt.offer as t then ContractTermOffer(s, t);
   src.asset as s -> tgt.asset as t then ContractTermAsset(s, t);
-  src.agent as s -> tgt.agent as t then ContractTermAgent(s, t);
+// agent ist not in R4 anymore in term src.agent as s -> tgt.agent as t then ContractTermAgent(s, t);
   src.action -> tgt.action;
   src.actionReason -> tgt.actionReason;
   src.group -> tgt.group;

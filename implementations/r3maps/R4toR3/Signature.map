@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Signature" alias SignatureR3 a
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Signature(source src : SignatureR3, target tgt : Signature) extends Element <<type+>> {
+group Signature(source src : Signature, target tgt : SignatureR3) extends Element <<type+>> {
   src.type -> tgt.type;
   src.when -> tgt.when;
   src.who as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').empty() -> tgt.who = create('Reference') as vt0 then Reference(vs0, vt0);

@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ProcessResponse" alias Process
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ProcessResponse(source src : ProcessResponseR3, target tgt : ProcessResponse) extends DomainResource <<type+>> {
+group ProcessResponse(source src : ProcessResponse, target tgt : ProcessResponseR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.created -> tgt.created;

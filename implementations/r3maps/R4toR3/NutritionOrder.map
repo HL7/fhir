@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/NutritionOrder" alias Nutritio
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group NutritionOrder(source src : NutritionOrderR3, target tgt : NutritionOrder) extends DomainResource <<type+>> {
+group NutritionOrder(source src : NutritionOrder, target tgt : NutritionOrderR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.patient -> tgt.patient;

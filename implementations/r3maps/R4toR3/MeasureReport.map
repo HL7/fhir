@@ -14,7 +14,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/MeasureReport" alias MeasureRe
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group MeasureReport(source src : MeasureReportR3, target tgt : MeasureReport) extends DomainResource <<type+>> {
+group MeasureReport(source src : MeasureReport, target tgt : MeasureReportR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.type as v -> tgt.type = translate(v, '#MeasureReportType', 'code');

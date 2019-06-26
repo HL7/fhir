@@ -24,7 +24,9 @@ group CoverageEligibilityResponse(source src : CoverageEligibilityResponseR3, ta
 
 group CoverageEligibilityResponseInsurance(source src, target tgt) extends BackboneElement {
   src.coverage -> tgt.coverage;
-  src.contract -> tgt.contract;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-CoverageEligibilityResponse.insurance.contract' then {
+    e.value -> tgt.contract;
+  };
   src.item as s -> tgt.benefitBalance as t then CoverageEligibilityResponseInsuranceDetail(s, t);
 }
 

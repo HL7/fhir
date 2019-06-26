@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ChargeItem" alias ChargeItemR3
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ChargeItem(source src : ChargeItemR3, target tgt : ChargeItem) extends DomainResource <<type+>> {
+group ChargeItem(source src : ChargeItem, target tgt : ChargeItemR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.definitionUri -> tgt.definition;
   src.status -> tgt.status;

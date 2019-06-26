@@ -17,7 +17,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchSubject" alias Researc
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ResearchSubject(source src : ResearchSubjectR3, target tgt : ResearchSubject) extends DomainResource <<type+>> {
+group ResearchSubject(source src : ResearchSubject, target tgt : ResearchSubjectR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status as v -> tgt.status = translate(v, '#ResourceSubjectStatus', 'code');
   src.status -> tgt.status;

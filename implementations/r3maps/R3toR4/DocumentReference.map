@@ -15,7 +15,7 @@ group DocumentReference(source src : DocumentReferenceR3, target tgt : DocumentR
   src.subject -> tgt.subject;
   src.indexed -> tgt.date;
   src.created as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentReference.created',  ext.value = vs;
-  src.author as s -> tgt.agent as t then agent(s, t);
+  src.author -> tgt.author;
   src.authenticator -> tgt.authenticator;
   src.custodian -> tgt.custodian;
   src.relatesTo as vs0 -> tgt.relatesTo as vt0 then relatesTo(vs0, vt0);
@@ -23,11 +23,6 @@ group DocumentReference(source src : DocumentReferenceR3, target tgt : DocumentR
   src.securityLabel -> tgt.securityLabel;
   src.content as vs0 -> tgt.content as vt0 then content(vs0, vt0);
   src.context as vs0 -> tgt.context as vt0 then context(vs0, vt0);
-}
-
-group agent(source src, target tgt) extends BackboneElement {
-  src ->  tgt.type as cc,  cc.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',  c.code = 'AUT' "author";
-  src -> tgt.who as vt0 then Reference(src, vt0) "who";
 }
 
 group relatesTo(source src, target tgt) extends BackboneElement {

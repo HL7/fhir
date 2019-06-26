@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductDeviceSpec" al
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group MedicinalProductDeviceSpec(source src : MedicinalProductDeviceSpecR3, target tgt : MedicinalProductDeviceSpec) extends DomainResource <<type+>> {
+group MedicinalProductDeviceSpec(source src : MedicinalProductDeviceSpec, target tgt : MedicinalProductDeviceSpecR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.tradeName -> tgt.tradeName;

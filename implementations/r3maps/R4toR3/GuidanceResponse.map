@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/GuidanceResponse" alias Guidan
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group GuidanceResponse(source src : GuidanceResponseR3, target tgt : GuidanceResponse) extends DomainResource <<type+>> {
+group GuidanceResponse(source src : GuidanceResponse, target tgt : GuidanceResponseR3) extends DomainResource <<type+>> {
   src.requestIdentifier as ii then {
     ii.value -> tgt.requestId;
   };

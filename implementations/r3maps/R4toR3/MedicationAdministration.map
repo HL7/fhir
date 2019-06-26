@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationAdministration" alia
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group MedicationAdministration(source src : MedicationAdministrationR3, target tgt : MedicationAdministration) extends DomainResource <<type+>> {
+group MedicationAdministration(source src : MedicationAdministration, target tgt : MedicationAdministrationR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiates -> tgt.definition;
   src.partOf -> tgt.partOf;

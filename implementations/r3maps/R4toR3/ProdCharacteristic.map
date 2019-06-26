@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ProdCharacteristic" alias Prod
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ProdCharacteristic(source src : ProdCharacteristicR3, target tgt : ProdCharacteristic) extends BackboneElement <<type+>> {
+group ProdCharacteristic(source src : ProdCharacteristic, target tgt : ProdCharacteristicR3) extends BackboneElement <<type+>> {
   src.height -> tgt.height;
   src.width -> tgt.width;
   src.depth -> tgt.depth;

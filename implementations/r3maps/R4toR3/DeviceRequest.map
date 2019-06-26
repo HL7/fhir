@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceRequest" alias DeviceReq
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group DeviceRequest(source src : DeviceRequestR3, target tgt : DeviceRequest) extends DomainResource <<type+>> {
+group DeviceRequest(source src : DeviceRequest, target tgt : DeviceRequestR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.priorRequest -> tgt.priorRequest;

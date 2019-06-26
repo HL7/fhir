@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/List" alias ListR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group List(source src : ListR3, target tgt : List) extends DomainResource <<type+>> {
+group List(source src : List, target tgt : ListR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.mode -> tgt.mode;

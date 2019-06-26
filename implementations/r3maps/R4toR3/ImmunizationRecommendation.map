@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ImmunizationRecommendation" al
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ImmunizationRecommendation(source src : ImmunizationRecommendationR3, target tgt : ImmunizationRecommendation) extends DomainResource <<type+>> {
+group ImmunizationRecommendation(source src : ImmunizationRecommendation, target tgt : ImmunizationRecommendationR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.patient -> tgt.patient;
   src.recommendation as s -> tgt.recommendation as t then recommendation(s, t, src);

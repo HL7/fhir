@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Expression" alias ExpressionR3
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Expression(source src : ExpressionR3, target tgt : Expression) extends Element <<type+>> {
+group Expression(source src : Expression, target tgt : ExpressionR3) extends Element <<type+>> {
   src.description -> tgt.description;
   src.name -> tgt.name;
   src.language -> tgt.language;

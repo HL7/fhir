@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Coverage" alias CoverageR3 as 
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Coverage(source src : CoverageR3, target tgt : Coverage) extends DomainResource <<type+>> {
+group Coverage(source src : Coverage, target tgt : CoverageR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.type -> tgt.type;

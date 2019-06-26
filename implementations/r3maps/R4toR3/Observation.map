@@ -9,7 +9,7 @@ group Observation(source src : Observation, target tgt : ObservationR3) extends 
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.status -> tgt.status;
-  src.category -> tgt.category;
+  src.category as vs -> tgt.category = create('CodeableConcept') as vt then CodeableConceptFixCodeSystem(vs, vt);
   src.code -> tgt.code;
   src.subject -> tgt.subject;
   src.encounter -> tgt.context;
@@ -42,6 +42,20 @@ group Observation(source src : Observation, target tgt : ObservationR3) extends 
   src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/Observation.qualifiedBy' ->  tgt.related as rel,  rel.type = 'qualifiedBy',  rel.target as vt0 then relatedExt(vs0, vt0) "related5";
   src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/Observation.interferedBy' ->  tgt.related as rel,  rel.type = 'interfered-by',  rel.target as vt0 then relatedExt(vs0, vt0) "related6";
   src.component as vs0 -> tgt.component as vt0 then component(vs0, vt0);
+}
+
+group CodeableConceptFixCodeSystem(source src : CodeableConcept, target tgt : CodeableConceptR3) extends Element {
+  src.coding as vs0 -> tgt.coding = create('Coding') as vt0 then CodingFixCodeSystem(vs0, vt0);
+  src.text -> tgt.text;
+}
+
+group CodingFixCodeSystem(source src : Coding, target tgt : CodingR3) extends Element {
+  src.system where src.system='http://terminology.hl7.org/CodeSystem/observation-category' -> tgt.system = 'http://hl7.org/fhir/observation-category';
+  src.system where src.system!='http://terminology.hl7.org/CodeSystem/observation-category' -> tgt.system;
+  src.version -> tgt.version;
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.userSelected -> tgt.userSelected;
 }
 
 group relatedExt(source src, target tgt) {

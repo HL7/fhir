@@ -19,7 +19,7 @@ group Provenance(source src : Provenance, target tgt : ProvenanceR3) extends Dom
   src.signature -> tgt.signature;
 }
 
-group agent(source src : ProvenanceR3, target tgt : Provenance) extends BackboneElement {
+group agent(source src : Provenance, target tgt : ProvenanceR3) extends BackboneElement {
   src.role -> tgt.role;
   src.who as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').empty() -> tgt.who = create('Reference') as vt0 then Reference(vs0, vt0);
   src.who as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').exists() -> tgt.who = create('uri') as vt0 then {
@@ -32,7 +32,7 @@ group agent(source src : ProvenanceR3, target tgt : Provenance) extends Backbone
   src.type -> tgt.relatedAgentType;
 }
 
-group entity(source src : ProvenanceR3, target tgt : Provenance) extends BackboneElement {
+group entity(source src : Provenance, target tgt : ProvenanceR3) extends BackboneElement {
   src.role -> tgt.role;
   src.what as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').empty() and identifier.empty() -> tgt.what = create('Reference') as vt0 then Reference(vs0, vt0);
   src.what as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').exists() -> tgt.what = create('uri') as vt0 then {

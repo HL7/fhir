@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ProductShelfLife" alias Produc
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ProductShelfLife(source src : ProductShelfLifeR3, target tgt : ProductShelfLife) extends BackboneElement <<type+>> {
+group ProductShelfLife(source src : ProductShelfLife, target tgt : ProductShelfLifeR3) extends BackboneElement <<type+>> {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.period -> tgt.period;

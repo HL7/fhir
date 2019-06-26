@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ExplanationOfBenefit" alias Ex
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends DomainResource <<type+>> {
+group ExplanationOfBenefit(source src : ExplanationOfBenefit, target tgt : ExplanationOfBenefitR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.type -> tgt.type;

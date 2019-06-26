@@ -17,7 +17,7 @@ group DocumentReference(source src : DocumentReference, target tgt : DocumentRef
   src.extension as ext where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DocumentReference.created' then {
     ext.value as vs0 -> tgt.created = vs0 "created2";
   } "created";
-  src.agent as s where type.coding.where((system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType') and (code = 'AUT')).exists() -> tgt.author as t then agent(s, t);
+  src.author -> tgt.author;
   src.authenticator -> tgt.authenticator;
   src.custodian -> tgt.custodian;
   src.relatesTo as vs0 -> tgt.relatesTo as vt0 then relatesTo(vs0, vt0);
@@ -25,10 +25,6 @@ group DocumentReference(source src : DocumentReference, target tgt : DocumentRef
   src.securityLabel -> tgt.securityLabel;
   src.content as vs0 -> tgt.content as vt0 then content(vs0, vt0);
   src.context as vs0 -> tgt.context as vt0 then context(vs0, vt0);
-}
-
-group agent(source src, target tgt) extends Element {
-  src.who as vs0 then Reference(vs0, tgt);
 }
 
 group relatesTo(source src, target tgt) extends BackboneElement {

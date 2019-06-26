@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Media" alias MediaR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Media(source src : MediaR3, target tgt : Media) extends DomainResource <<type+>> {
+group Media(source src : Media, target tgt : MediaR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.type as vs0 then {

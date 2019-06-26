@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ImplementationGuide" alias Imp
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ImplementationGuide(source src : ImplementationGuideR3, target tgt : ImplementationGuide) extends DomainResource <<type+>> {
+group ImplementationGuide(source src : ImplementationGuide, target tgt : ImplementationGuideR3) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.version -> tgt.version;
   src.name -> tgt.name;

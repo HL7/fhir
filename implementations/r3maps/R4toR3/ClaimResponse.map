@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ClaimResponse" alias ClaimResp
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ClaimResponse(source src : ClaimResponseR3, target tgt : ClaimResponse) extends DomainResource <<type+>> {
+group ClaimResponse(source src : ClaimResponse, target tgt : ClaimResponseR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.type -> tgt.type;

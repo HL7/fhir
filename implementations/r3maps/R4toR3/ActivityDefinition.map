@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ActivityDefinition" alias Acti
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ActivityDefinition(source src : ActivityDefinitionR3, target tgt : ActivityDefinition) extends DomainResource <<type+>> {
+group ActivityDefinition(source src : ActivityDefinition, target tgt : ActivityDefinitionR3) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;

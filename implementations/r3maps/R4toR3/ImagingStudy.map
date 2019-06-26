@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ImagingStudy" alias ImagingStu
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ImagingStudy(source src : ImagingStudyR3, target tgt : ImagingStudy) extends DomainResource <<type+>> {
+group ImagingStudy(source src : ImagingStudy, target tgt : ImagingStudyR3) extends DomainResource <<type+>> {
   src.identifier as vs where system != 'urn:dicom:uid' -> tgt.identifier as vt then Identifier(vs, vt);
   src.identifier as vs where system = 'urn:dicom:uid' then {
     vs.value -> tgt.uid;

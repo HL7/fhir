@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/SpecimenDefinition" alias Spec
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group SpecimenDefinition(source src : SpecimenDefinitionR3, target tgt : SpecimenDefinition) extends DomainResource <<type+>> {
+group SpecimenDefinition(source src : SpecimenDefinition, target tgt : SpecimenDefinitionR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.typeCollected -> tgt.typeCollected;
   src.patientPreparation -> tgt.patientPreparation;

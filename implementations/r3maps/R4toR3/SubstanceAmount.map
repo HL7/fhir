@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/SubstanceAmount" alias Substan
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group SubstanceAmount(source src : SubstanceAmountR3, target tgt : SubstanceAmount) extends BackboneElement <<type+>> {
+group SubstanceAmount(source src : SubstanceAmount, target tgt : SubstanceAmountR3) extends BackboneElement <<type+>> {
   src.amount -> tgt.amount;
   src.amountType -> tgt.amountType;
   src.amountText -> tgt.amountText;

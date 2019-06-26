@@ -12,17 +12,12 @@ group DocumentManifest(source src : DocumentManifestR3, target tgt : DocumentMan
   src.type -> tgt.type;
   src.subject -> tgt.subject;
   src.created -> tgt.created;
-  src.author as s -> tgt.agent as t then DocumentManifestAgent(s, t);
+  src.author -> tgt.author;
   src.recipient -> tgt.recipient;
   src.source -> tgt.source;
   src.description -> tgt.description;
   src.content as s -> tgt.content as t then content(s, t);
   src.related as s -> tgt.related as t then DocumentManifestRelated(s, t);
-}
-
-group DocumentManifestAgent(source src, target tgt) extends BackboneElement {
-  src ->  tgt.type as cc,  cc.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',  c.code = 'AUT' "author";
-  src -> tgt.who as vt0 then Reference(src, vt0) "who";
 }
 
 group content(source src, target tgt) extends Element {

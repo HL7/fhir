@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Contract" alias ContractR3 as 
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Contract(source src : ContractR3, target tgt : Contract) extends DomainResource <<type+>> {
+group Contract(source src : Contract, target tgt : ContractR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.contentDerivative -> tgt.contentDerivative;
@@ -32,9 +32,7 @@ group ContractTerm(source src, target tgt) extends BackboneElement {
   src.subType -> tgt.subType;
   src.offer as s -> tgt.offer as t then ContractTermOffer(s, t);
   src.asset as s -> tgt.asset as t then ContractTermAsset(s, t);
-  src.agent as s -> tgt.agent as t then ContractTermAgent(s, t);
   src.action -> tgt.action;
-  src.actionReason -> tgt.actionReason;
   src.group -> tgt.group;
 }
 
