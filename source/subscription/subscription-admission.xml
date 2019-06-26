@@ -12,6 +12,17 @@
 		<value value="Patient/123"/>
 	</filterBy>
 	<channel>
-		<type value="rest-hook"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/subscription-channel-type"/>
+				<!-- 0..1 Identity of the terminology system -->
+				<code value="rest-hook"/>
+				<!-- 0..1 Symbol in syntax defined by the system -->
+				<display value="Rest Hook"/>
+				<!-- 0..1 Representation defined by the system -->
+			</coding>
+			<text value="Rest Hook"/>
+			<!-- 0..1 Plain text representation of the concept -->
+		</type>
 	</channel>
 </Subscription>
