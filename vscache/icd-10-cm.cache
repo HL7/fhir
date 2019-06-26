@@ -63,3 +63,14 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "E84.0",
+  "display" : "Cystic fibrosis with pulmonary manifestations"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Code \"E84.0\" not found; The code \"E84.0\" is not valid in the system http://hl7.org/fhir/sid/icd-10-cm; The code provided (http://hl7.org/fhir/sid/icd-10-cm#E84.0) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
