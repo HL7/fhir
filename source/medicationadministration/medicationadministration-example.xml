@@ -24,10 +24,10 @@
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </subject>
-  <effectivePeriod>
+  <occurencePeriod>
     <start value="2012-06-01T14:30:00+01:00"/>
     <end value="2012-06-01T14:30:00+01:00"/>
-  </effectivePeriod>
+  </occurencePeriod>
   <performer>
     <actor>
       <reference value="Practitioner/f007"/>
