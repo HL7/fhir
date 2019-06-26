@@ -272,11 +272,11 @@ by the rules of the applicable jurisdictions.
 
 <pre class="json" fragment="Subscription">
 {
-  "channel": {
+  "channel":
   "coding": [
     {
       "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
-      "sms": "websocket"
+      "code": "sms"
       }
     ]
   }
@@ -307,7 +307,13 @@ A client can register for its user to receive notifications by <a href="messagin
 <pre class="json" fragment="Subscription">
 {
   "channel": {
-    "type": "message",
+  "coding": [
+    {
+      "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+      "code": "message"
+      }
+    ]
+  }
     "endpoint": "http://ehr.example.org/fhir/$process-message"
   }
 }
