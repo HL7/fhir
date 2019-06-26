@@ -179,6 +179,7 @@ v: {
   "error" : "The code system \"http://hl7.org/fhir/sid/icd-10\" is not known; The code provided (http://hl7.org/fhir/sid/icd-10#321789) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -191,6 +192,7 @@ e: {
   "error" : "Error from server: Not implemented"
 }
 -------------------------------------------------------------------------------------
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
