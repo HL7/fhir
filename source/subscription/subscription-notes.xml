@@ -255,6 +255,7 @@ email:
      "endpoint":"mailto:mt-auburn-results@direct.biliwatch.com",
      "header":"A new bilirubin result has arrived!"
   }
+  }
 </pre>
 
 <p>
@@ -282,6 +283,7 @@ by the rules of the applicable jurisdictions.
         ]
      },
      "endpoint":"tel:+1555-345-5555"
+  }
   }
 </pre>
 
@@ -316,6 +318,7 @@ A client can register for its user to receive notifications by <a href="messagin
         ]
      },
      "endpoint":"tel:+1555-345-5555"
+  }
   }
 </pre>
 <p>
