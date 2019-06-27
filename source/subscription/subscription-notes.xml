@@ -129,9 +129,9 @@ are available - POST to [base]/Subscription:
         "code": "rest-hook"
         }
       ]
-    }
-    "endpoint": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
-    "header": "Authorization: Bearer secret-token-abc-123"
+  },
+  "endpoint": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
+  "header": "Authorization: Bearer secret-token-abc-123"
   }
 }
 </pre>
@@ -168,7 +168,7 @@ as a healthcare institution.
          "code": "rest-hook"
          }
        ]
-     }
+    },
    "endpoint":"https://internal.acme.com/research/saturn",
    "payload":{
         "contentType":"application/fhir+json",
@@ -243,16 +243,16 @@ email:
 
 <pre class="json" fragment="Subscription">
 {
-  "channel": {
-  "coding": [
+   "channel": {
+   "coding": [
     {
       "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
       "code": "email"
       }
     ]
-  }
-    "endpoint": "mailto:mt-auburn-results@direct.biliwatch.com",
-    "header": "A new bilirubin result has arrived!"
+   },
+   "endpoint": "mailto:mt-auburn-results@direct.biliwatch.com",
+   "header": "A new bilirubin result has arrived!"
   }
 }
 </pre>
@@ -279,8 +279,8 @@ by the rules of the applicable jurisdictions.
       "code": "sms"
       }
     ]
-  }
-    "endpoint": "tel:+1555-345-5555"
+  },
+  "endpoint": "tel:+1555-345-5555"
   }
 }
 </pre>
@@ -313,8 +313,8 @@ A client can register for its user to receive notifications by <a href="messagin
       "code": "message"
       }
     ]
-  }
-    "endpoint": "http://ehr.example.org/fhir/$process-message"
+  },
+  "endpoint": "http://ehr.example.org/fhir/$process-message"
   }
 }
 </pre>
