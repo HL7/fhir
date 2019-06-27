@@ -242,19 +242,18 @@ email:
 </p>
 
 <pre class="json" fragment="Subscription">
-{
-   "channel": {
-   "coding": [
-    {
-      "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
-      "code": "email"
-      }
-    ]
-   },
-   "endpoint": "mailto:mt-auburn-results@direct.biliwatch.com",
-   "header": "A new bilirubin result has arrived!"
+  {
+     "channel":{
+        "coding":[
+           {
+              "system":"http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+              "code":"email"
+           }
+        ]
+     },
+     "endpoint":"mailto:mt-auburn-results@direct.biliwatch.com",
+     "header":"A new bilirubin result has arrived!"
   }
-}
 </pre>
 
 <p>
@@ -271,18 +270,17 @@ by the rules of the applicable jurisdictions.
 <p>SMS works very similarly:</p>
 
 <pre class="json" fragment="Subscription">
-{
-  "channel":
-  "coding": [
-    {
-      "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
-      "code": "sms"
-      }
-    ]
-  },
-  "endpoint": "tel:+1555-345-5555"
+  {
+     "channel":{
+        "coding":[
+           {
+              "system":"http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+              "code":"sms"
+           }
+        ]
+     },
+     "endpoint":"tel:+1555-345-5555"
   }
-}
 </pre>
 
 <p>
@@ -305,18 +303,17 @@ A client can register for its user to receive notifications by <a href="messagin
 </p>
 
 <pre class="json" fragment="Subscription">
-{
-  "channel": {
-  "coding": [
-    {
-      "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
-      "code": "message"
-      }
-    ]
-  },
-  "endpoint": "http://ehr.example.org/fhir/$process-message"
+  {
+     "channel":{
+        "coding":[
+           {
+              "system":"http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+              "code":"sms"
+           }
+        ]
+     },
+     "endpoint":"tel:+1555-345-5555"
   }
-}
 </pre>
 <p>
 For each matching resource, a server will send a message to the
