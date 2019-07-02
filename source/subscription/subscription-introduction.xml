@@ -4,7 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-Once a subscription is created, any topics that meet the filterBy criteria cause a notification to be sent using the provided channel. The criteria are defined by the Topic resource.
+The subscription resource is used to define a push-based transaction from a server to another system.  A suscriber subscribes to one or more predefined <a href="topic.html">Topics</a> which the server supports. Subscribers typically receive only a subset of the total event notifications for a given topic by filtering on the content. The filtering criteria are defined by the Topic resource.  Once a subscription is created, any topics that meet the filtering criteria cause a notification to be sent using the provided channel.
 </p>
 <p>
 The server is able to send notifications without any information about the matching resource, or with the entire resource.
@@ -13,7 +13,7 @@ The server is able to send notifications without any information about the match
 Several different types of channels are supported:
 </p>
 <ul>
- <li><b>rest-hook</b>: A post is made to the URL identified in the Subscription resource. If the subscription requests that the whole resource is included, the URL is interpreted as the service base</li>
+ <li><b>rest-hook</b>: A notification is POSTed to the URL identified in the Subscription resource. If the subscription requests that the whole resource is included, the URL is interpreted as the service base</li>
  <li><b>websocket</b>: A PING message is sent to the designated URI</li>
  <li><b>email/sms</b>: A notification is sent to the nominated email address or SMS number</li>
  <li><b>message</b>: The resource is sent to the application identified in the URI as a <a href="messaging.html">message</a></li>

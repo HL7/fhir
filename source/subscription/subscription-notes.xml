@@ -19,50 +19,37 @@ Emails should generally be secured using some technique such as
 <a href="http://directproject.org/">Direct</a>.
 </p>
 
-<a name="errors"></a>
-<h2>Managing Subscriptions and Errors</h2>
+<a name="errors"></a> <h2>Managing Subscriptions and Errors</h2>
 <p>
-A subscription is defined by creating the Subscription resource on the server.
-When the subscription is created by the client, it sets the status
-to "requested". After POSTing the subscription, the client parses
-the Location header and saves the new Subscription's logical id for
-use in subsequent operations.
+The subscription resource is authored by the client with an initial status of
+"requested". A new subscription is created on the server using the RESTful
+create or update interaction. After a successful transaction, the client parses
+the Location header and saves the new Subscription's logical id for use in
+subsequent operations.
 </p>
+
 <p>
-When the server receives a subscription, it SHOULD check that it is prepared
-to accept/process the subscription. If it is, it sets the subscription
-to <code>active</code>, and then process it like a normal
-<a href="http.html#create">create</a>. If it isn't, it SHOULD return an
-error with an <a href="operationoutcome.html">OperationOutcome</a>
-instead of processing the <code>create</code>.
+When the server receives a subscription, it
+SHOULD check that it is prepared to accept/process the subscription. If it is,
+it sets the subscription to <code>active</code>, and then process it like a
+normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an
+error with an <a href="operationoutcome.html">OperationOutcome</a> instead of
+processing the <code>create</code>. </p> <p> The criteria are subject to the
+same limitations as the client that created it, such as access to patient
+compartments etc. Note that the subscription remains active after the client
+access tokens expire. </p> <p> Once the server has activated the subscription,
+it sets the status to "active" (note: the server can do this as it accepts the
+resource if it wants). </p> <p> An appropriately authorized client can use
+search and/or history operations to see what subscriptions are currently active
+on the server. Once the subscription is no longer desired, the client deletes
+the subscription from the server. </p> <p> The server may retry the notification
+a fixed number of times and/or refer errors to its own alert logs. If the
+notification fails, the server should set the status to 'error' and mark the
+error in the resource. If the notification succeeds, the server should update
+the status to "active again. If a subscription fails consistently a server may
+choose set the subscription status to off and stop trying to send notifications.
 </p>
-<p>
-The criteria are subject to the same limitations as the client that
-created it, such as access to patient compartments etc. Note that the
-subscription remains active after the client access tokens expire.
-</p>
-<p>
-Once the server has activated the subscription, it sets the status
-to "active" (note: the server can do this as it accepts the resource
-if it wants).
-</p>
-<p>
-An appropriately authorized client can use search and/or history operations
-to see what subscriptions are currently active on the server.
-Once the subscription is no longer desired, the client deletes the
-subscription from the server.
-</p>
-<p>
-The server may retry the notification a fixed number of times and/or
-refer errors to its own alert logs. If the notification fails, the
-server should set the status to 'error' and mark the error in the
-resource. If the notification succeeds, the server should update
-the status to "active again. If a subscription fails consistently
-a server may choose set the subscription status to off and stop
-trying to send notifications.
-</p>
-<p>
-If a subscription nominates a fixed end date, the server automatically
+<p> If a subscription nominates a fixed end date, the server automatically
 deletes it at the specified time.
 </p>
 
@@ -152,10 +139,9 @@ server must append the headers, if any are given, to the POST request that it
 makes to the client.
 </p>
 <p>
-Alternatively, the server can be asked to send the entire
-resource to a nominated FHIR end-point. This is usually appropriate
-for defining routing rules within a managed eco-system such
-as a healthcare institution.
+Alternatively, the server can be asked to send the entire resource to a
+nominated FHIR end-point. This is usually appropriate for defining routing rules
+within a managed eco-system such as a healthcare institution.
 </p>
 
 <pre class="json" fragment="Subscription">
@@ -181,7 +167,7 @@ as a healthcare institution.
 <p>
 This requests that a server forward a copy of any
 matching resource in JSON format to the nominated server as an <a href="http.html#update">Update
-operation</a> using the nominated URL as the <a href="http.html#root">service base</a>.
+operation</a> (i.e PUT) using the nominated URL as the <a href="http.html#root">service base</a>.
 In order to execute this channel, the server must know how
 to authenticate appropriately with the destination
 server. This can be done by the subscription resource providing
