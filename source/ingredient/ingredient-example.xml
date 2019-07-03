@@ -17,12 +17,12 @@
           <code value="Confidential"/>
         </valueCoding>
       </extension-->
-		<code>
+		<codeCodeableConcept>
 			<coding>
 				<system value="http://ema.europa.eu/example/specifiedSubstance"/>
 				<code value="equixabanCompanyequixaban1"/>
 			</coding>
-		</code>
+		</codeCodeableConcept>
 		<group>
 			<coding>
 				<system value="http://ema.europa.eu/example/specifiedSubstanceGroup"/>
@@ -31,12 +31,12 @@
 		</group>
 	</specifiedSubstance>
 	<substance>
-		<code>
+		<codeCodeableConcept>
 			<coding>
 				<system value="http://ema.europa.eu/example/substance"/>
 				<code value="EQUIXABAN"/>
 			</coding>
-		</code>
+		</codeCodeableConcept>
 		<strength>
 			<presentation>
 				<numerator>
