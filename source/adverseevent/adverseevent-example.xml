@@ -44,7 +44,7 @@
   <seriousness>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/>
-        <code value="Non-serious"/>
+        <code value="non-serious"/>
         <display value="Non-serious"/>
     </coding>
   </seriousness>
