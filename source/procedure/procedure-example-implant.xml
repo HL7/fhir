@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
   <id value="example-implant"/>
+  <contained>
+	<Device>
+		<id value="example-pacemaker"/>
+		<manufacturer value="Acme Devices, Inc"/> 
+		<lotNumber value="1234-5678"/> 
+		<type> 
+			<coding> 
+			  <system value="http://snomed.info/sct"/> 
+			  <code value="14106009"/> 
+			  <display value="Cardiac pacemaker implant"/> 
+			</coding> 
+		</type> 
+		<patient> 
+			<reference value="Patient/example"/> 
+		</patient> 
+	</Device>
+  </contained>
   <status value="completed"/>
   <code>
     <coding>
@@ -36,7 +53,7 @@
       </coding>
     </action>
     <manipulated>
-      <reference value="Device/example-pacemaker"/>
+      <reference value="#example-pacemaker"/>
     </manipulated>
   </focalDevice>
 </Procedure>
