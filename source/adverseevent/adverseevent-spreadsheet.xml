@@ -16,7 +16,8 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>14</ActiveSheet>
+  <FirstVisibleSheet>8</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1006,7 +1007,7 @@
     <Cell><Data ss:Type="String">Supporting information relevant to the event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="25"><Data ss:Type="String">GF#20593</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">AdverseEvent.supportingInfo.item</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Reference(Condition|Observation|AllergyIntolerance|FamilyMemberHistory|Immunization|Procedure|Media|DocumentReference)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1070,7 +1071,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1673,17 +1673,17 @@
     <Cell ss:StyleID="s105"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">AdverseEvent.subject</Data></Cell>
     <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"/>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">identifier</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">AdverseEvent.identifier</Data></Cell>
     <Cell ss:StyleID="s103"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4876,7 +4876,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Non-serious</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">non-serious</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
@@ -4887,7 +4887,7 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Serious</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">serious</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
@@ -4898,10 +4898,10 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">SeriousResultsInDeath</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">serious-results-in-death</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Serious</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">serious</Data></Cell>
     <Cell><Data ss:Type="String">Results in death</Data></Cell>
     <Cell><Data ss:Type="String">Results in death</Data></Cell>
     <Cell ss:StyleID="s116"/>
@@ -4909,10 +4909,10 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">SeriousIsLifeThreatening</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">serious-is-life-threatening</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Serious</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">serious</Data></Cell>
     <Cell><Data ss:Type="String">Is Life-threatening</Data></Cell>
     <Cell><Data ss:Type="String">Is Life-threatening</Data></Cell>
     <Cell ss:StyleID="s116"/>
@@ -4920,10 +4920,10 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">SeriousResultsInHospitalization</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">serious-results-in-hospitalization</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Serious</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">serious</Data></Cell>
     <Cell><Data ss:Type="String">Requires or prolongs inpatient hospitalization</Data></Cell>
     <Cell><Data ss:Type="String">Requires inpatient hospitalization or causes prolongation of existing hospitalization</Data></Cell>
     <Cell ss:StyleID="s116"/>
@@ -4931,10 +4931,10 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">SeriousResultsInDisability</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">serious-results-in-disability</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Serious</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">serious</Data></Cell>
     <Cell><Data ss:Type="String">Results in persistent or significant disability/incapacity</Data></Cell>
     <Cell><Data ss:Type="String">Results in persistent or significant disability/incapacity</Data></Cell>
     <Cell ss:StyleID="s116"/>
@@ -4942,10 +4942,10 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">SeriousIsBirthDefect</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">serious-is-birth-defect</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Serious</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">serious</Data></Cell>
     <Cell><Data ss:Type="String">Is a congenital anomaly/birth defect</Data></Cell>
     <Cell><Data ss:Type="String">Is a congenital anomaly/birth defect</Data></Cell>
     <Cell ss:StyleID="s116"/>
@@ -4953,10 +4953,10 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="36">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">SeriousRequiresPreventImpairment</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">serious-requires-prevent-impairment</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Serious</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">serious</Data></Cell>
     <Cell><Data ss:Type="String">Requires intervention to prevent permanent impairment</Data></Cell>
     <Cell><Data ss:Type="String">Requires intervention to prevent permanent impairment or damage (i.e., an important medical event that requires medical judgement)</Data></Cell>
     <Cell ss:StyleID="s116"/>
@@ -5433,6 +5433,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -5495,7 +5496,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">resolvedWithSequelae</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">resolved-with-sequelae</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
@@ -6061,7 +6062,7 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="79">
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Probably-Likely</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">probably-likely</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
@@ -6072,7 +6073,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Possible</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">possible</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
@@ -6083,7 +6084,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="58">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Unlikely</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">unlikely</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
@@ -6094,7 +6095,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="47">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Conditional-Classified</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">conditional-classified</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
@@ -6105,7 +6106,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Unassessable-Unclassifiable</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">unassessable-unclassifiable</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
@@ -6640,7 +6641,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s129"><Data ss:Type="String">ProbabilityScale</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">probability-scale</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s143"/>
@@ -6651,7 +6652,7 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Bayesian</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">bayesian</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
@@ -6662,7 +6663,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Checklist</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">checklist</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s144"/>
@@ -7186,6 +7187,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
