@@ -16,7 +16,7 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -699,6 +699,11 @@
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s151" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -743,7 +748,7 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R29C25"/>
   </Names>
   <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="41" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="172.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="298.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="61.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="28.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="40.0"/>
@@ -842,7 +847,7 @@
     <Cell><Data ss:Type="String">patient</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Reference(Patient|Group|Practitioner|RelatedPerson)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">who</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">who.focus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Subject impacted by event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This subject or group impacted by the event.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Allows for exposure of biohazard (such as legionella) to a group of individuals in a hospital</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -903,8 +908,9 @@
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s69"><Data ss:Type="String">AdverseEventSeriousness</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Seriousness of the event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">Seriousness or gravity of the event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Assessment whether this event was of real importance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="25"><Data ss:Type="String">GF#22740</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14" ss:StyleID="s79">
     <Cell><Data ss:Type="String">AdverseEvent.severity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1070,13 +1076,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -3341,7 +3346,7 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">Detailed type of event</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">valueset-adverse-event-type</Data></Cell>
+    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/clinical-findings" ss:StyleID="s151"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/clinical-findings</Data></Cell>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s101"/>
@@ -3349,7 +3354,7 @@
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s101"/>
     <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s125"/>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">GF#22735</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s111">
     <Cell ss:StyleID="s103"><Data ss:Type="String">AdverseEventOutcome</Data></Cell>
@@ -3619,6 +3624,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6050,7 +6056,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Certain</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">certain</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s143"/>
@@ -6604,7 +6610,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
