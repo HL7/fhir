@@ -1,0 +1,5 @@
+// Returned on successful creation of the specimen resource instance
+HTTP/1.1 200 OK
+
+$include specimen-example-serum-plasma.xml
+

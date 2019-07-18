@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<EvidenceSet xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="example"/>
+	<status value="draft"/>
+	<summaryPublisher>
+		<name value="MAGIC"/>	
+	</summaryPublisher>
+	<relatedArtifact>
+		<type value="derived-from"/>
+		<url value="https://app.magicapp.org/public/guideline/EZ1w8n/pico/31831/widget?tab=outcome"/>
+	</relatedArtifact>
+	<description value="Corticosteroids vs no corticosteroids for patients with sepsis"/>
+	<synthesisType>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/synthesis-type"/>
+			<code value="std-MA"/>
+			<display value="summary data meta-analysis"/>
+		</coding>
+	</synthesisType>
+	<studyType>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/study-type"/>
+			<code value="RCT"/>
+			<display value="randomized trial"/>
+		</coding>
+	</studyType>
+	<population>
+		<description value="Patients with sepsis"/>
+		<intendedCohort>
+			<type value="Group"/>
+			<display value="Patients with sepsis"/>
+		</intendedCohort>
+	</population>
+	<variableDefinition>
+		<description value="Corticosteroids"/>
+		<variableRole>
+			<coding>
+				<code value="exposure"/>
+				<display value="exposure"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Corticosteroids"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="No corticosteroids"/>
+		<variableRole>
+			<coding>
+				<code value="referenceExposure"/>
+				<display value="referenceExposure"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="No corticosteroids"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Mortality Longer term (60 days to 1 year)"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Mortality Longer term (Follow up: 60 days to 1 year)"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Mortality Short term (28-31 days)"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Mortality Short term (Follow up: 14-30 days)"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Shock reversal 1 week"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Shock reversal (Follow up: 7 days)"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Neuromuscular weakness"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Neuromuscular weakness"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Gastrointestinal bleeding"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Gastrointestinal bleeding"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Neuropsychiatric events"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Neuropsychiatric events"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Hypernatremia"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Hypernatremia"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Superinfection"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Superinfection"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Stroke"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Stroke"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Myocardial infarction"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Myocardial infarction"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Hyperglycaemia"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Hyperglycaemia"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="ICU length of stay"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="ICU length of stay"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Hospital length of stay"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Hospital length of stay"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Organ dysfunction"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Organ dysfunction (Follow up: 7 days)"/>
+		</intendedDefinition>
+	</variableDefinition>
+	<variableDefinition>
+		<description value="Quality of Life"/>
+		<variableRole>
+			<coding>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="???"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<type value="EvidenceVariable"/>
+			<display value="Quality of Life"/>
+		</intendedDefinition>
+	</variableDefinition>
+
+</EvidenceSet>

@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ValueSet/synthesis-type",
+  "code" : "std-MA"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://hl7.org/fhir/ValueSet/synthesis-type\" is not known for the code \"std-MA\"; The code provided (http://hl7.org/fhir/ValueSet/synthesis-type#std-MA) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

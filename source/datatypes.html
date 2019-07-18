@@ -50,8 +50,6 @@ extensions, but only the following data types may include <a href="extensibility
 </p>
 <ul>
  <li><a href="datatypes.html#timing">Timing</a></li>
- <li><a href="datatypes.html#statistic">Statistic</a></li>
- <li><a href="datatypes.html#ordereddistribution">OrderedDistribution</a></li>
  <li><a href="dosage.html#Dosage">Dosage</a></li>
  <li><a href="elementdefinition.html#ElementDefinition">ElementDefinition</a></li>
 </ul>
@@ -469,8 +467,6 @@ values are.
 [%diagram datatypes/types.diagram 4dt%]
 <hr/>
 [%diagram datatypes/types2.diagram 5dt%]
-<hr/>
-[%diagram datatypes/types2a.diagram 5dt%]
  
 <a name="Attachment"></a>
 <a name="attachment"></a>
@@ -1362,58 +1358,6 @@ follow the order in which the contacts are represented in the instance.
 ContactPoint is used in the following places: [%dtusage ContactPoint%]
 </p>
 
-<a name="Statistic"></a>
-<a name="statistic"></a>
-<h2 style="margin-bottom: 1px">
-Statistic
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="datatypes-examples.html#Statistic">Examples</a>, <a href="datatypes-definitions.html#Statistic">Detailed Descriptions</a>.
-</p>
-<p>
-<b>Description of Statistic datatype goes here</b>
-</p>
-<p>Note: The Statistic data type allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
-[%dt Statistic 13%]
-<p>More descriptions go here</p>
-
-<div class="use">
-<p><b>Constraints</b></p>
-[%dt.constraints Statistic%]
-
-[%tx Statistic%]
-</div>
-<p>
-Statistic is used in the following places: [%dtusage Statistic%]
-</p>
-
-<a name="OrderedDistribution"></a>
-<a name="ordereddistribution"></a>
-<h2 style="margin-bottom: 1px">
-OrderedDistribution
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="datatypes-examples.html#OrderedDistribution">Examples</a>, <a href="datatypes-definitions.html#OrderedDistribution">Detailed Descriptions</a>.
-</p>
-<p>
-<b>Description of OrderedDistribution datatype goes here</b>
-</p>
-<p>Note: The OrderedDistribution data type allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
-[%dt OrderedDistribution 13%]
-<p>More descriptions go here</p>
-
-<div class="use">
-<p><b>Constraints</b></p>
-[%dt.constraints OrderedDistribution%]
-
-[%tx OrderedDistribution%]
-</div>
-<p>
-OrderedDistribution is used in the following places: [%dtusage OrderedDistribution%]
-</p>
-
-
-
 <a name="Timing"></a>
 <a name="timing"></a>
 <h2 style="margin-bottom: 1px">
@@ -1436,7 +1380,7 @@ specification are provided, the list of events should be understood as an interp
 of the information in the repeat structure.
 </p>
 <p>Note: The Timing data type allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
-[%dt Timing 14%]
+[%dt Timing 13%]
 <p>
 If the timing schedule has repeating criteria, the repeat can occur a given number of times per
 the specified duration or in relation to some repeating real-world event. If no end condition is specified,
@@ -1542,7 +1486,7 @@ A Signature holds an electronic representation of a signature and its supporting
 The signature may either be a cryptographic type (XML DigSig or a JWS), which is able to provide non-repudiation proof, or
 it may be a graphical image that represents a signature or a signature process.
 </p>
-[%dt Signature 15%]
+[%dt Signature 14%]
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Signature%]
@@ -1622,7 +1566,7 @@ See also <a href="datatypes-examples.html#Annotation">Examples</a>, <a href="dat
 <p>
 A  text note which also  contains information about who made the statement and when.
 </p>
-[%dt Annotation 16%]
+[%dt Annotation 15%]
 <p>
 Systems that do not have structured annotations simply communicate a single annotation with no author or time.
 </p>
@@ -1702,8 +1646,6 @@ $( '#tabs-Range' ).tabs({ active: currentTabIndex, activate: function( event, ui
 $( '#tabs-Ratio' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Period' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-SampledData' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-$( '#tabs-Statistic' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-$( '#tabs-OrderedDistribution' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Identifier' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-HumanName' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Address' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
@@ -1727,8 +1669,6 @@ function store(currentTab) {
   $( '#tabs-Ratio' ).tabs('option', 'active', currentTab);
   $( '#tabs-Period' ).tabs('option', 'active', currentTab);
   $( '#tabs-SampledData' ).tabs('option', 'active', currentTab);
-  $( '#tabs-Statistic' ).tabs('option', 'active', currentTab);
-  $( '#tabs-OrderedDistribution' ).tabs('option', 'active', currentTab);
   $( '#tabs-Identifier' ).tabs('option', 'active', currentTab);
   $( '#tabs-HumanName' ).tabs('option', 'active', currentTab);
   $( '#tabs-Address' ).tabs('option', 'active', currentTab);

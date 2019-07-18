@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
-	<!--     
-  This file is for the convenience of implementers, to enable sharing of language translations.     
-  There is no obligation for any implementer to use the messages contained in this file, but     
-  all implementers are welcome to do so. The reference platforms use these messages.     
-  
-  Any implementer is welcome to add additional items or translations     
-  When proposing changes, the following people have an interest in the language:       
-    english: grahame@healthintersections.com.au       
-    dutch: Ewout, Alexander       
-    italian: origama       
-    chinese: niehongchao (at com dot foxmail)       
-    polish : radomski (at iehr in eu)       
-    french : Frederic (dot) Laurent (at gmail dot com)       
-    
-  
-  
-  Language codes in this file are defined as ll[-CC], where ll is the lowercase ISO 639-1 alpha 2    
-  language code and CC is the uppercase ISO 3166-1 alpha 2 country code. The country code is    
-  optional so legal codes are for example:      
-    de-DE  :  German German      
-    de-CH  :  Swiss German      
-    de     :  German      
-    en-US  :  US American English      
-    en     :  English      
-    fr     :  French    
-  
-  NOTE: while translations for Resource Names are provided they should be used for rendering purposes          
-  only, and not in the URI, as XML node name, or JSON label etc.    
+	<!--
+  This file is for the convenience of implementers, to enable sharing of language translations.
+  There is no obligation for any implementer to use the messages contained in this file, but
+  all implementers are welcome to do so. The reference platforms use these messages.
+
+  Any implementer is welcome to add additional items or translations
+  When proposing changes, the following people have an interest in the language:
+    english: grahame@healthintersections.com.au
+    dutch: Ewout, Alexander
+    italian: origama
+    chinese: niehongchao (at com dot foxmail)
+    polish : radomski (at iehr in eu)
+    french : Frederic (dot) Laurent (at gmail dot com)
+
+
+
+  Language codes in this file are defined as ll[-CC], where ll is the lowercase ISO 639-1 alpha 2
+  language code and CC is the uppercase ISO 3166-1 alpha 2 country code. The country code is
+  optional so legal codes are for example:
+    de-DE  :  German German
+    de-CH  :  Swiss German
+    de     :  German
+    en-US  :  US American English
+    en     :  English
+    fr     :  French
+
+  NOTE: while translations for Resource Names are provided they should be used for rendering purposes
+  only, and not in the URI, as XML node name, or JSON label etc.
 -->
 
 	<!-- 3s -->
@@ -378,6 +378,9 @@
 	</item>
 	<item id="Evidence">
 		<translation lang="en">Evidence</translation>
+	</item>
+	<item id="EvidenceSet">
+		<translation lang="en">EvidenceSet</translation>
 	</item>
 	<item id="EvidenceVariable">
 		<translation lang="en">EvidenceVariable</translation>
@@ -740,7 +743,7 @@
 		<translation lang="en">PaymentReconciliation</translation>
 		<translation lang="fr">RéconciliationPaiement</translation>
 		<translation lang="it">RiconciliazionePagamento</translation>
-		<translation lang="es">ConciliacionDePago</translation> 
+		<translation lang="es">ConciliacionDePago</translation>
 		<translation lang="zh">付款对账</translation>
 	</item>
 	<item id="Person">
@@ -1008,6 +1011,12 @@
 		<translation lang="es">ScriptDePrueba</translation>
 		<translation lang="fr">ScriptTest</translation>
 		<translation lang="zh">测试脚本</translation>
+	</item>
+	<item id="Topic">
+		<translation lang="en">Topic</translation>
+		<translation lang="es">Tema</translation>
+		<translation lang="fr">Sujet</translation>
+		<translation lang="zh">话题</translation>
 	</item>
 	<item id="User">
 		<translation lang="en">User</translation>
@@ -2238,8 +2247,8 @@
 	<item id="MSG_UNKNOWN_COMPARTMENT">
 		<translation lang="en">Unknown Compartment %s    </translation>
 	</item>
-  
-  
+
+
   <item id="CS1">
     <translation lang="en">Copyright Statement</translation>
     <translation lang="nl">Copyright</translation>
@@ -2296,5 +2305,5 @@
     <translation lang="en">This code system %s defines many codes, but they are not represented here</translation>
     <translation lang="nl">Dit code systeem %s definieert een groot aantal codes, maar deze zijn hier niet beschikbaar</translation>
   </item>
-  
+
 </translations>

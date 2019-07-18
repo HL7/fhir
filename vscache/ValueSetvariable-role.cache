@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ValueSet/variable-role",
+  "code" : "measuredVariable"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://hl7.org/fhir/ValueSet/variable-role\" is not known for the code \"measuredVariable\"; The code provided (http://hl7.org/fhir/ValueSet/variable-role#measuredVariable) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ValueSet/variable-role",
+  "code" : "exposure"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://hl7.org/fhir/ValueSet/variable-role\" is not known for the code \"exposure\"; The code provided (http://hl7.org/fhir/ValueSet/variable-role#exposure) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ValueSet/variable-role",
+  "code" : "referenceExposure"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://hl7.org/fhir/ValueSet/variable-role\" is not known for the code \"referenceExposure\"; The code provided (http://hl7.org/fhir/ValueSet/variable-role#referenceExposure) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

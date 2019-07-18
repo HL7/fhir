@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/subscript     ion-channel-type",
+  "code" : "rest-hook"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/subscript     ion-channel-type\" is not known for the code \"rest-hook\"; The code provided (http://terminology.hl7.org/CodeSystem/subscript     ion-channel-type#rest-hook) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

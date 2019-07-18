@@ -16088,6 +16088,10 @@
     <display value="Wessex saddleback pig"/>
     <display value="Wessex saddleback pig (organism)"/>
   </concept>
+  <concept id="736542009" display="Pharmaceutical dose form">
+    <display value="Pharmaceutical dose form (dose form)"/>
+    <display value="Pharmaceutical dose form"/>
+  </concept>
   <concept id="73761001" display="Colonoscopy">
     <display value="Colonoscopy"/>
     <display value="Endoscopy of colon"/>

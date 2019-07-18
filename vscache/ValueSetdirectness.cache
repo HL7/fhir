@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ValueSet/directness",
+  "code" : "???"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://hl7.org/fhir/ValueSet/directness\" is not known for the code \"???\"; The code provided (http://hl7.org/fhir/ValueSet/directness#???) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ValueSet/directness",
+  "code" : "moderate"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://hl7.org/fhir/ValueSet/directness\" is not known for the code \"moderate\"; The code provided (http://hl7.org/fhir/ValueSet/directness#moderate) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

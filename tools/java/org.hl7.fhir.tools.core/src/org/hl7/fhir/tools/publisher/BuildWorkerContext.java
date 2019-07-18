@@ -57,6 +57,7 @@ import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r5.terminologies.TerminologyClient;
 import org.hl7.fhir.r5.terminologies.TerminologyClientR5;
+import org.hl7.fhir.r5.terminologies.TerminologyServiceOptions;
 import org.hl7.fhir.r5.utils.INarrativeGenerator;
 import org.hl7.fhir.r5.utils.IResourceValidator;
 import org.hl7.fhir.r5.utils.NarrativeGenerator;
@@ -440,7 +441,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   
-  public ValidationResult validateCode(String system, String code, String display) {
+  public ValidationResult validateCode(TerminologyServiceOptions options, String system, String code, String display) {
     try {
       if (system.equals("http://snomed.info/sct"))
         return verifySnomed(code, display);
@@ -461,7 +462,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     } catch (Exception e) {
       return new ValidationResult(IssueSeverity.ERROR, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
     }
-    return super.validateCode(system, code, display);
+    return super.validateCode(options, system, code, display);
   }
 
   

@@ -53,10 +53,10 @@
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
   </subject>
- <effectivePeriod>
+  <occurencePeriod>
   <start value="2015-01-15T22:03:00+01:00"/>
    <end value="2015-01-16T02:03:00+01:00"/>
-</effectivePeriod>
+</occurencePeriod>
   <performer>
     <function>
       <coding>

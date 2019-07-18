@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ValueSet/study-type",
+  "code" : "RCT"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://hl7.org/fhir/ValueSet/study-type\" is not known for the code \"RCT\"; The code provided (http://hl7.org/fhir/ValueSet/study-type#RCT) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

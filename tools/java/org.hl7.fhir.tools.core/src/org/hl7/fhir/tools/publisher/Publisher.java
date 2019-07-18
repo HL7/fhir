@@ -1637,10 +1637,11 @@ public class Publisher implements URIResolver, SectionNumberer {
           rest.addOperation().setName(op.getName()).setDefinition("http://hl7.org/fhir/OperationDefinition/"+r.getName().toLowerCase()+"-"+op.getName());
       }
     } else {
-      CapabilityStatementRestResourceComponent res = new CapabilityStatement.CapabilityStatementRestResourceComponent();
-      rest.getResource().add(res);
-      res.setType("CapabilityStatement");
-      genConfInteraction(cpbs, res, TypeRestfulInteraction.READ, "Read CapabilityStatement Resource");
+      // don't add anything - the metadata operation is implicit
+//      CapabilityStatementRestResourceComponent res = new CapabilityStatement.CapabilityStatementRestResourceComponent();
+//      rest.getResource().add(res);
+//      res.setType("CapabilityStatement");
+//      genConfInteraction(cpbs, res, TypeRestfulInteraction.READ, "Read CapabilityStatement Resource");
     }
 
     if (register) {
@@ -1898,14 +1899,22 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     String xslt2 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "CategorizeWarnings.xslt");
     FileOutputStream s2 = new FileOutputStream(page.getFolders().dstDir + "work-group-warnings.xml");
-    s2.write(Utilities.saxonTransform(page.getFolders().dstDir + "warnings.xml", xslt2).getBytes("UTF8"));
+    try {
+      s2.write(Utilities.saxonTransform(page.getFolders().dstDir + "warnings.xml", xslt2).getBytes("UTF8"));
+    } catch (Exception e) {
+      // nothing - do not want to know.
+    }
     s2.flush();
     s2.close();
 
     String xslt3 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "RenderWarnings.xslt");
-    String hw = Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3);
-    if (!showOnlyErrors)
-      page.log(hw, LogMessageType.Process);
+    try {
+      String hw = Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3);
+      if (!showOnlyErrors)
+        page.log(hw, LogMessageType.Process);
+    } catch (Exception e) {
+      // nothing - do not want to know.
+    }
 
     int i = 0;
     int w = 0;
@@ -4056,6 +4065,13 @@ public class Publisher implements URIResolver, SectionNumberer {
     zip.addFiles(page.getFolders().dstDir, "", ".schema.json", null);
     zip.close();
     Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir.schema.json.zip"), f);
+    f = new CSFile(page.getFolders().dstDir + "fhir.schema.graphql.zip");
+    if (f.exists())
+      f.delete();
+    zip = new ZipGenerator(page.getFolders().tmpResDir + "fhir.schema.graphql.zip");
+    zip.addFiles(page.getFolders().dstDir, "", ".graphql", null);
+    zip.close();
+    Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir.schema.graphql.zip"), f);
   }
 
   private void produceResource1(ResourceDefn resource, boolean isAbstract) throws Exception {

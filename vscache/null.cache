@@ -10,11 +10,68 @@
       "system" : "http://terminology.hl7.org/CodeSystem/subscriber-relationship"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#self) is not  valid in the value set SubscriberRelationshipCodes"
+  "error" : "The code system \"\" is not known for the code \"self\"; The code provided (#self) is not  valid in the value set SubscriberRelationshipCodes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "code" : "exposure",
+    "display" : "exposure"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/variable-role"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"exposure\"; The code provided (#exposure) is not  valid in the value set EvidenceVariableRole"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "code" : "referenceExposure",
+    "display" : "referenceExposure"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/variable-role"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"referenceExposure\"; The code provided (#referenceExposure) is not  valid in the value set EvidenceVariableRole"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "code" : "measuredVariable",
+    "display" : "measured variable"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/variable-role"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"measuredVariable\"; The code provided (#measuredVariable) is not  valid in the value set EvidenceVariableRole"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -28,11 +85,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/library-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#logic-library) is not  valid in the value set LibraryType"
+  "error" : "The code system \"\" is not known for the code \"logic-library\"; The code provided (#logic-library) is not  valid in the value set LibraryType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -46,11 +103,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/library-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#model-definition) is not  valid in the value set LibraryType"
+  "error" : "The code system \"\" is not known for the code \"model-definition\"; The code provided (#model-definition) is not  valid in the value set LibraryType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -64,11 +121,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/library-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#asset-collection) is not  valid in the value set LibraryType"
+  "error" : "The code system \"\" is not known for the code \"asset-collection\"; The code provided (#asset-collection) is not  valid in the value set LibraryType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -82,11 +139,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#proportion) is not  valid in the value set MeasureScoring"
+  "error" : "The code system \"\" is not known for the code \"proportion\"; The code provided (#proportion) is not  valid in the value set MeasureScoring"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -100,11 +157,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#process) is not  valid in the value set MeasureType"
+  "error" : "The code system \"\" is not known for the code \"process\"; The code provided (#process) is not  valid in the value set MeasureType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -118,11 +175,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#initial-population) is not  valid in the value set MeasurePopulationType"
+  "error" : "The code system \"\" is not known for the code \"initial-population\"; The code provided (#initial-population) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -136,11 +193,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#denominator) is not  valid in the value set MeasurePopulationType"
+  "error" : "The code system \"\" is not known for the code \"denominator\"; The code provided (#denominator) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -154,11 +211,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#denominator-exclusions) is not  valid in the value set MeasurePopulationType"
+  "error" : "The code system \"\" is not known for the code \"denominator-exclusions\"; The code provided (#denominator-exclusions) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -172,11 +229,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#numerator) is not  valid in the value set MeasurePopulationType"
+  "error" : "The code system \"\" is not known for the code \"numerator\"; The code provided (#numerator) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -190,11 +247,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#denominator-exclusion) is not  valid in the value set MeasurePopulationType"
+  "error" : "The code system \"\" is not known for the code \"denominator-exclusion\"; The code provided (#denominator-exclusion) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -208,11 +265,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/composite-measure-scoring"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#opportunity) is not  valid in the value set CompositeMeasureScoring"
+  "error" : "The code system \"\" is not known for the code \"opportunity\"; The code provided (#opportunity) is not  valid in the value set CompositeMeasureScoring"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -226,11 +283,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#cohort) is not  valid in the value set MeasureScoring"
+  "error" : "The code system \"\" is not known for the code \"cohort\"; The code provided (#cohort) is not  valid in the value set MeasureScoring"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -244,11 +301,11 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/action-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#create) is not  valid in the value set ActionType"
+  "error" : "The code system \"\" is not known for the code \"create\"; The code provided (#create) is not  valid in the value set ActionType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -262,10 +319,10 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/plan-definition-type"
     }]
   }
-}}####
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#clinical-protocol) is not  valid in the value set PlanDefinitionType"
+  "error" : "The code system \"\" is not known for the code \"clinical-protocol\"; The code provided (#clinical-protocol) is not  valid in the value set PlanDefinitionType"
 }
 -------------------------------------------------------------------------------------

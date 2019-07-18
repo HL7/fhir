@@ -1364,6 +1364,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+listSpecialParameters()+s3;
       } else if (com[0].equals("diff-links-all")) { 
         src = s1+genDiffLinks()+s3;
+      } else if (com[0].equals("res-type-count")) { 
+        src = s1+definitions.getResources().size()+s3;        
       } else if (com[0].equals("patterns-analysis")) { 
         src = s1+patternFinder.generateReport()+s3;
       } else if (macros.containsKey(com[0])) {
@@ -5968,6 +5970,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+listSpecialParameters()+s3;
       } else if (com[0].equals("patterns-analysis")) { 
         src = s1+patternFinder.generateReport()+s3;
+      } else if (com[0].equals("res-type-count")) { 
+        src = s1+definitions.getResources().size()+s3;        
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
@@ -6515,6 +6519,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1+s3;
         else
           src = s1+"<p>The resource name as it appears in a  RESTful URL is <a href=\"http.html#root\">[root]</a>/"+name+"/</p>"+s3;
+      } else if (com[0].equals("res-type-count")) { 
+        src = s1+definitions.getResources().size()+s3;        
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
@@ -8632,10 +8638,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
            src = s1+s3;
          else
            src = s1+"The id of this profile is "+pack.metadata("id")+s3;
-      } else if (macros.containsKey(com[0])) {
-        src = s1+macros.get(com[0])+s3;
-      } else
-        throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
+       } else if (com[0].equals("res-type-count")) { 
+         src = s1+definitions.getResources().size()+s3;        
+       } else if (macros.containsKey(com[0])) {
+         src = s1+macros.get(com[0])+s3;
+       } else
+         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
   }
@@ -9094,9 +9102,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (ss == null)
           ss = StandardsStatus.INFORMATIVE;
         src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">Informative</a>"+s3;
-      } else if (com[0].equals("profile-context"))
+      } else if (com[0].equals("profile-context")) {
         src = s1+getProfileContext(ed, genlevel(level))+s3;
-      else if (macros.containsKey(com[0])) {
+      } else if (com[0].equals("res-type-count")) { 
+        src = s1+definitions.getResources().size()+s3;        
+      } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
@@ -9970,6 +9980,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1+"(No assigned work group) ("+wg+") (4)"+s3;
         else
           src = s1+ "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group"+s3;
+      } else if (com[0].equals("res-type-count")) { 
+        src = s1+definitions.getResources().size()+s3;        
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
