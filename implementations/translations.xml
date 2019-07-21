@@ -589,11 +589,20 @@
 	<item id="RegulatedPackagedProduct">
 		<translation lang="en">RegulatedPackagedProduct</translation>
 	</item>
+	<item id="PackagedProductDefinition">
+		<translation lang="en">PackagedProductDefinition</translation>
+	</item>
 	<item id="RegulatedManufacturedItem">
 		<translation lang="en">RegulatedManufacturedItem</translation>
 	</item>
+	<item id="ManufacturedItemDefinition">
+		<translation lang="en">ManufacturedItemDefinition</translation>
+	</item>
 	<item id="RegulatedAdministrableProduct">
 		<translation lang="en">RegulatedAdministrableProduct</translation>
+	</item>
+	<item id="AdministrableProductDefinition">
+		<translation lang="en">AdministrableProductDefinition</translation>
 	</item>
 	<item id="MedicinalProductAuthorization">
 		<translation lang="en">MedicinalProductAuthorization</translation>
