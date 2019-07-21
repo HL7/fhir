@@ -735,7 +735,13 @@
     <Cell><Data ss:Type="String">RegulatedManufacturedItem</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ManufacturedItemDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">RegulatedAdministrableProduct</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AdministrableProductDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Ingredient</Data></Cell>

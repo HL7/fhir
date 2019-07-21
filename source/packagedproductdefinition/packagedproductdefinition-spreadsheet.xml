@@ -615,7 +615,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="32.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="24.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="18.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="150.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="236.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="7" ss:Width="42.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:Width="35.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="10" ss:Width="39.0"/>
@@ -955,7 +955,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(RegulatedManufacturedItem)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(ManufacturedItemDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
