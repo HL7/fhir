@@ -336,6 +336,8 @@ signatures.html
       <page type="resource" resource="PackagedProductDefinition"/>
       <page type="resource" resource="RegulatedManufacturedItem"/>
       <page type="resource" resource="RegulatedAdministrableProduct"/>
+      <page type="resource" resource="ManufacturedItemDefinition"/>
+      <page type="resource" resource="AdministrableProductDefinition"/>
       <!--page type="resource" resource="MedicinalProductAuthorization"/-->
       <page type="resource" resource="RegulatedAuthorization"/>
       <!--page type="resource" resource="MedicinalProductContraindication"/-->

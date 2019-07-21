@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RegulatedPackagedProduct xmlns="http://hl7.org/fhir">
+<PackagedProductDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
     <identifier>
       <system value="http://ema.europa.eu/example/pcid"/>
@@ -114,5 +114,5 @@
         <reference value="Organization/example"/>
       </manufacturer>
     </packageItem>
-  </RegulatedPackagedProduct>
+  </PackagedProductDefinition>
   
