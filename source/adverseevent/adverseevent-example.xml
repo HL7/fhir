@@ -22,7 +22,7 @@
 
   
   <!-- more precise details of the event -->
-  <event>
+  <code>
     <coding>
       <!-- example uses SNOMED CT. Other likely possibilities include MedDRA -->
       <system value="http://snomed.info/sct"/>
@@ -30,7 +30,7 @@
       <display value="O/E - itchy rash"/>
     </coding>
 	<text value="This was a mild rash on the left forearm"/>
-  </event>
+  </code>
   
   <!-- the patient that actually had the adverse event -->
   <subject>

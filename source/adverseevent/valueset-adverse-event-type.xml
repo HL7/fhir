@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="SNOMEDCTClinicalFindings"/>
-  <title value="SNOMED CT Clinical Findings"/>
+  <name value="AdverseEvent Type"/>
+  <title value="AdverseEvent Type"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -11,17 +11,22 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes all SNOMED CT Clinical Findings."/>
+  <description value="This value set includes codes that describe the adverse event or incident that occurred or was averted."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
-    <!--   all lab codes. TODO: can we get just the panel ones?   -->
       <system value="http://snomed.info/sct"/>
       <filter>
         <property value="concept"/>
         <op value="is-a"/>
-        <value value="404684003"/>
+        <value value="370894009"/>
       </filter>
     </include>
+	<include>
+      <system value="http://snomed.info/sct"/>    
+	  <concept>
+		<code value="1912002"/>
+	  </concept>
+	</include>
   </compose>
 </ValueSet>
