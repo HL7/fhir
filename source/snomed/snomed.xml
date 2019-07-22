@@ -11111,6 +11111,10 @@
     <display value="Sucrose intolerance"/>
     <display value="Sucrose intolerance (disorder)"/>
   </concept>
+  <concept id="1912002" display="Fall">
+    <display value="Fall"/>
+    <display value="Fall (event)"/>
+  </concept>
   <concept id="191788006" display="Feminism in boy">
     <display value="Feminism in boy"/>
     <display value="Feminism in boy (finding)"/>
@@ -12992,6 +12996,10 @@
   <concept id="36989005" display="Mumps">
     <display value="Mumps"/>
     <display value="Mumps (disorder)"/>
+  </concept>
+  <concept id="370894009" display="Serious reportable event">
+    <display value="Serious reportable event (event)"/>
+    <display value="Serious reportable event"/>
   </concept>
   <concept id="371041009" display="Embolic stroke">
     <display value="Embolic stroke (disorder)"/>
