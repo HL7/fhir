@@ -379,9 +379,6 @@
 	<item id="Evidence">
 		<translation lang="en">Evidence</translation>
 	</item>
-	<item id="EvidenceSet">
-		<translation lang="en">EvidenceSet</translation>
-	</item>
 	<item id="EvidenceVariable">
 		<translation lang="en">EvidenceVariable</translation>
 	</item>

@@ -441,7 +441,6 @@ signatures.html
       <page type="resource" resource="EffectEvidenceSynthesis"/>
       <page type="resource" resource="EventDefinition"/>
       <page type="resource" resource="Evidence"/>
-      <page type="resource" resource="EvidenceSet"/>
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="GuidanceResponse"/>

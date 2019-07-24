@@ -101,9 +101,9 @@ notes: do not list revision in the version
 		<td>
       <p><b>R4</b>: Dec 27, 2018. First Normative content, with many significant changes</p>
       <p>
-      Note that between R3 and R4, nearly 3000 change proposals were applied to the specification, 
-      including &gt;1000 substantive changes, of which 339 were labeled 'non-compatible'. As 
-      such, providing a comprehensive list of changes between specifications is not appropriate. 
+      Note that between R3 and R4, nearly 3000 change proposals were applied to the specification,
+      including &gt;1000 substantive changes, of which 339 were labeled 'non-compatible'. As
+      such, providing a comprehensive list of changes between specifications is not appropriate.
       To help see and understand the differences between the specification releases, implementers can:
       </p>
       <ul>
@@ -115,9 +115,9 @@ notes: do not list revision in the version
       To help implementers, the more significant changes are listed here:
       </p>
       <ul>
-       <li>Some content marked Normative using <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a> - see 
+       <li>Some content marked Normative using <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a> - see
           <a href="documentation.html">Documentation</a> and <a href="resourcelist.html">Resource</a> indexes. The meaning of normative is
-          described at length in the <a href="versions.html#change">Rules for Inter-version change</a>. 
+          described at length in the <a href="versions.html#change">Rules for Inter-version change</a>.
        </li>
        <li>New Resources:
          <ul style="-moz-column-count: 3; -moz-column-gap: 20px;  -webkit-column-count: 3;  -webkit-column-gap: 20px;  column-count: 3;  column-gap: 20px;">
@@ -128,7 +128,6 @@ notes: do not list revision in the version
            <li><a href="effectevidencesynthesis.html">EffectEvidenceSynthesis</a></li>
            <li><a href="eventdefinition.html">EventDefinition</a></li>
            <li><a href="evidence.html">Evidence</a></li>
-           <li><a href="evidenceset.html">EvidenceSet</a></li><li><a href="evidencevariable.html">EvidenceVariable</a></li>
            <li><a href="examplescenario.html">ExampleScenario</a></li>
            <li><a href="immunizationevaluation.html">ImmunizationEvaluation</a></li>
            <li><a href="insuranceplan.html">InsurancePlan</a></li>
@@ -196,24 +195,24 @@ notes: do not list revision in the version
        <tr><td>Change the canonical URL for all v2 and v3 CodeSystems and ValueSets (and some FHIR ones too), to <br/><code>http://terminology.hl7.org</code> (from the Unified Terminology Process)  <b style="color: maroon">Breaking change!</b></td> <td>(no task: Vocab committee decision)</td> <td>todo</td> </tr>
 
        <tr style="background-color: #eeeeee"><td colspan="3"><b>Normative / Infrastructure</b></td></tr>
-       <tr><td>Added reference.type</td><td>FHIR-I: [%GF#13543%]</td> <td>[%diff references.html#type References between Resources%]</td></tr> 
-       <tr><td>Clarify definition of is-modifier + impacts on modifier extensions. Note: this lead to <b style="color: maroon">breaking changes</b> <br/>on a few extensions (changed from modifierExtension to normal extension)</td><td>FHIR-I: [%GF#16188%]</td> <td>[%diff conformance-rules.html Conformance Rules%], [%diff extensibility.html#modifiers Extensibility%]</td></tr> 
-       <tr><td>Add mode parameter to /metadata</td> <td>FHIR-I: [%GF#14444%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
-       <tr><td>Enhance/extend rules around changes between versions</td><td>FHIR-I: [%GF#13089%]</td> <td>[%diff versions.html#rules Version Management Policy%]</td></tr> 
+       <tr><td>Added reference.type</td><td>FHIR-I: [%GF#13543%]</td> <td>[%diff references.html#type References between Resources%]</td></tr>
+       <tr><td>Clarify definition of is-modifier + impacts on modifier extensions. Note: this lead to <b style="color: maroon">breaking changes</b> <br/>on a few extensions (changed from modifierExtension to normal extension)</td><td>FHIR-I: [%GF#16188%]</td> <td>[%diff conformance-rules.html Conformance Rules%], [%diff extensibility.html#modifiers Extensibility%]</td></tr>
+       <tr><td>Add mode parameter to /metadata</td> <td>FHIR-I: [%GF#14444%]</td> <td>[%diff http.html RESTful API%]</td></tr>
+       <tr><td>Enhance/extend rules around changes between versions</td><td>FHIR-I: [%GF#13089%]</td> <td>[%diff versions.html#rules Version Management Policy%]</td></tr>
        <tr><td>Add fhirVersion parameter to application/fhir mime type</td> <td>FHIR-I: [%GF#16165%]</td> <td>[%diff http.html#version-parameter RESTful API%]</td></tr>
-       <tr><td>Add the $versions operation</td><td>FHIR-I: [%GF#17009%]</td> <td>[%diff capabilitystatement-operations.html Capability Statement Operations%]</td></tr> 
+       <tr><td>Add the $versions operation</td><td>FHIR-I: [%GF#17009%]</td> <td>[%diff capabilitystatement-operations.html Capability Statement Operations%]</td></tr>
        <tr><td>Allow exponential form for decimals (with corresponding consequences for precision)</td> <td>FHIR-I: [%GF#16874%]</td> <td>[%diff datatypes.html#decimal Data Types%], [%diff xml.html#decimal XML%]</td></tr>
        <tr><td>Describe use of exponential form when searching numbers (+ clarifications for precision)</td> <td>FHIR-I: [%GF#16369%]</td> <td>[%diff search.html#decimal Search%]</td></tr>
        <tr><td>Remove support for operations on historical resources <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#17258%]</td> <td>[%diff operations.html Operations%]</td></tr>
        <tr><td>Change Money Type to make it simpler <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16297%]</td> <td>[%diff datatypes.html#Money Data Types%]</td></tr>
        <tr><td>Change ElementDefinition.binding.valueSet to only be of type canonical <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16055%]</td> <td>[%diff elementdefinition.html Element Definition%]</td></tr>
        <tr><td>Remove restriction on Bundle containing multiple versions of the same resource <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#17085%]</td> <td>[%diff bundle.html Bundle%]</td></tr>
-       <tr><td>Rename Binary.content to Binary.data and exclude it from summary (which makes it optional) <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16998%], [%GF#16898%]</td> <td>[%diff binary.html Binary Resource%]</td></tr> 
+       <tr><td>Rename Binary.content to Binary.data and exclude it from summary (which makes it optional) <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16998%], [%GF#16898%]</td> <td>[%diff binary.html Binary Resource%]</td></tr>
 
        <tr style="background-color: #eeeeee"><td colspan="3"><b>Normative / Conformance + Terminology</b></td></tr>
        <tr><td>Remove ValueSet.$expand profile parameter, and add parameters from ExpansionProfile <b style="color: maroon">Breaking change!</b></td> <td>Vocab: [%GF#16337%] &amp; [%GF#16490%]</td> <td>[%diff valueset-operation-expand.html ValueSet.$expand%]</td></tr>
        <tr><td>Remove ValueSet.$expand.limitedExpansion parameter, and document how to use count instead <b style="color: maroon">Breaking change!</b></td> <td>Vocab: [%GF#16449%]</td> <td>[%diff valueset-operation-expand.html ValueSet $expand operation%]</td></tr>
-       <tr><td>Move Valueset.extensible to an extension</td> <td>Vocab: [%GF#16427%]</td> <td>[%diff valueset.html ValueSet%]</td></tr> 
+       <tr><td>Move Valueset.extensible to an extension</td> <td>Vocab: [%GF#16427%]</td> <td>[%diff valueset.html ValueSet%]</td></tr>
        <tr><td>Add <a href="capabilitystatement-definitions.html#CapabilityStatement.implementation.custodian">CapabilityStatement.implementation.custodian</a></td> <td>FHIR-I: [%GF#16342%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
        <tr><td>Add CapabilityStatement.imports</td> <td>FHIR-I: [%GF#14299%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
 
@@ -238,7 +237,7 @@ notes: do not list revision in the version
       <p>Major changes in the other parts of the specification:</p>
       <ul>
        <li>New Resources: <a href="medicationknowledge.html">MedicationKnowledge</a>, <a href="devicedefinition.html">DeviceDefinition</a>, <a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
-       <li>Renamed Resources: <code>OrgnizationRole</code> to <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <code>EligibilityRequest</code> to <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a>, 
+       <li>Renamed Resources: <code>OrgnizationRole</code> to <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <code>EligibilityRequest</code> to <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a>,
          <code>EligibilityResponse</code> to <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a>, and <code>ProductPlan</code> to <a href="insuranceplan.html">InsurancePlan</a></li>
        <li>Significant rework around devices - in the <a href="device.html">Device</a> resource, remove <code>DeviceComponent</code> + new resource <a href="devicedefinition.html">DeviceDefinition</a></li>
        <li>Update maps/diffs to R3 (see <a href="#maps">note</a> above)</li>
@@ -248,7 +247,7 @@ notes: do not list revision in the version
        <li>Rewrite <a href="async.html">Asynchronous Pattern Operation</a></li>
        <li>New <a href="security.html">security notes</a> about suggested best practices, and new <a href="safety.html">safety notes</a> about deleting records</li>
        <li>Lots of changes to <a href="financial-module.html">Financial Resources</a> (especially <a href="contract.html">Contract</a>)</li>
-      </ul> 
+      </ul>
     </td>
   </tr>
 	<tr>
@@ -264,7 +263,7 @@ notes: do not list revision in the version
       <ul>
        <li>Mark all content with a standards status - Normative, Trial use, Draft, or external</li>
        <li>Many minor &amp; major changes to data types, resources, operations</li>
-       <li>New Resources:      
+       <li>New Resources:
        <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>,
        <a href="catalogentry.html">CatalogEntry</a>,
        <a href="eventdefinition.html">EventDefinition</a>,
@@ -305,14 +304,14 @@ notes: do not list revision in the version
       <ul>
        <li>Ensure that all pages have a standards status, and enforce standards status throughout. Add dependency analysis</li>
        <li>Many minor changes to data types, resources, operations</li>
-       <li>New Resources: <a href="catalogentry.html">CatalogEntry</a>, <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>, 
-          <a href="examplescenario.html">ExampleScenario</a>, <a href="terminologycapabilities.html">TerminologyCapabilities</a>, UserSession, <a href="invoice.html">Invoice</a>, 
-          <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="verificationresult.html">VerificationResult</a>, 
-          MedicinalProduct, MedicinalProductAuthorization <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->, 
-          MedicinalProductIngredient, MedicinalProductPackaged, 
-          <!-- a href="medicinalproductpharmaceutical.html"-->MedicinalProductPharmaceutical<!--/a--> <!--a href="medicinalproductdevicespec.html"-->MedicinalProductDeviceSpec<!--/a-->, 
-          <!--a href="substancespecification.html"-->SubstanceSpecification<!--/a-->, <!--a href="substancepolymer.html"-->SubstancePolymer<!--/a-->, <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a>, 
-          <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, ItemInstance 
+       <li>New Resources: <a href="catalogentry.html">CatalogEntry</a>, <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>,
+          <a href="examplescenario.html">ExampleScenario</a>, <a href="terminologycapabilities.html">TerminologyCapabilities</a>, UserSession, <a href="invoice.html">Invoice</a>,
+          <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="verificationresult.html">VerificationResult</a>,
+          MedicinalProduct, MedicinalProductAuthorization <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->,
+          MedicinalProductIngredient, MedicinalProductPackaged,
+          <!-- a href="medicinalproductpharmaceutical.html"-->MedicinalProductPharmaceutical<!--/a--> <!--a href="medicinalproductdevicespec.html"-->MedicinalProductDeviceSpec<!--/a-->,
+          <!--a href="substancespecification.html"-->SubstanceSpecification<!--/a-->, <!--a href="substancepolymer.html"-->SubstancePolymer<!--/a-->, <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a>,
+          <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, ItemInstance
        </li>
        <li>Add draft support for bulk data (<a href="async.html">Asynchronous API</a> + <a href="nd-json.html">nd-json format</a>)</li>
       </ul>

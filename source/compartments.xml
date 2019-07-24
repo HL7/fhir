@@ -13,10 +13,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  
-  
-  
-  
+
+
+
+
   <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -774,9 +774,6 @@
     <Cell><Data ss:Type="String">ResearchElementDefinition</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">EvidenceSet</Data></Cell>
-   </Row>
-   <Row>
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
    <Row>
@@ -813,7 +810,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>136</TopRowBottomPane>
    <ActivePane>2</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
