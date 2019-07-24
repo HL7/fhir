@@ -10748,6 +10748,12 @@
     <display value="FHC elite pig 9"/>
     <display value="FHC elite pig 9 (organism)"/>
   </concept>
+  <concept id="14106009" display="Cardiac pacemaker">
+    <display value="Cardiac pacemaker"/>
+    <display value="Cardiac pacemaker, device (physical object)"/>
+    <display value="Cardiac pacemaker implant"/>
+    <display value="Cardiac pacemaker, device"/>
+  </concept>
   <concept id="14168008" display="Rabies">
     <display value="Rabies"/>
     <display value="Hydrophobia"/>
