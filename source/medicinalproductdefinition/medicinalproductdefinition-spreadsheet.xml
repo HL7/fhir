@@ -552,6 +552,14 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s141">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -609,13 +617,11 @@
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="74.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="29.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="290.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="45.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="62.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="27.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="59.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="56.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="45.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="62.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="18" ss:StyleID="s68" ss:Width="27.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="59.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="21" ss:StyleID="s71" ss:Width="380.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="71.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="53.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="77.0"/>
@@ -640,7 +646,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">To Do</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">RIM Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">v2 Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">??? Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">IDMP Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">UML</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Display Hint</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Committee Notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -660,7 +666,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s74"><Data ss:Type="String">320;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Medicinal Product and Investigational Medicinal Product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">320;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -677,7 +684,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Business identifier for this product. Could be an MPID</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">100;173</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Medicinal Product.MPID, Investigational Medicinal Product.IMPID</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">100;173</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -694,7 +702,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Regulatory type, e.g. Investigational or Authorized</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">0;265</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">(indicates if this is Medicinal Product or an Investigational Medicinal Product)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0;265</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.domain</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -711,7 +720,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">If this medicine applies to human or veterinary uses</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">0;30</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0;30</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -728,6 +738,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">General description of this product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.combinedPharmaceuticalDoseForm</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -744,7 +755,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">The dose form for a single part product, or combined form of a multiple part product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Medicinal Product.Combined Pharmaceutical Dose Form</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.indication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -761,6 +773,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">General combined description of indication(s) for this product. See also MedicinalProductDefinitionIndication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">(roll up of all text in Therapeutic Indication.Indication Text, for common case where information is not granular)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.legalStatusOfSupply</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -777,6 +790,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The legal status of supply of the medicinal product as classified by the regulator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">Marketing Authorisation.Legal Status of Supply (moved here for practicality)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.additionalMonitoringIndicator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -793,7 +807,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Whether the Medicinal Product is subject to additional monitoring for regulatory reasons</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Medicinal Product.Additional Monitoring Indicator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.specialMeasures</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -810,6 +825,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Whether the Medicinal Product is subject to special measures for regulatory reasons</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Medicinal Product.Special Measures</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.paediatricUseIndicator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -826,6 +842,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">If authorised for use in children</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Medicinal Product.Paediatric Use Indicator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.productClassification</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -842,8 +859,9 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Allows the product to be classified by various systems</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Product Classification.Value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:Height="28" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.marketingStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -858,7 +876,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Marketing status of the medicinal product, in contrast to marketing authorizaton</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">Marketing Status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.pharmaceuticalProduct</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -875,6 +894,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Pharmaceutical aspects of product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Pharmaceutical Product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.packagedMedicinalProduct</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -891,6 +911,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Package representation for the product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Packaged Medicinal Product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.attachedDocument</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -907,6 +928,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Supporting documentation, typically for regulatory submission</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Attached Document</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.masterFile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -923,8 +945,9 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Master File</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row>
+   <Row ss:Height="43">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.contact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -939,7 +962,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A product specific contact, person (in a role), or an organization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">30;300</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a (requirement to cover a product specific contact)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">30;300</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.contact.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -956,6 +980,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Allows the contact to be classified, for example QPPV, Pharmacovigilence Enquiry Information</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row>
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.contact.contact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -972,8 +997,9 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A product specific contact, person (in a role), or an organization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row>
+   <Row ss:Height="43">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.clinicalTrial</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -988,6 +1014,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Clinical trials or studies that this product is involved in</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Investigational Medicinal Product.Clinical Trial Status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s70"><Data ss:Type="String">MedicinalProductDefinition.name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1004,7 +1031,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">The product's name, including full name and possibly coded parts</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">100;122</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Medicinal Product Name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">100;122</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.name.productName</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1021,6 +1049,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">The full product name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Medicinal Product Name.Full Name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.name.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1037,6 +1066,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Type of the product name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s70"><Data ss:Type="String">MedicinalProductDefinition.name.namePart</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1053,7 +1083,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Coding words or phrases of the name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">0;215</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">(any and all of the name parts e.g. Medicinal Product Name.Formulation Part)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0;215</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.name.namePart.part</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1070,6 +1101,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A fragment of a product name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">(text of any of the name parts e.g. Medicinal Product Name.Formulation Part)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.name.namePart.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1086,6 +1118,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Idenifying type for this part of the name (e.g. strength part)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">(which of the name parts this is e.g. Formulation Part)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s70"><Data ss:Type="String">MedicinalProductDefinition.name.countryLanguage</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1102,7 +1135,8 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Country where the name applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Country / Language</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.name.countryLanguage.country</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1119,6 +1153,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Country code for where this name applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Country / Language.Country</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="83">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.name.countryLanguage.jurisdiction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1135,6 +1170,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Jurisdiction code for where this name applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Country / Language.Jurisdiction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.name.countryLanguage.language</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1151,6 +1187,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Language code for this name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Country / Language.Language</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.crossReference</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1167,6 +1204,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Reference to another product, e.g. for linking authorised to investigational product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Product Cross-Reference</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="24"><Data ss:Type="String">Wanted to make this a choice of identifier or reference to MedicinalProductDefinition but that cannot be 0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
@@ -1190,7 +1228,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Manufacturing / Business Operation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">750;250</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1210,6 +1248,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">The type of manufacturing operation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">Manufacturing / Business Operation.Operation Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.manufacturingBusinessOperation.authorisationReferenceNumber</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1226,6 +1265,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Regulatory authorization reference number</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">Manufacturing / Business Operation.Manufacturing Authorisation Reference Number</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.manufacturingBusinessOperation.effectiveDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1242,6 +1282,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Regulatory authorization date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">Manufacturing / Business Operation.Effective Date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.manufacturingBusinessOperation.confidentialityIndicator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1258,6 +1299,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">To indicate if this proces is commercially confidential</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">Manufacturing / Business Operation.Confidentiality Indicator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.manufacturingBusinessOperation.manufacturer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1274,6 +1316,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">The manufacturer or establishment associated with the process</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">Manufacturer / Establishment (Organisation)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.manufacturingBusinessOperation.regulator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1290,6 +1333,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A regulator which oversees the operation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">Medicines Regulatory Agency (Organisation)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s70"><Data ss:Type="String">MedicinalProductDefinition.specialDesignation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1312,7 +1356,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Orphan Designation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">750;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1332,6 +1376,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Identifier for the designation, or procedure number</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">Orphan Designation.Orphan Procedure Number</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.specialDesignation.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1348,6 +1393,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">The type of special designation, e.g. orphan drug, minor use</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">n/a (generalises Orphan and other types)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.specialDesignation.intendedUse</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1364,6 +1410,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">The intended use of the product, e.g. prevention, treatment</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">Orphan Designation.Orphan Indication Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.specialDesignation.indication[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1380,6 +1427,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Condition for which the medicinal use applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.specialDesignation.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1396,6 +1444,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">For example granted, pending, expired or withdrawn</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.specialDesignation.date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1412,6 +1461,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Date when the designation was granted</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.specialDesignation.species</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1428,6 +1478,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Animal species for which this applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s141"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1447,7 +1498,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
