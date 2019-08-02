@@ -49,14 +49,6 @@
     </coding>
   </seriousness>
   
-  <!-- In overall terms even if it was a severe rash it is a relatively mild event overall --> 
-  <severity>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/adverse-event-severity"/>
-      <code value="mild"/>
-      <display value="Mild"/>
-    </coding>
-  </severity>
 
   <!-- who made the record / last updated it -->
   <recorder>
