@@ -16,7 +16,7 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>11</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1568,7 +1568,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="28" ss:StyleID="s98" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="27" ss:StyleID="s98" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s98" ss:Width="76.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s98" ss:Width="61.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s98" ss:Width="117.0"/>
@@ -1633,13 +1633,6 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s101"><Data ss:Type="String">AdverseEvent.seriousness</Data></Cell>
-    <Cell ss:StyleID="s103"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">severity</Data></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">AdverseEvent.severity</Data></Cell>
     <Cell ss:StyleID="s103"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1764,6 +1757,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5347,8 +5341,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
