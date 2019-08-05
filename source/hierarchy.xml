@@ -439,7 +439,6 @@ signatures.html
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
       <page title="Evidence and Statistics" filename="clinicalreasoning-evidence-and-statistics.html"/>
       <page type="resource" resource="ConditionDefinition"/>
-      <page type="resource" resource="EffectEvidenceSynthesis"/>
       <page type="resource" resource="EventDefinition"/>
       <page type="resource" resource="Evidence"/>
       <page type="resource" resource="EvidenceVariable"/>
