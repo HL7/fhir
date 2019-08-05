@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<NutritionIntake xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd"><!-- id = example  file name = nutritionintake-example.xml  Name=Simple   Description = General NutritionIntake Example 
+edited by Jean Duteau-->
+	<id value="example"/>
+	<status value="completed"/>
+	<consumedItem>
+		<type>
+			<text value="food"/>
+		</type>
+		<nutritionProduct>
+			<text value="food"/>
+		</nutritionProduct>
+	</consumedItem>
+	<subject>
+		<display value="Paula Patient Chalmers"/>
+	</subject>
+</NutritionIntake>
