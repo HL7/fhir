@@ -874,9 +874,6 @@
 		<translation lang="es">EvaluacionDeRiesgo</translation>
 		<translation lang="zh">风险评估</translation>
 	</item>
-  <item id="RiskEvidenceSynthesis">
-    <translation lang="en">RiskEvidenceSynthesis</translation>
-  </item>
 	<item id="Schedule">
 		<translation lang="en">Schedule</translation>
 		<translation lang="es">Agenda</translation>

@@ -139,7 +139,7 @@
 			<description value="(CI 95% 0.89 - 1.00)"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/precision-estimate-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/attribute-estimate-type"/>
 					<code value="CI"/>
 					<display value="confidence interval"/>
 				</coding>
@@ -181,7 +181,7 @@
 			<description value="(CI 95% 0.041 - 0.00)"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/precision-estimate-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/attribute-estimate-type"/>
 					<code value="CI"/>
 					<display value="confidence interval"/>
 				</coding>

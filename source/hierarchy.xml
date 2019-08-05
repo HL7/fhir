@@ -449,7 +449,6 @@ signatures.html
       <page type="resource" resource="MeasureReport"/>
       <page type="resource" resource="ResearchDefinition"/>
       <page type="resource" resource="ResearchElementDefinition"/>
-      <page type="resource" resource="RiskEvidenceSynthesis"/>
     </page>
   </page>
 

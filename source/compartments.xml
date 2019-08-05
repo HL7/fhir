@@ -789,10 +789,7 @@
    <Row ss:Index="143">
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
-   <Row ss:Index="145">
-    <Cell><Data ss:Type="String">RiskEvidenceSynthesis</Data></Cell>
-   </Row>
-   <Row>
+   <Row ss:Index="146">
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
    <Row>
@@ -826,7 +823,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>141</ActiveRow>
+     <ActiveRow>144</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
