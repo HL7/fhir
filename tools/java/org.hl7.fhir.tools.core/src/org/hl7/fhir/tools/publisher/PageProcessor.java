@@ -349,6 +349,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       throw new NotImplementedException("Not done yet (PageEvaluationContext.conformsToProfile), when item is element");
     }
 
+    @Override
+    public ValueSet resolveValueSet(Object appContext, String url) {
+      throw new Error("Not done yet");
+    }
+
   }
 
   public class SectionSorter implements Comparator<String> {
