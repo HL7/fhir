@@ -844,12 +844,6 @@
 		<translation lang="es">GrupoDeSolicitudes</translation>
 		<translation lang="zh">请求分组</translation>
 	</item>
-  <item id="ResearchDefinition">
-    <translation lang="en">ResearchDefinition</translation>
-  </item>
-  <item id="ResearchElementDefinition">
-    <translation lang="en">ResearchElementDefinition</translation>
-  </item>
 	<item id="ResearchStudy">
 		<translation lang="en">ResearchStudy</translation>
 		<translation lang="es">EstudioDeInvestigacion</translation>
