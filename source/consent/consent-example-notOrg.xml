@@ -1,20 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/consent.xsd">
   <id value="consent-example-notOrg"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
-	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
-	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
-	than "withhold" or "withdraw" consent for.
-    <p>
-	specific to use-case 3) Withhold or withdraw consent for disclosure to a specific provider organization  
-	</p><p>
-    Patient "P. van de Heuvel" ex-spouse is a Physician that is employed by Good Health Clinic.  P. decides
-   that he would like to withdraw/withhold consent to disclose any instance of his health information 
-   to Good Health Clinic.
-   </p>
-   </div>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
+	      The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
+	      Withhold or withdraw consent for disclosure to a specific provider organization </p>
+      <p>Patient "P. van de Heuvel" ex-spouse is a Physician that is employed by Burgers University Medical Center.  
+        P. decides that he would like to withdraw/withhold consent to disclose any instance of his health information to Burgers University Medical Center.</p>
+    </div>
   </text>
   <status value="active"/>
   <scope>
@@ -22,8 +17,8 @@
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
     </coding>
-    </scope>
-      <category>
+  </scope>
+  <category>
     <coding>
       <system value="http://loinc.org"/>
       <code value="59284-0"/>
@@ -33,11 +28,9 @@
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </patient>
-  <dateTime value="2015-11-18"/>
-  <!-- not bound by a timeframe - Consent.period -->
-  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
+  <dateTime value="2018-12-24"/>
   <organization>
-    <reference value="Organization/f001"/>
+    <reference value="Organization/2.16.840.1.113883.19.5"/>
   </organization>
   <!-- the text terms of the consent in lawyer speak -->
   <sourceAttachment>
@@ -48,35 +41,38 @@
   <policyRule>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <code value="OPTIN"/>
+      <code value="INFA"/>
     </coding>
   </policyRule>
   <provision>
-    <!-- no read or write access for this org -->
-    <type value="deny"/>
-    <actor>
-      <role>
+    <type value="permit"/>
+    <provision>
+      <!-- no read or write access for this org -->
+      <type value="deny"/>
+      <actor>
+        <role>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+            <code value="PRCP"/>
+            <!-- PRCP: recipient of the information -->
+          </coding>
+        </role>
+        <reference>
+          <reference value="Organization/f001"/>
+        </reference>
+      </actor>
+      <action>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-          <code value="PRCP"/>
-          <!-- PRCP: recipient of the information -->
+          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+          <code value="access"/>
         </coding>
-      </role>
-      <reference>
-        <reference value="Organization/f001"/>
-      </reference>
-    </actor>
-    <action>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-        <code value="access"/>
-      </coding>
-    </action>
-    <action>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-        <code value="correct"/>
-      </coding>
-    </action>
+      </action>
+      <action>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+          <code value="correct"/>
+        </coding>
+      </action>
+    </provision>
   </provision>
 </Consent>
