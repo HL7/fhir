@@ -314,6 +314,13 @@ public class CodeableConcept extends Type implements ICompositeType {
     super();
     addCoding(code);
   }
+
+public boolean hasSystem(String url) {
+	for (Coding c : getCoding())
+		if (c.hasSystem(url))
+			return true;
+	return false;
+}
   
   
 

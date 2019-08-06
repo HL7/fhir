@@ -109,3 +109,58 @@ v: {
   "error" : "The code system \"http://hl7.org/fhir/sid/icd-10\" is not known; The code provided (http://hl7.org/fhir/sid/icd-10#321789) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10",
+  "code" : "123456",
+  "display" : "DIAG-1"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Code \"123456\" not found; The code \"123456\" is not valid in the system http://hl7.org/fhir/sid/icd-10; The code provided (http://hl7.org/fhir/sid/icd-10#123456) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10",
+  "code" : "M96.1",
+  "display" : "Postlaminectomy syndrome"
+}, "valueSet" :null}####
+v: {
+  "display" : "Postlaminectomy syndrome, not elsewhere classified",
+  "severity" : "warning",
+  "error" : "The display \"Postlaminectomy syndrome\" is not a valid display for the code {http://hl7.org/fhir/sid/icd-10}M96.1 - should be one of [\"Postlaminectomy syndrome, not elsewhere classified\"]"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10",
+  "code" : "G89.4",
+  "display" : "Chronic pain syndrome"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Code \"G89.4\" not found; The code \"G89.4\" is not valid in the system http://hl7.org/fhir/sid/icd-10; The code provided (http://hl7.org/fhir/sid/icd-10#G89.4) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10",
+  "code" : "M53.88",
+  "display" : "Other specified dorsopathies, sacral and sacrococcygeal region"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Code \"M53.88\" not found; The code \"M53.88\" is not valid in the system http://hl7.org/fhir/sid/icd-10; The code provided (http://hl7.org/fhir/sid/icd-10#M53.88) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10",
+  "code" : "M47.816",
+  "display" : "Spondylosis without myelopathy or radiculopathy, lumbar region"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Code \"M47.816\" not found; The code \"M47.816\" is not valid in the system http://hl7.org/fhir/sid/icd-10; The code provided (http://hl7.org/fhir/sid/icd-10#M47.816) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

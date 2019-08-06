@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.crypto.CipherInputStream;
+
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.lang3.StringUtils;
 import org.fhir.ucum.UcumService;
@@ -471,12 +473,16 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   
   @Override
   public ValidationResult validateCode(String system, String code, String display) {
+	  if ("http://hl7.org/fhir/sid/ndc".equals(system) || "http://hl7.org/fhir/sid/icd-10".equals(system) )
+		  return new ValidationResult(new ConceptDefinitionComponent().setDisplay("n/a"));
     Coding c = new Coding(system, code, display);
     return validateCode(c, null);
   }
 
   @Override
   public ValidationResult validateCode(String system, String code, String display, ValueSet vs) {
+	  if ("http://hl7.org/fhir/sid/ndc".equals(system) || "http://hl7.org/fhir/sid/icd-10".equals(system) )
+		  return new ValidationResult(new ConceptDefinitionComponent().setDisplay("n/a"));
     Coding c = new Coding(system, code, display);
     return validateCode(c, vs);
   }
@@ -489,6 +495,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   @Override
   public ValidationResult validateCode(String system, String code, String display, ConceptSetComponent vsi) {
+	  if ("http://hl7.org/fhir/sid/ndc".equals(system) || "http://hl7.org/fhir/sid/icd-10".equals(system) )
+		  return new ValidationResult(new ConceptDefinitionComponent().setDisplay("n/a"));
     Coding c = new Coding(system, code, display);
     ValueSet vs = new ValueSet();
     vs.setUrl(Utilities.makeUuidUrn());
@@ -502,6 +510,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
   
   public ValidationResult doValidateCode(Coding code, ValueSet vs, boolean implySystem) {
+	  if (code.hasSystem("http://hl7.org/fhir/sid/ndc") || code.hasSystem("http://hl7.org/fhir/sid/icd-10") )
+		  return new ValidationResult(new ConceptDefinitionComponent().setDisplay("n/a"));
     CacheToken cacheToken = txCache != null ? txCache.generateValidationToken(code, vs) : null;
     ValidationResult res = null;
     if (txCache != null) 
@@ -543,6 +553,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   @Override
   public ValidationResult validateCode(CodeableConcept code, ValueSet vs) {
+	  if (code.hasSystem("http://hl7.org/fhir/sid/ndc") || code.hasSystem("http://hl7.org/fhir/sid/icd-10") )
+		  return new ValidationResult(new ConceptDefinitionComponent().setDisplay("n/a"));
+	  
     CacheToken cacheToken = txCache.generateValidationToken(code, vs);
     ValidationResult res = txCache.getValidation(cacheToken);
     if (res != null)
