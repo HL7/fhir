@@ -387,6 +387,8 @@ public class ValueSetValidator extends BaseValidator {
   }
 
   private boolean canValidate(String system) {
+    if ("http://hl7.org/fhir/sid/icd-10".equals(system))
+      return false;
     try {
       return context.hasResource(CodeSystem.class, system) || context.supportsSystem(system);
     } catch (TerminologyServiceException e) {
