@@ -258,9 +258,6 @@ import org.hl7.fhir.utilities.xml.XmlGenerator;
 import org.hl7.fhir.validation.r4.tests.TransformationTests;
 import org.hl7.fhir.validation.r4.tests.ValidationEngineTests;
 import org.hl7.fhir.validation.r4.tests.ValidationTestSuite;
-import org.junit.runner.JUnitCore;
-import org.junit.runner.Result;
-import org.junit.runner.notification.Failure;
 import org.stringtemplate.v4.ST;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -5829,8 +5826,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void validationProcess() throws Exception {
 
     if (!isPostPR) {
-      if (buildFlags.get("all"))
-        runJUnitTestsInProcess();
       page.log("Validating Examples", LogMessageType.Process);
       ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions());
       page.log(".. Loading", LogMessageType.Process);
@@ -5883,48 +5878,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       ei.summarise();
 
-      if (buildFlags.get("all"))
-        runJUnitTestsEnd();
-
       if (buildFlags.get("all") && isGenerate)
         produceCoverageWarnings();
       if (buildFlags.get("all"))
         miscValidation();
     }    
 
-  }
-
-  private void runJUnitTestsInProcess() throws Exception {
-    TestingUtilities.context = page.getWorkerContext();
-    TestingUtilities.silent = true;
-    TestingUtilities.fixedpath = page.getFolders().rootDir;
-    TestingUtilities.contentpath = page.getFolders().dstDir;
-    
-    runJUnitClass(ValidationTestSuite.class);
-    runJUnitClass(FHIRPathTests.class);
-    runJUnitClass(NarrativeGeneratorTests.class);
-    runJUnitClass(SnomedExpressionsTests.class);
-    runJUnitClass(ResourceRoundTripTests.class);
-    runJUnitClass(SnapShotGenerationTests.class);
-    runJUnitClass(GraphQLParserTests.class);
-    runJUnitClass(GraphQLEngineTests.class);
-    checkAllOk();
-  }
-
-  private void runJUnitTestsEnd() throws Exception {
-    ValidationEngineTests.inbuild = true;
-    runJUnitClass(ValidationEngineTests.class);
-    runJUnitClass(TransformationTests.class); 
-    runJUnitClass(AllGuidesTests.class);
-    checkAllOk();
-  }
-
-  private void runJUnitClass(Class<?> clzz) {
-    page.log("Run JUnit: "+clzz.getName(), LogMessageType.Process);
-    Result result = JUnitCore.runClasses(clzz);
-    for (Failure failure : result.getFailures()) {
-      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.EXCEPTION, -1, -1, clzz.getName(), failure.toString(), IssueSeverity.ERROR));
-    }
   }
 
   private void miscValidation() throws Exception {
