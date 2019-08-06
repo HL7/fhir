@@ -80,7 +80,6 @@ import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
 import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
 import org.hl7.fhir.igtools.templates.TemplateManager;
-import org.hl7.fhir.igtools.ui.GraphicalPublisher;
 import org.hl7.fhir.r4.conformance.ConstraintJavaGenerator;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext;
@@ -4593,17 +4592,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private static void runGUI() throws InterruptedException, InvocationTargetException {
-    EventQueue.invokeLater(new Runnable() {
-      public void run() {
-        try {
-          UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-          GraphicalPublisher window = new GraphicalPublisher();
-          window.frame.setVisible(true);
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-      }
-    });
   }
 
   public void setTxServer(String s) {
