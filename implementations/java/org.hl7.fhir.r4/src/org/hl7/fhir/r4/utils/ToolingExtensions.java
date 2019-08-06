@@ -542,7 +542,7 @@ public class ToolingExtensions {
       return;
     
     Extension extension = new Extension().setUrl(EXT_TRANSLATION);
-    extension.addExtension().setUrl("lang").setValue(new StringType(lang));
+    extension.addExtension().setUrl("lang").setValue(new CodeType(lang));
     extension.addExtension().setUrl("content").setValue(new StringType(value));
     element.getExtension().add(extension);
   }
