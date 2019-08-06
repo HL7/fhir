@@ -233,6 +233,7 @@ import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.NDJsonWriter;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.XsltUtilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.json.JSONUtil;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -556,12 +557,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       if (!buildFlags.get("all")) {
         if (!noSound) {
-          Utilities.tone(1000, 10);
-          Utilities.tone(1400, 10);
-          Utilities.tone(1800, 10);
-          Utilities.tone(1000, 10);
-          Utilities.tone(1400, 10);
-          Utilities.tone(1800, 10);
+          AudioUtilities.tone(1000, 10);
+          AudioUtilities.tone(1400, 10);
+          AudioUtilities.tone(1800, 10);
+          AudioUtilities.tone(1000, 10);
+          AudioUtilities.tone(1400, 10);
+          AudioUtilities.tone(1800, 10);
         }
         page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -571,7 +572,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.log("  Build: "+b.toString(), LogMessageType.Process);
       } else {
         if (!noSound) 
-          Utilities.tone(1200, 30);
+          AudioUtilities.tone(1200, 30);
         page.log("Full Build", LogMessageType.Process);
       }
       if (isGenerate && page.getBuildId() == null)
@@ -642,11 +643,11 @@ public class Publisher implements URIResolver, SectionNumberer {
       } else
         page.log("This was a Full Build", LogMessageType.Process);
       if (!noSound) {
-        Utilities.tone(800, 10);
-        Utilities.tone(1000, 10);
-        Utilities.tone(1200, 10);
-        Utilities.tone(1000, 10);
-        Utilities.tone(800, 10);
+        AudioUtilities.tone(800, 10);
+        AudioUtilities.tone(1000, 10);
+        AudioUtilities.tone(1200, 10);
+        AudioUtilities.tone(1000, 10);
+        AudioUtilities.tone(800, 10);
       }
       page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
     } catch (Exception e) {
@@ -669,27 +670,27 @@ public class Publisher implements URIResolver, SectionNumberer {
       } else
         page.log("This was a Full Build", LogMessageType.Process);
       if (!noSound) {
-        Utilities.tone(800, 20);
-        Utilities.tone(1000, 20);
-        Utilities.tone(1200, 20);
+        AudioUtilities.tone(800, 20);
+        AudioUtilities.tone(1000, 20);
+        AudioUtilities.tone(1200, 20);
       }
       try {
         Thread.sleep(50);
       } catch (InterruptedException e1) {
       }
       if (!noSound) {
-        Utilities.tone(800, 20);
-        Utilities.tone(1000, 20);
-        Utilities.tone(1200, 20);
+        AudioUtilities.tone(800, 20);
+        AudioUtilities.tone(1000, 20);
+        AudioUtilities.tone(1200, 20);
       }
       try {
         Thread.sleep(50);
       } catch (InterruptedException e1) {
       }
       if (!noSound) {
-        Utilities.tone(800, 20);
-        Utilities.tone(1000, 20);
-        Utilities.tone(1200, 20);
+        AudioUtilities.tone(800, 20);
+        AudioUtilities.tone(1000, 20);
+        AudioUtilities.tone(1200, 20);
       }
       page.log("FHIR build failure @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
       System.out.println("Error: " + e.getMessage());
@@ -1875,9 +1876,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       s.write("<page name=\""+pn.getName()+"\" wg=\""+pn.getWgCode()+"\" fmm=\""+pn.getFmm()+"\"/>\r\n");
     }
     try {
-      s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-resources.xml", xslt)));
-      s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-types.xml", xslt)));
-      s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt)));
+      s.write(new String(XsltUtilities.saxonTransform(page.getFolders().dstDir + "profiles-resources.xml", xslt)));
+      s.write(new String(XsltUtilities.saxonTransform(page.getFolders().dstDir + "profiles-types.xml", xslt)));
+      s.write(new String(XsltUtilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt)));
     } catch (Exception e) {
       for (ValidationMessage err : page.getValidationErrors()) {
         if (!page.getSuppressedMessages().contains(err.getDisplay()))
@@ -1900,7 +1901,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String xslt2 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "CategorizeWarnings.xslt");
     FileOutputStream s2 = new FileOutputStream(page.getFolders().dstDir + "work-group-warnings.xml");
     try {
-      s2.write(Utilities.saxonTransform(page.getFolders().dstDir + "warnings.xml", xslt2).getBytes("UTF8"));
+      s2.write(XsltUtilities.saxonTransform(page.getFolders().dstDir + "warnings.xml", xslt2).getBytes("UTF8"));
     } catch (Exception e) {
       // nothing - do not want to know.
     }
@@ -1909,7 +1910,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     String xslt3 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "RenderWarnings.xslt");
     try {
-      String hw = Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3);
+      String hw = XsltUtilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3);
       if (!showOnlyErrors)
         page.log(hw, LogMessageType.Process);
     } catch (Exception e) {
@@ -3542,7 +3543,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       byte[] xslt = IOUtils.toByteArray( new FileInputStream(Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "AnnotationStripper.xslt")));
       String scrs = new String(src);
       String xslts = new String(xslt);
-      return new ByteArrayInputStream(Utilities.transform(new HashMap<String, byte[]>(), src, xslt));
+      return new ByteArrayInputStream(XsltUtilities.transform(new HashMap<String, byte[]>(), src, xslt));
     } catch (Exception e) {
       if (web) {
         e.printStackTrace();
@@ -4434,7 +4435,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       //    if (web) {
       HashMap<String, String> params = new HashMap<String, String>();
       params.put("suppressWarnings", "true");
-      Utilities.saxonTransform(
+      XsltUtilities.saxonTransform(
           Utilities.path(page.getFolders().rootDir, "implementations", "xmltools"), // directory for xslt references
           page.getFolders().dstDir + prefix+ profile.getId().toLowerCase() + "-questionnaire.xml",  // source to run xslt on
           Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "QuestionnaireToHTML.xslt"), // xslt file to run

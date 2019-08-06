@@ -338,11 +338,11 @@ follows the FHIR search API, but reimplements in a GraphQL centric way.
 </p>
 <p>
 There are 3 ways to query, for a single resource, for a simple list of resources, and a full API. 
-For a single resource, the client names the type of the resource, and provides an id:
+For a single resource, the client names the type of the resource, and provides an _id:
 </p>
 <pre class="graphql">
  { 
-   Patient(id: example) { id, active } 
+   Patient(_id: example) { id, active } 
  }
 </pre>
 <p>
@@ -359,7 +359,7 @@ This returns a single Patient with the name id. The output from this is a single
  }
 </pre>
 <p class="example">
-Example: <a href="http://test.fhir.org/r4/$graphql?query={Patient(id:example){id,name{given,family}}}">http://test.fhir.org/r4/$graphql?query={Patient(id:example){id,name{given,family}}}</a> (note: examples are only informative).
+Example: <a href="http://test.fhir.org/r4/$graphql?query={Patient(_id:example){id,name{given,family}}}">http://test.fhir.org/r4/$graphql?query={Patient(_id:example){id,name{given,family}}}</a> (note: examples are only informative).
 </p>
 <p>
 Alternatively, the client can ask for a list of resources.  Here, the client simply asks for a list of resources:
