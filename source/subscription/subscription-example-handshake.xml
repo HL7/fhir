@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Bundle xmlns="http://hl7.org/fhir">
+  <meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionEventCount">
+        <valuePositiveInt value="0" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionStatus">
+        <valueString value="requested" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionTopicUrl">
+        <valueString value="http://server/baseR4/Topic/admission" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionUrl">
+        <valueString value="http://server/Subscription/urn:uuid:cb2dce51-a1f5-40b4-a98b-c934eae368e8" />
+    </extension>
+  </meta>
+  <identifier>
+      <system value="http://terminology.hl7.org/CodeSystem/ietf-uuid" />
+      <code value="urn:uuid:bf7519fe-5c57-4a62-b767-c917738ed405" />
+  </identifier>
+  <type value="history" />
+  <timestamp value="2019-08-07T10:24:13.1882432-05:00" />
+</Bundle>
+

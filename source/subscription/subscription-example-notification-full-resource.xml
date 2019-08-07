@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Bundle xmlns="http://hl7.org/fhir">
+  <meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionEventCount">
+        <valuePositiveInt value="3" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionStatus">
+        <valueString value="requested" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionTopicUrl">
+        <valueString value="http://server/baseR4/Topic/admission" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionUrl">
+        <valueString value="http://server/Subscription/cb2dce51-a1f5-40b4-a98b-c934eae368e8" />
+    </extension>
+  </meta>
+  <identifier>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/ietf-uuid" />
+      <code value="urn:uuid:bf7519fe-5c57-4a62-b767-c917738ed405" />
+    </coding>
+    <text value="bf7519fe-5c57-4a62-b767-c917738ed405" />>
+  </identifier>
+  <type value="history" />
+  <timestamp value="2019-08-07T10:24:13.1882432-05:00" />
+  <entry>
+    <fullUrl value="http://server/baseR4/Encounter/3" />
+    <resource>
+      <Encounter xmlns="http://hl7.org/fhir">
+        <id value="3" />
+        <meta>
+          <versionId value="1" />
+          <lastUpdated value="2019-08-07T10:49:22Z" />
+        </meta>
+        <status value="in-progress" />
+        <class>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+            <code value="VR"/>
+          </coding>
+          <text value="VR"/>
+        </class>
+        <subject>
+          <reference value="Patient/123" />
+        </subject>
+      </Encounter>
+    </resource>
+  </entry>
+</Bundle>
+
