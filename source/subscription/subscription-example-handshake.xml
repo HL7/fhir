@@ -16,7 +16,7 @@
   </meta>
   <identifier>
       <system value="http://terminology.hl7.org/CodeSystem/ietf-uuid" />
-      <code value="urn:uuid:bf7519fe-5c57-4a62-b767-c917738ed405" />
+      <code value="bf7519fe-5c57-4a62-b767-c917738ed405" />
   </identifier>
   <type value="history" />
   <timestamp value="2019-08-07T10:24:13.1882432-05:00" />
