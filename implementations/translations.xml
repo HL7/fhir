@@ -1024,6 +1024,12 @@
 		<translation lang="fr">ScriptTest</translation>
 		<translation lang="zh">测试脚本</translation>
 	</item>
+	<item id="Topic">
+		<translation lang="en">Topic</translation>
+		<translation lang="es">Tema</translation>
+		<translation lang="fr">Sujet</translation>
+		<translation lang="zh">话题</translation>
+	</item>
 	<item id="User">
 		<translation lang="en">User</translation>
 		<translation lang="zh">用户</translation>
