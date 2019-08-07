@@ -29,8 +29,8 @@
 		<header value="Authorization: Bearer secret-token-abc-123" />
 		<heartbeatPeriod value="60" />
 		<payload>
-			<content value="id-only" />
 			<contentType value="application/fhir+json" />
+			<content value="id-only" />
 	</payload>
 	</channel>
 </Subscription>
