@@ -321,6 +321,55 @@
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
   </Style>
+  <Style ss:ID="s92">
+   <Alignment ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Left"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s94">
+   <Alignment ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s96">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s97">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s98">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
   <Names>
@@ -4057,6 +4106,26 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="34"><Data ss:Type="String">not-taken</Data></Cell>
+   <Row>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Topic.status</Data></Cell>
+    <Cell ss:StyleID="s94"/>
+    <Cell ss:StyleID="s94"/>
+    <Cell ss:StyleID="s94"/>
+    <Cell ss:StyleID="s94"/>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s96"/>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s98"/>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">unknown</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
