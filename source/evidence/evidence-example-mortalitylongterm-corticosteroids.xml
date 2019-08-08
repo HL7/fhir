@@ -97,7 +97,7 @@
 		<statisticType>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
-				<code value="proportion"/>
+				<code value="C44256"/>
 				<display value="proportion"/>
 			</coding>
 		</statisticType>
