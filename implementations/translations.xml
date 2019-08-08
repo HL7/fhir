@@ -667,12 +667,15 @@
 		<translation lang="en">NewBundle</translation>
 		<translation lang="fr">NouveauPaquet</translation>
 	</item>
-	<item id="NutritionOrder">
-		<translation lang="en">NutritionOrder</translation>
-		<translation lang="fr">OrdreNutrition</translation>
-		<translation lang="es">OrdenNutrición</translation>
-		<translation lang="zh">营养医嘱</translation>
+	<item id="NutritionIntake">
+		<translation lang="en">NutritionIntake</translation>
 	</item>
+        <item id="NutritionOrder">
+                <translation lang="en">NutritionOrder</translation>
+                <translation lang="fr">OrdreNutrition</translation>
+                <translation lang="es">OrdenNutrición</translation>
+                <translation lang="zh">营养医嘱</translation>
+        </item>
 	<item id="Observation">
 		<translation lang="en">Observation</translation>
 		<translation lang="zh">观察</translation>
