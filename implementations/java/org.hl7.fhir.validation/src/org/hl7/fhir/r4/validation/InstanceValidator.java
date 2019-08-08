@@ -133,16 +133,20 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     private Object appContext;
     private Element container; // bundle, or parameters
     private Element resource;
+    private Element rootResource;
+    
     public ValidatorHostContext(Object appContext) {
       this.appContext = appContext;
     }
     public ValidatorHostContext(Object appContext, Element element) {
       this.appContext = appContext;
       this.resource = element;
+      this.rootResource = element;
     }
     
     public ValidatorHostContext forContained(Element element) {
       ValidatorHostContext res = new ValidatorHostContext(appContext);
+      res.rootResource = resource;
       res.resource = element;
       return res;
     }
@@ -2557,7 +2561,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     boolean ok;
     try {
       long t = System.nanoTime();
-      ok = fpe.evaluateToBoolean(hostContext, hostContext.resource, element, n);
+      ok = fpe.evaluateToBoolean(hostContext, hostContext.resource, hostContext.rootResource, element, n);
       fpeTime = fpeTime + (System.nanoTime() - t);
       msg = fpe.forLog();
     } catch (Exception ex) {
@@ -3878,7 +3882,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     boolean ok;
     try {
       long t = System.nanoTime();
-      ok = fpe.evaluateToBoolean(hostContext, resource, element, n);
+      ok = fpe.evaluateToBoolean(hostContext, resource, hostContext.rootResource, element, n);
       fpeTime = fpeTime + (System.nanoTime() - t);
       msg = fpe.forLog();
     } catch (Exception ex) {

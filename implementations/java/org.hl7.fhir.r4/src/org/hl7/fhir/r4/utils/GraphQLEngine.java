@@ -474,7 +474,7 @@ public class GraphQLEngine {
         if (expression == magicExpression)
           ss = suffix+'.'+Integer.toString(index);
         else
-          ss = suffix+'.'+fpe.evaluateToString(null, null, value, expression);
+          ss = suffix+'.'+fpe.evaluateToString(null, null, null, value, expression);
         if (!sel.getField().hasDirective("flatten"))
           arg = target.addField(sel.getField().getAlias()+suffix, listStatus(sel.getField(), prop.isList() || inheritedList));
       }

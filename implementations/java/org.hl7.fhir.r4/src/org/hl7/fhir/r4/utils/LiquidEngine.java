@@ -106,7 +106,7 @@ public class LiquidEngine implements IEvaluationContext {
     public void evaluate(StringBuilder b, Resource resource, LiquidEngineContext ctxt) throws FHIRException {
       if (compiled == null)
         compiled = engine.parse(statement);
-      b.append(engine.evaluateToString(ctxt, resource, resource, compiled));
+      b.append(engine.evaluateToString(ctxt, resource, resource, resource, compiled));
     }
   }
 
@@ -120,7 +120,7 @@ public class LiquidEngine implements IEvaluationContext {
     public void evaluate(StringBuilder b, Resource resource, LiquidEngineContext ctxt) throws FHIRException {
       if (compiled == null)
         compiled = engine.parse(condition);
-      boolean ok = engine.evaluateToBoolean(ctxt, resource, resource, compiled); 
+      boolean ok = engine.evaluateToBoolean(ctxt, resource, resource, resource, compiled); 
       List<LiquidNode> list = ok ? thenBody : elseBody;
       for (LiquidNode n : list) {
         n.evaluate(b, resource, ctxt);
@@ -137,7 +137,7 @@ public class LiquidEngine implements IEvaluationContext {
     public void evaluate(StringBuilder b, Resource resource, LiquidEngineContext ctxt) throws FHIRException {
       if (compiled == null)
         compiled = engine.parse(condition);
-      List<Base> list = engine.evaluate(ctxt, resource, resource, compiled);
+      List<Base> list = engine.evaluate(ctxt, resource, resource, resource, compiled);
       LiquidEngineContext lctxt = new LiquidEngineContext(ctxt);
       for (Base o : list) {
         lctxt.vars.put(varName, o);
@@ -161,7 +161,7 @@ public class LiquidEngine implements IEvaluationContext {
       Tuple incl = new Tuple();
       nctxt.vars.put("include", incl);
       for (String s : params.keySet()) {
-        incl.addProperty(s, engine.evaluate(ctxt, resource, resource, params.get(s)));
+        incl.addProperty(s, engine.evaluate(ctxt, resource, resource, resource, params.get(s)));
       }
       for (LiquidNode n : doc.body) {
         n.evaluate(b, resource, nctxt);

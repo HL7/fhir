@@ -380,7 +380,8 @@ public class SnapShotGenerationTests {
         }
       } else if (action.hasAssert()) {
         SetupActionAssertComponent a = action.getAssert();
-        boolean ok = fp.evaluateToBoolean(new StructureDefinition(), new StructureDefinition(), a.getExpression());
+        StructureDefinition sdn = new StructureDefinition(); 
+        boolean ok = fp.evaluateToBoolean(sdn, sdn, sdn, a.getExpression());
         Assert.assertTrue(a.getLabel()+": "+a.getDescription(), ok);
       }
     }

@@ -1643,7 +1643,7 @@ public class StructureMapUtilities {
         expr = fpe.parse(src.getElement());
         src.setUserData(MAP_SEARCH_EXPRESSION, expr);
       }
-      String search = fpe.evaluateToString(vars, null, new StringType(), expr); // string is a holder of nothing to ensure that variables are processed correctly 
+      String search = fpe.evaluateToString(vars, null, null, new StringType(), expr); // string is a holder of nothing to ensure that variables are processed correctly 
       items = services.performSearch(context.appInfo, search);
     } else {
       items = new ArrayList<Base>();
@@ -1679,7 +1679,7 @@ public class StructureMapUtilities {
       }
       List<Base> remove = new ArrayList<Base>();
       for (Base item : items) {
-        if (!fpe.evaluateToBoolean(vars, null, item, expr)) {
+        if (!fpe.evaluateToBoolean(vars, null, null, item, expr)) {
           log(indent+"  condition ["+src.getCondition()+"] for "+item.toString()+" : false");
           remove.add(item);
         } else
@@ -1697,7 +1697,7 @@ public class StructureMapUtilities {
       }
       List<Base> remove = new ArrayList<Base>();
       for (Base item : items) {
-        if (!fpe.evaluateToBoolean(vars, null, item, expr))
+        if (!fpe.evaluateToBoolean(vars, null, null, item, expr))
           throw new FHIRException("Rule \""+ruleId+"\": Check condition failed");
       }
     } 
@@ -1711,7 +1711,7 @@ public class StructureMapUtilities {
       }
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (Base item : items) 
-        b.appendIfNotNull(fpe.evaluateToString(vars, null, item, expr));
+        b.appendIfNotNull(fpe.evaluateToString(vars, null, null, item, expr));
       if (b.length() > 0)
         services.log(b.toString());
     } 
@@ -1822,7 +1822,7 @@ public class StructureMapUtilities {
 	        expr = fpe.parse(getParamStringNoNull(vars, tgt.getParameter().get(1), tgt.toString()));
 	        tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
 	      }
-	      List<Base> v = fpe.evaluate(vars, null, tgt.getParameter().size() == 2 ? getParam(vars, tgt.getParameter().get(0)) : new BooleanType(false), expr);
+	      List<Base> v = fpe.evaluate(vars, null, null, tgt.getParameter().size() == 2 ? getParam(vars, tgt.getParameter().get(0)) : new BooleanType(false), expr);
 	      if (v.size() == 0)
 	        return null;
 	      else if (v.size() != 1)
