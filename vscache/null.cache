@@ -266,7 +266,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"clinical-protocol\"; The code provided (#clinical-protocol) is not  valid in the value set PlanDefinitionType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
