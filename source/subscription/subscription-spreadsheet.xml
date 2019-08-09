@@ -1186,7 +1186,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">positiveInt</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">unsignedInt</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5384,40 +5384,40 @@
     <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Handshake</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Example of a Subscription Handshake message (first message on channel)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">handshake</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">subscription-example-handshake.xml</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Notification Empty</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Example of a Subscription notification with payload: empty</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">notification-empty</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">subscription-example-notification-empty.xml</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Notification ID-Only</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Example of a Subscription notification with payload: id-only</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">notification-id-only</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">subscription-example-notification-id-only.xml</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">Notification Full Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Example of a Subscription notification with payload: full-resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">notification-full-resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">subscription-example-notification-full-resource.xml</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"/>
