@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="heartbeat" />
+  <meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscription-event-count">
+        <valueUnsignedInt value="20" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/bundle-event-count">
+      <valueUnsignedInt value="0" />
+  </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscription-status">
+        <valueCode value="active" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscription-topic-url">
+        <valueUrl value="https://example.org/baseR4/Topic/admission" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscription-url">
+        <valueUrl value="https://example.org/Subscription/cb2dce51-a1f5-40b4-a98b-c934eae368e8" />
+    </extension>
+  </meta>
+  <type value="history" />
+  <timestamp value="2019-08-07T10:24:13.1882432-05:00" />
+</Bundle>
+

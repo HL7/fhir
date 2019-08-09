@@ -798,6 +798,9 @@
    <Row>
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Topic</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
