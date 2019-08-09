@@ -4106,6 +4106,7 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="34"><Data ss:Type="String">not-taken</Data></Cell>
+   </Row>
    <Row>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Topic.status</Data></Cell>
     <Cell ss:StyleID="s94"/>

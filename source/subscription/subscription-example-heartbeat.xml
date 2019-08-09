@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Bundle xmlns="http://hl7.org/fhir">
-  <id value="notification-empty" />
+  <id value="heartbeat" />
   <meta>
     <extension url="http://hl7.org/fhir/StructureDefinition/subscription-event-count">
-        <valueUnsignedInt value="1" />
+        <valueUnsignedInt value="20" />
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/bundle-event-count">
-      <valueUnsignedInt value="1" />
-    </extension>
+      <valueUnsignedInt value="0" />
+  </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/subscription-status">
         <valueCode value="active" />
     </extension>

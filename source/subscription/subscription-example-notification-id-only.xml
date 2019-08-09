@@ -2,30 +2,33 @@
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="notification-id-only"/>
   <meta>
-    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionEventCount">
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscription-event-count">
         <valueUnsignedInt value="2" />
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionStatus">
-        <valueString value="requested" />
+    <extension url="http://hl7.org/fhir/StructureDefinition/bundle-event-count">
+      <valueUnsignedInt value="1" />
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionTopicUrl">
-        <valueString value="http://server/baseR4/Topic/admission" />
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscription-status">
+        <valueCode value="active" />
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionUrl">
-        <valueString value="http://server/Subscription/cb2dce51-a1f5-40b4-a98b-c934eae368e8" />
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscription-topic-url">
+        <valueUrl value="http://example.org/baseR4/Topic/admission" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/subscription-url">
+        <valueUrl value="http://example.org/Subscription/cb2dce51-a1f5-40b4-a98b-c934eae368e8" />
     </extension>
   </meta>
-  <identifier>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/ietf-uuid" />
-      <code value="urn:uuid:bf7519fe-5c57-4a62-b767-c917738ed405" />
-    </coding>
-    <text value="bf7519fe-5c57-4a62-b767-c917738ed405" />>
-  </identifier>
   <type value="history" />
   <timestamp value="2019-08-07T10:24:13.1882432-05:00" />
   <entry>
-    <fullUrl value="http://server/baseR4/Encounter/2" />
+    <fullUrl value="http://example.org/baseR4/Encounter/2" />
+    <request>
+      <method value="PUT" />
+      <url value="Encounter/2" />
+    </request>
+    <response>
+      <status value="201"/>
+    </response>
   </entry>
 </Bundle>
 
