@@ -3,7 +3,7 @@
   <id value="notification-full-resource"/>
   <meta>
     <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionEventCount">
-        <valuePositiveInt value="3" />
+        <valueUnsignedInt value="3" />
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/subscriptionStatus">
         <valueString value="requested" />
