@@ -25,7 +25,7 @@
 			<text value="Rest Hook"/>
 			<!-- 0..1 Plain text representation of the concept -->
 		</type>
-		<endpoint value="http://server/Endpoints/P123" />
+		<endpoint value="https://example.org/Endpoints/P123" />
 		<header value="Authorization: Bearer secret-token-abc-123" />
 		<heartbeatPeriod value="60" />
 		<payload>

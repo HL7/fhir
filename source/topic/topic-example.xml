@@ -18,8 +18,9 @@
 		<fhirPathCriteria value="%previous.status!=&#x27;in-progress&#x27; and %current.status=&#x27;in-progress&#x27;"/>
 	</resourceTrigger>
 	<canFilterBy>
-    <documentation value="Patient involved in the encounter" />
-    <name value="Patient" />
+		<name value="patient" />
+		<matchType value="=" />
+		<documentation value="Exact match to a patient resource (reference)" />
   </canFilterBy>
 	<!-- insert contents here -->
 </Topic>

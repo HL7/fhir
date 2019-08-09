@@ -1115,8 +1115,8 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">= | in | above | below | member-of-group</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The operator to apply to the filter value. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">= | in | not-in | above | below </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The operator to apply to the filter value when determining matches (Search modifiers)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1315,7 +1315,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">positiveInt</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">unsignedInt</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -8591,7 +8591,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String" x:Ticked="1">=</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">The key value in the topic stream is equal to the filter value.</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Used to match a value according to FHIR Search rules (e.g., Patient/123, Encounter/2002).</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -8608,8 +8608,19 @@
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">above</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">not-in</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">not-in</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">The key value in the topic stream is NOT an active members of the reference set identified by the concept provided as the filter value</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s142"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s141"><Data ss:Type="String">above</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">above</Data></Cell>
@@ -8620,22 +8631,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">below</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">below</Data></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">The key value is subsumed by the value in the filter value.</Data></Cell>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">member-of-group</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s141"><Data ss:Type="String">member-of-group</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">The key value in the topic stream is a member of group represented by the concept in the filter value.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
