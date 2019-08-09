@@ -60,6 +60,15 @@
 		<onBehalfOf>
 			<reference value="Organization/f001"/>
 		</onBehalfOf>
+		<timing>
+			<repeat>
+				<frequency value="1" />
+				<period value="1" />
+				<periodUnit value="d" />
+				<dayOfWeek value="mon" />
+				<when value="MORN" />
+			</repeat>
+		</timing>
 		<period>
 			<end value="2013-01-01"/>
 		</period>
