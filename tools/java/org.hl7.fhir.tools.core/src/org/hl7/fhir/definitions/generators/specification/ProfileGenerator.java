@@ -1114,8 +1114,6 @@ public class ProfileGenerator {
       sp.setCode(spd.getCode());
       sp.setDate(genDate.getTime());
       sp.setPublisher(p.getPublisher());
-      sp.setMultipleAnd(true);
-      sp.setMultipleOr(true);
       for (ContactDetail tc : p.getContact()) {
         ContactDetail t = sp.addContact();
         if (tc.hasNameElement())
@@ -1126,17 +1124,17 @@ public class ProfileGenerator {
       if (!definitions.hasResource(p.getType()) && !p.getType().equals("Resource") && !p.getType().equals("DomainResource"))
         throw new Exception("unknown resource type "+p.getType());
       sp.setType(getSearchParamType(spd.getType()));
-      if (sp.getType() == SearchParamType.REFERENCE && spd.isHierarchy()) {
-        sp.addModifier(SearchParameter.SearchModifierCode.BELOW);
-        sp.addModifier(SearchParameter.SearchModifierCode.ABOVE);
-      }
+//      if (sp.getType() == SearchParamType.REFERENCE && spd.isHierarchy()) {
+//        sp.addModifier(SearchParameter.SearchModifierCode.BELOW);
+//        sp.addModifier(SearchParameter.SearchModifierCode.ABOVE);
+//      }
       if (shared) {
         sp.setDescription("Multiple Resources: \r\n\r\n* ["+rn+"]("+rn.toLowerCase()+".html): " + spd.getDescription()+"\r\n");
       } else
         sp.setDescription(preProcessMarkdown(spd.getDescription(), "Search Description"));
       if (!Utilities.noString(spd.getExpression())) 
         sp.setExpression(spd.getExpression());
-      addModifiers(sp);
+//      addModifiers(sp);
       addComparators(sp);
       String xpath = Utilities.noString(spd.getXPath()) ? new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths()) : spd.getXPath();
       if (xpath != null) {
