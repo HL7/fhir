@@ -5,6 +5,9 @@
       <system value="http://ema.europa.eu/example/pcid"/>
       <value value="{PCID}"/>
     </identifier>
+    <subject>
+      <reference value="MedicinalProductDefinition/example"/>
+    </subject>
     <description value="ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS. "/>
     <batchIdentifier>
       <outerPackaging>
@@ -64,7 +67,7 @@
         <manufacturedItem>
           <reference value="ManufacturedItemDefinition/example"/>
         </manufacturedItem>
-        <physicalCharacteristics>
+        <physicalCharacteristic>
           <height>
             <value value="125"/>
             <unit value="mm"/>
@@ -73,7 +76,7 @@
             <value value="45"/>
             <unit value="mm"/>
           </width>
-        </physicalCharacteristics>
+        </physicalCharacteristic>
         <shelfLifeStorage>
           <type>
             <coding>
@@ -96,7 +99,7 @@
           <reference value="Organization/example"/>
         </manufacturer>
       </packageItem>
-      <physicalCharacteristics>
+      <physicalCharacteristic>
         <height>
           <value value="50"/>
           <unit value="mm"/>
@@ -109,7 +112,7 @@
           <value value="23.5"/>
           <unit value="mm"/>
         </depth>
-      </physicalCharacteristics>
+      </physicalCharacteristic>
       <manufacturer>
         <reference value="Organization/example"/>
       </manufacturer>

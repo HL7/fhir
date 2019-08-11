@@ -7,6 +7,9 @@
     <system value="http://ema.europa.eu/example/marketingAuthorisationNumber"/>
     <value value="EU/1/11/999/001"/>
   </identifier>
+  <subject>
+    <reference value="MedicinalProductDefinition/example"/>
+  </subject>
   <region>
     <coding>
       <system value="http://ema.europa.eu/example/country"/>
