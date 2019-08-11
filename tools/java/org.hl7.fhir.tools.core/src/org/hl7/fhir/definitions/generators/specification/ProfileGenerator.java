@@ -2107,18 +2107,30 @@ public class ProfileGenerator {
         produceOpParam(path+"."+p.getName(), pp.getPart(), part, pp.getUse());
       }
     } else {
-      TypeRef tr = new TypeParser().parse(p.getFhirType(), false, null, null, false).get(0);
-      if (definitions.getConstraints().containsKey(tr.getName())) {
-        ProfiledType pt = definitions.getConstraints().get(tr.getName());
-        pp.setType(pt.getBaseType().equals("*") ? "Type" : pt.getBaseType());
-        pp.addTargetProfile("http://hl7.org/fhir/StructureDefinition/"+pt.getName());
-      } else { 
+      List<TypeRef> trs = new TypeParser().parse(p.getFhirType(), false, null, null, false);
+      if (trs.size() > 1) {
         if (p.getSearchType() != null)
           pp.setSearchType(SearchParamType.fromCode(p.getSearchType()));
-        pp.setType(tr.getName().equals("*") ? "Type" : tr.getName());
-        if (tr.getParams().size() == 1 && !tr.getParams().get(0).equals("Any"))
-          pp.addTargetProfile("http://hl7.org/fhir/StructureDefinition/"+tr.getParams().get(0));
-      } 
+        pp.setType("Element");
+        for (TypeRef tr : trs) {
+          pp.addExtension(ToolingExtensions.EXT_ALLOWED_TYPE, new UriType(tr.getName()));
+          if (tr.getParams().size() > 0)
+            throw new Error("Multiple types for an operation parameter, where one is a reference, is not supported by the build tools");
+        }        
+      } else {
+        TypeRef tr = trs.get(0);
+        if (definitions.getConstraints().containsKey(tr.getName())) {
+          ProfiledType pt = definitions.getConstraints().get(tr.getName());
+          pp.setType(pt.getBaseType().equals("*") ? "Type" : pt.getBaseType());
+          pp.addTargetProfile("http://hl7.org/fhir/StructureDefinition/"+pt.getName());
+        } else { 
+          if (p.getSearchType() != null)
+            pp.setSearchType(SearchParamType.fromCode(p.getSearchType()));
+          pp.setType(tr.getName().equals("*") ? "Type" : tr.getName());
+          if (tr.getParams().size() == 1 && !tr.getParams().get(0).equals("Any"))
+            pp.addTargetProfile("http://hl7.org/fhir/StructureDefinition/"+tr.getParams().get(0));
+        } 
+      }
     }
   }
 
