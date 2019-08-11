@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ClinicalUseIssue xmlns="http://hl7.org/fhir">
   <id value="example"/>
-  <identifier>
-    <system value="http://ema.europa.eu/example/contraindication"/>
-    <value value="CON123"/>
-  </identifier>
   <type value="contraindication"/>
-  <subject>
-    <reference value="MedicinalProductDefinition/example"/>
-  </subject>
   <contraindication>
     <diseaseSymptomProcedure>
       <coding>

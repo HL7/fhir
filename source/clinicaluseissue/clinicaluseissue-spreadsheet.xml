@@ -4,7 +4,7 @@
   <LastAuthor>Rik Smithies</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2019-08-11T10:51:46Z</LastSaved>
+  <LastSaved>2019-04-13T17:19:24Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -16,7 +16,8 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -634,38 +635,12 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s146">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
-  </Style>
-  <Style ss:ID="s147">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
-  </Style>
-  <Style ss:ID="s148">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
-  </Style>
-  <Style ss:ID="s149">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
-  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="437.0"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -676,14 +651,10 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:HRef="http://wiki.hl7.org/?title=FHIR_Spreadsheet_Authoring" ss:StyleID="s67"><Data ss:Type="String">http://wiki.hl7.org?title=FHIR_Spreadsheet_Authoring</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14">
-    <Cell><Data ss:Type="String">entered-in-error-status</Data></Cell>
-    <Cell><Data ss:Type="String">.status=entered-in-error</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">fmm</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Warnngs, else 3?</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -705,22 +676,22 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R57C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R56C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="58" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="57" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="249.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="66.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="287.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="28.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="40.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="176.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="37.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="59.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="139.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="179.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="133.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="71.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="86.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="38.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="37.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="59.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="227.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="179.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="133.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="71.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="86.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="38.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="266.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="200.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="22" ss:StyleID="s69" ss:Width="66.0"/>
@@ -754,25 +725,9 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">ClinicalUseIssue</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s78"><Data ss:Type="String" x:Ticked="1">DomainResource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">clinical.general</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s80"><Data ss:Type="String">Criteria for the use or avoidance of a medication or procedure in a set of clinical circumstances</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s80"><Data ss:Type="String">ClinicalUseIssue</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A single item of clinical particulars - an indication, contraindication, interaction etc. for a medicinal product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22"><Data ss:Type="String">0;40</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">ClinicalUseIssue.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String" x:Ticked="1">Identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Identifier by which this documented use issue is referred to</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s78"><Data ss:Type="String">ClinicalUseIssue.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -843,7 +798,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The disease or symptom that could be treated or the procedure that may be employed, but that is not advised in this case</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">The disease, symptom or procedure for the contraindication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s78"><Data ss:Type="String">ClinicalUseIssue.contraindication.diseaseStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -891,7 +846,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The indication which this is a contraindication for</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">The indication which this is a contraidication for</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">ClinicalUseIssue.contraindication.otherTherapy</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -973,7 +928,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The disease or symptom that could be treated or the procedure that may be employed, which may be appropriate in this case</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">The disease, symptom or procedure for the indication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s78"><Data ss:Type="String">ClinicalUseIssue.indication.diseaseStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1053,7 +1008,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">For an indication - the specific undesirable effects of the medicinal product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">For an indicaton - the specific undesirable effects of the medicinal product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s78"><Data ss:Type="String">ClinicalUseIssue.indication.otherTherapy</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1196,7 +1151,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">ClinicalUseIssue.undesirableEffect</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s78"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s78"><Data ss:Type="String" x:Ticked="1">BackboneElement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s80"><Data ss:Type="String">A condition or symptom that may result from use of the proposed treatment</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s80"><Data ss:Type="String">UndesirableEffect</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Describe the undesirable effects of the medicinal product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22"><Data ss:Type="String">25;230</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1214,7 +1169,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The actual condition or symptom that may result</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">The symptom, condition or undesirable effect</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27" ss:StyleID="Default">
     <Cell ss:StyleID="s78"><Data ss:Type="String">ClinicalUseIssue.undesirableEffect.classification</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1230,7 +1185,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">To permit the grouping of undesirable effects by system or other categories e.g. Nervous system disorders</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Classification of the effect</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s78"><Data ss:Type="String">ClinicalUseIssue.undesirableEffect.frequencyOfOccurrence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1246,7 +1201,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The frequency of occurrence of the effect, for example "rarely", "less than 1% of patients"</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">The frequency of occurrence of the effect</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1647,19 +1602,20 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R57C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R56C24">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
@@ -2155,7 +2111,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="28" ss:StyleID="s96" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="28" ss:StyleID="s96" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="76.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="61.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="117.0"/>
@@ -2174,14 +2130,11 @@
     <Cell ss:Index="4"><Data ss:Type="String">ClinicalUseIssue.subject</Data></Cell>
     <Cell><Data ss:Type="String">The medication for which this is a clinical particular</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s146"><Data ss:Type="String">identifier</Data></Cell>
-    <Cell ss:StyleID="s147"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">ClinicalUseIssue.identifier</Data></Cell>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s149"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s101"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"/>
@@ -2354,7 +2307,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

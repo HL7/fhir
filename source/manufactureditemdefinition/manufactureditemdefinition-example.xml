@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ManufacturedItemDefinition xmlns="http://hl7.org/fhir">
     <id value="example"/>
-  <identifier>
-    <system value="http://ema.europa.eu/example/manufacturedItem"/>
-    <value value="XYZ987"/>
-  </identifier>
-  <manufacturedDoseForm>
+    <manufacturedDoseForm>
       <coding>
         <system value="http://ema.europa.eu/example/manufactureddoseform"/>
         <code value="Film-coatedtablet"/>
@@ -27,9 +23,9 @@
     <ingredient>
       <reference value="Ingredient/example"/>
     </ingredient>
-    <physicalCharacteristic>
+    <physicalCharacteristics>
       <shape value="Oval"/>
       <color value="Pink"/>
       <imprint value="894"/>
-    </physicalCharacteristic>
+    </physicalCharacteristics>
 </ManufacturedItemDefinition>
