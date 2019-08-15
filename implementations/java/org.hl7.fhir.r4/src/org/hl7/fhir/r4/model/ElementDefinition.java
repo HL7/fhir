@@ -35,6 +35,8 @@ import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.r4.model.Enumerations.*;
+import org.hl7.fhir.r4.utils.ToolingExtensions;
+
 import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
@@ -2232,6 +2234,22 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
 
   public boolean hasTarget() {
     return Utilities.existsInList(getCode(), "Reference", "canonical");
+  }
+
+  public String getWorkingCode() {
+	if (code != null && code.hasExtension(ToolingExtensions.EXT_XML_TYPE)) {
+      String s;
+      try {
+	    s = code.getExtensionString(ToolingExtensions.EXT_XML_TYPE);
+      } catch (FHIRException e) {
+        return getCode();
+      }
+      if (s.toLowerCase().contains("uri"))
+	    return "uri";
+      else
+	    return "string";
+    } else
+	  return getCode();
   }
 
 // end addition
@@ -7505,6 +7523,10 @@ When pattern[x] is used to constrain a complex object, it means that each proper
       setIsModifier(modifier);
       setIsSummary(inSummary);
     }
+  }  
+
+  public String present() {
+    return hasId() ? getId() : getPath();
   }  
 
 

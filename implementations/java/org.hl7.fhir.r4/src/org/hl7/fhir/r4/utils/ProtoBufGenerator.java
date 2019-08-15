@@ -93,18 +93,18 @@ public class ProtoBufGenerator {
       if (ed.getType().size() != 1)
         fld.type = "Unknown";
       else {
-        StructureDefinition td = context.fetchTypeDefinition(ed.getTypeFirstRep().getCode());
+        StructureDefinition td = context.fetchTypeDefinition(ed.getTypeFirstRep().getWorkingCode());
         if (td == null)
           fld.type = "Unresolved";
         else if (td.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
-          fld.type = protoTypeForFhirType(ed.getTypeFirstRep().getCode());
+          fld.type = protoTypeForFhirType(ed.getTypeFirstRep().getWorkingCode());
           fld = new Field();
           fld.name = tail(ed.getPath())+"Extra";
           fld.repeating = (!ed.getMax().equals("1"));
           fld.type = "Primitive";
           message.fields.add(fld);
         } else
-          fld.type = ed.getTypeFirstRep().getCode();
+          fld.type = ed.getTypeFirstRep().getWorkingCode();
       }   
     }
   }

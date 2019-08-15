@@ -396,7 +396,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     String name =  tail(elem.getPath());
     String en = asValue ? "value[x]" : name;
     if (en.contains("[x]"))
-      en = en.replace("[x]", upFirst(type.getCode()));
+      en = en.replace("[x]", upFirst(type.getWorkingCode()));
     boolean unbounded = elem.hasMax() && elem.getMax().equals("*");
 
     String indentS = "";
@@ -508,7 +508,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     String name =  tail(elem.getPath());
     String en = asValue ? "value[x]" : name;
     if (en.contains("[x]"))
-      en = en.replace("[x]", upFirst(type.getCode()));
+      en = en.replace("[x]", upFirst(type.getWorkingCode()));
     boolean unbounded = elem.hasMax() && elem.getMax().equals("*");
     // 1. name
     write("\"<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
@@ -524,18 +524,18 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       assert(children.size() > 0);
       write("{");
       delayedCloseArray = true;
-    } else if (definitions.getPrimitives().containsKey(type.getCode())) {
-      if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
+    } else if (definitions.getPrimitives().containsKey(type.getWorkingCode())) {
+      if (!(type.getWorkingCode().equals("integer") || type.getWorkingCode().equals("boolean") || type.getWorkingCode().equals("decimal")))
         write("\"");
       if (elem.hasFixed()) 
         write(Utilities.escapeJson(((PrimitiveType) elem.getFixed()).asStringValue()));
       else
-        write("&lt;<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>&gt;");
-      if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
+        write("&lt;<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getWorkingCode())+ ".html#" + type.getWorkingCode()) + "\">" + type.getWorkingCode()+ "</a></span>&gt;");
+      if (!(type.getWorkingCode().equals("integer") || type.getWorkingCode().equals("boolean") || type.getWorkingCode().equals("decimal")))
         write("\"");
     } else {
       write("{ ");
-      write("<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
+      write("<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getWorkingCode())+ ".html#" + type.getWorkingCode()) + "\">" + type.getWorkingCode()+ "</a></span>");
       if (type.hasProfile()) {
         if (type.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
           String t = type.getProfile().get(0).getValue().substring(40);

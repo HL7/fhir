@@ -503,4 +503,10 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     return br;
   }
 
+@Override
+public BindingResolution resolveBinding(StructureDefinition def, String url, String path) throws FHIRException {
+	// TODO Auto-generated method stub
+	return null;
+}
+
 }

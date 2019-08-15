@@ -53,6 +53,7 @@ import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.Identifier;
 import org.hl7.fhir.r4.model.IntegerType;
 import org.hl7.fhir.r4.model.MarkdownType;
+import org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.r4.model.PrimitiveType;
 import org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemComponent;
 import org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemType;
@@ -64,6 +65,9 @@ import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.utilities.StandardsStatus;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 
 
@@ -78,6 +82,8 @@ public class ToolingExtensions {
   private static final String EXT_IDENTIFIER = "http://hl7.org/fhir/StructureDefinition/identifier";
   public static final String EXT_TRANSLATION = "http://hl7.org/fhir/StructureDefinition/translation";
   public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source";
+  public static final String EXT_ISSUE_LINE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line";
+  public static final String EXT_ISSUE_COL = "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col";
   public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint"; 
   public static final String EXT_REPLACED_BY = "http://hl7.org/fhir/StructureDefinition/valueset-replacedby";
   public static final String EXT_JSON_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-json-type"; 
@@ -123,9 +129,20 @@ public class ToolingExtensions {
   public static final String EXT_IGP_RESOURCES = "http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource";
   public static final String EXT_IGP_PAGES = "http://hl7.org/fhir/StructureDefinition/igpublisher-folder-pages";
   public static final String EXT_IGP_SPREADSHEET = "http://hl7.org/fhir/StructureDefinition/igpublisher-spreadsheet";
+  public static final String EXT_IGP_MAPPING_CSV = "http://hl7.org/fhir/StructureDefinition/igpublisher-mapping-csv";
   public static final String EXT_IGP_BUNDLE = "http://hl7.org/fhir/StructureDefinition/igpublisher-bundle";
+  public static final String EXT_IGP_RESOURCE_INFO = "http://hl7.org/fhir/tools/StructureDefinition/resource-information";
+  public static final String EXT_IGP_LOADVERSION = "http://hl7.org/fhir/StructureDefinition/igpublisher-loadversion";
   public static final String EXT_MAX_VALUESET = "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet";
+  public static final String EXT_MIN_VALUESET = "http://hl7.org/fhir/StructureDefinition/elementdefinition-minValueSet";
   public static final String EXT_PROFILE_ELEMENT = "http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element";
+  public static final String EXT_LIST_PACKAGE = "http://hl7.org/fhir/StructureDefinition/list-packageId";
+  public static final String EXT_MAPPING_NAME = "http://hl7.org/fhir/tools/StructureDefinition/conceptmap-source-name";
+  public static final String EXT_MAPPING_TYPE = "http://hl7.org/fhir/tools/StructureDefinition/conceptmap-source-type";
+  public static final String EXT_MAPPING_CARD = "http://hl7.org/fhir/tools/StructureDefinition/conceptmap-source-cardinality";
+  public static final String EXT_MAPPING_TGTTYPE = "http://hl7.org/fhir/tools/StructureDefinition/conceptmap-target-type";
+  public static final String EXT_MAPPING_TGTCARD = "http://hl7.org/fhir/tools/StructureDefinition/conceptmap-target-cardinality";
+  public static final String EXT_PRIVATE_BASE = "http://hl7.org/fhir/tools/";
   public static final String EXT_ALLOWED_TYPE =  "http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type";
 
 
@@ -636,6 +653,15 @@ public class ToolingExtensions {
     throw new Error("Unable to read extension "+uri+" as an integer");
   }
 
+  public static int readIntegerExtension(Element e, String uri, int defaultValue) {
+    Extension ex = ExtensionHelper.getExtension(e, uri);
+    if (ex == null)
+      return defaultValue;
+    if (ex.getValue() instanceof IntegerType)
+      return ((IntegerType) ex.getValue()).getValue();
+    throw new Error("Unable to read extension "+uri+" as an integer");
+  }
+
   public static Map<String, String> getLanguageTranslations(Element e) {
     Map<String, String> res = new HashMap<String, String>();
     for (Extension ext : e.getExtension()) {
@@ -672,6 +698,67 @@ public class ToolingExtensions {
       ToolingExtensions.removeExtension(dr, ToolingExtensions.EXT_NORMATIVE_VERSION);
     else
       ToolingExtensions.setCodeExtension(dr, ToolingExtensions.EXT_NORMATIVE_VERSION, normativeVersion);
+  }
+
+  public static ValidationMessage readValidationMessage(OperationOutcomeIssueComponent issue, Source source) {
+    ValidationMessage vm = new ValidationMessage();
+    vm.setSource(source);
+    vm.setLevel(mapSeverity(issue.getSeverity()));
+    vm.setType(mapType(issue.getCode()));
+    if (issue.hasExtension(ToolingExtensions.EXT_ISSUE_LINE))
+      vm.setLine(ToolingExtensions.readIntegerExtension(issue, ToolingExtensions.EXT_ISSUE_LINE, 0));
+    if (issue.hasExtension(ToolingExtensions.EXT_ISSUE_COL))
+      vm.setCol(ToolingExtensions.readIntegerExtension(issue, ToolingExtensions.EXT_ISSUE_COL, 0));
+    if (issue.hasExpression())
+      vm.setLocation(issue.getExpression().get(0).asStringValue());
+    vm.setMessage(issue.getDetails().getText());
+    return vm;
+  }
+
+  private static IssueType mapType(org.hl7.fhir.r4.model.OperationOutcome.IssueType code) {
+    switch (code) {
+    case BUSINESSRULE: return IssueType.BUSINESSRULE;
+    case CODEINVALID: return IssueType.CODEINVALID;
+    case CONFLICT: return IssueType.CONFLICT;
+    case DUPLICATE: return IssueType.DUPLICATE;
+    case EXCEPTION: return IssueType.EXCEPTION;
+    case EXPIRED: return IssueType.EXPIRED;
+    case EXTENSION: return IssueType.EXTENSION;
+    case FORBIDDEN: return IssueType.FORBIDDEN;
+    case INCOMPLETE: return IssueType.INCOMPLETE;
+    case INFORMATIONAL: return IssueType.INFORMATIONAL;
+    case INVALID: return IssueType.INVALID;
+    case INVARIANT: return IssueType.INVARIANT;
+    case LOCKERROR: return IssueType.LOCKERROR;
+    case LOGIN: return IssueType.LOGIN;
+    case NOSTORE: return IssueType.NOSTORE;
+    case NOTFOUND: return IssueType.NOTFOUND;
+    case NOTSUPPORTED: return IssueType.NOTSUPPORTED;
+    case NULL: return IssueType.NULL;
+    case PROCESSING: return IssueType.PROCESSING;
+    case REQUIRED: return IssueType.REQUIRED;
+    case SECURITY: return IssueType.SECURITY;
+    case STRUCTURE: return IssueType.STRUCTURE;
+    case SUPPRESSED: return IssueType.SUPPRESSED;
+    case THROTTLED: return IssueType.THROTTLED;
+    case TIMEOUT: return IssueType.TIMEOUT;
+    case TOOCOSTLY: return IssueType.TOOCOSTLY;
+    case TOOLONG: return IssueType.TOOLONG;
+    case TRANSIENT: return IssueType.TRANSIENT;
+    case UNKNOWN: return IssueType.UNKNOWN;
+    case VALUE: return IssueType.VALUE;
+    default: return null;
+    }
+  }
+
+  private static IssueSeverity mapSeverity(org.hl7.fhir.r4.model.OperationOutcome.IssueSeverity severity) {
+    switch (severity) {
+    case ERROR: return IssueSeverity.ERROR;
+    case FATAL: return IssueSeverity.FATAL;
+    case INFORMATION: return IssueSeverity.INFORMATION;
+    case WARNING: return IssueSeverity.WARNING;
+    default: return null;
+    }
   }
 
 //  public static boolean hasOID(ValueSet vs) {

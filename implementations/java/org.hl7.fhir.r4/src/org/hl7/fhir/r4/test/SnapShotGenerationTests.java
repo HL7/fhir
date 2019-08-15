@@ -112,6 +112,12 @@ public class SnapShotGenerationTests {
       return false;
     }
 
+	@Override
+	public BindingResolution resolveBinding(StructureDefinition def, String url, String path) throws FHIRException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
   }
 
   private static class SnapShotGenerationTestsContext implements IEvaluationContext {
@@ -322,7 +328,7 @@ public class SnapShotGenerationTests {
           if (TestingUtilities.context.fetchResource(StructureDefinition.class, sd.getUrl()) == null) {
             sd.setUserData("path", "test-"+sd.getId()+".html");
             StructureDefinition extd = TestingUtilities.context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
-            new ProfileUtilities(TestingUtilities.context, null, null).generateSnapshot(extd, sd, sd.getUrl(), sd.getName());
+            new ProfileUtilities(TestingUtilities.context, null, null).generateSnapshot(extd, sd, sd.getUrl(), null, sd.getName());
             TestingUtilities.context.cacheResource(sd);
           }
         }
@@ -351,7 +357,7 @@ public class SnapShotGenerationTests {
             if (errors.size() > 0)
               throw new FHIRException("Sort failed: "+errors.toString());
           }
-          pu.generateSnapshot(base, output, source.getUrl(), source.getName());
+          pu.generateSnapshot(base, output, source.getUrl(), null, source.getName());
           context.fixtures.put(op.getResponseId(), output);
           context.snapshots.put(output.getUrl(), output);
           
@@ -413,7 +419,7 @@ public class SnapShotGenerationTests {
           pu.sortDifferential(getSD(p.getBaseDefinition()), p, url, errors);
           if (!errors.isEmpty())
             throw new FHIRException(errors.get(0));
-          pu.generateSnapshot(getSD(p.getBaseDefinition()), p, p.getUrl(), p.getName());
+          pu.generateSnapshot(getSD(p.getBaseDefinition()), p, p.getUrl(), null, p.getName());
           return p;
         }
       }

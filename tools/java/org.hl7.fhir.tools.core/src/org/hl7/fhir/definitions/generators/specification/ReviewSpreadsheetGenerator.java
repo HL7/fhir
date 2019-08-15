@@ -89,7 +89,7 @@ public class ReviewSpreadsheetGenerator {
       if (ed.getType().size() == 0) {
         richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" ["+describeCardinality(ed)+"]");
       } else if (ed.getType().size() == 1) {
-        richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" : "+ed.getType().get(0).getCode()+" ["+describeCardinality(ed)+"]");
+        richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" : "+ed.getType().get(0).getWorkingCode()+" ["+describeCardinality(ed)+"]");
         HSSFFont fontBlue = workbook.createFont();
         fontBlue.setFontName("Calibri");
         fontBlue.setColor(IndexedColors.DARK_BLUE.getIndex());

@@ -199,4 +199,9 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
     return page.prependLinks();
   }
 
+  @Override
+  public BindingResolution resolveBinding(StructureDefinition def, String url, String path) throws FHIRException {
+    throw new Error("Not done yet");
+  }
+
 }

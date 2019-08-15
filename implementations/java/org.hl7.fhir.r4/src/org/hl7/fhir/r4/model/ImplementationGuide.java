@@ -8251,10 +8251,9 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
          */
-        @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "code", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template", formalDefinition="apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/guide-parameter-code")
-        protected Enumeration<GuideParameterCode> code;
+        protected StringType code;
 
         /**
          * Value for named type.
@@ -8275,7 +8274,7 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * Constructor
      */
-      public ImplementationGuideDefinitionParameterComponent(Enumeration<GuideParameterCode> code, StringType value) {
+      public ImplementationGuideDefinitionParameterComponent(StringType code, StringType value) {
         super();
         this.code = code;
         this.value = value;
@@ -8284,12 +8283,12 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return {@link #code} (apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<GuideParameterCode> getCodeElement() { 
+        public StringType getCodeElement() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImplementationGuideDefinitionParameterComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Enumeration<GuideParameterCode>(new GuideParameterCodeEnumFactory()); // bb
+              this.code = new StringType(); // bb
           return this.code;
         }
 
@@ -8304,7 +8303,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #code} (apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public ImplementationGuideDefinitionParameterComponent setCodeElement(Enumeration<GuideParameterCode> value) { 
+        public ImplementationGuideDefinitionParameterComponent setCodeElement(StringType value) { 
           this.code = value;
           return this;
         }
@@ -8312,16 +8311,16 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
          */
-        public GuideParameterCode getCode() { 
+        public String getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
          */
-        public ImplementationGuideDefinitionParameterComponent setCode(GuideParameterCode value) { 
+        public ImplementationGuideDefinitionParameterComponent setCode(String value) { 
             if (this.code == null)
-              this.code = new Enumeration<GuideParameterCode>(new GuideParameterCodeEnumFactory());
+              this.code = new StringType();
             this.code.setValue(value);
           return this;
         }
@@ -8373,14 +8372,14 @@ public class ImplementationGuide extends MetadataResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("code", "code", "apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code));
+          children.add(new Property("code", "string", "apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code));
           children.add(new Property("value", "string", "Value for named type.", 0, 1, value));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "code", "apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code);
+          case 3059181: /*code*/  return new Property("code", "string", "apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code);
           case 111972721: /*value*/  return new Property("value", "string", "Value for named type.", 0, 1, value);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -8390,7 +8389,7 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<GuideParameterCode>
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // StringType
         case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -8401,8 +8400,7 @@ public class ImplementationGuide extends MetadataResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3059181: // code
-          value = new GuideParameterCodeEnumFactory().fromType(castToCode(value));
-          this.code = (Enumeration) value; // Enumeration<GuideParameterCode>
+          this.code = castToString(value); // StringType
           return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
@@ -8415,8 +8413,7 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code")) {
-          value = new GuideParameterCodeEnumFactory().fromType(castToCode(value));
-          this.code = (Enumeration) value; // Enumeration<GuideParameterCode>
+          this.code = castToString(value); // StringType
         } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
         } else
@@ -8437,7 +8434,7 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181: /*code*/ return new String[] {"code"};
+        case 3059181: /*code*/ return new String[] {"string"};
         case 111972721: /*value*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }

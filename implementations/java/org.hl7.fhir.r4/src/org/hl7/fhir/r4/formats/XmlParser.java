@@ -1494,7 +1494,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.setNameElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("language")) {
-        res.setLanguageElement(parseEnumeration(xpp, Expression.ExpressionLanguage.NULL, new Expression.ExpressionLanguageEnumFactory()));
+        res.setLanguageElement(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("expression")) {
         res.setExpressionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reference")) {
@@ -12132,7 +12132,7 @@ public class XmlParser extends XmlParserBase {
 
   protected boolean parseImplementationGuideImplementationGuideDefinitionParameterComponentContent(int eventType, XmlPullParser xpp, ImplementationGuide owner, ImplementationGuide.ImplementationGuideDefinitionParameterComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
-        res.setCodeElement(parseEnumeration(xpp, ImplementationGuide.GuideParameterCode.NULL, new ImplementationGuide.GuideParameterCodeEnumFactory()));
+        res.setCodeElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("value")) {
         res.setValueElement(parseString(xpp));
       } else if (!parseBackboneElementContent(eventType, xpp, res))
@@ -26488,7 +26488,7 @@ public class XmlParser extends XmlParserBase {
         composeId("name", element.getNameElement());
       }
       if (element.hasLanguageElement())
-        composeEnumeration("language", element.getLanguageElement(), new Expression.ExpressionLanguageEnumFactory());
+        composeCode("language", element.getLanguageElement());
       if (element.hasExpressionElement()) {
         composeString("expression", element.getExpressionElement());
       }
@@ -37754,7 +37754,7 @@ public class XmlParser extends XmlParserBase {
   protected void composeImplementationGuideImplementationGuideDefinitionParameterComponentElements(ImplementationGuide.ImplementationGuideDefinitionParameterComponent element) throws IOException {
       composeBackboneElementElements(element);
       if (element.hasCodeElement())
-        composeEnumeration("code", element.getCodeElement(), new ImplementationGuide.GuideParameterCodeEnumFactory());
+        composeString("code", element.getCodeElement());
       if (element.hasValueElement()) {
         composeString("value", element.getValueElement());
       }

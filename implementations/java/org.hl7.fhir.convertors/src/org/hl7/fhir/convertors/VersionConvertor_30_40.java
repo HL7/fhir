@@ -3302,7 +3302,7 @@ public class VersionConvertor_30_40 {
     if (src.hasPath())
       tgt.setPath(src.getPath());
     if (src.hasLanguage())
-      tgt.getExpression().setLanguage(ExpressionLanguage.fromCode(src.getLanguage()));
+      tgt.getExpression().setLanguage(src.getLanguage());
     if (src.hasExpression())
       tgt.getExpression().setExpression(src.getExpression());
     return tgt;
@@ -3318,7 +3318,7 @@ public class VersionConvertor_30_40 {
     if (src.getExpression().hasDescription())
       tgt.setDescription(src.getExpression().getDescription());
     if (src.getExpression().hasLanguage())
-      tgt.setLanguage(src.getExpression().getLanguage().toCode());
+      tgt.setLanguage(src.getExpression().getLanguage());
     if (src.getExpression().hasExpression())
       tgt.setExpression(src.getExpression().getExpression());
     return tgt;
@@ -20808,7 +20808,7 @@ public class VersionConvertor_30_40 {
     if (src.hasDescription())
       tgt.getExpression().setDescription(src.getDescription());
     if (src.hasLanguage())
-      tgt.getExpression().setLanguage(ExpressionLanguage.fromCode(src.getLanguage()));
+      tgt.getExpression().setLanguage(src.getLanguage());
     if (src.hasExpression())
       tgt.getExpression().setExpression(src.getExpression());
     return tgt;
@@ -20824,7 +20824,7 @@ public class VersionConvertor_30_40 {
     if (src.getExpression().hasDescription())
       tgt.setDescription(src.getExpression().getDescription());
     if (src.getExpression().hasLanguage())
-      tgt.setLanguage(src.getExpression().getLanguage().toCode());
+      tgt.setLanguage(src.getExpression().getLanguage());
     if (src.getExpression().hasExpression())
       tgt.setExpression(src.getExpression().getExpression());
     return tgt;
@@ -20970,7 +20970,7 @@ public class VersionConvertor_30_40 {
     if (src.hasPath())
       tgt.setPath(src.getPath());
     if (src.hasLanguage())
-      tgt.getExpression().setLanguage(ExpressionLanguage.fromCode(src.getLanguage()));
+      tgt.getExpression().setLanguage(src.getLanguage());
     if (src.hasExpression())
       tgt.getExpression().setExpression(src.getExpression());
     return tgt;
@@ -20986,7 +20986,7 @@ public class VersionConvertor_30_40 {
     if (src.hasPath())
       tgt.setPath(src.getPath());
     if (src.getExpression().hasLanguage())
-      tgt.setLanguage(src.getExpression().getLanguage().toCode());
+      tgt.setLanguage(src.getExpression().getLanguage());
     if (src.getExpression().hasExpression())
       tgt.setExpression(src.getExpression().getExpression());
     return tgt;

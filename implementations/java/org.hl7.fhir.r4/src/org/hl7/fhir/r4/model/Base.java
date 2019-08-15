@@ -117,6 +117,14 @@ private Map<String, Object> userData;
 		return null;
 	}
 	
+  public boolean isDateTime() {
+    return false;
+  }
+
+  public BaseDateTimeType dateTimeValue() {
+    return null;
+  }
+  
 	public abstract String fhirType() ;
 	
 	public boolean hasType(String... name) {
@@ -305,6 +313,8 @@ private Map<String, Object> userData;
 	public DecimalType castToDecimal(Base b) throws FHIRException {
 		if (b instanceof DecimalType)
 			return (DecimalType) b;
+    else if (b.hasPrimitiveValue())
+      return new DecimalType(b.primitiveValue());
 		else
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Decimal");
 	}

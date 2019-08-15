@@ -148,6 +148,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   public static SimpleWorkerContext fromPackage(NpmPackage pi, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
     SimpleWorkerContext res = new SimpleWorkerContext();
     res.setAllowLoadingDuplicates(true);
+    res.version = pi.getNpm().get("version").getAsString();
     res.loadFromPackage(pi, loader);
     return res;
   }
@@ -283,6 +284,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	      }
 	    }
 	  }
+	  version = pi.version();
 	}
 
   public void loadFromFile(String file, IContextResourceLoader loader) throws IOException, FHIRException {
@@ -576,7 +578,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       pu.sortDifferential(sd, p, p.getUrl(), errors);
       for (String err : errors)
         msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
-      pu.generateSnapshot(sd, p, p.getUrl(), p.getName());
+      pu.generateSnapshot(sd, p, null, p.getUrl(), p.getName());
       for (ValidationMessage msg : msgs) {
         if ((!ignoreProfileErrors && msg.getLevel() == ValidationMessage.IssueSeverity.ERROR) || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)
           throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot: "+msg.getMessage());
@@ -594,6 +596,12 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   public void setIgnoreProfileErrors(boolean ignoreProfileErrors) {
     this.ignoreProfileErrors = ignoreProfileErrors;
   }
+
+@Override
+public BindingResolution resolveBinding(StructureDefinition def, String url, String path) throws FHIRException {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 
 

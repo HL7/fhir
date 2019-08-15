@@ -876,7 +876,7 @@ public class ProfileComparer {
     if (nw.hasAggregation())
       throw new DefinitionException("Aggregation not supported: "+path);
     for (TypeRefComponent ex : results) {
-      if (Utilities.equals(ex.getCode(), nw.getCode())) {
+      if (Utilities.equals(ex.getWorkingCode(), nw.getCode())) {
         if (!ex.hasProfile() && !nw.hasProfile())
           pfound = true;
         else if (!ex.hasProfile()) {
@@ -1055,7 +1055,7 @@ public class ProfileComparer {
   private String typeCode(DefinitionNavigator defn) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (TypeRefComponent t : defn.current().getType())
-      b.append(t.getCode()+(t.hasProfile() ? "("+t.getProfile()+")" : "")+(t.hasTargetProfile() ? "("+t.getTargetProfile()+")" : "")); // todo: other properties
+      b.append(t.getWorkingCode()+(t.hasProfile() ? "("+t.getProfile()+")" : "")+(t.hasTargetProfile() ? "("+t.getTargetProfile()+")" : "")); // todo: other properties
     return b.toString();
   }
 
@@ -1231,7 +1231,7 @@ public class ProfileComparer {
 //    // then we produce value set pages for each value set
 //
 //    // TODO Auto-generated method stub
-    return null;
+    return Utilities.path(dest, getId()+".html");
   }
 
   private void producePage(String src, String path, Map<String, String> vars) throws IOException {

@@ -558,7 +558,10 @@ public class Element extends Base {
 
 	@Override
 	public boolean isEmpty() {
-		if (value != null && !"".equals(value)) {
+  	// GG: this used to also test !"".equals(value). 
+    // the condition where "" is empty and there are no children is an error, and so this really only manifested as an issue in corner cases technical testing of the validator / FHIRPath.
+	  // it should not cause any problems in real life.
+		if (value != null) {   
 			return false;
 		}
 		for (Element next : getChildren()) {
@@ -668,7 +671,7 @@ public class Element extends Base {
     if (p != null) {
       Set<String> types = new HashSet<String>();
       for (TypeRefComponent tr : p.getDefinition().getType()) {
-        types.add(tr.getCode());
+        types.add(tr.getWorkingCode());
       }
       return types.toArray(new String[]{});
     }

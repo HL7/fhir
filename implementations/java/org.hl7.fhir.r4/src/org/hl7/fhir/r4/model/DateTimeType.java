@@ -213,4 +213,9 @@ public class DateTimeType extends BaseDateTimeType {
     return r.substring(0, i)+r.substring(i+1);
   }
 
+  @Override
+  public boolean isDateTime() {
+    return true;
+  }
+
 }

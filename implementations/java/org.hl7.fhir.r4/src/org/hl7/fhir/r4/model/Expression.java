@@ -175,7 +175,7 @@ public class Expression extends Type implements ICompositeType {
     @Child(name = "language", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="text/cql | text/fhirpath | application/x-fhir-query | etc.", formalDefinition="The media type of the language for the expression." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/expression-language")
-    protected Enumeration<ExpressionLanguage> language;
+    protected CodeType language;
 
     /**
      * An expression in the specified language that returns a value.
@@ -203,7 +203,7 @@ public class Expression extends Type implements ICompositeType {
   /**
    * Constructor
    */
-    public Expression(Enumeration<ExpressionLanguage> language) {
+    public Expression(CodeType language) {
       super();
       this.language = language;
     }
@@ -309,12 +309,12 @@ public class Expression extends Type implements ICompositeType {
     /**
      * @return {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
      */
-    public Enumeration<ExpressionLanguage> getLanguageElement() { 
+    public CodeType getLanguageElement() { 
       if (this.language == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Expression.language");
         else if (Configuration.doAutoCreate())
-          this.language = new Enumeration<ExpressionLanguage>(new ExpressionLanguageEnumFactory()); // bb
+          this.language = new CodeType(); // bb
       return this.language;
     }
 
@@ -329,7 +329,7 @@ public class Expression extends Type implements ICompositeType {
     /**
      * @param value {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
      */
-    public Expression setLanguageElement(Enumeration<ExpressionLanguage> value) { 
+    public Expression setLanguageElement(CodeType value) { 
       this.language = value;
       return this;
     }
@@ -337,16 +337,16 @@ public class Expression extends Type implements ICompositeType {
     /**
      * @return The media type of the language for the expression.
      */
-    public ExpressionLanguage getLanguage() { 
+    public String getLanguage() { 
       return this.language == null ? null : this.language.getValue();
     }
 
     /**
      * @param value The media type of the language for the expression.
      */
-    public Expression setLanguage(ExpressionLanguage value) { 
+    public Expression setLanguage(String value) { 
         if (this.language == null)
-          this.language = new Enumeration<ExpressionLanguage>(new ExpressionLanguageEnumFactory());
+          this.language = new CodeType();
         this.language.setValue(value);
       return this;
     }
@@ -494,8 +494,7 @@ public class Expression extends Type implements ICompositeType {
           this.name = castToId(value); // IdType
           return value;
         case -1613589672: // language
-          value = new ExpressionLanguageEnumFactory().fromType(castToCode(value));
-          this.language = (Enumeration) value; // Enumeration<ExpressionLanguage>
+          this.language = castToCode(value); // Enumeration<ExpressionLanguage>
           return value;
         case -1795452264: // expression
           this.expression = castToString(value); // StringType
@@ -515,8 +514,7 @@ public class Expression extends Type implements ICompositeType {
         } else if (name.equals("name")) {
           this.name = castToId(value); // IdType
         } else if (name.equals("language")) {
-          value = new ExpressionLanguageEnumFactory().fromType(castToCode(value));
-          this.language = (Enumeration) value; // Enumeration<ExpressionLanguage>
+          this.language = castToCode(value); // Enumeration<ExpressionLanguage>
         } else if (name.equals("expression")) {
           this.expression = castToString(value); // StringType
         } else if (name.equals("reference")) {

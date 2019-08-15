@@ -825,7 +825,7 @@ public class SpecDifferenceEvaluator {
           removed.append(describeType(tr));
       }
       for (TypeRefComponent tr : rev.getType()) {
-        if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getCode()))
+        if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getWorkingCode()))
           added.append(describeType(tr));
       }
       for (TypeRefComponent tr : rev.getType()) {
@@ -860,9 +860,9 @@ public class SpecDifferenceEvaluator {
     }
     
     if (!added.isEmpty())
-      bp.append("Type " +tr.getCode()+": Added Target "+Utilities.pluralize("Type", added.size())+" "+csv(added));
+      bp.append("Type " +tr.getWorkingCode()+": Added Target "+Utilities.pluralize("Type", added.size())+" "+csv(added));
     if (!removed.isEmpty())
-      bp.append("Type " +tr.getCode()+": Removed Target "+Utilities.pluralize("Type", removed.size())+" "+csv(removed));
+      bp.append("Type " +tr.getWorkingCode()+": Removed Target "+Utilities.pluralize("Type", removed.size())+" "+csv(removed));
   }
 
   private String trimNS(String v) {
@@ -891,7 +891,7 @@ public class SpecDifferenceEvaluator {
   
   private boolean hasType(List<TypeRefComponent> types, TypeRefComponent tr) {
     for (TypeRefComponent t : types) {
-      if (t.getCode().equals(tr.getCode())) {
+      if (t.getWorkingCode().equals(tr.getWorkingCode())) {
         if (((!t.hasProfile() && !tr.hasProfile()) || (t.getProfile().equals(tr.getProfile()))))
           return true;
       }
@@ -901,7 +901,7 @@ public class SpecDifferenceEvaluator {
   
   private TypeRefComponent getType(List<TypeRefComponent> types, TypeRefComponent tr) {
     for (TypeRefComponent t : types) {
-      if (t.getCode().equals(tr.getCode())) {
+      if (t.getWorkingCode().equals(tr.getWorkingCode())) {
         return t;
       }
     }
@@ -910,9 +910,9 @@ public class SpecDifferenceEvaluator {
   
   private String describeType(TypeRefComponent tr) {
     if (!tr.hasProfile() && !tr.hasTargetProfile()) 
-      return tr.getCode();
-    else if (Utilities.existsInList(tr.getCode(), "Reference", "canonical")) {
-      StringBuilder b = new StringBuilder(tr.getCode());
+      return tr.getWorkingCode();
+    else if (Utilities.existsInList(tr.getWorkingCode(), "Reference", "canonical")) {
+      StringBuilder b = new StringBuilder(tr.getWorkingCode());
       b.append("(");
       boolean first = true;
       for (UriType u : tr.getTargetProfile()) {
@@ -928,7 +928,7 @@ public class SpecDifferenceEvaluator {
       b.append(")");
       return b.toString();
     } else {
-      StringBuilder b = new StringBuilder(tr.getCode());
+      StringBuilder b = new StringBuilder(tr.getWorkingCode());
       if (tr.getProfile().size() > 0) {
         b.append("(");
         boolean first = true;
@@ -1218,8 +1218,6 @@ public class SpecDifferenceEvaluator {
 
     if (rev.getType().size() == 1 && orig.getType().size() == 1) {
       String r = describeType(rev.getType().get(0));
-      if (Utilities.noString(r) && Utilities.existsInList(rev.getId(), "Element.id", "Extension.url"))
-        r = "string";        
       String o = describeType(orig.getType().get(0));
       if (!o.equals(r)) {
         oa.add(new JsonPrimitive(o));
@@ -1231,7 +1229,7 @@ public class SpecDifferenceEvaluator {
           oa.add(new JsonPrimitive(describeType(tr)));
       }
       for (TypeRefComponent tr : rev.getType()) {
-        if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getCode()))
+        if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getWorkingCode()))
           ra.add(new JsonPrimitive(describeType(tr)));
       }
       for (TypeRefComponent tr : rev.getType()) {
@@ -1265,9 +1263,9 @@ public class SpecDifferenceEvaluator {
     }
     
     if (added.size() > 0)
-      element.add(tr.getCode()+"-target-added", added);
+      element.add(tr.getWorkingCode()+"-target-added", added);
     if (removed.size() > 0)
-      element.add(tr.getCode()+"-target-removed", removed);
+      element.add(tr.getWorkingCode()+"-target-removed", removed);
   }
   
   private void analyseTypes(Document doc, Element element, ElementDefinition rev, ElementDefinition orig) {
@@ -1286,7 +1284,7 @@ public class SpecDifferenceEvaluator {
           element.appendChild(makeElementWithAttribute(doc, "removed-type", "name", describeType(tr)));
       }
       for (TypeRefComponent tr : rev.getType()) {
-        if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getCode()))
+        if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getWorkingCode()))
           element.appendChild(makeElementWithAttribute(doc, "added-type", "name", describeType(tr)));
       }
       for (TypeRefComponent tr : rev.getType()) {
@@ -1302,13 +1300,13 @@ public class SpecDifferenceEvaluator {
    
     for (CanonicalType p : tr.getTargetProfile()) {
       if (!hasParam(tm, p.asStringValue())) {
-        element.appendChild(makeElementWithAttribute(doc, tr.getCode()+"-target-added", "name", p.asStringValue()));
+        element.appendChild(makeElementWithAttribute(doc, tr.getWorkingCode()+"-target-added", "name", p.asStringValue()));
       }
     }
     
     for (CanonicalType p : tm.getTargetProfile()) {
       if (!hasParam(tr, p.asStringValue())) {
-        element.appendChild(makeElementWithAttribute(doc, tr.getCode()+"-target-removed", "name", p.asStringValue()));
+        element.appendChild(makeElementWithAttribute(doc, tr.getWorkingCode()+"-target-removed", "name", p.asStringValue()));
       }
     }    
   }

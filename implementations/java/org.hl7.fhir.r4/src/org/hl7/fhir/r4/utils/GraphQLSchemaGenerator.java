@@ -275,18 +275,18 @@ public class GraphQLSchemaGenerator {
 
   private void generateProperty(List<StringBuilder> list, StringBuilder b, String typeName, StructureDefinition sd, ElementDefinition child, TypeRefComponent typeDetails, boolean suffix, ElementDefinition cr, String mode) throws IOException {
     if (isPrimitive(typeDetails)) {
-      String n = getGqlname(typeDetails.getCode()); 
+      String n = getGqlname(typeDetails.getWorkingCode()); 
       b.append("  ");
       b.append(tail(child.getPath(), suffix));
       if (suffix)
-        b.append(Utilities.capitalize(typeDetails.getCode()));
+        b.append(Utilities.capitalize(typeDetails.getWorkingCode()));
       b.append(": ");
       b.append(n);
       if (!child.getPath().endsWith(".id")) {
         b.append("  _");
         b.append(tail(child.getPath(), suffix));
         if (suffix)
-          b.append(Utilities.capitalize(typeDetails.getCode()));
+          b.append(Utilities.capitalize(typeDetails.getWorkingCode()));
         if (!child.getMax().equals("1"))
           b.append(": [ElementBase]\r\n");
         else
@@ -297,11 +297,11 @@ public class GraphQLSchemaGenerator {
       b.append("  ");
       b.append(tail(child.getPath(), suffix));
       if (suffix)
-        b.append(Utilities.capitalize(typeDetails.getCode()));
+        b.append(Utilities.capitalize(typeDetails.getWorkingCode()));
       b.append(": ");
       if (!child.getMax().equals("1"))
         b.append("[");
-      String type = typeDetails.getCode();
+      String type = typeDetails.getWorkingCode();
       if (cr != null)
         b.append(generateInnerType(list, sd, typeName, cr, mode));
       else if (Utilities.existsInList(type, "Element", "BackboneElement"))
@@ -343,7 +343,7 @@ public class GraphQLSchemaGenerator {
   }
 
   private boolean isPrimitive(TypeRefComponent type) {
-    String typeName = type.getCode();
+    String typeName = type.getWorkingCode();
     StructureDefinition sd = context.fetchTypeDefinition(typeName);
     if (sd == null)
       return false;

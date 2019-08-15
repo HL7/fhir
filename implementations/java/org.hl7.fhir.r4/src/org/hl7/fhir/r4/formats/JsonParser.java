@@ -1199,7 +1199,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
     if (json.has("language"))
-      res.setLanguageElement(parseEnumeration(json.get("language").getAsString(), Expression.ExpressionLanguage.NULL, new Expression.ExpressionLanguageEnumFactory()));
+      res.setLanguageElement(parseCode(json.get("language").getAsString()));
     if (json.has("_language"))
       parseElementProperties(json.getAsJsonObject("_language"), res.getLanguageElement());
     if (json.has("expression"))
@@ -14197,7 +14197,7 @@ public class JsonParser extends JsonParserBase {
   protected void parseImplementationGuideImplementationGuideDefinitionParameterComponentProperties(JsonObject json, ImplementationGuide owner, ImplementationGuide.ImplementationGuideDefinitionParameterComponent res) throws IOException, FHIRFormatError {
     parseBackboneElementProperties(json, res);
     if (json.has("code"))
-      res.setCodeElement(parseEnumeration(json.get("code").getAsString(), ImplementationGuide.GuideParameterCode.NULL, new ImplementationGuide.GuideParameterCodeEnumFactory()));
+      res.setCodeElement(parseString(json.get("code").getAsString()));
     if (json.has("_code"))
       parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
     if (json.has("value"))
@@ -30074,8 +30074,8 @@ public class JsonParser extends JsonParserBase {
         composeIdExtras("name", element.getNameElement(), false);
       }
       if (element.hasLanguageElement()) {
-        composeEnumerationCore("language", element.getLanguageElement(), new Expression.ExpressionLanguageEnumFactory(), false);
-        composeEnumerationExtras("language", element.getLanguageElement(), new Expression.ExpressionLanguageEnumFactory(), false);
+        composeCodeCore("language", element.getLanguageElement(), false);
+        composeCodeExtras("language", element.getLanguageElement(), false);
       }
       if (element.hasExpressionElement()) {
         composeStringCore("expression", element.getExpressionElement(), false);
@@ -43753,8 +43753,8 @@ public class JsonParser extends JsonParserBase {
   protected void composeImplementationGuideImplementationGuideDefinitionParameterComponentInner(ImplementationGuide.ImplementationGuideDefinitionParameterComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasCodeElement()) {
-        composeEnumerationCore("code", element.getCodeElement(), new ImplementationGuide.GuideParameterCodeEnumFactory(), false);
-        composeEnumerationExtras("code", element.getCodeElement(), new ImplementationGuide.GuideParameterCodeEnumFactory(), false);
+        composeStringCore("code", element.getCodeElement(), false);
+        composeStringExtras("code", element.getCodeElement(), false);
       }
       if (element.hasValueElement()) {
         composeStringCore("value", element.getValueElement(), false);
@@ -58835,7 +58835,7 @@ public class JsonParser extends JsonParserBase {
     else if (type instanceof ParameterDefinition)
        composeParameterDefinitionInner((ParameterDefinition) type);
     else
-      throw new Error("Unhandled type");
+      throw new Error("Unhandled type: "+type.fhirType());
   }
 
 }

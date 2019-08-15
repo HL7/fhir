@@ -901,7 +901,7 @@ public class FHIRPathEngine {
       return null;
     } else if (Utilities.isInteger(constant)) {
       return new IntegerType(constant);
-    } else if (Utilities.isDecimal(constant)) {
+    } else if (Utilities.isDecimal(constant, false)) {
       return new DecimalType(constant);
     } else if (constant.startsWith("\'")) {
       return new StringType(processConstantString(constant));
@@ -1616,7 +1616,7 @@ public class FHIRPathEngine {
       return "boolean";
     else if (Utilities.isInteger(constant))
       return "integer";
-    else if (Utilities.isDecimal(constant))
+    else if (Utilities.isDecimal(constant, false))
       return "decimal";
     else if (constant.startsWith("%"))
       return resolveConstantType(context, constant);
@@ -2083,7 +2083,7 @@ public class FHIRPathEngine {
   private List<Base> funcToDecimal(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
     String s = convertToString(focus);
     List<Base> result = new ArrayList<Base>();
-    if (Utilities.isDecimal(s))
+    if (Utilities.isDecimal(s, false))
       result.add(new DecimalType(s));
     return result;
   }

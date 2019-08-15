@@ -157,7 +157,7 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
     if (!sd.hasSnapshot()) {
       ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
       StructureDefinition base = TestingUtilities.context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
-      pu.generateSnapshot(base, sd, sd.getUrl(), sd.getTitle());
+      pu.generateSnapshot(base, sd, sd.getUrl(), null, sd.getTitle());
 // (debugging)      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("[tmp]", sd.getId()+".xml")), sd);
     }
     return sd;

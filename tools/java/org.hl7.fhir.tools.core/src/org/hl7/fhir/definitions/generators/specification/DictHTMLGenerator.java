@@ -183,7 +183,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
   
   private boolean isProfiledExtension(ElementDefinition ec) {
-    return ec.getType().size() == 1 && "Extension".equals(ec.getType().get(0).getCode()) && ec.getType().get(0).hasProfile();
+    return ec.getType().size() == 1 && "Extension".equals(ec.getType().get(0).getWorkingCode()) && ec.getType().get(0).hasProfile();
   }
 
   private void generateElementInner(StructureDefinition profile, ElementDefinition d, int mode, ElementDefinition value) throws Exception {
@@ -299,25 +299,25 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private void describeType(StringBuilder b, TypeRefComponent t) throws Exception {
-    if (t.getCode() == null)
+    if (t.getWorkingCode() == null)
       return;
-    if (t.getCode().startsWith("="))
+    if (t.getWorkingCode().startsWith("="))
       return;
     
-    if (t.getCode().startsWith("xs:")) {
-      b.append(t.getCode());
+    if (t.getWorkingCode().startsWith("xs:")) {
+      b.append(t.getWorkingCode());
     } else {
       b.append("<a href=\"");
       b.append(prefix);         
-      b.append(definitions.getSrcFile(t.getCode()));
+      b.append(definitions.getSrcFile(t.getWorkingCode()));
       b.append(".html#");
-      String type = t.getCode();
+      String type = t.getWorkingCode();
       if (type.equals("*"))
         b.append("open");
       else 
-        b.append(t.getCode());
+        b.append(t.getWorkingCode());
       b.append("\">");
-      b.append(t.getCode());
+      b.append(t.getWorkingCode());
       b.append("</a>");
     }
     if (t.hasProfile() || t.hasTargetProfile()) {

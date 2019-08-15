@@ -142,7 +142,7 @@ public class ExtensionDefinitionGenerator {
     List<StructureDefinition> definitions = loadSource();
     List<StructureDefinition> extensions = buildExtensions(definitions);
     for (StructureDefinition ext : extensions)
-      pu.generateSnapshot(extbase, ext, ext.getUrl(), ext.getName());
+      pu.generateSnapshot(extbase, ext, ext.getUrl(), null, ext.getName());
     savePackage(extensions);
     
   }

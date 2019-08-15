@@ -958,7 +958,7 @@ public class ValidationEngine {
     StructureDefinition sd = (StructureDefinition) res;
     StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
     
-    new ProfileUtilities(context, null, null).generateSnapshot(base, sd, sd.getUrl(), sd.getName());
+    new ProfileUtilities(context, null, null).generateSnapshot(base, sd, sd.getUrl(), null, sd.getName());
     return sd;
   }
 

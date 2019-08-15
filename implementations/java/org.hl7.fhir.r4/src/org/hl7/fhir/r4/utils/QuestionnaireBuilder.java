@@ -296,11 +296,11 @@ public class QuestionnaireBuilder {
   }
 
   private boolean isAbstractType(List<TypeRefComponent> type) {
-    return type.size() == 1 && (type.get(0).getCode().equals("Element") || type.get(0).getCode().equals("BackboneElement"));
+    return type.size() == 1 && (type.get(0).getWorkingCode().equals("Element") || type.get(0).getWorkingCode().equals("BackboneElement"));
   }
 
   private boolean isInlineDataType(List<TypeRefComponent> type) {
-    return type.size() == 1 && !Utilities.existsInList(type.get(0).getCode(), "code", "string", "id", "oid", "markdown", "uri", "boolean", "decimal", "dateTime", "date", "instant", "time", "CodeableConcept", "Period", "Ratio",
+    return type.size() == 1 && !Utilities.existsInList(type.get(0).getWorkingCode(), "code", "string", "id", "oid", "markdown", "uri", "boolean", "decimal", "dateTime", "date", "instant", "time", "CodeableConcept", "Period", "Ratio",
         "HumanName", "Address", "ContactPoint", "Identifier", "integer", "positiveInt", "unsignedInt", "Coding", "Quantity",  "Count",  "Age",  "Duration", 
         "Distance",  "Money", "Money", "Reference", "Duration", "base64Binary", "Attachment", "Age", "Range", "Timing", "Annotation", "SampledData", "Extension",
         "SampledData", "Narrative", "Resource", "Meta", "url", "canonical");
@@ -310,7 +310,7 @@ public class QuestionnaireBuilder {
     String n = tail(child.getPath());
     String t = "";
     if (!element.getType().isEmpty())
-      t =  element.getType().get(0).getCode();
+      t =  element.getType().get(0).getWorkingCode();
 
     // we don't generate questions for the base stuff in every element
     if (t.equals("Resource")  && (n.equals("text") || n.equals("language") || n.equals("contained")))
@@ -365,7 +365,7 @@ public class QuestionnaireBuilder {
       else
         ToolingExtensions.addFlyOver(group, element.getDefinition());
 
-      if (element.getType().size() > 1 || element.getType().get(0).getCode().equals("*")) {
+      if (element.getType().size() > 1 || element.getType().get(0).getWorkingCode().equals("*")) {
         List<TypeRefComponent> types = expandTypeList(element.getType());
         Questionnaire.QuestionnaireItemComponent q = addQuestion(group, QuestionnaireItemType.CHOICE, element.getPath(), "_type", "type", null, makeTypeList(profile, types, element.getPath()));
           for (TypeRefComponent t : types) {
@@ -390,7 +390,7 @@ public class QuestionnaireBuilder {
     for (TypeRefComponent t : types) {
 	    if (t.hasProfile())
         result.add(t);
-	    else if (t.getCode().equals("*")) {
+	    else if (t.getWorkingCode().equals("*")) {
 	      result.add(new TypeRefComponent().setCode("integer"));
 	      result.add(new TypeRefComponent().setCode("decimal"));
 	      result.add(new TypeRefComponent().setCode("dateTime"));
@@ -439,8 +439,8 @@ public class QuestionnaireBuilder {
         }
       } else if (!t.hasProfile()) {
         ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
-        cc.setCode(t.getCode());
-        cc.setDisplay(t.getCode());
+        cc.setCode(t.getWorkingCode());
+        cc.setDisplay(t.getWorkingCode());
         cc.setSystem("http://hl7.org/fhir/data-types");
       } else for (UriType u : t.getProfile()) {
         ProfileUtilities pu = new ProfileUtilities(context, null, null);
@@ -494,7 +494,7 @@ public class QuestionnaireBuilder {
           cc.setCode(t.getProfile().get(0).getValue());
           cc.setSystem("http://hl7.org/fhir/resource-types");
         } else {
-          cc.setCode(t.getCode());
+          cc.setCode(t.getWorkingCode());
           cc.setSystem("http://hl7.org/fhir/data-types");
         }
       }
@@ -509,7 +509,7 @@ public class QuestionnaireBuilder {
   }
 
   private boolean instanceOf(TypeRefComponent t, Element obj) {
-    if (t.getCode().equals("Reference")) {
+    if (t.getWorkingCode().equals("Reference")) {
       if (!(obj instanceof Reference)) {
         return false;
       } else {
@@ -522,7 +522,7 @@ public class QuestionnaireBuilder {
         else
           return true;
       }
-    } else if (t.getCode().equals("Quantity")) {
+    } else if (t.getWorkingCode().equals("Quantity")) {
       return obj instanceof Quantity;
     } else
       throw new NotImplementedException("Not Done Yet");
@@ -683,77 +683,77 @@ public class QuestionnaireBuilder {
   }
 
   private boolean isPrimitive(TypeRefComponent t) {
-    String code = t.getCode();
+    String code = t.getWorkingCode();
     StructureDefinition sd = context.fetchTypeDefinition(code);
     return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
   }
 
   private void processDataType(StructureDefinition profile, QuestionnaireItemComponent group, ElementDefinition element, String path, TypeRefComponent t, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups, List<ElementDefinition> parents) throws FHIRException {
-    if (t.getCode().equals("code"))
+    if (t.getWorkingCode().equals("code"))
       addCodeQuestions(group, element, path, answerGroups);
-    else if (Utilities.existsInList(t.getCode(), "string", "id", "oid", "uuid", "markdown"))
+    else if (Utilities.existsInList(t.getWorkingCode(), "string", "id", "oid", "uuid", "markdown"))
       addStringQuestions(group, element, path, answerGroups);
-    else if (Utilities.existsInList(t.getCode(), "uri", "url", "canonical"))
+    else if (Utilities.existsInList(t.getWorkingCode(), "uri", "url", "canonical"))
       addUriQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("boolean"))
+    else if (t.getWorkingCode().equals("boolean"))
       addBooleanQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("decimal"))
+    else if (t.getWorkingCode().equals("decimal"))
       addDecimalQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("dateTime") || t.getCode().equals("date"))
+    else if (t.getWorkingCode().equals("dateTime") || t.getWorkingCode().equals("date"))
         addDateTimeQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("instant"))
+    else if (t.getWorkingCode().equals("instant"))
       addInstantQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("time"))
+    else if (t.getWorkingCode().equals("time"))
       addTimeQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("CodeableConcept"))
+    else if (t.getWorkingCode().equals("CodeableConcept"))
       addCodeableConceptQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Period"))
+    else if (t.getWorkingCode().equals("Period"))
       addPeriodQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Ratio"))
+    else if (t.getWorkingCode().equals("Ratio"))
       addRatioQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("HumanName"))
+    else if (t.getWorkingCode().equals("HumanName"))
       addHumanNameQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Address"))
+    else if (t.getWorkingCode().equals("Address"))
       addAddressQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("ContactPoint"))
+    else if (t.getWorkingCode().equals("ContactPoint"))
       addContactPointQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Identifier"))
+    else if (t.getWorkingCode().equals("Identifier"))
       addIdentifierQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("integer") || t.getCode().equals("positiveInt") || t.getCode().equals("unsignedInt") )
+    else if (t.getWorkingCode().equals("integer") || t.getWorkingCode().equals("positiveInt") || t.getWorkingCode().equals("unsignedInt") )
       addIntegerQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Coding"))
+    else if (t.getWorkingCode().equals("Coding"))
       addCodingQuestions(group, element, path, answerGroups);
-    else if (Utilities.existsInList(t.getCode(), "Quantity", "Count", "Age", "Duration", "Distance", "Money"))
+    else if (Utilities.existsInList(t.getWorkingCode(), "Quantity", "Count", "Age", "Duration", "Distance", "Money"))
       addQuantityQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Money"))
+    else if (t.getWorkingCode().equals("Money"))
       addMoneyQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Reference"))
+    else if (t.getWorkingCode().equals("Reference"))
       addReferenceQuestions(group, element, path, t.getTargetProfile(), answerGroups);
-    else if (t.getCode().equals("Duration"))
+    else if (t.getWorkingCode().equals("Duration"))
       addDurationQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("base64Binary"))
+    else if (t.getWorkingCode().equals("base64Binary"))
       addBinaryQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Attachment"))
+    else if (t.getWorkingCode().equals("Attachment"))
       addAttachmentQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Age"))
+    else if (t.getWorkingCode().equals("Age"))
       addAgeQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Range"))
+    else if (t.getWorkingCode().equals("Range"))
       addRangeQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Timing"))
+    else if (t.getWorkingCode().equals("Timing"))
       addTimingQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Annotation"))
+    else if (t.getWorkingCode().equals("Annotation"))
       addAnnotationQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("SampledData"))
+    else if (t.getWorkingCode().equals("SampledData"))
       addSampledDataQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("Extension")) {
+    else if (t.getWorkingCode().equals("Extension")) {
       if (t.hasProfile())
         addExtensionQuestions(profile, group, element, path, t.getProfile().get(0).getValue(), answerGroups, parents);
-    } else if (t.getCode().equals("SampledData"))
+    } else if (t.getWorkingCode().equals("SampledData"))
       addSampledDataQuestions(group, element, path, answerGroups);
-    else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("Meta") && !t.getCode().equals("Signature")) {
-      StructureDefinition sd = context.fetchTypeDefinition(t.getCode());
+    else if (!t.getWorkingCode().equals("Narrative") && !t.getWorkingCode().equals("Resource") && !t.getWorkingCode().equals("Meta") && !t.getWorkingCode().equals("Signature")) {
+      StructureDefinition sd = context.fetchTypeDefinition(t.getWorkingCode());
       if (sd == null)
-        throw new NotImplementedException("Unhandled Data Type: "+t.getCode()+" on element "+element.getPath());
+        throw new NotImplementedException("Unhandled Data Type: "+t.getWorkingCode()+" on element "+element.getPath());
       buildGroup(group, sd, sd.getSnapshot().getElementFirstRep(), parents, answerGroups);
     }
   }

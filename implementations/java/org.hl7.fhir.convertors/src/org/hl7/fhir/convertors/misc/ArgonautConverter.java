@@ -938,7 +938,7 @@ public class ArgonautConverter extends ConverterBase {
 					obs.setStatus(ObservationStatus.FINAL);
 					obs.setEffective(convert.makeDateTimeFromTS(cda.getChild(o, "effectiveTime")));
 					String v = cda.getChild(o, "value").getAttribute("value");
-					if (!Utilities.isDecimal(v)) {
+					if (!Utilities.isDecimal(v, true)) {
 						obs.setDataAbsentReason(inspectCode(new CodeableConcept().setText(v), null));
 					} else
 						obs.setValue(convert.makeQuantityFromPQ(cda.getChild(o, "value")));
@@ -1038,7 +1038,7 @@ public class ArgonautConverter extends ConverterBase {
 		} else if ("PQ".equals(type)) {
 			obs.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/observation-daf-results-dafresultobsquantity");
 			String va = cda.getChild(o, "value").getAttribute("value");
-			if (!Utilities.isDecimal(va)) {
+			if (!Utilities.isDecimal(va, false)) {
 				obs.setDataAbsentReason(inspectCode(new CodeableConcept().setText(va), null));
 			} else
 				obs.setValue(convert.makeQuantityFromPQ(cda.getChild(o, "value"), null));

@@ -334,7 +334,7 @@ public class XmlSchemaGenerator  {
         throw new Error("Common ancester not found at "+edc.getPath());
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (TypeRefComponent t : edc.getType()) {
-        b.append(getQN(sd, edc, t.getCode(), true).toString());
+        b.append(getQN(sd, edc, t.getWorkingCode(), true).toString());
       }
       
       String name = tailDot(edc.getPath());
@@ -355,8 +355,8 @@ public class XmlSchemaGenerator  {
     } else for (TypeRefComponent t : edc.getType()) {
       String name = tailDot(edc.getPath());
       if (edc.getType().size() > 1)
-        name = name + Utilities.capitalize(t.getCode());
-      QName qn = getQN(sd, edc, t.getCode(), true);
+        name = name + Utilities.capitalize(t.getWorkingCode());
+      QName qn = getQN(sd, edc, t.getWorkingCode(), true);
       String min = String.valueOf(edc.getMin());
       String max = edc.getMax();
       if ("*".equals(max))
@@ -415,13 +415,13 @@ public class XmlSchemaGenerator  {
   }
   
   private StructureDefinition getCommonAncestor(List<TypeRefComponent> type) throws FHIRException {
-    StructureDefinition sd = library.get(type.get(0).getCode());
+    StructureDefinition sd = library.get(type.get(0).getWorkingCode());
     if (sd == null)
-      throw new FHIRException("Unable to find definition for "+type.get(0).getCode()); 
+      throw new FHIRException("Unable to find definition for "+type.get(0).getWorkingCode()); 
     for (int i = 1; i < type.size(); i++) {
-      StructureDefinition t = library.get(type.get(i).getCode());
+      StructureDefinition t = library.get(type.get(i).getWorkingCode());
       if (t == null)
-        throw new FHIRException("Unable to find definition for "+type.get(i).getCode()); 
+        throw new FHIRException("Unable to find definition for "+type.get(i).getWorkingCode()); 
       sd = getCommonAncestor(sd, t);
     }
     return sd;
@@ -499,10 +499,10 @@ public class XmlSchemaGenerator  {
 //    if (!max.equals("1"))
 //      throw new FHIRException("Illegal cardinality \""+max+"\" for attribute "+edc.getPath());
     
-    if (Utilities.isAbsoluteUrl(t.getCode())) 
-      throw new FHIRException("Only FHIR primitive types are supported for attributes ("+t.getCode()+")");
+    if (Utilities.isAbsoluteUrl(t.getWorkingCode())) 
+      throw new FHIRException("Only FHIR primitive types are supported for attributes ("+t.getWorkingCode()+")");
     String typeNs = namespaces.get("http://hl7.org/fhir");
-    String type = t.getCode(); 
+    String type = t.getWorkingCode(); 
     
     w("        <xs:attribute name=\""+name+"\" use=\""+(min.equals("0") || edc.hasFixed() || edc.hasDefaultValue() ? "optional" : "required")+"\" type=\""+typeNs+":"+type+(typeNs.equals("fhir") ? "-primitive" : "")+"\""+
     (edc.hasFixed() ? " fixed=\""+edc.getFixed().primitiveValue()+"\"" : "")+(edc.hasDefaultValue() && !edc.hasFixed() ? " default=\""+edc.getDefaultValue().primitiveValue()+"\"" : "")+"");

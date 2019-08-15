@@ -348,7 +348,7 @@ public class ResourceUtilities {
   private static String renderType(TypeRefComponent type) {
     if (type == null || type.isEmpty())
       return "";
-    return type.getCode();
+    return type.getWorkingCode();
   }
 
   public static void renderContactPoint(StringBuilder b, ContactPoint cp) {

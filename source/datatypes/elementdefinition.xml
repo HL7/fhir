@@ -4341,8 +4341,8 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition.type</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Aggregation may only be specified if one of the allowed types for the element is a reference</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">aggregation.empty() or (code = 'Reference')</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:aggregation)) or exists(f:code[@value = 'Reference'])</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">aggregation.empty() or (code = 'Reference') or (code = 'canonical')</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:aggregation)) or exists(f:code[@value = 'Reference']) or exists(f:code[@value = 'canonical'])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="210">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">5</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4461,7 +4461,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell><Data ss:Type="String">Must have a modifier reason if isModifier = true</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">isModifier implies isModifierReason.exists()</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">(isModifier.exists() and isModifier) implies isModifierReason.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(f:isModifier/@value = 'true') or exists(f:isModifierReason)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">

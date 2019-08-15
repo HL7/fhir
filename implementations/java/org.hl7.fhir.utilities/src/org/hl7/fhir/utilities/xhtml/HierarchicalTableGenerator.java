@@ -64,6 +64,7 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
   public static final String TEXT_ICON_EXTENSION = "Extension";
   public static final String TEXT_ICON_CHOICE = "Choice of Types";
   public static final String TEXT_ICON_SLICE = "Slice Definition";
+  public static final String TEXT_ICON_FIXED = "Fixed Value";
   public static final String TEXT_ICON_EXTENSION_SIMPLE = "Simple Extension";
   public static final String TEXT_ICON_PROFILE = "Profile";
   public static final String TEXT_ICON_EXTENSION_COMPLEX = "Complex Extension";
@@ -74,9 +75,19 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
   public static final int CONTINUE_SLICER = 3;
   public static final int NEW_SLICE = 4;
   public static final int CONTINUE_SLICE = 5;  
+  private static final String BACKGROUND_ALT_COLOR = "#F7F7F7";  
   
   private static Map<String, String> files = new HashMap<String, String>();
 
+  private class Counter {
+    private int count = -1;
+    private void row() {
+      count++;
+    }
+    private boolean isOdd() {
+      return count % 2 == 1;
+    }
+  }
   public class Piece {
     private String tag;
     private String reference;
@@ -211,6 +222,7 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
       
       return myPieces;
     }
+    
     private List<Piece> htmlFormattingToPieces(String html) throws IOException, FHIRException {
       List<Piece> myPieces = new ArrayList<Piece>();
       if (html.contains(("<"))) {
@@ -222,6 +234,7 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
         myPieces.add(new Piece(null, html, null));        
       return myPieces;
     }
+    
     private void addNode(List<Piece> list, XhtmlNode c) {
       if (c.getNodeType() == NodeType.Text)
         list.add(new Piece(null, c.getContent(), null));
@@ -279,7 +292,7 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
         p.addStyle("background-color: "+bgColor);
       } else {
         p.addStyle("color: black");
-        p.addStyle("background-color: white");       
+        p.addStyle("background-color: "+bgColor != null ? bgColor : "white");       
       }
       pieces.add(p);
       return p;
@@ -361,6 +374,7 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
     private List<Row> rows = new ArrayList<HierarchicalTableGenerator.Row>();
     private String docoRef;
     private String docoImg;
+    private boolean alternating;
     public List<Title> getTitles() {
       return titles;
     }
@@ -413,9 +427,10 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
     this.makeTargets = makeTargets;
   }
 
-  public TableModel initNormalTable(String prefix, boolean isLogical) {
+  public TableModel initNormalTable(String prefix, boolean isLogical, boolean alternating) {
     TableModel model = new TableModel();
     
+    model.alternating = alternating;
     model.setDocoImg(prefix+"help16.png");
     model.setDocoRef(prefix+"formats.html#table");
     model.getTitles().add(new Title(null, model.getDocoRef(), translate("sd.head", "Name"), translate("sd.hint", "The logical name of the element"), null, 0));
@@ -455,8 +470,9 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
     if (tc != null && model.getDocoRef() != null)
       tc.addTag("span").setAttribute("style", "float: right").addTag("a").setAttribute("title", "Legend for this format").setAttribute("href", model.getDocoRef()).addTag("img").setAttribute("alt", "doco").setAttribute("style", "background-color: inherit").setAttribute("src", model.getDocoImg());
       
+    Counter counter = new Counter();
     for (Row r : model.getRows()) {
-      renderRow(table, r, 0, new ArrayList<Integer>(), imagePath, border, outputTracker);
+      renderRow(table, r, 0, new ArrayList<Integer>(), imagePath, border, outputTracker, counter, model);
     }
     if (model.getDocoRef() != null) {
       tr = table.addTag("tr");
@@ -473,11 +489,15 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
   }
 
 
-  private void renderRow(XhtmlNode table, Row r, int indent, List<Integer> indents, String imagePath, int border, Set<String> outputTracker) throws IOException  {
+  private void renderRow(XhtmlNode table, Row r, int indent, List<Integer> indents, String imagePath, int border, Set<String> outputTracker, Counter counter, TableModel model) throws IOException  {
+    counter.row();
     XhtmlNode tr = table.addTag("tr");
     String color = "white";
     if (r.getColor() != null)
       color = r.getColor();
+    else if (model.alternating  && counter.isOdd())
+      color = BACKGROUND_ALT_COLOR;
+    
     tr.setAttribute("style", "border: " + border + "px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: "+color+";");
     boolean first = true;
     for (Cell t : r.getCells()) {
@@ -495,7 +515,7 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
       } else {
         ind.add(r.getLineColor()*2+1);
       }
-      renderRow(table, c, indent+1, ind, imagePath, border, outputTracker);
+      renderRow(table, c, indent+1, ind, imagePath, border, outputTracker, counter, model);
     }
   }
 

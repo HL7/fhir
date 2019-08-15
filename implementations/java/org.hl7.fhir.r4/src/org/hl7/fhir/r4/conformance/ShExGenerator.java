@@ -551,7 +551,7 @@ public class ShExGenerator {
   private String genTypeRef(StructureDefinition sd, ElementDefinition ed, String id, ElementDefinition.TypeRefComponent typ) {
 
     if(typ.hasProfile()) {
-      if(typ.getCode().equals("Reference"))
+      if(typ.getWorkingCode().equals("Reference"))
         return genReference("", typ);
       else if(ProfileUtilities.getChildList(sd, ed).size() > 0) {
         // inline anonymous type - give it a name and factor it out
@@ -636,7 +636,7 @@ public class ShExGenerator {
    * @return ShEx equivalent
    */
   private String genAltEntry(String id, ElementDefinition.TypeRefComponent typ) {
-    if(!typ.getCode().equals("Reference"))
+    if(!typ.getWorkingCode().equals("Reference"))
       throw new AssertionError("We do not handle " + typ.getCode() + " alternatives");
 
     return genReference(id, typ);
@@ -668,7 +668,7 @@ public class ShExGenerator {
   private String genChoiceEntry(StructureDefinition sd, ElementDefinition ed, String id, String base, ElementDefinition.TypeRefComponent typ) {
     ST shex_choice_entry = tmplt(ELEMENT_TEMPLATE);
 
-    String ext = typ.getCode();
+    String ext = typ.getWorkingCode();
     shex_choice_entry.add("id", "fhir:" + base+Character.toUpperCase(ext.charAt(0)) + ext.substring(1) + " ");
     shex_choice_entry.add("card", "");
     shex_choice_entry.add("defn", genTypeRef(sd, ed, id, typ));
@@ -728,7 +728,7 @@ public class ShExGenerator {
       String[] els = typ.getProfile().get(0).getValue().split("/");
       return els[els.length - 1];
     } else {
-      return typ.getCode();
+      return typ.getWorkingCode();
     }
   }
 

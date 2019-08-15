@@ -1155,7 +1155,7 @@ public class Turtle {
 					int sl = lexer.startLine;
 					int sc = lexer.startCol;
 					String pfx = lexer.peekType() == LexerTokenType.WORD ? lexer.word() : null;
-					if (Utilities.isDecimal(pfx) && !lexer.peek(LexerTokenType.TOKEN, ":")) {
+					if (Utilities.isDecimal(pfx, false) && !lexer.peek(LexerTokenType.TOKEN, ":")) {
 						TTLLiteral u = new TTLLiteral(sl, sc);
 						u.value = pfx;
             result.addPredicate(uri, u);					

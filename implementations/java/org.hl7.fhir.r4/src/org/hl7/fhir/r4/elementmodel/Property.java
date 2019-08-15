@@ -44,14 +44,14 @@ public class Property {
 		if (definition.getType().size() == 0)
 			return null;
 		else if (definition.getType().size() > 1) {
-			String tn = definition.getType().get(0).getCode();
+			String tn = definition.getType().get(0).getWorkingCode();
 			for (int i = 1; i < definition.getType().size(); i++) {
-				if (!tn.equals(definition.getType().get(i).getCode()))
+				if (!tn.equals(definition.getType().get(i).getWorkingCode()))
 					throw new Error("logic error, gettype when types > 1");
 			}
 			return tn;
 		} else
-			return definition.getType().get(0).getCode();
+			return definition.getType().get(0).getWorkingCode();
 	}
 
 	public String getType(String elementName) {
@@ -74,10 +74,10 @@ public class Property {
     if (ed.getType().size() == 0)
 			return null;
     else if (ed.getType().size() > 1) {
-      String t = ed.getType().get(0).getCode();
+      String t = ed.getType().get(0).getWorkingCode();
 			boolean all = true;
       for (TypeRefComponent tr : ed.getType()) {
-				if (!t.equals(tr.getCode()))
+				if (!t.equals(tr.getWorkingCode()))
 					all = false;
 			}
 			if (all)
@@ -88,23 +88,23 @@ public class Property {
         return isPrimitive(lowFirst(name)) ? lowFirst(name) : name;        
 			} else
         throw new Error("logic error, gettype when types > 1, name mismatch for "+elementName+" on at "+ed.getPath());
-    } else if (ed.getType().get(0).getCode() == null) {
+    } else if (ed.getType().get(0).getWorkingCode() == null) {
       if (Utilities.existsInList(ed.getId(), "Element.id", "Extension.url"))
         return "string";
       else
         return structure.getId();
 		} else
-      return ed.getType().get(0).getCode();
+      return ed.getType().get(0).getWorkingCode();
 	}
 
   public boolean hasType(String elementName) {
     if (definition.getType().size() == 0)
       return false;
     else if (definition.getType().size() > 1) {
-      String t = definition.getType().get(0).getCode();
+      String t = definition.getType().get(0).getWorkingCode();
       boolean all = true;
       for (TypeRefComponent tr : definition.getType()) {
-        if (!t.equals(tr.getCode()))
+        if (!t.equals(tr.getWorkingCode()))
           all = false;
       }
       if (all)
@@ -151,7 +151,7 @@ public class Property {
 
 	public boolean isResource() {
 	  if (definition.getType().size() > 0)
-	    return definition.getType().size() == 1 && ("Resource".equals(definition.getType().get(0).getCode()) || "DomainResource".equals(definition.getType().get(0).getCode()));
+	    return definition.getType().size() == 1 && ("Resource".equals(definition.getType().get(0).getWorkingCode()) || "DomainResource".equals(definition.getType().get(0).getWorkingCode()));
 	  else
 	    return !definition.getPath().contains(".") && structure.getKind() == StructureDefinitionKind.RESOURCE;
 	}
@@ -203,7 +203,7 @@ public class Property {
   	if (sd == null || sd.getKind() != StructureDefinitionKind.LOGICAL)
   		return false;
   	for (ElementDefinition ed : sd.getSnapshot().getElement()) {
-  		if (ed.getPath().equals(sd.getId()+".value") && ed.getType().size() == 1 && isPrimitive(ed.getType().get(0).getCode())) {
+  		if (ed.getPath().equals(sd.getId()+".value") && ed.getType().size() == 1 && isPrimitive(ed.getType().get(0).getWorkingCode())) {
   			canBePrimitive = true;
   			return true;
   		}
@@ -214,9 +214,9 @@ public class Property {
   public boolean isChoice() {
     if (definition.getType().size() <= 1)
       return false;
-    String tn = definition.getType().get(0).getCode();
+    String tn = definition.getType().get(0).getWorkingCode();
     for (int i = 1; i < definition.getType().size(); i++) 
-      if (!definition.getType().get(i).getCode().equals(tn))
+      if (!definition.getType().get(i).getWorkingCode().equals(tn))
         return true;
     return false;
   }
@@ -230,15 +230,15 @@ public class Property {
     if (children.isEmpty() || isElementWithOnlyExtension(ed, children)) {
       // ok, find the right definitions
       String t = null;
-      if (ed.getType().size() == 1)
-        t = ed.getType().get(0).getCode();
-      else if (ed.getType().size() == 0)
+      if (ed.getType().size() == 1) {
+        t = ed.getType().get(0).getWorkingCode();
+      } else if (ed.getType().size() == 0)
         throw new Error("types == 0, and no children found on "+getDefinition().getPath());
       else {
-        t = ed.getType().get(0).getCode();
+        t = ed.getType().get(0).getWorkingCode();
         boolean all = true;
         for (TypeRefComponent tr : ed.getType()) {
-          if (!tr.getCode().equals(t)) {
+          if (!tr.getWorkingCode().equals(t)) {
             all = false;
             break;
           }
@@ -251,12 +251,12 @@ public class Property {
               t = ToolingExtensions.readStringExtension(ed, "http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype");
             boolean ok = false;
             for (TypeRefComponent tr : ed.getType()) { 
-              if (tr.getCode().equals(t)) 
+              if (tr.getWorkingCode().equals(t)) 
                 ok = true;
-              if (Utilities.isAbsoluteUrl(tr.getCode())) {
-                StructureDefinition sdt = context.fetchResource(StructureDefinition.class, tr.getCode());
+              if (Utilities.isAbsoluteUrl(tr.getWorkingCode())) {
+                StructureDefinition sdt = context.fetchResource(StructureDefinition.class, tr.getWorkingCode());
                 if (sdt != null && sdt.getType().equals(t)) {
-                  url = tr.getCode();
+                  url = tr.getWorkingCode();
                   ok = true;
                 }
               }
@@ -275,7 +275,7 @@ public class Property {
       }
       if (!"xhtml".equals(t)) {
         for (TypeRefComponent aType: ed.getType()) {
-          if (aType.getCode().equals(t)) {
+          if (t.equals(aType.getWorkingCode())) {
             if (aType.hasProfile()) {
               assert aType.getProfile().size() == 1; 
               url = aType.getProfile().get(0).getValue();
@@ -283,7 +283,7 @@ public class Property {
               url = ProfileUtilities.sdNs(t, context.getOverrideVersionNs());
             }
             break;
-          }
+          } 
         }
         if (url==null)
           throw new FHIRException("Unable to find type " + t + " for element " + elementName + " with path " + ed.getPath());

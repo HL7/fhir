@@ -993,7 +993,7 @@ public class StructureMapUtilities {
 		  // no dependencies - imply what is to be done based on types
 		}
 		if (newFmt) {
-		  if (lexer.isConstant(true)) {
+		  if (lexer.isConstant()) {
 		    rule.setName(lexer.take());
 		  } else {
 		    if (rule.getSource().size() != 1 || !rule.getSourceFirstRep().hasElement())
@@ -1100,7 +1100,7 @@ public class StructureMapUtilities {
 		  if (start != null)
 	      target.setContext(start);
 			lexer.token("=");
-			isConstant = lexer.isConstant(true);
+			isConstant = lexer.isConstant();
 			name = lexer.take();
 		} else 
 		  name = start;
@@ -1160,7 +1160,7 @@ public class StructureMapUtilities {
 
 
 	private void parseParameter(StructureMapGroupRuleTargetComponent target, FHIRLexer lexer) throws FHIRLexerException, FHIRFormatError {
-		if (!lexer.isConstant(true)) {
+		if (!lexer.isConstant()) {
 			target.addParameter().setValue(new IdType(lexer.take()));
 		} else if (lexer.isStringConstant())
 			target.addParameter().setValue(new StringType(lexer.readConstant("??")));
@@ -1172,7 +1172,7 @@ public class StructureMapUtilities {
 	private Type readConstant(String s, FHIRLexer lexer) throws FHIRLexerException {
 		if (Utilities.isInteger(s))
 			return new IntegerType(s);
-		else if (Utilities.isDecimal(s))
+		else if (Utilities.isDecimal(s, false))
 			return new DecimalType(s);
 		else if (Utilities.existsInList(s, "true", "false"))
 			return new BooleanType(s.equals("true"));
@@ -2399,7 +2399,7 @@ public class StructureMapUtilities {
       for (TypeRefComponent tr : element.getDefinition().getType()) {
         if (!tr.hasCode())
           throw new Error("Rule \""+ruleId+"\": Element has no type");
-        ProfiledType pt = new ProfiledType(tr.getCode());
+        ProfiledType pt = new ProfiledType(tr.getWorkingCode());
         if (tr.hasProfile())
           pt.addProfiles(tr.getProfile());
         if (element.getDefinition().hasBinding())
@@ -2657,11 +2657,11 @@ public class StructureMapUtilities {
 
 
   private String checkType(String t, Property pvb, List<String> profiles) throws FHIRException {
-    if (pvb.getDefinition().getType().size() == 1 && isCompatibleType(t, pvb.getDefinition().getType().get(0).getCode()) && profilesMatch(profiles, pvb.getDefinition().getType().get(0).getProfile())) 
+    if (pvb.getDefinition().getType().size() == 1 && isCompatibleType(t, pvb.getDefinition().getType().get(0).getWorkingCode()) && profilesMatch(profiles, pvb.getDefinition().getType().get(0).getProfile())) 
       return null;
     for (TypeRefComponent tr : pvb.getDefinition().getType()) {
-      if (isCompatibleType(t, tr.getCode()))
-        return tr.getCode(); // note what is returned - the base type, not the inferred mapping type
+      if (isCompatibleType(t, tr.getWorkingCode()))
+        return tr.getWorkingCode(); // note what is returned - the base type, not the inferred mapping type
     }
     throw new FHIRException("The type "+t+" is not compatible with the allowed types for "+pvb.getDefinition().getPath());
   }

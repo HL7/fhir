@@ -1,5 +1,8 @@
 package org.hl7.fhir.r4.formats;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -35,6 +38,8 @@ import java.net.URI;
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.utilities.TextFile;
 
 public abstract class FormatUtilities {
   public static final String ID_REGEX = "[A-Za-z0-9\\-\\.]{1,64}";
@@ -118,11 +123,18 @@ public abstract class FormatUtilities {
   }
 
   private static int firstIndexOf(byte[] source, char c, int scanLength) {
-    for (int i = 0; i < Math.max(source.length, scanLength); i++) {
+    for (int i = 0; i < Math.min(source.length, scanLength); i++) {
       if (source[i] == c)
         return i;
     }
     return Integer.MAX_VALUE;
+  }
+
+  public static Resource loadFile(String path) throws FileNotFoundException, IOException, FHIRException {
+    byte[] src = TextFile.fileToBytes(path);
+    FhirFormat fmt = determineFormat(src);
+    ParserBase parser = makeParser(fmt);
+    return parser.parse(src);
   }
 
 

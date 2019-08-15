@@ -43,8 +43,10 @@ import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.sound.sampled.AudioFormat;
@@ -105,15 +107,33 @@ public class Utilities {
   
   
     public static boolean isInteger(String string) {
-      try {
-        int i = Integer.parseInt(string);
-        return i != i+1;
-      } catch (Exception e) {
+      if (isBlank(string)) {
         return false;
       }
+      String value = string.startsWith("-") ? string.substring(1) : string;
+      for (char next : value.toCharArray()) {
+        if (!Character.isDigit(next)) {
+          return false;
+        }
+      }
+      // check bounds -2,147,483,648..2,147,483,647
+      if (value.length() > 10)
+        return false;
+      if (string.startsWith("-")) {
+        if (value.length() == 10 && string.compareTo("2147483648") > 0)
+          return false;       
+      } else {
+        if (value.length() == 10 && string.compareTo("2147483647") > 0)
+        return false;
+      }
+      return true;
     }
     
-    public static boolean isHex(String string) {
+    private static boolean isBlank(String string) {
+      return noString(string);
+	}
+
+	public static boolean isHex(String string) {
       try {
         int i = Integer.parseInt(string, 16);
         return i != i+1;
@@ -122,26 +142,88 @@ public class Utilities {
       }
     }
     
-    public static boolean isFloat(String string) {
-      if (Utilities.noString(string))
-        return false;
-      try {
-        float r = Float.parseFloat(string);
-        return r != r + 1; // just to suppress the hint
-      } catch (Exception e) {
-        return false;
-      }
+    public enum DecimalStatus {
+      BLANK, SYNTAX, RANGE, OK
     }
     
-    public static boolean isDecimal(String string) {
-      if (Utilities.noString(string))
-        return false;
-      try {
-        BigDecimal bd = new BigDecimal(string);
-        return bd != null;
-      } catch (Exception e) {
-        return false;
+    public static boolean isDecimal(String value, boolean allowExponent, boolean allowLeadingZero) {
+      DecimalStatus ds = checkDecimal(value, allowExponent, true);
+      return ds == DecimalStatus.OK || ds == DecimalStatus.RANGE;
+    }
+     
+    public static boolean isDecimal(String value, boolean allowExponent) {
+      DecimalStatus ds = checkDecimal(value, allowExponent, false);
+      return ds == DecimalStatus.OK || ds == DecimalStatus.RANGE;
+    }
+     
+    public static DecimalStatus checkDecimal(String value, boolean allowExponent, boolean allowLeadingZero) {
+      if (isBlank(value)) {
+        return DecimalStatus.BLANK;
       }
+      
+      // check for leading zeros
+      if (!allowLeadingZero) {
+        if (value.startsWith("0") && !"0".equals(value) && !value.startsWith("0."))
+         return DecimalStatus.SYNTAX;
+        if (value.startsWith("-0")  && !"-0".equals(value) && !value.startsWith("-0."))
+          return DecimalStatus.SYNTAX;
+        if (value.startsWith("+0")  && !"+0".equals(value) && !value.startsWith("+0."))
+          return DecimalStatus.SYNTAX;
+      }
+      
+      boolean havePeriod = false;
+      boolean haveExponent = false;
+      boolean haveSign = false;
+      boolean haveDigits = false;
+      int preDecLength = 0;
+      int postDecLength = 0;
+      int exponentLength = 0;
+      int length = 0;
+      for (char next : value.toCharArray()) {
+        if (next == '.') {
+          if (!haveDigits || havePeriod || haveExponent) 
+            return DecimalStatus.SYNTAX;
+          havePeriod = true;
+          preDecLength = length;
+          length = 0;
+        } else if (next == '-' || next == '+' ) {
+          if (haveDigits || haveSign)
+            return DecimalStatus.SYNTAX;
+          haveSign = true;
+        } else if (next == 'e' || next == 'E' ) {
+          if (!haveDigits || haveExponent || !allowExponent) 
+            return DecimalStatus.SYNTAX;
+          haveExponent = true;
+          haveSign = false;
+          haveDigits = false;
+          if (havePeriod)
+            postDecLength = length;
+          else 
+            preDecLength = length;
+          length = 0;
+        } else if (!Character.isDigit(next)) {
+          return DecimalStatus.SYNTAX;
+        } else {
+          haveDigits = true;
+          length++;
+        }
+    }
+      if (haveExponent && !haveDigits)
+        return DecimalStatus.SYNTAX;
+      if (haveExponent) 
+        exponentLength = length;
+      else if (havePeriod)
+        postDecLength = length;
+      else
+        preDecLength = length;
+      
+      // now, bounds checking - these are arbitrary
+      if (exponentLength > 4)
+        return DecimalStatus.RANGE;
+      if (preDecLength + postDecLength > 18)
+        return DecimalStatus.RANGE;
+    
+      return DecimalStatus.OK;
     }
     
 	public static String camelCase(String value) {
@@ -287,23 +369,30 @@ public class Utilities {
     return s.toString();
   }
 
-  public static void clearDirectory(String folder) throws IOException {
+  public static void clearDirectory(String folder, String... exemptions) throws IOException {
     File dir = new File(folder);
-    if (dir.exists())
+    if (dir.exists()) {
+      if (exemptions.length == 0)
       FileUtils.cleanDirectory(dir);
-//	  String[] files = new CSFile(folder).list();
-//	  if (files != null) {
-//		  for (String f : files) {
-//			  File fh = new CSFile(folder+File.separatorChar+f);
-//			  if (fh.isDirectory()) 
-//				  clearDirectory(fh.getAbsolutePath());
-//			  fh.delete();
-//		  }
-//	  }
+      else {
+        String[] files = new CSFile(folder).list();
+        if (files != null) {
+          for (String f : files) {
+            if (!existsInList(f, exemptions)) {
+              File fh = new CSFile(folder+File.separatorChar+f);
+              if (fh.isDirectory()) 
+                clearDirectory(fh.getAbsolutePath());
+              fh.delete();
+            }
+          }
+        }
+      }
+    }
   }
 
-  public static void createDirectory(String path) throws IOException{
+  public static File createDirectory(String path) throws IOException{
     new CSFile(path).mkdirs();    
+    return new File(path);
   }
 
   public static String changeFileExt(String name, String ext) {
@@ -545,7 +634,7 @@ public class Utilities {
     for(String arg: args) {
       if (!d)
         d = !noString(arg);
-      else if (!s.toString().endsWith("/"))
+      else if (!s.toString().endsWith("/") && !arg.startsWith("/"))
         s.append("/");
       s.append(arg);
     }
@@ -808,6 +897,10 @@ public class Utilities {
 		return ch >= ' ' && ch <= '~'; 
   }
 
+
+  public static String makeUuidLC() {
+    return UUID.randomUUID().toString().toLowerCase();
+  }
 
   public static String makeUuidUrn() {
     return "urn:uuid:"+UUID.randomUUID().toString().toLowerCase();
@@ -1126,6 +1219,70 @@ public class Utilities {
         visitor.visitFile(file);
     }    
   }
+
+  public static String extractBaseUrl(String url) {
+	if (url == null)
+		return null;
+	else if (url.contains("/"))
+      return url.substring(0,  url.lastIndexOf("/"));
+    else
+      return url;
+	}
+
+  public static String listCanonicalUrls(Set<String> keys) {
+    return keys.toString();
+  }
+
+  public static boolean isValidId(String id) {
+    return id.matches("[A-Za-z0-9\\-\\.]{1,64}");
+  }
+
+  public static List<String> sorted(Set<String> set) {
+    List<String> list = new ArrayList<>();
+    list.addAll(set);
+    Collections.sort(list);
+    return list;
+  }
+
+  public static void analyseStringDiffs(Set<String> source, Set<String> target, Set<String> missed, Set<String> extra) {
+    for (String s : source)
+      if (!target.contains(s))
+        missed.add(s);
+    for (String s : target)
+      if (!source.contains(s))
+        extra.add(s);
+    
+  }
+
+  /**
+   * Only handles simple FHIRPath expressions of the type produced by the validator
+   * 
+   * @param path
+   * @return
+ * @throws FHIRException 
+   */
+  public static String fhirPathToXPath(String path) throws FHIRException {
+    String[] p = path.split("\\.");
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder(".");
+    int i = 0;
+    while (i < p.length) {
+      String s = p[i];
+      if (s.contains("[")) {
+        String si = s.substring(s.indexOf("[")+1, s.length()-1);
+        if (!Utilities.isInteger(si))
+          throw new FHIRException("The FHIRPath expression '"+path+"' is not valid");
+        s = s.substring(0, s.indexOf("["))+"["+Integer.toString(Integer.parseInt(si)+1)+"]";
+      }
+      if (i < p.length - 1 && p[i+1].startsWith(".ofType(")) {
+        i++;
+        s = s + capitalize(p[i].substring(8, p.length-1));
+      }
+      b.append(s); 
+      i++;
+    }
+    return b.toString();
+  }
+
 
 
 }

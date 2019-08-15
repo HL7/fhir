@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -67,7 +68,7 @@ public class JsonParser extends ParserBase {
 	@Override
 	public Element parse(InputStream stream) throws IOException, FHIRException {
 		// if we're parsing at this point, then we're going to use the custom parser
-		map = new HashMap<JsonElement, LocationData>();
+		map = new IdentityHashMap<JsonElement, LocationData>();
 		String source = TextFile.streamToString(stream);
 		if (policy == ValidationPolicy.EVERYTHING) {
 			JsonObject obj = null; 
@@ -141,11 +142,11 @@ public class JsonParser extends ParserBase {
 		for (Property property : properties) {
 			if (property.isChoice()) {
 				for (TypeRefComponent type : property.getDefinition().getType()) {
-					String eName = property.getName().substring(0, property.getName().length()-3) + Utilities.capitalize(type.getCode());
-					if (!isPrimitive(type.getCode()) && object.has(eName)) {
+					String eName = property.getName().substring(0, property.getName().length()-3) + Utilities.capitalize(type.getWorkingCode());
+					if (!isPrimitive(type.getWorkingCode()) && object.has(eName)) {
 						parseChildComplex(path, object, context, processed, property, eName);
 						break;
-					} else if (isPrimitive(type.getCode()) && (object.has(eName) || object.has("_"+eName))) {
+					} else if (isPrimitive(type.getWorkingCode()) && (object.has(eName) || object.has("_"+eName))) {
 						parseChildPrimitive(object, context, processed, property, path, eName);
 						break;
 					}

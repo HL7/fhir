@@ -10135,6 +10135,9 @@ The primary difference between a medication statement and a medication administr
         public String toCode(int len) {
           return toCode().substring(0, len);
         }
+        public static boolean isR4Plus(String version) {
+          return version.startsWith("4.");
+        }
     }
 
   public static class FHIRVersionEnumFactory implements EnumFactory<FHIRVersion> {

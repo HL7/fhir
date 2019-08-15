@@ -126,7 +126,7 @@ public class TurtleParser extends ParserBase {
     for (Property property : properties) {
       if (property.isChoice()) {
         for (TypeRefComponent type : property.getDefinition().getType()) {
-          String eName = property.getName().substring(0, property.getName().length()-3) + Utilities.capitalize(type.getCode());
+          String eName = property.getName().substring(0, property.getName().length()-3) + Utilities.capitalize(type.getWorkingCode());
           parseChild(src, object, context, processed, property, path, getFormalName(property, eName));
         }
       } else  {
@@ -432,7 +432,7 @@ public class TurtleParser extends ParserBase {
 
 	private boolean allReference(List<TypeRefComponent> types) {
 	  for (TypeRefComponent t : types) {
-	    if (!t.getCode().equals("Reference"))
+	    if (!t.getWorkingCode().equals("Reference"))
 	      return false;
 	  }
     return true;

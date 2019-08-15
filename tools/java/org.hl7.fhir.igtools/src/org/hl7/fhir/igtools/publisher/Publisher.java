@@ -152,6 +152,7 @@ import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ITypeParser;
+import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceContext;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities.StructureMapAnalysis;
@@ -702,7 +703,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             for (Element e : r.getElement().getChildrenByName("entry")) {
               Element res = e.getNamedChild("resource");
               if (res!=null && "http://hl7.org/fhir/StructureDefinition/DomainResource".equals(res.getProperty().getStructure().getBaseDefinition()) && !hasNarrative(res)) {
-                gen.generate(gen.new ResourceContext(r.getElement(), res), res, true, getTypeLoader(f,r));
+                gen.generate(new ResourceContext(r.getElement(), res), res, true, getTypeLoader(f,r));
               }
             }
           }
@@ -2617,7 +2618,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           changed = true;
           sd.getDifferential().getElement().add(0, new ElementDefinition().setPath(p.substring(0, p.indexOf("."))));
         }
-        utils.generateSnapshot(base, sd, sd.getUrl(), sd.getName());
+        utils.generateSnapshot(base, sd, sd.getUrl(), null, sd.getName());
         changed = true;
       }
     } else { //sd.getKind() == StructureDefinitionKind.LOGICAL
@@ -4480,7 +4481,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(r, "xlsx")) {
       String path = Utilities.path(tempDir, r.getId()+".xlsx");
       f.getOutputNames().add(path);
-      new ProfileUtilities(context, errors, igpkp).generateXlsx(new FileOutputStream(path), sd, true);
+      new ProfileUtilities(context, errors, igpkp).generateXlsx(new FileOutputStream(path), sd, true, false);
     }
 
     if (!regen && sd.getKind() != StructureDefinitionKind.LOGICAL &&  igpkp.wantGen(r, "sch")) {

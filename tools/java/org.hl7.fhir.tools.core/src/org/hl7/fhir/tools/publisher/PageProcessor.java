@@ -2593,7 +2593,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (ElementDefinition e : ed.getSnapshot().getElement()) {
       if (e.getPath().startsWith("Extension.value") && !"0".equals(e.getMax())) {
         if (e.getType().size() == 1) {
-          return "<a href=\""+definitions.getSrcFile(e.getType().get(0).getCode())+".html#"+e.getType().get(0).getCode()+"\">"+e.getType().get(0).getCode()+"</a>";
+          return "<a href=\""+definitions.getSrcFile(e.getType().get(0).getWorkingCode())+".html#"+e.getType().get(0).getWorkingCode()+"\">"+e.getType().get(0).getWorkingCode()+"</a>";
         } else if (e.getType().size() == 0) {
           return "";
         } else {
@@ -6745,7 +6745,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     String s = "";
     for (TypeRefComponent rt : resource.getType()) {
       if (!checkType(logical, rt)) {
-        String m = "The type '"+rt.getCode()+"' is not legal according to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
+        String m = "The type '"+rt.getWorkingCode()+"' is not legal according to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
         s = Utilities.noString(s) ? m : s + ", "+m;
       }
     }
@@ -6754,7 +6754,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private boolean checkType(ElementDefn logical, TypeRefComponent rt) {
     for (TypeRef lt : logical.getTypes()) {
-      if (lt.getName().equals(rt.getCode()))
+      if (lt.getName().equals(rt.getWorkingCode()))
         return true;
     }
     return false;
@@ -8888,7 +8888,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (ElementDefinition ed : profile.getSnapshot().getElement()) {
       if (ed.hasBinding() && !"0".equals(ed.getMax())) {
         String path = ed.getPath();
-        if (ed.getType().size() == 1 && ed.getType().get(0).getCode().equals("Extension"))
+        if (ed.getType().size() == 1 && ed.getType().get(0).getWorkingCode().equals("Extension"))
           path = path + "<br/>"+ed.getType().get(0).getProfile();
         txlist.add(path);
         txmap.put(path, ed.getBinding());
@@ -9477,78 +9477,88 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return igResources;
   }
 
+
   @Override
   public BindingResolution resolveBinding(StructureDefinition profile, ElementDefinitionBindingComponent binding, String path) throws FHIRException {
-    BindingResolution br = new BindingResolution();
     if (!binding.hasValueSet()) {
+      BindingResolution br = new BindingResolution();
       br.url = "terminologies.html#unbound";
       br.display = "(unbound)";
+      return br;
     } else {
-      String ref = binding.getValueSet();
-      if (ref.contains("|"))
-        ref = ref.substring(0 , ref.indexOf("|"));
-      if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
-        br.url = "v3/"+ref.substring(39)+"/vs.html";
-        br.display = ref.substring(39);
-      } else if (definitions.getValuesets().containsKey(ref)) {
-        ValueSet vs = definitions.getValuesets().get(ref);
+      return resolveBinding(profile, binding.getValueSet(), binding.getDescription(), path);
+    }
+  }
+  
+  public BindingResolution resolveBinding(StructureDefinition profile, String ref, String path) throws FHIRException {
+    return resolveBinding(profile, ref, null, path);
+  }
+  
+  public BindingResolution resolveBinding(StructureDefinition profile, String ref, String description, String path) throws FHIRException {
+    BindingResolution br = new BindingResolution();
+    if (ref.contains("|"))
+      ref = ref.substring(0 , ref.indexOf("|"));
+    if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
+      br.url = "v3/"+ref.substring(39)+"/vs.html";
+      br.display = ref.substring(39);
+    } else if (definitions.getValuesets().containsKey(ref)) {
+      ValueSet vs = definitions.getValuesets().get(ref);
+      br.url = vs.getUserString("path");
+      br.display = vs.present();
+    } else if (ref.startsWith("ValueSet/")) {
+      ValueSet vs = definitions.getValuesets().get(ref.substring(8));
+      if (vs == null) {
+        br.url = ref.substring(9)+".html";
+        br.display = ref.substring(9);
+      } else {
         br.url = vs.getUserString("path");
         br.display = vs.present();
-      } else if (ref.startsWith("ValueSet/")) {
-        ValueSet vs = definitions.getValuesets().get(ref.substring(8));
-        if (vs == null) {
-          br.url = ref.substring(9)+".html";
-          br.display = ref.substring(9);
-        } else {
-          br.url = vs.getUserString("path");
-          br.display = vs.present();
-        }
-      } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/")) {
-        ValueSet vs = definitions.getValuesets().get(ref);
-        if (vs == null)
-          vs = definitions.getExtraValuesets().get(ref);
-        if (vs != null) {
-          br.url = vs.getUserString("path");
-          if (Utilities.noString(br.url))
-            br.url = ref.substring(23)+".html";
-          br.display = vs.present();
-        } else if (ref.substring(23).equals("use-context")) { // special case because this happens before the value set is created
-          br.url = "valueset-"+ref.substring(23)+".html";
-          br.display = "Context of Use ValueSet";
-        } else if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
-          br.url = "v3/"+ref.substring(26)+"/index.html";
-          br.display = ref.substring(26);
-        }  else if (ref.startsWith("http://terminology.hl7.org/ValueSet/v2-")) {
-          br.url = "v2/"+ref.substring(26)+"/index.html";
-          br.display = ref.substring(26);
-        }  else if (ref.startsWith("#")) {
-          br.url = null;
-          br.display = ref;
-        } else {
-          br.url = ref;
-          br.display = "????";
-          getValidationErrors().add(
-              new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, -1, -1, path, "Unresolved Value set "+ref, IssueSeverity.WARNING));
-        }
+      }
+    } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/")) {
+      ValueSet vs = definitions.getValuesets().get(ref);
+      if (vs == null)
+        vs = definitions.getExtraValuesets().get(ref);
+      if (vs != null) {
+        br.url = vs.getUserString("path");
+        if (Utilities.noString(br.url))
+          br.url = ref.substring(23)+".html";
+        br.display = vs.present();
+      } else if (ref.substring(23).equals("use-context")) { // special case because this happens before the value set is created
+        br.url = "valueset-"+ref.substring(23)+".html";
+        br.display = "Context of Use ValueSet";
+      } else if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
+        br.url = "v3/"+ref.substring(26)+"/index.html";
+        br.display = ref.substring(26);
+      }  else if (ref.startsWith("http://terminology.hl7.org/ValueSet/v2-")) {
+        br.url = "v2/"+ref.substring(26)+"/index.html";
+        br.display = ref.substring(26);
+      }  else if (ref.startsWith("#")) {
+        br.url = null;
+        br.display = ref;
       } else {
         br.url = ref;
-        if (ref.equals("http://tools.ietf.org/html/bcp47"))
-          br.display = "IETF BCP-47";
-        else if (ref.equals("http://www.rfc-editor.org/bcp/bcp13.txt"))
-          br.display = "IETF BCP-13";
-        else if (ref.equals("http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"))
-          br.display = "NucCore";
-        else if (ref.equals("https://rtmms.nist.gov/rtmms/index.htm#!rosetta"))
-          br.display = "Rosetta";
-        else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
-          br.display = "ISO Country Codes";
-        else if (ref.equals("http://www.ncbi.nlm.nih.gov/clinvar/variation"))
-          br.display = "ClinVar";
-        else if (!Utilities.noString(binding.getDescription()))
-          br.display = binding.getDescription();
-        else
-          br.display = "????";
+        br.display = "????";
+        getValidationErrors().add(
+            new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, -1, -1, path, "Unresolved Value set "+ref, IssueSeverity.WARNING));
       }
+    } else {
+      br.url = ref;
+      if (ref.equals("http://tools.ietf.org/html/bcp47"))
+        br.display = "IETF BCP-47";
+      else if (ref.equals("http://www.rfc-editor.org/bcp/bcp13.txt"))
+        br.display = "IETF BCP-13";
+      else if (ref.equals("http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"))
+        br.display = "NucCore";
+      else if (ref.equals("https://rtmms.nist.gov/rtmms/index.htm#!rosetta"))
+        br.display = "Rosetta";
+      else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
+        br.display = "ISO Country Codes";
+      else if (ref.equals("http://www.ncbi.nlm.nih.gov/clinvar/variation"))
+        br.display = "ClinVar";
+      else if (!Utilities.noString(description))
+        br.display = description;
+      else
+        br.display = "????";
     }
     return br;
   }
@@ -10927,4 +10937,6 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     else
       return "";
   }
+
+ 
 }
