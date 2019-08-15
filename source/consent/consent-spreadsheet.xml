@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -898,8 +898,8 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">A healthcare consumer's  choices to permit or deny recipients or roles to perform actions for specific purposes and periods of time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">A healthcare consumer's  or third party's choices to permit or deny recipients or roles to perform actions for specific purposes and periods of time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">A record of a healthcare consumer’s  choices  or choices made on their behalf by a third party, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">infrastructure.information</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment, and general advance care directives</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3619,7 +3619,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5717,7 +5716,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="43" ss:StyleID="s89" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="42" ss:StyleID="s89" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s89" ss:Width="124.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s89" ss:Width="69.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s89" ss:Width="484.0"/>
@@ -5834,20 +5833,11 @@
     <Cell ss:StyleID="s161"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Consent with Signature</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">consent-example-CDA</Data></Cell>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Consent Example with a signature</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">consent-example-signature</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">consent-example-signature.xml</Data></Cell>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s161"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Share CDA documents from a specific author to a specific recipient</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">consent-example-CDA</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">consent-example-CDA.xml</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s161"/>
    </Row>
@@ -6111,6 +6101,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
