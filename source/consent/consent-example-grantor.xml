@@ -1,40 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns="http://hl7.org/fhir">
   <id value="consent-example-grantor"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on a question asked on John Moehrke's blog in the 
-	<a href="http://healthcaresecprivacy.blogspot.com/2016/04/consent-given-to-authorized.html">Consent given to authorized representative</a>
-    <p>
-This is a case where a Patient is giving a limited (read-only) access to an individual.
-	</p><p>
-    Patient "P. van de Heuvel" wishes to provide XXX with read-only access to the data at Good Health Psychiatric Hospital 
-   available for patient requested access use.
-   </p>
-   </div>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Consent given to authorized representative</p>
+      <p>This is a case where a Patient is giving a limited (read-only) access to an individual.</p>
+      <p>Patient "Donald D DUCK" wishes to provide Dr. Simone Heps with read-only access to the data at Blijdorp Medisch Centrum available for patient requested access use.</p>
+    </div>
   </text>
   <status value="active"/>
   <scope>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
-    </coding>  
-        </scope>
-<category>
+    </coding>
+  </scope>
+  <category>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="INFAO"/>
     </coding>
   </category>
   <patient>
-    <reference value="Patient/f001"/>
-    <display value="P. van de Heuvel"/>
+    <reference value="Patient/f002"/>
+    <display value="Donald D DUCK"/>
   </patient>
-  <dateTime value="2015-11-18"/>
-  <!-- not bound by a timeframe - Consent.period -->
-  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
+  <dateTime value="2018-12-24"/>
   <organization>
-    <reference value="Organization/f001"/>
+    <reference value="Organization/f203"/>
   </organization>
   <!-- the text terms of the consent in lawyer speak -->
   <sourceAttachment>
@@ -45,38 +39,42 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
   <policyRule>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <code value="OPTOUT"/>
+      <code value="INFAO"/>
     </coding>
   </policyRule>
   <provision>
-    <actor>
-      <role>
+    <type value="deny"/>
+    <provision>
+      <type value="permit"/>
+      <actor>
+        <role>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+            <code value="CST"/>
+          </coding>
+        </role>
+        <reference>
+          <reference value="Organization/f203"/>
+        </reference>
+      </actor>
+      <actor>
+        <role>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+            <code value="PRCP"/>
+          </coding>
+        </role>
+        <reference>
+          <reference value="Practitioner/f007"/>
+          <display value="Simone Heps"/>
+        </reference>
+      </actor>
+      <action>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-          <code value="CST"/>
+          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+          <code value="access"/>
         </coding>
-      </role>
-      <reference>
-        <reference value="Organization/f001"/>
-      </reference>
-    </actor>
-    <actor>
-      <role>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-          <code value="PRCP"/>
-        </coding>
-      </role>
-      <reference>
-        <reference value="Patient/example"/>
-        <display value="Good Health Clinic"/>
-      </reference>
-    </actor>
-    <action>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-        <code value="access"/>
-      </coding>
-    </action>
+      </action>
+    </provision>
   </provision>
 </Consent>

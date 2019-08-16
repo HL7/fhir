@@ -558,7 +558,7 @@ public class Definitions {
         ec.setExpression("Element");
       }
       if (ec.getExpression().equals("Any")) {
-        ec.setExpression("Resource");
+        ec.setExpression("Element");
       }
 
       if (ec.getExpression().equals("Element")) {

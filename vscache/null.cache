@@ -14,7 +14,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#self) is not  valid in the value set SubscriberRelationshipCodes"
+  "error" : "The code system \"\" is not known for the code \"self\"; The code provided (#self) is not  valid in the value set SubscriberRelationshipCodes"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -32,7 +32,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#logic-library) is not  valid in the value set LibraryType"
+  "error" : "The code system \"\" is not known for the code \"logic-library\"; The code provided (#logic-library) is not  valid in the value set LibraryType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -50,7 +50,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#model-definition) is not  valid in the value set LibraryType"
+  "error" : "The code system \"\" is not known for the code \"model-definition\"; The code provided (#model-definition) is not  valid in the value set LibraryType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -68,7 +68,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#asset-collection) is not  valid in the value set LibraryType"
+  "error" : "The code system \"\" is not known for the code \"asset-collection\"; The code provided (#asset-collection) is not  valid in the value set LibraryType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -86,7 +86,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#proportion) is not  valid in the value set MeasureScoring"
+  "error" : "The code system \"\" is not known for the code \"proportion\"; The code provided (#proportion) is not  valid in the value set MeasureScoring"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -104,7 +104,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#process) is not  valid in the value set MeasureType"
+  "error" : "The code system \"\" is not known for the code \"process\"; The code provided (#process) is not  valid in the value set MeasureType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -122,7 +122,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#initial-population) is not  valid in the value set MeasurePopulationType"
+  "error" : "The code system \"\" is not known for the code \"initial-population\"; The code provided (#initial-population) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -140,7 +140,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#denominator) is not  valid in the value set MeasurePopulationType"
+  "error" : "The code system \"\" is not known for the code \"denominator\"; The code provided (#denominator) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -158,7 +158,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#denominator-exclusions) is not  valid in the value set MeasurePopulationType"
+  "error" : "The code system \"\" is not known for the code \"denominator-exclusions\"; The code provided (#denominator-exclusions) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -176,7 +176,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#numerator) is not  valid in the value set MeasurePopulationType"
+  "error" : "The code system \"\" is not known for the code \"numerator\"; The code provided (#numerator) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -194,7 +194,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#denominator-exclusion) is not  valid in the value set MeasurePopulationType"
+  "error" : "The code system \"\" is not known for the code \"denominator-exclusion\"; The code provided (#denominator-exclusion) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -212,7 +212,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#opportunity) is not  valid in the value set CompositeMeasureScoring"
+  "error" : "The code system \"\" is not known for the code \"opportunity\"; The code provided (#opportunity) is not  valid in the value set CompositeMeasureScoring"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -230,7 +230,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#cohort) is not  valid in the value set MeasureScoring"
+  "error" : "The code system \"\" is not known for the code \"cohort\"; The code provided (#cohort) is not  valid in the value set MeasureScoring"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -248,7 +248,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#create) is not  valid in the value set ActionType"
+  "error" : "The code system \"\" is not known for the code \"create\"; The code provided (#create) is not  valid in the value set ActionType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -266,7 +266,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#clinical-protocol) is not  valid in the value set PlanDefinitionType"
+  "error" : "The code system \"\" is not known for the code \"clinical-protocol\"; The code provided (#clinical-protocol) is not  valid in the value set PlanDefinitionType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -284,7 +284,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#std-MA) is not  valid in the value set StatisticSynthesisType"
+  "error" : "The code system \"\" is not known for the code \"std-MA\"; The code provided (#std-MA) is not  valid in the value set StatisticSynthesisType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -302,7 +302,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#RCT) is not  valid in the value set StatisticStudyType"
+  "error" : "The code system \"\" is not known for the code \"RCT\"; The code provided (#RCT) is not  valid in the value set StatisticStudyType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -321,7 +321,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#3) is not  valid in the value set StatisticCertaintyRating"
+  "error" : "The code system \"\" is not known for the code \"3\"; The code provided (#3) is not  valid in the value set StatisticCertaintyRating"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -340,7 +340,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#RiskOfBias) is not  valid in the value set StatisticCertaintySubcomponentType"
+  "error" : "The code system \"\" is not known for the code \"RiskOfBias\"; The code provided (#RiskOfBias) is not  valid in the value set StatisticCertaintySubcomponentType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -359,7 +359,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#no-concern) is not  valid in the value set StatisticCertaintySubcomponentRating"
+  "error" : "The code system \"\" is not known for the code \"no-concern\"; The code provided (#no-concern) is not  valid in the value set StatisticCertaintySubcomponentRating"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -378,7 +378,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#Inconsistency) is not  valid in the value set StatisticCertaintySubcomponentType"
+  "error" : "The code system \"\" is not known for the code \"Inconsistency\"; The code provided (#Inconsistency) is not  valid in the value set StatisticCertaintySubcomponentType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -397,7 +397,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#serious-concern) is not  valid in the value set StatisticCertaintySubcomponentRating"
+  "error" : "The code system \"\" is not known for the code \"serious-concern\"; The code provided (#serious-concern) is not  valid in the value set StatisticCertaintySubcomponentRating"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -416,7 +416,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#Indirectness) is not  valid in the value set StatisticCertaintySubcomponentType"
+  "error" : "The code system \"\" is not known for the code \"Indirectness\"; The code provided (#Indirectness) is not  valid in the value set StatisticCertaintySubcomponentType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -435,7 +435,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#Imprecision) is not  valid in the value set StatisticCertaintySubcomponentType"
+  "error" : "The code system \"\" is not known for the code \"Imprecision\"; The code provided (#Imprecision) is not  valid in the value set StatisticCertaintySubcomponentType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -454,7 +454,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#PublicationBias) is not  valid in the value set StatisticCertaintySubcomponentType"
+  "error" : "The code system \"\" is not known for the code \"PublicationBias\"; The code provided (#PublicationBias) is not  valid in the value set StatisticCertaintySubcomponentType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -473,7 +473,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#DoseResponseGradient) is not  valid in the value set StatisticCertaintySubcomponentType"
+  "error" : "The code system \"\" is not known for the code \"DoseResponseGradient\"; The code provided (#DoseResponseGradient) is not  valid in the value set StatisticCertaintySubcomponentType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -492,7 +492,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#absent) is not  valid in the value set StatisticCertaintySubcomponentRating"
+  "error" : "The code system \"\" is not known for the code \"absent\"; The code provided (#absent) is not  valid in the value set StatisticCertaintySubcomponentRating"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -511,7 +511,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#PlausibleConfounding) is not  valid in the value set StatisticCertaintySubcomponentType"
+  "error" : "The code system \"\" is not known for the code \"PlausibleConfounding\"; The code provided (#PlausibleConfounding) is not  valid in the value set StatisticCertaintySubcomponentType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -530,6 +530,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known; The code provided (#LargeEffect) is not  valid in the value set StatisticCertaintySubcomponentType"
+  "error" : "The code system \"\" is not known for the code \"LargeEffect\"; The code provided (#LargeEffect) is not  valid in the value set StatisticCertaintySubcomponentType"
 }
 -------------------------------------------------------------------------------------

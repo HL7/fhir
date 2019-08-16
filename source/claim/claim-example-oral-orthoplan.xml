@@ -69,7 +69,8 @@
 		<diagnosisCodeableConcept>
 			<coding>
 				<system value="http://hl7.org/fhir/sid/icd-10"/>
-				<code value="123457"/>
+				<!-- <code value="123457"/> -->
+				<code value="K07.3"/>
 			</coding>
 		</diagnosisCodeableConcept>
 	</diagnosis>

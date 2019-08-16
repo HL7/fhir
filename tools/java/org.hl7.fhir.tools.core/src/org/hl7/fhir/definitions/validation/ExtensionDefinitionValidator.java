@@ -28,8 +28,8 @@ public class ExtensionDefinitionValidator {
       if (ed.getPath().startsWith("Extension.value") && !"0".equals(ed.getMax())) {
         for (TypeRefComponent tr : ed.getType()) {
           if ("code".equals(tr.getCode())) {
-            if (!ed.hasBinding() || (ed.getBinding().getStrength() != BindingStrength.REQUIRED && !ed.getBinding().hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")))
-              throw new FHIRException("Extension "+sd.getUrl()+" has an element of type 'code' which must have required binding");
+            if (!ed.hasSlicing() && (!ed.hasBinding() || (ed.getBinding().getStrength() != BindingStrength.REQUIRED && !ed.getBinding().hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet"))))
+              throw new FHIRException("Extension "+sd.getUrl()+" has an element of type 'code' ("+ed.getId()+") which must have required binding");
           }
         }
       }

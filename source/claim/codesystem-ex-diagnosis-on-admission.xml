@@ -11,23 +11,23 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="y"/>
+    <code value="yes"/>
     <display value="Yes"/>
     <definition value="Diagnosis was present at time of inpatient admission."/>
   </concept>
   <concept>
-    <code value="n"/>
+    <code value="no"/>
     <display value="No"/>
     <definition value="Diagnosis was not present at time of inpatient admission."/>
   </concept>
   <concept>
-    <code value="u"/>
+    <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="Documentation insufficient to determine if condition was present at the time of inpatient admission."/>
+    <definition value="Not known if condition was present at the time of inpatient admission."/>
   </concept>
-  <concept>
+ <!-- <concept>
     <code value="w"/>
     <display value="Undetermined"/>
     <definition value="Clinically undetermined. Provider unable to clinically determine whether the condition was present at the time of inpatient admission."/>
-  </concept>
+  </concept> -->
 </CodeSystem>

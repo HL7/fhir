@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <a name="scope"></a>
@@ -36,8 +36,8 @@ derivative of the legally binding Consent Directive, which has specific usage in
 </p>
 <p><b>Definitions:</b></p>
 <table class="grid">
- <tr><td>Consent</td><td>The record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time</td></tr>
- <tr><td>Consent Directive</td><td>The legal record of a healthcare consumer's agreement with a party responsible for enforcing the consumer’s choices, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of time</td></tr>
+ <tr><td>Consent</td><td>The record of a healthcare consumer’s policy choices or choices made on their behalf by a third party, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time</td></tr>
+ <tr><td>Consent Directive</td><td>The legal record of a healthcare consumer's agreement or agreements made on their behalf with a party responsible for enforcing the consumer’s choices or choices made on their behalf by a third party, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of time</td></tr>
  <tr><td>Consent Form</td><td>Human readable consent content describing one or more actions impacting the grantor for which the grantee would be authorized or prohibited from performing.  It includes the terms, rules, and conditions pertaining to the authorization or restrictions, such as effective time, applicability or scope, purposes of use, obligations and prohibitions to which the grantee must comply. Once a Consent Form is “executed” by means required by policy, such as verbal agreement, wet signature, or electronic/digital signature, it becomes a legally binding Consent Directive.</td></tr>
  <tr><td>Consent Directive Derivative</td><td>Consent Content that conveys the minimal set of information needed to manage Consent Directive workflow, including providing Consent Directive content sufficient to:
 <ul><li>Represent a Consent Directive</li>
@@ -128,8 +128,7 @@ not generally assume that they are authorized to do this.
 </p>
 <p>
 Consent Directives are executed by verbal acknowledge or by being signed - either on paper, or digitally. Consent Signatures will
-be found in the <a href="provenance.html">Provenance</a> resource (example <a href="consent-example-signature.html">consent</a> and 
-<a href="provenance-consent-signature.html">signature</a>). Implementation Guides will generally 
+be found in the <a href="provenance.html">Provenance</a> resource. Implementation Guides will generally 
 make rules about what signatures are required, and how they are to be shared and used.
 </p>
 </div>

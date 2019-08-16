@@ -1,19 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/consent.xsd">
   <id value="consent-example-notLabs"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
-	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
-	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
-	than "withhold" or "withdraw" consent for.</p>
-      <p>
-	specific to use-case 1. Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)
-	</p>
-      <p>
-    Patient "P. van de Heuvel" wishes to withhold disclosure of all of her lab orders and results to any provider. 
-   </p>
+      	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose.</p>
+      <p>Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)</p>
+      <p>Patient "Donald D DUCK" wishes to withhold disclosure of all of her lab results to any provider.</p>
     </div>
   </text>
   <status value="active"/>
@@ -22,20 +16,18 @@
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
     </coding>
-    </scope>
+  </scope>
   <category>
     <coding>
       <system value="http://loinc.org"/>
       <code value="59284-0"/>
     </coding>
   </category>
-  <dateTime value="2015-11-18"/>
-  <!-- not bound by a timeframe - Consent.period -->
   <patient>
-    <reference value="Patient/f001"/>
+    <reference value="Patient/f002"/>
     <display value="P. van de Heuvel"/>
   </patient>
-  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
+  <dateTime value="2015-11-18"/>
   <organization>
     <reference value="Organization/f001"/>
   </organization>
@@ -48,33 +40,29 @@
   <policyRule>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <code value="OPTIN"/>
+      <code value="INFA"/>
     </coding>
   </policyRule>
   <provision>
-    <!-- no read or write access for labs -->
-    <!-- todo: how to say labs? -->
-    <type value="deny"/>
-    <action>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-        <code value="access"/>
-      </coding>
-    </action>
-    <action>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-        <code value="correct"/>
-      </coding>
-    </action>
-    <type>
-      <system value="http://hl7.org/fhir/resource-types"/>
-      <code value="DiagnosticReport"/>
-    </type>
-    <type>
-      <system value="http://hl7.org/fhir/resource-types"/>
-      <code value="Observation"/>
-    </type>
-    <!-- todo - labs value set? -->
+    <type value="permit"/>
+    <provision>
+      <type value="deny"/>
+      <action>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+          <code value="access"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+          <code value="correct"/>
+        </coding>
+      </action>
+      <class>
+        <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+        <code value="laboratory"/>
+      </class>
+    </provision>
   </provision>
 </Consent>

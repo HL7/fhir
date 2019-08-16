@@ -1,0 +1,2 @@
+// Apply an example serum-plasma specimen definition to the specimen collected for patient pat2
+GET [base]/SpecimenDefinition/sst/$apply?subject=Patient/pat2

@@ -77,6 +77,10 @@
     <display value="Free-standing ambulatory surgery facility"/>
     <display value="Free-standing ambulatory surgery facility (environment)"/>
   </concept>
+  <concept id="105480006" display="Refusal of treatment by patient">
+    <display value="Refusal of treatment by patient"/>
+    <display value="Refusal of treatment by patient (situation)"/>
+  </concept>
   <concept id="105590001" display="Substance">
     <display value="Substance"/>
     <display value="Substances"/>
@@ -10744,6 +10748,12 @@
     <display value="FHC elite pig 9"/>
     <display value="FHC elite pig 9 (organism)"/>
   </concept>
+  <concept id="14106009" display="Cardiac pacemaker">
+    <display value="Cardiac pacemaker"/>
+    <display value="Cardiac pacemaker, device (physical object)"/>
+    <display value="Cardiac pacemaker implant"/>
+    <display value="Cardiac pacemaker, device"/>
+  </concept>
   <concept id="14168008" display="Rabies">
     <display value="Rabies"/>
     <display value="Hydrophobia"/>
@@ -11106,6 +11116,10 @@
   <concept id="190753003" display="Sucrose intolerance">
     <display value="Sucrose intolerance"/>
     <display value="Sucrose intolerance (disorder)"/>
+  </concept>
+  <concept id="1912002" display="Fall">
+    <display value="Fall"/>
+    <display value="Fall (event)"/>
   </concept>
   <concept id="191788006" display="Feminism in boy">
     <display value="Feminism in boy"/>
@@ -12193,6 +12207,10 @@
     <display value="Pulmonary vascular structure"/>
     <display value="Pulmonary vascular structure (body structure)"/>
   </concept>
+  <concept id="281323002" display="Insufficient requesting detail">
+    <display value="Insufficient requesting detail"/>
+    <display value="Insufficient requesting detail (finding)"/>
+  </concept>
   <concept id="28138009" display="Slate turkey">
     <display value="Slate turkey"/>
     <display value="Slate turkey (organism)"/>
@@ -12985,6 +13003,10 @@
     <display value="Mumps"/>
     <display value="Mumps (disorder)"/>
   </concept>
+  <concept id="370894009" display="Serious reportable event">
+    <display value="Serious reportable event (event)"/>
+    <display value="Serious reportable event"/>
+  </concept>
   <concept id="371041009" display="Embolic stroke">
     <display value="Embolic stroke (disorder)"/>
     <display value="Embolic stroke"/>
@@ -13641,12 +13663,20 @@
     <display value="Healthcare knowledge finding (finding)"/>
     <display value="Healthcare knowledge finding"/>
   </concept>
+  <concept id="397709008" display="Patient died">
+    <display value="Patient died (finding)"/>
+    <display value="Patient died"/>
+  </concept>
   <concept id="398102009" display="Acute poliomyelitis">
     <display value="Acute poliomyelitis (disorder)"/>
     <display value="Acute poliomyelitis"/>
     <display value="Polio"/>
     <display value="PM - Poliomyelitis"/>
     <display value="Poliomyelitis"/>
+  </concept>
+  <concept id="398227009" display="Inadequate consent">
+    <display value="Inadequate consent (finding)"/>
+    <display value="Inadequate consent"/>
   </concept>
   <concept id="398254007" display="Pre-eclampsia">
     <display value="Pre-eclampsia (disorder)"/>
@@ -14115,6 +14145,10 @@
     <display value="Mucous membrane"/>
     <display value="Tunica mucosa"/>
   </concept>
+  <concept id="414859005" display="No consent for electronic record sharing">
+    <display value="No consent for electronic record sharing (finding)"/>
+    <display value="No consent for electronic record sharing"/>
+  </concept>
   <concept id="414916001" display="Obesity">
     <display value="Obesity (disorder)"/>
     <display value="Obesity"/>
@@ -14156,9 +14190,17 @@
     <display value="Osteopathic manipulative medicine (qualifier value)"/>
     <display value="Osteopathic manipulative medicine"/>
   </concept>
+  <concept id="416308001" display="Refused consent for upload to national shared electronic record">
+    <display value="Refused consent for upload to national shared electronic record (finding)"/>
+    <display value="Refused consent for upload to national shared electronic record"/>
+  </concept>
   <concept id="416406003" display="Procedure discontinued">
     <display value="Procedure discontinued"/>
     <display value="Procedure discontinued (situation)"/>
+  </concept>
+  <concept id="416409005" display="Refused consent for upload to local shared electronic record">
+    <display value="Refused consent for upload to local shared electronic record (finding)"/>
+    <display value="Refused consent for upload to local shared electronic record"/>
   </concept>
   <concept id="416432009" display="Procedure not wanted">
     <display value="Procedure not wanted"/>
@@ -14921,6 +14963,10 @@
     <display value="Pediatric reduced energy formula"/>
     <display value="Pediatric reduced calorie formula"/>
     <display value="Liquid formula intended for enteral and/or oral method of delivery, formulated to meet the nutritional needs of children and provide reduced calories relative to a standard formula."/>
+  </concept>
+  <concept id="445060000" display="Left against medical advice">
+    <display value="Left against medical advice (finding)"/>
+    <display value="Left against medical advice"/>
   </concept>
   <concept id="445085009" display="Tunneled central venous catheter">
     <display value="Tunneled central venous catheter (physical object)"/>
@@ -15910,6 +15956,26 @@
     <display value="Precondition value (qualifier value)"/>
     <display value="Precondition value"/>
   </concept>
+  <concept id="704273008" display="Consent declined for examination of cardiovascular system">
+    <display value="Consent declined for examination of cardiovascular system"/>
+    <display value="Consent declined for examination of cardiovascular system (finding)"/>
+  </concept>
+  <concept id="704274002" display="Consent declined for examination of central nervous system">
+    <display value="Consent declined for examination of central nervous system (finding)"/>
+    <display value="Consent declined for examination of central nervous system"/>
+  </concept>
+  <concept id="704275001" display="Consent declined for examination of genitourinary system">
+    <display value="Consent declined for examination of genitourinary system"/>
+    <display value="Consent declined for examination of genitourinary system (finding)"/>
+  </concept>
+  <concept id="704276000" display="Consent declined for examination of musculoskeletal system">
+    <display value="Consent declined for examination of musculoskeletal system"/>
+    <display value="Consent declined for examination of musculoskeletal system (finding)"/>
+  </concept>
+  <concept id="704277009" display="Consent declined for examination of respiratory system">
+    <display value="Consent declined for examination of respiratory system"/>
+    <display value="Consent declined for examination of respiratory system (finding)"/>
+  </concept>
   <concept id="70429002" display="Game chicken">
     <display value="Game chicken"/>
     <display value="Game chicken (organism)"/>
@@ -15917,6 +15983,10 @@
   <concept id="70431006" display="Alpine goat">
     <display value="Alpine goat"/>
     <display value="Alpine goat (organism)"/>
+  </concept>
+  <concept id="704458005" display="Consent declined for examination of gastrointestinal system">
+    <display value="Consent declined for examination of gastrointestinal system (finding)"/>
+    <display value="Consent declined for examination of gastrointestinal system"/>
   </concept>
   <concept id="70457009" display="Icelandic horse">
     <display value="Icelandic horse"/>
@@ -15985,6 +16055,10 @@
     <display value="Encephalitis caused by tick-borne encephalitis virus"/>
   </concept>
   <concept id="71341001:272741003=7771000" display="Femur where Laterality = Left"/>
+  <concept id="713835001" display="Declined consent for use of patient data in risk stratification for unplanned hospital admission">
+    <display value="Declined consent for use of patient data in risk stratification for unplanned hospital admission"/>
+    <display value="Declined consent for use of patient data in risk stratification for unplanned hospital admission (finding)"/>
+  </concept>
   <concept id="71388002" display="Procedure">
     <display value="Procedure"/>
     <display value="Procedure (procedure)"/>
@@ -16006,6 +16080,10 @@
   <concept id="71923001" display="Italian landrace pig">
     <display value="Italian landrace pig"/>
     <display value="Italian landrace pig (organism)"/>
+  </concept>
+  <concept id="719500002" display="Left care setting having refused treatment">
+    <display value="Left care setting having refused treatment (finding)"/>
+    <display value="Left care setting having refused treatment"/>
   </concept>
   <concept id="719590007" display="Influenza caused by seasonal influenza virus">
     <display value="Influenza caused by seasonal influenza virus (disorder)"/>
@@ -16091,6 +16169,10 @@
   <concept id="736542009" display="Pharmaceutical dose form">
     <display value="Pharmaceutical dose form (dose form)"/>
     <display value="Pharmaceutical dose form"/>
+  </concept>
+  <concept id="737038009" display="Declined consent for treatment">
+    <display value="Declined consent for treatment (finding)"/>
+    <display value="Declined consent for treatment"/>
   </concept>
   <concept id="73761001" display="Colonoscopy">
     <display value="Colonoscopy"/>

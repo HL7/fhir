@@ -16,7 +16,7 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -748,7 +748,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s78"><Data ss:Type="String">ClinicalUseIssue.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5" ss:StyleID="s78"><Data ss:Type="String" x:Ticked="1">Reference(RegulatedMedicinalProduct|Medication|ActivityDefinition|PlanDefinition|Device|DeviceDefinition|Substance)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5" ss:StyleID="s78"><Data ss:Type="String" x:Ticked="1">Reference(MedicinalProductDefinition|Medication|ActivityDefinition|PlanDefinition|Device|DeviceDefinition|Substance)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s80"><Data ss:Type="String">The medication or procedure for which this is an indication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
@@ -886,7 +886,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String" x:Ticked="1">CodeableConcept | Reference (RegulatedMedicinalProduct|Medication|Substance|SubstanceDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String" x:Ticked="1">CodeableConcept | Reference (MedicinalProductDefinition|Medication|Substance|SubstanceDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1065,7 +1065,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String" x:Ticked="1">Reference(RegulatedMedicinalProduct|Medication|Substance|ObservationDefinition)|CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String" x:Ticked="1">Reference(MedicinalProductDefinition|Medication|Substance|ObservationDefinition)|CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1602,6 +1602,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4152,7 +4153,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

@@ -146,6 +146,11 @@ public class ExampleInspector implements IValidatorResourceFetcher {
       }
       throw new NotImplementedException("Not done yet (IGPublisherHostServices.conformsToProfile), when item is element");
     }
+
+    @Override
+    public ValueSet resolveValueSet(Object appContext, String url) {
+      return null;
+    }
   }
   
   private static final boolean VALIDATE_CONFORMANCE_REFERENCES = true;

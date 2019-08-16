@@ -615,7 +615,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="32.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="24.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="18.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="150.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="236.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="7" ss:Width="42.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:Width="35.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="10" ss:Width="39.0"/>
@@ -660,7 +660,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Committee Notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="39">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedPackagedProduct</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PackagedProductDefinition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -677,7 +677,7 @@
     <Cell ss:Index="22" ss:StyleID="s72"><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="39">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -693,11 +693,11 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Unique identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="34">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(RegulatedMedicinalProduct)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(MedicinalProductDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -709,7 +709,7 @@
     <Cell ss:Index="22" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="26">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -725,7 +725,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Textual description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.legalStatusOfSupply</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.legalStatusOfSupply</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -741,7 +741,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">The legal status of supply of the medicinal product as classified by the regulator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="26">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.marketingStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.marketingStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -757,7 +757,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Marketing information</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="34">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.marketingAuthorization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.marketingAuthorization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -773,7 +773,7 @@
     <Cell ss:Index="22" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="34">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.manufacturer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.manufacturer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -789,7 +789,7 @@
     <Cell ss:Index="22" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedPackagedProduct.batchIdentifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PackagedProductDefinition.batchIdentifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -805,7 +805,7 @@
     <Cell ss:Index="22" ss:StyleID="s64"><Data ss:Type="String">35;180</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="13">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.batchIdentifier.outerPackaging</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.batchIdentifier.outerPackaging</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -821,7 +821,7 @@
     <Cell ss:Index="22" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="39">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.batchIdentifier.immediatePackaging</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.batchIdentifier.immediatePackaging</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -837,7 +837,7 @@
     <Cell ss:Index="22" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedPackagedProduct.packageItem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PackagedProductDefinition.packageItem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -853,7 +853,7 @@
     <Cell ss:Index="22" ss:StyleID="s64"><Data ss:Type="String">350;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="39">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.packageItem.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -870,7 +870,7 @@
     <Cell ss:Index="22" ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.packageItem.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -886,7 +886,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">The physical type of the container of the medicine</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="31">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.quantity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.packageItem.quantity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -902,7 +902,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">The quantity of this package in the medicinal product, at the current level of packaging. The outermost is always 1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.material</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.packageItem.material</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -918,7 +918,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Material type of the package item</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.alternateMaterial</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.packageItem.alternateMaterial</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -934,7 +934,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">A possible alternate material for the packaging</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="25">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.device</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PackagedProductDefinition.packageItem.device</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -951,11 +951,11 @@
     <Cell ss:Index="22" ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="102">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.manufacturedItem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PackagedProductDefinition.packageItem.manufacturedItem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(RegulatedManufacturedItem)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(ManufacturedItemDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -968,11 +968,11 @@
     <Cell ss:Index="22" ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="52">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.packageItem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PackagedProductDefinition.packageItem.packageItem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String" x:Ticked="1">@RegulatedPackagedProduct.packageItem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String" x:Ticked="1">@PackagedProductDefinition.packageItem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -985,7 +985,7 @@
     <Cell ss:Index="22" ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="52">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.physicalCharacteristics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PackagedProductDefinition.packageItem.physicalCharacteristics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1002,7 +1002,7 @@
     <Cell ss:Index="22" ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="54" ss:StyleID="s76">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.otherCharacteristics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.packageItem.otherCharacteristics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1018,7 +1018,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Other codeable characteristics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="52">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.shelfLifeStorage</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PackagedProductDefinition.packageItem.shelfLifeStorage</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1035,7 +1035,7 @@
     <Cell ss:Index="22" ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="34">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedPackagedProduct.packageItem.manufacturer</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PackagedProductDefinition.packageItem.manufacturer</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1074,7 +1074,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1595,14 +1595,14 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s95"><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s96"><Data ss:Type="String">RegulatedPackagedProduct.subject</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s96"><Data ss:Type="String">PackagedProductDefinition.subject</Data></Cell>
     <Cell ss:StyleID="s96"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s97"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">RegulatedPackagedProduct.identifier</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">PackagedProductDefinition.identifier</Data></Cell>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s100"/>
