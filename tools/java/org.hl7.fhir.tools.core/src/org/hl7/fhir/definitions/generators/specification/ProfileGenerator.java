@@ -1219,6 +1219,7 @@ public class ProfileGenerator {
       sp.addComparator(SearchComparator.EQ);
       sp.addComparator(SearchComparator.NE);
       sp.addComparator(SearchComparator.GT);
+      sp.addComparator(SearchComparator.GE);
       sp.addComparator(SearchComparator.LT);
       sp.addComparator(SearchComparator.LE);
       sp.addComparator(SearchComparator.SA);
