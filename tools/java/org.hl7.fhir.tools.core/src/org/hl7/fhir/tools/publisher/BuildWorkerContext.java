@@ -185,7 +185,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (type.hasProfile())
       return getStructure(type.getProfile().get(0).getValue());
     else
-      return getStructure(type.getCode());
+      return getStructure(type.getWorkingCode());
   }
 
   @Override
@@ -862,6 +862,5 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   public boolean prependLinks() {
     throw new Error("Not done yet");
   }
-
 
 }

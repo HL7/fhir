@@ -183,7 +183,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
     if (ok) {
       if (cd.getValueSet() != null && cd.getValueSet().hasCompose() && cd.getValueSet().getCompose().getInclude().size() == 1) {
         ConceptSetComponent inc = cd.getValueSet().getCompose().getIncludeFirstRep();
-        if (inc.hasSystem() && !inc.hasFilter() && !inc.hasConcept() && !inc.getSystem().startsWith("http://hl7.org/fhir"))
+        if (inc.hasSystem() && !inc.hasFilter() && !inc.hasConcept() && !(inc.getSystem().startsWith("http://hl7.org/fhir") || inc.getSystem().startsWith("http://terminology.hl7.org")))
           ok = false;
       }
     }

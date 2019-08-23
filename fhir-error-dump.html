@@ -1,16 +1,18 @@
 ﻿<!DOCTYPE HTML>
 
 
+
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Downloads - FHIR v4.1.0</title>
+  <title>Ansi-conformance - FHIR v4.1.0</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="author" content="http://hl7.org/fhir"/>
 
   <link href="fhir.css" rel="stylesheet"/>
-  <link rel="Prev" href="http://hl7.org/fhir/downloads.html"/>
+  <link rel="Prev" href="http://hl7.org/fhir/ansi-conformance.html"/>
 
   <!-- Bootstrap core CSS -->
   <link href="./dist/css/bootstrap.css" rel="stylesheet"/>
@@ -34,6 +36,7 @@
   <link rel="apple-touch-icon-precomposed" href="./assets/ico/apple-touch-icon-57-precomposed.png"/>
   <link rel="shortcut icon" href="./assets/ico/favicon.png"/>
 
+  <link rel="stylesheet" href="./assets/css/modules.css"/>
 </head>
 <body>
 	<div id="segment-header" class="segment"><!-- segment-header -->	
@@ -91,8 +94,9 @@
 	<div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
 		<div class="container"><!-- container -->	
 			<ul class="breadcrumb">
-        <li><a href="implsupport-module.html"><img src="implsupport.png"/> Implementation Support</a></li>
-        <li><b>Downloads</b></li>        <!-- downloads.html / page / -->
+        <li><a href="toc.html"><img src="index.png"/> Table of Contents</a></li>
+        <li><a href="ansi.html">ANSI Documentation</a></li>
+        <li><b>ANSI FHIR Terminology & Conformance Standard</b></li>        <!-- ansi-conformance.html / page / -->
 
 			</ul>	
 		</div><!-- /container -->
@@ -108,206 +112,106 @@
 
 <div class="col-12">
 
+<p style="background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;">
+This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). <br/>See the <a href="http://hl7.org/fhir/directory.html">Directory of published versions</a>
+</p>
 
-<h1>Downloads</h1>
 
-<table class="colis"><tr><td id="wg"><a _target="blank" href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<a name="root"></a>
+<h2>ANSI/HL7 FHIR R4 TERMINOLOGY R1-2019, "HL7 FHIR R4 Terminology &amp; Conformance, Release 1", 2019-08-09</h2>
+<table class="colsn"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fmg/index.cfm" _target="blank">FHIR Management Group</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Normative</a></td></tr></tbody></table>
 
-<table class="lines">
-
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Specification Downloads</b></td>
-  </tr>
-
-  <tr>
-    <td>FHIR Definitions</td>
-    <td>All the value sets, profiles, etc. defined as part of the FHIR specification, and the included implementation guides:
-      <ul>
-       <li><a href="definitions.xml.zip">XML</a></li>
-       <li><a href="definitions.json.zip">JSON</a></li>
-       <li><a href="definitions-r2.xml.zip">Forge</a>: Special version of definitions for <a href="https://simplifier.net/Forge">Forge</a> (temporary)</li>
-      </ul>
-      This is the master set of definitions that should be the first choice whenever generating any implementation artifacts. All
-      the other forms below include only subsets of the information available in these definition files, and do not contain all of the rules about what makes resources valid. Implementers
-      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
-
-  <tr>
-    <td>XML</td>
-    <td>
-      <ul>
-       <li><a href="examples.zip">Examples</a> - all the example resources in XML format</li>
-       <li><a href="fhir-all-xsd.zip">Validation Schemas</a> (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons)</li>
-       <li><a href="fhir-codegen-xsd.zip">Code Generation Schemas</a> (see <a href="xml.html#schema-gen">notes about code-generation schemas</a>)<br/>
-       <i>Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</i></li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
-
-  <tr>
-    <td>JSON</td>
-    <td>
-      <ul>
-       <li><a href="examples-json.zip">Examples</a> - all the example resources in JSON format</li>
-       <li><a href="fhir.schema.json.zip">JSON Schema</a> (Needs JSON Schema v1.6)</li>
-       <li><a href="examples-ndjson.zip">Examples</a> - all the example resources in <a href="nd-json.html">ND-JSON format</a> (bulk data format)</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
-
-  <tr>
-    <td>RDF</td>
-    <td>
-      <ul>
-       <li><a href="examples-ttl.zip">Turtle Examples</a> - all the example resources in Turtle format</li>
-       <li><a href="fhir.schema.shex.zip">ShEx Schemas</a> - <a href="https://www.w3.org/2001/sw/wiki/ShEx">ShEx</a> definitions for validating RDF resources</li>
-       <li><a href="fhir.rdf.ttl.zip">Definitions</a> - the formal definitions that define the predicates and classes used in the RDF format (not up to date)</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>GraphQL</td>
-    <td>
-      <ul>
-       <li><a href="fhir.schema.graphql.zip">GraphQL Schemas</a> 
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
-
-  <tr>
-    <td>FHIR Specification</td>
-    <td><!--<a href="fhir-spec.zip"> -->The whole specification<!--</a>--> so that you can host your own local copy (does not include the downloads) (not downloadable from build.fhir.org)</td>
-  </tr>
-
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Implementation Tools</b></td>
-  </tr>
-
-  <tr>
-    <td>Validator</td>
-    <td>The <a href="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=ca.uhn.hapi.fhir&amp;a=org.hl7.fhir.validation.cli&amp;v=LATEST&amp;e=jar">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information, or <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">Using the FHIR Validator</a> for parameter documentation</td>
-  </tr>
-
-  <tr>
-    <td>IG Publisher</td>
-    <td>The <a href="https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=org.hl7.fhir.publisher&amp;a=org.hl7.fhir.publisher.cli&amp;v=LATEST&amp;e=jar">Implementation Guide Publishing Tool</a> (see <a href="https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation">IG Publishing documentation</a>)</td>
-  </tr>
-
-  <tr>
-    <td>NPM Package</td>
-    <td>The <a href="package.tgz">NPM Package used by many of the FHIR tools</a> (particularly the IG publisher and the validator). 
-		This contains all the conformance &amp; example resources, and various publishing support files. Note that the tools usually find this package directly, and there's no need to download it</td>
-  </tr>
-
-  <tr>
-    <td>Spreadsheets</td>
-    <td>All the resource structures in a <a href="definitions.xlsx.zip">Spreadsheet Format</a> - mostly provided to assist with mapping</td>
-  </tr>
-
-  <tr>
-    <td>Translation File</td>
-    <td><a href="translations.xml">Translations of common FHIR names and messages</a> into multiple languages (see <a href="https://chat.fhir.org/#narrow/stream/10-translations">chat.fhir.org translations stream</a> for guidance on how to add to more)</td>
-  </tr>
-
-  <tr>
-    <td>Icon Pack</td>
-    <td>The <a href="icon-pack.zip">FHIR Icon at various resolutions</a>. Any FHIR Implementation created by an organization that has attended a connectathon is allowed to use the FHIR icon in association with the application (this policy will be reviewed in the future).</td>
-  </tr>
-
-  <tr>
-    <td>Test Cases</td>
-    <td>Test cases can mainly be found in the <a href="https://github.com/hapifhir/org.hl7.fhir.core/tree/master/org.hl7.fhir.r4/src/main/resources">org.hl7.fhir.core</a> repository</td>
-  </tr>
-
-  <tr>
-    <td>Code Generation Support</td>
-    <td>ValueSet expansions for the value sets used in schema generation (<a href="expansions.xml">XML</a> or <a href="expansions.json">JSON</a>) + a list of all <a href="choice-elements.json">choice elements</a> &amp; <a href="backbone-elements.json">backbone elements</a>.
-    Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</td>
-  </tr>
-
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Reference Implementations</b><a name="refimpl"></a></td>
-  </tr>
-
-  <tr>
-    <td colspan="2">
-    There are many open source reference implementations available to help implementers.
-    Here are a list of the more common implementations used by implementers:
-    </td>
-  </tr>
-
-  <tr>
-   <td>Java</td>
-   <td>
-     <a href="http://jamesagnew.github.io/hapi-fhir/">HAPI-FHIR</a>:
-     Object Models, Parsers, Client + Server Framework, FHIR Validator, &amp; Utilities. The specification is built with this Java code
-   </td>
-  </tr>
-  <tr>
-   <td>C#</td>
-   <td>
-    <a href="http://www.nuget.org/packages/Hl7.Fhir">HL7.FHIR</a>:
-    Object models, Parsers/Serializers, Utilities, and a Client. Source code on GitHub at <a href="http://github.com/ewoutkramer/fhir-net-api">http://github.com/ewoutkramer/fhir-net-api</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Pascal</td>
-   <td>
-    <a href="http://github.com/grahamegrieve/fhirserver">FhirServer</a>:
-    Object models, Parsers/Serializers, Validator, Utilities, Client, and the FHIR Reference server. Requires <a href="https://www.embarcadero.com/products/delphi">Delphi</a> (Unicode versions)
-   </td>
-  </tr>
-  <tr>
-   <td>XML</td>
-   <td>
-    <a href="fhir-4.1.0-XMLTools-0.01.zip">XML Tools</a>:
-    Document Rendering Stylesheet, supplementary implementation schemas and transforms
-   </td>
-  </tr>
-  <tr>
-   <td>Javascript</td>
-   <td>See the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=35718838#OpenSourceImplementations-Javascript">HL7 wiki for Javascript libraries</a> (Clients and Utilities for both servers and clients)
-   </td>
-  </tr>
-  <tr>
-   <td>Swift</td>
-   <td>
-    <a href="https://github.com/smart-on-fhir/Swift-FHIR">Swift-FHIR</a>:
-    Object Model, Client and Utilities
-   </td>
-  </tr>
- </table>
-
-<blockquote><p> <b>Implementation Note:</b> 
-These reference implementations are provided for implementer interest and assistance.
-While they may be used (and are) in production systems, HL7 and their various contributors accept no
-liability for their use. <span style="color: Maroon">Note that these reference implementations are
-provided to assist to implementers to adopt the specification, and some are maintained by the FHIR
-project team, but are not part of the specification, and implementations are not required to
-conform to these, nor are they subject to the formal standards process.</span>
-</p></blockquote>
-<hr/>
 <p>
-Full blown open source implementations for FHIR, some of which use these reference implementations, are
-listed on <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7 Confluence</a>.
+This <a href="ansi.html">ANSI Normative Standard</a> contains the Conformance parts of the FHIR specification - 
+the terminology infrastructure and the base resources that define FHIR implementations and that represent how the specification, and conformance to it, is defined.
 </p>
 <p>
-It is not necessary to use these particular implementations in order to be conformant. Any other approach
-may be used, including code generated from the schemas.
+<img src="assets/images/ansi-approved.gif"/>
 </p>
+<p>
+This standard uses the ANSI FHIR <a href="ansi-infrastructure.html">Infrastructure</a> standard.
+</p>
+
+
+<div style="border: 1px grey solid; padding: 5px">
+<table class="none"><tr>
+<td><p><b>Resources</b></p><ul>  <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
+  <li><a href="codesystem.html">CodeSystem</a></li>
+  <li><a href="operationdefinition.html">OperationDefinition</a></li>
+  <li><a href="structuredefinition.html">StructureDefinition</a></li>
+  <li><a href="valueset.html">ValueSet</a></li>
+</ul></td>
+<td><p><b>Operations</b></p><ul>  <li><a href="codesystem-operation-lookup.html">CodeSystem lookup</a></li>
+  <li><a href="codesystem-operation-subsumes.html">CodeSystem subsumes</a></li>
+  <li><a href="codesystem-operation-validate-code.html">CodeSystem validate-code</a></li>
+  <li><a href="valueset-operation-expand.html">ValueSet expand</a></li>
+  <li><a href="valueset-operation-validate-code.html">ValueSet validate-code</a></li>
+</ul></td>
+<td><p><b>Valuesets</b></p><ul>  <li><a href="valueset-FHIR-version.html">FHIRVersion</a></li>
+  <li><a href="valueset-all-languages.html">All Languages</a></li>
+  <li><a href="valueset-all-types.html">FHIRAllTypes</a></li>
+  <li><a href="valueset-binding-strength.html">BindingStrength</a></li>
+  <li><a href="valueset-capability-statement-kind.html">CapabilityStatementKind</a></li>
+  <li><a href="valueset-codesystem-content-mode.html">CodeSystemContentMode</a></li>
+  <li><a href="valueset-codesystem-hierarchy-meaning.html">CodeSystemHierarchyMeaning</a></li>
+  <li><a href="valueset-concept-property-type.html">PropertyType</a></li>
+  <li><a href="valueset-conditional-delete-status.html">ConditionalDeleteStatus</a></li>
+  <li><a href="valueset-conditional-read-status.html">ConditionalReadStatus</a></li>
+  <li><a href="valueset-defined-types.html">FHIRDefinedType</a></li>
+  <li><a href="valueset-definition-use.html">Structure Definition Use Codes / Keywords</a></li>
+  <li><a href="valueset-designation-use.html">Designation Use</a></li>
+  <li><a href="valueset-document-mode.html">DocumentMode</a></li>
+  <li><a href="valueset-event-capability-mode.html">EventCapabilityMode</a></li>
+  <li><a href="valueset-extension-context-type.html">ExtensionContextType</a></li>
+  <li><a href="valueset-filter-operator.html">FilterOperator</a></li>
+  <li><a href="valueset-jurisdiction.html">Jurisdiction</a></li>
+  <li><a href="valueset-message-transport.html">MessageTransport</a></li>
+  <li><a href="valueset-operation-kind.html">OperationKind</a></li>
+  <li><a href="valueset-operation-parameter-use.html">OperationParameterUse</a></li>
+  <li><a href="valueset-publication-status.html">PublicationStatus</a></li>
+  <li><a href="valueset-reference-handling-policy.html">ReferenceHandlingPolicy</a></li>
+  <li><a href="valueset-resource-types.html">ResourceType</a></li>
+  <li><a href="valueset-restful-capability-mode.html">RestfulCapabilityMode</a></li>
+  <li><a href="valueset-restful-security-service.html">RestfulSecurityService</a></li>
+  <li><a href="valueset-search-param-type.html">SearchParamType</a></li>
+  <li><a href="valueset-structure-definition-kind.html">StructureDefinitionKind</a></li>
+  <li><a href="valueset-system-restful-interaction.html">SystemRestfulInteraction</a></li>
+  <li><a href="valueset-type-derivation-rule.html">TypeDerivationRule</a></li>
+  <li><a href="valueset-type-restful-interaction.html">TypeRestfulInteraction</a></li>
+  <li><a href="valueset-versioning-policy.html">ResourceVersionPolicy</a></li>
+</ul></td>
+<td><p><b>Codesystems</b></p><ul>  <li><a href="codesystem-FHIR-version.html">FHIRVersion</a></li>
+  <li><a href="codesystem-abstract-types.html">AbstractType</a></li>
+  <li><a href="codesystem-binding-strength.html">BindingStrength</a></li>
+  <li><a href="codesystem-capability-statement-kind.html">CapabilityStatementKind</a></li>
+  <li><a href="codesystem-codesystem-content-mode.html">CodeSystemContentMode</a></li>
+  <li><a href="codesystem-codesystem-hierarchy-meaning.html">CodeSystemHierarchyMeaning</a></li>
+  <li><a href="codesystem-concept-property-type.html">PropertyType</a></li>
+  <li><a href="codesystem-conditional-delete-status.html">ConditionalDeleteStatus</a></li>
+  <li><a href="codesystem-conditional-read-status.html">ConditionalReadStatus</a></li>
+  <li><a href="codesystem-data-types.html">DataType</a></li>
+  <li><a href="codesystem-definition-use.html">Structure Definition Use Codes / Keywords</a></li>
+  <li><a href="codesystem-document-mode.html">DocumentMode</a></li>
+  <li><a href="codesystem-event-capability-mode.html">EventCapabilityMode</a></li>
+  <li><a href="codesystem-extension-context-type.html">ExtensionContextType</a></li>
+  <li><a href="codesystem-filter-operator.html">FilterOperator</a></li>
+  <li><a href="codesystem-message-transport.html">MessageTransport</a></li>
+  <li><a href="codesystem-operation-kind.html">OperationKind</a></li>
+  <li><a href="codesystem-operation-parameter-use.html">OperationParameterUse</a></li>
+  <li><a href="codesystem-publication-status.html">PublicationStatus</a></li>
+  <li><a href="codesystem-reference-handling-policy.html">ReferenceHandlingPolicy</a></li>
+  <li><a href="codesystem-resource-types.html">ResourceType</a></li>
+  <li><a href="codesystem-restful-capability-mode.html">RestfulCapabilityMode</a></li>
+  <li><a href="codesystem-restful-interaction.html">FHIR Restful Interactions</a></li>
+  <li><a href="codesystem-restful-security-service.html">RestfulSecurityService</a></li>
+  <li><a href="codesystem-search-param-type.html">SearchParamType</a></li>
+  <li><a href="codesystem-structure-definition-kind.html">StructureDefinitionKind</a></li>
+  <li><a href="codesystem-type-derivation-rule.html">TypeDerivationRule</a></li>
+  <li><a href="codesystem-versioning-policy.html">ResourceVersionPolicy</a></li>
+</ul></td>
+</tr></table></div>
+
+
 
 </div>
 
@@ -323,7 +227,7 @@ may be used, including code generated from the schemas.
 		<div class="container"><!-- container -->
 			<div class="inner-wrapper">
 				<p>
-        FHIR &reg;© HL7.org 2011+. FHIR CI Build hl7.fhir.core#4.1.0 (GitHub 857e4c9172) generated on Sun, Jun 16, 2019 05:19+1000. 
+        FHIR &reg;© HL7.org 2011+. FHIR CI Build hl7.fhir.core#4.1.0 (GitHub aadec2073d) generated on Fri, Aug 9, 2019 20:04+1000. 
         <br/>
         <span style="color: #FFFF77">
         Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search</a> | 
@@ -331,7 +235,7 @@ may be used, including code generated from the schemas.
                <a style="color: #b8dcf9" href="toc.html">Table of Contents</a> | 
                <a style="color: #ffffff" href="qa.html">QA Page</a> |
 <!--                <a style="color: #b8dcf9" href="credits.html">Credits</a> | -->
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Fdownloads.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fdownloads.html">Compare to R3</a> |                
+               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Fansi-conformance.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fansi-conformance.html">Compare to R4</a> |                
                <a style="color: #b8dcf9" rel="license" href="license.html"><img src="cc0.png" style="border-style: none;" alt="CC0"/></a> | 
                <a style="color: #b8dcf9" target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a>   
         </span>
@@ -360,6 +264,8 @@ may be used, including code generated from the schemas.
 
 <!-- Analytics Below
 ================================================== -->
+
+
 
 </body>
 </html>
