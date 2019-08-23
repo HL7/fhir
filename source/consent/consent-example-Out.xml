@@ -1,19 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/consent.xsd">
   <id value="consent-example-Out"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
-	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
-	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
-	than "withhold" or "withdraw" consent for.
-    <p>
-	Specific to use-case 0) Withhold Authorization of sharing data for Treatment
-	</p><p>
-    Patient "P. van de Heuvel" wishes to have no data at the Good Health Psychiatric Hospital 
-   available for normal treatment use.
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
+	    The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
+      Withhold Authorization of sharing data for Treatment
+	</p>
+      <p>
+    Patient "P. van de Heuvel" wishes to have no data at the Burgers University Medical Center available for normal treatment use.
    </p>
-   </div>
+    </div>
   </text>
   <status value="active"/>
   <scope>
@@ -21,8 +19,8 @@
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
     </coding>
-    </scope>
-      <category>
+  </scope>
+  <category>
     <coding>
       <system value="http://loinc.org"/>
       <code value="59284-0"/>
@@ -32,35 +30,36 @@
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </patient>
-  <dateTime value="2015-11-18"/>
-  <!-- not bound by a timeframe - Consent.period -->
-  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
+  <dateTime value="2018-12-28"/>
   <organization>
     <reference value="Organization/f001"/>
   </organization>
-  <!-- the text terms of the consent in lawyer speak -->
   <sourceAttachment>
     <title value="The terms of the consent in lawyer speak."/>
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
-  <!-- this is opt-out - e.g. everything approved unless otherwise stated -->
+  <!-- this is opt-IN - e.g. everything approved unless otherwise stated -->
   <policyRule>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <code value="OPTOUT"/>
+      <code value="INFA"/>
     </coding>
   </policyRule>
   <provision>
-    <actor>
-      <role>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-          <code value="CST"/>
-        </coding>
-      </role>
-      <reference>
-        <reference value="Organization/f001"/>
-      </reference>
-    </actor>
+    <type value="permit"/>
+    <provision>
+      <type value="deny"/>
+      <actor>
+        <role>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+            <code value="CST"/>
+          </coding>
+        </role>
+        <reference>
+          <reference value="Organization/f001"/>
+        </reference>
+      </actor>
+    </provision>
   </provision>
 </Consent>

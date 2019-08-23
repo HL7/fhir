@@ -14,7 +14,7 @@
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>The Library resource is definitional in nature, meaning it is intended to represent shareable knowledge independent of any particular patient. This is in contrast to the <a href="documentreference.html">DocumentReference</a> resource, which captures non-FHIR content related to a specific patient, and the <a href="media.html">Media</a> and <a href="binary.html">Binary</a> resources which capture multimedia content and raw binary content, respectively.</p>
+<p>The Library resource is definitional in nature, meaning it is intended to represent shareable knowledge independent of any particular patient. This is in contrast to the <a href="documentreference.html">DocumentReference</a> resource, which captures non-FHIR content related to a specific patient, multimedia content, or other raw binary content.</p>
 </div>
 
 <!-- (optional):
