@@ -110,13 +110,13 @@
 	<h3>REST Hook</h3>
 	<p>
 When a topic meets the criteria, the server
-<code>POST</code>s an event notification to the nominated URL as shown in the following examples. Note that the server must append the headers, if any are given, to the POST request that it makes to the client.</p>
+POSTs an event notification to the client's nominated endpoint URL (i.e. to the <code>Subscription.channel[type=rest-hook].endpoint</code>) as shown in the following examples. Note that the server must append the headers, if any are given, to the POST request that it makes to the client.</p>
 <p>
 This example uses an event notification with an empty payload to alert the subscriber that new results
 are available:
 </p>
 	<p>Request:</p>
-	<code>POST [base] {?_format=[mime-type]}</code>
+	<code>POST [client endpoint]</code>
 	<p>Request Payload</p>
 	<pre class="json" fragment="Bundle">
   {
@@ -157,7 +157,7 @@ Since the content element is set to <code>empty</code>, the data in the resource
 In this example, the event notification contains the only the ids for resource. This provide the subscriber with the id for fetching the data.
 </p>
 	<p>Request:</p>
-	<code>POST [base] {?_format=[mime-type]}</code>
+	<code>POST [client endpoint]</code>
 	<p>Request Payload</p>
 	<pre class="json" fragment="Bundle">
   {
@@ -210,7 +210,7 @@ Since the content element is set to <code>id-only</code>, like in the first scen
 In this example, the event notification contains the the entire resource. This is usually appropriate for defining routing rules within a managed eco-system such as a healthcare institution.
 </p>
 	<p>Request:</p>
-	<code>POST [base] {?_format=[mime-type]}</code>
+	<code>POST [client endpoint]</code>
 	<p>Request Payload</p>
 	<pre class="json" fragment="Bundle">
 {
