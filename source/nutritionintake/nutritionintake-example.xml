@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<NutritionIntake xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<!-- id = example  file name = nutritionintake-example.xml  Name=Simple   Description = General NutritionIntake Example edited by Jean Duteau & Becky Gradl-->
+	<id value="example"/>
+	<status value="completed"/>
+	<category>
+		<text value="Inpatient"/>
+	</category>
+	<consumedItem>
+		<type>
+			<text value="food"/>
+		</type>
+		<nutritionProduct>
+			<text value="Grill Sandwich"/>
+		</nutritionProduct>
+		<amount> 
+			<value value="100"/> 
+			<unit value="percent"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="%"/> 
+		</amount> 
+	</consumedItem>
+	<consumedItem>
+		<type>
+			<text value="food"/>
+		</type>
+		<nutritionProduct>
+			<text value="French Fries Spiral Battered"/>
+		</nutritionProduct>
+		<amount> 
+			<value value="100"/> 
+			<unit value="percent"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="%"/> 
+		</amount> 
+	</consumedItem>
+	<consumedItem>
+		<type>
+			<text value="food"/>
+		</type>
+		<nutritionProduct>
+			<text value="Tomato Soup Healthy Request"/>
+		</nutritionProduct>
+		<amount> 
+			<value value="50"/> 
+			<unit value="percent"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="%"/> 
+		</amount> 
+	</consumedItem>
+	<consumedItem>
+		<type>
+			<text value="food"/>
+		</type>
+		<nutritionProduct>
+			<text value="Side Garden Salad"/>
+		</nutritionProduct>
+		<amount> 
+			<value value="50"/> 
+			<unit value="percent"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="%"/> 
+		</amount> 
+	</consumedItem>
+	<consumedItem>
+		<type>
+			<text value="fluid"/>
+		</type>
+		<nutritionProduct>
+			<text value="Ice Tea Unsweetened"/>
+		</nutritionProduct>
+		<amount> 
+			<value value="100"/> 
+			<unit value="percent"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="%"/> 
+		</amount> 
+	</consumedItem>
+	<ingredientLabel>
+		<nutrient>
+			<text value="Total Calories"/>
+		</nutrient>
+		<amount> 
+			<value value="313"/> 
+			<unit value="kilocalorie"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="kcal"/> 
+		</amount> 
+	</ingredientLabel>
+	<ingredientLabel>
+		<nutrient>
+			<text value="Protein"/>
+		</nutrient>
+		<amount> 
+			<value value="10.4"/> 
+			<unit value="grams"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="g"/> 
+		</amount> 
+	</ingredientLabel>
+	<ingredientLabel>
+		<nutrient>
+			<text value="Fat (Total)"/>
+		</nutrient>
+		<amount> 
+			<value value="18.00"/> 
+			<unit value="grams"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="g"/> 
+		</amount> 
+	</ingredientLabel>
+	<ingredientLabel>
+		<nutrient>
+			<text value="Carbohydrate"/>
+		</nutrient>
+		<amount> 
+			<value value="26.47"/> 
+			<unit value="grams"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="g"/> 
+		</amount> 
+	</ingredientLabel>	
+	<ingredientLabel>
+		<nutrient>
+			<text value="Sodium"/>
+		</nutrient> 
+		<amount> 
+			<value value="770"/> 
+			<unit value="Milligrams"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="mg"/> 
+		</amount> 
+	</ingredientLabel>
+	<subject>
+		<display value="Paula Patient Chalmers"/>
+	</subject>
+	<effectiveDateTime value="2019-08-02T12:45:18+04:00"/>
+</NutritionIntake>

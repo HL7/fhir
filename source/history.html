@@ -692,7 +692,6 @@ notes: do not list revision in the version
         <li><a href="immunizationrecommendation.html">ImmunizationRecommendation</a> - rename subject to patient</li>
         <li><a href="list.html">List</a> - add title, status, change ordered to orderedBy, add note</li>
         <li><a href="location.html">Location</a> - remove status</li>
-        <li><a href="media.html">Media</a> - remove created (-> Attachment)</li>
         <li><a href="medication.html">Medication</a> - add batch</li>
         <li><a href="medicationadministration.html">MedicationAdministration</a> - add reasonGiven, note, text. remove timing &amp; maxDosePerPeriod</li>
         <li><a href="medicationdispense.html">MedicationDispense</a> - collapse to a single dispense, add daysSupply, note and substitution, change quantity to allow range</li>
@@ -754,7 +753,6 @@ notes: do not list revision in the version
         <li><a href="questionnaire.html">Questionnaire</a>: drop questionnaire.group.question.remarks (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3255">3255</a>) and move omitReason from extension to base resource (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3260">3260</a>)</li>
         <li><a href="questionnaireresponse.html">QuestionnaireResponse</a>: allow multiple answers (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3146">3146</a>) </li>
         <li><a href="valueset.html">ValueSet</a>: replace  ValueSet.compose.include.code with ValueSet.compose.include.concept (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3258">3258</a>), added new rules about expansion content (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3138">3138</a>)</li>
-        <li><a href="media.html">Media</a>: Rename element 'dateTime' to 'created' (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3174">3174</a>) and length to duration (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-2866">2866</a>)</li>
         <li>Remove DeviceObservationReport and Query</li>
         <li>Collapse AdverseReaction into <a href="allergyintolerance.html">AllergyIntolerance</a></li>
         <li><a href="appointment.html">Appointment</a> changes - individual field renamed to actor, and added mappings to <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a></li>

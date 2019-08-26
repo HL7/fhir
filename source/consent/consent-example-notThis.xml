@@ -1,21 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/consent.xsd">
   <id value="consent-example-notThis"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
-	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
-	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
-	than "withhold" or "withdraw" consent for.
-    <p>
-	specific to use-case 2. Withhold or withdraw consent for disclosure of a specific record (e.g. Lab Order/Result) 
-	</p><p>
-    Patient "P. van de Heuvel" Primary Care Provider, Dr. Philip Primary, has ordered a set of lab test which Adam 
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
+	      The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
+	       Withhold or withdraw consent for disclosure of a specific record (e.g. Lab Order/Result) 
+	    </p>
+      <p>
+    Patient "Donal D DUCK"'s Primary Care Provider, Dr. Philip Primary, has ordered a set of lab test which Adam 
    wishes to keep as private as possible.  At the sample collection facility, he indicates that he would 
    like withhold consent to disclose the order and all results associated with that specific order from 
    all other providers  
    </p>
-   </div>
+    </div>
   </text>
   <status value="active"/>
   <scope>
@@ -23,8 +22,8 @@
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
     </coding>
-    </scope>
-      <category>
+  </scope>
+  <category>
     <coding>
       <system value="http://loinc.org"/>
       <code value="59284-0"/>
@@ -34,30 +33,31 @@
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </patient>
-  <dateTime value="2015-11-18"/>
-  <!-- not bound by a timeframe - Consent.period -->
-  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
+  <dateTime value="2018-12-28"/>
   <organization>
     <reference value="Organization/f001"/>
   </organization>
-  <!-- the text terms of the consent in lawyer speak -->
   <sourceAttachment>
     <title value="The terms of the consent in lawyer speak."/>
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
-  <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
+  
   <policyRule>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <code value="OPTIN"/>
+      <code value="INFA"/>
     </coding>
   </policyRule>
-  <provision>
-    <data>
-      <meaning value="related"/>
-      <reference>
-        <reference value="Task/example3"/>
-      </reference>
-    </data>
+  <provision><!-- this is opt-in - e.g. everything approved unless otherwise stated -->
+    <type value="permit"/>
+    <provision>
+      <type value="deny"/>
+      <data>
+        <meaning value="related"/>
+        <reference>
+          <reference value="MedicationRequest/medrx0305"/>
+        </reference>
+      </data>
+    </provision>
   </provision>
 </Consent>

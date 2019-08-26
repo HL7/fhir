@@ -1,18 +1,15 @@
 ﻿<!DOCTYPE HTML>
 
-
-
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Ansi-conformance - FHIR v4.1.0</title>
+  <title>Subscription - FHIR v4.1.0</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="author" content="http://hl7.org/fhir"/>
 
   <link href="fhir.css" rel="stylesheet"/>
-  <link rel="Prev" href="http://hl7.org/fhir/ansi-conformance.html"/>
+  <link rel="Prev" href="http://hl7.org/fhir/subscription.html"/>
 
   <!-- Bootstrap core CSS -->
   <link href="./dist/css/bootstrap.css" rel="stylesheet"/>
@@ -94,9 +91,6 @@
 	<div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
 		<div class="container"><!-- container -->	
 			<ul class="breadcrumb">
-        <li><a href="toc.html"><img src="index.png"/> Table of Contents</a></li>
-        <li><a href="ansi.html">ANSI Documentation</a></li>
-        <li><b>ANSI FHIR Terminology & Conformance Standard</b></li>        <!-- ansi-conformance.html / page / -->
 
 			</ul>	
 		</div><!-- /container -->
@@ -111,161 +105,6 @@
 
 
 <div class="col-12">
-
-<p style="background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;">
-This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). <br/>See the <a href="http://hl7.org/fhir/directory.html">Directory of published versions</a>
-</p>
-
-
-<a name="root"></a>
-<h2>ANSI/HL7 FHIR R4 TERMINOLOGY R1-2019, "HL7 FHIR R4 Terminology &amp; Conformance, Release 1", 2019-08-09</h2>
-<table class="colsn"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fmg/index.cfm" _target="blank">FHIR Management Group</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Normative</a></td></tr></tbody></table>
-
-<p>
-This <a href="ansi.html">ANSI Normative Standard</a> contains the Conformance parts of the FHIR specification - 
-the terminology infrastructure and the base resources that define FHIR implementations and that represent how the specification, and conformance to it, is defined.
-</p>
-<p>
-<img src="assets/images/ansi-approved.gif"/>
-</p>
-<p>
-This standard uses the ANSI FHIR <a href="ansi-infrastructure.html">Infrastructure</a> standard.
-</p>
-
-
-<div style="border: 1px grey solid; padding: 5px">
-<table class="none"><tr>
-<td><p><b>Resources</b></p><ul>  <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
-  <li><a href="codesystem.html">CodeSystem</a></li>
-  <li><a href="operationdefinition.html">OperationDefinition</a></li>
-  <li><a href="structuredefinition.html">StructureDefinition</a></li>
-  <li><a href="valueset.html">ValueSet</a></li>
-</ul></td>
-<td><p><b>Operations</b></p><ul>  <li><a href="codesystem-operation-lookup.html">CodeSystem lookup</a></li>
-  <li><a href="codesystem-operation-subsumes.html">CodeSystem subsumes</a></li>
-  <li><a href="codesystem-operation-validate-code.html">CodeSystem validate-code</a></li>
-  <li><a href="valueset-operation-expand.html">ValueSet expand</a></li>
-  <li><a href="valueset-operation-validate-code.html">ValueSet validate-code</a></li>
-</ul></td>
-<td><p><b>Valuesets</b></p><ul>  <li><a href="valueset-FHIR-version.html">FHIRVersion</a></li>
-  <li><a href="valueset-all-languages.html">All Languages</a></li>
-  <li><a href="valueset-all-types.html">FHIRAllTypes</a></li>
-  <li><a href="valueset-binding-strength.html">BindingStrength</a></li>
-  <li><a href="valueset-capability-statement-kind.html">CapabilityStatementKind</a></li>
-  <li><a href="valueset-codesystem-content-mode.html">CodeSystemContentMode</a></li>
-  <li><a href="valueset-codesystem-hierarchy-meaning.html">CodeSystemHierarchyMeaning</a></li>
-  <li><a href="valueset-concept-property-type.html">PropertyType</a></li>
-  <li><a href="valueset-conditional-delete-status.html">ConditionalDeleteStatus</a></li>
-  <li><a href="valueset-conditional-read-status.html">ConditionalReadStatus</a></li>
-  <li><a href="valueset-defined-types.html">FHIRDefinedType</a></li>
-  <li><a href="valueset-definition-use.html">Structure Definition Use Codes / Keywords</a></li>
-  <li><a href="valueset-designation-use.html">Designation Use</a></li>
-  <li><a href="valueset-document-mode.html">DocumentMode</a></li>
-  <li><a href="valueset-event-capability-mode.html">EventCapabilityMode</a></li>
-  <li><a href="valueset-extension-context-type.html">ExtensionContextType</a></li>
-  <li><a href="valueset-filter-operator.html">FilterOperator</a></li>
-  <li><a href="valueset-jurisdiction.html">Jurisdiction</a></li>
-  <li><a href="valueset-message-transport.html">MessageTransport</a></li>
-  <li><a href="valueset-operation-kind.html">OperationKind</a></li>
-  <li><a href="valueset-operation-parameter-use.html">OperationParameterUse</a></li>
-  <li><a href="valueset-publication-status.html">PublicationStatus</a></li>
-  <li><a href="valueset-reference-handling-policy.html">ReferenceHandlingPolicy</a></li>
-  <li><a href="valueset-resource-types.html">ResourceType</a></li>
-  <li><a href="valueset-restful-capability-mode.html">RestfulCapabilityMode</a></li>
-  <li><a href="valueset-restful-security-service.html">RestfulSecurityService</a></li>
-  <li><a href="valueset-search-param-type.html">SearchParamType</a></li>
-  <li><a href="valueset-structure-definition-kind.html">StructureDefinitionKind</a></li>
-  <li><a href="valueset-system-restful-interaction.html">SystemRestfulInteraction</a></li>
-  <li><a href="valueset-type-derivation-rule.html">TypeDerivationRule</a></li>
-  <li><a href="valueset-type-restful-interaction.html">TypeRestfulInteraction</a></li>
-  <li><a href="valueset-versioning-policy.html">ResourceVersionPolicy</a></li>
-</ul></td>
-<td><p><b>Codesystems</b></p><ul>  <li><a href="codesystem-FHIR-version.html">FHIRVersion</a></li>
-  <li><a href="codesystem-abstract-types.html">AbstractType</a></li>
-  <li><a href="codesystem-binding-strength.html">BindingStrength</a></li>
-  <li><a href="codesystem-capability-statement-kind.html">CapabilityStatementKind</a></li>
-  <li><a href="codesystem-codesystem-content-mode.html">CodeSystemContentMode</a></li>
-  <li><a href="codesystem-codesystem-hierarchy-meaning.html">CodeSystemHierarchyMeaning</a></li>
-  <li><a href="codesystem-concept-property-type.html">PropertyType</a></li>
-  <li><a href="codesystem-conditional-delete-status.html">ConditionalDeleteStatus</a></li>
-  <li><a href="codesystem-conditional-read-status.html">ConditionalReadStatus</a></li>
-  <li><a href="codesystem-data-types.html">DataType</a></li>
-  <li><a href="codesystem-definition-use.html">Structure Definition Use Codes / Keywords</a></li>
-  <li><a href="codesystem-document-mode.html">DocumentMode</a></li>
-  <li><a href="codesystem-event-capability-mode.html">EventCapabilityMode</a></li>
-  <li><a href="codesystem-extension-context-type.html">ExtensionContextType</a></li>
-  <li><a href="codesystem-filter-operator.html">FilterOperator</a></li>
-  <li><a href="codesystem-message-transport.html">MessageTransport</a></li>
-  <li><a href="codesystem-operation-kind.html">OperationKind</a></li>
-  <li><a href="codesystem-operation-parameter-use.html">OperationParameterUse</a></li>
-  <li><a href="codesystem-publication-status.html">PublicationStatus</a></li>
-  <li><a href="codesystem-reference-handling-policy.html">ReferenceHandlingPolicy</a></li>
-  <li><a href="codesystem-resource-types.html">ResourceType</a></li>
-  <li><a href="codesystem-restful-capability-mode.html">RestfulCapabilityMode</a></li>
-  <li><a href="codesystem-restful-interaction.html">FHIR Restful Interactions</a></li>
-  <li><a href="codesystem-restful-security-service.html">RestfulSecurityService</a></li>
-  <li><a href="codesystem-search-param-type.html">SearchParamType</a></li>
-  <li><a href="codesystem-structure-definition-kind.html">StructureDefinitionKind</a></li>
-  <li><a href="codesystem-type-derivation-rule.html">TypeDerivationRule</a></li>
-  <li><a href="codesystem-versioning-policy.html">ResourceVersionPolicy</a></li>
-</ul></td>
-</tr></table></div>
-
-
-
-</div>
-
-
-				</div><!-- /inner-wrapper -->
-            </div><!-- /row -->
-        </div><!-- /container -->
-        
-    </div><!-- /segment-content -->
-
-
-	<div id="segment-footer" class="segment"><!-- segment-footer -->
-		<div class="container"><!-- container -->
-			<div class="inner-wrapper">
-				<p>
-        FHIR &reg;© HL7.org 2011+. FHIR CI Build hl7.fhir.core#4.1.0 (GitHub aadec2073d) generated on Fri, Aug 9, 2019 20:04+1000. 
-        <br/>
-        <span style="color: #FFFF77">
-        Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search</a> | 
-               <a style="color: #b8dcf9" href="history.html">Version History</a> | 
-               <a style="color: #b8dcf9" href="toc.html">Table of Contents</a> | 
-               <a style="color: #ffffff" href="qa.html">QA Page</a> |
-<!--                <a style="color: #b8dcf9" href="credits.html">Credits</a> | -->
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Fansi-conformance.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fansi-conformance.html">Compare to R4</a> |                
-               <a style="color: #b8dcf9" rel="license" href="license.html"><img src="cc0.png" style="border-style: none;" alt="CC0"/></a> | 
-               <a style="color: #b8dcf9" target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a>   
-        </span>
-        </p>
-			</div><!-- /inner-wrapper -->
-		</div><!-- /container -->
-	</div><!-- /segment-footer -->
-<!-- disqus thread -->
-<!--disqus-->
-<!-- end disqus -->        
-	
-	<div id="segment-post-footer" class="segment hidden"><!-- segment-post-footer -->
-		<div class="container"><!-- container -->
-		</div><!-- /container -->
-	</div><!-- /segment-post-footer -->
-    
-    <!-- JS and analytics only. -->
-    <!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="./assets/js/jquery.js"> </script>   <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
-<script src="./dist/js/bootstrap.min.js"> </script>
-<script src="./assets/js/respond.min.js"> </script>
-
-<script src="./assets/js/fhir.js"> </script>
-
-<!-- Analytics Below
-================================================== -->
-
-
 
 </body>
 </html>

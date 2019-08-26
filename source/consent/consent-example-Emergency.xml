@@ -1,18 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/consent.xsd">
   <id value="consent-example-Emergency"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>
-	Withhold Authorization for Treatment rule for Emegency Treatment
-	</p>
-      <p>
-    Patient "P. van de Heuvel" wishes to have no data at the Good Health Psychiatric Hospital 
-   available rule for Emergency treatment use.
-   An overall Deny consent Directive, with an exception "Permit" of purposeOfUse "ETREAT" 
-   at "Good Health" hospital, and exception "Deny" all other purposeOfUse from good health hospital.
-   </p>
+      <p>Withhold Authorization for Treatment rule for except for Emergency Treatment</p>
+      <p>Patient "Pieter van de Heuvel" wishes to have no data at the Artis University Medical Center available except for Emergency treatment use. 
+      An overall Deny consent directive, with an exception "Permit" for purposeOfUse "ETREAT" at Artis University Medical Center.</p>
     </div>
   </text>
   <status value="active"/>
@@ -20,56 +14,39 @@
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
-    </coding>  
-        </scope>
-<category>
+    </coding>
+  </scope>
+  <category>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <code value="EMRGONLY"/>
+      <code value="INFA"/>
     </coding>
   </category>
   <patient>
     <reference value="Patient/f001"/>
-    <display value="P. van de Heuvel"/>
+    <display value="Pieter van de Heuvel"/>
   </patient>
-  <dateTime value="2015-11-18"/>
-  <!-- not bound by a timeframe - Consent.period -->
-  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
+  <dateTime value="2018-12-24"/>
+  <!-- The example given is Organization wide -->
   <organization>
-    <reference value="Organization/f001"/>
+    <reference value="Organization/f201"/>
   </organization>
   <!-- the text terms of the consent in lawyer speak -->
   <sourceAttachment>
-    <title value="The terms of the consent in lawyer speak."/>
+    <title value="The patient [grantor] declines to agree to the provider's [grantee's] consent directive form, which lists permissible collection, access, use, or disclosure activities, purposes of use, handling caveats, revocation policies, and consequences of not assenting."/>
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
-  <!-- 
-    this is opt-out - e.g. nothing approved unless otherwise stated.
-  -->
   <policyRule>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <code value="OPTOUT"/>
+      <code value="INFA"/>
     </coding>
   </policyRule>
   <provision>
-    <actor>
-      <role>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-          <code value="CST"/>
-        </coding>
-      </role>
-      <reference>
-        <reference value="Organization/f001"/>
-      </reference>
-    </actor>
-    <purpose>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-      <code value="ETREAT"/>
-    </purpose>
-    <!-- this rule overrides the other one -->
+    <!-- this is opt-out - e.g. nothing approved unless otherwise stated. -->
+    <type value="deny"/>
     <provision>
+    <!-- deny Artis University Medical Center specifically -->
       <type value="deny"/>
       <actor>
         <role>
@@ -79,9 +56,28 @@
           </coding>
         </role>
         <reference>
-          <reference value="Organization/f001"/>
+          <reference value="Organization/f201"/>
         </reference>
       </actor>
+      <provision>
+      <!-- permit Artis University Medical Center for Emergency Treatment -->
+        <type value="permit"/>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="CST"/>
+            </coding>
+          </role>
+          <reference>
+            <reference value="Organization/f201"/>
+          </reference>
+        </actor>
+        <purpose>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+          <code value="ETREAT"/>
+        </purpose>
+      </provision>
     </provision>
   </provision>
 </Consent>

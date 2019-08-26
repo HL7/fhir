@@ -134,6 +134,7 @@ signatures.html
       <page type="resource" resource="OperationOutcome"/>
       <page type="resource" resource="Parameters"/>
       <page type="resource" resource="Subscription"/>
+      <page type="resource" resource="Topic"/>
       <page type="resource" resource="MessageHeader"/>
       <page type="resource" resource="MessageDefinition"/>
     </page>
@@ -310,7 +311,7 @@ signatures.html
 
     <page title="Diagnostics" filename="diagnostics-module.html" icon="diagnostics.jpg">
       <page type="resource" resource="Observation"/>
-      <page type="resource" resource="Media"/>
+      <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DiagnosticReport"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingManifest"/>
@@ -413,6 +414,7 @@ signatures.html
       <page type="resource" resource="Slot"/>
       <page type="resource" resource="ServiceRequest"/>
       <page type="resource" resource="NutritionOrder"/>
+      <page type="resource" resource="NutritionIntake"/>
       <page type="resource" resource="VisionPrescription"/>
       <page type="resource" resource="ActivityDefinition"/>
       <page type="resource" resource="PlanDefinition"/>
