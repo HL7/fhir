@@ -72,4 +72,8 @@ public class DefinedStringPattern extends DefinedCode {
     return base;
   }
 
+  public String getFHIRPathType() {
+    return "String";
+  }
+
 }

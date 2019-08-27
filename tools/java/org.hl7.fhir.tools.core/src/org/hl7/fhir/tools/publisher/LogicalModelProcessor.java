@@ -203,4 +203,10 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
     return page.prependLinks();
   }
 
+  @Override
+  public String getLinkForUrl(String corePath, String s) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
 }

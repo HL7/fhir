@@ -243,9 +243,8 @@ import com.google.gson.JsonPrimitive;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver, ILoggingService, TypeLinkProvider  {
 
-
   public enum PageInfoType { PAGE, RESOURCE, OPERATION, VALUESET, CODESYSTEM;
-
+    
     public String toCode() {
       switch (this) {
       case PAGE: return "page";
@@ -2640,7 +2639,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (ElementDefinition e : ed.getSnapshot().getElement()) {
       if (e.getPath().startsWith("Extension.value") && !"0".equals(e.getMax())) {
         if (e.getType().size() == 1) {
-          return "<a href=\""+definitions.getSrcFile(e.getType().get(0).getCode())+".html#"+e.getType().get(0).getCode()+"\">"+e.getType().get(0).getCode()+"</a>";
+          return "<a href=\""+definitions.getSrcFile(e.getType().get(0).getWorkingCode())+".html#"+e.getType().get(0).getWorkingCode()+"\">"+e.getType().get(0).getWorkingCode()+"</a>";
         } else if (e.getType().size() == 0) {
           return "";
         } else {
@@ -6913,7 +6912,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     String s = "";
     for (TypeRefComponent rt : resource.getType()) {
       if (!checkType(logical, rt, cm, resource)) {
-        String m = "The type '"+rt.getCode()+"' is not legal according to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
+        String m = "The type '"+rt.getWorkingCode()+"' is not legal according to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
         s = Utilities.noString(s) ? m : s + ", "+m;
       }
     }
@@ -6922,7 +6921,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private boolean checkType(ElementDefn logical, TypeRefComponent rt, String cm, ElementDefinition resource) throws FHIRException {
     for (TypeRef lt : logical.getTypes()) {
-      if (lt.getName().equals(rt.getCode()))
+      if (lt.getName().equals(rt.getWorkingCode()))
         return true;
     }
     if (cm != null) {
@@ -7348,61 +7347,70 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("</td><td>");
     b.append(p.describeCardinality());
     b.append("</td><td>");
-    String t = p.getFhirType();
-    String st = p.getSearchType();
-    if (definitions.hasResource(t)) {
-      b.append("<a href=\"");
-      b.append(prefix);
-      b.append(t.toLowerCase());
-      b.append(".html\">");
-      b.append(t);
-      b.append("</a>");
-    } else if (definitions.hasPrimitiveType(t)) {
-      b.append("<a href=\""+prefix+"datatypes.html#");
-      b.append(t);
-      b.append("\">");
-      b.append(t);
-      b.append("</a>");
-      if (!Utilities.noString(st)) {
-        b.append("<br/>(<a href=\""+(prefix == null ? "" : prefix)+"search.html#");
-        b.append(st);
-        b.append("\">");
-        b.append(st);
-        b.append("</a>)");
-      }
-    } else if (definitions.hasElementDefn(t)) {
-      b.append("<a href=\"");
-      b.append(prefix);
-      b.append(definitions.getSrcFile(t));
-      b.append(".html#");
-      b.append(t);
-      b.append("\">");
-      b.append(t);
-      b.append("</a>");
-
-    } else if (t.startsWith("Reference(")) {
-      b.append("<a href=\""+prefix+"references.html#Reference\">Reference</a>");
-      String pn = t.substring(0, t.length()-1).substring(10);
-      b.append("(");
-      boolean first = true;
-      for (String tn : pn.split("\\|")) {
-        if (first)
-          first = false;
-        else
-          b.append("|");
+    boolean firstt = true;
+    String tl = p.getFhirType();
+    boolean isRes = true;
+    for (String tx : tl.split("\\|")) {
+      String t = tx.trim();
+      if (firstt) firstt = false; else b.append(" | ");
+      String st = p.getSearchType();
+      if (definitions.hasResource(t)) {
         b.append("<a href=\"");
         b.append(prefix);
-        if (tn.equals("Any"))
-          b.append("resourcelist");
-        else
-          b.append(tn.toLowerCase());
+        b.append(t.toLowerCase());
         b.append(".html\">");
-        b.append(tn);
+        b.append(t);
         b.append("</a>");
+      } else if (definitions.hasPrimitiveType(t)) {
+        isRes = false;
+        b.append("<a href=\""+prefix+"datatypes.html#");
+        b.append(t);
+        b.append("\">");
+        b.append(t);
+        b.append("</a>");
+        if (!Utilities.noString(st)) {
+          b.append("<br/>(<a href=\""+(prefix == null ? "" : prefix)+"search.html#");
+          b.append(st);
+          b.append("\">");
+          b.append(st);
+          b.append("</a>)");
+        }
+      } else if (definitions.hasElementDefn(t)) {
+        isRes = false;
+        b.append("<a href=\"");
+        b.append(prefix);
+        b.append(definitions.getSrcFile(t));
+        b.append(".html#");
+        b.append(t);
+        b.append("\">");
+        b.append(t);
+        b.append("</a>");
+
+      } else if (t.startsWith("Reference(")) {
+        isRes = false;
+        b.append("<a href=\""+prefix+"references.html#Reference\">Reference</a>");
+        String pn = t.substring(0, t.length()-1).substring(10);
+        b.append("(");
+        boolean first = true;
+        for (String tn : pn.split("\\|")) {
+          if (first)
+            first = false;
+          else
+            b.append("|");
+          b.append("<a href=\"");
+          b.append(prefix);
+          if (tn.equals("Any"))
+            b.append("resourcelist");
+          else
+            b.append(tn.toLowerCase());
+          b.append(".html\">");
+          b.append(tn);
+          b.append("</a>");
+        }
+        b.append(")");
+      } else if (!t.equals("Tuple")) {
+        b.append(t);
       }
-      b.append(")");
-    } else if (!t.equals("Tuple")) {
-      b.append(t);
     }
     b.append("</td><td>");
     if (p.getBs() != null && p.getBs().getBinding() != BindingMethod.Unbound) {
@@ -7422,7 +7430,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     b.append("</td><td>");
     b.append(processMarkdown(resource, p.getDoc(), prefix));
-    if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && definitions.hasResource(t))
+    if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && isRes)
       b.append("<p>Note: as this is the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p>");
     b.append("</td></tr>");
     if (p.getParts() != null)
@@ -9149,7 +9157,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (ElementDefinition ed : profile.getSnapshot().getElement()) {
       if (ed.hasBinding() && !"0".equals(ed.getMax())) {
         String path = ed.getPath();
-        if (ed.getType().size() == 1 && ed.getType().get(0).getCode().equals("Extension"))
+        if (ed.getType().size() == 1 && ed.getType().get(0).getWorkingCode().equals("Extension"))
           path = path + "<br/>"+ed.getType().get(0).getProfile();
         txlist.add(path);
         txmap.put(path, ed.getBinding());
@@ -11206,6 +11214,12 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
 
   public void setPatternFinder(PatternFinder patternFinder) {
     this.patternFinder = patternFinder;
+  }
+
+  @Override
+  public String getLinkForUrl(String corePath, String s) {
+    // TODO Auto-generated method stub
+    return null;
   }
   
 }

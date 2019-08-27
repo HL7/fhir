@@ -784,8 +784,6 @@ public class SpreadsheetParser {
         sp.setVersion(Constants.VERSION);
         sp.setName(n);
         sp.setCode(n);
-        sp.setMultipleAnd(true);
-        sp.setMultipleOr(true);
 
         if (pack.getProfiles().size() > 0 && pack.getProfiles().get(0).getResource() != null) {
           sp.setStatus(pack.getProfiles().get(0).getResource().getStatus());
@@ -2158,7 +2156,6 @@ public class SpreadsheetParser {
 	  exu.setXmlAttribute(true);
 	  exe.getElements().add(exu);
 	  exu.setFixed(new UriType(ex.getUrl()));
-	  exu.getTypes().add(new TypeRef().setName("uri"));
 
 	  if (invariants != null) {
 	    for (Invariant inv : invariants.values()) {
@@ -2226,7 +2223,7 @@ public class SpreadsheetParser {
     List<String> errors = new ArrayList<String>();
     utils.sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
     assert(errors.size() == 0);
-    utils.generateSnapshot(base, ex, ex.getUrl(), null, ex.getName());
+    utils.generateSnapshot(base, ex, ex.getUrl(), "http://hl7.org/fhir", ex.getName());
     utils.setIds(ex, true);
     new ExtensionDefinitionValidator(context).validate(ex);
 	  this.context.cacheResource(ex);

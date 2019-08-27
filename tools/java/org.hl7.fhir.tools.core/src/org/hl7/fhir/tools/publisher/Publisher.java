@@ -440,6 +440,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private boolean isPostPR;
 
+  private String validateId;
+
 
   public static void main(String[] args) throws Exception {
     //
@@ -476,6 +478,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       pub.page.setPublicationType(PageProcessor.CI_PUB_NAME);
       pub.page.setPublicationNotice(PageProcessor.CI_PUB_NOTICE);
     }
+    pub.validateId = getNamedParam(args, "-validate");
     String dir = hasParam(args, "-folder") ? getNamedParam(args, "-folder") : System.getProperty("user.dir");
     pub.outputdir = hasParam(args, "-output") ? getNamedParam(args, "-output") : null; 
     pub.isCIBuild = dir.contains("/ubuntu/agents/"); 
@@ -3209,17 +3212,18 @@ public class Publisher implements URIResolver, SectionNumberer {
     check(ed.hasPath(), sd, "Element has no path");
     Set<String> codes = new HashSet<String>();
     for (TypeRefComponent tr : ed.getType()) {
-      if (codes.contains(tr.getCode()))
-        check(false, sd, ed.getPath()+": type '"+tr.getCode()+"' is duplicated");
+      String tc = tr.getWorkingCode();
+      if (codes.contains(tc))
+        check(false, sd, ed.getPath()+": type '"+tc+"' is duplicated");
         
-      if ((!inDiff || tr.hasCode()) && tr.getCode() != null)
+      if ((!inDiff || tr.hasCode()) && tc != null)
         if (ed.getPath().contains("."))
-          check(page.getDefinitions().hasBaseType(tr.getCode()) || tr.getCode().equals("Resource"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (a)");
+          check(page.getDefinitions().hasBaseType(tc) || tc.equals("Resource"), sd, ed.getPath()+": type '"+tc+"' is not valid (a)");
         else if (sd.hasBaseDefinition()) {
           if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
-            check(page.getDefinitions().hasConcreteResource(tr.getCode()) || page.getDefinitions().hasBaseType(tr.getCode()) , sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (b)");
+            check(page.getDefinitions().hasConcreteResource(tc) || page.getDefinitions().hasBaseType(tc) , sd, ed.getPath()+": type '"+tc+"' is not valid (b)");
           else
-            check(page.getDefinitions().hasAbstractResource(tr.getCode()) || tr.getCode().equals("Element"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (c)");
+            check(page.getDefinitions().hasAbstractResource(tc) || tc.equals("Element"), sd, ed.getPath()+": type '"+tc+"' is not valid (c)");
         }
       if (tr.hasProfile()) {
         check(tr.getProfile().size() == 1, sd, ed.getPath()+": multiple profiles found: "+tr.getProfile());
@@ -5855,7 +5859,8 @@ public class Publisher implements URIResolver, SectionNumberer {
             ImplementationGuideDefn ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
             if (ig != null)
               n = ig.getCode()+File.separator+n;
-            ei.validate(n, rname);
+            if (validateId == null || validateId.equals(n))
+              ei.validate(n, rname);
           }
 
           for (Profile e : r.getConformancePackages()) {
@@ -5863,7 +5868,8 @@ public class Publisher implements URIResolver, SectionNumberer {
               ImplementationGuideDefn ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
               String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
               String n = prefix+Utilities.changeFileExt(en.getTitle(), "");
-              ei.validate(n, rname, e.getProfiles().get(0).getResource());
+              if (validateId == null || validateId.equals(n))
+                ei.validate(n, rname, e.getProfiles().get(0).getResource());
             }
           }
         }
@@ -5882,15 +5888,24 @@ public class Publisher implements URIResolver, SectionNumberer {
         }
       }
       if (buildFlags.get("all")) {
-        ei.validate("v2-tables", "Bundle");
-        ei.validate("v3-codesystems", "Bundle");
-        ei.validate("valuesets", "Bundle");
-        ei.validate("conceptmaps", "Bundle");
-        ei.validate("profiles-types", "Bundle");
-        ei.validate("profiles-resources", "Bundle");
-        ei.validate("profiles-others", "Bundle");
-        ei.validate("search-parameters", "Bundle");
-        ei.validate("extension-definitions", "Bundle");
+        if (validateId == null || validateId.equals("v2-tables"))
+          ei.validate("v2-tables", "Bundle");
+        if (validateId == null || validateId.equals("v3-codesystems"))
+          ei.validate("v3-codesystems", "Bundle");
+        if (validateId == null || validateId.equals("valuesets"))
+          ei.validate("valuesets", "Bundle");
+        if (validateId == null || validateId.equals("conceptmaps"))
+          ei.validate("conceptmaps", "Bundle");
+        if (validateId == null || validateId.equals("profiles-types"))
+          ei.validate("profiles-types", "Bundle");
+        if (validateId == null || validateId.equals("profiles-resources"))
+          ei.validate("profiles-resources", "Bundle");
+        if (validateId == null || validateId.equals("profiles-others"))
+          ei.validate("profiles-others", "Bundle");
+        if (validateId == null || validateId.equals("search-parameters"))
+          ei.validate("search-parameters", "Bundle");
+        if (validateId == null || validateId.equals("extension-definitions"))
+          ei.validate("extension-definitions", "Bundle");
       }
       ei.summarise();
 
