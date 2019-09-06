@@ -17,7 +17,7 @@ public class ResourceTableGenerator extends TableGenerator {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics, true);
     ElementDefn e = r.getRoot();
     RenderMode mode = e.typeCode().equals("Logical") && hasLogicalMapping(e) ? RenderMode.LOGICAL : RenderMode.RESOURCE;
-    TableModel model = gen.initNormalTable(prefix, mode == RenderMode.LOGICAL);
+    TableModel model = gen.initNormalTable(prefix, mode == RenderMode.LOGICAL, true);
 
     
     model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode, true, r.getStatus()));

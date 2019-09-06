@@ -233,6 +233,7 @@ import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.NDJsonWriter;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.XsltUtilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.json.JSONUtil;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -439,6 +440,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private boolean isPostPR;
 
+  private String validateId;
+
 
   public static void main(String[] args) throws Exception {
     //
@@ -475,6 +478,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       pub.page.setPublicationType(PageProcessor.CI_PUB_NAME);
       pub.page.setPublicationNotice(PageProcessor.CI_PUB_NOTICE);
     }
+    pub.validateId = getNamedParam(args, "-validate");
     String dir = hasParam(args, "-folder") ? getNamedParam(args, "-folder") : System.getProperty("user.dir");
     pub.outputdir = hasParam(args, "-output") ? getNamedParam(args, "-output") : null; 
     pub.isCIBuild = dir.contains("/ubuntu/agents/"); 
@@ -556,12 +560,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       if (!buildFlags.get("all")) {
         if (!noSound) {
-          Utilities.tone(1000, 10);
-          Utilities.tone(1400, 10);
-          Utilities.tone(1800, 10);
-          Utilities.tone(1000, 10);
-          Utilities.tone(1400, 10);
-          Utilities.tone(1800, 10);
+          AudioUtilities.tone(1000, 10);
+          AudioUtilities.tone(1400, 10);
+          AudioUtilities.tone(1800, 10);
+          AudioUtilities.tone(1000, 10);
+          AudioUtilities.tone(1400, 10);
+          AudioUtilities.tone(1800, 10);
         }
         page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -571,7 +575,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.log("  Build: "+b.toString(), LogMessageType.Process);
       } else {
         if (!noSound) 
-          Utilities.tone(1200, 30);
+          AudioUtilities.tone(1200, 30);
         page.log("Full Build", LogMessageType.Process);
       }
       if (isGenerate && page.getBuildId() == null)
@@ -642,11 +646,11 @@ public class Publisher implements URIResolver, SectionNumberer {
       } else
         page.log("This was a Full Build", LogMessageType.Process);
       if (!noSound) {
-        Utilities.tone(800, 10);
-        Utilities.tone(1000, 10);
-        Utilities.tone(1200, 10);
-        Utilities.tone(1000, 10);
-        Utilities.tone(800, 10);
+        AudioUtilities.tone(800, 10);
+        AudioUtilities.tone(1000, 10);
+        AudioUtilities.tone(1200, 10);
+        AudioUtilities.tone(1000, 10);
+        AudioUtilities.tone(800, 10);
       }
       page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
     } catch (Exception e) {
@@ -669,27 +673,27 @@ public class Publisher implements URIResolver, SectionNumberer {
       } else
         page.log("This was a Full Build", LogMessageType.Process);
       if (!noSound) {
-        Utilities.tone(800, 20);
-        Utilities.tone(1000, 20);
-        Utilities.tone(1200, 20);
+        AudioUtilities.tone(800, 20);
+        AudioUtilities.tone(1000, 20);
+        AudioUtilities.tone(1200, 20);
       }
       try {
         Thread.sleep(50);
       } catch (InterruptedException e1) {
       }
       if (!noSound) {
-        Utilities.tone(800, 20);
-        Utilities.tone(1000, 20);
-        Utilities.tone(1200, 20);
+        AudioUtilities.tone(800, 20);
+        AudioUtilities.tone(1000, 20);
+        AudioUtilities.tone(1200, 20);
       }
       try {
         Thread.sleep(50);
       } catch (InterruptedException e1) {
       }
       if (!noSound) {
-        Utilities.tone(800, 20);
-        Utilities.tone(1000, 20);
-        Utilities.tone(1200, 20);
+        AudioUtilities.tone(800, 20);
+        AudioUtilities.tone(1000, 20);
+        AudioUtilities.tone(1200, 20);
       }
       page.log("FHIR build failure @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
       System.out.println("Error: " + e.getMessage());
@@ -1875,9 +1879,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       s.write("<page name=\""+pn.getName()+"\" wg=\""+pn.getWgCode()+"\" fmm=\""+pn.getFmm()+"\"/>\r\n");
     }
     try {
-      s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-resources.xml", xslt)));
-      s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-types.xml", xslt)));
-      s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt)));
+      s.write(new String(XsltUtilities.saxonTransform(page.getFolders().dstDir + "profiles-resources.xml", xslt)));
+      s.write(new String(XsltUtilities.saxonTransform(page.getFolders().dstDir + "profiles-types.xml", xslt)));
+      s.write(new String(XsltUtilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt)));
     } catch (Exception e) {
       for (ValidationMessage err : page.getValidationErrors()) {
         if (!page.getSuppressedMessages().contains(err.getDisplay()))
@@ -1900,7 +1904,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String xslt2 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "CategorizeWarnings.xslt");
     FileOutputStream s2 = new FileOutputStream(page.getFolders().dstDir + "work-group-warnings.xml");
     try {
-      s2.write(Utilities.saxonTransform(page.getFolders().dstDir + "warnings.xml", xslt2).getBytes("UTF8"));
+      s2.write(XsltUtilities.saxonTransform(page.getFolders().dstDir + "warnings.xml", xslt2).getBytes("UTF8"));
     } catch (Exception e) {
       // nothing - do not want to know.
     }
@@ -1909,7 +1913,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     String xslt3 = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "RenderWarnings.xslt");
     try {
-      String hw = Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3);
+      String hw = XsltUtilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt3);
       if (!showOnlyErrors)
         page.log(hw, LogMessageType.Process);
     } catch (Exception e) {
@@ -3208,17 +3212,18 @@ public class Publisher implements URIResolver, SectionNumberer {
     check(ed.hasPath(), sd, "Element has no path");
     Set<String> codes = new HashSet<String>();
     for (TypeRefComponent tr : ed.getType()) {
-      if (codes.contains(tr.getCode()))
-        check(false, sd, ed.getPath()+": type '"+tr.getCode()+"' is duplicated");
+      String tc = tr.getWorkingCode();
+      if (codes.contains(tc))
+        check(false, sd, ed.getPath()+": type '"+tc+"' is duplicated");
         
-      if ((!inDiff || tr.hasCode()) && tr.getCode() != null)
+      if ((!inDiff || tr.hasCode()) && tc != null)
         if (ed.getPath().contains("."))
-          check(page.getDefinitions().hasBaseType(tr.getCode()) || tr.getCode().equals("Resource"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (a)");
+          check(page.getDefinitions().hasBaseType(tc) || tc.equals("Resource"), sd, ed.getPath()+": type '"+tc+"' is not valid (a)");
         else if (sd.hasBaseDefinition()) {
           if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
-            check(page.getDefinitions().hasConcreteResource(tr.getCode()) || page.getDefinitions().hasBaseType(tr.getCode()) , sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (b)");
+            check(page.getDefinitions().hasConcreteResource(tc) || page.getDefinitions().hasBaseType(tc) , sd, ed.getPath()+": type '"+tc+"' is not valid (b)");
           else
-            check(page.getDefinitions().hasAbstractResource(tr.getCode()) || tr.getCode().equals("Element"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (c)");
+            check(page.getDefinitions().hasAbstractResource(tc) || tc.equals("Element"), sd, ed.getPath()+": type '"+tc+"' is not valid (c)");
         }
       if (tr.hasProfile()) {
         check(tr.getProfile().size() == 1, sd, ed.getPath()+": multiple profiles found: "+tr.getProfile());
@@ -3542,7 +3547,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       byte[] xslt = IOUtils.toByteArray( new FileInputStream(Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "AnnotationStripper.xslt")));
       String scrs = new String(src);
       String xslts = new String(xslt);
-      return new ByteArrayInputStream(Utilities.transform(new HashMap<String, byte[]>(), src, xslt));
+      return new ByteArrayInputStream(XsltUtilities.transform(new HashMap<String, byte[]>(), src, xslt));
     } catch (Exception e) {
       if (web) {
         e.printStackTrace();
@@ -4434,7 +4439,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       //    if (web) {
       HashMap<String, String> params = new HashMap<String, String>();
       params.put("suppressWarnings", "true");
-      Utilities.saxonTransform(
+      XsltUtilities.saxonTransform(
           Utilities.path(page.getFolders().rootDir, "implementations", "xmltools"), // directory for xslt references
           page.getFolders().dstDir + prefix+ profile.getId().toLowerCase() + "-questionnaire.xml",  // source to run xslt on
           Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "QuestionnaireToHTML.xslt"), // xslt file to run
@@ -5854,7 +5859,8 @@ public class Publisher implements URIResolver, SectionNumberer {
             ImplementationGuideDefn ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
             if (ig != null)
               n = ig.getCode()+File.separator+n;
-            ei.validate(n, rname);
+            if (validateId == null || validateId.equals(n))
+              ei.validate(n, rname);
           }
 
           for (Profile e : r.getConformancePackages()) {
@@ -5862,7 +5868,8 @@ public class Publisher implements URIResolver, SectionNumberer {
               ImplementationGuideDefn ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
               String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
               String n = prefix+Utilities.changeFileExt(en.getTitle(), "");
-              ei.validate(n, rname, e.getProfiles().get(0).getResource());
+              if (validateId == null || validateId.equals(n))
+                ei.validate(n, rname, e.getProfiles().get(0).getResource());
             }
           }
         }
@@ -5881,15 +5888,24 @@ public class Publisher implements URIResolver, SectionNumberer {
         }
       }
       if (buildFlags.get("all")) {
-        ei.validate("v2-tables", "Bundle");
-        ei.validate("v3-codesystems", "Bundle");
-        ei.validate("valuesets", "Bundle");
-        ei.validate("conceptmaps", "Bundle");
-        ei.validate("profiles-types", "Bundle");
-        ei.validate("profiles-resources", "Bundle");
-        ei.validate("profiles-others", "Bundle");
-        ei.validate("search-parameters", "Bundle");
-        ei.validate("extension-definitions", "Bundle");
+        if (validateId == null || validateId.equals("v2-tables"))
+          ei.validate("v2-tables", "Bundle");
+        if (validateId == null || validateId.equals("v3-codesystems"))
+          ei.validate("v3-codesystems", "Bundle");
+        if (validateId == null || validateId.equals("valuesets"))
+          ei.validate("valuesets", "Bundle");
+        if (validateId == null || validateId.equals("conceptmaps"))
+          ei.validate("conceptmaps", "Bundle");
+        if (validateId == null || validateId.equals("profiles-types"))
+          ei.validate("profiles-types", "Bundle");
+        if (validateId == null || validateId.equals("profiles-resources"))
+          ei.validate("profiles-resources", "Bundle");
+        if (validateId == null || validateId.equals("profiles-others"))
+          ei.validate("profiles-others", "Bundle");
+        if (validateId == null || validateId.equals("search-parameters"))
+          ei.validate("search-parameters", "Bundle");
+        if (validateId == null || validateId.equals("extension-definitions"))
+          ei.validate("extension-definitions", "Bundle");
       }
       ei.summarise();
 

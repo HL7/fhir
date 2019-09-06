@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-doc-classcodes"/>
+  <id value="document-classcodes"/>
   <meta>
-    <lastUpdated value="2015-03-17T12:06:30.047+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <url value="http://hl7.org/fhir/ValueSet/valueset-doc-classcodes"/>
+  <url value="http://hl7.org/fhir/ValueSet/document-classcodes"/>
 	<identifier>
     <system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.46"/>
 	</identifier>
-  <version value="20091109"/>
+  <version value="20190517"/>
   <name value="DocumentClassValueSet"/>
   <title value="Document Class Value Set"/>
   <status value="active"/>
@@ -20,8 +19,16 @@
   <description value="This is the code specifying the high-level kind of document (e.g. Prescription, Discharge Summary, Report, etc.). Note: Class code for documents comes from LOINC, and is based upon one of the following:The type of service described by the document. It is described at a very high level in Section 7.3 of the LOINC Manual. The type study performed. It was determined by identifying modalities for study reports. The section of the chart where the document is placed. It was determined from the SETs created for Claims Attachment requests."/>
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
+        <include>
+            <system value="http://terminology.hl7.org/CodeSystem/media-category"/>
+        </include>
     <include>
       <system value="http://loinc.org"/>
+
+            <concept>
+                <code value="57017-6"/>
+                <display value="Code for Privacy Policies"/>
+            </concept>
       <concept>
         <code value="11369-6"/>
         <display value="History of Immunization"/>

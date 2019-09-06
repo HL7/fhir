@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Consent xmlns="http://hl7.org/fhir">
+  <id value="restrict"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-restriction"/>
+  </meta>
+  <status value="active"/>
+  <scope>
+    <text value="Direct Referral use only"/>
+  </scope>
+  <category>
+    <text value="conditional release (per DUA)"/>
+  </category>
+  <dateTime value="2017-12-18"/>
+  <policy>
+    <uri value="http://example.org/federal/policy#womans-shelter"/>
+  </policy>
+  <provision>
+    <type value="permit"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+          <code value="IRCP"/>
+          <display value="information recipient"/>
+        </coding>
+      </role>
+      <reference>
+        <display value="Blue Team @ The W shelter (CareTeam)"/>
+      </reference>
+    </actor>
+    <action>
+      <text value="specific value"/>
+    </action>
+    <securityLabel>
+      <display value="womens-abuse-councellors"/>
+    </securityLabel>
+    <purpose>
+      <display value="Women's Shelter"/>
+    </purpose>
+  </provision>
+</Consent>

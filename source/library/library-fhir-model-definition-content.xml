@@ -3596,45 +3596,6 @@
         <ns4:element name="isActive" elementType="FHIR.boolean"/>
         <ns4:element name="strength" elementType="FHIR.Ratio"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="Media" retrievable="true" baseType="FHIR.DomainResource">
-        <ns4:element name="identifier">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Identifier"/>
-        </ns4:element>
-        <ns4:element name="basedOn">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Reference"/>
-        </ns4:element>
-        <ns4:element name="partOf">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Reference"/>
-        </ns4:element>
-        <ns4:element name="status" elementType="FHIR.EventStatus"/>
-        <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="modality" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="view" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="subject" elementType="FHIR.Reference"/>
-        <ns4:element name="encounter" elementType="FHIR.Reference"/>
-        <ns4:element name="created">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ChoiceTypeSpecifier">
-                <ns4:choice xsi:type="ns4:NamedTypeSpecifier" modelName="FHIR" name="dateTime"/>
-                <ns4:choice xsi:type="ns4:NamedTypeSpecifier" modelName="FHIR" name="Period"/>
-            </ns4:elementTypeSpecifier>
-        </ns4:element>
-        <ns4:element name="issued" elementType="FHIR.instant"/>
-        <ns4:element name="operator" elementType="FHIR.Reference"/>
-        <ns4:element name="reasonCode">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="bodySite" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="deviceName" elementType="FHIR.string"/>
-        <ns4:element name="device" elementType="FHIR.Reference"/>
-        <ns4:element name="height" elementType="FHIR.positiveInt"/>
-        <ns4:element name="width" elementType="FHIR.positiveInt"/>
-        <ns4:element name="frames" elementType="FHIR.positiveInt"/>
-        <ns4:element name="duration" elementType="FHIR.decimal"/>
-        <ns4:element name="content" elementType="FHIR.Attachment"/>
-        <ns4:element name="note">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Annotation"/>
-        </ns4:element>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="boolean" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.Boolean"/>
     </ns4:typeInfo>
@@ -9703,7 +9664,6 @@
         <ns4:element name="Location" elementType="FHIR.Location"/>
         <ns4:element name="Measure" elementType="FHIR.Measure"/>
         <ns4:element name="MeasureReport" elementType="FHIR.MeasureReport"/>
-        <ns4:element name="Media" elementType="FHIR.Media"/>
         <ns4:element name="Medication" elementType="FHIR.Medication"/>
         <ns4:element name="MedicationAdministration" elementType="FHIR.MedicationAdministration"/>
         <ns4:element name="MedicationDispense" elementType="FHIR.MedicationDispense"/>

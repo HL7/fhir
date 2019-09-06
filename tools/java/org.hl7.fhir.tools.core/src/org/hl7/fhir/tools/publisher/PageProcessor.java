@@ -243,9 +243,8 @@ import com.google.gson.JsonPrimitive;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver, ILoggingService, TypeLinkProvider  {
 
-
   public enum PageInfoType { PAGE, RESOURCE, OPERATION, VALUESET, CODESYSTEM;
-
+    
     public String toCode() {
       switch (this) {
       case PAGE: return "page";
@@ -349,6 +348,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       throw new NotImplementedException("Not done yet (PageEvaluationContext.conformsToProfile), when item is element");
     }
 
+    @Override
+    public ValueSet resolveValueSet(Object appContext, String url) {
+      throw new Error("Not done yet");
+    }
+
   }
 
   public class SectionSorter implements Comparator<String> {
@@ -447,10 +451,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
        " This is the Current officially released version of FHIR, which is <a href=\"history.html\">R4</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
       "</p>\r\n"; 
 
-  public final static String CI_PUB_NOTICE = WEB_PUB_NOTICE;
-  //      "<p style=\"background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
-//          "This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). <br/>See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
-//          "</p>\r\n";
+  public final static String CI_PUB_NOTICE =
+        "<p style=\"background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
+          "This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). <br/>See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
+          "</p>\r\n";
 
   public static final String CODE_LIMIT_EXPANSION = "1000";
   public static final String TOO_MANY_CODES_TEXT_NOT_EMPTY = "This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection (1000 codes) of the whole set of codes is shown";
@@ -922,7 +926,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         }
         src = s1+(p == null ? "" : getMixedNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
       } else if (com[0].equals("normative")) {
-        String p = object instanceof Object ? rd.getNormativeBallotPackage() : null;
+        String p = object instanceof Object ? rd.getNormativePackage() : null;
         String wt = object instanceof Object ? rd.getName()+" Operation " + ((Operation) object).getName() : workingTitle; 
         if (com.length >= 3) {
           if (!com[2].equals("%check"))
@@ -934,7 +938,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         } 
         src = s1+(p == null && com.length != 2 ? "" : getNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
       } else if (com[0].equals("normative-op")) {
-        String p = rd.getNormativeBallotPackage();
+        String p = rd.getNormativePackage();
         String wt = rd.getName()+" Operation " + ((Operation) object).getName(); 
         StandardsStatus st = ((Operation) object).getStandardsStatus();
         if (st == null)
@@ -1350,7 +1354,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">"+com[0]+"</a>"+s3;      
       else if (com[0].equals("operation")) {
         Operation op = (Operation) object;
-        src = s1+genOperation(op, rd.getName(), rd.getName().toLowerCase(), false, rd.getStatus(), genlevel(level), rd.getNormativeBallotPackage())+s3;
+        src = s1+genOperation(op, rd.getName(), rd.getName().toLowerCase(), false, rd.getStatus(), genlevel(level), rd.getNormativePackage())+s3;
       } else if (com[0].equals("past-narrative-link")) {
        if (object == null || !(object instanceof Boolean))  
          src = s1 + s3;
@@ -1640,6 +1644,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String getStandardsStatusNote(String prefix, String value, String type, String pack) throws FHIRException {
+    if (pack == null)
+      throw new Error("No pack known");
     StandardsStatus ss = StandardsStatus.fromCode(value);
     switch (ss) {
     case TRIAL_USE:
@@ -1647,15 +1653,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       "Normative Candidate Note: This "+type.replace("_", " ")+" is not normative - it is still undergoing Trial Use while more experience is gathered.\r\n" + 
       "</p>\r\n";
     case NORMATIVE:
-      if (pack == null)
-        return "<p style=\"border: 1px black solid; background-color: "+ss.getColor()+"; padding: 5px\">\r\n" + 
-          "Normative Note: This "+type.replace("_", " ")+" is normative content. <a href=\"versions.html#change\">Breaking changes</a> will no longer be made.\r\n" + 
-          "</p>\r\n";
-      else
-        return "<p style=\"border: 1px black solid; background-color: "+ss.getColor()+"; padding: 5px\">\r\n" + 
-          "Normative Candidate Note: This "+type.replace("_", " ")+" is candidate normative content as part of the overall resource for R4 in the <a href=\""+prefix+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-          "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
-          "</p>\r\n";
+      return ansiNote("This "+type.replace("_", " ")+" has", pack, "");
+//        return "<p style=\"border: 1px black solid; background-color: "+ss.getColor()+"; padding: 5px\">\r\n" + 
+//          "ANSI Note: This "+type.replace("_", " ")+" is normative content as part of the overall resource for R4 in the <a href=\""+prefix+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
+//          "</p>\r\n";
     }
     throw new Error("Not done yet");
   }
@@ -1719,15 +1720,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String pnd = Utilities.changeFileExt(pn, "-definitions.html");
 
         if (pageExists(pnd))
-          b.append("  <li><a href=\""+pn+"\">"+s+"</a> "+
-              "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+          pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
-              "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>\r\n"+
-              "<br/>+ <a href=\""+pnd+"\">Defns</a>: <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+ pnd+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pnd+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
-              "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pnd+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pnd+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a></li>\r\n");
+          b.append("  <li><a href=\""+pn+"\">"+Utilities.escapeXml(s)+"</a></li>\r\n");
+//              "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+          pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
+//              "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>\r\n"+
+//              "<br/>+ <a href=\""+pnd+"\">Defns</a>: <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+ pnd+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pnd+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
+//              "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pnd+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pnd+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>");
         else
-          b.append("  <li><a href=\""+pn+"\">"+s+"</a> "+
-            "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+          pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
-            "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a></li>\r\n");
+          b.append("  <li><a href=\""+pn+"\">"+Utilities.escapeXml(s)+"</a></li>\r\n");
+//            "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+          pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
+//            "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>;
       }
       b.append("</ul>");      
       b.append("</td>\r\n");
@@ -1744,23 +1745,41 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
+  private String ansiNote(String statusDesc, String pack, String genlevel) {
+    return ansiNote(statusDesc, pack, genlevel, null);
+  }
+  
+  private String ansiNote(String statusDesc, String pack, String genlevel, String suffix) {
+    return
+      "<table class=\"none\" style=\"max-width: 790px; padding: 4px; border: 1px silver solid; background-color: #efffef\">\r\n"+
+      " <tr>\r\n"+
+      "  <td>\r\n"+
+      "   <img src=\""+genlevel+"assets/images/ansi-approved.gif\" width=\"55\" height=\"35\"/>\r\n"+ // 
+      "  </td>\r\n"+
+      "  <td style=\"vertical-align: middle\">\r\n"+
+      "   "+statusDesc+" been approved as part of an <a href=\"https://www.ansi.org/\">ANSI</a> standard.\r\n"+  
+      "   See the <a href=\""+genlevel+"ansi-"+pack+".html\">"+Utilities.capitalize(pack)+"</a> Package for further details.\r\n"+ (Utilities.noString(suffix) ? "" : suffix)+
+      "  </td>\r\n"+
+      " </tr>\r\n"+
+      "</table>\r\n";
+  }
+  
   private String getNormativeNote(String genlevel, String pack, String type, String title, String filename) throws Exception {
+    if (pack == null)
+      throw new Error("Normative package not known for "+filename);
     if (!filename.contains("-definitions")) {
       Map<String, PageInfo> map = normativePackages.get(pack);
       if (map == null) {
         normativePages.add(filename);
-        return "";
+        return ansiNote("This page has", pack, genlevel); 
       }
       map.put(filename, new PageInfo(PageInfoType.fromCode(type), filename, title));
     }
-    if (pack == null)
-      return null;
-    else
-      return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
-        "Normative Candidate Note: This page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-        "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
-        "</p>\r\n" + 
-        "";
+    return ansiNote("This page has", pack, genlevel); 
+//          "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
+//        "ANSI <a href=\""+genlevel+"ansi-"+pack+".html\">"+Utilities.capitalize(pack)+" </a>.\r\n" + 
+//        "</p>\r\n" + 
+//        "";
   }
 
   private String getMixedNormativeNote(String genlevel, String pack, String type, String title, String filename) throws Exception {
@@ -1772,11 +1791,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
       map.put(filename, new PageInfo(PageInfoType.fromCode(type), filename,  title));
     }
-    return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
-        "Normative Candidate Note: Some of the content on this page (marked clearly) is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-        "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
-        "</p>\r\n" + 
-        "";
+    return ansiNote("Some of the content on this page (marked clearly) has", pack, genlevel); 
+//        "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
+//        "ANSI Note: Some of the content on this page (marked clearly) is normative content in the <a href=\""+genlevel+"ansi-"+pack+".html\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
+//        "</p>\r\n" + 
+//        "";
   }
 
   private String getMostlyNormativeNote(String genlevel, String pack, String type, String title, String filename) throws Exception {
@@ -1788,11 +1807,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
       map.put(filename, new PageInfo(PageInfoType.fromCode(type), filename,  title));
     }
-    return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
-        "Normative Candidate Note: Most of the content on this page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-        "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made. The few parts of this page that are not normative are clearly marked\r\n" + 
-        "</p>\r\n" + 
-        "";
+    return ansiNote("Most of the content on this page has", pack, genlevel, "The few parts of this page that are not normative are clearly marked"); 
+//    return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
+//        "ANSI Note: Most of the content on this page is normative content in the <a href=\""+genlevel+"ansi-"+pack+".html\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
+//        "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made. \r\n" + 
+//        "</p>\r\n" + 
+//        "";
   }
 
   private String buildResListByFMG() throws FHIRException {
@@ -1816,7 +1836,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (String rn : res) {
       ResourceDefn rd = definitions.getResourceByName(rn);
       if (rd.getApproval() == state)
-        if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null)
+        if (rd.getNormativePackage() != null || rd.getNormativeVersion() != null)
           b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a> <a href=\"versions.html#std-process\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
         else
           b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a></li>\r\n");
@@ -1841,7 +1861,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (rn.startsWith(Integer.toString(i))) {
           String r = rn.substring(2);
           ResourceDefn rd = definitions.getResourceByName(r);
-          if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null)
+          if (rd.getNormativePackage() != null || rd.getNormativeVersion() != null)
             b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"versions.html#std-process\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
           else
             b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
@@ -1866,7 +1886,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (rn.startsWith(Integer.toString(i))) {
           String r = rn.substring(2);
           ResourceDefn rd = definitions.getResourceByName(r);
-          if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null)
+          if (rd.getNormativePackage() != null || rd.getNormativeVersion() != null)
             b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"versions.html#std-process\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
           else
             b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
@@ -1911,7 +1931,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             b.append("</b></p>\r\n<ul style=\"width: 90%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
             first = false;
           }
-          if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null)
+          if (rd.getNormativePackage() != null || rd.getNormativeVersion() != null)
             b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a> <a href=\"versions.html#std-process\" title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
           else
             b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a></li>\r\n");
@@ -2619,7 +2639,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (ElementDefinition e : ed.getSnapshot().getElement()) {
       if (e.getPath().startsWith("Extension.value") && !"0".equals(e.getMax())) {
         if (e.getType().size() == 1) {
-          return "<a href=\""+definitions.getSrcFile(e.getType().get(0).getCode())+".html#"+e.getType().get(0).getCode()+"\">"+e.getType().get(0).getCode()+"</a>";
+          return "<a href=\""+definitions.getSrcFile(e.getType().get(0).getWorkingCode())+".html#"+e.getType().get(0).getWorkingCode()+"\">"+e.getType().get(0).getWorkingCode()+"</a>";
         } else if (e.getType().size() == 0) {
           return "";
         } else {
@@ -6330,14 +6350,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
                 mixed = true;
             }
           }
-          if (st != null && (resource.getNormativeBallotPackage() != null || resource.getNormativeVersion() != null)) {
+          if (st != null && (resource.getNormativePackage() != null || resource.getNormativeVersion() != null)) {
             if (mixed)
-              np = getMixedNormativeNote(genlevel(level), resource.getNormativeBallotPackage(), com[1], workingTitle, name+".html")+s3;
+              np = getMixedNormativeNote(genlevel(level), resource.getNormativePackage(), com[1], workingTitle, name+".html")+s3;
             else
-              np = getNormativeNote(genlevel(level), resource.getNormativeBallotPackage(), com[1], workingTitle, name+".html")+s3;
+              np = getNormativeNote(genlevel(level), resource.getNormativePackage(), com[1], workingTitle, name+".html")+s3;
           }
         } else 
-          np = getNormativeNote(genlevel(level), resource.getNormativeBallotPackage(), com[1], workingTitle, name+".html");
+          np = getNormativeNote(genlevel(level), resource.getNormativePackage(), com[1], workingTitle, name+".html");
         if (np == null)  
           src = s1+s3;
         else
@@ -6479,7 +6499,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
               mixed = true;
           }
         }
-        src = s1 + genOperations(oplist, n, id, mixed, resource.getStatus(), "", resource.getNormativeBallotPackage()) + s3;
+        src = s1 + genOperations(oplist, n, id, mixed, resource.getStatus(), "", resource.getNormativePackage()) + s3;
       } else if (com[0].equals("operations-summary"))
         src = s1 + genOperationsSummary(resource.getOperations(), resource) + s3;
       else if (com[0].equals("opcount"))
@@ -6892,7 +6912,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     String s = "";
     for (TypeRefComponent rt : resource.getType()) {
       if (!checkType(logical, rt, cm, resource)) {
-        String m = "The type '"+rt.getCode()+"' is not legal according to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
+        String m = "The type '"+rt.getWorkingCode()+"' is not legal according to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
         s = Utilities.noString(s) ? m : s + ", "+m;
       }
     }
@@ -6901,7 +6921,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private boolean checkType(ElementDefn logical, TypeRefComponent rt, String cm, ElementDefinition resource) throws FHIRException {
     for (TypeRef lt : logical.getTypes()) {
-      if (lt.getName().equals(rt.getCode()))
+      if (lt.getName().equals(rt.getWorkingCode()))
         return true;
     }
     if (cm != null) {
@@ -7009,7 +7029,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
 
   private String fmmBarColorStyle(ResourceDefn resource) {
-    if (resource.getNormativeBallotPackage() != null || resource.getNormativeVersion() != null)
+    if (resource.getNormativePackage() != null || resource.getNormativeVersion() != null)
       return "colsn";
     else {
     return fmmBarColorStyle(resource.getStatus(), resource.getFmmLevel());
@@ -7214,15 +7234,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         "Normative Candidate Note: Though the resource is a candidate for normative for R4, this operation is not included. It's status will remain 'Trial Use' while more experience is gathered.\r\n" + 
         "</p>\r\n";
     if (resStatus == StandardsStatus.NORMATIVE && opStatus == null)
-    
-    return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
-    "Normative Candidate Note: This operation is candidate normative content as part of the overall resource for R4 in the <a href=\""+prefix+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-    "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
-    "</p>\r\n" + 
-    "";
-
-    return "";
-  }
+      return ansiNote("This operation has", pack, "");
+    else
+      return "";
+//    return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
+//    "ANSI Note: This operation is normative content in the <a href=\""+prefix+"ansi-"+pack+".html\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
+//    "</p>\r\n" + 
+//    "";
+    }
 
   private String checkWrap(String n) {
     if (n.equals("Resource"))
@@ -7328,61 +7347,70 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("</td><td>");
     b.append(p.describeCardinality());
     b.append("</td><td>");
-    String t = p.getFhirType();
-    String st = p.getSearchType();
-    if (definitions.hasResource(t)) {
-      b.append("<a href=\"");
-      b.append(prefix);
-      b.append(t.toLowerCase());
-      b.append(".html\">");
-      b.append(t);
-      b.append("</a>");
-    } else if (definitions.hasPrimitiveType(t)) {
-      b.append("<a href=\""+prefix+"datatypes.html#");
-      b.append(t);
-      b.append("\">");
-      b.append(t);
-      b.append("</a>");
-      if (!Utilities.noString(st)) {
-        b.append("<br/>(<a href=\""+(prefix == null ? "" : prefix)+"search.html#");
-        b.append(st);
-        b.append("\">");
-        b.append(st);
-        b.append("</a>)");
-      }
-    } else if (definitions.hasElementDefn(t)) {
-      b.append("<a href=\"");
-      b.append(prefix);
-      b.append(definitions.getSrcFile(t));
-      b.append(".html#");
-      b.append(t);
-      b.append("\">");
-      b.append(t);
-      b.append("</a>");
-
-    } else if (t.startsWith("Reference(")) {
-      b.append("<a href=\""+prefix+"references.html#Reference\">Reference</a>");
-      String pn = t.substring(0, t.length()-1).substring(10);
-      b.append("(");
-      boolean first = true;
-      for (String tn : pn.split("\\|")) {
-        if (first)
-          first = false;
-        else
-          b.append("|");
+    boolean firstt = true;
+    String tl = p.getFhirType();
+    boolean isRes = true;
+    for (String tx : tl.split("\\|")) {
+      String t = tx.trim();
+      if (firstt) firstt = false; else b.append(" | ");
+      String st = p.getSearchType();
+      if (definitions.hasResource(t)) {
         b.append("<a href=\"");
         b.append(prefix);
-        if (tn.equals("Any"))
-          b.append("resourcelist");
-        else
-          b.append(tn.toLowerCase());
+        b.append(t.toLowerCase());
         b.append(".html\">");
-        b.append(tn);
+        b.append(t);
         b.append("</a>");
+      } else if (definitions.hasPrimitiveType(t)) {
+        isRes = false;
+        b.append("<a href=\""+prefix+"datatypes.html#");
+        b.append(t);
+        b.append("\">");
+        b.append(t);
+        b.append("</a>");
+        if (!Utilities.noString(st)) {
+          b.append("<br/>(<a href=\""+(prefix == null ? "" : prefix)+"search.html#");
+          b.append(st);
+          b.append("\">");
+          b.append(st);
+          b.append("</a>)");
+        }
+      } else if (definitions.hasElementDefn(t)) {
+        isRes = false;
+        b.append("<a href=\"");
+        b.append(prefix);
+        b.append(definitions.getSrcFile(t));
+        b.append(".html#");
+        b.append(t);
+        b.append("\">");
+        b.append(t);
+        b.append("</a>");
+
+      } else if (t.startsWith("Reference(")) {
+        isRes = false;
+        b.append("<a href=\""+prefix+"references.html#Reference\">Reference</a>");
+        String pn = t.substring(0, t.length()-1).substring(10);
+        b.append("(");
+        boolean first = true;
+        for (String tn : pn.split("\\|")) {
+          if (first)
+            first = false;
+          else
+            b.append("|");
+          b.append("<a href=\"");
+          b.append(prefix);
+          if (tn.equals("Any"))
+            b.append("resourcelist");
+          else
+            b.append(tn.toLowerCase());
+          b.append(".html\">");
+          b.append(tn);
+          b.append("</a>");
+        }
+        b.append(")");
+      } else if (!t.equals("Tuple")) {
+        b.append(t);
       }
-      b.append(")");
-    } else if (!t.equals("Tuple")) {
-      b.append(t);
     }
     b.append("</td><td>");
     if (p.getBs() != null && p.getBs().getBinding() != BindingMethod.Unbound) {
@@ -7402,7 +7430,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     b.append("</td><td>");
     b.append(processMarkdown(resource, p.getDoc(), prefix));
-    if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && definitions.hasResource(t))
+    if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && isRes)
       b.append("<p>Note: as this is the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p>");
     b.append("</td></tr>");
     if (p.getParts() != null)
@@ -9129,7 +9157,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (ElementDefinition ed : profile.getSnapshot().getElement()) {
       if (ed.hasBinding() && !"0".equals(ed.getMax())) {
         String path = ed.getPath();
-        if (ed.getType().size() == 1 && ed.getType().get(0).getCode().equals("Extension"))
+        if (ed.getType().size() == 1 && ed.getType().get(0).getWorkingCode().equals("Extension"))
           path = path + "<br/>"+ed.getType().get(0).getProfile();
         txlist.add(path);
         txmap.put(path, ed.getBinding());
@@ -10369,7 +10397,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
       throw new FHIRException("unable to find resource '"+resourceName+"'");
     if (rd.getNormativeVersion() != null)
       return "&nbsp;<a href=\"versions.html#std-process\" title=\"Standard Status\">Normative</a> (from v"+rd.getNormativeVersion()+")";
-    else if (rd.getNormativeBallotPackage() != null) {
+    else if (rd.getNormativePackage() != null) {
       return "&nbsp;<a href=\"versions.html#std-process\" title=\"Standard Status\">Normative</a>";
     } else
       return "&nbsp;<a href=\"versions.html#std-process\" title=\"Standard Status\">"+rd.getStatus().toDisplay()+"</a>";
@@ -10378,7 +10406,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new Exception("unable to find resource '"+resourceName+"'");
-    if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null) {
+    if (rd.getNormativePackage() != null || rd.getNormativeVersion() != null) {
       if (hideNormative)
         return "n/a";
       else
@@ -10391,7 +10419,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new Exception("unable to find resource '"+resourceName+"'");
-    if (rd.getNormativeBallotPackage() == null && rd.getNormativeVersion() == null)
+    if (rd.getNormativePackage() == null && rd.getNormativeVersion() == null)
       return "";
     else
       return " <a href=\"versions.html#std-process\" title=\"Normative Content\" class=\"normative-flag\">N</a>";
@@ -10400,7 +10428,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new Exception("unable to find resource '"+resourceName+"'");
-    if (rd.getNormativeBallotPackage() != null || rd.getNormativeVersion() != null)
+    if (rd.getNormativePackage() != null || rd.getNormativeVersion() != null)
       return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>"+
         "<a href=\"versions.html#std-process\" title=\"Normative Content\" class=\"normative-flag\">N</a>";
     else
@@ -11186,6 +11214,12 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
 
   public void setPatternFinder(PatternFinder patternFinder) {
     this.patternFinder = patternFinder;
+  }
+
+  @Override
+  public String getLinkForUrl(String corePath, String s) {
+    // TODO Auto-generated method stub
+    return null;
   }
   
 }

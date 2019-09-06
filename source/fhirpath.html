@@ -168,14 +168,19 @@ Patient.name.given.as(System.string);
 <a name="variables"></a>
 <h4>FHIR Specific Variables</h4>
 
-<p>FHIR defines a specific variable that is always in scope when FHIRPath is used
+<p>FHIR defines two specific variables that are always in scope when FHIRPath is used
 in any of the contexts above:
 </p>
 <pre>
 %resource // the resource that contains the original node that is in %context
+%rootResource // the container resource for the resource identified by %resource
 </pre>
 <p>
-The resource is very often the context, such that %resource = %context.
+The resource is very often the context, such that %resource = %context. 
+When a DomainResource contains another resource, and that contained resource 
+is the focus (%resource) then %rootResource refers to the container resource.
+Note that in most cases, the resource is not contained by another resource, and 
+then %rootResource is the same as %resource.
 </p>
 
 <a name="functions"></a>

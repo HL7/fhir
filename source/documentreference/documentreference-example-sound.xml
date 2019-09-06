@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocumentReference xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/documentreference.xsd">
+  <id value="sound"/>
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Sound recording of speech example for Patient Henry Levin (MRN 12345):<br/><img alt="diagram" src="#11"/></div>
+  </text>
+
+<status value="current"/>
+
+
+
+  <subject>
+    <reference value="Patient/xcda"/>
+  </subject>
+  <author>
+    <reference value="Practitioner/xcda-author"/>
+  </author>
+
+
+  <content>
+    <attachment>
+    <contentType value="audio/mpeg"/>
+    <!-- too big too include the whole -->
+    <data value="dG9vIGJpZyB0b28gaW5jbHVkZSB0aGUgd2hvbGU="/>
+    <duration value="65"/>
+
+	</attachment>
+  </content>
+</DocumentReference>

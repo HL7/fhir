@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/consent.xsd">
+  <!--
   This example provides a basic template for recording 
   the consent associated with a SMART on FHIR OAuth dance.
 
@@ -25,7 +26,6 @@
   authorises the application to access information on a general
   set of patients does not count as 'consent'. 
 -->
-<Consent xmlns="http://hl7.org/fhir">
   <id value="consent-example-smartonfhir"/>
   <status value="active"/>
   <scope>
@@ -33,42 +33,38 @@
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
     </coding>
-    </scope>
-      <category>
+  </scope>
+  <category>
     <coding>
       <system value="http://loinc.org"/>
       <code value="59284-0"/>
     </coding>
   </category>
-  <!-- 
-   In this SMART on FHIR login, the user consents for data sharing 
-   for their elderly parent's record
-  -->
+  <!-- In this SMART on FHIR login, the user consents for data sharing for their elderly parent's record -->
   <patient>
     <reference value="Patient/xcda"/>
   </patient>
   <dateTime value="2016-06-23T17:02:33+10:00"/>
   <performer>
     <!-- this is the patient record that matches the person
-      making the decision. note: it's not always a related person
-    -->
+      making the decision. note: it's not always a related person -->
     <reference value="RelatedPerson/peter"/>
   </performer>
   <organization>
     <!-- The organization running the Authentication server -->
     <reference value="Organization/f001"/>
   </organization>
-  <!-- there's no source record for a Smart on FHIR consent -->
-  <!-- now the consent details itself start -->
-  <!-- smart on fhir is always the base opt-in policy -->
+  <!-- there's no source record for a Smart on FHIR consent 
+    smart on fhir requires a base opt-in policy -->
   <policyRule>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <code value="OPTIN"/>
+      <code value="INFA"/>
     </coding>
   </policyRule>
   <!-- each scope that relates to FHIR resource access is represented as an exception -->
   <provision>
+    <type value="deny"/>
     <period>
       <start value="2016-06-23T17:02:33+10:00"/>
       <end value="2016-06-23T17:32:33+10:00"/>
@@ -81,6 +77,12 @@
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
           <code value="access"/>
+        </coding>
+      </action>
+      <action>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+          <code value="correct"/>
         </coding>
       </action>
       <class>
