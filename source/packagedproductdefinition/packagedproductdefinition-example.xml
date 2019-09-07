@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PackagedProductDefinition xmlns="http://hl7.org/fhir">
+<PackagedProductDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd" xmlns="http://hl7.org/fhir">
   <id value="example"/>
     <identifier>
       <system value="http://ema.europa.eu/example/pcid"/>
@@ -15,7 +16,7 @@
         </period>
       </outerPackaging>
     </batchIdentifier>
-    <packageItem>
+    <package>
       <type>
         <coding>
           <system value="http://ema.europa.eu/example/packageitemcontainertype"/>
@@ -44,7 +45,7 @@
           <code value="alu"/>
         </coding>
       </material>
-      <packageItem>
+      <package>
         <type>
           <coding>
             <system value="http://ema.europa.eu/example/packageitemcontainertype"/>
@@ -61,9 +62,12 @@
             <code value="Paperboard"/>
           </coding>
         </material>
-        <manufacturedItem>
-          <reference value="ManufacturedItemDefinition/example"/>
-        </manufacturedItem>
+        <item>
+          <item>
+            <reference value="ManufacturedItemDefinition/example"/>
+          </item>
+          <count value="12"/>
+        </item>
         <physicalCharacteristics>
           <height>
             <value value="125"/>
@@ -95,7 +99,7 @@
         <manufacturer>
           <reference value="Organization/example"/>
         </manufacturer>
-      </packageItem>
+      </package>
       <physicalCharacteristics>
         <height>
           <value value="50"/>
@@ -113,6 +117,6 @@
       <manufacturer>
         <reference value="Organization/example"/>
       </manufacturer>
-    </packageItem>
+    </package>
   </PackagedProductDefinition>
   
