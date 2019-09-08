@@ -45,6 +45,53 @@
           <code value="alu"/>
         </coding>
       </material>
+      <manufacturer>
+        <reference value="Organization/example"/>
+      </manufacturer>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="height"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="50"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="width"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="136"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="width"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="45"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="depth"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="23.5"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
       <package>
         <type>
           <coding>
@@ -62,22 +109,6 @@
             <code value="Paperboard"/>
           </coding>
         </material>
-        <item>
-          <item>
-            <reference value="ManufacturedItemDefinition/example"/>
-          </item>
-          <amountInteger value="12"/>
-        </item>
-        <physicalCharacteristics>
-          <height>
-            <value value="125"/>
-            <unit value="mm"/>
-          </height>
-          <width>
-            <value value="45"/>
-            <unit value="mm"/>
-          </width>
-        </physicalCharacteristics>
         <shelfLifeStorage>
           <type>
             <coding>
@@ -99,24 +130,35 @@
         <manufacturer>
           <reference value="Organization/example"/>
         </manufacturer>
+        <characteristic>
+          <code>
+            <coding>
+              <code value="height"/>
+            </coding>
+          </code>
+          <valueQuantity>
+            <value value="125"/>
+            <unit value="mm"/>
+          </valueQuantity>
+        </characteristic>
+        <characteristic>
+          <code>
+            <coding>
+              <code value="width"/>
+            </coding>
+          </code>
+          <valueQuantity>
+            <value value="45"/>
+            <unit value="mm"/>
+          </valueQuantity>
+        </characteristic>
+        <containedItem>
+          <item>
+            <reference value="ManufacturedItemDefinition/example"/>
+          </item>
+          <amountInteger value="12"/>
+        </containedItem>
       </package>
-      <physicalCharacteristics>
-        <height>
-          <value value="50"/>
-          <unit value="mm"/>
-        </height>
-        <width>
-          <value value="136"/>
-          <unit value="mm"/>
-        </width>
-        <depth>
-          <value value="23.5"/>
-          <unit value="mm"/>
-        </depth>
-      </physicalCharacteristics>
-      <manufacturer>
-        <reference value="Organization/example"/>
-      </manufacturer>
     </package>
   </PackagedProductDefinition>
   
