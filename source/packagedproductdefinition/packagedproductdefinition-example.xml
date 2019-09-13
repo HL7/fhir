@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PackagedProductDefinition xmlns="http://hl7.org/fhir">
+<PackagedProductDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd" xmlns="http://hl7.org/fhir">
   <id value="example"/>
     <identifier>
       <system value="http://ema.europa.eu/example/pcid"/>
@@ -15,7 +16,7 @@
         </period>
       </outerPackaging>
     </batchIdentifier>
-    <packageItem>
+    <package>
       <type>
         <coding>
           <system value="http://ema.europa.eu/example/packageitemcontainertype"/>
@@ -44,7 +45,54 @@
           <code value="alu"/>
         </coding>
       </material>
-      <packageItem>
+      <manufacturer>
+        <reference value="Organization/example"/>
+      </manufacturer>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="height"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="50"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="width"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="136"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="width"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="45"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="depth"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="23.5"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <package>
         <type>
           <coding>
             <system value="http://ema.europa.eu/example/packageitemcontainertype"/>
@@ -61,19 +109,6 @@
             <code value="Paperboard"/>
           </coding>
         </material>
-        <manufacturedItem>
-          <reference value="ManufacturedItemDefinition/example"/>
-        </manufacturedItem>
-        <physicalCharacteristics>
-          <height>
-            <value value="125"/>
-            <unit value="mm"/>
-          </height>
-          <width>
-            <value value="45"/>
-            <unit value="mm"/>
-          </width>
-        </physicalCharacteristics>
         <shelfLifeStorage>
           <type>
             <coding>
@@ -95,24 +130,35 @@
         <manufacturer>
           <reference value="Organization/example"/>
         </manufacturer>
-      </packageItem>
-      <physicalCharacteristics>
-        <height>
-          <value value="50"/>
-          <unit value="mm"/>
-        </height>
-        <width>
-          <value value="136"/>
-          <unit value="mm"/>
-        </width>
-        <depth>
-          <value value="23.5"/>
-          <unit value="mm"/>
-        </depth>
-      </physicalCharacteristics>
-      <manufacturer>
-        <reference value="Organization/example"/>
-      </manufacturer>
-    </packageItem>
+        <characteristic>
+          <code>
+            <coding>
+              <code value="height"/>
+            </coding>
+          </code>
+          <valueQuantity>
+            <value value="125"/>
+            <unit value="mm"/>
+          </valueQuantity>
+        </characteristic>
+        <characteristic>
+          <code>
+            <coding>
+              <code value="width"/>
+            </coding>
+          </code>
+          <valueQuantity>
+            <value value="45"/>
+            <unit value="mm"/>
+          </valueQuantity>
+        </characteristic>
+        <containedItem>
+          <item>
+            <reference value="ManufacturedItemDefinition/example"/>
+          </item>
+          <amountInteger value="12"/>
+        </containedItem>
+      </package>
+    </package>
   </PackagedProductDefinition>
   

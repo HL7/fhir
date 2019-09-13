@@ -599,7 +599,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R2C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="11" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="10" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="416.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="32.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="24.0"/>
@@ -695,22 +695,6 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The “real world” units in which the quantity of the manufactured item is described</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="69">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">ManufacturedItemDefinition.quantity</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">The quantity or "count number" of the manufactured item</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s64"><Data ss:Type="String">ManufacturedItemDefinition.manufacturer</Data></Cell>

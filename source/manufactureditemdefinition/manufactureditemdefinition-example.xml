@@ -13,10 +13,6 @@
         <code value="Tablet"/>
       </coding>
     </unitOfPresentation>
-    <quantity>
-      <value value="10"/>
-      <unit value="1"/>
-    </quantity>
     <manufacturer>
       <reference value="Organization/example"/>
     </manufacturer>
