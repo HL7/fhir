@@ -156,7 +156,7 @@ REST Hook
 				<code>POST to [client endpoint]</code>
 			</p>
 			<p>Request Payload</p>
-			<pre fragment="Subscription" class="json">
+			<pre fragment="Bundle" class="json">
 {
     "resourceType": "Bundle",
     "id": "notification-empty",
@@ -196,7 +196,7 @@ REST Hook
 				<code>POST to [client endpoint]</code>
 			</p>
 			<p>Request Payload</p>
-			<pre fragment="Subscription" class="json">{
+			<pre fragment="Bundle" class="json">{
     "resourceType": "Bundle",
     "id": "notification-id-only",
     "meta": {
@@ -245,7 +245,7 @@ REST Hook
 				<code>POST to [client endpoint]</code>
 			</p>
 			<p>Request Payload</p>
-			<pre fragment="CodeableConcept" class="json">{
+			<pre fragment="Bundle" class="json">{
     "resourceType": "Bundle",
     "id": "notification-full-resource",
     "meta": {
@@ -313,7 +313,7 @@ REST Hook
 			</h3>
 			<p>Subscriptions are created exclusively via the FHIR REST API. But notifications need not occur via REST. Indeed, some subscribers may be unable to expose an outward-facing HTTP server to receive triggered notifications. For example, a pure client-side Web app or mobile app may want to subscribe to a data feed without polling using the /history operation. This can be accomplished using a websocket notification channel.</p>
 			<p>A client can declare its intention to listen via Web Sockets:</p>
-			<pre fragment="CodeableConcept" class="json">
+			<pre fragment="Subscription" class="json">
 {
   "channel": {
   "type": {
@@ -348,7 +348,7 @@ REST Hook
 Email/SMS
 			</h3>
 			<p>A client can register for its user to receive notifications by email:</p>
-			<pre fragment="CodeableConcept" class="json">{
+			<pre fragment="Subscription" class="json">{
      "channel":{
      "type": {
         "coding":[
@@ -365,7 +365,7 @@ Email/SMS
 </pre>
 			<p>The server would send a new message for each matching resource. The body of the email may be empty, or it may contain a reference to the search or the matching resource. It is at the discretion of the server as to how much information to provide. <code>Subscription.channel.header</code> sets the subject of the email. The email <b>SHOULD</b> be secured appropriately, such as using Direct, as specified by the rules of the applicable jurisdictions.</p>
 			<p>SMS works very similarly:</p>
-			<pre fragment="CodeableConcept" class="json">
+			<pre fragment="Subscription" class="json">
   {
      "channel":{
      "type": {
@@ -392,7 +392,7 @@ Email/SMS
 		 Messaging
 			</h3>
 			<p>A client can register for its user to receive notifications by <a href="messaging.html">messaging</a>:</p>
-			<pre fragment="CodeableConcept" class="json">  {
+			<pre fragment="Subscription" class="json">  {
      "channel":{
      "type": {
         "coding":[
