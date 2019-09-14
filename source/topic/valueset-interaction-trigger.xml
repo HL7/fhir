@@ -4,7 +4,7 @@
 	<name value="InteractionTrigger"/>
 	<title value="Interaction Trigger"/>
 	<status value="active"/>
-  <publisher value="FHIR Project team"/>
+  <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
       <system value="url"/>

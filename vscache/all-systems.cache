@@ -452,7 +452,7 @@ e: {
   "status" : "draft",
   "experimental" : false,
   "date" : "2018-12-14T14:47:58+11:00",
-  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Mon, Jul 1, 2019 11:30-0400",
+  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Fri, Aug 23, 2019 11:11+1000",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
@@ -112769,29 +112769,382 @@ v: {
 }
 -------------------------------------------------------------------------------------
 {"code" : {
-  "code" : "exposure"
-}, "valueSet" :null, "lang":"null"}####
+  "code" : "http://hl7.org/fhir/StructureDefinition/System.string"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known for the code \"exposure\"; The code provided (#exposure) is not  valid in the value set All codes known to the system"
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhir/StructureDefinition/System.string\"; The code provided (#http://hl7.org/fhir/StructureDefinition/System.string) is not  valid in the value set FHIRDefinedType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
-  "code" : "referenceExposure"
-}, "valueSet" :null, "lang":"null"}####
+  "code" : "http://hl7.org/fhir/StructureDefinition/System.boolean"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known for the code \"referenceExposure\"; The code provided (#referenceExposure) is not  valid in the value set All codes known to the system"
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhir/StructureDefinition/System.boolean\"; The code provided (#http://hl7.org/fhir/StructureDefinition/System.boolean) is not  valid in the value set FHIRDefinedType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
-  "code" : "measuredVariable"
-}, "valueSet" :null, "lang":"null"}####
+  "code" : "http://hl7.org/fhir/StructureDefinition/System.number"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known for the code \"measuredVariable\"; The code provided (#measuredVariable) is not  valid in the value set All codes known to the system"
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhir/StructureDefinition/System.number\"; The code provided (#http://hl7.org/fhir/StructureDefinition/System.number) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhir/StructureDefinition/System.uri"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhir/StructureDefinition/System.uri\"; The code provided (#http://hl7.org/fhir/StructureDefinition/System.uri) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.String"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.String\"; The code provided (#http://hl7.org/fhirpath/System.String) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.System.String"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.System.String\"; The code provided (#http://hl7.org/fhirpath/System.System.String) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.System.Boolean"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.System.Boolean\"; The code provided (#http://hl7.org/fhirpath/System.System.Boolean) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.string"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.string\"; The code provided (#http://hl7.org/fhirpath/System.string) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.System.Date"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.System.Date\"; The code provided (#http://hl7.org/fhirpath/System.System.Date) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.System.DateTime"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.System.DateTime\"; The code provided (#http://hl7.org/fhirpath/System.System.DateTime) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.System.Decimal"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.System.Decimal\"; The code provided (#http://hl7.org/fhirpath/System.System.Decimal) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.System.Integer"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.System.Integer\"; The code provided (#http://hl7.org/fhirpath/System.System.Integer) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.number"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.number\"; The code provided (#http://hl7.org/fhirpath/System.number) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.System.Time"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.System.Time\"; The code provided (#http://hl7.org/fhirpath/System.System.Time) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.Boolean"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.Boolean\"; The code provided (#http://hl7.org/fhirpath/System.Boolean) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.Date"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.Date\"; The code provided (#http://hl7.org/fhirpath/System.Date) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.DateTime"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.DateTime\"; The code provided (#http://hl7.org/fhirpath/System.DateTime) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.Decimal"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.Decimal\"; The code provided (#http://hl7.org/fhirpath/System.Decimal) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.Integer"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.Integer\"; The code provided (#http://hl7.org/fhirpath/System.Integer) is not  valid in the value set FHIRDefinedType"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "http://hl7.org/fhirpath/System.Time"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/data-types"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"\" is not known for the code \"http://hl7.org/fhirpath/System.Time\"; The code provided (#http://hl7.org/fhirpath/System.Time) is not  valid in the value set FHIRDefinedType"
 }
 -------------------------------------------------------------------------------------

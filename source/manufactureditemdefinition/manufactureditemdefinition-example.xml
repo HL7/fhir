@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RegulatedManufacturedItem xmlns="http://hl7.org/fhir">
+<ManufacturedItemDefinition xmlns="http://hl7.org/fhir">
     <id value="example"/>
     <manufacturedDoseForm>
       <coding>
@@ -13,10 +13,6 @@
         <code value="Tablet"/>
       </coding>
     </unitOfPresentation>
-    <quantity>
-      <value value="10"/>
-      <unit value="1"/>
-    </quantity>
     <manufacturer>
       <reference value="Organization/example"/>
     </manufacturer>
@@ -28,6 +24,4 @@
       <color value="Pink"/>
       <imprint value="894"/>
     </physicalCharacteristics>
-</RegulatedManufacturedItem>
-  
-
+</ManufacturedItemDefinition>

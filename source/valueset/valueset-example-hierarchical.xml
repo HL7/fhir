@@ -189,7 +189,7 @@
       <!-- #2a -->
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expand-group">
         <extension url="code">
-          <valueString value="processing"/>
+          <valueCode value="processing"/>
         </extension>
         <extension url="member">
           <valueCode value="duplicate"/>
@@ -201,7 +201,7 @@
       <!-- #2b -->
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expand-group">
         <extension url="code">
-          <valueString value="invalid"/>
+          <valueCode value="invalid"/>
         </extension>
         <extension url="member">
           <valueCode value="structure"/>
@@ -209,14 +209,14 @@
         <extension url="member">
           <valueCode value="required"/>
         </extension>
-        <extension url="value">
-          <valueCode value="required"/>
+        <extension url="member">
+          <valueCode value="value"/>
         </extension>
       </extension>
       <!-- #3a -->
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expand-group">
         <extension url="code">
-          <valueString value="transient"/>
+          <valueCode value="transient"/>
         </extension>
         <extension url="member">
           <valueCode value="lock"/>
@@ -224,14 +224,14 @@
         <extension url="member">
           <valueCode value="exception"/>
         </extension>
-        <extension url="value">
+        <extension url="member">
           <valueCode value="throttled"/>
         </extension>
       </extension>
       <!-- #3b -->
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expand-group">
         <extension url="code">
-          <valueString value="security"/>
+          <valueCode value="security"/>
         </extension>
         <extension url="member">
           <valueCode value="login"/>

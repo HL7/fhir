@@ -3,10 +3,10 @@
 	"id": "admission",
 	"name": "AdmissionExample",
 	"status": "active",
-	"reason": "subscription for beginning of a clinical encounter for patient 123",
 	"topic": {
 		"reference": "Topic/admission"
 	},
+	"reason": "subscription for beginning of a clinical encounter for patient 123",
 	"filterBy": [
 		{
 			"name": "patient",

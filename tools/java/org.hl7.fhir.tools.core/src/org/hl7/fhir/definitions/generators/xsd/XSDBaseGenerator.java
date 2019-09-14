@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
@@ -71,7 +72,7 @@ public class XSDBaseGenerator {
   private List<BindingSpecification> enums = new ArrayList<BindingSpecification>();
   private Map<String, String> enumDefs = new HashMap<String, String>();
 
-  private List<String> genEnums = new ArrayList<String>();
+  private Set<String> genEnums;
   private Map<String, String> regexQueue = new HashMap<String, String>();
 
   private boolean forCodeGeneration;
@@ -80,10 +81,11 @@ public class XSDBaseGenerator {
 
   // private Map<String, PrimitiveType> primitives;
 
-  public XSDBaseGenerator(OutputStreamWriter out, boolean forCodeGeneration, BuildWorkerContext workerContext) throws UnsupportedEncodingException {
+  public XSDBaseGenerator(OutputStreamWriter out, boolean forCodeGeneration, BuildWorkerContext workerContext, Set<String> genEnums) throws UnsupportedEncodingException {
     writer = out;
     this.forCodeGeneration = forCodeGeneration;
     this.workerContext = workerContext;
+    this.genEnums = genEnums;
   }
 
   private void write(String s) throws IOException {

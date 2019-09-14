@@ -445,13 +445,6 @@
     <Cell><Data ss:Type="String">Location</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Media</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">subject | operator</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Medication</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -491,6 +484,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NamingSystem</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionIntake</Data></Cell>
+    <Cell><Data ss:Type="String">subject | source</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">source</Data></Cell>
+    <Cell><Data ss:Type="String">source</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NutritionOrder</Data></Cell>
@@ -720,16 +720,16 @@
     <Cell><Data ss:Type="String">OrganizationAffiliation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">RegulatedMedicinalProduct</Data></Cell>
+    <Cell><Data ss:Type="String">MedicinalProductDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">RegulatedPackagedProduct</Data></Cell>
+    <Cell><Data ss:Type="String">PackagedProductDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">RegulatedManufacturedItem</Data></Cell>
+    <Cell><Data ss:Type="String">ManufacturedItemDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">RegulatedAdministrableProduct</Data></Cell>
+    <Cell><Data ss:Type="String">AdministrableProductDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Ingredient</Data></Cell>
@@ -775,6 +775,9 @@
    </Row>
    <Row>
     <Cell><Data ss:Type="String">Evidence</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Topic</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">Topic</Data></Cell>

@@ -22,7 +22,7 @@
 
   
   <!-- more precise details of the event -->
-  <event>
+  <code>
     <coding>
       <!-- example uses SNOMED CT. Other likely possibilities include MedDRA -->
       <system value="http://snomed.info/sct"/>
@@ -30,7 +30,7 @@
       <display value="O/E - itchy rash"/>
     </coding>
 	<text value="This was a mild rash on the left forearm"/>
-  </event>
+  </code>
   
   <!-- the patient that actually had the adverse event -->
   <subject>
@@ -44,19 +44,11 @@
   <seriousness>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/>
-        <code value="Non-serious"/>
+        <code value="non-serious"/>
         <display value="Non-serious"/>
     </coding>
   </seriousness>
   
-  <!-- In overall terms even if it was a severe rash it is a relatively mild event overall --> 
-  <severity>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/adverse-event-severity"/>
-      <code value="mild"/>
-      <display value="Mild"/>
-    </coding>
-  </severity>
 
   <!-- who made the record / last updated it -->
   <recorder>

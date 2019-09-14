@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,7 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 
 import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 
 public class SpecNPMPackageGenerator {
 
@@ -61,17 +63,17 @@ public class SpecNPMPackageGenerator {
 
   public static void main(String[] args) throws Exception {
 //    generateForVersion("F:\\fhir\\web\\DSTU2", "http://hl7.org/fhir/DSTU2");
-    generateForVersion("E:\\fhir\\web\\2016May", "http://hl7.org/fhir/2016May", "??");
+    generateForVersion("E:\\fhir\\web\\2016May", "http://hl7.org/fhir/2016May", new Date());
 //    generateForVersion("F:\\fhir\\web\\STU3", "http://hl7.org/fhir/2016STU3");
     System.out.println("Done");
   }
 
-  private static void generateForVersion(String folder, String url, String genDate) throws Exception {
+  private static void generateForVersion(String folder, String url, Date genDate) throws Exception {
     SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
     self.generate(folder, url, false, genDate);
   }
   
-  public void generate(String folder, String url, boolean forWeb, String genDate) throws Exception {
+  public void generate(String folder, String url, boolean forWeb, Date genDate) throws Exception {
     System.out.println("Generate Package for "+folder);
     
     Map<String, byte[]> files = loadZip(new FileInputStream(Utilities.path(folder, "igpack.zip")));
@@ -266,7 +268,7 @@ public class SpecNPMPackageGenerator {
           && !f.getName().equals("backbone-elements.json")&& !f.getName().equals("choice-elements.json")) {
         try {
           byte[] b = TextFile.fileToBytes(f.getAbsolutePath());
-          loadFile(reslist, b, f.getName());
+          loadFile(reslist, b, f.getAbsolutePath());
         } catch (Exception e) {
           // nothing - we'll just ignore the file
         }
@@ -294,8 +296,8 @@ public class SpecNPMPackageGenerator {
     }
   }
 
-  private JsonObject parseJson(byte[] b) {
-    return (JsonObject) new com.google.gson.JsonParser().parse(new String(b));
+  private JsonObject parseJson(byte[] b) throws JsonSyntaxException, IOException {
+    return (JsonObject) new com.google.gson.JsonParser().parse(TextFile.bytesToString(b, true));
   }
 
   private boolean hasEntry(List<ResourceEntry> reslist, String fhirType, String id) {

@@ -16,14 +16,9 @@
 	</resourceTrigger>
 	<canFilterBy>
 		<name value="patient"/>
-		<documentation value="Patient involved in the encounter."/>
-	</canFilterBy>
-	<canFilterBy>
-		<name value="practitioner"/>
-		<documentation value="Practitioner"/>
-	</canFilterBy>
-	<canFilterBy>
-		<name value="patient/birthDate"/>
-		<documentation value="Birthdate of admitted patient"/>
+		<matchType value="=" />
+		<matchType value="in" />
+		<matchType value="not-in" />
+		<documentation value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
 	</canFilterBy>
 </Topic>

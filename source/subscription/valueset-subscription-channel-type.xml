@@ -5,13 +5,14 @@
 	<name value="SubscriptionChannelTypeCodes"/>
 	<title value="SubscriptionChannel Type Codes"/>
 	<status value="draft"/>
+	 <publisher value="HL7 (FHIR Project)"/>
 	<contact>
 		<telecom>
 			<system value="url"/>
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 		<telecom>
-		
+
 			<system value="email"/>
 			<value value="fhir@lists.hl7.org"/>
 		</telecom>

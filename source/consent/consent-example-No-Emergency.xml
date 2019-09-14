@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/consent.xsd">
+  <id value="consent-example-No-Emergency"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Withhold Authorization for Treatment and for Emergency Treatment</p>
+      <p>Patient "Donald D Duck" wishes to have no data at the Burgers University Medical Center available and not allow Emergency treatment use.
+        An overall Deny consent Directive, with an "Deny" of purposeOfUse "TREAT" and "Deny" purposeOfUse "ETREAT". </p>
+    </div>
+  </text>
+  <status value="active"/>
+  <scope>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
+      <code value="patient-privacy"/>
+    </coding>
+  </scope>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <code value="INFA"/>
+    </coding>
+  </category>
+  <patient>
+    <reference value="Patient/f002"/>
+    <display value="Donald D Duck"/>
+  </patient>
+  <dateTime value="2018-12-28"/>
+  <sourceAttachment>
+    <title value="The signed document can be attached here."/>
+  </sourceAttachment>
+  <policy>
+    <uri value="https://uhin.org/wp-content/uploads/2017/06/cHIE_Patient_Participation_Form.pdf"/>
+    <!-- this policy is a multiple use policy. The Patient has expressed both deny Treatment and deny Emergency  -->
+  </policy>
+  <provision>
+    <type value="deny"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+          <code value="PRCP"/>
+        </coding>
+      </role>
+      <reference>
+        <reference value="Organization/f201"/>
+      </reference>
+    </actor>
+    <purpose>
+      <system value="http://hl7.org/fhir/v3/ActReason"/>
+      <code value="TREAT"/>
+    </purpose>
+    <purpose>
+      <system value="http://hl7.org/fhir/v3/ActReason"/>
+      <code value="ETREAT"/>
+    </purpose>
+  </provision>
+</Consent>

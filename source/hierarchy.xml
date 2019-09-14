@@ -27,6 +27,13 @@ signatures.html
       <page title="Namespace List" filename="ns.html"/>
       <page title="Workgroup List" filename="wglist.html"/>
       <page title="Getting Started" filename="modules.html"/>
+      <page title="ANSI Documentation" filename="ansi.html">
+        <page title="ANSI FHIR Infrastructure Standard" filename="ansi-infrastructure.html"/>
+        <page title="ANSI FHIR Terminology &amp; Conformance Standard" filename="ansi-conformance.html"/>
+        <page title="ANSI FHIR Patient Standard" filename="ansi-patient.html"/>
+        <page title="ANSI FHIR Observation Standard" filename="ansi-observation.html"/>
+      
+      </page>
 <!--      <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
     </page>
 
@@ -127,6 +134,7 @@ signatures.html
       <page type="resource" resource="OperationOutcome"/>
       <page type="resource" resource="Parameters"/>
       <page type="resource" resource="Subscription"/>
+      <page type="resource" resource="Topic"/>
       <page type="resource" resource="MessageHeader"/>
       <page type="resource" resource="MessageDefinition"/>
       <page type="resource" resource="Topic"/>
@@ -304,7 +312,7 @@ signatures.html
 
     <page title="Diagnostics" filename="diagnostics-module.html" icon="diagnostics.jpg">
       <page type="resource" resource="Observation"/>
-      <page type="resource" resource="Media"/>
+      <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DiagnosticReport"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingManifest"/>
@@ -331,10 +339,14 @@ signatures.html
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
       </page>
-      <page type="resource" resource="RegulatedMedicinalProduct"/>
-      <page type="resource" resource="RegulatedPackagedProduct"/>
-      <page type="resource" resource="RegulatedManufacturedItem"/>
+      <!--page type="resource" resource="RegulatedMedicinalProduct"/-->
+      <page type="resource" resource="MedicinalProductDefinition"/>
+      <!--page type="resource" resource="RegulatedPackagedProduct"/-->
+      <page type="resource" resource="PackagedProductDefinition"/>
+      <!--page type="resource" resource="RegulatedManufacturedItem"/-->
       <page type="resource" resource="RegulatedAdministrableProduct"/>
+      <page type="resource" resource="ManufacturedItemDefinition"/>
+      <page type="resource" resource="AdministrableProductDefinition"/>
       <!--page type="resource" resource="MedicinalProductAuthorization"/-->
       <page type="resource" resource="RegulatedAuthorization"/>
       <!--page type="resource" resource="MedicinalProductContraindication"/-->
@@ -403,6 +415,7 @@ signatures.html
       <page type="resource" resource="Slot"/>
       <page type="resource" resource="ServiceRequest"/>
       <page type="resource" resource="NutritionOrder"/>
+      <page type="resource" resource="NutritionIntake"/>
       <page type="resource" resource="VisionPrescription"/>
       <page type="resource" resource="ActivityDefinition"/>
       <page type="resource" resource="PlanDefinition"/>

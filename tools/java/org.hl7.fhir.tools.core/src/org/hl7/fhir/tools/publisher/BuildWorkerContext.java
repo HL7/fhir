@@ -27,9 +27,12 @@ import org.fhir.ucum.UcumEssenceService;
 import org.fhir.ucum.UcumException;
 import org.fhir.ucum.UcumService;
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.r5.conformance.ProfileUtilities;
+import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r5.context.BaseWorkerContext;
 import org.hl7.fhir.r5.context.HTMLClientLogger;
 import org.hl7.fhir.r5.context.IWorkerContext;
@@ -41,6 +44,7 @@ import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r5.model.ConceptMap;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r5.model.ImplementationGuide;
 import org.hl7.fhir.r5.model.NamingSystem;
@@ -51,6 +55,7 @@ import org.hl7.fhir.r5.model.Parameters;
 import org.hl7.fhir.r5.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.r5.model.StringType;
 import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r5.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
@@ -65,9 +70,13 @@ import org.hl7.fhir.r5.utils.client.EFhirClientException;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.OIDUtils;
+import org.hl7.fhir.utilities.TerminologyServiceOptions;
 import org.hl7.fhir.utilities.TranslatorXml;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.w3c.dom.Document;
@@ -94,7 +103,7 @@ import org.xml.sax.SAXException;
  - list of resource names
 
  */
-public class BuildWorkerContext extends BaseWorkerContext implements IWorkerContext {
+public class BuildWorkerContext extends BaseWorkerContext implements IWorkerContext, ProfileKnowledgeProvider {
 
   private static final String SNOMED_EDITION = "900000000000207008"; // international
 //  private static final String SNOMED_EDITION = "731000124108"; // us edition
@@ -177,7 +186,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (type.hasProfile())
       return getStructure(type.getProfile().get(0).getValue());
     else
-      return getStructure(type.getCode());
+      return getStructure(type.getWorkingCode());
   }
 
   @Override
@@ -795,5 +804,64 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     return ucum;
   }
 
+  public void generateSnapshot(StructureDefinition p) throws DefinitionException, FHIRException {
+    if (!p.hasSnapshot() && p.getKind() != StructureDefinitionKind.LOGICAL) {
+      if (!p.hasBaseDefinition())
+        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
+      StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBaseDefinition());
+      if (sd == null)
+        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") base "+p.getBaseDefinition()+" could not be resolved");
+      List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
+      List<String> errors = new ArrayList<String>();
+      ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
+      pu.setThrowException(false);
+      pu.sortDifferential(sd, p, p.getUrl(), errors);
+      for (String err : errors)
+        msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
+      pu.generateSnapshot(sd, p, p.getUrl(), Utilities.extractBaseUrl(sd.getUserString("path")), p.getName());
+      for (ValidationMessage msg : msgs) {
+        if ((msg.getLevel() == ValidationMessage.IssueSeverity.ERROR) || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)
+          throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot: "+msg.getMessage());
+      }
+      if (!p.hasSnapshot())
+        throw new FHIRException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot");
+      pu = null;
+    }
+  }
+
+  @Override
+  public boolean isDatatype(String typeSimple) {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public boolean hasLinkFor(String typeSimple) {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public String getLinkFor(String corePath, String typeSimple) {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public BindingResolution resolveBinding(StructureDefinition def, ElementDefinitionBindingComponent binding, String path) throws FHIRException {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public BindingResolution resolveBinding(StructureDefinition def, String url, String path) throws FHIRException {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public String getLinkForProfile(StructureDefinition profile, String url) {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public boolean prependLinks() {
+    throw new Error("Not done yet");
+  }
 
 }

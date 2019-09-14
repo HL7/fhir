@@ -5,6 +5,7 @@
 	<name value="SubscriptionErrorCodes"/>
 	<title value="Subscription Error Codes"/>
 	<status value="draft"/>
+	<publisher value="HL7 (FHIR Project)"/>
 	<contact>
 		<telecom>
 			<system value="url"/>

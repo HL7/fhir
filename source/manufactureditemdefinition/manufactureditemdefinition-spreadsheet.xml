@@ -17,7 +17,6 @@
   
   <TabRatio>837</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -600,7 +599,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R2C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="11" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="10" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="416.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="32.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="24.0"/>
@@ -649,7 +648,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Committee Notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="39">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedManufacturedItem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ManufacturedItemDefinition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -666,7 +665,7 @@
     <Cell ss:Index="22" ss:StyleID="s71"><Data ss:Type="String">0;250</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="66">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">RegulatedManufacturedItem.manufacturedDoseForm</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">ManufacturedItemDefinition.manufacturedDoseForm</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -682,7 +681,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Dose form as manufactured and before any transformation into the pharmaceutical product</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">RegulatedManufacturedItem.unitOfPresentation</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">ManufacturedItemDefinition.unitOfPresentation</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -698,23 +697,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">The “real world” units in which the quantity of the manufactured item is described</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">RegulatedManufacturedItem.quantity</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">The quantity or "count number" of the manufactured item</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="69">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">RegulatedManufacturedItem.manufacturer</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">ManufacturedItemDefinition.manufacturer</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -730,7 +713,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Manufacturer of the item (Note that this should be named "manufacturer" but it currently causes technical issues)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">RegulatedManufacturedItem.ingredient</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ManufacturedItemDefinition.ingredient</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -746,7 +729,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Ingredient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">RegulatedManufacturedItem.physicalCharacteristics</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">ManufacturedItemDefinition.physicalCharacteristics</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -762,7 +745,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Dimensions, color etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="54" ss:StyleID="s73">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">RegulatedManufacturedItem.otherCharacteristics</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">ManufacturedItemDefinition.otherCharacteristics</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s70"/>
@@ -801,7 +784,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
