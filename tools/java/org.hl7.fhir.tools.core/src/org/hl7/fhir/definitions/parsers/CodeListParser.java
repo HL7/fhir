@@ -1,4 +1,5 @@
 package org.hl7.fhir.definitions.parsers;
+import java.io.IOException;
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -32,12 +33,13 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.DefinedCode;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.CSVReader;
 import org.hl7.fhir.utilities.Utilities;
 
 public class CodeListParser  extends CSVReader {
 
-	public CodeListParser(InputStream in) throws UnsupportedEncodingException {
+	public CodeListParser(InputStream in) throws FHIRException, IOException {
 		super(in);
 	}
 

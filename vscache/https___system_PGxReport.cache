@@ -30,3 +30,13 @@ v: {
   "error" : "The code system \"https://system/PGxReport\" is not known; The code provided (https://system/PGxReport#PGxReport, (Pharmacogenetics Report)) is not  valid in the value set LOINCDiagnosticReportCodes"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://system/PGxReport",
+  "code" : "PGxReport"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"https://system/PGxReport\" is not known; The code provided (https://system/PGxReport#PGxReport) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

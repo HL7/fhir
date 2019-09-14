@@ -176,7 +176,7 @@ public class CDAGenerator {
       for (ElementDefinition ed : sd.getDifferential().getElement()) {
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
         for (TypeRefComponent t : ed.getType()) {
-          b.append(t.getCode());
+          b.append(t.getWorkingCode());
         }
         CommaSeparatedStringBuilder b2 = new CommaSeparatedStringBuilder();
         for (Enumeration<PropertyRepresentation> r : ed.getRepresentation())
@@ -861,7 +861,7 @@ public class CDAGenerator {
 
 
   private void checkType(TypeRefComponent t) {
-    String id = t.getCode();
+    String id = t.getWorkingCode();
     if (Utilities.existsInList(id, "string", "Element", "code", "boolean", "Resource"))
       return;
     for (StructureDefinition sd : structures) {

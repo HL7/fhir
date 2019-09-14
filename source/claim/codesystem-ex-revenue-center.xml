@@ -6,11 +6,13 @@
   <title value="Example Revenue Center Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set includes sample Revenue Center codes from the National Uniform Billing Committee (NUBC04). See www.nubc.org for license terms and and conditions"/>
-  <copyright value="This is an example set drawn from the NUBC set of revenue codes for which NUBC holds the copyright."/>
+  <description value="This CodeSystem includes example Revenue Center codes."/>
+  <!--<description value="This value set includes sample Revenue Center codes from the National Uniform Billing Committee (NUBC04). See www.nubc.org for license terms and and conditions"/> -->
+  <copyright value="This is an example set."/>
+  <!--<copyright value="This is an example set drawn from the NUBC set of revenue codes for which NUBC holds the copyright."/> -->
   <caseSensitive value="true"/>
   <content value="complete"/>
-  <concept>
+  <!--<concept>
     <code value="0370"/>
     <display value="Anaesthesia"/>
     <definition value="Anaesthesia."/>
@@ -49,10 +51,20 @@
     <code value="0452"/>
     <display value="Emergency Room - beyond EMTALA"/>
     <definition value="Emergency Room - beyond EMTALA"/>
-  </concept>
+  </concept> -->
   <concept>
     <code value="0010"/>
 	<display value="Vision Clinic"/>
-	<definition value="Vision Clinic"/>
+	<definition value="Vision Office or Clinic."/>
+  </concept>
+  <concept>
+    <code value="0011"/>
+	<display value="Dental Clinic"/>
+	<definition value="Dental Office or Clinic."/>
+  </concept>
+  <concept>
+    <code value="1001"/>
+	<display value="Emergency"/>
+	<definition value="Emergency Department."/>
   </concept>
 </CodeSystem>

@@ -583,14 +583,26 @@
 	<item id="RegulatedMedicinalProduct">
 		<translation lang="en">RegulatedMedicinalProduct</translation>
 	</item>
+	<item id="MedicinalProductDefinition">
+		<translation lang="en">MedicinalProductDefinition</translation>
+	</item>
 	<item id="RegulatedPackagedProduct">
 		<translation lang="en">RegulatedPackagedProduct</translation>
+	</item>
+	<item id="PackagedProductDefinition">
+		<translation lang="en">PackagedProductDefinition</translation>
 	</item>
 	<item id="RegulatedManufacturedItem">
 		<translation lang="en">RegulatedManufacturedItem</translation>
 	</item>
+	<item id="ManufacturedItemDefinition">
+		<translation lang="en">ManufacturedItemDefinition</translation>
+	</item>
 	<item id="RegulatedAdministrableProduct">
 		<translation lang="en">RegulatedAdministrableProduct</translation>
+	</item>
+	<item id="AdministrableProductDefinition">
+		<translation lang="en">AdministrableProductDefinition</translation>
 	</item>
 	<item id="MedicinalProductAuthorization">
 		<translation lang="en">MedicinalProductAuthorization</translation>
@@ -655,12 +667,15 @@
 		<translation lang="en">NewBundle</translation>
 		<translation lang="fr">NouveauPaquet</translation>
 	</item>
-	<item id="NutritionOrder">
-		<translation lang="en">NutritionOrder</translation>
-		<translation lang="fr">OrdreNutrition</translation>
-		<translation lang="es">OrdenNutrición</translation>
-		<translation lang="zh">营养医嘱</translation>
+	<item id="NutritionIntake">
+		<translation lang="en">NutritionIntake</translation>
 	</item>
+        <item id="NutritionOrder">
+                <translation lang="en">NutritionOrder</translation>
+                <translation lang="fr">OrdreNutrition</translation>
+                <translation lang="es">OrdenNutrición</translation>
+                <translation lang="zh">营养医嘱</translation>
+        </item>
 	<item id="Observation">
 		<translation lang="en">Observation</translation>
 		<translation lang="zh">观察</translation>
@@ -1008,6 +1023,12 @@
 		<translation lang="es">ScriptDePrueba</translation>
 		<translation lang="fr">ScriptTest</translation>
 		<translation lang="zh">测试脚本</translation>
+	</item>
+	<item id="Topic">
+		<translation lang="en">Topic</translation>
+		<translation lang="es">Tema</translation>
+		<translation lang="fr">Sujet</translation>
+		<translation lang="zh">话题</translation>
 	</item>
 	<item id="User">
 		<translation lang="en">User</translation>

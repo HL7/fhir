@@ -20,3 +20,13 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+  "code" : "inpatient"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Inpatient",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

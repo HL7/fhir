@@ -1,338 +1,348 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
-	<id value="consent-example-pkb"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>
-        This example demonstrates how to encode this screen shot in a consent resource:
-			</p>
-			<p>
-				<img alt="Screenshot from Patient Knows Best" src="pkb.png"/>
-			</p>
-			<p>
-        Thanks to <a href="https://www.patientsknowbest.com/">Patients Know Best</a> for contributing this example
-			</p>
-		</div>
-	</text>
-	<status value="active"/>
-	<scope>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
-			<code value="patient-privacy"/>
-		</coding>
-	</scope>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="59284-0"/>
-		</coding>
-	</category>
-	<patient>
-		<reference value="Patient/example"/>
-		<display value="...example patient..."/>
-	</patient>
-	<dateTime value="2016-06-16"/>
-	<organization>
-		<reference value="Organization/f001"/>
-	</organization>
-	<!-- nothing is approved unless the patient says it is -->
-	<policyRule>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-			<code value="OPTOUT"/>
-		</coding>
-	</policyRule>
-	<provision>
-		<!-- we permit -->
-		<actor>
-			<!-- as a receiver of data -->
-			<role>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-					<code value="PRCP"/>
-				</coding>
-			</role>
-			<!-- the non-migrated team -->
-			<reference>
-				<reference value="Organization/f001"/>
-			</reference>
-		</actor>
-		<!-- to read -->
-		<action>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-				<code value="access"/>
-			</coding>
-		</action>
-		<!-- any data with confidentiality N -->
-		<securityLabel>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
-			<code value="N"/>
-		</securityLabel>
-		<provision>
-			<!-- we permit -->
-			<actor>
-				<!-- as a receiver of data -->
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<!-- the non-migrated team -->
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<!-- to read -->
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<!-- any data with tag PSY (see security labels) -->
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-				<code value="PSY"/>
-			</securityLabel>
-		</provision>
-		<provision>
-			<!-- we permit -->
-			<actor>
-				<!-- as a receiver of data -->
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<!-- the non-migrated team -->
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<!-- to read -->
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<!-- any data with and tag SPI (see security labels). SPI is nearest? -->
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-				<code value="SPI"/>
-			</securityLabel>
-		</provision>
-		<!-- other teams follow the same pattern -->
-		<provision>
-			<actor>
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
-				<code value="N"/>
-			</securityLabel>
-		</provision>
-		<provision>
-			<actor>
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-				<code value="PSY"/>
-			</securityLabel>
-		</provision>
-		<provision>
-			<actor>
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-				<code value="SPI"/>
-			</securityLabel>
-		</provision>
-		<provision>
-			<actor>
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-				<code value="SEX"/>
-			</securityLabel>
-		</provision>
-		<provision>
-			<actor>
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
-				<code value="N"/>
-			</securityLabel>
-		</provision>
-		<provision>
-			<actor>
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-				<code value="PSY"/>
-			</securityLabel>
-		</provision>
-		<provision>
-			<actor>
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-				<code value="SPI"/>
-			</securityLabel>
-		</provision>
-		<provision>
-			<actor>
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-				<code value="SEX"/>
-			</securityLabel>
-		</provision>
-		<provision>
-			<actor>
-				<role>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-						<code value="PRCP"/>
-					</coding>
-				</role>
-				<reference>
-					<reference value="Organization/f001"/>
-				</reference>
-			</actor>
-			<action>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-					<code value="access"/>
-				</coding>
-			</action>
-			<securityLabel>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
-				<code value="N"/>
-			</securityLabel>
-		</provision>
-	</provision>
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/consent.xsd">
+  <id value="consent-example-pkb"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This example demonstrates how to encode this screen shot in a consent resource:</p>
+      <p>
+        <img alt="Screenshot from Patient Knows Best" src="pkb.png"/>
+      </p>
+      <p>Thanks to <a href="https://www.patientsknowbest.com/">Patients Know Best</a> for contributing this example</p>
+      <p>Example uses SecurityLabels to define data types</p>
+    </div>
+  </text>
+  <status value="active"/>
+  <scope>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
+      <code value="patient-privacy"/>
+    </coding>
+  </scope>
+  <category>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="59284-0"/>
+    </coding>
+  </category>
+  <patient>
+    <reference value="Patient/example"/>
+    <display value="Peter James Chalmers"/>
+  </patient>
+  <dateTime value="2018-12-28"/>
+  <organization>
+    <reference value="Organization/f001"/>
+  </organization>
+  <!-- nothing is approved unless the patient says it is -->
+  <policyRule>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <code value="INFA"/>
+    </coding>
+  </policyRule>
+  <provision>
+    <type value="deny"/>
+    <provision>
+      <!-- we permit -->
+      <type value="permit"/>
+      <actor>
+        <!-- as a receiver of data -->
+        <role>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+            <code value="PRCP"/>
+          </coding>
+        </role>
+        <!-- the non-migrated team -->
+        <reference>
+          <reference value="Organization/f001"/>
+        </reference>
+      </actor>
+      <!-- to read -->
+      <action>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+          <code value="access"/>
+        </coding>
+      </action>
+      <!-- any data with confidentiality N -->
+      <securityLabel>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+        <code value="N"/>
+      </securityLabel>
+      <provision>
+        <!-- we permit -->
+        <type value="permit"/>
+        <actor>
+          <!-- as a receiver of data -->
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <!-- the non-migrated team -->
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <!-- to read -->
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <!-- any data with tag PSY (see security labels) -->
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+          <code value="PSY"/>
+        </securityLabel>
+      </provision>
+      <provision>
+        <!-- we permit -->
+        <type value="permit"/>
+        <actor>
+          <!-- as a receiver of data -->
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <!-- the non-migrated team -->
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <!-- to read -->
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <!-- any data with and tag SPI (see security labels). SPI is nearest? -->
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+          <code value="SPI"/>
+        </securityLabel>
+      </provision>
+      <!-- other teams follow the same pattern -->
+      <provision>
+        <type value="permit"/>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+          <code value="N"/>
+        </securityLabel>
+      </provision>
+      <provision>
+        <type value="permit"/>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+          <code value="PSY"/>
+        </securityLabel>
+      </provision>
+      <provision>
+        <type value="permit"/>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+          <code value="SPI"/>
+        </securityLabel>
+      </provision>
+      <provision>
+        <type value="permit"/>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+          <code value="SEX"/>
+        </securityLabel>
+      </provision>
+      <provision>
+        <type value="permit"/>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+          <code value="N"/>
+        </securityLabel>
+      </provision>
+      <provision>
+        <type value="permit"/>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+          <code value="PSY"/>
+        </securityLabel>
+      </provision>
+      <provision>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+          <code value="SPI"/>
+        </securityLabel>
+      </provision>
+      <provision>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+          <code value="SEX"/>
+        </securityLabel>
+      </provision>
+      <provision>
+        <type value="permit"/>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="PRCP"/>
+            </coding>
+          </role>
+          <reference>
+            <reference value="Organization/f001"/>
+          </reference>
+        </actor>
+        <action>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+            <code value="access"/>
+          </coding>
+        </action>
+        <securityLabel>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+          <code value="N"/>
+        </securityLabel>
+      </provision>
+    </provision>
+  </provision>
 </Consent>

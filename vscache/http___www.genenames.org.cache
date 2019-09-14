@@ -151,3 +151,143 @@ v: {
   "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#12014) is not  valid in the value set HGNC"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://www.genenames.org",
+    "code" : "HGNC:4931",
+    "display" : "HLA-A"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#HGNC:4931) is not  valid in the value set HGNC"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://www.genenames.org",
+    "code" : "HGNC:4932",
+    "display" : "HLA-B"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#HGNC:4932) is not  valid in the value set HGNC"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://www.genenames.org",
+    "code" : "HGNC:4933",
+    "display" : "HLA-C"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#HGNC:4933) is not  valid in the value set HGNC"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://www.genenames.org",
+    "code" : "3236",
+    "display" : "EGFR"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#3236) is not  valid in the value set HGNC"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://www.genenames.org",
+    "code" : "2623",
+    "display" : "CYP2C9"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#2623) is not  valid in the value set HGNC"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://www.genenames.org",
+    "code" : "2625",
+    "display" : "CYP2D6"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#2625) is not  valid in the value set HGNC"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://www.genenames.org",
+    "code" : "12014",
+    "display" : "TPMT"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#12014) is not  valid in the value set HGNC"
+}
+-------------------------------------------------------------------------------------

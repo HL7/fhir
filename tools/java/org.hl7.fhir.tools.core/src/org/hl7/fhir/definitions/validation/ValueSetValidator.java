@@ -21,6 +21,7 @@ import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.r5.validation.BaseValidator;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
+import org.hl7.fhir.utilities.TerminologyServiceOptions;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
@@ -368,7 +369,7 @@ public class ValueSetValidator extends BaseValidator {
   private boolean isValidCode(String code, String system) {
     CodeSystem cs = context.fetchResource(CodeSystem.class, system);
     if (cs == null || cs.getContent() != CodeSystemContentMode.COMPLETE) 
-      return context.validateCode(system, code, null).isOk();
+      return context.validateCode(new TerminologyServiceOptions("en-US"), system, code, null).isOk();
     else {
       if (hasCode(code, cs.getConcept()))
         return true;

@@ -1,56 +1,59 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
-	<id value="consent-example-basic"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>
-	Authorize Normal access for Treatment
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/consent.xsd">
+  <id value="consent-example-basic"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+	      Authorize Normal access for Treatment
 			</p>
-			<p>
-    Patient "P. van de Heuvel" wishes to have all of the PHI collected at the Good Health Psychiatric Hospital 
-   available for normal treatment use.
+      <p>
+      Patient "Peter James Chalmers ("Jim")" wishes to have all of the PHI collected at the Burgers University Medical Center available for normal treatment use.
 			</p>
-		</div>
-	</text>
-	<status value="active"/>
-	<scope>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
-			<code value="patient-privacy"/>
-		</coding>
-	</scope>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="59284-0"/>
-		</coding>
-	</category>
-	<patient>
-		<reference value="Patient/f001"/>
-		<display value="P. van de Heuvel"/>
-	</patient>
-	<dateTime value="2016-05-11"/>
-	<organization>
-		<reference value="Organization/f001"/>
-	</organization>
-	<!-- the terms of the consent as signed by the patient in ink -->
-	<sourceAttachment>
-		<title value="The terms of the consent in lawyer speak."/>
-		<!-- likely use url pointer to common text -->
-	</sourceAttachment>
-	<!-- this is plain out opt-in with no exceptions -->
-	<policyRule>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-			<code value="OPTIN"/>
-		</coding>
-	</policyRule>
-	<provision>
-		<!-- bound by a timeframe between 1964 and 2016 - consent.applies -->
-		<period>
-			<start value="1964-01-01"/>
-			<end value="2016-01-01"/>
-		</period>
-	</provision>
+    </div>
+  </text>
+  <status value="active"/>
+  <scope>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
+      <code value="patient-privacy"/>
+    </coding>
+  </scope>
+  <category>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="59284-0"/>
+    </coding>
+  </category>
+  <patient>
+    <reference value="Patient/Example"/>
+    <display value="Peter James Chalmers"/>
+  </patient>
+  <dateTime value="2018-12-28"/>
+  <organization>
+    <reference value="Organization/f001"/>
+  </organization>
+  <!-- the terms of the consent as signed by the patient in ink -->
+  <sourceAttachment>
+    <title value="The terms of the consent in lawyer speak."/>
+    <!-- likely use url pointer to common text -->
+  </sourceAttachment>
+  <!-- this is plain out opt-in with no exceptions -->
+  <policyRule>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <code value="INFA"/>
+    </coding>
+  </policyRule>
+  <provision>
+    <type value="deny"/>
+    <provision>
+      <type value="permit"/>
+      <!-- bound by a timeframe between 1964 and 2019 - consent.applies -->
+      <period>
+        <start value="1964-01-01"/>
+        <end value="2019-01-01"/>
+      </period>
+    </provision>
+  </provision>
 </Consent>

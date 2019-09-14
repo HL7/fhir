@@ -69,7 +69,7 @@ public class SchemaGenerator {
 	    }
 	  }
 
-	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd")), "UTF-8"), forCodeGeneration, workerContext);
+	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd")), "UTF-8"), forCodeGeneration, workerContext, new HashSet<>());
 	  xsdb.setDefinitions(definitions);
 	  xsdb.generate(version, genDate, true);
 	  xsdb.getWriter().close();
@@ -99,7 +99,8 @@ public class SchemaGenerator {
 	      + "xmlns:xml=\"http://www.w3.org/XML/1998/namespace\" targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
 	  single.write("  <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml=\"http://www.w3.org/XML/1998/namespace\", however this causes performance issues with other tools and thus is not in the base schemas. -->\r\n");
 
-    xsdb = new XSDBaseGenerator(single, forCodeGeneration, workerContext);
+    allenums = new HashSet<String>();
+    xsdb = new XSDBaseGenerator(single, forCodeGeneration, workerContext, allenums);
     xsdb.setDefinitions(definitions);
     xsdb.generate(version, genDate, false);
  
@@ -122,7 +123,6 @@ public class SchemaGenerator {
 //    single.write("  </xs:complexType>\r\n");
 //    single.write("  <xs:element name=\"Binary\" type=\"Binary\"/>\r\n");
 //  
-    allenums = new HashSet<String>();
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
       XSDGenerator sgen = new XSDGenerator(single, definitions, forCodeGeneration, workerContext, allenums);

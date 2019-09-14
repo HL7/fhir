@@ -1,0 +1,586 @@
+<div data-xsi="http://www.w3.org/2001/XMLSchema-instance" data-schemalocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" data-xmlns="http://www.w3.org/1999/xhtml">
+
+<span id="subscription-notification"></span>
+
+## Subscription Notification
+
+The three types of notifications which a server is able to send to a
+client are the *Event*, *Handshake* and *Heartbeat* notification. All of
+the notification types are [history Bundles](bundle.html#history) with
+added extensions on the `Bundle.meta` element to define Subscription
+notification specific details.
+
+*TODO: In the following sections provide specific guidance for each
+channel types this including for REST Hooks + Web Sockets*
+
+<span id="event-notification"></span>
+
+### Event Notification
+
+The primary notification is a notification about an event.
+
+  - [Example event
+    notification](subscription-example-notification-id-only.html)
+
+The client expectations upon receipt of receipt of a Handshake
+notification are defined by each implementation.
+
+<span id="handshake-notification"></span>
+
+### Handshake Notification
+
+When a connection to an Endpoint is established, the Server will send an
+empty History Bundle as a Handshake notification to the client.
+
+  - [Example handshake
+    notification](subscription-example-handshake.html)
+
+The client is not expected to take any special action in receipt of a
+Handshake notification beyond the channel requirements.
+
+<span id="heartbeat-notification"></span>
+
+### Heartbeat Notification
+
+Servers may periodically send notifications across a channel to ensure
+that the connection is still alive and valid. The Heartbeat notification
+is an empty History Bundle sent without incrementing the subscription
+event count.
+
+  - [Example heartbeat
+    notification](subscription-example-heartbeat.html)
+
+The client is not expected to take any special action in receipt of a
+Heartbeat notification beyond the channel requirements.
+
+<span id="bundle-extensions-for-subscriptions"></span>
+
+### Bundle Extensions for Subscriptions
+
+  - The
+    [subscription-event-count](extension-subscription-event-count.html)
+    extension is used to indicate the number of times a notification has
+    been attempted on this Subscription PRIOR to this notification being
+    sent.
+    
+      - In the case of a handshake, this count will always be zero (0).
+    
+      - In the case of a heartbeat notification, this count will be the
+        same as the last notification and will not be incremented due to
+        the heartbeat notification.
+    
+      - In the case of event notifications, the event count will be
+        incremented by the number of notifications contained within this
+        bundle (typically a single notification, though servers may
+        choose to batch notifications within a short time interval).
+
+<!-- end list -->
+
+  - The [bundle-event-count](extension-bundle-event-count.html)
+    extension represents the number of events ( event-notifications,
+    notifications ??) within the Bundle. This is of particular interest
+    in several ways:
+    
+      - Determining if a notification requires further processing (e.g.,
+        discarding handshake and heartbeat)
+    
+      - Determining the number of events in `empty` payload scenarios
+    
+      - Server batching (e.g., a server sending at max one notification
+        per second)
+    
+      - In the case of a handshake, this count will always be zero (0).
+
+<!-- end list -->
+
+  - The [subscription-status](extension-subscription-status.html)
+    extension is used to represent the [Subscription status
+    values](valueset-subscription-status.html) at the time the
+    notification is sent. Note that the status might change between the
+    time the notification is sent and the time it is received/processed,
+    and therefore this status recorded in the extension is not
+    guaranteed to represent status of the Subscription at any time
+    prior-to or after this notification is sent. The field is useful
+    primarily as a hint to inform the client if the server has
+    encountered errors in notifications immediately preceding this
+    notification.
+
+  - The [subscription-topic-url](extension-subscription-topic-url.html)
+    extension references the Topic resource relevant to this
+    notification. The URL is an absolute references to the resource on
+    the server that generated the notification and *NOT* a reference its
+    canonical URL.
+
+  - The [subscription-url](extension-subscription-url.html) extension
+    references the Subscription resource which triggered this
+    notification. The URL is an absolute references to the resource on
+    the server that generated the notification.
+
+<span id="payloads"></span>
+
+### Payloads
+
+There are three options available when specifying the contents of a
+Notification: `empty`, `id-only`, and `full-resource`. These options
+change the amount of information conveyed in the notification bundle
+itself.
+
+When deciding which payload type to request, the client should consider
+both ease in processing and security of PHI. If any untrusted hosts are
+included in processing notifications, it is *STRONGLY* recommended to
+use an `empty` payload to protect confidential health
+    information.
+
+Examples:
+
+  - [empty](subscription-example-notification-empty.html)
+  - [id-only](subscription-example-notification-id-only.html)
+  - [full-resource](subscription-example-notification-full-resource.html)
+
+<span id="channels"></span>
+
+## Channels
+
+<span id="rest-hook"></span>
+
+### REST Hook
+
+When a topic meets the criteria, the server \`POST\`s an event
+notification to the nominated URL as shown in the following examples.
+Note that the server must append the headers, if any are given, to the
+POST request that it makes to the client.
+
+:
+
+This example uses an event notification with an empty payload to alert
+the subscriber that new results are available:
+
+Request:
+
+`POST to [base]/Subscription`
+
+Request Payload
+
+``` json
+  {
+    "resourceType": "Bundle",
+    "id": "notification-empty",
+    "meta": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-event-count",
+          "valueUnsignedInt": 1
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/bundle-event-count",
+          "valueUnsignedInt": 1
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-status",
+          "valueCode": "active"
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-topic-url",
+          "valueUrl": "https://example.org/baseR4/Topic/admission"
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-url",
+          "valueUrl": "https://example.org/Subscription/cb2dce51-a1f5-40b4-a98b-c934eae368e8"
+        }
+      ]
+    },
+    "type": "history",
+    "timestamp": "2019-08-07T10:24:13.1882432-05:00"
+  }
+```
+
+Since the content element is set to `empty`, the data in the resources
+is only available through the REST API which helps consolidate
+authorization and authentication logic. When the subscriber receives a
+POST to its nominated endpoint it may queries the server to fetch all
+the relevant resources based on the Topic. The parameter `&_since=:last`
+(where :last is replaced by the time at which the client last checked)
+may be appended to the query fetch the most recent resources. For
+example, in this example the topic is patient admission, and the
+subscriber may fetch the most recent Encounters for a patient or group
+of patients.
+
+In this example, the event notification contains the only the ids for
+resource. This provide the subscriber with the id for fetching the data.
+
+Request:
+
+`POST to [base]/Subscription`
+
+Request Payload
+
+``` json
+  {
+    "resourceType": "Bundle",
+    "id": "notification-id-only",
+    "meta": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-event-count",
+          "valueUnsignedInt": 2
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/bundle-event-count",
+          "valueUnsignedInt": 1
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-status",
+          "valueCode": "active"
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-topic-url",
+          "valueUrl": "https://example.org/baseR4/Topic/admission"
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-url",
+          "valueUrl": "https://example.org/Subscription/cb2dce51-a1f5-40b4-a98b-c934eae368e8"
+        }
+      ]
+    },
+    "type": "history",
+    "timestamp": "2019-08-07T10:24:13.1882432-05:00",
+    "entry": [
+      {
+        "fullUrl": "https://example.org/baseR4/Encounter/2",
+        "request": {
+          "method": "PUT",
+          "url": "Encounter/2"
+        },
+        "response": {
+          "status": "201"
+        }
+      }
+    ]
+  }
+```
+
+Since the content element is set to `id-only`, like in the first
+scenario, the data in the resources is only available through the REST
+API which helps consolidate authorization and authentication logic. When
+the subscriber receives a POST to its nominated endpoint it may queries
+the server to fetch all the relevant resources using the supplied
+resource ids. For example, in this example the topic is patient
+admission, and the subscriber may fetch the Encounter(s) for a patient
+or group of patients.
+
+In this example, the event notification contains the the entire
+resource. This is usually appropriate for defining routing rules within
+a managed eco-system such as a healthcare institution.
+
+Request:
+
+`POST to [base]/Subscription`
+
+Request Payload
+
+``` json
+{
+    "resourceType": "Bundle",
+    "id": "notification-full-resource",
+    "meta": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-event-count",
+          "valueUnsignedInt": 3
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/bundle-event-count",
+          "valueUnsignedInt": 1
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-status",
+          "valueCode": "active"
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-topic-url",
+          "valueUrl": "https://example.org/baseR4/Topic/admission"
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/subscription-url",
+          "valueUrl": "https://example.org/Subscription/cb2dce51-a1f5-40b4-a98b-c934eae368e8"
+        }
+      ]
+    },
+    "type": "history",
+    "timestamp": "2019-08-07T10:24:13.1882432-05:00",
+    "entry": [
+      {
+        "fullUrl": "https://example.org/baseR4/Encounter/3",
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "3",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2019-08-07T10:49:22Z"
+          },
+          "status": "in-progress",
+          "class": {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "VR",
+            "display": "virtual"
+          },
+          "subject": {
+            "reference": "Patient/123"
+          }
+        },
+        "request": {
+          "method": "PUT",
+          "url": "Encounter/3"
+        },
+        "response": {
+          "status": "201"
+        }
+      }
+    ]
+  }
+```
+
+This requests that a server forward a copy of any matching resource in
+JSON format to the nominated server as an [Update
+operation](http.html#update) (i.e PUT) using the nominated URL as the
+[service base](http.html#root). In order to execute this channel, the
+server must know how to authenticate appropriately with the destination
+server. This can be done by the subscription resource providing an
+authentication header for the server to use, or alternatively, the
+server may be specifically configured to be able to use the nominated
+server.
+
+<span id="websockets"></span>
+
+### WebSockets
+
+Subscriptions are created exclusively via the FHIR REST API. But
+notifications need not occur via REST. Indeed, some subscribers may be
+unable to expose an outward-facing HTTP server to receive triggered
+notifications. For example, a pure client-side Web app or mobile app may
+want to subscribe to a data feed without polling using the /history
+operation. This can be accomplished using a websocket notification
+channel.
+
+A client can declare its intention to listen via Web Sockets:
+
+``` json
+{
+  "channel": {
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+        "code": "websocket"
+        }
+      ]
+    }
+  }
+}
+```
+
+The subscriber would then initiate a Web Socket connection to the
+server, at a URL advertised in the FHIR server's Capability statement
+(subscriptions/webSocketUrl (todo)). A simple protocol is used to listen
+for notifications:
+
+  - Client connects a secure Web Socket to the server's webSocketUrl
+    (see [websocket
+    extension](extension-capabilitystatement-websocket.html) in the
+    server's [CapabilityStatement](capabilitystatement.html)).
+  - Client authenticates to server using a server-specified Web socket
+    protocol (e.g. OAuth bearer token presentation).
+  - Client sends a bind :id message over the socket (using the logical
+    id of the subscription). For example, the client might issue: bind
+    123).
+  - Server responds with a "bound :id" message to acknowledge.
+  - Server sends a "ping :id" message to notify the client each time a
+    new result is available
+
+<span id="sms"></span>
+
+### Email/SMS
+
+A client can register for its user to receive notifications by email:
+
+``` json
+  {
+     "channel":{
+     "type": {
+        "coding":[
+           {
+              "system":"http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+              "code":"email"
+           }
+        ]
+     },
+     "endpoint":"mailto:mt-auburn-results@direct.biliwatch.com",
+     "header":"A new bilirubin result has arrived!"
+  }
+  }
+```
+
+The server would send a new message for each matching resource. The body
+of the email may be empty, or it may contain a reference to the search
+or the matching resource. It is at the discretion of the server as to
+how much information to provide. `Subscription.channel.header` sets the
+subject of the email. The email should be secured appropriately, such as
+using Direct, as specified by the rules of the applicable jurisdictions.
+
+SMS works very similarly:
+
+``` json
+  {
+     "channel":{
+     "type": {
+        "coding":[
+           {
+              "system":"http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+              "code":"sms"
+           }
+        ]
+     },
+     "endpoint":"tel:+1555-345-5555"
+  }
+  }
+```
+
+Note: SMS messages are extremely limited in size, so `channel.payload`
+will usually be omitted (signifying that no payload is to be sent). The
+recipient may be human, but this is not always the case. Irrespective of
+size, most servers will refuse to send payloads in SMS for security
+reasons, and may refuse to send emails unless encrypted.
+
+A mime/type of text/plain can be useful for email and sms along with
+some extension describing how to convert resources to a text
+representation. This specification may provide supporting infrastructure
+for this in the future.
+
+<span id="dstu"></span>
+
+> **STU Note:** Warning: The Email/SMS channel types are not yet defined
+> in a highly standardized way, and may not be consistently support by
+> servers. More work is required.
+
+<span id="messaging"></span>
+
+### Messaging
+
+A client can register for its user to receive notifications by
+[messaging](messaging.html):
+
+``` json
+  {
+     "channel":{
+     "type": {
+        "coding":[
+           {
+              "system":"http://terminology.hl7.org/CodeSystem/subscription-channel-type",
+              "code":"sms"
+           }
+        ]
+     },
+     "endpoint":"tel:+1555-345-5555"
+  }
+  }
+```
+
+For each matching resource, a server will send a message to the
+nominated end-point. Most servers will require that the end-point is
+white-listed prior to allowing these kinds of subscriptions.
+
+<span id="dstu"></span>
+
+> **STU Note:** Warning: The Messaging channel type is not yet defined
+> in a highly standardized way, and may not be consistently support by
+> servers. More work is required.
+
+<span id="safety"></span>
+
+## Safety and Security
+
+Executing each of the channels documented below involves the server
+sending a communication that will reveal information about the client
+and server relationship, and, if the entire resource is sent,
+administrative or clinical information that may be quite sensitive
+and/or protected under law. Servers are responsible for ensuring
+appropriate security is employed for each channel. The subscription
+resource does not address these concerns directly - it is assumed that
+these are administered by other configuration processes. For instance, a
+server might maintain a whitelist of acceptable servers for the
+rest-create/rest-update methods.
+
+Emails should generally be secured using some technique such as
+[Direct](http://directproject.org/).
+
+<span id="errors"></span>
+
+## Managing Subscriptions and Errors
+
+The subscription resource is authored by the client with an initial
+status of "requested". A new subscription is created on the server using
+the RESTful create or update interaction. After a successful
+transaction, the client parses the Location header and saves the new
+Subscription's logical id for use in subsequent operations.
+
+When the server receives a subscription, it SHOULD check that it is
+prepared to accept/process the subscription. If it is, it sets the
+subscription to `active`, and then process it like a normal
+[create](http.html#create). If it isn't, it SHOULD return an error with
+an [OperationOutcome](operationoutcome.html) instead of processing the
+`create`.
+
+The criteria are subject to the same limitations as the client that
+created it, such as access to patient compartments etc. Note that the
+subscription remains active after the client access tokens expire.
+
+Once the server has activated the subscription, it sets the status to
+"active" (note: the server can do this as it accepts the resource if it
+wants).
+
+An appropriately authorized client can use search and/or history
+operations to see what subscriptions are currently active on the server.
+Once the subscription is no longer desired, the client deletes the
+subscription from the server.
+
+The server may retry the notification a fixed number of times and/or
+refer errors to its own alert logs. If the notification fails, the
+server should set the status to 'error' and mark the error in the
+resource. If the notification succeeds, the server should update the
+status to "active again. If a subscription fails consistently a server
+may choose set the subscription status to off and stop trying to send
+notifications.
+
+If a subscription nominates a fixed end date, the server automatically
+deletes it at the specified time.
+
+<span id="tracking"></span>
+
+## Tracking Subscription Notifications
+
+Applications that wish to track whether notifications have been sent for
+particular resources (or versions of resources) can look at the
+AuditEvent resources. For example:
+
+    GET [base]/AuditEvent?entity=Patient/103
+
+This search will return all the AuditEvent resources that are about
+[Patient](patient.html) `103`. At this time there is no deterministic
+way to tell say which of those AuditEvent resources come from the
+subscription sub-system that actually handles notifications. This is
+planned to be resolved in a future version of this specification. In the
+mean time, servers are encouraged to create AuditEvent records when
+performing notifications and document how clients can identify the
+relevant records when searching.
+
+In addition, servers might also create
+[Communication](communication.html) resources for some of the
+notifications that are sent in response to a subscription, such as when
+sending emails.
+
+    GET [base]/Communication?based-on=Subscription/103
+
+This returns a list of communications sent by a subscription. TODO:
+search on payload....
+
+</div>

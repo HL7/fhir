@@ -7,12 +7,12 @@
     <system value="http://ema.europa.eu/example/marketingAuthorisationNumber"/>
     <value value="EU/1/11/999/001"/>
   </identifier>
-  <country>
+  <region>
     <coding>
       <system value="http://ema.europa.eu/example/country"/>
       <code value="EU"/>
     </coding>
-  </country>
+  </region>
   <status>
     <coding>
       <system value="http://ema.europa.eu/example/authorisationstatus"/>
@@ -24,35 +24,14 @@
     <start value="2015-08-16"/>
     <end value="2020-05-20"/>
   </validityPeriod>
-  <dataExclusivityPeriod>
+  <!--dataExclusivityPeriod>
     <start value="2010-08-15"/>
     <end value="2020-08-15"/>
   </dataExclusivityPeriod>
   <dateOfFirstAuthorization value="2010-08-15"/>
-  <internationalBirthDate value="2010-08-15"/>
+  <internationalBirthDate value="2010-08-15"/-->
   <jurisdictionalAuthorization id="1">
-    <identifier>
-      <system value="http://ema.europa.eu/example/marketingauthorisationnumber"/>
-      <value value="123-456-789"/>
-    </identifier>
-    <country>
-      <coding>
-        <system value="http://ema.europa.eu/example/countryCode"/>
-        <code value="NO"/>
-      </coding>
-    </country>
-  </jurisdictionalAuthorization>
-  <jurisdictionalAuthorization id="2">
-    <identifier>
-      <system value="http://ema.europa.eu/example/marketingauthorisationnumber"/>
-      <value value="123-456-123"/>
-    </identifier>
-    <country>
-      <coding>
-        <system value="http://ema.europa.eu/example/countryCode"/>
-        <code value="NO"/>
-      </coding>
-    </country>
+    <reference value="RegulatedAuthorization/Jurusdictional1"/>
   </jurisdictionalAuthorization>
   <holder>
     <reference value="Organization/example"/>
@@ -60,7 +39,7 @@
   <regulator>
     <reference value="Organization/example"/>
   </regulator>
-  <procedure>
+  <case>
     <identifier>
       <system value="http://ema.europa.eu/example/procedureidentifier-number"/>
       <value value="EMEA/H/C/009999/IA/0099/G"/>
@@ -88,5 +67,5 @@
       </type>
       <dateDateTime value="2015-08-01"/>
     </application>
-  </procedure>
+  </case>
 </RegulatedAuthorization>

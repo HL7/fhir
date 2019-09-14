@@ -26,8 +26,8 @@
   
   
   <TabRatio>780</TabRatio>
-  <ActiveSheet>15</ActiveSheet>
-  <FirstVisibleSheet>8</FirstVisibleSheet>
+  <ActiveSheet>4</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -439,6 +439,9 @@
    </Borders>
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s128">
+   <Font ss:Color="#333333" ss:FontName="Source Sans Pro" ss:Size="6" x:Family="Swiss"/>
   </Style>
  </Styles>
  <Names>
@@ -1448,7 +1451,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="administrative-gender">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="4" ss:Width="59.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="407.0"/>
    <Column ss:Width="140.0"/>
@@ -1460,6 +1463,7 @@
     <Cell ss:StyleID="s101"><Data ss:Type="String">Comment</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">v3</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">v2</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Unicode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1469,6 +1473,7 @@
     <Cell><Data ss:Type="String">Male</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.M</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=0001.M</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">♂</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -1478,6 +1483,7 @@
     <Cell><Data ss:Type="String">Female</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.F</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=0001.F</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">♀</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -1487,6 +1493,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">The administrative gender is a value other than male/female/unknown. Where this value is selected, systems may often choose to include an extension with the localized more specific value.</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&lt;AdministrativeGender.UN</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&gt;0001.A,&gt;0001.O</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">☿</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -1496,6 +1503,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="String">A proper value is applicable, but not known.  Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of "unknown". (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of "H" and a URL prefix of "tel:" to convey that it is the home phone number that is unknown.)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.UNK</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=0001.U</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">�</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1510,7 +1518,9 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <LeftColumnVisible>2</LeftColumnVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -5604,9 +5614,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <TopRowVisible>9</TopRowVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

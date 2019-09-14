@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PackagedProductDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd" xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+    <identifier>
+      <system value="http://ema.europa.eu/example/pcid"/>
+      <value value="{PCID}"/>
+    </identifier>
+    <description value="ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS. "/>
+    <batchIdentifier>
+      <outerPackaging>
+        <system value="http://ema.europa.eu/example/baid1"/>
+        <value value="AAF5699"/>
+        <period>
+          <end value="2016-06-06"/>
+        </period>
+      </outerPackaging>
+    </batchIdentifier>
+    <package>
+      <type>
+        <coding>
+          <system value="http://ema.europa.eu/example/packageitemcontainertype"/>
+          <code value="Carton"/>
+        </coding>
+      </type>
+      <quantity>
+        <value value="1"/>
+        <unit value="1"/>
+      </quantity>
+      <material>
+        <coding>
+          <system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
+          <code value="PVC"/>
+        </coding>
+      </material>
+      <material>
+        <coding>
+          <system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
+          <code value="PVDC"/>
+        </coding>
+      </material>
+      <material>
+        <coding>
+          <system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
+          <code value="alu"/>
+        </coding>
+      </material>
+      <manufacturer>
+        <reference value="Organization/example"/>
+      </manufacturer>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="height"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="50"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="width"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="136"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="width"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="45"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <characteristic>
+        <code>
+          <coding>
+            <code value="depth"/>
+          </coding>
+        </code>
+        <valueQuantity>
+          <value value="23.5"/>
+          <unit value="mm"/>
+        </valueQuantity>
+      </characteristic>
+      <package>
+        <type>
+          <coding>
+            <system value="http://ema.europa.eu/example/packageitemcontainertype"/>
+            <code value="Blister"/>
+          </coding>
+        </type>
+        <quantity>
+          <value value="1"/>
+          <unit value="1"/>
+        </quantity>
+        <material>
+          <coding>
+            <system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
+            <code value="Paperboard"/>
+          </coding>
+        </material>
+        <shelfLifeStorage>
+          <type>
+            <coding>
+              <system value="http://ema.europa.eu/example/shelfLifeTypePlaceHolder"/>
+              <code value="ShelfLifeofPackagedMedicinalProduct"/>
+            </coding>
+          </type>
+          <period>
+            <value value="3"/>
+            <unit value="a"/>
+          </period>
+          <specialPrecautionsForStorage>
+            <coding>
+              <system value="http://ema.europa.eu/example/specialprecautionsforstorage"/>
+              <code value="Thismedicinalproductdoesnotrequireanyspecialstoragecondition."/>
+            </coding>
+          </specialPrecautionsForStorage>
+        </shelfLifeStorage>
+        <manufacturer>
+          <reference value="Organization/example"/>
+        </manufacturer>
+        <characteristic>
+          <code>
+            <coding>
+              <code value="height"/>
+            </coding>
+          </code>
+          <valueQuantity>
+            <value value="125"/>
+            <unit value="mm"/>
+          </valueQuantity>
+        </characteristic>
+        <characteristic>
+          <code>
+            <coding>
+              <code value="width"/>
+            </coding>
+          </code>
+          <valueQuantity>
+            <value value="45"/>
+            <unit value="mm"/>
+          </valueQuantity>
+        </characteristic>
+        <containedItem>
+          <item>
+            <reference value="ManufacturedItemDefinition/example"/>
+          </item>
+          <amountInteger value="12"/>
+        </containedItem>
+      </package>
+    </package>
+  </PackagedProductDefinition>
+  

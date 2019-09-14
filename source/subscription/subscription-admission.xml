@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Subscription xmlns="http://hl7.org/fhir">
+	<id value="admission"/>
+	<name value="AdmissionExample"/>
+	<status value="active"/>
+	<topic>
+		<reference value="Topic/admission"/>
+	</topic>
+	<end value="2019-08-07T11:15:18Z" />
+	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
+	<filterBy>
+		<name value="patient"/>
+		<value value="Patient/123"/>
+	</filterBy>
+	<channel>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/subscription-channel-type"/>
+				<!-- 0..1 Identity of the terminology system -->
+				<code value="rest-hook"/>
+				<!-- 0..1 Symbol in syntax defined by the system -->
+				<display value="Rest Hook"/>
+				<!-- 0..1 Representation defined by the system -->
+			</coding>
+			<text value="Rest Hook"/>
+			<!-- 0..1 Plain text representation of the concept -->
+		</type>
+		<endpoint value="https://example.org/Endpoints/P123" />
+		<header value="Authorization: Bearer secret-token-abc-123" />
+		<heartbeatPeriod value="60" />
+		<payload>
+			<contentType value="application/fhir+json" />
+			<content value="id-only" />
+	</payload>
+	</channel>
+</Subscription>

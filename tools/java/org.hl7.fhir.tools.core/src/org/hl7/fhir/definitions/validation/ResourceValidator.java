@@ -769,9 +769,9 @@ public class ResourceValidator extends BaseValidator {
           else if (e.getBinding().getStrength() == BindingStrength.PREFERRED)
             ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), null, null, null, context, null);
           else 
-			      ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativeBallotPackage(), parent.getFmmLevel(), context, parent.getNormativeVersion());
+			      ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativePackage(), parent.getFmmLevel(), context, parent.getNormativeVersion());
 			    if (cd.getMaxValueSet() != null) {
-            ValueSetUtilities.markStatus(cd.getMaxValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativeBallotPackage(), parent.getFmmLevel(), context, parent.getNormativeVersion());
+            ValueSetUtilities.markStatus(cd.getMaxValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativePackage(), parent.getFmmLevel(), context, parent.getNormativeVersion());
 			    }
 			    Integer w = (Integer) cd.getValueSet().getUserData("warnings");
 			    if (w != null && w > 0 && !vsWarns.contains(cd.getValueSet().getId())) {
@@ -1056,7 +1056,7 @@ public class ResourceValidator extends BaseValidator {
     // now, rules for the source
     hint(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding");
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, Utilities.noString(cd.getDefinition())  || (cd.getDefinition().charAt(0) == cd.getDefinition().toUpperCase().charAt(0)), "Definition cannot start with a lowercase letter");
-    if (cd.getBinding() == BindingMethod.CodeList) {
+    if (cd.getBinding() == BindingMethod.CodeList || (cd.getBinding() == BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED && ac.size() > 0 && "code".equals(e.typeCode()))) {
       if (path.toLowerCase().endsWith("status")) {
         if (rule(errors, IssueType.STRUCTURE, path, definitions.getStatusCodes().containsKey(path), "Status element not registered in status-codes.xml")) {
 //          rule(errors, IssueType.STRUCTURE, path, e.isModifier(), "Status elements that map to status-codes should be labelled as a modifier");
@@ -1069,6 +1069,20 @@ public class ResourceValidator extends BaseValidator {
                   ok = true;
             }
             rule(errors, IssueType.STRUCTURE, path, ok, "Status element code \""+c.getCode()+"\" not found in status-codes.xml");
+          }
+          for (String s : definitions.getStatusCodes().get(path)) {
+            String[] parts = s.split("\\,");
+            for (String p : parts) {
+              if (!Utilities.noString(p)) {
+                boolean ok = false;
+                for (DefinedCode c : ac) {
+                  if (p.trim().equals(c.getCode()))
+                    ok = true;
+                }
+                if (!ok)
+                  rule(errors, IssueType.STRUCTURE, path, ok, "Status element code \""+p+"\" found in status-codes.xml but has no matching code");
+              }            
+            }
           }
         }
       }
@@ -1088,8 +1102,8 @@ public class ResourceValidator extends BaseValidator {
         String esd = b.substring(3);
         rule(errors, IssueType.STRUCTURE, path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
       } else {
-        rule(errors, IssueType.STRUCTURE, path, cd.getStrength() != BindingStrength.REQUIRED || ac.size() > 20 || ac.size() == 1 || !hasGoodCode(ac) || isExemptFromCodeList(path), 
-            "The short description of an element with a code list should have the format code | code | etc (should be "+sd.toString()+")");
+        rule(errors, IssueType.STRUCTURE, path, cd.getStrength() != BindingStrength.REQUIRED || ac.size() > 12 || ac.size() <= 1 || !hasGoodCode(ac) || isExemptFromCodeList(path), 
+            "The short description of an element with a code list should have the format code | code | etc (is "+sd.toString()+") ("+ac.size()+" codes = \""+b.toString()+"\")");
       }
     }
     boolean isComplex = !e.typeCode().equals("code");

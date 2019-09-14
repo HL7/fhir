@@ -14,6 +14,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.XsltUtilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 public class QaTracker {
@@ -74,7 +75,7 @@ public class QaTracker {
     s.append("</table>\r\n");
     
     String xslt = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "WarningsToQA.xslt");
-    s.append(Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt));
+    s.append(XsltUtilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt));
     
     return s.toString(); 
   }

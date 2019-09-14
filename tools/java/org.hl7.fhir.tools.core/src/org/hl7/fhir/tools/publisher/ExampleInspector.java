@@ -146,6 +146,11 @@ public class ExampleInspector implements IValidatorResourceFetcher {
       }
       throw new NotImplementedException("Not done yet (IGPublisherHostServices.conformsToProfile), when item is element");
     }
+
+    @Override
+    public ValueSet resolveValueSet(Object appContext, String url) {
+      return null;
+    }
   }
   
   private static final boolean VALIDATE_CONFORMANCE_REFERENCES = true;
@@ -165,7 +170,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
   private boolean bySchematron = VALIDATE_BY_SCHEMATRON;
   private boolean byJsonSchema = VALIDATE_BY_JSON_SCHEMA;
   private boolean byRdf = VALIDATE_RDF;
-  private ExampleHostServices hostServices; 
+  private ExampleHostServices hostServices;
   
   public ExampleInspector(IWorkerContext context, Logger logger, String rootDir, String xsltDir, List<ValidationMessage> errors, Definitions definitions) throws JsonSyntaxException, FileNotFoundException, IOException {
     super();

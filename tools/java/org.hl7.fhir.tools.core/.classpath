@@ -53,7 +53,7 @@
 	<classpathentry kind="lib" path="../imports/gson-2.8.5.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.publisher.core"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/poi-4.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/poi-ooxml-4.0.1.jar"/>
+	<classpathentry kind="lib" path="../imports/poi-4.0.1.jar"/>
+	<classpathentry kind="lib" path="../imports/poi-ooxml-4.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

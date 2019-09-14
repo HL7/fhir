@@ -219,3 +219,223 @@ v: {
   "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60036) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "ORGANISM"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#ORGANISM) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "CULTPOSNEG"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#CULTPOSNEG) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60504"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60504) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60512"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60512) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60516"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60516) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60527"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60527) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "61203"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#61203) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60532"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60532) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60533"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60533) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60536"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60536) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "61007"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#61007) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60699"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60699) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "61204"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#61204) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60551"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60551) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60552"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60552) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60697"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60697) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60555"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60555) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60558"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60558) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60561"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60561) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60563"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60563) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "2099930"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#2099930) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60036"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known; The code provided (http://acme.org/lab/codes/tests#60036) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

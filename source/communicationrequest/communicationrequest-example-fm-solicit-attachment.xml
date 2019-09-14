@@ -85,9 +85,9 @@
    <recipient>
       <reference value="#provider"/>
   </recipient>
-   <sender>
+   <informationProvider>
      <reference value="#payor"/>
-   </sender>
+   </informationProvider>
    
 
 </CommunicationRequest>
