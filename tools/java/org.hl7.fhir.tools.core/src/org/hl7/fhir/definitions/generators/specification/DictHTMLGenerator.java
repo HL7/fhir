@@ -430,7 +430,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       Boolean b = (Boolean) id.getUserData(ProfileUtilities.IS_DERIVED);
       return b.booleanValue();
     } else {
-      //  if it was snapshotted in process? can't happen? - only happens on extensions... no id too, and then definitely inherited
+      //  if it was snapshotted in process? can't happen? - only happens on extensions... no id too, and then definitely inherited. see https://xkcd.com/2200/
       return true;
     }
   }

@@ -29,6 +29,7 @@ package org.hl7.fhir.definitions.model;
 
  */
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +37,7 @@ import java.util.Map;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.model.ElementDefinition;
 import org.hl7.fhir.r5.model.Type;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -501,6 +503,20 @@ public class ElementDefn {
 		}
 		return tn.toString();
 	}
+
+  public String typeCodeBase() {
+    List<String> ts = new ArrayList<>();
+
+    for (TypeRef t : types) {
+      ts.add(t.getName());
+    }
+    
+    Collections.sort(ts);
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (String t : ts)
+      b.append(t);
+    return b.toString();
+  }
 
   public String resolvedTypeCode(Definitions definitions) {
     StringBuilder tn = new StringBuilder();
