@@ -2937,7 +2937,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.log("....IG Builder (2)", LogMessageType.Process);
 
       SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
-      self.generate(page.getFolders().dstDir, page.getBaseURL(), false, new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()));
+      self.generate(page.getFolders().dstDir, page.getBaseURL(), false, page.getGenDate().getTime());
 
 
       page.log(" ...zips", LogMessageType.Process);
