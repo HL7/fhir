@@ -1936,7 +1936,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="33" ss:StyleID="s113">
     <Cell ss:StyleID="s111"><Data ss:Type="String">Evidence.variableDefinition.actualDefinition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">Reference(EvidenceVariable)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2089,7 +2089,7 @@
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16" ss:StyleID="s128">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s128">
     <Cell ss:StyleID="s126"><Data ss:Type="String">Evidence.distribution</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4012,12 +4012,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Zoom>90</Zoom>
+   <Zoom>150</Zoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>18</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7319,7 +7319,7 @@
     <Cell ss:StyleID="s212"/>
     <Cell ss:StyleID="s213"/>
    </Row>
-   <Row>
+   <Row ss:Height="32">
     <Cell ss:StyleID="s211"><Data ss:Type="String">measuredVariable</Data></Cell>
     <Cell ss:StyleID="s195"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s165"/>
@@ -8048,7 +8048,7 @@
     <Cell ss:StyleID="s154"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See Confluence for syntax</Font>       </ss:Data></Comment></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s195"><Data ss:Type="String">no-change</Data></Cell>
     <Cell ss:StyleID="s183"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s169"/>
