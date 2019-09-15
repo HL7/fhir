@@ -18,7 +18,6 @@ import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.r5.terminologies.TerminologyServiceOptions;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.r5.validation.BaseValidator;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;

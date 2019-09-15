@@ -62,7 +62,6 @@ import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r5.terminologies.TerminologyClient;
 import org.hl7.fhir.r5.terminologies.TerminologyClientR5;
-import org.hl7.fhir.r5.terminologies.TerminologyServiceOptions;
 import org.hl7.fhir.r5.utils.INarrativeGenerator;
 import org.hl7.fhir.r5.utils.IResourceValidator;
 import org.hl7.fhir.r5.utils.NarrativeGenerator;
