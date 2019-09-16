@@ -13667,6 +13667,10 @@
     <display value="Patient died (finding)"/>
     <display value="Patient died"/>
   </concept>
+  <concept id="398090008" display="Patient unavailable">
+    <display value="Patient unavailable (finding)"/>
+    <display value="Patient unavailable"/>
+  </concept>
   <concept id="398102009" display="Acute poliomyelitis">
     <display value="Acute poliomyelitis (disorder)"/>
     <display value="Acute poliomyelitis"/>
