@@ -24,6 +24,9 @@
       <concept>
         <code value="WIT"/>
       </concept>
+	  <concept>
+        <code value="AUT"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
