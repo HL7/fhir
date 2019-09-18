@@ -16,7 +16,7 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1134,13 +1134,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -1691,8 +1690,8 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">AdverseEvent.occurrence</Data></Cell>
-    <Cell ss:StyleID="s107"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">AdverseEvent.occurrence[x]</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">When the event occurred</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="String">resultingcondition</Data></Cell>
@@ -1837,6 +1836,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
