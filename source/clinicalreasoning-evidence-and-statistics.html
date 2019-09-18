@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+
+[%settitle Clinical Reasoning%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<table class="cols"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cqi%]">[%wgt cqi%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
+
+<a name="evidence-and-statistics"> </a>
+<h3>Evidence and Statistics</h3>
+
+<a name="introduction"> </a>
+<h4>Introduction</h4>
+
+<a name="scope"> </a>
+<h5>Scope</h5>
+
+<p>The reporting of biomedical evidence is the reporting of facts and interpretations derived from analysis of observations of members of a group.  The certainty of the ‘facts’ may vary due to many factors including methodological factors, statistical factors, contextual factors, and the relatedness between the group the evidence was derived from and the group the interpretation is intended for.</p>
+
+<a name="audience"> </a>
+<h5>Audience</h5>
+
+<p>The evidence processing and guideline development communities represent a substantial volume of knowledge management effort (Cochrane alone has more than 30,000 people working on development of systematic reviews of clinical research).</p>
+
+<p>The broad communities producing, analyzing, synthesizing, disseminating and implementing clinical research (evidence) and recommendations for clinical care (clinical practice guidelines) frequently send or receive biomedical evidence reports.</p>
+
+<a name="purpose"> </a>
+<h5>Purpose</h5>
+
+<p>The co-primary objectives of the Evidence-Based Medicine on FHIR Project are to meet the needs of the evidence processing and guideline development communities and to facilitate interoperability between these communities and the patient care communities.</p>
+
+<a name="resources"> </a>
+<h4>Resources</h4>
+
+<p>Evidence is a relationship among an assertion (hypothesis or claim) that the evidence supports, the
+group (intended or concrete) the evidence applies to, the study or observation that generated the data,
+the variables the data reflect, and the statistics (and their associated certainty) generated from those
+data. The Resources below enable a reporting site to package evidence, taking this complex relationship
+into account.</p>
+
+<p>The pattern assumed here is that one assertion, group, study, or even variable can have many pieces of
+evidence; one Evidence Resource is implemented for each such piece (group, variables, statistics); a
+Bundle of Evidence Resources can implemented to group all the relevant evidence together. The
+receiving agent then unpacks the Resource to generate whatever summary, display, or storage desired.</p>
+<!-- INCLUDE LINKS FOR EACH RESOURCE -->
+<p><a href="evidence.html">The Evidence Resource</a>...</p>
+
+<p><a href="evidencevariable.html">The EvidenceVariable Resource</a>...</p>
+
+<p><a href="group.html">The Group Resource</a>...</p>
+
+<p><a href="statistic.html#Statistic">The Statistic DataType</a>...</p>
+
+<p><a href="datatypes.html#OrderedDistribution">The OrderedDistribution DataType</a>...</p>
+
+<p><a href="evidence-definitions.html#Evidence.certainty">The certainty Element</a>...</p>
+
+<a name="pico-vs.-statistically-defined-evidence-variables"> </a>
+<h4>PICO vs. Statistically-defined evidence variables</h4>
+
+<p>In the EBM communities (evidence analysis, systematic reviews, clinical practice guidelines) a common organizational framework used for the research question, the systematic review focus, and the recommendation focus is PICO which stands for Population, Intervention, Comparison, and Outcome.   There are variations such as PECO for research questions about non-interventional exposures, PICOT for adding time conventions, and PICOTS for adding system context, but PICO is the most prominent organizational framework across the EBM knowledge assets activities.</p>
+
+
+<a name="use-cases"> </a>
+<h4>Use Cases</h4>
+
+<a name="baseline-characteristics-for-a-research-study-cohort"> </a>
+<h5>Baseline Characteristics for a Research Study Cohort</h5>
+
+<p>...</p>
+
+<a name="study-results-from-a-single-study"> </a>
+<h5>Study Results from a Single Study</h5>
+
+<p>...</p>
+
+<a name="synthesis-results-from-a-systematic-review-(eg-a-single-meta-analysis)"> </a>
+<h5>Synthesis Results from a Systematic Review (eg a single meta-analysis)</h5>
+
+<p>...</p>
+
+<a name="summary-of-findings-from-a-systematic-review"> </a>
+<h5>Summary of Findings from a Systematic Review</h5>
+
+<p>...</p>
+
+</div>
+[%file newfooter%]
+</body>
+</html>
