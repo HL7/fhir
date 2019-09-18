@@ -1,0 +1,41 @@
+<PlanDefinition>
+  <action>
+    <title value="Create an episode of care to link the related events"/>
+    <trigger>
+      <type value="named-event"/>
+      <name value="process-episodes"/>
+    </trigger>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="ShouldCreateEpisodeOfCare"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="ActivityDefinition/episode-of-care"/>
+    <type value="create"/>
+
+    <!-- Sub action to link related encounters to the new episode of care -->
+    <action>
+      <title value="Link related encounters"/>
+      <type value="update"/>
+      <definitionCanonical>
+        <extension>
+          <url value="cqf-expression"/>
+          <valueExpression>
+            <language value="text/cql"/>
+            <expression value="RelatedEncounters"/>
+          </valueExpression>
+        </extension>
+      </definitionCanonical>
+      <dynamicValue>
+        <language value="text/cql"/>
+        <path value="episodeOfCare"/> <!-- This is the path to the episodeOfCare element of the related encounter -->
+        <expression>
+          <language value="text/cql"/>
+          <expression value="%parent_target"/> <!-- This assumes the ability to "assign" a reference -->
+        </expression>
+      </dynamicValue>
+    </action>
+  </action>
+</PlanDefinition>
