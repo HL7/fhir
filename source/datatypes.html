@@ -50,6 +50,8 @@ extensions, but only the following data types may include <a href="extensibility
 </p>
 <ul>
  <li><a href="datatypes.html#timing">Timing</a></li>
+ <li><a href="statistic.html#Statistic">Statistic</a></li>
+ <li><a href="ordereddistribution.html#OrderedDistribution">OrderedDistribution</a></li>
  <li><a href="dosage.html#Dosage">Dosage</a></li>
  <li><a href="elementdefinition.html#ElementDefinition">ElementDefinition</a></li>
 </ul>
@@ -1646,6 +1648,8 @@ $( '#tabs-Range' ).tabs({ active: currentTabIndex, activate: function( event, ui
 $( '#tabs-Ratio' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Period' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-SampledData' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Statistic' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-OrderedDistribution' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Identifier' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-HumanName' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Address' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
@@ -1669,6 +1673,8 @@ function store(currentTab) {
   $( '#tabs-Ratio' ).tabs('option', 'active', currentTab);
   $( '#tabs-Period' ).tabs('option', 'active', currentTab);
   $( '#tabs-SampledData' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Statistic' ).tabs('option', 'active', currentTab);
+  $( '#tabs-OrderedDistribution' ).tabs('option', 'active', currentTab);
   $( '#tabs-Identifier' ).tabs('option', 'active', currentTab);
   $( '#tabs-HumanName' ).tabs('option', 'active', currentTab);
   $( '#tabs-Address' ).tabs('option', 'active', currentTab);
