@@ -32,9 +32,6 @@
     <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>
   </subject>
-  <encounter>
-	<reference value="Encounter/example"/>
-  </encounter>
   <period>
     <end value="2013-01-01"/>
   </period>
