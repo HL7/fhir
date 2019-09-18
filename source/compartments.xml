@@ -767,29 +767,17 @@
    <Row>
     <Cell><Data ss:Type="String">ChargeItemDefinition</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ResearchDefinition</Data></Cell>
+   <Row ss:Index="143">
+    <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ResearchElementDefinition</Data></Cell>
+   <Row ss:Index="146">
+    <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">Evidence</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">EffectEvidenceSynthesis</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">RiskEvidenceSynthesis</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">Statistic</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
+    <Cell><Data ss:Type="String">Topic</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">Topic</Data></Cell>
@@ -811,7 +799,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>125</TopRowBottomPane>
+   <TopRowBottomPane>136</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

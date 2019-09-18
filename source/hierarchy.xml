@@ -120,7 +120,7 @@ signatures.html
       <page type="resource" resource="Basic"/>
       <page type="resource" resource="Binary"/>
       <page type="resource" resource="Bundle"/>
-      
+
 
       <page type="resource" resource="Questionnaire"/>
       <page type="resource" resource="QuestionnaireResponse"/>
@@ -282,7 +282,7 @@ signatures.html
       <page type="resource" resource="ResearchSubject"/>
   	  <page type="resource" resource="ChargeItem"/>
 	  <page type="resource" resource="ChargeItemDefinition"/>
-  	  <page type="resource" resource="ObservationDefinition"/> 
+  	  <page type="resource" resource="ObservationDefinition"/>
   	  <page type="resource" resource="SpecimenDefinition"/>
   	  <page type="resource" resource="CatalogEntry"/>
       <!-- Think these 3 need to be left off as are REALLy drafty -->
@@ -422,7 +422,7 @@ signatures.html
       <page type="resource" resource="DeviceUseStatement"/>
       <page type="resource" resource="SupplyRequest"/>
       <page type="resource" resource="SupplyDelivery"/>
-      <page type="resource" resource="ExampleScenario"/>  
+      <page type="resource" resource="ExampleScenario"/>
 
     </page>
 
@@ -449,20 +449,26 @@ signatures.html
       <page title="Sharing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-distribution.html"/>
       <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
+      <page title="Evidence and Statistics" filename="clinicalreasoning-evidence-and-statistics.html"/>
       <page type="resource" resource="ConditionDefinition"/>
-      <page type="resource" resource="EffectEvidenceSynthesis"/>
       <page type="resource" resource="EventDefinition"/>
       <page type="resource" resource="Evidence"/>
+      <page title="Statistic" filename="statistic.html">
+        <page title="Examples" filename="statistic-examples.html"/>
+        <page title="Detailed Descriptions" filename="statistic-definitions.html"/>
+        <page title="Statistic Mappings" filename="statistic-mappings.html"/>
+      </page>
+      <page title="OrderedDistribution" filename="ordereddistribution.html">
+        <page title="Examples" filename="ordereddistribution-examples.html"/>
+        <page title="Detailed Descriptions" filename="ordereddistribution-definitions.html"/>
+        <page title="OrderedDistribution Mappings" filename="ordereddistribution-mappings.html"/>
+      </page>
       <page type="resource" resource="EvidenceVariable"/>
-      <page type="resource" resource="Statistic"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="GuidanceResponse"/>
       <page type="resource" resource="RequestGroup"/>
       <page type="resource" resource="Measure"/>
       <page type="resource" resource="MeasureReport"/>
-      <page type="resource" resource="ResearchDefinition"/>
-      <page type="resource" resource="ResearchElementDefinition"/>
-      <page type="resource" resource="RiskEvidenceSynthesis"/>
     </page>
   </page>
 
