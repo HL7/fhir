@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <url value="http://hl7.org/fhir/ValueSet/adverse-event-status"/>
+	<name value="AdverseEventStatus"/>
+  <title value="Adverse Event Status"/>
+	<status value="draft"/>
+	<publisher value="HL7 International - Patient Care WG"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
+		</telecom>
+	</contact>
+  <description value="Codes identifying the lifecycle stage of an adverse event."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/event-status"/>
+      <concept>
+        <code value="in-progress"/>
+      </concept>
+	  <concept>
+        <code value="completed"/>
+      </concept>
+	  <concept>
+        <code value="entered-in-error"/>
+      </concept>
+	  <concept>
+        <code value="unknown"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
+

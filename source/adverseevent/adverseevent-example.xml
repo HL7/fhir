@@ -7,7 +7,7 @@
     <system value="http://acme.com/ids/patients/risks"/>
     <value value="49476534"/>
   </identifier>
-
+  <status value = "completed"/>
   <!-- this was an actual adverse event, not just a potential one -->
   <actuality value="actual"/>
 
@@ -38,7 +38,7 @@
   </subject>
   
   <!-- when the event happened --> 
-  <date value="2017-01-29T12:34:56+00:00"/>
+  <occurrenceDateTime value="2017-01-29T12:34:56+00:00"/>
   
   <!-- This was a rash, so overall not serious -->
   <seriousness>
