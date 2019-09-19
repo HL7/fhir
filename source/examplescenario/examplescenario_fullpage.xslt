@@ -298,7 +298,6 @@ $("[data-tab]").on('click', function() {
 								Links: <a style="color: #81BEF7" href="history.html">Version History</a> |
 								<a style="color: #81BEF7" href="toc.html">Table of Contents</a> |
 								<a style="color: #81BEF7" rel="license" href="{{site.data.fhir.path}}license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> |
-								<a style="color: #81BEF7" target="_blank" href="mailto:pharmacy@ihe.net">Propose a change <img alt="external" style="text-align: baseline" src="external.png"/></a>
 							</span>
 						</p>
 					</div>  <!-- /inner-wrapper -->
