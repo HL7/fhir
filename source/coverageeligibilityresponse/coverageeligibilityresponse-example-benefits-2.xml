@@ -31,7 +31,7 @@
 			<beneficiary>
 				<reference value="Patient/f201"/>
 			</beneficiary>
-			<dependent value="1"/>
+			<dependentIndicator value="1"/>
 
 			<relationship>
 				<coding>

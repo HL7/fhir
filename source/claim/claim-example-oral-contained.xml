@@ -82,7 +82,7 @@
 			<beneficiary>
 				<reference value="#patient-1"/>
 			</beneficiary>
-			<dependent value="1"/>
+			<dependentIndicator value="1"/>
 
 			<relationship>
 				<coding>
