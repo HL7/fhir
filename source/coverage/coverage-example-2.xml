@@ -26,7 +26,9 @@
 		<reference value="Patient/5"/>
 	</subscriber>
 
-	<subscriberId value="AB9876"/>
+	<subscriberId>
+		<value value="AB9876"/>
+	</subscriberId>
 
 	<beneficiary>
 		<reference value="Patient/5"/>
