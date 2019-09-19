@@ -13,7 +13,7 @@ import org.hl7.fhir.r5.formats.JsonParser;
 import org.hl7.fhir.r5.model.ConceptMap;
 import org.hl7.fhir.r5.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.r5.model.ConceptMap.SourceElementComponent;
-import org.hl7.fhir.r5.model.Enumerations.ConceptMapEquivalence;
+import org.hl7.fhir.r5.model.Enumerations.ConceptMapRelationship;
 import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xls.XLSXmlParser;
@@ -54,19 +54,19 @@ public class ResourceNameConceptMapGenerator {
         String c = s.startsWith("->") ? s.substring(2).trim() : s.startsWith("(") ? s.substring(1, s.length()-1) : s;
         SourceElementComponent map = elementForCode(grp, c);
         if (Utilities.noString(t))
-          map.addTarget().setEquivalence(ConceptMapEquivalence.UNMATCHED);
+          map.addTarget().setRelationship(ConceptMapRelationship.NOTRELATEDTO);
         else if (t.startsWith("("))
-          map.addTarget().setCode(t.substring(1, t.length()-1)).setEquivalence(ConceptMapEquivalence.INEXACT);
+          map.addTarget().setCode(t.substring(1, t.length()-1)).setRelationship(ConceptMapRelationship.RELATEDTO);
         else if (t.startsWith("->"))
-          map.addTarget().setCode(t.substring(2).trim()).setEquivalence(ConceptMapEquivalence.WIDER);
+          map.addTarget().setCode(t.substring(2).trim()).setRelationship(ConceptMapRelationship.BROADER);
         else if (t.startsWith(":"))
-          map.addTarget().setComment(t.substring(1).trim()).setEquivalence(ConceptMapEquivalence.UNMATCHED);
+          map.addTarget().setComment(t.substring(1).trim()).setRelationship(ConceptMapRelationship.NOTRELATEDTO);
         else if (s.startsWith("->"))
-          map.addTarget().setCode(t).setEquivalence(ConceptMapEquivalence.NARROWER);
+          map.addTarget().setCode(t).setRelationship(ConceptMapRelationship.NARROWER);
         else if (s.startsWith("("))
-          map.addTarget().setCode(t).setEquivalence(ConceptMapEquivalence.INEXACT);
+          map.addTarget().setCode(t).setRelationship(ConceptMapRelationship.RELATEDTO);
         else
-          map.addTarget().setCode(t).setEquivalence(ConceptMapEquivalence.EQUIVALENT);
+          map.addTarget().setCode(t).setRelationship(ConceptMapRelationship.EQUIVALENT);
       }
     }
     //

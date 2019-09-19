@@ -29,14 +29,14 @@
       <code value="ACNE"/>
       <target>
         <code value="309068002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="ACNFLD"/>
       <target>
         <code value="119323008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="HL7 term is a historical term. mapped to Pus"/>
         <product>
           <property value="TypeModifier"/>
@@ -49,14 +49,14 @@
       <code value="AIRS"/>
       <target>
         <code value="446302006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="ALL"/>
       <target>
         <code value="119376003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -68,7 +68,7 @@
       <code value="AMP"/>
       <target>
         <code value="408654003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -80,7 +80,7 @@
       <code value="ANGI"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -88,14 +88,14 @@
       <code value="ARTC"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
     <element>
       <code value="ASERU"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="pending"/>
       </target>
     </element>
@@ -103,7 +103,7 @@
       <code value="ASP"/>
       <target>
         <code value="119295008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -114,21 +114,21 @@
     <element>
       <code value="ATTE"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
     <element>
       <code value="AUTOC"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
     <element>
       <code value="AUTP"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="This really is not a specimen per se - it is the state of the subject from whom the specimen is collected, so it should be used as a  specimen type modifier ONLY!. Often this is indicated with a special medical record number or other notation on the patient. needs to have specimen type (e.g. SPM-4) and source site (SPM.8) and spatial orientation (SPM.9)"/>
       </target>
     </element>
@@ -136,13 +136,13 @@
       <code value="BBL"/>
       <target>
         <code value="119304001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="BCYST"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="submitted (PLR155) with parent of  167874004^knee joint synovial fluid (specimen), with specimen source topography 32361000^Popliteal fossa structure (body structure)"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
@@ -154,7 +154,7 @@
     <element>
       <code value="BITE"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="Submit for new term with parent 119365002"/>
       </target>
     </element>
@@ -162,7 +162,7 @@
       <code value="BLEB"/>
       <target>
         <code value="309049000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -174,7 +174,7 @@
       <code value="BLIST"/>
       <target>
         <code value="309049000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -186,7 +186,7 @@
       <code value="BOIL"/>
       <target>
         <code value="119295008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -203,13 +203,13 @@
       <code value="BON"/>
       <target>
         <code value="430268003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="BOWL"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="Don&#39;t use this term for human samples - use Stool instead. animal would use small intestinal contents, large intestinal contents"/>
       </target>
     </element>
@@ -217,21 +217,21 @@
       <code value="BPU"/>
       <target>
         <code value="119300005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="BRN"/>
       <target>
         <code value="119367005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="BRSH"/>
       <target>
         <code value="258415003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -243,14 +243,14 @@
       <code value="BRTH"/>
       <target>
         <code value="119336008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="BRUS"/>
       <target>
         <code value="309176002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -262,7 +262,7 @@
       <code value="BUB"/>
       <target>
         <code value="302795002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -279,7 +279,7 @@
       <code value="BULLA"/>
       <target>
         <code value="258482009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -291,7 +291,7 @@
       <code value="BX"/>
       <target>
         <code value="258415003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -303,14 +303,14 @@
       <code value="CALC"/>
       <target>
         <code value="119350003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="CARBU"/>
       <target>
         <code value="309051001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -322,13 +322,13 @@
       <code value="CAT"/>
       <target>
         <code value="119311002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="CBITE"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="Submit for new term with parent 119365002"/>
       </target>
     </element>
@@ -336,7 +336,7 @@
       <code value="CLIPP"/>
       <target>
         <code value="119327009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Be more specific use either: 119326000^hair specimen or 119327009^nail specimen"/>
       </target>
     </element>
@@ -344,35 +344,35 @@
       <code value="CNJT"/>
       <target>
         <code value="119401005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="CNJT"/>
       <target>
         <code value="128160006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="CNJT"/>
       <target>
         <code value="258498002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="COL"/>
       <target>
         <code value="119329007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="CONE"/>
       <target>
         <code value="399713008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -388,14 +388,14 @@
     <element>
       <code value="CSCR"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="submit for new term with parent 119365002^Specimen from wound (specimen)"/>
       </target>
     </element>
     <element>
       <code value="CSERU"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="pending"/>
       </target>
     </element>
@@ -403,7 +403,7 @@
       <code value="CSITE"/>
       <target>
         <code value="258507003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Prefer to have aspirate of the pus oozing out from cleaned insertion site - if swab is all that can be obtained, then swab after cleaning, otherwise you may get a contaminated specimen and a falsely identified infected central line. Do not just swab the reddened area - that will just collect skin flora       "/>
         <product>
           <property value="TypeModifier"/>
@@ -421,20 +421,20 @@
       <code value="CSMY"/>
       <target>
         <code value="309051001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="CST"/>
       <target>
         <code value="258453008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="CSVR"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD - may use blood and SPM-6"/>
       </target>
     </element>
@@ -442,7 +442,7 @@
       <code value="CTP"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -450,14 +450,14 @@
       <code value="CVPS"/>
       <target>
         <code value="258507003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="CVPT"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
         <product>
           <property value="TypeModifier"/>
@@ -470,7 +470,7 @@
       <code value="CYN"/>
       <target>
         <code value="119368000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -482,13 +482,13 @@
       <code value="CYST"/>
       <target>
         <code value="119368000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="DBITE"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="Submit for new term with parent 119365002"/>
       </target>
     </element>
@@ -496,20 +496,20 @@
       <code value="DCS"/>
       <target>
         <code value="119335007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="DEC"/>
       <target>
         <code value="258505006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="DEION"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -517,21 +517,21 @@
       <code value="DIA"/>
       <target>
         <code value="119360007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="DISCHG"/>
       <target>
         <code value="258439008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="DIV"/>
       <target>
         <code value="119376003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -543,14 +543,14 @@
       <code value="DRN"/>
       <target>
         <code value="119306004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="DRNG"/>
       <target>
         <code value="258455001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead: not an acceptable specimen for micro - not specific enough term"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
@@ -563,7 +563,7 @@
       <code value="DRNGP"/>
       <target>
         <code value="309051001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
@@ -576,14 +576,14 @@
       <code value="EARW"/>
       <target>
         <code value="122580007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="EBRUSH"/>
       <target>
         <code value="309210009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -599,14 +599,14 @@
     <element>
       <code value="EEYE"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
     <element>
       <code value="EFF"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -614,55 +614,55 @@
       <code value="EFFUS"/>
       <target>
         <code value="258440005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="EFOD"/>
       <target>
         <code value="119320006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="EISO"/>
       <target>
         <code value="258536003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="ELT"/>
       <target>
         <code value="119314005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="ENVIR"/>
       <target>
         <code value="119324002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="EOTH"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
     <element>
       <code value="ESOI"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
     <element>
       <code value="ESOS"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -670,7 +670,7 @@
       <code value="ETA"/>
       <target>
         <code value="119307008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -687,7 +687,7 @@
       <code value="ETTP"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -695,7 +695,7 @@
       <code value="ETTUB"/>
       <target>
         <code value="119307008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -711,7 +711,7 @@
     <element>
       <code value="EWHI"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -719,13 +719,13 @@
       <code value="EXG"/>
       <target>
         <code value="119336008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="EXS"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -733,13 +733,13 @@
       <code value="EXUDTE"/>
       <target>
         <code value="258441009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="FAW"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -747,7 +747,7 @@
       <code value="FBLOOD"/>
       <target>
         <code value="119297000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -759,7 +759,7 @@
       <code value="FGA"/>
       <target>
         <code value="168139001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -771,20 +771,20 @@
       <code value="FIST"/>
       <target>
         <code value="119370009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="FLD"/>
       <target>
         <code value="309051001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="FLT"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -792,21 +792,21 @@
       <code value="FLU"/>
       <target>
         <code value="309051001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="FLUID"/>
       <target>
         <code value="258442002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="FOLEY"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -814,7 +814,7 @@
       <code value="FRS"/>
       <target>
         <code value="258442002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="this term is not specific enough, choose from terms that more accurately describe the specimen"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
@@ -827,7 +827,7 @@
       <code value="FSCLP"/>
       <target>
         <code value="309502007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -839,7 +839,7 @@
       <code value="FUR"/>
       <target>
         <code value="119295008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Further describe the sample as tissue or pus. or by the collection method. The term boil is not specific to a body site - need to indicate source site (spm.8). preferred term is Aspirate_Boil"/>
         <product>
           <property value="TypeModifier"/>
@@ -852,14 +852,14 @@
       <code value="GAS"/>
       <target>
         <code value="119317003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="GASA"/>
       <target>
         <code value="168137004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -876,7 +876,7 @@
       <code value="GASAN"/>
       <target>
         <code value="119379005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -888,7 +888,7 @@
       <code value="GASBR"/>
       <target>
         <code value="309213006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -905,7 +905,7 @@
       <code value="GASD"/>
       <target>
         <code value="258459007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
@@ -923,28 +923,28 @@
       <code value="GAST"/>
       <target>
         <code value="258459007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="GENV"/>
       <target>
         <code value="119394009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="GRAFT"/>
       <target>
         <code value="440493002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="GRANU"/>
       <target>
         <code value="119376003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -956,14 +956,14 @@
       <code value="GROSH"/>
       <target>
         <code value="119311002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
     <element>
       <code value="GSOL"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -971,7 +971,7 @@
       <code value="GSPEC"/>
       <target>
         <code value="309211008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -987,7 +987,7 @@
     <element>
       <code value="GT"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -995,7 +995,7 @@
       <code value="GTUBE"/>
       <target>
         <code value="258459007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="TypeModifier"/>
@@ -1017,7 +1017,7 @@
     <element>
       <code value="HBITE"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="Submit for new term with parent 119365002"/>
       </target>
     </element>
@@ -1025,7 +1025,7 @@
       <code value="HBLUD"/>
       <target>
         <code value="119297000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -1037,7 +1037,7 @@
       <code value="HEMAQ"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -1045,7 +1045,7 @@
       <code value="HEMO"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -1053,21 +1053,21 @@
       <code value="HERNI"/>
       <target>
         <code value="119376003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="HEV"/>
       <target>
         <code value="119306004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="HIC"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
         <product>
           <property value="TypeModifier"/>
@@ -1080,7 +1080,7 @@
       <code value="HYDC"/>
       <target>
         <code value="309051001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -1091,7 +1091,7 @@
     <element>
       <code value="IBITE"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="Submit for new term with parent 119365002"/>
       </target>
     </element>
@@ -1099,14 +1099,14 @@
       <code value="ICYST"/>
       <target>
         <code value="309075001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="IDC"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -1114,14 +1114,14 @@
       <code value="IHG"/>
       <target>
         <code value="119337004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="ILEO"/>
       <target>
         <code value="258455001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
         <product>
           <property value="TypeModifier"/>
@@ -1133,7 +1133,7 @@
     <element>
       <code value="ILLEG"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -1141,20 +1141,20 @@
       <code value="IMP"/>
       <target>
         <code value="439961009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="INCI"/>
       <target>
         <code value="438660002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="INFIL"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="This describes a morphologic abnormality, not a sample"/>
       </target>
     </element>
@@ -1162,14 +1162,14 @@
       <code value="INS"/>
       <target>
         <code value="258614005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="INTRD"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -1177,13 +1177,13 @@
       <code value="IT"/>
       <target>
         <code value="119307008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="IUD"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="pending"/>
       </target>
     </element>
@@ -1191,7 +1191,7 @@
       <code value="IVCAT"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
         <product>
           <property value="TypeModifier"/>
@@ -1204,21 +1204,21 @@
       <code value="IVFLD"/>
       <target>
         <code value="258649003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="IVTIP"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="JEJU"/>
       <target>
         <code value="258463000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
@@ -1236,14 +1236,14 @@
       <code value="JNTFLD"/>
       <target>
         <code value="119332005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="JP"/>
       <target>
         <code value="309051001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
@@ -1256,7 +1256,7 @@
       <code value="KELOI"/>
       <target>
         <code value="440674008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -1268,7 +1268,7 @@
       <code value="KIDFLD"/>
       <target>
         <code value="309051001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -1280,7 +1280,7 @@
       <code value="LAVG"/>
       <target>
         <code value="258607008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -1292,7 +1292,7 @@
       <code value="LAVGG"/>
       <target>
         <code value="168138009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -1309,14 +1309,14 @@
       <code value="LAVGP"/>
       <target>
         <code value="440137008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="LAVPG"/>
       <target>
         <code value="440674008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -1333,13 +1333,13 @@
       <code value="LENS1"/>
       <target>
         <code value="440473005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="LENS2"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -1347,7 +1347,7 @@
       <code value="LESN"/>
       <target>
         <code value="309049000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="should be more specific what kind of lesion is observed - be more specific is it a wound, abscess, mass - specify! Ask SNOMED CT to mark it as a grouper term only (309049000)"/>
       </target>
     </element>
@@ -1355,13 +1355,13 @@
       <code value="LIQ"/>
       <target>
         <code value="258442002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="LIQO"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -1369,7 +1369,7 @@
       <code value="LSAC"/>
       <target>
         <code value="258450006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="The HL7 term is a historical term Mapped to CSF obtained by lumbar puncture"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
@@ -1382,7 +1382,7 @@
       <code value="MAHUR"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -1390,7 +1390,7 @@
       <code value="MASS"/>
       <target>
         <code value="420548004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -1402,14 +1402,14 @@
       <code value="MBLD"/>
       <target>
         <code value="119345009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="MUCOS"/>
       <target>
         <code value="119376003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -1421,14 +1421,14 @@
       <code value="MUCUS"/>
       <target>
         <code value="258483004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="NASDR"/>
       <target>
         <code value="258474009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
@@ -1445,7 +1445,7 @@
     <element>
       <code value="NEDL"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -1453,14 +1453,14 @@
       <code value="NEPH"/>
       <target>
         <code value="438660002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="NGASP"/>
       <target>
         <code value="302794003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -1477,7 +1477,7 @@
       <code value="NGAST"/>
       <target>
         <code value="258459007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="TypeModifier"/>
@@ -1500,13 +1500,13 @@
       <code value="NGS"/>
       <target>
         <code value="438660002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="NODUL"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="pending"/>
       </target>
     </element>
@@ -1514,20 +1514,20 @@
       <code value="NSECR"/>
       <target>
         <code value="168141000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="ORH"/>
       <target>
         <code value="123038009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="ORL"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="be more precise use ulcer, tumor, vesicle"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
@@ -1540,13 +1540,13 @@
       <code value="OTH"/>
       <target>
         <code value="123038009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PACEM"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -1554,20 +1554,20 @@
       <code value="PCFL"/>
       <target>
         <code value="122571007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PDSIT"/>
       <target>
         <code value="438660002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PDTS"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="submitted for code"/>
       </target>
     </element>
@@ -1575,7 +1575,7 @@
       <code value="PELVA"/>
       <target>
         <code value="119371008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -1586,7 +1586,7 @@
     <element>
       <code value="PENIL"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="need to know what kind of lesion, so map to: UlcerTissue_penile, VesicleFluid_penile, Wound_penile, Mass tissue_penile, Necrotic tissue_penile, AbscessAspirate_penile, Anything else?"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
@@ -1599,7 +1599,7 @@
       <code value="PERIA"/>
       <target>
         <code value="119371008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -1611,49 +1611,49 @@
       <code value="PILOC"/>
       <target>
         <code value="119368000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PINS"/>
       <target>
         <code value="438660002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PIS"/>
       <target>
         <code value="258507003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PLAN"/>
       <target>
         <code value="119301009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PLAS"/>
       <target>
         <code value="119361006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PLB"/>
       <target>
         <code value="119305000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PLEVS"/>
       <target>
         <code value="119364003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -1665,7 +1665,7 @@
       <code value="PND"/>
       <target>
         <code value="258439008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term -though in this case more often used for discharge"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
@@ -1683,7 +1683,7 @@
       <code value="POL"/>
       <target>
         <code value="119376003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -1695,7 +1695,7 @@
       <code value="POPGS"/>
       <target>
         <code value="440493002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -1707,7 +1707,7 @@
       <code value="POPLG"/>
       <target>
         <code value="440493002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -1718,7 +1718,7 @@
     <element>
       <code value="POPLV"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -1726,7 +1726,7 @@
       <code value="PORTA"/>
       <target>
         <code value="119311002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -1734,35 +1734,35 @@
       <code value="PPP"/>
       <target>
         <code value="119362004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PROST"/>
       <target>
         <code value="438660002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PRP"/>
       <target>
         <code value="119363009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PSC"/>
       <target>
         <code value="119368000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PUNCT"/>
       <target>
         <code value="119365002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -1774,14 +1774,14 @@
       <code value="PUS"/>
       <target>
         <code value="119323008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="PUSFR"/>
       <target>
         <code value="119323008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -1793,7 +1793,7 @@
       <code value="PUST"/>
       <target>
         <code value="119323008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -1804,7 +1804,7 @@
     <element>
       <code value="QC3"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -1812,13 +1812,13 @@
       <code value="RANDU"/>
       <target>
         <code value="278020009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="RBITE"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="Submit for new term with parent: 119365002"/>
       </target>
     </element>
@@ -1826,7 +1826,7 @@
       <code value="RECT"/>
       <target>
         <code value="119339001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
@@ -1844,7 +1844,7 @@
       <code value="RECTA"/>
       <target>
         <code value="119371008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -1856,7 +1856,7 @@
       <code value="RENALC"/>
       <target>
         <code value="258420003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -1868,7 +1868,7 @@
       <code value="RENC"/>
       <target>
         <code value="258453008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -1880,28 +1880,28 @@
       <code value="RES"/>
       <target>
         <code value="258603007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SAL"/>
       <target>
         <code value="119342007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SCAR"/>
       <target>
         <code value="119376003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SCLV"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
@@ -1914,7 +1914,7 @@
       <code value="SCROA"/>
       <target>
         <code value="119371008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -1926,21 +1926,21 @@
       <code value="SECRE"/>
       <target>
         <code value="432825001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SER"/>
       <target>
         <code value="119364003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SHU"/>
       <target>
         <code value="119295008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Preferred is aspiration with sterile syringe from inflamed area. Specify body location of shunt site"/>
         <product>
           <property value="TypeModifier"/>
@@ -1958,7 +1958,7 @@
       <code value="SHUNF"/>
       <target>
         <code value="446861007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -1974,14 +1974,14 @@
     <element>
       <code value="SHUNT"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
     <element>
       <code value="SITE"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -1989,7 +1989,7 @@
       <code value="SKBP"/>
       <target>
         <code value="309066003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -2001,14 +2001,14 @@
       <code value="SKN"/>
       <target>
         <code value="119325001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SMM"/>
       <target>
         <code value="420548004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -2020,21 +2020,21 @@
       <code value="SNV"/>
       <target>
         <code value="119332005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SPRM"/>
       <target>
         <code value="119349003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SPRP"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -2042,14 +2042,14 @@
       <code value="SPRPB"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
     <element>
       <code value="SPS"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -2057,27 +2057,27 @@
       <code value="SPT"/>
       <target>
         <code value="119334006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SPTC"/>
       <target>
         <code value="119335007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SPTT"/>
       <target>
         <code value="258609006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SPUT1"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -2085,20 +2085,20 @@
       <code value="SPUTIN"/>
       <target>
         <code value="258610001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="SPUTSP"/>
       <target>
         <code value="119335007"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="STER"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -2106,14 +2106,14 @@
       <code value="STL"/>
       <target>
         <code value="119339001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="STONE"/>
       <target>
         <code value="119350003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -2125,7 +2125,7 @@
       <code value="SUBMA"/>
       <target>
         <code value="119371008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -2137,7 +2137,7 @@
       <code value="SUBMX"/>
       <target>
         <code value="119371008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -2149,7 +2149,7 @@
       <code value="SUMP"/>
       <target>
         <code value="446562005"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
@@ -2162,7 +2162,7 @@
       <code value="SUP"/>
       <target>
         <code value="122575003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -2173,7 +2173,7 @@
     <element>
       <code value="SUTUR"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -2181,7 +2181,7 @@
       <code value="SWGZ"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -2189,7 +2189,7 @@
       <code value="TASP"/>
       <target>
         <code value="122877000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -2206,21 +2206,21 @@
       <code value="TISS"/>
       <target>
         <code value="119376003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="TISU"/>
       <target>
         <code value="122593002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="TLC"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -2228,21 +2228,21 @@
       <code value="TRAC"/>
       <target>
         <code value="438660002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="TRANS"/>
       <target>
         <code value="258538002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="TSERU"/>
       <target>
         <code value="119364003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
@@ -2254,7 +2254,7 @@
       <code value="TSTES"/>
       <target>
         <code value="119371008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
@@ -2266,7 +2266,7 @@
       <code value="TTRA"/>
       <target>
         <code value="258480001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -2278,20 +2278,20 @@
       <code value="TUBES"/>
       <target>
         <code value="119310001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="TUMOR"/>
       <target>
         <code value="258435002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="TZANC"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="This is the name of a lab test. A skin sample is examined for viral inclusions."/>
       </target>
     </element>
@@ -2299,28 +2299,28 @@
       <code value="UDENT"/>
       <target>
         <code value="123038009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="UR"/>
       <target>
         <code value="122575003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="URC"/>
       <target>
         <code value="122880004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="URINB"/>
       <target>
         <code value="122575003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -2332,14 +2332,14 @@
       <code value="URINC"/>
       <target>
         <code value="446846006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="URINM"/>
       <target>
         <code value="258574006"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -2356,7 +2356,7 @@
       <code value="URINN"/>
       <target>
         <code value="446277003"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -2372,7 +2372,7 @@
     <element>
       <code value="URINP"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -2380,13 +2380,13 @@
       <code value="URT"/>
       <target>
         <code value="122565001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="USCOP"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="NEW specimenTERM 7"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
@@ -2404,14 +2404,14 @@
       <code value="USPEC"/>
       <target>
         <code value="123038009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="VASTIP"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -2419,7 +2419,7 @@
       <code value="VENT"/>
       <target>
         <code value="119312009"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <comment value="TBD in detail"/>
       </target>
     </element>
@@ -2427,41 +2427,41 @@
       <code value="VITF"/>
       <target>
         <code value="258438000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="VOM"/>
       <target>
         <code value="122572000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WASH"/>
       <target>
         <code value="440674008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WASI"/>
       <target>
         <code value="122609004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WAT"/>
       <target>
         <code value="119318008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WB"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="Bloodbanking term ONLY now map to blood and the respective preservative"/>
       </target>
     </element>
@@ -2469,13 +2469,13 @@
       <code value="WEN"/>
       <target>
         <code value="309075001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WICK"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
@@ -2483,21 +2483,21 @@
       <code value="WND"/>
       <target>
         <code value="119365002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WNDA"/>
       <target>
         <code value="119366001"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WNDD"/>
       <target>
         <code value="122566000"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
@@ -2509,48 +2509,48 @@
       <code value="WNDE"/>
       <target>
         <code value="122568004"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WORM"/>
       <target>
         <code value="258618008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WRT"/>
       <target>
         <code value="309068002"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WWA"/>
       <target>
         <code value="119318008"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
       </target>
     </element>
     <element>
       <code value="WWO"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
     <element>
       <code value="WWT"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="TBD"/>
       </target>
     </element>
     <element>
       <code value="CSITE"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="Prefer to have aspirate of the pus oozing out from cleaned insertion site - if swab is all that can be obtained, then swab after cleaning, otherwise you may get a contaminated specimen and a falsely identified infected central line. Do not just swab the reddened area - that will just collect skin flora"/>
         <product>
           <property value="TypeModifier"/>
@@ -2572,7 +2572,7 @@
     <element>
       <code value="CLIPP"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="Be more specific use either: 119326000^hair specimen, or 119327009^nail specimen"/>
         <product>
           <property value="TypeModifier"/>
@@ -2584,7 +2584,7 @@
     <element>
       <code value="SHU"/>
       <target>
-        <equivalence value="unmatched"/>
+        <relationship value="not-related-to"/>
         <comment value="assume swab from shunt site for mapping here - clean surface of skin prior to expressing the shunt site - preferred is aspiration with sterile syringe should use SPM.8 to specify body approximate match location of shunt site"/>
         <product>
           <property value="TypeModifier"/>

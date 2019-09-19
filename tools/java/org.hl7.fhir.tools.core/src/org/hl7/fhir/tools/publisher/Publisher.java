@@ -174,7 +174,7 @@ import org.hl7.fhir.r5.model.DomainResource;
 import org.hl7.fhir.r5.model.ElementDefinition;
 import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
-import org.hl7.fhir.r5.model.Enumerations.ConceptMapEquivalence;
+import org.hl7.fhir.r5.model.Enumerations.ConceptMapRelationship;
 import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r5.model.Enumerations.SearchParamType;
@@ -776,7 +776,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         e.setCode(sc);
         TargetElementComponent t = e.addTarget();
         t.setCode(cc);
-        t.setEquivalence(ConceptMapEquivalence.EQUIVALENT);
+        t.setRelationship(ConceptMapRelationship.EQUIVALENT);
       }
     }
     if (!grp.hasElement())

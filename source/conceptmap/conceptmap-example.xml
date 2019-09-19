@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <id value="101"/>
     <url value="http://hl7.org/fhir/ConceptMap/101"/>
     <identifier>
@@ -36,10 +36,10 @@
         </valueCodeableConcept>
     </useContext>
     <jurisdiction>
-      <coding>
-        <system value="urn:iso:std:iso:3166"/>
-        <code value="US"/>
-      </coding>  
+        <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+        </coding>
     </jurisdiction>
     <purpose value="To help implementers map from HL7 v3/CDA to FHIR"/>
     <copyright value="Creative Commons 0"/>
@@ -54,7 +54,7 @@
             <target>
                 <code value="H"/>
                 <display value="home"/>
-                <equivalence value="equivalent"/>
+                <relationship value="equivalent"/>
             </target>
         </element>
         <element>
@@ -63,7 +63,7 @@
             <target>
                 <code value="WP"/>
                 <display value="work place"/>
-                <equivalence value="equivalent"/>
+                <relationship value="equivalent"/>
             </target>
         </element>
         <element>
@@ -72,7 +72,7 @@
             <target>
                 <code value="TMP"/>
                 <display value="temporary address"/>
-                <equivalence value="equivalent"/>
+                <relationship value="equivalent"/>
             </target>
         </element>
         <element>
@@ -81,15 +81,15 @@
             <target>
                 <code value="BAD"/>
                 <display value="bad address"/>
-                <equivalence value="disjoint"/>
+                <relationship value="not-related-to"/>
                 <comment value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
             </target>
         </element>
         <!-- for all other codes, we map to 'temp'. This is a silly thing to do in reality, but it serves the purpose here -->
         <unmapped>
-          <mode value="fixed"/>
-          <code value="temp"/>
-          <display value="temp"/>
+            <mode value="fixed"/>
+            <code value="temp"/>
+            <display value="temp"/>
         </unmapped>
     </group>
 </ConceptMap>

@@ -29,7 +29,7 @@
       <target>
         <code value="code2"/>
         <display value="Some Example Code"/>
-        <equivalence value="equivalent"/>
+        <relationship value="equivalent"/>
         <!-- this mapping is only valid if the context is [some=code] -->
         <dependsOn>
           <property value="http://example.org/fhir/property-value/example"/>
