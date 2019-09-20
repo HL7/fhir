@@ -4,16 +4,16 @@
 		<!-- HAPI FHIR Deps -->
 		<dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="3.7.0-SNAPSHOT"/>
 		<!-- HAPI FHIR Core -->
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.utilities" rev="4.0.15-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2" rev="4.0.15-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2016may" rev="4.0.15-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu3" rev="4.0.15-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r4" rev="4.0.15-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r5" rev="4.0.15-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.convertors" rev="4.0.15-SNAPSHOT"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.validation" rev="4.0.15-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.utilities" rev="4.0.20-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2" rev="4.0.20-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2016may" rev="4.0.20-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu3" rev="4.0.20-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r4" rev="4.0.20-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r5" rev="4.0.20-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.convertors" rev="4.0.20-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.validation" rev="4.0.20-SNAPSHOT"/>
     <!-- IG Publisher - has some shared code -->
-		<dependency org="org.hl7.fhir.publisher" name="org.hl7.fhir.publisher.cli" rev="0.9.75-SNAPSHOT"/>
+		<dependency org="org.hl7.fhir.publisher" name="org.hl7.fhir.publisher.core" rev="0.9.80-SNAPSHOT"/>
     
 		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" />
 		<dependency org="com.google.code.gson" name="gson" rev="2.8.5"/>
@@ -48,7 +48,7 @@
 		<dependency org="org.apache.poi" name="poi" rev="4.0.1"/>
 		<dependency org="org.apache.poi" name="poi-ooxml" rev="4.0.1"/>
 		<dependency org="org.apache.poi" name="poi-ooxml-schemas" rev="4.0.1"/>
-		<dependency org="org.apache.xmlbeans" name="xmlbeans" rev="2.6.0"/>
+		<dependency org="org.apache.xmlbeans" name="xmlbeans" rev="3.1.0"/>
 		<dependency org="org.mozilla" name="rhino" rev="1.7R4"/>
 		<dependency org="org.hamcrest" name="hamcrest-core" rev="1.3"/>
 		<dependency org="org.jdom" name="jdom" rev="1.1.3"/>

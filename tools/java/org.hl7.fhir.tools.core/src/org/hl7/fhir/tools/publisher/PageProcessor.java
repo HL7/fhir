@@ -160,7 +160,7 @@ import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingComponent
 import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.r5.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.r5.model.Enumerations.ConceptMapEquivalence;
+import org.hl7.fhir.r5.model.Enumerations.ConceptMapRelationship;
 import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r5.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r5.model.ExpressionNode.CollectionStatus;
@@ -6973,7 +6973,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         grp.getUnmapped().setMode(ConceptMapGroupUnmappedMode.FIXED);
         grp.getUnmapped().setCode(p[1].trim());
       } else {
-        grp.addElement().setCode(p[0].trim()).addTarget().setEquivalence(ConceptMapEquivalence.EQUIVALENT).setCode(p[1].trim());
+        grp.addElement().setCode(p[0].trim()).addTarget().setRelationship(ConceptMapRelationship.EQUIVALENT).setCode(p[1].trim());
       }
     }
     return map;

@@ -4,7 +4,7 @@
 <h2>Notes</h2>
 <ul>
  <li>The value of the <code>system</code>, <code>version</code> and <code>code</code> elements are the same as used by the <a href="datatypes.html#Coding">Coding</a> data type</li>
- <li>When a mapping equivalence is characterized as "narrower", some explanation of the scope difference SHALL be provided in the comments</li>
+ <li>When a mapping relationship is characterized as "narrower", some explanation of the scope difference SHALL be provided in the comments</li>
  <li>The concept map is a statement of mapping in a single direction. The existence of a matching mapping in the reverse direction cannot be assumed to exist automatically, but only through human review.</li>
  <li>For simplicity, it is better if is only one <code>element</code> for each source concept. if there is more than one, then just as one <code>element</code> can have multiple targets, 
      multiple occurrences of <code>element</code> with the same <code>element.code</code> simply aggregate their <code>target</code> elements as if there was only one <code>element</code></li>
@@ -66,8 +66,8 @@ for a concept:
     institution can create a simple concept that expresses their special cases, and then refer to the general purpose mappings</td></tr>
 </table>
 <p>
-Note that this element is <b>not used</b> when there is an element with a matching code value, and an
-equivalence value of <a href="codesystem-concept-map-equivalence.html#concept-map-equivalence-unmatched">unmatched</a> (or disjoint).
+Note that this element is <b>not used</b> when there is an element with a matching code value, and a
+relationship value of <a href="codesystem-concept-map-relationship.html#concept-map-relationship-not-related-to">not-related-to</a>.
 </p>
 
 <a name="implicit"></a>

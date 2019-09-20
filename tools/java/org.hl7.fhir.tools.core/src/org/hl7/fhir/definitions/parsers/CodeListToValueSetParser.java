@@ -15,7 +15,7 @@ import org.hl7.fhir.r5.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.r5.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.r5.model.ContactDetail;
 import org.hl7.fhir.r5.model.ContactPoint;
-import org.hl7.fhir.r5.model.Enumerations.ConceptMapEquivalence;
+import org.hl7.fhir.r5.model.Enumerations.ConceptMapRelationship;
 import org.hl7.fhir.r5.model.Factory;
 import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceComponent;
@@ -207,13 +207,13 @@ public class CodeListToValueSetParser {
       tgt.setComment(comm);
 
       if (rel.equals("="))
-        tgt.setEquivalence(ConceptMapEquivalence.EQUAL);
+        tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals("~"))
-        tgt.setEquivalence(ConceptMapEquivalence.EQUIVALENT);
+        tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals(">"))
-        tgt.setEquivalence(ConceptMapEquivalence.WIDER);
+        tgt.setRelationship(ConceptMapRelationship.BROADER);
       else if (rel.equals("<")) {
-        tgt.setEquivalence(ConceptMapEquivalence.NARROWER);
+        tgt.setRelationship(ConceptMapRelationship.NARROWER);
         if (!tgt.hasComment())
           throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else
@@ -305,13 +305,13 @@ public class CodeListToValueSetParser {
       tgt.setComment(comm);
 
       if (rel == null || rel.equals("="))
-        tgt.setEquivalence(ConceptMapEquivalence.EQUAL);
+        tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals("~"))
-        tgt.setEquivalence(ConceptMapEquivalence.EQUIVALENT);
+        tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals("<"))
-        tgt.setEquivalence(ConceptMapEquivalence.WIDER);
+        tgt.setRelationship(ConceptMapRelationship.BROADER);
       else if (rel.equals(">")) {
-        tgt.setEquivalence(ConceptMapEquivalence.NARROWER);
+        tgt.setRelationship(ConceptMapRelationship.NARROWER);
         if (!tgt.hasComment())
           throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else
