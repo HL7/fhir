@@ -354,6 +354,7 @@ public class ProfileGenerator {
 
     containedSlices.clear();
 
+    addElementConstraintToSnapshot(p.getSnapshot());
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
     p.setText(new Narrative());
@@ -362,6 +363,21 @@ public class ProfileGenerator {
     checkHasTypes(p);
     return p;
   }
+
+  private void addElementConstraintToSnapshot(StructureDefinitionSnapshotComponent snapshot) {
+    for (ElementDefinition ed : snapshot.getElement())
+        addElementConstraint(ed);
+  }
+
+
+  private boolean hasSystemType(ElementDefinition ed) {
+    for (TypeRefComponent t : ed.getType()) {
+      if (t.hasCode() && t.getCode().startsWith("http://hl7.org/fhirpath/System."))
+        return true;
+    }
+    return false;
+  }
+
 
   private void addElementConstraints(String name, ElementDefinition ed) throws Exception {
     if (definitions.hasPrimitiveType(name) || name.equals("Type") || name.equals("Logical"))
@@ -494,6 +510,7 @@ public class ProfileGenerator {
     generateElementDefinition(p, ec3, ec);
 
     containedSlices.clear();
+    addElementConstraintToSnapshot(p.getSnapshot());
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
@@ -622,6 +639,7 @@ public class ProfileGenerator {
 //    generateElementDefinition(ecB, ecA);
 
     containedSlices.clear();
+    addElementConstraintToSnapshot(p.getSnapshot());
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
@@ -677,6 +695,7 @@ public class ProfileGenerator {
         generateElementDefinition(p, ed, getParent(ed, p.getSnapshot().getElement()));
 
     containedSlices.clear();
+    addElementConstraintToSnapshot(p.getSnapshot());
 
     p.getDifferential().getElement().get(0).getType().clear();
     p.getSnapshot().getElement().get(0).getType().clear();
@@ -791,7 +810,9 @@ public class ProfileGenerator {
     div.addTag("blockquote").addTag("pre").addText(pt.getInvariant().getXpath());
     p.setText(new Narrative());
     p.getText().setStatus(NarrativeStatus.GENERATED);
-    p.getText().setDiv(div);
+    p.getText().setDiv(div);    
+    addElementConstraintToSnapshot(p.getSnapshot());
+
     new ProfileUtilities(context, issues, pkp).setIds(p, false);
     checkHasTypes(p);
     return p;
@@ -905,6 +926,7 @@ public class ProfileGenerator {
       }
     }
     containedSlices.clear();
+    addElementConstraintToSnapshot(p.getSnapshot());
 
     p.getDifferential().getElement().get(0).getType().clear();
     p.getSnapshot().getElement().get(0).getType().clear();
@@ -1033,6 +1055,7 @@ public class ProfileGenerator {
 
     p.getDifferential().getElement().get(0).getType().clear();
     p.getSnapshot().getElement().get(0).getType().clear();
+    addElementConstraintToSnapshot(p.getSnapshot());
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
@@ -1804,6 +1827,29 @@ public class ProfileGenerator {
    */
 
 
+  private ElementDefinition addElementConstraint(ElementDefinition ed) {
+    if (!hasSystemType(ed) && !hasConstraint(ed, "ele-1")) {
+      ElementDefinitionConstraintComponent inv = ed.addConstraint();
+      inv.setKey("ele-1");
+      inv.setSeverity(ConstraintSeverity.ERROR);
+      inv.setHuman("All FHIR elements must have a @value or children");
+      inv.setExpression("hasValue() or (children().count() > id.count())");
+      inv.setXpath("@value|f:*|h:div");
+      inv.setSource("Element");
+    }
+    return ed;  
+  }
+  
+  
+  private boolean hasConstraint(ElementDefinition ed, String id) {
+    for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
+      if (id.equals(ed.getId()))
+        return true;
+    }
+    return false;
+  }
+
+
   private ElementDefinition makeExtensionSlice(String extensionName, StructureDefinition p, StructureDefinitionSnapshotComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
     ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(definitions, extensionName, false, false, null));
     c.getElement().add(ex);
@@ -1812,6 +1858,15 @@ public class ProfileGenerator {
     ex.getBase().setPath("Element.extension");
     ex.getBase().setMin(0);
     ex.getBase().setMax("*");
+    
+    ElementDefinitionConstraintComponent inv = ex.addConstraint();
+    inv.setKey("ext-1");
+    inv.setSeverity(ConstraintSeverity.ERROR);
+    inv.setHuman("Must have either extensions or value[x], not both");
+    inv.setExpression("extension.exists() != value.exists()");
+    inv.setXpath("exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])");
+    inv.setSource("Extension");
+    
     return ex;
   }
 
@@ -2213,6 +2268,7 @@ public class ProfileGenerator {
     // first, the differential
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     defineElement(null, p, p.getSnapshot().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, "Element", "Element", true);
+    addElementConstraintToSnapshot(p.getSnapshot());
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
@@ -2221,6 +2277,5 @@ public class ProfileGenerator {
     p.getText().setDiv(div);
     return p;
   }
-
 
 }
