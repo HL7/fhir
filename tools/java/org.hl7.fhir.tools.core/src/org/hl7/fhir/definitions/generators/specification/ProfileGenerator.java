@@ -1843,7 +1843,7 @@ public class ProfileGenerator {
   
   private boolean hasConstraint(ElementDefinition ed, String id) {
     for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
-      if (id.equals(ed.getId()))
+      if (id.equals(inv.getId()))
         return true;
     }
     return false;
