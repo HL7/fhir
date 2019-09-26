@@ -6,14 +6,13 @@
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes the current scopes for the Consent resources."/>
-  <copyright value="This is an example set."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
-  <concept>
+  <!-- <concept>
     <code value="adr"/>
     <display value="Advanced Care Directive"/>
     <definition value="Actions to be taken if they are no longer able to make decisions for themselves"/>
-  </concept>
+  </concept> -->
   <concept>
     <code value="research"/>
     <display value="Research"/>

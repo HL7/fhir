@@ -14,11 +14,11 @@ handling instructions to which the authorized entity must comply:
  <li>Privacy Consent Directive: Agreement to collect, access, use or disclose (share) information.</li>
  <li>Medical Treatment Consent Directive: Consent to undergo a specific treatment (or record of refusal to consent).</li>
  <li>Research Consent Directive: Consent to participate in research protocol and information sharing required.</li>
- <li>Advance Care Directives: Consent to instructions for potentially needed medical treatment (e.g. DNR).</li>
-</ul>
+ </ul>
 <p>
-This resource is scoped to cover all four uses, but at this time, only the privacy use case is modeled.  
-The scope of the resource may change when the other possible scopes are investigated, tested, or profiled.
+This resource is scoped to cover all three uses, but at this time, only the privacy use case is fully modeled, others are being used but no formal modelling exists.  
+The scope of the resource may change when the other possible scopes are investigated, tested, or profiled. HL7 is working on Advance Directives and would welcome participation by the community.
+
 </p>
 <p>
 A FHIR Consent Directive instance is considered the encoded legally binding Consent Directive if it meets 

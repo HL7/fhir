@@ -1,41 +1,54 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<h2>Policies</h2>
-<p>
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml"><?xml version="1.0" encoding="UTF-8"?>
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd">
+<a name="policy"></a>
+  <h2>Policies</h2>
+  <p>
 The Consent resource has a reference to a single <code>policyRule</code>. Many organizations will work in a context where multiple different consent regulations and policies apply. 
 In these cases, the single policy rule reference refers to a policy document that resolves and reconciles the various policies and presents a single policy for patient
 consent. If it is still necessary to track which of the underlying policies an exception is make in regard to, the <code>policy</code> may be used.
 </p>
-<h2>General Model</h2>
-<p>
+<a name="model"></a>
+  <h2>General Model</h2>
+  <p>
 The following is the general model of Privacy Consent Directives.
 </p>
-<p>
+  <p>
 There are context setting parameters:
 </p>
-<ol>
-<li>Who - The <b>patient</b>or <b>third-party grantor</b></li>
-<li>What - The <b>data</b> - specific resources are listed, empty list means all data covered by the consent.</li>
-<li>Where Required - The <b>location boundary</b> and <b>authority boundary</b> of this consent policy domain.</li>
-<li>Where Accountability Lies -  The organization or performer</li>
-<li>When - The date <b>issued</b> or captured</li>
-<li>When - The timeframe for which the Consent <b>applies</b></li>
-<li>How - The <b>actions</b> covered. (such as purposes of use that are covered)</li>
-<li>Whom - The <b>actor</b> are grantees by the consent. </li>
-</ol>
-<p>
+  <ol>
+    <li>Who - The <b>patient</b>or <b>third-party grantor</b></li>
+    <li>What - The <b>data</b> - specific resources are listed, empty list means all data covered by the consent.</li>
+    <li>Where Required - The <b>location boundary</b> and <b>authority boundary</b> of this consent policy domain.</li>
+    <li>Where Accountability Lies -  The organization or performer</li>
+    <li>When - The date <b>issued</b> or captured</li>
+    <li>When - The timeframe for which the Consent <b>applies</b></li>
+    <li>How - The <b>actions</b> covered. (such as purposes of use that are covered)</li>
+    <li>Whom - The <b>actor</b> are grantees by the consent. </li>
+  </ol>
+  <p>
 A Privacy Consent may transition through many states including: that no consent has been sought, consent has been proposed, 
 consent has been rejected, and consent approved.
 </p>
-<p>There are set of patterns.</p>
-	  <ol>
-	  <li>No consent: All settings need a policy for when no consent has been captured. Often this allows treatment only.;</li>
-	  <li>Opt-out: No sharing allowed for the specified domain, location, actions, and purposes;</li>
-	  <li>Opt-out with exceptions: No sharing allowed, with some exceptions where it is allowed. Example: Withhold Authorization for Treatment except for Emergency Treatment;</li>
-	  <li>Opt-in: Sharing for some purpose of use is authorized Sharing allowed for Treatment, Payment, and normal Operations; and</li>
-	  <li>Opt-in with restrictions: Sharing allowed, but the patient may make exceptions.</li>
-	  </ol>
-      <p>For each of these patterns (positive or negative pattern), there can be exceptions. 
+  <p>There are set of patterns.</p>
+  <ol>
+    <li>No consent: All settings need a policy for when no consent has been captured. Often this allows treatment only.;</li>
+    <li>Opt-out: No sharing allowed for the specified domain, location, actions, and purposes;</li>
+    <li>Opt-out with exceptions: No sharing allowed, with some exceptions where it is allowed. Example: Withhold Authorization for Treatment except for Emergency Treatment;</li>
+    <li>Opt-in: Sharing for some purpose of use is authorized Sharing allowed for Treatment, Payment, and normal Operations; and</li>
+    <li>Opt-in with restrictions: Sharing allowed, but the patient may make exceptions.</li>
+  </ol>
+  <p>For each of these patterns (positive or negative pattern), there can be exceptions. 
 	  These exceptions are explicitly recorded in the <b>except</b> element. 
     </p>
+<a name="optsearch"></a>
+  <h2>Optimal Searching</h2>
+  <p>The following steps represent the optimal path for searching for a Consent resource.</p>
+  <ol>
+    <li>Request one or more Consent where status=active by Consent.scope (with patient(s), if none specified, get all).  Policy will decide how to deal with multiple per patient and how to iterate through (e.g., select most recent).</li>
+    <li>Locally inspect Consent.provision for base policy acceptance/denial with Consent.policyRule</li>
+    <li>If policyRule not understandable, refer to Privacy Office</li>
+    <li>Locally inspect Consent.provision for contexts (e.g., provision.purpose, provision.actor, etc.) as above</li>
+    <li>Inspect Consent.provision.provision (et.al) for exceptions</li>
+  </ol>
+</div>
 </div>
