@@ -2237,19 +2237,46 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
   }
 
   public String getWorkingCode() {
-	if (code != null && code.hasExtension(ToolingExtensions.EXT_XML_TYPE)) {
-      String s;
-      try {
-	    s = code.getExtensionString(ToolingExtensions.EXT_XML_TYPE);
-      } catch (FHIRException e) {
-        return getCode();
-      }
-      if (s.toLowerCase().contains("uri"))
-	    return "uri";
-      else
-	    return "string";
-    } else
-	  return getCode();
+	  try {
+		  if (hasExtension(ToolingExtensions.EXT_FHIR_TYPE))
+			  return getExtensionString(ToolingExtensions.EXT_FHIR_TYPE);
+		  if (!hasCodeElement()) 
+			  return null;
+		  if (getCodeElement().hasExtension(ToolingExtensions.EXT_XML_TYPE)) {
+			  String s = getCodeElement().getExtensionString(ToolingExtensions.EXT_XML_TYPE);
+			  if ("xsd:gYear OR xsd:gYearMonth OR xsd:date OR xsd:dateTime".equals(s))
+				  return "dateTime";
+			  if ("xsd:gYear OR xsd:gYearMonth OR xsd:date".equals(s))
+				  return "date";
+			  if ("xsd:dateTime".equals(s))
+				  return "instant";
+			  if ("xsd:token".equals(s))
+				  return "code";
+			  if ("xsd:boolean".equals(s))
+				  return "boolean";
+			  if ("xsd:string".equals(s))
+				  return "string";
+			  if ("xsd:time".equals(s))
+				  return "time";
+			  if ("xsd:int".equals(s))
+				  return "integer";
+			  if ("xsd:decimal OR xsd:double".equals(s))
+				  return "decimal";
+			  if ("xsd:base64Binary".equals(s))
+				  return "base64Binary";
+			  if ("xsd:positiveInteger".equals(s))
+				  return "positiveInt";
+			  if ("xsd:nonNegativeInteger".equals(s))
+				  return "unsignedInt";
+			  if ("xsd:anyURI".equals(s))
+				  return "uri";
+
+			  throw new Error("Unknown xml type '"+s+"'");
+		  }
+		  return getCode();
+	  } catch (FHIRException e) {
+		  throw new Error(e);
+	  }
   }
 
 // end addition
@@ -7528,6 +7555,22 @@ When pattern[x] is used to constrain a complex object, it means that each proper
   public String present() {
     return hasId() ? getId() : getPath();
   }  
+
+  public boolean hasCondition(IdType id) {
+	    for (IdType c : getCondition()) {
+	      if (c.primitiveValue().equals(id.primitiveValue()))
+	        return true;
+	    }
+	    return false;
+	  }
+
+	  public boolean hasConstraint(String key) {
+	    for (ElementDefinitionConstraintComponent c : getConstraint()) {
+	      if (c.getKey().equals(key))
+	        return true;
+	    }
+	    return false;
+	  }  
 
 
 // end addition

@@ -48,6 +48,7 @@ import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Extension;
+import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.IntegerType;
 import org.hl7.fhir.r4.model.PrimitiveType;
 import org.hl7.fhir.r4.model.Quantity;
@@ -457,7 +458,7 @@ public class ProfileUtilities extends TranslatingUtilities {
             ((Base) e.getUserData("diff-source")).setUserData(DERIVATION_POINTER, e.getUserData(DERIVATION_POINTER));
         }
       if (!e.hasUserData(GENERATED_IN_SNAPSHOT)) {
-          System.out.println("Error in snapshot generation: Differential for "+derived.getUrl()+" with " + (e.hasId() ? "id: "+e.getId() : "path: "+e.getPath())+" has an element that is not marked with a snapshot match");
+          System.out.println("Error in snapshot generation: Differential for "+derived.getUrl()+" has an element " + (e.hasId() ? "id: "+e.getId() : "path: "+e.getPath())+" that is not marked with a snapshot match - check validity of differential (including order)");
         if (exception)
             throw new DefinitionException("Snapshot for "+derived.getUrl()+" does not contain an element that matches an existing differential element that has "+(e.hasId() ? "id: "+e.getId() : "path: "+e.getPath()));
         else
@@ -631,14 +632,14 @@ public class ProfileUtilities extends TranslatingUtilities {
           baseCursor++;
         } else if (diffMatches.size() == 1 && (slicingDone || (!isImplicitSlicing(diffMatches.get(0), cpath) && !(diffMatches.get(0).hasSlicing() || (isExtension(diffMatches.get(0)) && diffMatches.get(0).hasSliceName()))))) {// one matching element in the differential
           ElementDefinition template = null;
-          if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !"Reference".equals(diffMatches.get(0).getType().get(0).getCode())) {
+          if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !"Reference".equals(diffMatches.get(0).getType().get(0).getWorkingCode())) {
             CanonicalType p = diffMatches.get(0).getType().get(0).getProfile().get(0);
             StructureDefinition sd = context.fetchResource(StructureDefinition.class, p.getValue());
             if (sd != null) {
               if (!sd.hasSnapshot()) {
                 StructureDefinition sdb = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
                 if (sdb == null)
-                  throw new DefinitionException("no base for "+sd.getBaseDefinition());
+                  throw new DefinitionException("Unable to find base "+sd.getBaseDefinition()+" for "+sd.getUrl());
                 generateSnapshot(sdb, sd, sd.getUrl(), (sdb.hasUserData("path")) ? Utilities.extractBaseUrl(sdb.getUserString("path")) : webUrl, sd.getName());
               }
               ElementDefinition src;
@@ -1273,6 +1274,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     if (usage.hasBinding())
       res.setBinding(usage.getBinding().copy());
     for (ElementDefinitionConstraintComponent c : usage.getConstraint())
+      if (!res.hasConstraint(c.getKey()))
       res.addConstraint(c);
     for (Extension e : usage.getExtension()) {
       if (!res.hasExtension(e.getUrl()))
@@ -1320,11 +1322,11 @@ public class ProfileUtilities extends TranslatingUtilities {
         first = false;
       else
         b.append(", ");
-      b.append(d);
+      b.append(d.getType().toCode()+":"+d.getPath());
     }
     b.append("(");
     if (slice.hasOrdered())
-      b.append(slice.getOrderedElement().asStringValue());
+      b.append(slice.getOrdered() ? "ordered" : "unordered");
     b.append("/");
     if (slice.hasRules())
       b.append(slice.getRules().toCode());
@@ -1490,7 +1492,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           j++;
         if (j < markdown.length()) {
           String url = markdown.substring(i+2, j);
-          if (!Utilities.isAbsoluteUrl(url)) {
+          if (!Utilities.isAbsoluteUrl(url) && !url.startsWith("..")) {
             b.append("](");
             b.append(webUrl);
             i = i + 1;
@@ -1900,13 +1902,13 @@ public class ProfileUtilities extends TranslatingUtilities {
               for (TypeRefComponent td : base.getType()) {;
                 String tt = td.getWorkingCode();
                 b.append(tt);
-                if (td.hasCode() && (tt.equals(t) || "Extension".equals(tt) ||
+                if (td.hasCode() && (tt.equals(t) || "Extension".equals(tt) || (t.equals("uri") && tt.equals("string"))  || (t.equals("uri") && tt.equals("url")) || // work around for old badly generated SDs
                     "Element".equals(tt) || "*".equals(tt) ||
                     (("Resource".equals(tt) || ("DomainResource".equals(tt)) && pkp.isResource(t)))))
                   ok = true;
               }
               if (!ok)
-                throw new DefinitionException("StructureDefinition "+purl+" at "+derived.getPath()+": illegal constrained type "+t+" from "+b.toString()+" in "+srcSD.getUrl());
+                throw new DefinitionException("StructureDefinition "+pn+" at "+derived.getPath()+": illegal constrained type "+t+" from "+b.toString()+" in "+srcSD.getUrl());
             }
           }
           base.getType().clear();
@@ -1950,9 +1952,15 @@ public class ProfileUtilities extends TranslatingUtilities {
       }
       if (derived.hasConstraint()) {
       	for (ElementDefinitionConstraintComponent s : derived.getConstraint()) {
+          if (!base.hasConstraint(s.getKey())) {
       	  ElementDefinitionConstraintComponent inv = s.copy();
           base.getConstraint().add(inv);
       	}
+      }
+      }
+      for (IdType id : derived.getCondition()) {
+        if (!base.hasCondition(id))
+          base.getCondition().add(id);
       }
       
       // now, check that we still have a bindable type; if not, delete the binding - see task 8477
@@ -2238,8 +2246,9 @@ public class ProfileUtilities extends TranslatingUtilities {
           tt.setUserData(DERIVATION_EQUALS, true);
           types.add(tt);
         }
-      } else
+        } else {
         return c;
+    }
     }
     }
 
@@ -2247,10 +2256,11 @@ public class ProfileUtilities extends TranslatingUtilities {
 
     TypeRefComponent tl = null;
     for (TypeRefComponent t : types) {
-      if (first)
+      if (first) {
         first = false;
-      else
+      } else {
         c.addPiece(checkForNoChange(tl, gen.new Piece(null,", ", null)));
+      }
       tl = t;
       if (t.hasTarget()) {
         c.getPieces().add(gen.new Piece(corePath+"references.html", t.getWorkingCode(), null));
@@ -2469,8 +2479,11 @@ public class ProfileUtilities extends TranslatingUtilities {
     List<ElementDefinition> list = diff ? profile.getDifferential().getElement() : profile.getSnapshot().getElement();
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     profiles.add(profile);
-    if (list.isEmpty()) 
-      throw new FHIRException((diff ? "Differential" : "Snapshot") + " is empty generating hierarchical table for "+profile.getUrl());
+    if (list.isEmpty()) {
+      ElementDefinition root = new ElementDefinition().setPath(profile.getType());
+      root.setId(profile.getType());
+      list.add(root);
+    }
     genElement(defFile == null ? null : defFile+"#", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, imagePath, true, logicalModel, profile.getDerivation() == TypeDerivationRule.CONSTRAINT && usesMustSupport(list), allInvariants, null);
     try {
       return gen.generate(model, imagePath, 0, outputTracker);
@@ -2509,7 +2522,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     StructureDefinition profile = profiles == null ? null : profiles.get(profiles.size()-1);
     String s = tail(element.getPath());
     if (element.hasSliceName())
-      s = element.getSliceName();
+      s = s +":"+element.getSliceName();
     Row typesRow = null;
     
     List<ElementDefinition> children = getChildren(all, element);
@@ -4609,6 +4622,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   public static String buildR2Discriminator(ElementDefinitionSlicingDiscriminatorComponent t) throws FHIRException {
     switch (t.getType()) {
     case PROFILE: return t.getPath()+"/@profile";
+    case PATTERN: return t.getPath()+"/@pattern";
     case TYPE: return t.getPath()+"/@type";
     case VALUE: return t.getPath();
     case EXISTS: return t.getPath(); // determination of value vs. exists is based on whether there's only 2 slices - one with minOccurs=1 and other with maxOccur=0

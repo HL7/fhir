@@ -93,4 +93,29 @@ public class PrimitiveType extends DefinedCode {
     this.v3 = v3;
   }
 
+  public String getFHIRPathType() {
+    String s = getCode();
+    if (s.equals("boolean"))
+      return "Boolean";
+    if (s.equals("base64Binary"))
+      return "String";
+    if (s.equals("date"))
+      return "Date";
+    if (s.equals("dateTime"))
+      return "DateTime";
+    if (s.equals("time"))
+      return "Time";
+    if (s.equals("instant"))
+      return "DateTime";
+    if (s.equals("string"))
+      return "String";
+    if (s.equals("uri"))
+      return "String";
+    if (s.equals("integer"))
+      return "Integer";
+    if (s.equals("decimal"))
+      return "Decimal";
+    
+    throw new Error("Unsupported type "+getCode());
+  }
 }

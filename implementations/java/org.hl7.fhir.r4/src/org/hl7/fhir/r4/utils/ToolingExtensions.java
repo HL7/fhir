@@ -62,6 +62,7 @@ import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
+import org.hl7.fhir.r4.model.UrlType;
 import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.utilities.StandardsStatus;
@@ -144,6 +145,7 @@ public class ToolingExtensions {
   public static final String EXT_MAPPING_TGTCARD = "http://hl7.org/fhir/tools/StructureDefinition/conceptmap-target-cardinality";
   public static final String EXT_PRIVATE_BASE = "http://hl7.org/fhir/tools/";
   public static final String EXT_ALLOWED_TYPE =  "http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type";
+  public static final String EXT_FHIR_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type";
 
 
   // specific extension helpers
@@ -769,5 +771,26 @@ public class ToolingExtensions {
 //    return hasExtension(cs, EXT_OID);
 //  }
 //  
-  
+
+  public static void addCodeExtension(Element e, String url, String content) {
+	  if (!StringUtils.isBlank(content)) {
+		  Extension ex = getExtension(e, url);
+		  if (ex != null)
+			  ex.setValue(new CodeType(content));
+		  else
+			  e.getExtension().add(Factory.newExtension(url, new CodeType(content), true));   
+	  }
+  }
+
+  public static void addUrlExtension(Element e, String url, String content) {
+	    if (!StringUtils.isBlank(content)) {
+	      Extension ex = getExtension(e, url);
+	      if (ex != null)
+	        ex.setValue(new UrlType(content));
+	      else
+	        e.getExtension().add(Factory.newExtension(url, new UrlType(content), true));   
+	    }
+	  }
+
+
 }

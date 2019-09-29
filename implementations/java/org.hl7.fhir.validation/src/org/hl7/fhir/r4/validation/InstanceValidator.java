@@ -2116,7 +2116,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private StructureDefinition getProfileForType(String type, List<TypeRefComponent> list) {
     for (TypeRefComponent tr : list) {
-      String url = tr.getCode();
+      String url = tr.getWorkingCode();
       if (!Utilities.isAbsoluteUrl(url))
         url = "http://hl7.org/fhir/StructureDefinition/" + url;
       long t = System.nanoTime();
@@ -3591,14 +3591,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               ei.element.setUserData("elementSupported", "N");
         }
 
-        if (ei.definition.getType().size() == 1 && !"*".equals(ei.definition.getType().get(0).getCode()) && !"Element".equals(ei.definition.getType().get(0).getCode())
-            && !"BackboneElement".equals(ei.definition.getType().get(0).getCode())) {
-          type = ei.definition.getType().get(0).getCode();
+        if (ei.definition.getType().size() == 1 && !"*".equals(ei.definition.getType().get(0).getCode()) && !"Element".equals(ei.definition.getType().get(0).getWorkingCode())
+            && !"BackboneElement".equals(ei.definition.getType().get(0).getWorkingCode())) {
+          type = ei.definition.getType().get(0).getWorkingCode();
           // Excluding reference is a kludge to get around versioning issues
           if (ei.definition.getType().get(0).hasProfile())
             profiles.add(ei.definition.getType().get(0).getProfile().get(0).getValue());
 
-        } else if (ei.definition.getType().size() == 1 && "*".equals(ei.definition.getType().get(0).getCode())) {
+        } else if (ei.definition.getType().size() == 1 && "*".equals(ei.definition.getType().get(0).getWorkingCode())) {
           String prefix = tail(ei.definition.getPath());
           assert prefix.endsWith("[x]");
           type = ei.name.substring(prefix.length() - 3);
