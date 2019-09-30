@@ -4132,6 +4132,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     zip.addFiles(page.getFolders().dstDir, "", ".schema.json", null);
     zip.close();
     Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir.schema.json.zip"), f);
+    zip = new ZipGenerator(page.getFolders().dstDir + "fhir.schema.shex.zip");
+    zip.addFileName("fhir.shex", Utilities.path(page.getFolders().dstDir, "fhir.shex"), false);
+    zip.close();
   }
 
   private void produceResource1(ResourceDefn resource, boolean isAbstract) throws Exception {
