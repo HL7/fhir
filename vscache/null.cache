@@ -14,7 +14,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"self\"; The code provided (#self) is not  valid in the value set SubscriberRelationshipCodes"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -32,7 +32,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"logic-library\"; The code provided (#logic-library) is not  valid in the value set LibraryType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -50,7 +50,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"model-definition\"; The code provided (#model-definition) is not  valid in the value set LibraryType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -68,7 +68,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"asset-collection\"; The code provided (#asset-collection) is not  valid in the value set LibraryType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -86,7 +86,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"proportion\"; The code provided (#proportion) is not  valid in the value set MeasureScoring"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -104,7 +104,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"process\"; The code provided (#process) is not  valid in the value set MeasureType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -122,7 +122,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"initial-population\"; The code provided (#initial-population) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -140,7 +140,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"denominator\"; The code provided (#denominator) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -158,7 +158,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"denominator-exclusions\"; The code provided (#denominator-exclusions) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -176,7 +176,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"numerator\"; The code provided (#numerator) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -194,7 +194,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"denominator-exclusion\"; The code provided (#denominator-exclusion) is not  valid in the value set MeasurePopulationType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -212,7 +212,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"opportunity\"; The code provided (#opportunity) is not  valid in the value set CompositeMeasureScoring"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -230,7 +230,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"cohort\"; The code provided (#cohort) is not  valid in the value set MeasureScoring"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -248,7 +248,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"create\"; The code provided (#create) is not  valid in the value set ActionType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -266,7 +266,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"clinical-protocol\"; The code provided (#clinical-protocol) is not  valid in the value set PlanDefinitionType"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -753,7 +753,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"408480009\"; The code provided (#408480009) is not  valid in the value set PracticeSettingCodeValueSet"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1240,7 +1240,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"394580004\"; The code provided (#394580004) is not  valid in the value set PracticeSettingCodeValueSet"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1727,6 +1727,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "The code system \"\" is not known for the code \"394610002\"; The code provided (#394610002) is not  valid in the value set PracticeSettingCodeValueSet"
 }
 -------------------------------------------------------------------------------------
