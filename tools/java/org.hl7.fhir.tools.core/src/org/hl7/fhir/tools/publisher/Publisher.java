@@ -40,6 +40,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -122,6 +123,7 @@ import org.hl7.fhir.definitions.validation.ConceptMapValidator;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.igtools.tests.AllGuidesTests;
 import org.hl7.fhir.r4.conformance.ProfileComparer;
@@ -242,6 +244,9 @@ import org.hl7.fhir.utilities.NDJsonWriter;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.cache.NpmPackage;
+import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.hl7.fhir.utilities.json.JSONUtil;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
@@ -2938,9 +2943,14 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.log("....IG Builder (2)", LogMessageType.Process);
       javaReferencePlatform.buildIGPublisher(page.getFolders().dstDir + "igpack.zip");
 
-      SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
-      self.generate(page.getFolders().dstDir, page.getBaseURL(), false, new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()));
+      SpecNPMPackageGenerator npmGen = new SpecNPMPackageGenerator();
+      npmGen.generate(page.getFolders().dstDir, page.getBaseURL(), false, new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()));
 
+      // R4 technical correction build specials 
+      PackageCacheManager pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
+      pcm.addPackageToCache("hl7.fhir.core", "4.0.0", new FileInputStream(Utilities.path(page.getFolders().dstDir, "package.tgz")));
+      NpmPackage npm = pcm.loadPackageCache("hl7.fhir.core", "4.0.0");
+      extractToPackageMaster(npm, "C:\\work\\org.hl7.fhir\\packages\\hl7.fhir.rX");     
 
       page.log(" ...zips", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
@@ -2990,6 +3000,57 @@ public class Publisher implements URIResolver, SectionNumberer {
       checkAllOk();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
+  }
+
+  private void extractToPackageMaster(NpmPackage npm, String root) throws IOException, FHIRFormatError {
+    System.out.println("Updating Packages Master");
+    String corePath = Utilities.path(root, "hl7.fhir.r4.core", "package");
+    String examplesPath = Utilities.path(root, "hl7.fhir.r4.examples", "package");
+    String elementsPath = Utilities.path(root, "hl7.fhir.r4.elements", "package");
+    int coreTotal = new File(corePath).list().length;
+    int examplesTotal = new File(examplesPath).list().length;
+    int elementsTotal = new File(elementsPath).list().length;
+    int coreCount = 0;
+    int examplesCount = 0;
+    int elementsCount = 0;
+    JsonParser jp = new JsonParser();
+    for (String n : npm.list("package")) {
+      if (n.contains("-")) {
+        if (n.contains("StructureDefinition-de-")) {
+          elementsCount++;
+          InputStream src = npm.load("package", n);
+          OutputStream dst = new FileOutputStream(Utilities.path(elementsPath, n));
+          copyData(src, dst);
+        } else {
+          examplesCount++;
+          InputStream src = npm.load("package", n);
+          OutputStream dst = new FileOutputStream(Utilities.path(elementsPath, n));
+          copyData(src, dst);
+          if (isCoreResource(n)) {
+            coreCount++;
+            DomainResource dr = (DomainResource) jp.parse(npm.load("package", n));
+            dr.setText(null);
+            jp.compose(new FileOutputStream(Utilities.path(corePath, n)), dr);
+          }
+        }
+      }
+    }
+    System.out.println("  Core @ "+corePath+": Replaced "+coreCount+" of "+coreTotal);
+    System.out.println("  Examples @ "+examplesPath+": Replaced "+examplesCount+" of "+examplesTotal);
+    System.out.println("  Elements @ "+elementsPath+": Replaced "+elementsCount+" of "+elementsTotal);
+  }
+  
+  private boolean isCoreResource(String n) {
+    String rt = n.substring(0, n.indexOf("-"));
+    return Utilities.existsInList(rt, "CapabilityStatement", "CodeSystem", "CompartmentDefinition", "ConceptMap", "NamingSystem", "OperationDefinition", "SearchParameter", "StructureDefinition", "StructureMap", "ValueSet");
+  }
+
+  private static void copyData(InputStream in, OutputStream out) throws IOException {
+    byte[] buffer = new byte[8 * 1024];
+    int len;
+    while ((len = in.read(buffer)) > 0) {
+      out.write(buffer, 0, len);
+    }
   }
 
   private void produceConceptMap(ConceptMap cm, ResourceDefn rd, SectionTracker st) throws Exception {
