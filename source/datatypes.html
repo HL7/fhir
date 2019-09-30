@@ -1493,13 +1493,22 @@ it may be a graphical image that represents a signature or a signature process.
 </div>
 
 <p>
-Note: One consequence of signing the document is that URLs, identifiers and internal references are frozen and
+Notes:
+</p>
+<ul>
+ <li>One consequence of signing the document is that URLs, identifiers and internal references are frozen and
 cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed
 ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is
 recommended that systems consider carefully the impact of any signature processes. The impact of signatures
 on <a href="documents.html">Document bundles</a> and their related processes is the most well understood
 use of digital signatures.
-</p>
+</li>
+<li>
+Note that following common normalization procedures in XML can assign the same normalized text to resources 
+with slightly different meanings, since leading whitespace matters in markdown text, and the XML representation 
+serializes the <a href="datatypes.html#markdown">markdown</a> datatype using attributes.
+</li>
+</ul>
 
 <p>&nbsp;</p>
 <a name="XML"></a>
