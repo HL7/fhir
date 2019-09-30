@@ -369,9 +369,19 @@ public class ProfileGenerator {
 
     @Override
     public int compare(ElementDefinitionConstraintComponent arg0, ElementDefinitionConstraintComponent arg1) {
-      return arg0.getKey().compareTo(arg1.getKey());
+      String k0 = arg0.getKey();
+      String k1 = arg1.getKey();
+      if (k0.contains("-") && k1.contains("-")) {
+        String p0 = k0.substring(0, k0.indexOf("-"));
+        String i0 = k0.substring(k0.indexOf("-")+1);
+        String p1 = k1.substring(0, k1.indexOf("-"));
+        String i1 = k1.substring(k1.indexOf("-")+1);
+        if (Utilities.isInteger(i0) && Utilities.isInteger(i1) && p0.equals(p1)) {
+          return Integer.compare(Integer.parseInt(i0),  Integer.parseInt(i1));
+        }
+      }
+      return k0.compareTo(k1);
     }
-
   }
 
   private void addElementConstraintToSnapshot(StructureDefinition sd) {
@@ -1464,9 +1474,9 @@ public class ProfileGenerator {
     } else if (path.contains(".") && Utilities.noString(e.typeCode()) && snapshot != SnapShotMode.None)
       addElementConstraints(defType, ce);
     buildDefinitionFromElement(path, ce, e, ap, p, null);
-    if (!Utilities.noString(e.getStatedType()))
+    if (!Utilities.noString(e.getStatedType())) {
       ToolingExtensions.addStringExtension(ce, "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name", e.getStatedType());
-
+    }
 
     if (!root) {
       if (e.typeCode().startsWith("@"))  {
@@ -1476,7 +1486,7 @@ public class ProfileGenerator {
         tr.getFormatCommentsPre().add("Note: special primitive values have a FHIRPath system type. e.g. this is compiler magic (j)");
         tr.setCode(Constants.NS_SYSTEM_TYPE+ "String"); 
         if (path.equals("Extension.url")) {
-          ToolingExtensions.addUrlExtension(tr, ToolingExtensions.EXT_FHIR_TYPE, "url");
+          ToolingExtensions.addUrlExtension(tr, ToolingExtensions.EXT_FHIR_TYPE, "uri");
         } else {
           ToolingExtensions.addUrlExtension(tr, ToolingExtensions.EXT_FHIR_TYPE, "string");
         }
@@ -1487,7 +1497,7 @@ public class ProfileGenerator {
           if (t.hasParams() && !Utilities.existsInList(t.getName(), "Reference", "canonical")) {
             throw new Exception("Only resource types can specify parameters.  Path " + path + " in profile " + p.getName());
           }
-          if(t.getParams().size() > 1)
+          if (t.getParams().size() > 1)
           {
             if (t.getProfile() != null && t.getParams().size() !=1) {
               throw new Exception("Cannot declare profile on a resource reference declaring multiple resource types.  Path " + path + " in profile " + p.getName());
