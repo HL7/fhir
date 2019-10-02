@@ -2878,7 +2878,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.close();
       System.gc();
 
-      page.log("....dstu2 in dstu3 format", LogMessageType.Process);
+      page.log("....r3 in r4 format", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().dstDir + "definitions-r2asr3.xml.zip");
       page.getDiffEngine().saveR2AsR3(zip, FhirFormat.XML);
       zip.close();
@@ -3141,7 +3141,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (page.getDefinitions().hasResource(name) || (page.getDefinitions().getBaseResources().containsKey(name) && !name.equals("Parameters"))) {
       String src = TextFile.fileToString(page.getFolders().srcDir + "template-version-maps.html");
       TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, page.getDefinitions().getResourceByName(name), null, null, null, null, null, src, null, null, "res-R2/R3 Conversions", n + "-version-maps.html", null, values, res.getWg(), null), st, n
+          insertSectionNumbers(page.processResourceIncludes(n, page.getDefinitions().getResourceByName(name), null, null, null, null, null, src, null, null, "res-R3/R4 Conversions", n + "-version-maps.html", null, values, res.getWg(), null), st, n
               + "-version-maps.html", 0, null), page.getFolders().dstDir + n + "-version-maps.html");
       page.getHTMLChecker().registerFile(n + "-version-maps.html", "Version Maps for " + name, HTMLLinkChecker.XHTML_TYPE, true);
     }    
