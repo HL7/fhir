@@ -227,6 +227,7 @@ public class ProfileGenerator {
     de.setPurpose("Data Elements are defined for each element to assist in questionnaire construction etc");
     de.setFhirVersion(version);
     de.setKind(StructureDefinitionKind.LOGICAL);
+    de.setType("DataElement");
     de.setAbstract(false);
     de.setType(de.getName());
     de.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element");
@@ -2283,6 +2284,7 @@ public class ProfileGenerator {
     p.setTitle(r.getName());
     p.setFhirVersion(version);
     p.setVersion(version.toCode());
+    p.setType(r.getRoot().getName());
     ToolingExtensions.setStandardsStatus(p, r.getStatus(), null);
 
     ToolResourceUtilities.updateUsage(p, igd.getCode());
