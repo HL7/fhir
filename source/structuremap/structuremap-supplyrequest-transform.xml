@@ -38,12 +38,14 @@ group main
     <typeMode value="none"/>
     <input>
       <name value="source"/>
+      <type value="ActivityDefinition"/>
       <mode value="source"/>
     </input>  
     <input>
-	  <name value="target"/>
+	    <name value="target"/>
+      <type value="SupplyRequest"/>
       <mode value="target"/>
-	</input>
+  	</input>
     <rule>
       <name value="status"/>
       <source>
