@@ -2751,10 +2751,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return count;
   }
 
-  private void generateCopyright(XhtmlNode x, CodeSystem cs, String lang) {
+  private void generateCopyright(XhtmlNode x, CodeSystem cs, String lang) throws FHIRFormatError, DefinitionException, IOException {
     XhtmlNode p = x.para();
     p.b().tx(context.translator().translate("xhtml-gen-cs", "Copyright Statement:", lang));
-    smartAddText(p, " " + cs.getCopyright());
+    addMarkdown(x, cs.getCopyright());
   }
 
 
@@ -3244,10 +3244,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return false;
   }
 
-  private void generateCopyright(XhtmlNode x, ValueSet vs) {
+  private void generateCopyright(XhtmlNode x, ValueSet vs) throws FHIRFormatError, DefinitionException, IOException {
     XhtmlNode p = x.para();
     p.b().tx("Copyright Statement:");
-    smartAddText(p, " " + vs.getCopyright());
+    addMarkdown(x, vs.getCopyright());
   }
 
 

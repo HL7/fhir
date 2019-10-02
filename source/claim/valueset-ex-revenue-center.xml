@@ -15,7 +15,7 @@
     </telecom>
   </contact>
   <description value="This value set includes sample Revenue Center codes."/>
-  <copyright value="This is an example set."/>
+  <copyright value="These codes have been appropriated from the [UB04 code set](http://www.nubc.org/) owned and managed by the [AHA](http://www.aha.org/). Users require a [license from the AHA](http://www.nubc.org/licensing/index.dhtml) in order to use these codes. **Note: the codes have been withdrawn in a later version**"/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/ex-revenue-center"/>
