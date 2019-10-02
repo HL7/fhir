@@ -113,7 +113,7 @@ public class ValueSetGenerator {
       }
     }
     ToolingExtensions.addCSComment(cs.addConcept().setCode("xhtml").setDisplay("XHTML").setDefinition("XHTML format, as defined by W3C, but restricted usage (mainly, no active content)"), "Special case: xhtml can only be used in the narrative Data Type");
-    markSpecialStatus(vs, cs);
+    markSpecialStatus(vs, cs, true);
   }
 
 //  private String version() {
@@ -123,17 +123,21 @@ public class ValueSetGenerator {
   private static final String SPECIAL_STATUS_NOTE = "This {name} is normative - it is generated based on the information defined in this specification. "+
     "The definition will remain fixed  across versions, but the actual contents will change from version to version";
   
-  private void markSpecialStatus(ValueSet vs, CodeSystem cs) {
+  private void markSpecialStatus(ValueSet vs, CodeSystem cs, boolean isNormative) {
     ToolingExtensions.setStringExtension(vs, "http://hl7.org/fhir/StructureDefinition/valueset-special-status", SPECIAL_STATUS_NOTE.replaceAll("\\{name\\}", "Value Set"));
-    ToolingExtensions.setStandardsStatus(vs, StandardsStatus.NORMATIVE, "4.0.0");
-    ToolingExtensions.addIntegerExtension(vs, ToolingExtensions.EXT_FMM_LEVEL, 5);
+    if (isNormative) {
+      ToolingExtensions.setStandardsStatus(vs, StandardsStatus.NORMATIVE, "4.0.0");
+      ToolingExtensions.addIntegerExtension(vs, ToolingExtensions.EXT_FMM_LEVEL, 5);
+    }
     ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_WORKGROUP, "fhir");
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
     if (cs != null) {
       ToolingExtensions.setStringExtension(cs, "http://hl7.org/fhir/StructureDefinition/valueset-special-status", SPECIAL_STATUS_NOTE.replaceAll("\\{name\\}", "Code System"));
-      ToolingExtensions.setStandardsStatus(cs, StandardsStatus.NORMATIVE, "4.0.0");
-      ToolingExtensions.addIntegerExtension(cs, ToolingExtensions.EXT_FMM_LEVEL, 5);
+      if (isNormative) {
+        ToolingExtensions.setStandardsStatus(cs, StandardsStatus.NORMATIVE, "4.0.0");
+        ToolingExtensions.addIntegerExtension(cs, ToolingExtensions.EXT_FMM_LEVEL, 5);
+      }
       ToolingExtensions.setCodeExtension(cs, ToolingExtensions.EXT_WORKGROUP, "fhir");
       cs.setStatus(PublicationStatus.ACTIVE);
       cs.setExperimental(false);
@@ -187,7 +191,7 @@ public class ValueSetGenerator {
       }
     }
 
-    markSpecialStatus(vs, cs);
+    markSpecialStatus(vs, cs, true);
   }
 
   private void genAbstractTypes(ValueSet vs) {
@@ -216,7 +220,7 @@ public class ValueSetGenerator {
 
     cs.addConcept().setCode("Type").setDisplay("Type").setDefinition("A place holder that means any kind of data type");
     cs.addConcept().setCode("Any").setDisplay("Any").setDefinition("A place holder that means any kind of resource");
-    markSpecialStatus(vs, cs);
+    markSpecialStatus(vs, cs, true);
   }
 
   private void genDefinedTypes(ValueSet vs, boolean doAbstract) throws Exception {
@@ -235,7 +239,7 @@ public class ValueSetGenerator {
         System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 9: is "+ec+", want to set to "+"fhir");
     }     
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
-    markSpecialStatus(vs, null);
+    markSpecialStatus(vs, null, true);
   }
 
   private void genMessageEvents(ValueSet vs) {
@@ -272,7 +276,7 @@ public class ValueSetGenerator {
       c.setDisplay(transform(e.getCode(), e.getTitle()));
       c.setDefinition(e.getDefinition());
     }
-    markSpecialStatus(vs, cs);
+    markSpecialStatus(vs, cs, false);
   }
 
   

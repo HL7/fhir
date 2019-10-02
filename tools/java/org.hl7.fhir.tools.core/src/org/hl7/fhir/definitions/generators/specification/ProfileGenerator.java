@@ -684,7 +684,7 @@ public class ProfileGenerator {
     p.setKind(StructureDefinitionKind.COMPLEXTYPE);
     p.setAbstract(t.getName().equals("Element") || t.getName().equals("BackboneElement") );
     p.setUserData("filename", t.getName().toLowerCase());
-    p.setUserData("path", "datatypes.html#"+t.getName());
+    p.setUserData("path", definitions.getSrcFile(t.getName())+".html#"+t.getName());
     assert !Utilities.noString(t.typeCode());
     String b = (t.typeCode().equals("Type") ? "Element" : t.typeCode().equals("Structure") ? "BackboneElement" : t.typeCode());
     if (!Utilities.noString(b)) {
@@ -2064,7 +2064,7 @@ public class ProfileGenerator {
         } else {
           ElementDefinition.TypeRefComponent type = dst.getType(t.getName());
           if (t.hasProfile())
-            if (type.getCode().equals("Reference"))
+            if (type.getWorkingCode().equals("Reference"))
               type.addTargetProfile(t.getProfile()); 
             else
               type.addProfile(t.getProfile());
