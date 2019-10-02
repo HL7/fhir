@@ -63,6 +63,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
+import org.hl7.fhir.dstu2.model.ValueSet;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
@@ -1369,7 +1370,14 @@ public class ProfileGenerator {
   }
 
   private String buildValueSetReference(BindingSpecification src) throws Exception {
-    String v = src.getStrength() == BindingStrength.REQUIRED ? "|"+version.toCode() : "";
+    String v = ""; 
+    if (src.getStrength() == BindingStrength.REQUIRED) {
+      if (src.getValueSet() != null && src.getValueSet().hasVersion()) {
+        v = "|"+src.getValueSet().getVersion();
+      } else {
+        v = "|"+version.toCode();
+      }
+    }
     switch (src.getBinding()) {
     case Unbound: return null;
     case CodeList:

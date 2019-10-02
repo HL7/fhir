@@ -664,7 +664,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.STRUCTURE, path, e.getDefinition().endsWith(".") || e.getDefinition().endsWith("?") , "Definition should end with '.' or '?', but is '"+e.getDefinition()+"'");
     if (e.usesType("string") && e.usesType("CodeableConcept"))
       rule(errors, IssueType.STRUCTURE, path, e.hasComments() && e.getComments().contains("string") && e.getComments().contains("CodeableConcept"), "Element type cannot have both string and CodeableConcept unless the difference between their usage is explained in the comments");
-    warning(errors, IssueType.BUSINESSRULE, path, Utilities.noString(e.getTodo()), "Element has a todo associated with it ("+e.getTodo()+")");
+//    warning(errors, IssueType.BUSINESSRULE, path, Utilities.noString(e.getTodo()), "Element has a todo associated with it ("+e.getTodo()+")");
     
     if (!Utilities.noString(e.getW5())) {
       if (path.contains("."))
@@ -927,7 +927,7 @@ public class ResourceValidator extends BaseValidator {
     for (String s : provided)
       if (!defn.contains(s))
         ok = true;
-    warning(errors, IssueType.STRUCTURE, path, ok, "Short description doesn't add any new content: '"+e.getShortDefn()+"'");
+//    warning(errors, IssueType.STRUCTURE, path, ok, "Short description doesn't add any new content: '"+e.getShortDefn()+"'");
   }
 
   private boolean nameOverlaps(String name, String parentName) {
