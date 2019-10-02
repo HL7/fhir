@@ -64,7 +64,7 @@ a series would be stored together, and thus instance-level endpoints are not def
 Different Endpoint connection types may have different capabilities, protocols or requirements; and the specified 
 <code>Endpoint.address</code> may require manipulation. See below for the details on use of imaging-related Endpoint connection types.
 </p>
-<a name="endpoint"></a>
+<a name="wado-rs"></a>
 <h4>WADO-RS</h4>
 <p>
 An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rs</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
@@ -106,19 +106,28 @@ of a multi-frame instance may be retrieved using the frames sub-resource.
 </p>
 <p>
 For example, provided the Accept header indicates a preference for image/jpeg, the example above can be
-extended with parameters that cause a JPEG thumbnail (100 columns by 100 rows) of a region extending from
-the top-left corner of the original image, across 1000 and down 3000 pixels, to be retrieved (additional
+extended with parameters that cause a JPEG (rendered to a size of 400 columns by 400 rows) of a region extending from
+the top-left corner of the original image to 1000 pixels across and 3000 pixels right, to be retrieved (additional
 sub-resource and parameters emphasized):
 </p>
 <pre>
 
-https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2<b>/rendered?viewport=100,100,0,0,1000,3000</b>
+https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2<b>/rendered?viewport=400,400,0,0,1000,3000</b>
+
+</pre>
+<p>
+If the WADO-RS service supports the DICOMweb thumbnail resource, a representative image can be requested, for example, to display alongside the study. The URL would look as follows:
+</p>
+<pre>
+
+https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/thumbnail
 
 </pre>
 <p>
 For further details on DICOM WADO-RS capabilities including additional rendering parameters,
 see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
 </p>
+<a name="wado-uri"></a>
 <h4>WADO-URI</h4>
 <p>An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
 identifies a DICOM WADO-URI service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
@@ -167,6 +176,7 @@ https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40
 For further details on DICOM WADO-URI capabilities including additional rendering parameters,
 see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
 </p>
+<a name="iid"></a>
 <h4>IID</h4>
 <p>An <code>Endpoint.connectionType</code> of code <code>ihe-iid</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
 identifies an IHE <b>Invoke Image Display (IID)</b> service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
@@ -200,8 +210,9 @@ the <a href="http://www.ihe.net/Technical_Frameworks/#radiology">IHE Technical F
 or the introduction on the <a href="http://wiki.ihe.net/index.php/Invoke_Image_Display">IHE IID Profile Wiki</a>.
 </p>
 
-
+<a name="use-case"></a>
 <h3>Use Case</h3>
+<a name="ehr-usecase"></a>
 <h4>EHR access to imaging studies</h4>
 <p>
 Amy, a family physician, would like to see a list of available studies for her patient, Alex. Her EHR
@@ -211,6 +222,7 @@ study returned. There is enough information provided in the response to obtain a
 call, or to launch a viewer using an <a href="http://www.ihe.net">IHE Radiology - Invoke Image Display (IID)</a>
 profile call using the url elements found in the <a href="imagingstudy.html">ImagingStudy</a>.
 </p>
+<a name="scheduled"></a>
 <h4>Comprehensive Imaging Scheduled Workflow</h4>
 <p>
 Joe Angina complains of shortness of breath and occasional chest pain to his primary care physician, Dr. Pat Down at
