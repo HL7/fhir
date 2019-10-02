@@ -1207,9 +1207,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + makeArchives() + s3;
       else if (com[0].equals("pagepath"))
         src = s1 + pagePath + s3;
-      else if (com[0].equals("rellink"))
+      else if (com[0].equals("rellink")) {
+        if (!pagePath.contains(".html"))
+          throw new Error("Invalid link: "+pagePath+" at "+workingTitle);
         src = s1 + Utilities.URLEncode(pagePath) + s3;
-      else if (com[0].equals("baseURL"))
+      } else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;
       else if (com[0].equals("baseURLn"))
         src = s1 + Utilities.appendForwardSlash(baseURL) + s3;
@@ -6256,7 +6258,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     StringBuilder b = new StringBuilder();
     for (ElementDefn e : definitions.getTypes().values()) {
       if (usesType(e, tn)) {
-        b.append(", <a href=\"#").append(e.getName()).append("\">").append(e.getName()).append("</a>");
+        b.append(", <a href=\"").append(definitions.getSrcFile(e.getName())+".html#"+e.getName()).append("\">").append(e.getName()).append("</a>");
       }
     }
     List<String> resources = new ArrayList<String>();
@@ -6272,7 +6274,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     Collections.sort(resources);
     for (String n : resources)
-      b.append(", <a href=\"").append(n.toLowerCase()).append(".html\">").append(n).append("</a>");
+      b.append(", <a href=\"").append(definitions.getSrcFile(n)+".html#"+n.toLowerCase()).append("\">").append(n).append("</a>");
 
     if (b.toString().length() < 2)
       return "(not used as yet)";
@@ -6482,9 +6484,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + getReferences(resource.getName()) + s3;
       else if (com[0].equals("pagepath"))
         src = s1 + pagePath + s3;
-      else if (com[0].equals("rellink"))
+      else if (com[0].equals("rellink")) {
+        if (!pagePath.contains(".html"))
+          throw new Error("Invalid link: "+pagePath+" at "+workingTitle);
         src = s1 + Utilities.URLEncode(pagePath) + s3;
-      else if (com[0].equals("baseURL"))
+      } else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;
       else if (com[0].equals("baseURLn"))
         src = s1 + Utilities.appendForwardSlash(baseURL) + s3;
@@ -8605,9 +8609,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getDraftNote(pack, genlevel(level))+s3;
       else if (com[0].equals("pagepath"))
         src = s1+filename+s3;
-      else if (com[0].equals("rellink"))
+      else if (com[0].equals("rellink")) {
+        if (!filename.contains(".html"))
+          src = s1+filename+".html"+s3;
+        else
         src = s1+filename+s3;
-      else if (com[0].equals("schematron"))
+      } else if (com[0].equals("schematron"))
         src = s1+(isDict ? "<i>None</i>" : "<a href=\""+filename+".sch\">Schematron</a>")+s3;
       else if (com[0].equals("summary"))
         src = s1+generateHumanSummary(profile.getResource(), genlevel(level))+s3;
@@ -9085,9 +9092,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + pagePath + s3;
       else if (com[0].equals("extensionurl"))
         src = s1 + ed.getUrl() + s3;
-      else if (com[0].equals("rellink"))
+      else if (com[0].equals("rellink")) {
+        if (!pagePath.contains(".html"))
+          throw new Error("Invalid link: "+pagePath+" at "+workingTitle);
         src = s1 + Utilities.URLEncode(pagePath) + s3;
-      else if (com[0].equals("baseURL"))
+      } else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;
       else if (com[0].equals("baseURLn"))
         src = s1 + Utilities.appendForwardSlash(baseURL) + s3;
@@ -9984,9 +9993,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genlevel(level) + s3;
       else if (com[0].equals("pagepath"))
         src = s1 + pack.getId() + s3;
-      else if (com[0].equals("rellink"))
-        src = s1 + Utilities.URLEncode(pack.getId()) + s3;
-      else if (com[0].equals("baseURL"))
+      else if (com[0].equals("rellink")) {
+        if (pack.getId().contains(".html"))
+          throw new Error("Invalid link: "+pack.getId()+" at "+workingTitle);
+        src = s1 + Utilities.URLEncode(pack.getId()+".html") + s3;
+      } else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;
       else if (com[0].equals("description"))
         src = s1 + Utilities.escapeXml(pack.getDescription()) + s3;
