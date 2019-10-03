@@ -12,8 +12,8 @@ other resources.  This pattern serves two purposes:
   this may become available in a future release.)</li>
 </ul>
 <p>
-A "Healthcare Product" is any type of product, manufactured or not, regulated or not, that is used in healthcare, for clinical or operational purposes. 
-The Product pattern provides an abstraction with the common characteristics of a product. 
+A "Healthcare Product" represents any type of product, manufactured or not, regulated or not, that is used in healthcare, for clinical or operational purposes. 
+The Product pattern provides an abstraction with the common characteristics of Healthcare Products. 
 </p>
 </div>
 
