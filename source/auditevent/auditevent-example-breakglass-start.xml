@@ -30,9 +30,7 @@
 	<agent>
 		<!-- who declared the break-glass -->
 		<who>
-			<reference>
-				<value value="Practitioner-example-f001-evdb"/>
-			</reference>
+				<reference value="Practitioner/f001"/>
 		</who>
 		<requestor value="true"/>
 		<!-- where was the break-glass emergency declared -->
