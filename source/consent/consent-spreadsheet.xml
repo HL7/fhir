@@ -15,7 +15,7 @@
   
   
   <TabRatio>697</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3577,7 +3577,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4296,11 +4295,11 @@
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">policy-uri</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">Consent.policy.uri</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Search for Consents aligned with a specific policy or policy date/version.  URIs should be complete with date/version and not assume the Resource will maintain versioning information</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s134"/>
@@ -4351,6 +4350,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
