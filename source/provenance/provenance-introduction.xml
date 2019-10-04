@@ -56,7 +56,7 @@ The W3C Provenance Specification has the following fundamental model:
 Where:
 </p>
 <ul>
-<li>Entity - An entity is a physical, digital, conceptual or other kind of thing with some fixed aspects; entities may be real or imaginary.</li>
+<li>Entity - An entity is a physical, digital, conceptual or other kind of thing with some fixed aspects; entities may be real or imaginary. One or more entities can be the input (.entity) of an activity, and one or more entities can be the output (.target).</li>
 <li>Agent - An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.</li>
 <li>Activity - An activity is something that occurs over a time period and acts upon or with entities. It may include consuming, processing, transforming, modifying, relocating, using, or generating entities.</li>
 </ul>

@@ -111,6 +111,6 @@
 			<code value="OperationOutcome"/>
 			<display value="OperationOutcome"/>
 		</type>
-		<description value="transaction failed"/>
+		<name value="transaction failed"/>
 	</entity>
 </AuditEvent>
