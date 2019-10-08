@@ -1258,9 +1258,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + s3;
       else if (com[0].equals("txsummary"))
         if (resource instanceof CodeSystem)
-          src = s1 + txsummary((CodeSystem) resource) + s3;
+          src = s1 + txsummary((CodeSystem) resource, genlevel(level)) + s3;
         else
-          src = s1 + txsummary((ValueSet) resource) + s3;
+          src = s1 + txsummary((ValueSet) resource, genlevel(level)) + s3;
       else if (com[0].equals("pc.title"))
         src = s1 +Utilities.escapeXml(((ProfileComparer) object).getTitle()) + s3;
       else if (com[0].equals("pc.left"))
@@ -2505,17 +2505,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
-  private String txsummary(ValueSet vs) {
+  private String txsummary(ValueSet vs, String prefix) throws Exception {
     String c = "";
     if (vs.hasCopyright())
-      c = "<tr><td>Copyright:</td><td>"+Utilities.escapeXml(vs.getCopyright())+"</td></tr>\r\n";
+      c = "<tr><td>Copyright:</td><td>"+processMarkdown("vs.copyright", vs.getCopyright(), prefix)+"</td></tr>\r\n";
     return c;
   }
 
-  private String txsummary(CodeSystem vs) {
+  private String txsummary(CodeSystem vs, String prefix) throws Exception {
     String c = "";
     if (vs.hasCopyright())
-      c = "<tr><td>Copyright:</td><td>"+Utilities.escapeXml(vs.getCopyright())+"</td></tr>\r\n";
+      c = "<tr><td>Copyright:</td><td>"+processMarkdown("cs.copyright", vs.getCopyright(), prefix)+"</td></tr>\r\n";
     return c;
   }
 
