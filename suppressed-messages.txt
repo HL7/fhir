@@ -50,3 +50,4 @@ WARNING: DataElement.url: Search Parameter 'DataElement.url' had no found values
 WARNING: HealthcareService.eligibility.comment: MnM must have confirmed this should not be an Annotation
 INFORMATION: Binding @ Goal.target.detail[x]: Need to provide a binding
 WARNING: AdministrableProductDefinition.routeOfAdministration.targetSpecies: Element names should be singular
+WARNING: MedicinalProductDefinition.specialMeasures: Element names should be singular
