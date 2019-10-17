@@ -252,8 +252,6 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     write("package org.hl7.fhir.r5.formats;\r\n");
     write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
-    for (DefinedCode dc : definitions.getPrimitives().values()) 
-      write("import org.hl7.fhir.r5.model."+getPrimitiveTypeModelName(dc.getCode())+";\r\n");
     write("import org.hl7.fhir.r5.model.*;\r\n");
     write("import org.xmlpull.v1.*;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
