@@ -35,5 +35,6 @@
         <value value="true"/>
       </filter>
     </include>
+    <property value="status"/>
   </compose>
 </ValueSet>
