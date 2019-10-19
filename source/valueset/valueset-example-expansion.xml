@@ -122,6 +122,12 @@
 			<name value="version"/>
 			<valueString value="2.50"/>
 		</parameter>
+    <!-- a property that is included in the expansion -->
+    <!-- it's up to the server whether to include any properties that weren't asked for in the expansion. -->
+    <property>
+      <code value="PROPERTY"/> <!-- used below to connect the values to the property -->
+      <uri value="http://loinc.org/property/PROPERTY"/> <!-- formal definition for the property - highly recommended but not manadatory -->
+    </property>
 		<!--   and the actual expansion   -->
 		<!--   
 		  this expansion is made as a hierarchy - a preferred code, followed by two 
@@ -145,6 +151,10 @@
 			<version value="2.50"/>
 			<code value="14647-2"/>
 			<display value="Cholesterol [Moles/volume] in Serum or Plasma"/>
+      <property>
+        <code value="PROPERTY"/>
+        <valueCode value="SCnc"/>
+      </property>
 		</contains>
 		<contains>
 			<abstract value="true"/>
@@ -154,18 +164,30 @@
 				<version value="2.50"/>
 				<code value="2093-3"/>
 				<display value="Cholesterol [Mass/volume] in Serum or Plasma"/>
+        <property>
+          <code value="PROPERTY"/>
+          <valueCode value="SCnc"/>
+        </property>
 			</contains>
 			<contains>
 				<system value="http://loinc.org"/>
 				<version value="2.50"/>
 				<code value="48620-9"/>
 				<display value="Cholesterol [Mass/volume] in Serum or Plasma ultracentrifugate"/>
+        <property>
+          <code value="PROPERTY"/>
+          <valueCode value="MCnc"/>
+        </property>
 			</contains>
 			<contains>
 				<system value="http://loinc.org"/>
 				<version value="2.50"/>
 				<code value="9342-7"/>
 				<display value="Cholesterol [Percentile]"/>
+        <property>
+          <code value="PROPERTY"/>
+          <valueCode value="Prctl"/>
+        </property>
 			</contains>
 		</contains>
 		<contains>
@@ -176,24 +198,40 @@
 				<version value="2.50"/>
 				<code value="2096-6"/>
 				<display value="Cholesterol/Triglyceride [Mass Ratio] in Serum or Plasma"/>
+        <property>
+          <code value="PROPERTY"/>
+          <valueCode value="SCnc"/>
+        </property>
 			</contains>
 			<contains>
 				<system value="http://loinc.org"/>
 				<version value="2.50"/>
 				<code value="35200-5"/>
 				<display value="Cholesterol/Triglyceride [Mass Ratio] in Serum or Plasma"/>
+        <property>
+          <code value="PROPERTY"/>
+          <valueCode value="SCnc"/>
+        </property>
 			</contains>
 			<contains>
 				<system value="http://loinc.org"/>
 				<version value="2.50"/>
 				<code value="48089-7"/>
 				<display value="Cholesterol/Apolipoprotein B [Molar ratio] in Serum or Plasma"/>
+        <property>
+          <code value="PROPERTY"/>
+          <valueCode value="SCnc"/>
+        </property>
 			</contains>
 			<contains>
 				<system value="http://loinc.org"/>
 				<version value="2.50"/>
 				<code value="55838-7"/>
 				<display value="Cholesterol/Phospholipid [Molar ratio] in Serum or Plasma"/>
+        <property>
+          <code value="PROPERTY"/>
+          <valueCode value="SCnc"/>
+        </property>
 			</contains>
 		</contains>
 	</expansion>
