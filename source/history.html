@@ -108,6 +108,7 @@ notes: do not list revision in the version
          <code>extension(http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-mothersMaidenName)</code> to <code> extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName')</code></li>
        <li><!-- GF#20470 -->Remove MultipleAnd/MultipleOr/Modifiers from generated Search Parameters</li>
        <li><!-- GF#22495 -->Add "ge" as a comparator to generated search parameters</li>
+       <li><!-- GF#24917 -->Fix expressions for Search parameters <a href="substancespecification.html#search">SubstanceSpecification-code</a> and <a href="structuredefinition.html#search">StructureDefinition-ext-context</a></li>
        <li><!-- GF#22807 -->Add extension <a href="extension-operationdefinition-allowed-type.html">operationdefinition-allowed-type</a>, and use it to capture the definition of the <a href="codesystem-operation-lookup.html">property.value parameter</a> is captured in the OperationDefinition that describes it</li>
        <li><!-- GF#22493 -->Fix how the type of Element.id and Extension.url is defined in the generated StructureDefinitions</li>
        <li><!-- GF#24110 -->Fix genomics canonical URLS: <code>http://www.ncbi.nlm.nih.gov/refseq/</code> -&gt; <code>http://www.ncbi.nlm.nih.gov/refseq</code>, <code>http://www.ncbi.nlm.nih.gov/clinvar/</code> -&gt; <code>http://www.ncbi.nlm.nih.gov/clinvar</code>, and <code>http://varnomen.hgvs.org/</code> -&gt; <code>http://varnomen.hgvs.org</code></li>
@@ -120,7 +121,7 @@ notes: do not list revision in the version
        <li><!-- GF#20618 -->Update language about specification status in <a href="summary.html#status">summary page</a></li>
        <li><!-- n/a -->Clarify copyright statement for NUBC derived codes (<a href="codesystem-ex-revenue-center.html">here</a> and <a href="codesystem-ex-diagnosis-on-admission.html">here</a>)</li>
        <li><!-- GF#20199 -->Remove <a href="versions.html#mixed">spurious paragraph about R3 version status</a></li>
-       <li><!-- GF#20335, GF#20334, GF#22986, GF#20331, GF#20320, GF#22985, GF#20319, GF#22986, GF#22709 -->
+       <li><!-- GF#20335, GF#20334, GF#22986, GF#20331, GF#20320, GF#22985, GF#20319, GF#22986, GF#22709, GF#23024 -->
          Fix the FHIRPath expressions for the following invariants: 
            <a href="structuredefinition.html#invs">sdf-8, sdf-8a, sdf-9, sdf-15, sdf-17, sdf-16</a>, 
            <a href="condition.html#invs">con-3</a>, 
@@ -128,9 +129,11 @@ notes: do not list revision in the version
            <a href="allergyintolerance.html#invs">ait-1, ait-2</a>, 
            <a href="observation.html#invs">obs-7</a>, 
            <a href="bundle.html#invs">bnd-10</a> and
-           <a href="vitalsigns.html#10.1.20.2.3">vs-2</a>
+           <a href="vitalsigns.html#10.1.20.2.3">vs-2</a> + fix the description for <a href="elementdefinition.html#definition">eld-8</a>
          </li>
        <li><!-- https://stackoverflow.com/questions/57759578 -->Fix the XPath invariant for dom-3</li>
+       <li><!-- https://stackoverflow.com/questions/57759578 -->Fix the definition for <code>entered-in-error</code> for <a href="codesystem-event-status.html#event-status-entered-in-error">Event</a>, 
+         <a href="codesystem-request-status.html#request-status-entered-in-error">Request</a> and <a href="codesystem-supplydelivery-status.html#supplydelivery-status-entered-in-error">SupplyDelivery</a></li>
        <li><!-- https://chat.fhir.org/#narrow/stream/179166-implementers/topic/CarePlan.2Estatus.20contradicts.20ValueSet.20request-status -->
          Fix the short descriptions for the following <code>code</code> elements:
             <a href="activitydefinition-definitions.html#ActivityDefinition.intent">ActivityDefinition.intent</a>,
