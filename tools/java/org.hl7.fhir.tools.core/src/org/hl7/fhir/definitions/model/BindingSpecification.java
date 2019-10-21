@@ -55,7 +55,7 @@ import org.hl7.fhir.r4.utils.ToolingExtensions;
  */
 public class BindingSpecification {
   
-  public static final String DEFAULT_OID_CS = "2.16.840.1.113883.4.642.1.";
+  public static final String DEFAULT_OID_CS = "2.16.840.1.113883.4.642.4.";
   public static final String DEFAULT_OID_VS = "2.16.840.1.113883.4.642.3.";
   
   public enum BindingMethod {

@@ -43,7 +43,7 @@ Major Milestones:
 <table class="grid">
   <tr>
     <td><a href="http://hl7.org/fhir/R4/index.html">Dec 27, 2018</a></td>
-    <td>4.0.0</td>
+    <td>4.0.1</td>
     <td>Release 4 (1<sup>st</sup> Normative Content + Trial Use Developments)
     </td>
   </tr>
@@ -99,7 +99,8 @@ notes: do not list revision in the version
        <li>Add <a href="index.html">ANSI</a> notes</li>
        <li><!-- GF#20487 -->Add <a href="resource.html#Meta">Meta</a> as a type for <a href="datatypes.html#open">Open Type Element</a> list, allowing it to be used as a Parameter (and other place)</li>
        <li><!-- GF#20393 -->Fix Binding for <a href="familymemberhistory-definitions.html#FamilyMemberHistory.sex">FamilyMemberHistory.sex</a></li>
-       <li><!-- GF#20393 -->Fix FMM levels for <a href="device.html">Device</a>, <a href="devicerequest.html">DeviceRequest</a>, <a href="researchstudy.html">ResearchStudy</a>, and <a href="researchsubject.html">ResearchSubject</a></li>
+       <li><!-- https://chat.fhir.org/#narrow/stream/179166-implementers/topic/OIDs -->Change all code system OIDs to use the root 2.16.840.1.113883.4.642.4. instead of 2.16.840.1.113883.4.642.1. due to reassigning OID leaf values without updating the root in the past</li>
+       <li><!-- GF#20584 -->Fix FMM levels for <a href="device.html">Device</a>, <a href="devicerequest.html">DeviceRequest</a>, <a href="researchstudy.html">ResearchStudy</a>, and <a href="researchsubject.html">ResearchSubject</a></li>
        
        <li><!-- GF#23018 -->Add new FHIRPath context variable <a href="fhirpath.html#variables">%rootResource</a>, and use it in <a href="references-definitions.html#Reference">ref-1 constraint</a> </li>
        <li><!-- GF#23069 -->Fix the extension context for <a href="extension-iso21090-nullFlavor.html">iso21090-nullFlavor</a> and <a href="extension-iso21090-preferred.html">iso21090-preferred</a> to any Element, not any Resource</li>
@@ -110,22 +111,23 @@ notes: do not list revision in the version
        <li><!-- GF#22807 -->Add extension <a href="extension-operationdefinition-allowed-type.html">operationdefinition-allowed-type</a>, and use it to capture the definition of the <a href="codesystem-operation-lookup.html">property.value parameter</a> is captured in the OperationDefinition that describes it</li>
        <li><!-- GF#22493 -->Fix how the type of Element.id and Extension.url is defined in the generated StructureDefinitions</li>
        <li><!-- GF#24110 -->Fix genomics canonical URLS: <code>http://www.ncbi.nlm.nih.gov/refseq/</code> -&gt; <code>http://www.ncbi.nlm.nih.gov/refseq</code>, <code>http://www.ncbi.nlm.nih.gov/clinvar/</code> -&gt; <code>http://www.ncbi.nlm.nih.gov/clinvar</code>, and <code>http://varnomen.hgvs.org/</code> -&gt; <code>http://varnomen.hgvs.org</code></li>
-       <li><!-- GF#23044 -->Fix definition of <a href="codesystem-issue-type.html#issue-type-exception">exception</a></li>
-       <li><!-- GF#23044 -->Remove Erroneous Normative Marker on <a href="valueset-message-events.html">message-events value set</a></li>
+       <li><!-- GF#23044 -->Fix definition of <a href="codesystem-issue-type.html#issue-type-exception">IssueType.exception</a></li>
+       <li><!-- GF#19969 -->Remove Erroneous Normative Marker on <a href="valueset-message-events.html">message-events value set</a></li>
        <li><!-- GF#23967 -->Fix up the definition of <a href="elementdefinition-definitions.html#ElementDefinition.type.code">ElementDefinition.type.code</a> for special elements (Element.id, Extension.url, [Primitive].value)</li>
-       <li><!-- GF#22681, GF#20465 & GF#22681 -->Regenerate StructureDefinition snapshots to fix various snapshot and id issues </li>
+       <li><!-- GF#22681, GF#20465 -->Regenerate StructureDefinition snapshots to fix various snapshot and id issues </li>
        <li><!-- GF#20592, GF#23032 & GF#20472 -->Fix various broken internal links &amp; R3 Comparison links + JSON Schema link in downloads</li>
        <li><!-- GF#18441 -->Add note about markdown and XML signatures (to both <a href="xml.html#digsig">XML</a> and <a href="datatypes.html#signature">Signature</a> pages)</li>
        <li><!-- GF#20618 -->Update language about specification status in <a href="summary.html#status">summary page</a></li>
+       <li><!-- n/a -->Clarify copyright statement for NUBC derived codes (<a href="codesystem-ex-revenue-center.html">here</a> and <a href="codesystem-ex-diagnosis-on-admission.html">here</a>)</li>
        <li><!-- GF#20199 -->Remove <a href="versions.html#mixed">spurious paragraph about R3 version status</a></li>
        <li><!-- GF#20335, GF#20334, GF#22986, GF#20331, GF#20320, GF#22985, GF#20319, GF#22986, GF#22709 -->
          Fix the FHIRPath expressions for the following invariants: 
-           <a href="structuredefinition.html#invs">sdf-8, sdf-8a, sdf-9, sdf-15, sdf-17, sdf-16,</a> 
-           <a href="condition.html#invs">con-3,</a> 
-           <a href="elementdefinition.html#invs">eld-4, eld-18,</a> 
-           <a href="allergyintolerance.html#invs">ait-1, ait-2,</a> 
-           <a href="observation.html#invs">obs-7,</a> 
-           <a href="bundle.html#invs">bnd-10,</a> 
+           <a href="structuredefinition.html#invs">sdf-8, sdf-8a, sdf-9, sdf-15, sdf-17, sdf-16</a>, 
+           <a href="condition.html#invs">con-3</a>, 
+           <a href="elementdefinition.html#invs">eld-4, eld-18</a>, 
+           <a href="allergyintolerance.html#invs">ait-1, ait-2</a>, 
+           <a href="observation.html#invs">obs-7</a>, 
+           <a href="bundle.html#invs">bnd-10</a> and
            <a href="vitalsigns.html#10.1.20.2.3">vs-2</a>
          </li>
        <li><!-- https://stackoverflow.com/questions/57759578 -->Fix the XPath invariant for dom-3</li>
@@ -159,7 +161,6 @@ notes: do not list revision in the version
             <a href="servicerequest-definitions.html#ServiceRequest.status">ServiceRequest.status</a> and
             <a href="servicerequest-definitions.html#ServiceRequest.intent">ServiceRequest.intent</a> 
          </li>
-       <li><!-- GF# --></li>
       </ul>
       
       

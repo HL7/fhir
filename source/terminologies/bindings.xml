@@ -481,7 +481,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">#abstract-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">AdjudicationError</Data></Cell>
@@ -512,7 +512,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-AdministrativeGender</Data></Cell>
     <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v2-0001" ss:StyleID="s62"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0001</Data></Cell>
     <Cell><Data ss:Type="String">pa</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">AgeUnits</Data></Cell>
@@ -546,7 +546,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">CDSHooksIndicator</Data></Cell>
@@ -622,7 +622,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s83"/>
-    <Cell><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">DataAbsentReason</Data></Cell>
@@ -633,7 +633,7 @@
     <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v3-NullFlavor" ss:Index="10" ss:StyleID="s93"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-NullFlavor</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s76"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s76"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DataType</Data></Cell>
@@ -642,7 +642,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">#data-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">DefinitionResourceType</Data></Cell>
@@ -712,7 +712,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">#all-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FHIRDefinedType</Data></Cell>
@@ -729,7 +729,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s84"><Data ss:Type="String">FHIRVersion</Data></Cell>
@@ -746,7 +746,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s86"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s78"><Data ss:Type="String">Forms</Data></Cell>
@@ -798,7 +798,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">Jurisdiction</Data></Cell>
@@ -809,7 +809,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s79"/>
     <Cell ss:Index="14" ss:StyleID="s77"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">KnowledgeResourceType</Data></Cell>
@@ -835,7 +835,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:Index="17"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">MaritalStatus</Data></Cell>
@@ -850,7 +850,7 @@
     <Cell ss:Index="12" ss:StyleID="s79"><Data ss:Type="String">pa</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s77"/>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
@@ -861,7 +861,7 @@
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s77"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">MimeType</Data></Cell>
@@ -879,7 +879,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s86"/>
-    <Cell><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s84"><Data ss:Type="String">NoteType</Data></Cell>
@@ -939,7 +939,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="12"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s77"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">Relationship</Data></Cell>
@@ -995,7 +995,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">#resource-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">SearchParamType</Data></Cell>
@@ -1011,7 +1011,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">SecurityLabels</Data></Cell>
@@ -1028,7 +1028,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">4.0.0</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">4.0.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SecurityRoleType</Data></Cell>
@@ -1200,10 +1200,16 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">R4 Ballot #2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">22</Data></Cell>
+    <Cell><Data ss:Type="Number">21</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.0.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.0.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">FHIR Release 4 (Normative + STU)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.0.1</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.0.1</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">FHIR Release 4 Technical Correction</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

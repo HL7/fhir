@@ -382,7 +382,7 @@ public class ExtensionDefinitionGenerator {
     List<StructureDefinition> list = new ArrayList<>();
     PackageCacheManager pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
     NpmPackage npm = pcm.loadPackageCache("hl7.fhir.core", sourceVersion.toCode());
-    if (sourceVersion == FHIRVersion._4_0_0)
+    if (sourceVersion == FHIRVersion._4_0_0 || sourceVersion == FHIRVersion._4_0_1)
       context = SimpleWorkerContext.fromPackage(npm);
     else if (sourceVersion == FHIRVersion._3_0_1)
       context = SimpleWorkerContext.fromPackage(npm, new R3ToR4Loader());
@@ -415,7 +415,7 @@ public class ExtensionDefinitionGenerator {
       VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
       org.hl7.fhir.dstu2.model.Resource res = new VersionConvertor_10_40(advisor ).convertResource(resource);
       return new org.hl7.fhir.dstu2.formats.JsonParser().composeBytes(res);
-    } else if (v == FHIRVersion._4_0_0) {
+    } else if (v == FHIRVersion._4_0_0 || v == FHIRVersion._4_0_1) {
       return new JsonParser().composeBytes(resource);
     } else
       throw new Error("Unsupported version "+v);   
@@ -432,7 +432,7 @@ public class ExtensionDefinitionGenerator {
       org.hl7.fhir.dstu2.model.Resource res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(inputStream);
       VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
       return new VersionConvertor_10_40(advisor ).convertResource(res);
-    } else if (v == FHIRVersion._4_0_0) {
+    } else if (v == FHIRVersion._4_0_0 || v == FHIRVersion._4_0_1) {
       return new JsonParser().parse(inputStream);
     } else
       throw new Error("Unsupported version "+v);

@@ -14,7 +14,7 @@
             http://build.fhir.org/sc.html.</div>
     </text>
     <url value="http://hl7.org/fhir/contract-definition-subtype"/>
-    <version value="4.0.0"/>
+    <version value="4.0.1"/>
     <name value="ContractDefinitionSubtype"/>
     <status value="draft"/>
     <experimental value="true"/>

@@ -3471,7 +3471,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">best-practice</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">DomainResource</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A resource should have narrative for robust management</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">text.div.exists()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">text.`div`.exists()</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">exists(f:text/h:div)</Data></Cell>
     <Cell><Data ss:Type="String">When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time.</Data></Cell>
    </Row>

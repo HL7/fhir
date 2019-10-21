@@ -27,7 +27,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type?version=4.0.0"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type?version=4.0.1"
     }],
     "contains" : [{
       "extension" : [{
@@ -5422,7 +5422,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type?version=4.0.0"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type?version=4.0.1"
     }],
     "contains" : [{
       "extension" : [{

@@ -446,7 +446,7 @@ e: {
     "system" : "urn:ietf:rfc:3986",
     "value" : "urn:oid:2.16.840.1.113883.4.642.3.910"
   }],
-  "version" : "4.0.0",
+  "version" : "4.0.1",
   "name" : "DataElementSDCObjectClass",
   "title" : "DataElement SDC Object Class",
   "status" : "draft",

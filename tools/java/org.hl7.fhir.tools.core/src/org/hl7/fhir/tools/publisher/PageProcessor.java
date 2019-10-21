@@ -4093,7 +4093,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     invs.put("sqty-1", "<li><a href=\"conformance-rules.html#rule\" style=\"color: Maroon\">Rule</a> <b title=\"Formal Invariant Identifier\">sqty-1</b>: "+Utilities.escapeXml(pt.getInvariant().getEnglish())+" (<a href=\"http://hl7.org/fhirpath\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(pt.getInvariant().getExpression())+"</span>)</li>");
   }
   private void generateConstraintsTable(String path, ProfiledType pt, Map<String, String> invs, boolean base, String prefix) {
-    invs.put("sqty-1", "<tr><td><b title=\"Formal Invariant Identifier\">sqty-1</b></td><td><a href=\"conformance-rules.html#rule\" style=\"color: Maroon\">Rule</a></td><td>(base)</td><td>"+Utilities.escapeXml(pt.getInvariant().getEnglish())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(pt.getInvariant().getExpression())+"</span>)</td></tr>");
+    String s = definitions.getTLAs().get(pt.getName().toLowerCase());
+    invs.put(s+"-1", "<tr><td><b title=\"Formal Invariant Identifier\">"+s+"-1</b></td><td><a href=\"conformance-rules.html#rule\" style=\"color: Maroon\">Rule</a></td><td>(base)</td><td>"+Utilities.escapeXml(pt.getInvariant().getEnglish())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(pt.getInvariant().getExpression())+"</span>)</td></tr>");
   }
 
   private String presentPath(String path) {

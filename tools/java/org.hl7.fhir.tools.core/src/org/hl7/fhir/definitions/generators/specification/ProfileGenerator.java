@@ -216,7 +216,7 @@ public class ProfileGenerator {
     if (!de.hasMeta())
       de.setMeta(new Meta());
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
-    de.setVersion(Constants.VERSION);
+    de.setVersion(version.toCode());
     de.setName(ed.getPath());
     de.setStatus(PublicationStatus.DRAFT);
     de.setExperimental(true);

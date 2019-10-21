@@ -1504,9 +1504,13 @@ on <a href="documents.html">Document bundles</a> and their related processes is 
 use of digital signatures.
 </li>
 <li>
-Note that following common normalization procedures in XML can assign the same normalized text to resources 
-with slightly different meanings, since leading whitespace matters in markdown text, and the XML representation 
-serializes the <a href="datatypes.html#markdown">markdown</a> datatype using attributes.
+Note that following common normalization procedures in XML causes consecutive whitespace within 
+attributes to be normalized. As a result, whitespace within <a href="datatypes.html#markdown">markdown</a> can be changed without 
+breaking a digital signature. For elements with a type of markdown, this means that, in some 
+cases, whitespace manipulation that results in significantly different visual rendering (e.g. changing 
+indentation levels, causing content to appear in separate paragraphs rather than part of a single 
+paragraph, etc.) might not be detected as a signature-breaking change. If this would present an 
+unacceptable risk, systems should use the <a href="json.html#canonical">JSON signature</a> approach as it does not normalize whitespace.
 </li>
 </ul>
 

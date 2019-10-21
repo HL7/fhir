@@ -2948,8 +2948,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       // R4 technical correction build specials 
       PackageCacheManager pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
-      pcm.addPackageToCache("hl7.fhir.core", "4.0.0", new FileInputStream(Utilities.path(page.getFolders().dstDir, "package.tgz")));
-      NpmPackage npm = pcm.loadPackageCache("hl7.fhir.core", "4.0.0");
+      pcm.addPackageToCache("hl7.fhir.core", "4.0.1", new FileInputStream(Utilities.path(page.getFolders().dstDir, "package.tgz")));
+      NpmPackage npm = pcm.loadPackageCache("hl7.fhir.core", "4.0.1");
       extractToPackageMaster(npm, "C:\\work\\org.hl7.fhir\\packages\\hl7.fhir.rX");     
 
       page.log(" ...zips", LogMessageType.Process);
