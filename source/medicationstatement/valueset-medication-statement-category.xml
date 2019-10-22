@@ -5,7 +5,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/medication-statement-category"/>
-  <name value="Medication Status Codes"/>
+  <name value="Medication usage category codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
