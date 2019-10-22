@@ -599,7 +599,7 @@ Some examples of discriminators:
  <tr>  <td>List.entry</td> <td>value</td> <td>item.resolve().name</td> <td>Entries are differentiated by the name element on the target resource - probably an observation, which could be determined by other information in the profile</td> </tr>
  <tr>  <td>List.entry</td> <td>type</td> <td>item.resolve()</td> <td>Entries are differentiated by the type of the target element that the reference points to</td> </tr>
  <tr>  <td>List.entry</td> <td>profile</td> <td>item.resolve()</td> <td>Entries are differentiated by a profile tag on the target of the reference, as specified by a structure definition in the profile</td> </tr>
- <tr>  <td>List.entry</td> <td>value</td> <td>item.extension("http://acme.org/extensions/test").value</td> <td>Entries are differentiated by the value of the code element in the extension with the designated URL</td> </tr>
+ <tr>  <td>List.entry</td> <td>value</td> <td>item.extension('http://acme.org/extensions/test').value</td> <td>Entries are differentiated by the value of the code element in the extension with the designated URL</td> </tr>
  <tr>  <td>List.entry.extension</td> <td>value</td> <td>url</td> <td>Extensions are differentiated by the value of their url property (usually how extensions are sliced)</td> </tr>
  <tr>  <td>List.entry</td> <td>type, value</td> <td>item.resolve(), item.resolve().value</td> <td>Extensions are differentiated by the combination of the type of the referenced resource, and, if it has one, the code element of that resource. This would be
    appropriate for where a List might be composed of a Condition, and set of observations, each differentiated by its name - the condition has no name, so that is evaluated as a null in the discriminator set</td> </tr>
