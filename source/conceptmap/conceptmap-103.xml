@@ -34,7 +34,7 @@
     </jurisdiction>
     <purpose value="Show example rule based mappings"/>
     <copyright value="Creative Commons 0"/>
-    <sourceCanonical value="http://snomed.info/id?fhir_vs"/>
+    <sourceCanonical value="http://snomed.info/sct?fhir_vs"/>
     <targetCanonical value="http://hl7.org/fhir/sid/icd-10-us"/>
     <group>
         <source value="http://snomed.info/sct"/>
