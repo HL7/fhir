@@ -1838,11 +1838,14 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getValidationErrors().addAll(val.checkStucture(n, page.getDefinitions().getTypes().get(n)));
     for (String n : page.getDefinitions().getStructures().keySet())
       page.getValidationErrors().addAll(val.checkStucture(n, page.getDefinitions().getStructures().get(n)));
+
+    val.checkSearchParams(page.getValidationErrors(), page.getDefinitions().getResourceByName("Resource"));
+    val.checkSearchParams(page.getValidationErrors(), page.getDefinitions().getResourceByName("DomainResource"));
+
     for (String n : page.getDefinitions().sortedResourceNames())
       if (hasBuildFlag("page-" + n.toLowerCase()))
         page.getValidationErrors().addAll(val.check(n, page.getDefinitions().getResources().get(n)));
     page.getValidationErrors().addAll(val.check("Parameters", page.getDefinitions().getResourceByName("Parameters")));
-
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
       checkExampleLinks(page.getValidationErrors(), r);
