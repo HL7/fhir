@@ -20,8 +20,8 @@
    <Path>\\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>8280</WindowHeight>
-  <WindowWidth>28780</WindowWidth>
+  <WindowHeight>7187</WindowHeight>
+  <WindowWidth>17387</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <TabRatio>735</TabRatio>
@@ -895,7 +895,8 @@
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="3" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:AutoFitWidth="0" ss:Width="411"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -924,7 +925,8 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="38" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:StyleID="s69" ss:Width="148"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77"/>
    <Column ss:StyleID="s68" ss:Width="29"/>
@@ -2237,7 +2239,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2245,15 +2247,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2322,7 +2323,8 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="28" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s107" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:StyleID="s107" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:StyleID="s108" ss:AutoFitWidth="0"/>
    <Column ss:StyleID="s107" ss:AutoFitWidth="0" ss:Width="115"/>
    <Column ss:StyleID="s107" ss:Width="55"/>
@@ -2688,7 +2690,8 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="25" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s117" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:StyleID="s117" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:StyleID="s117" ss:Width="73"/>
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="57"/>
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="109"/>
@@ -2923,7 +2926,8 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s117" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:StyleID="s117" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="130"/>
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="124"/>
    <Column ss:StyleID="s117" ss:Width="24"/>
@@ -3656,7 +3660,8 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s117" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:StyleID="s117" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="82" ss:Span="1"/>
    <Column ss:Index="3" ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="199"/>
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="157"/>
@@ -3985,7 +3990,8 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Packages!R1C1:R2C4"/>
   </Names>
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s117" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:StyleID="s117" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="281"/>
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="252"/>
@@ -4317,7 +4323,8 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="39" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s145" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:StyleID="s145" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:StyleID="s145" ss:Width="88"/>
    <Column ss:StyleID="s145" ss:Width="28"/>
    <Column ss:StyleID="s145" ss:Width="328"/>
@@ -4788,7 +4795,8 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s117" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:StyleID="s117" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="124"/>
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="274"/>
    <Column ss:StyleID="s117" ss:Width="51"/>
@@ -4918,7 +4926,8 @@
  </Worksheet>
  <Worksheet ss:Name="product-status">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s154" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:StyleID="s154" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:StyleID="s154" ss:AutoFitWidth="0" ss:Width="79"/>
    <Column ss:StyleID="s155" ss:AutoFitWidth="0" ss:Width="34"/>
    <Column ss:StyleID="s154" ss:AutoFitWidth="0" ss:Width="93"/>
@@ -4989,7 +4998,8 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s145" ss:DefaultRowHeight="14.5">
+   x:FullRows="1" ss:StyleID="s145" ss:DefaultColumnWidth="50.666666666666671"
+   ss:DefaultRowHeight="14.333333333333332">
    <Column ss:StyleID="s145" ss:Width="80"/>
    <Column ss:StyleID="s145" ss:AutoFitWidth="0" ss:Width="34"/>
    <Column ss:StyleID="s145" ss:AutoFitWidth="0" ss:Width="155"/>
