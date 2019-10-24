@@ -1002,7 +1002,7 @@ public class SpreadsheetParser {
                 if (e != null && e.hasOnlyType("Reference"))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
                 if (t == SearchType.uri) {
-                  if (e != null && !(e.typeCode().equals("uri") | e.typeCode().equals("url") | e.typeCode().equals("oid")))
+                  if (e != null && !(e.typeCode().equals("uri") || e.typeCode().equals("url") || e.typeCode().equals("oid") || e.typeCode().startsWith("canonical(")))
                     throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
                 } else {
                   if (e != null && e.typeCode().equals("uri"))
@@ -2292,24 +2292,9 @@ public class SpreadsheetParser {
     // things that go on Extension.value
     if (!Utilities.noString(sheet.getColumn(row, "Type"))) {
       ElementDefn exv = new ElementDefn();
+      exv.setName("value[x]");
       exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, context, false, sheet.title));
-      if (exv.getTypes().size()>1) {
-        exv.setName("valueReference");
-        for (TypeRef t : exv.getTypes()) {
-          if (!t.getName().equals("Reference") && !t.getName().equals("canonical") ) {
-            exv.setName("value[x]");
-            break;
-          }
-        }
-      } else {
-        TypeRef type = exv.getTypes().get(0);
-        if (type.getName().equals("*") || type.getParams().size()>1)
-          exv.setName("value[x]");
-        else {
-          String name = type.getName();
-          exv.setName("value" + name.substring(0,1).toUpperCase() + name.substring(1));
-        }
-      }
+
 /*      if (!exv.getName().equals("value[x]")) {
         ElementDefn exd = new ElementDefn();
         exd.setName("value[x]");

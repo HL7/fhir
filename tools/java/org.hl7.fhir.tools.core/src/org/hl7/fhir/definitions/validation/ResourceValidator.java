@@ -277,93 +277,7 @@ public class ResourceValidator extends BaseValidator {
     if (rd.getRoot().getElementByName(definitions, "url", true, false) != null) {
       warning(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("url"), "A resource that contains a url element must have a search parameter 'url'");
     }
-    for (org.hl7.fhir.definitions.model.SearchParameterDefn p : rd.getSearchParams().values()) {
-      if (!usages.containsKey(p.getCode()))
-        usages.put(p.getCode(), new Usage());
-      usages.get(p.getCode()).usage.add(p.getType());
-      if (!usagest.containsKey(p.getType()))
-        usagest.put(p.getType(), new UsageT());
-      String spgn = p.getCode()+"||"+p.getType().toString();
-      if (!spgroups.containsKey(spgn)) {
-        SearchParameterGroup spg = new SearchParameterGroup();
-        spg.name = p.getCode();
-        spg.type = p.getType().toString();
-        spgroups.put(spgn, spg);
-      }
-      spgroups.get(spgn).resources.add(rd.getName());
-      rule(errors, IssueType.FORBIDDEN, rd.getName(), checkNamingPattern(rd.getName(), p.getCode()), "Search Parameter name is not valid - must use lowercase letters with '_' between words");
-      rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().equals("filter"), "Search Parameter Name cannot be 'filter')");
-      rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
-      rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
-      warning(errors, IssueType.STRUCTURE, rd.getName(), !stringMatches(p.getCode(), "id", "lastUpdated", "tag", "profile", "security", "text", "content", "list", "query"), "Search Parameter Names cannot be named one of the reserved names (\""+p.getCode()+"\")");
-      hint(errors, IssueType.STRUCTURE, rd.getName(), searchNameOk(p.getCode()), "Search Parameter name '"+p.getCode()+"' does not follow the style guide");
-      rule(errors, IssueType.STRUCTURE, rd.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
-      if (rule(errors, IssueType.STRUCTURE, rd.getName(), !Utilities.noString(p.getDescription()), "Search Parameter description is empty (\""+p.getCode()+"\")"))
-        rule(errors, IssueType.STRUCTURE, rd.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().startsWith("e.g. ") || p.getDescription().contains("|") || startsWithType(p.getDescription()), "Search Parameter descriptions should start with an uppercase character(\""+p.getDescription()+"\")");
-      try {
-        if (!Utilities.noString(p.getExpression()))
-          fpUsages.add(new FHIRPathUsage(rd.getName()+"::"+p.getCode(), rd.getName(), rd.getName(), p.getDescription(), p.getExpression().replace("[x]", "")));
-        for (String path : p.getPaths()) {
-          ElementDefn e;
-          String pp = trimIndexes(path);
-          e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true, false);
-          List<TypeRef> tlist;
-          if (pp.endsWith("."+e.getName()))
-            tlist = e.getTypes();
-          else {
-            tlist = new ArrayList<TypeRef>();
-            for (TypeRef t : e.getTypes())
-              if (pp.endsWith(Utilities.capitalize(t.getName())))
-                tlist.add(t);
-          }
-          for (TypeRef t : tlist) {
-            String tn = t.getName();
-            if (definitions.getSearchRules().containsKey(tn) && definitions.getSearchRules().get(tn).contains(p.getType().name())) { 
-              if (definitions.getConstraints().containsKey(tn))
-                tn = definitions.getConstraints().get(tn).getBaseType();
-              else if (definitions.getPrimitives().containsKey(tn) && definitions.getPrimitives().get(tn) instanceof DefinedStringPattern && !tn.equals("code")) 
-                tn = ((DefinedStringPattern) definitions.getPrimitives().get(tn)).getBase();            
-              usagest.get(p.getType()).usage.add(tn);
-            } else 
-              warning(errors, IssueType.STRUCTURE, rd.getName(), tlist.size() > 1, "Search Parameter "+p.getCode()+" : "+p.getType().name()+" type illegal for "+path+" : "+tn+" ("+e.typeCode()+")");      
-          }
-        }
-      } catch (Exception e1) {
-      }
-      try {
-        if (p.getType() == SearchType.reference) {
-          for (String path : p.getPaths()) {
-            ElementDefn e;
-            String pp = trimIndexes(path);
-            e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true, false);
-            for (TypeRef t : e.getTypes()) {
-              if (t.getName().equals("Reference") || t.getName().equals("canonical") ) {
-                for (String pn : t.getParams()) {
-                  if (definitions.hasLogicalModel(pn))
-                    p.getTargets().addAll(definitions.getLogicalModel(pn).getImplementations());
-                  else
-                    p.getTargets().add(pn);
-                }
-              }
-            }
-          }
-        }
-        if (p.getType() == SearchType.uri) {
-          for (String path : p.getPaths()) {
-            ElementDefn e;
-            String pp = trimIndexes(path);
-            e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true, false);
-            for (TypeRef t : e.getTypes()) {
-              if (t.getName().equals("Reference") || t.getName().equals("canonical") ) {
-                rule(errors, IssueType.STRUCTURE, rd.getName(), false, "Parameters of type uri cannot refer to the types Reference or canonical ("+p.getCode()+")");
-              }
-            }
-          }
-        }
-      } catch (Exception e1) {
-        rule(errors, IssueType.STRUCTURE, rd.getName(), false, e1.getMessage());
-      }
-    }
+    checkSearchParams(errors, rd);
     for (Operation op : rd.getOperations()) {
       rule(errors, IssueType.STRUCTURE, rd.getName()+"/$"+op.getName(), !parentHasOp(rd.getRoot().typeCode(), op.getName()), "Duplicate Operation Name $"+op.getName()+" on "+rd.getName()); 
     }
@@ -406,6 +320,96 @@ public class ResourceValidator extends BaseValidator {
     ok = hints == 0 || Integer.parseInt(rd.getFmmLevel()) < 3;
     rule(errors, IssueType.STRUCTURE, rd.getName(), ok, "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have an FMM level >2 ("+rd.getFmmLevel()+") if it has informational hints");
 	}
+
+  public void checkSearchParams(List<ValidationMessage> errors, ResourceDefn rd) {
+    for (org.hl7.fhir.definitions.model.SearchParameterDefn p : rd.getSearchParams().values()) {
+      if (!usages.containsKey(p.getCode()))
+        usages.put(p.getCode(), new Usage());
+      usages.get(p.getCode()).usage.add(p.getType());
+      if (!usagest.containsKey(p.getType()))
+        usagest.put(p.getType(), new UsageT());
+      String spgn = p.getCode()+"||"+p.getType().toString();
+      if (!spgroups.containsKey(spgn)) {
+        SearchParameterGroup spg = new SearchParameterGroup();
+        spg.name = p.getCode();
+        spg.type = p.getType().toString();
+        spgroups.put(spgn, spg);
+      }
+      spgroups.get(spgn).resources.add(rd.getName());
+      rule(errors, IssueType.FORBIDDEN, rd.getName(), checkNamingPattern(rd.getName(), p.getCode()), "Search Parameter name is not valid - must use lowercase letters with '_' between words");
+      rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().equals("filter"), "Search Parameter Name cannot be 'filter')");
+      rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
+      rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
+      warning(errors, IssueType.STRUCTURE, rd.getName(), !stringMatches(p.getCode(), "id", "lastUpdated", "tag", "profile", "security", "text", "content", "list", "query"), "Search Parameter Names cannot be named one of the reserved names (\""+p.getCode()+"\")");
+      hint(errors, IssueType.STRUCTURE, rd.getName(), searchNameOk(p.getCode()), "Search Parameter name '"+p.getCode()+"' does not follow the style guide");
+      rule(errors, IssueType.STRUCTURE, rd.getName(), p.getCode().equals(p.getCode().toLowerCase()) || p.getCode().equals("_lastUpdated"), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
+      if (rule(errors, IssueType.STRUCTURE, rd.getName(), !Utilities.noString(p.getDescription()), "Search Parameter description is empty (\""+p.getCode()+"\")"))
+        rule(errors, IssueType.STRUCTURE, rd.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().startsWith("e.g. ") || p.getDescription().contains("|") || startsWithType(p.getDescription()), "Search Parameter descriptions should start with an uppercase character(\""+p.getDescription()+"\")");
+      try {
+        if (!Utilities.noString(p.getExpression()))
+          fpUsages.add(new FHIRPathUsage(rd.getName()+"::"+p.getCode(), rd.getName(), rd.getName(), p.getDescription(), p.getExpression().replace("[x]", "")));
+        for (String path : p.getPaths()) {
+          ElementDefn e;
+          String pp = trimIndexes(path);
+          e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true, false);
+          List<TypeRef> tlist;
+          if (pp.endsWith("."+e.getName()))
+            tlist = e.getTypes();
+          else {
+            tlist = new ArrayList<TypeRef>();
+            for (TypeRef t : e.getTypes())
+              if (pp.endsWith(Utilities.capitalize(t.getName())))
+                tlist.add(t);
+          }
+          for (TypeRef t : tlist) {
+            String tn = t.getName();
+            if (definitions.getSearchRules().containsKey(tn) && definitions.getSearchRules().get(tn).contains(p.getType().name())) { 
+              if (definitions.getConstraints().containsKey(tn))
+                tn = definitions.getConstraints().get(tn).getBaseType();
+              else if (definitions.getPrimitives().containsKey(tn) && definitions.getPrimitives().get(tn) instanceof DefinedStringPattern && !tn.equals("code") && !tn.equals("canonical")) 
+                tn = ((DefinedStringPattern) definitions.getPrimitives().get(tn)).getBase();            
+              usagest.get(p.getType()).usage.add(tn);
+            } else 
+              warning(errors, IssueType.STRUCTURE, rd.getName(), tlist.size() > 1, "Search Parameter "+p.getCode()+" : "+p.getType().name()+" type illegal for "+path+" : "+tn+" ("+e.typeCode()+")");      
+          }
+        }
+      } catch (Exception e1) {
+      }
+      try {
+        if (p.getType() == SearchType.reference) {
+          for (String path : p.getPaths()) {
+            ElementDefn e;
+            String pp = trimIndexes(path);
+            e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true, false);
+            for (TypeRef t : e.getTypes()) {
+              if (t.getName().equals("Reference") || t.getName().equals("canonical") ) {
+                for (String pn : t.getParams()) {
+                  if (definitions.hasLogicalModel(pn))
+                    p.getTargets().addAll(definitions.getLogicalModel(pn).getImplementations());
+                  else
+                    p.getTargets().add(pn);
+                }
+              }
+            }
+          }
+        }
+        if (p.getType() == SearchType.uri) {
+          for (String path : p.getPaths()) {
+            ElementDefn e;
+            String pp = trimIndexes(path);
+            e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true, false);
+            for (TypeRef t : e.getTypes()) {
+              if (t.getName().equals("Reference")) {
+                rule(errors, IssueType.STRUCTURE, rd.getName(), false, "Parameters of type uri cannot refer to the types Reference or canonical ("+p.getCode()+")");
+              }
+            }
+          }
+        }
+      } catch (Exception e1) {
+        rule(errors, IssueType.STRUCTURE, rd.getName(), false, e1.getMessage());
+      }
+    }
+  }
 
   private boolean checkNamingPattern(String rn, String pn) {
     if (Utilities.existsInList(pn, "_lastUpdated", "_revinclude", "_containedType"))
