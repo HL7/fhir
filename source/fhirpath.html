@@ -137,9 +137,13 @@ to FHIRPath types when they are used in expressions according to the following m
 <td>FHIR.time</td>
 <td>System.Time</td>
 </tr>
+<tr>
+<td>FHIR.Quantity</td>
+<td>System.Quantity (see below)</td>
+</tr>
 </table>
 
-<p>Since FHIR primitives may contain extensions, so that the following expressions are <em>not</em> mutually exclusive:</p>
+<p>Since FHIR primitives may contain extensions, the following expressions are <em>not</em> mutually exclusive:</p>
 
 <pre class="fhirpath">
 Patient.name.given = 'Ewout'         // value of Patient.name.given as a string
@@ -164,6 +168,30 @@ that as() does not have such restrictions - both of the following are valid:
 Patient.name.given.as(FHIR.string);
 Patient.name.given.as(System.string);
 </pre>
+
+
+<a name="quantity"></a>
+<h4>Use of FHIR Quantity</h4>
+
+<p>
+The Mapping from FHIR Quantity to FHIRPath System.Quantity can only be applied if the FHIR Quantity has a UCUM code 
+- i.e. a system of <code>http://unitsofmeasure.org</code>, and a code is present. 
+</p>
+<p>
+As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/R2/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath, according to the following map:
+</p>
+<table class="grid">
+<tr><td>a</td><td>year</td></tr>
+<tr><td>mo</td><td>month</td></tr>
+<tr><td>d</td><td>day</td></tr>
+<tr><td>h</td><td>hour</td></tr>
+<tr><td>min</td><td>minute</td></tr>
+<tr><td>s</td><td>second</td></tr>
+</table>
+
+<p>
+e.g. the FHIR Quantity 1 'a' would be implicitly converted to the FHIRPath System.Quantity 1 'year'.
+</p>
 
 <a name="variables"></a>
 <h4>FHIR Specific Variables</h4>

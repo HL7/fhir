@@ -13,7 +13,7 @@
 		<reference value="Device/example"/>
 	</device>
 	<reasonReference>
-		<reference value="Procedure/example"/>
-		<display value="Appendectomy (surgery)"/>
+		<reference value="Condition/example"/>
+		<display value="PHx of Appendectomy (surgery)"/>
 	</reasonReference>
 </DeviceUseStatement>

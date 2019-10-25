@@ -199,7 +199,7 @@
             <code value="d"/> 
         </expectedSupplyDuration>
         <performer>
-            <reference value="Practitioner/f001"></reference>
+            <reference value="Organization/example"></reference>
         </performer>
     </dispenseRequest>   
     <substitution>
