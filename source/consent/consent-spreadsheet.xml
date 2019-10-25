@@ -959,7 +959,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">draft |active | inactive | entered-in-error | unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Indicates the current state of this Consent resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">The Consent Directive that is pointed to might be in various lifecycle states, e.g., a revoked Consent Directive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">This element is labeled as a modifier because the status contains the codes rejected and entered-in-error that mark the Consent as not currently valid</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
