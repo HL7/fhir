@@ -601,7 +601,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -609,9 +608,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R27C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R28C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="29" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="30" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="278.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="32.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="24.0"/>
@@ -757,6 +756,22 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Marketing information</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.copackagedIndicator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">boolean</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">States whether a drug product is supplied with another item such as a diluent or adjuvant</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="34">
     <Cell ss:StyleID="s71"><Data ss:Type="String">PackagedProductDefinition.marketingAuthorization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1118,7 +1133,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R27C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R28C24">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
