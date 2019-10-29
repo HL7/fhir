@@ -13,10 +13,11 @@
       Several different types of channels are supported:
     </p>
     <ul>
-      <li><a href="#rest-hook"><b>rest-hook</b></a>: Notifications are sent via HTTP/S POST to a URL identified in the Subscription resource</li>
+      <li><a href="#rest-hook"><b>rest-hook</b></a>: Notifications are sent via HTTP/S POST to the <code>Subscription.channel.endpoint</code> URL (e.g., https://...)</li>
       <li><a href="#websockets"><b>websocket</b></a>: Notifications are sent via WS/S to a client connected via a WebSocket</li>
-      <li><a href="#email-sms"><b>email/sms</b></a>: Notifications are sent via SMTP or SMS to the nominated email address or phone number</li>
-      <li><a href="#messaging"><b>message</b></a>: Notifications are sent via <a href="messaging.html">FHIR messaging</a> to the application identified in the URI</li>
+      <li><a href="#email"><b>email</b></a>: Notifications are sent via SMTP/S, S/MIME, or Direct to the <code>Subscription.channel.endpoint</code> email URI (e.g., mailto:...)</li>
+      <li><a href="#sms"><b>sms</b></a>: Notifications are sent via SMS to the <code>Subscription.channel.endpoint</code> phone number URI (e.g., tel: ...)</li>
+      <li><a href="#messaging"><b>message</b></a>: Notifications are sent via <a href="messaging.html">FHIR messaging</a> to the application identified in the <code>Subscription.channel.endpoint</code> URI</li>
     </ul>
     <p>
       See below for further discussion of the various channels. Note that sending

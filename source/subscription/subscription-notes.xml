@@ -14,12 +14,6 @@
 		<li>
 			<p>Updates to "Tracking Subscription Notifications" <b>SHOULD</b> define what the AuditEvent looks like</p>
 		</li>
-		<li>
-			<p>Updates to "Channels" "Email/SMS" ...</p>
-		</li>
-		<li>
-			<p>Updates to "Channels" "Messaging" ...</p>
-		</li>
 	</ol>
 	[%end-note%]
 
@@ -161,7 +155,7 @@
 	</h3>
 	<p>When a Subscription is created for a REST Hook channel type, the server <b>SHALL</b> set initial status to <code>requested</code>, pending verification of the nominated endpoint URL. After a successful handshake notification has been sent and accepted, the server <b>SHALL</b> update the status to <code>active</code>. Any errors in the initial handshake <b>SHALL</b> result in the status being changed to <code>error</code>.
 	</p>
-	<p>When the server processes an event meeting the specified criteria, the server POSTs an event notification to the client's nominated endpoint URL (i.e. to the <code>Subscription.channel[type=rest-hook].endpoint</code>) as shown in the following examples. The content-type of the POST <b>SHALL</b> match the contentType (<code>Subscription.channel.payload.contentType</code>) requested during creation of the Subscription. Note that the server <b>SHALL</b> append the headers, if any are given, to the POST request that it makes to the client.</p>
+	<p>When the server processes an event meeting the specified criteria, the server POSTs an event notification to the client's nominated endpoint URL (i.e. to the <code>channel[type=rest-hook].endpoint</code>) as shown in the following examples. The content-type of the POST <b>SHALL</b> match the contentType (<code>channel.payload.contentType</code>) requested during creation of the Subscription. Note that the server <b>SHALL</b> append the headers, if any are given, to the POST request that it makes to the client.</p>
 	<p>For consistency, the rest of this document assumes <code>application/fhir+json</code> has been selected, and will be referred to as JSON.</p>
 	<p>This example uses an event notification with an emp>ty payload to alert the subscriber that new results are available:</p>
 	<p>Request:</p>
@@ -373,9 +367,9 @@
 		<li>Unlike HTTP/S requests, WebSockets can be long-lived.  Because of this, the case of revoking access of an active connection must be considered.</li>
 	</ul>
 
-	<a name="email-sms"/>
+	<a name="email"/>
 	<h3>
-		Email/SMS
+		Email
 	</h3>
 	<p>A client can register for its user to receive notifications by email:</p>
 	<pre fragment="Subscription" class="json">
@@ -390,11 +384,45 @@
       ]
     },
     "endpoint":"mailto:mt-auburn-results@direct.biliwatch.com",
-    "header":"A new bilirubin result has arrived!"
+		"payload": {
+			"contentType": "text/html",
+			"content": "id-only"
+		}
   }
 }</pre>
-	<p>The server would send a new message for each matching resource. The body of the email may be empty, or it may contain a reference to the search or the matching resource. It is at the discretion of the server as to how much information to provide. <code>Subscription.channel.header</code> sets the subject of the email. The email <b>SHOULD</b> be secured appropriately, such as using Direct, as specified by the rules of the applicable jurisdictions.</p>
-	<p>SMS works very similarly:</p>
+	<p>
+		The server will send a new message for each matching resource.  The server will create a message based on the values present in the <code>channel.payload.contentType</code> and <code>channel.payload.content</code> fields.  If a server cannot honor the requested combination, the server can either reject the request or modify it on creation to be suitable.
+	</p>
+	<p>In general, the email channel makes two assumptions about content:</p>
+		<ul>
+			<li>Body content should be human readable</li>
+			<li>Attachments can be machine readable</li>
+		</ul>
+	<p>Because of this context, the <code>channel.payload.contentType</code> primarily refers to the content of the body of the message.  Attachment type information can be appended as a MIME parameter, examples include:</p>
+		<ul>
+			<li><code>text/plain</code>: a plain-text body with no attachment</li>
+			<li><code>text/html</code>: an HTML body with no attachment</li>
+			<li><code>text/plain;attach=application/fhir+json</code>: a plain-text body with a FHIR JSON bundle attached</li>
+			<li><code>text/html;attach=application/fhir+xml</code>: an HTML body with a FHIR XML bundle attached</li>
+		</ul>
+	<p>
+		The <code>channel.payload.content</code> field must be applied to any attachments, and may be applied to body contents (depending on server implementation).  However, a server must not include a body which exceeds the specified content level.  For example, a server may choose to always include a standard message in the body of the message containing no PHI and vary the attachment, but cannot include PHI in the body of an email when the content is set to <code>empty</code>.
+	</p>
+	[%stu-note%]
+	Warning: The Email/SMS channel types are not yet defined in a highly standardized way, and may not be consistently support by servers. More work is required.
+	[%end-note%]
+	<h4>
+		Channel Security Notes
+	</h4>
+	<p>
+		Email (SMTP) is not a secure channel.  Implementers must ensure that any messages containing PHI have been secured according to their policy requirements (e.g., use of a system such as <a href="http://directproject.org/">Direct</a>).
+	</p>
+
+	<a name="sms"/>
+	<h3>
+		SMS
+	</h3>
+	<p>A client can register for its user to receive notifications by SMS:</p>
 	<pre fragment="Subscription" class="json">
 {
   "channel":{
@@ -406,19 +434,25 @@
         }
       ]
     },
-    "endpoint":"tel:+1555-345-5555"
+    "endpoint":"tel:+1555-345-5555",
+		"payload": {
+			"content": "id-only"
+		}
   }
 }</pre>
 	<p>
-		Note: SMS messages are extremely limited in size, so <code>channel.payload</code> will usually be omitted (signifying that no payload is to be sent). The recipient may be human, but this is not always the case. Irrespective of size, most servers will refuse to send payloads in SMS for security reasons, and may refuse to send emails unless encrypted.
+		SMS messages are extremely limited in size, so <code>channel.payload.content</code> will typically be <code>empty</code> or <code>id-only</code>.  In practice, either of these payload options are likely to result in a message with a link to a portal site (either informing the user there is something to view in the former, or a link to a specific resource in the latter).  The recipient may be human, but this is not always the case.
 	</p>
-	<p>
-		Emails <b>SHOULD</b> generally be secured using some technique such as <a href="http://directproject.org/">Direct</a>.
-	</p>
-	<p>A mime/type of text/plain can be useful for email and sms along with some extension describing how to convert resources to a text representation. This specification may provide supporting infrastructure for this in the future.</p>
 	[%stu-note%]
 	Warning: The Email/SMS channel types are not yet defined in a highly standardized way, and may not be consistently support by servers. More work is required.
 	[%end-note%]
+	<h4>
+		Channel Security Notes
+	</h4>
+	<p>
+		SMS is not a secure channel.  Implementers must ensure that any messages containing PHI have been secured according to their policy requirements.
+	</p>
+
 	<a name="messaging"/>
 	<h3>
 		Messaging
@@ -436,7 +470,11 @@
           }
       ]
     },
-    "endpoint":"tel:+1555-345-5555"
+    "endpoint":"http://example.org/fhir/base/endpoint/url",
+		"payload": {
+			"contentType": "application/fhir+json",
+			"content": "full-resource"
+		}
   }
 }</pre>
 	<p>For each matching resource, a server will send a message to the nominated end-point. Most servers will require that the end-point is white-listed prior to allowing these kinds of subscriptions.</p>
@@ -463,14 +501,8 @@
  		Tracking Subscription Notifications
 	</h2>
 	<p>Applications that wish to track whether notifications have been sent for particular resources (or versions of resources) can look at the AuditEvent resources. For example:</p>
-	<pre>
-		<code>GET [base]/AuditEvent?entity=Patient/103
-		</code>
-	</pre>
+	<pre>GET [base]/AuditEvent?entity=Patient/103</pre>
 	<p>In addition, servers might also create <a href="communication.html">Communication</a> resources for some of the notifications that are sent in response to a subscription, such as when sending emails.</p>
-	<pre>
-		<code>GET [base]/Communication?based-on=Subscription/103
-		</code>
-	</pre>
+	<pre>GET [base]/Communication?based-on=Subscription/103</pre>
 	<p>This returns a list of communications sent by a subscription. TODO: search on payload....</p>
 </div>
