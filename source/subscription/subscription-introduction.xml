@@ -10,7 +10,7 @@
       The server is able to send notifications without any information about the matching resource, with the ID of the matching resource, or with the entire resource.
     </p>
     <p>
-      Several different types of channels are supported:
+      Several different types of channels are defined here, while new channels can be <a href="#channel-extending">added</a>:
     </p>
     <ul>
       <li><a href="#rest-hook"><b>rest-hook</b></a>: Notifications are sent via HTTP/S POST to the <code>Subscription.channel.endpoint</code> URL (e.g., https://...)</li>

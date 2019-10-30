@@ -482,6 +482,46 @@
 	Warning: The Messaging channel type is not yet defined in a highly standardized way, and may not be consistently support by servers. More work is required.
 	[%end-note%]
 
+	<a name="channel-extending" />
+	<h2>
+		Defining Channel Types
+	</h2>
+	<p>Defining a new channel type requires clear communication to implementers of both clients and servers around requirements and expectations.  Below are some areas which should be considered when creating a channel.  Anyone defining a channel type is encouraged to publish the (IG?) at (?).
+	</p>
+	[%stu-note%]
+	Warning: This section is still in early drafting.
+	[%end-note%]
+
+	<a name="channel-extending-basics" />
+	<h3>
+		Channel Basics
+	</h3>
+	<p>At a minimum, the following items should be defined:
+	</p>
+	<ul>
+		<li>A generally useful name for <code>channel.type</code> (e.g., 'secure-mq' isntead of 'channel0012')</li>
+		<li>The type of data required in <code>channel.endpoint</code> (e.g., URI, etc.)</li>
+		<li>The meaning of the <code>channel.header</code> field values (e.g., <a href="rest-hook">REST-hook</a> defines as Auth headers included in a POST)</li>
+		<li>Any variations on MIME types for <code>channel.payload.contentType</code> (e.g., <a href="#email">email</a> defines this as the email body, with allowable attachments.)</li>
+		<li>Whether heartbeat notifications are used (and guidance on timings if they are)</li>
+	</ul>
+	
+	<a name="channel-extending-security" />
+	<h3>
+		Channel Security Considerations
+	</h3>
+	<ul>
+		<li>Defining a channel has security implications.</li>
+		<li>If the channel CANNOT be secured, that should be stated with a warning not to transfer PHI.</li>
+		<li>If the channel is/can be scured, guidance should be given on how configurations relate to PHI safety:
+			<ul>
+				<li>Does the channel determine the legitimacy of both endpoints?</li>
+				<li>Is the channel secure for third-party monitoring?</li>
+				<li>...</li>
+			</ul>
+		</li>
+	</ul>
+
 	<a name="errors"/>
 	<h2>
 		Managing Subscriptions and Errors
