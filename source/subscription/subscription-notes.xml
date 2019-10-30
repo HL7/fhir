@@ -501,7 +501,7 @@
 	<ul>
 		<li>A generally useful name for <code>channel.type</code> (e.g., 'secure-mq' isntead of 'channel0012')</li>
 		<li>The type of data required in <code>channel.endpoint</code> (e.g., URI, etc.)</li>
-		<li>The meaning of the <code>channel.header</code> field values (e.g., <a href="rest-hook">REST-hook</a> defines as Auth headers included in a POST)</li>
+		<li>The meaning of the <code>channel.header</code> field values (e.g., <a href="#rest-hook">REST-hook</a> defines as Auth headers included in a POST)</li>
 		<li>Any variations on MIME types for <code>channel.payload.contentType</code> (e.g., <a href="#email">email</a> defines this as the email body, with allowable attachments.)</li>
 		<li>Whether heartbeat notifications are used (and guidance on timings if they are)</li>
 	</ul>
