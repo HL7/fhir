@@ -1137,7 +1137,7 @@ public class SourceParser {
     errors.addAll(sparser.getErrors());
     root.setWg(wg);
     root.setFmmLevel(ini.getStringProperty("fmm", n.toLowerCase()));
-    root.setNormativeBallotPackage(ini.getStringProperty("normative-ballot", root.getName()));
+    root.setNormativePackage(ini.getStringProperty("normative-package", root.getName()));
     root.setNormativeVersion(ini.getStringProperty("first-normative-version", root.getName()));
     root.setApproval(FMGApproval.fromCode(ini.getStringProperty("fmg-approval", root.getName())));
     String sc = ini.getStringProperty("security-categorization", root.getName().toLowerCase());
@@ -1158,7 +1158,7 @@ public class SourceParser {
       definitions.getKnownResources().put(root.getName(), new DefinedCode(root.getName(), root.getRoot().getDefinition(), n));
       context.getResourceNames().add(root.getName());
     }
-    if (root.getNormativeVersion() != null || root.getNormativeBallotPackage() != null)
+    if (root.getNormativeVersion() != null || root.getNormativePackage() != null)
       root.setStatus(StandardsStatus.NORMATIVE);
     File f = new File(Utilities.path(srcDir, folder, n+".svg"));
     if (f.exists()) 

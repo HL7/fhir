@@ -25,7 +25,7 @@ notes:
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+<div class="col-12"><!--ReleaseHeader--><p id="publish-box"></p><!--EndReleaseHeader-->
 
 <a name="history"></a>
 <h3>Version History since DSTU #1</h3>
@@ -93,38 +93,48 @@ notes: do not list revision in the version
 	<tr>
 		<td>4.0.1<a name="v4.0.1"></a></td>
 		<td>
-      <p><b>Technical Corrections to R4</b>: ??? ??, 2019. Corrections to invariants &amp; generated conformance resources, and add ANSI Normative Status Notes</p>
-      <p>Detailed change list</p>
+      <p><b>Technical Corrections to R4</b>: Oct-30, 2019. Corrections to invariants &amp; generated conformance resources, and add ANSI Normative Status Notes</p>
+      <p>
+        This list of changes is farily long for a technical correction. The first set of changes should be reviewed for impact on implementations.
+      </p>
+      <p>Corrections to the specification - resolving internal conflicts, or correcting definitional errors:</p>
       <ul>
-       <li>Add <a href="index.html">ANSI</a> notes</li>
-       <li><!-- GF#20487 -->Add <a href="resource.html#Meta">Meta</a> as a type for <a href="datatypes.html#open">Open Type Element</a> list, allowing it to be used as a Parameter (and other place)</li>
-       <li><!-- GF#20393 -->Fix Binding for <a href="familymemberhistory-definitions.html#FamilyMemberHistory.sex">FamilyMemberHistory.sex</a></li>
-       <li><!-- https://chat.fhir.org/#narrow/stream/179166-implementers/topic/OIDs -->Change all code system OIDs to use the root 2.16.840.1.113883.4.642.4. instead of 2.16.840.1.113883.4.642.1. due to reassigning OID leaf values without updating the root in the past</li>
-       <li><!-- GF#20584 -->Fix FMM levels for <a href="device.html">Device</a>, <a href="devicerequest.html">DeviceRequest</a>, <a href="researchstudy.html">ResearchStudy</a>, and <a href="researchsubject.html">ResearchSubject</a></li>
-       
-       <li><!-- GF#23018 -->Add new FHIRPath context variable <a href="fhirpath.html#variables">%rootResource</a>, and use it in <a href="references-definitions.html#Reference">ref-1 constraint</a> </li>
-       <li><!-- GF#23069 -->Fix the extension context for <a href="extension-iso21090-nullFlavor.html">iso21090-nullFlavor</a> and <a href="extension-iso21090-preferred.html">iso21090-preferred</a> to any Element, not any Resource</li>
+       <li><!-- GF#20487 -->Add <a href="resource.html#Meta">Meta</a> as a Special Type for <a href="datatypes.html#open">Open Type Element</a> list, allowing it to be used as a Parameter <a href="parameters.html">in Parameters.parameter</a>, and in other places. 
+         The <a href="resource-operations.html">$meta operations</a> required their use, but the design did not allow for this. <span style="font-size: 10px">[<%GFT#20487%>]</span></li>
+       <li><!-- https://chat.fhir.org/#narrow/stream/179166-implementers/topic/OIDs -->Change all code system OIDs to use the root 2.16.840.1.113883.4.642.4. instead of 2.16.840.1.113883.4.642.1. 
+          due to reassigning OID leaf values without updating the root in the past. This was causing problems for OID based terminology systems <span style="font-size: 10px">[<a href="https://chat.fhir.org/#narrow/stream/179166-implementers/topic/OIDs">Source</a>]</span></li>
+       <li><!-- GF#23018 -->Add new FHIRPath context variable <a href="fhirpath.html#variables">%rootResource</a>, and use it in <a href="references-definitions.html#Reference">ref-1 constraint</a> - FHIRPath engines will need to support the new context variable <span style="font-size: 10px">[<%GFT#23018%>]</span></li>
+       <li><!-- GF#24110 -->Fix genomics canonical URLS: <code>http://www.ncbi.nlm.nih.gov/refseq/</code> -&gt; <code>http://www.ncbi.nlm.nih.gov/refseq</code>, <code>http://www.ncbi.nlm.nih.gov/clinvar/</code> -&gt; <code>http://www.ncbi.nlm.nih.gov/clinvar</code>, and <code>http://varnomen.hgvs.org/</code> -&gt; <code>http://varnomen.hgvs.org</code>
+                - these are now corrected back to what <a href="http://hl7.org/fhir/STU3/terminologies-systems.html">they had said in R3</a>  <span style="font-size: 10px">[<%GFT#24110%>]</span></li>
+       <li><!-- GF#20393 -->Fix Binding for <a href="familymemberhistory-definitions.html#FamilyMemberHistory.sex">FamilyMemberHistory.sex</a> - it had a reference to the administrative gender value set, but it wrongly referred to the one on http://build.fhir.org; corrected to reference the one in the specification <span style="font-size: 10px">[<%GFT#20393%>]</span></li>
+      </ul>
+      <p>Changes to Constraints and generated definitions (fixing problems in validation, no impact on implementations, except for code generators):</p>
+      <ul>
+       <li><!-- GF#24917 -->Fix expressions for Search parameters <a href="substancespecification.html#search">SubstanceSpecification-code</a> and <a href="structuredefinition.html#search">StructureDefinition-ext-context</a> <span style="font-size: 10px">[<%GFT#24917%>]</span></li>
        <li><!-- GF#20463 -->Fix the definition of the <a href="patient-extensions.html#search">Mother's Maiden name search parameter</a> from 
-         <code>extension(http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-mothersMaidenName)</code> to <code> extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName')</code></li>
-       <li><!-- GF#20470 -->Remove MultipleAnd/MultipleOr/Modifiers from generated Search Parameters</li>
-       <li><!-- GF#22495 -->Add "ge" as a comparator to generated search parameters</li>
-       <li><!-- GF#24917 -->Fix expressions for Search parameters <a href="substancespecification.html#search">SubstanceSpecification-code</a> and <a href="structuredefinition.html#search">StructureDefinition-ext-context</a></li>
-       <li><!-- GF#24918, GF#24919 -->Fix up <a href="search.html#table">search parameter table</a></li>
-       <li><!-- GF#22807 -->Add extension <a href="extension-operationdefinition-allowed-type.html">operationdefinition-allowed-type</a>, and use it to capture the definition of the <a href="codesystem-operation-lookup.html">property.value parameter</a> is captured in the OperationDefinition that describes it</li>
-       <li><!-- GF#22493 -->Fix how the type of Element.id and Extension.url is defined in the generated StructureDefinitions</li>
-       <li><!-- GF#24110 -->Fix genomics canonical URLS: <code>http://www.ncbi.nlm.nih.gov/refseq/</code> -&gt; <code>http://www.ncbi.nlm.nih.gov/refseq</code>, <code>http://www.ncbi.nlm.nih.gov/clinvar/</code> -&gt; <code>http://www.ncbi.nlm.nih.gov/clinvar</code>, and <code>http://varnomen.hgvs.org/</code> -&gt; <code>http://varnomen.hgvs.org</code></li>
-       <li><!-- GF#23044 -->Fix definition of <a href="codesystem-issue-type.html#issue-type-exception">IssueType.exception</a></li>
-       <li><!-- GF#19969 -->Remove Erroneous Normative Marker on <a href="valueset-message-events.html">message-events value set</a></li>
-       <li><!-- GF#23967 -->Fix up the definition of <a href="elementdefinition-definitions.html#ElementDefinition.type.code">ElementDefinition.type.code</a> for special elements (Element.id, Extension.url, [Primitive].value)</li>
-       <li><!-- GF#22681, GF#20465 -->Regenerate StructureDefinition snapshots to fix various snapshot and id issues </li>
-       <li><!-- GF#20592, GF#23032 & GF#20472 -->Fix various broken internal links &amp; R3 Comparison links + JSON Schema link in downloads</li>
-       <li><!-- GF#18441 -->Add note about markdown and XML signatures (to both <a href="xml.html#digsig">XML</a> and <a href="datatypes.html#signature">Signature</a> pages)</li>
-       <li><!-- GF#20618 -->Update language about specification status in <a href="summary.html#status">summary page</a></li>
+         <code>extension(http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-mothersMaidenName)</code> to <code> extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName') <span style="font-size: 10px">[<%GFT#20463%>]</span></code></li>
+       <li><!-- GF#23069 -->Fix the extension context for <a href="extension-iso21090-nullFlavor.html">iso21090-nullFlavor</a> and <a href="extension-iso21090-preferred.html">iso21090-preferred</a> to any Element, not any Resource <span style="font-size: 10px">[<%GFT#23069%>]</span></li>
+       <li><!-- GF#20470 -->Remove MultipleAnd/MultipleOr/Modifiers from generated Search Parameters <span style="font-size: 10px">[<%GFT#20470%>]</span></li>
+       <li><!-- GF#22495 -->Add "ge" as a comparator to generated search parameters <span style="font-size: 10px">[<%GFT#22495%>]</span></li>
+       <li><!-- GF#22807 -->Add extension <a href="extension-operationdefinition-allowed-type.html">operationdefinition-allowed-type</a>, and use it to capture the definition of the <a href="codesystem-operation-lookup.html">property.value parameter</a> is captured in the OperationDefinition that describes it <span style="font-size: 10px">[<%GFT#22807%>]</span></li>
+       <li><!-- GF#22493 -->Fix how the type of Element.id and Extension.url is defined in the generated StructureDefinitions <span style="font-size: 10px">[<%GFT#22493%>]</span></li>
+       <li><!-- GF#23967 -->Fix up the definition of <a href="elementdefinition-definitions.html#ElementDefinition.type.code">ElementDefinition.type.code</a> for special elements (Element.id, Extension.url, [Primitive].value) <span style="font-size: 10px">[<%GFT#23967%>]</span></li>
+       <li><!-- GF#22681, GF#20465 -->Regenerate StructureDefinition snapshots to fix various snapshot and id issues <span style="font-size: 10px">[<%GFT#22681%>, <%GFT#20465%>]</span> </li>
+      </ul>
+      <p>Documentation Corrections and Clarifications (no implementer impact):</p>
+      <ul>
+       <li>Add <a href="ansi.html">ANSI</a> notes</li>
+       <li><!-- GF#20584 -->Fix <a href="versions.html#maturity">FMM levels</a> for <a href="device.html">Device</a> (0 to 2), <a href="devicerequest.html">DeviceRequest</a> (0 to 1), <a href="researchstudy.html">ResearchStudy</a> (0 to 1), and <a href="researchsubject.html">ResearchSubject</a> (0 to 1) <span style="font-size: 10px">[<%GFT#20584%>]</span></li>
+       <li><!-- GF#24918, GF#24919 -->Fix up <a href="search.html#table">search parameter table</a> <span style="font-size: 10px">[<%GFT#24918%>, <%GFT#24919%>]</span></li>
+       <li><!-- GF#23044 -->Fix definition of <a href="codesystem-issue-type.html#issue-type-exception">IssueType.exception</a> <span style="font-size: 10px">[<%GFT#23044%>]</span></li>
+       <li><!-- GF#19969 -->Remove Erroneous Normative Marker on <a href="valueset-message-events.html">message-events value set</a> <span style="font-size: 10px">[<%GFT#19969%>]</span></li>
+       <li><!-- GF#20592, GF#23032 & GF#20472 -->Fix various broken internal links &amp; R3 Comparison links + JSON Schema link in downloads <span style="font-size: 10px">[<%GFT#20592%>, <%GFT#23032%>, <%GFT#20472%>]</span></li>
+       <li><!-- GF#18441 -->Add note about markdown and XML signatures (to both <a href="xml.html#digsig">XML</a> and <a href="datatypes.html#signature">Signature</a> pages) <span style="font-size: 10px">[<%GFT#18441%>]</span></li>
+       <li><!-- GF#20618 -->Update language about specification status in <a href="summary.html#status">summary page</a> <span style="font-size: 10px">[<%GFT#20618%>]</span></li>
        <li><!-- n/a -->Clarify copyright statement for NUBC derived codes (<a href="codesystem-ex-revenue-center.html">here</a> and <a href="codesystem-ex-diagnosis-on-admission.html">here</a>)</li>
-       <li><!-- GF#20199 -->Remove <a href="versions.html#mixed">spurious paragraph about R3 version status</a></li>
-       <li><!-- GF#24856 -->Add note about <a href="fhirpath.html#quantity">FHIRPath Quantity usage</a></li>
-       <li><!-- GF#20456 -->Fix <a href="profiling-examples.html">profiling examples</a></li>
-       <li><!-- GF#23730 -->Fix Implicit SNOMED CT Value sets in <a href="conceptmap-103.html">example</a> <a href="conceptmap-example-specimen-type.html">concept maps</a></li>
+       <li><!-- GF#20199 -->Remove <a href="versions.html#mixed">spurious paragraph about R3 version status</a> <span style="font-size: 10px">[<%GFT#20199%>]</span></li>
+       <li><!-- GF#24856 -->Add note about <a href="fhirpath.html#quantity">FHIRPath Quantity usage</a> <span style="font-size: 10px">[<%GFT#24856%>]</span></li>
+       <li><!-- GF#20456 -->Fix <a href="profiling-examples.html">profiling examples</a> <span style="font-size: 10px">[<%GFT#20456%>]</span></li>
        <li><!-- GF#20335, GF#20334, GF#22986, GF#20331, GF#20320, GF#22985, GF#20319, GF#22986, GF#22709, GF#23024 -->
          Fix the FHIRPath expressions for the following invariants: 
            <a href="structuredefinition.html#invs">sdf-8, sdf-8a, sdf-9, sdf-15, sdf-17, sdf-16</a>, 
@@ -133,11 +143,12 @@ notes: do not list revision in the version
            <a href="allergyintolerance.html#invs">ait-1, ait-2</a>, 
            <a href="observation.html#invs">obs-7</a>, 
            <a href="bundle.html#invs">bnd-10</a> and
-           <a href="vitalsigns.html#10.1.20.2.3">vs-2</a> + fix the description for <a href="elementdefinition.html#definition">eld-8</a>
+           <a href="vitalsigns.html#10.1.20.2.3">vs-2</a> + fix the description for <a href="elementdefinition.html#definition">eld-8</a> <span style="font-size: 10px">[<%GFT#20335%>, <%GFT#20334%>, <%GFT#22986%>, <%GFT#20331%>, <%GFT#20320%>, <%GFT#22985%>, <%GFT#20319%>, <%GFT#22986%>, <%GFT#22709%>, <%GFT#23024%>]</span>
          </li>
-       <li><!-- https://stackoverflow.com/questions/57759578 -->Fix the XPath invariant for dom-3</li>
+       <li><!-- https://stackoverflow.com/questions/57759578 -->Fix the XPath invariant for dom-3 <span style="font-size: 10px">[<a href="https://stackoverflow.com/questions/57759578">Source</a>]</span></li>
        <li><!-- https://stackoverflow.com/questions/57759578 -->Fix the definition for <code>entered-in-error</code> for <a href="codesystem-event-status.html#event-status-entered-in-error">Event</a>, 
-         <a href="codesystem-request-status.html#request-status-entered-in-error">Request</a> and <a href="codesystem-supplydelivery-status.html#supplydelivery-status-entered-in-error">SupplyDelivery</a></li>
+         <a href="codesystem-request-status.html#request-status-entered-in-error">Request</a> and <a href="codesystem-supplydelivery-status.html#supplydelivery-status-entered-in-error">SupplyDelivery</a>
+         <span style="font-size: 10px">[<a href="https://stackoverflow.com/questions/57759578 ">Source</a>]</span></li>
        <li><!-- https://chat.fhir.org/#narrow/stream/179166-implementers/topic/CarePlan.2Estatus.20contradicts.20ValueSet.20request-status -->
          Fix the short descriptions for the following <code>code</code> elements:
             <a href="activitydefinition-definitions.html#ActivityDefinition.intent">ActivityDefinition.intent</a>,
@@ -166,15 +177,14 @@ notes: do not list revision in the version
             <a href="requestgroup-definitions.html#RequestGroup.status">RequestGroup.status</a>,
             <a href="requestgroup-definitions.html#RequestGroup.intent">RequestGroup.intent</a>,
             <a href="servicerequest-definitions.html#ServiceRequest.status">ServiceRequest.status</a> and
-            <a href="servicerequest-definitions.html#ServiceRequest.intent">ServiceRequest.intent</a> 
+            <a href="servicerequest-definitions.html#ServiceRequest.intent">ServiceRequest.intent</a> - they had been listing the wrong codes <span style="font-size: 10px">[<a href="https://chat.fhir.org/#narrow/stream/179166-implementers/topic/CarePlan.2Estatus.20contradicts.20ValueSet.20request-status">Source</a>]</span> 
          </li>
+       <li><!-- GF#23730 -->Fix Implicit SNOMED CT Value sets in <a href="conceptmap-103.html">example</a> <a href="conceptmap-example-specimen-type.html">concept maps</a> <span style="font-size: 10px">[<%GFT#23730%>]</span></li>
       </ul>
-      
-      
-      
-
-
-
+      <p>This technical correction also includes earlier changes made without releasing a new version:</p>
+      <ul>
+       <li>Fix external links for the <a href="http://www.fhir.org/guides/registry">Implementation Guide Registry</a> and the <a href="http://registry.fhir.org">FHIR Registry</a> <span style="font-size: 10px">[<%GFT#20734%>]</span></li>
+      </ul>
 		</td>
   </tr>
 	<tr>

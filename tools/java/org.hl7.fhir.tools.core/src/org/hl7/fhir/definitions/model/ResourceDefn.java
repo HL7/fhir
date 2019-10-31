@@ -211,7 +211,7 @@ public class ResourceDefn  {
   private boolean forFutureUse = false;
   private String requirements;
   private boolean publishedInProfile;
-  private String normativeBallotPackage;
+  private String normativePackage;
   private String normativeVersion;
 
   public boolean isForFutureUse()
@@ -392,12 +392,12 @@ public class ResourceDefn  {
   }
 
   
-  public String getNormativeBallotPackage() {
-    return normativeBallotPackage;
+  public String getNormativePackage() {
+    return normativePackage;
   }
 
-  public void setNormativeBallotPackage(String value) {
-     this.normativeBallotPackage = value; 
+  public void setNormativePackage(String value) {
+     this.normativePackage = value; 
   }
 
   public void addHints(List<String> hints) {

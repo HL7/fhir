@@ -1,33 +1,18 @@
 ﻿<!DOCTYPE HTML>
 
 
-<!--
-Editors:
-
-make you entries to go in the history list here. Use the following template
-
-* [major/minor] [Location]: brief description of change
-
-notes:
-* Master editor will remove the major/minor flag when an update is published
-* location should be resource name, or title of the page on which cahgnes are made
-
-
-* Major, Data types, rename Contact to ContactPoint
-
--->
 
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>History - FHIR v4.0.0</title>
+  <title>Ansi-conformance - FHIR v4.0.1</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="author" content="http://hl7.org/fhir"/>
 
   <link href="fhir.css" rel="stylesheet"/>
-  <link rel="Prev" href="http://hl7.org/fhir/history.html"/>
+  <link rel="Prev" href="http://hl7.org/fhir/ansi-conformance.html"/>
 
   <!-- Bootstrap core CSS -->
   <link href="./dist/css/bootstrap.css" rel="stylesheet"/>
@@ -35,6 +20,7 @@ notes:
 
   <!-- Project extras -->
   <link href="./assets/css/project.css" rel="stylesheet"/>
+  <link href="fhir-pub.css" rel="stylesheet"/>
   <link href="./assets/css/pygments-manni.css" rel="stylesheet"/>
 	<link href="jquery-ui.css" rel="stylesheet"/>
 
@@ -51,13 +37,14 @@ notes:
   <link rel="apple-touch-icon-precomposed" href="./assets/ico/apple-touch-icon-57-precomposed.png"/>
   <link rel="shortcut icon" href="./assets/ico/favicon.png"/>
 
+  <link rel="stylesheet" href="./assets/css/modules.css"/>
 </head>
 <body>
 	<div id="segment-header" class="segment"><!-- segment-header -->	
 		<div class="container"><!-- container -->
-			<a id="logo" href="http://hl7.org/fhir" no-external="true"><img src="./assets/images/fhir-logo-www.png" alt="logo fhir"/> </a>
+			<a id="logo" href="http://hl7.org/fhir" no-external="true"><img src="./assets/images/fhir-logo-www.png" alt="logo fhir" height="60" width="249"/> </a>
 			<div id="hl7-status">
-				<b>Current Build</b>
+				<b>Release 4</b>
 			</div>       	
 			
 			<div id="hl7-nav">
@@ -107,8 +94,9 @@ notes:
 	<div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
 		<div class="container"><!-- container -->	
 			<ul class="breadcrumb">
-        <li><a href="foundation-module.html"><img src="foundation.png"/> Foundation</a></li>
-        <li><b>Version History</b></li>        <!-- history.html / page / -->
+        <li><a href="toc.html"><img src="index.png"/> Table of Contents</a></li>
+        <li><a href="ansi.html">ANSI Documentation</a></li>
+        <li><b>ANSI FHIR Terminology & Conformance Standard</b></li>        <!-- ansi-conformance.html / page / -->
 
 			</ul>	
 		</div><!-- /container -->
@@ -122,877 +110,118 @@ notes:
 <!-- CONTENT CONTENT -->
 
 
-<div class="col-12">
+<div class="col-12"><!--ReleaseHeader--><p id="publish-box"></p><!--EndReleaseHeader-->
 
-<a name="history"></a>
-<h3>Version History since DSTU #1</h3>
-
-<table class="colsi"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure </a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
+<a name="root"></a>
+<h2>FHIR Conformance Package</h2>
+<table class="colsn"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fmg/index.cfm" _target="blank">FHIR Management Group</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Normative</a></td></tr></tbody></table>
 
 <p>
-For background to this version history, see <a href="versions.html">FHIR Version Management Policy</a>.
-</p>
-
-<a name="pubs"></a>
-<p>
-Major Milestones:
+<img src="assets/images/ansi-approved.gif"/>
 </p>
 <table class="grid">
-  <tr>
-    <td><a href="http://hl7.org/fhir/R4/index.html">Dec 27, 2018</a></td>
-    <td>4.0.0</td>
-    <td>Release 4 (1<sup>st</sup> Normative Content + Trial Use Developments)
-    </td>
-  </tr>
-  <tr>
-    <td><a href="http://hl7.org/fhir/STU3/index.html">Feb 21, 2017</a></td>
-    <td>3.0.1</td>
-    <td>Release 3 (STU - Standard for Trial Use)</td>
-  </tr>
-  <tr>
-    <td><a href="http://hl7.org/fhir/DSTU2/index.html">Oct 24, 2015</a></td>
-    <td>1.0.2</td>
-    <td>DSTU2 (Second Draft Standard for Trial Use)</td>
-  </tr>
-  <tr>
-    <td><a href="http://hl7.org/fhir/DSTU2/index.html">Sept 30, 2014</a></td>
-    <td>0.0.82</td>
-    <td>DSTU1 (First Draft Standard for Trial Use)</td>
-  </tr>
+ <tr><td>Formal Name:</td><td>HL7 FHIR R4 Terminology &amp; Conformance, Release 1</td></tr>
+ <tr><td>ANSI Designation:</td><td>ANSI/HL7 FHIR R4 TERMINOLOGY R1-2019</td></tr>
+ <tr><td>Date of Approval:</td><td>2019-08-09</td></tr>
 </table>
 
-<p>
-This is the 4th milestone release of FHIR. The only changes tracked here are
-the changes made after the publication of the first DSTU release. For earlier changes,
-see the <a href="http://hl7.org/fhir/history.html">DSTU #1 Version History</a>.
-Note that a full archive history of everything is available
-<a href="http://github.com/hl7/fhir">through the HL7 GitHub archives</a>.
-</p>
-
-<table class="grid">
- <tr>
-   <td><b>Version</b></td>
-   <td><b>Changes</b></td>
- </tr>
-<!--
-template:
- <tr>
-   <td>0.major.minor</td>
-   <td>
-     <ul>
-       <li></li>
-     </ul>
-   </td>
- </tr>
-
-notes: do not list revision in the version
--->
-	<tr>
-		<td>4.0.1<a name="v4.0.1"></a></td>
-		<td>
-      <p><b>Technical Corrections to R4</b>: ??? ??, 2019. Corrections to invariants &amp; generated conformance resources, and add ANSI Normative Status Notes</p>
-      <p>Detailed change list</p>
-      <ul>
-       <li>Add <a href="ansi.html">ANSI</a> notes</li>
-       <li><!-- GF#20487 -->Add <a href="resource.html#Meta">Meta</a> as a type for <a href="datatypes.html#open">Open Type Element</a> list, allowing it to be used as a Parameter (and other place)</li>
-       <li></li>
-       <li></li>
-       <li></li>
-       <li></li>
-       <li></li>
-       <li></li>
-       <li></li>
-       <li></li>
-       <li></li>
-       <li></li>
-       <li></li>
-      </ul>
-		<td>
-  </tr>
-	<tr>
-		<td>4.0.0<a name="v4.0.0"></a></td>
-		<td>
-      <p><b>R4</b>: Dec 27, 2018. First Normative content, with many significant changes</p>
-      <p>
-      Note that between R3 and R4, nearly 3000 change proposals were applied to the specification, 
-      including &gt;1000 substantive changes, of which 339 were labeled 'non-compatible'. As 
-      such, providing a comprehensive list of changes between specifications is not appropriate. 
-      To help see and understand the differences between the specification releases, implementers can:
-      </p>
-      <ul>
-        <li>consult the <a href="diff.html">R3/R4 difference analysis</a></li>
-        <li>review (or use) the <a href="r3maps.html">R3/R4 transforms</a></li>
-        <li>Use the <img src="compare-to-r3.png"/> link at the foot of every page </li>
-      </ul>
-      <p>
-      To help implementers, the more significant changes are listed here:
-      </p>
-      <ul>
-       <li>Some content marked Normative using <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a> - see 
-          <a href="documentation.html">Documentation</a> and <a href="resourcelist.html">Resource</a> indexes. The meaning of normative is
-          described at length in the <a href="versions.html#change">Rules for Inter-version change</a>. 
-       </li>
-       <li>New Resources:
-         <ul style="-moz-column-count: 3; -moz-column-gap: 20px;  -webkit-column-count: 3;  -webkit-column-gap: 20px;  column-count: 3;  column-gap: 20px;">
-           <li><a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a></li>
-           <li><a href="catalogentry.html">CatalogEntry</a></li>
-           <li><a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
-           <li><a href="devicedefinition.html">DeviceDefinition</a></li>
-           <li><a href="effectevidencesynthesis.html">EffectEvidenceSynthesis</a></li>
-           <li><a href="eventdefinition.html">EventDefinition</a></li>
-           <li><a href="evidence.html">Evidence</a></li>
-           <li><a href="evidencevariable.html">EvidenceVariable</a></li>
-           <li><a href="examplescenario.html">ExampleScenario</a></li>
-           <li><a href="immunizationevaluation.html">ImmunizationEvaluation</a></li>
-           <li><a href="insuranceplan.html">InsurancePlan</a></li>
-           <li><a href="invoice.html">Invoice</a></li>
-           <li><a href="medicationknowledge.html">MedicationKnowledge</a></li>
-           <li><a href="medicinalproduct.html">MedicinalProduct</a></li>
-           <li><a href="medicinalproductauthorization.html">MedicinalProductAuthorization</a></li>
-           <li><a href="medicinalproductcontraindication.html">MedicinalProductContraindication</a></li>
-           <li><a href="medicinalproductindication.html">MedicinalProductIndication</a></li>
-           <li><a href="medicinalproductingredient.html">MedicinalProductIngredient</a></li>
-           <li><a href="medicinalproductinteraction.html">MedicinalProductInteraction</a></li>
-           <li><a href="medicinalproductmanufactured.html">MedicinalProductManufactured</a></li>
-           <li><a href="medicinalproductpackaged.html">MedicinalProductPackaged</a></li>
-           <li><a href="medicinalproductpharmaceutical.html">MedicinalProductPharmaceutical</a></li>
-           <li><a href="medicinalproductundesirableeffect.html">MedicinalProductUndesirableEffect</a></li>
-           <li><a href="observationdefinition.html">ObservationDefinition</a></li>
-           <li><a href="organizationaffiliation.html">OrganizationAffiliation</a></li>
-           <li><a href="researchdefinition.html">ResearchDefinition</a></li>
-           <li><a href="researchelementdefinition.html">ResearchElementDefinition</a></li>
-           <li><a href="riskevidencesynthesis.html">RiskEvidenceSynthesis</a></li>
-           <li><a href="specimendefinition.html">SpecimenDefinition</a></li>
-           <li><a href="substancepolymer.html">SubstancePolymer</a></li>
-           <li><a href="substancereferenceinformation.html">SubstanceReferenceInformation</a></li>
-           <li><a href="substancespecification.html">SubstanceSpecification</a></li>
-           <li><a href="terminologycapabilities.html">TerminologyCapabilities</a></li>
-           <li><a href="verificationresult.html">VerificationResult</a></li>
-         </ul>
-       </li>
-       <li>Renamed Resources:
-         <ul>
-           <li><code>BodySite</code> -&gt; <a href="bodystructure.html">BodyStructure</a></li>
-           <li><code>EligibilityRequest</code> ->  <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
-           <li><code>EligibilityResponse</code> ->  <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
-           <li><code>Sequence</code> -> <a href="molecularsequence.html">MolecularSequence</a></li>
-           <li><code>ReferralRequest</code> &amp; <code>ProcedureRequest</code> -> <a href="servicerequest.html">ServiceRequest</a></li>
-         </ul>
-       </li>
-       <li>Deleted Resources:
-         <ul>
-           <li><code>DeviceComponent</code></li>
-           <li><code>ImagingManifest</code></li>
-         </ul>
-       </li>
-       <li>Clarification of the meaning and use of <a href="conformance-rules.html#isModifier">IsModifier</a></li>
-       <li>Considerable development of the <a href="versions.html#versions">Version Management Policy</a>, and support for <a href="versioning.html">multiple FHIR versions</a> (specifically, the <a href="http.html#version-parameter">FHIR Version parameter</a>)</li>
-       <li>Datatypes: Rework <a href="datatypes.html#Money">Money</a> (no longer a constraint on <a href="datatypes.html#Quantity">Quantity</a>), and add <a href="metadatatypes.html#Expression">Expression</a></li>
-      </ul>
-    </td>
-  </tr>
-	<tr>
-		<td>3.6.0<a name="v3.6.0"></a></td>
-		<td>
-      Current build after 3.5.0 release
-    </td>
-  </tr>
-	<tr>
-		<td>3.5.0<a name="v3.5.0"></a></td>
-		<td>
-      <p><b>Release R4 Ballot #1</b>: Sept 20, 2018. R4 ballot #2</p>
-      <p>Major changes from R4 Ballot 1 (3.3.0):</p>
-      <table class="grid">
-       <tr><td><b>Description</b></td> <td><b>Committee + Tasks</b></td> <td><b>Pages</b></td>  </tr>
-
-       <tr style="background-color: #eeeeee"><td colspan="3"><b>All Ballots</b></td></tr>
-       <tr><td>Change the canonical URL for all v2 and v3 CodeSystems and ValueSets (and some FHIR ones too), to <br/><code>http://terminology.hl7.org</code> (from the Unified Terminology Process)  <b style="color: maroon">Breaking change!</b></td> <td>(no task: Vocab committee decision)</td> <td>todo</td> </tr>
-
-       <tr style="background-color: #eeeeee"><td colspan="3"><b>Normative / Infrastructure</b></td></tr>
-       <tr><td>Added reference.type</td><td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=13543">GF#13543</a></td> <td><a href="references.html#type">References between Resources</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Freferences.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Freferences.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr> 
-       <tr><td>Clarify definition of is-modifier + impacts on modifier extensions. Note: this lead to <b style="color: maroon">breaking changes</b> <br/>on a few extensions (changed from modifierExtension to normal extension)</td><td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16188">GF#16188</a></td> <td><a href="conformance-rules.html">Conformance Rules</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fconformance-rules.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fconformance-rules.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a>, <a href="extensibility.html#modifiers">Extensibility</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fextensibility.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fextensibility.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr> 
-       <tr><td>Add mode parameter to /metadata</td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=14444">GF#14444</a></td> <td><a href="http.html">RESTful API</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fhttp.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fhttp.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr> 
-       <tr><td>Enhance/extend rules around changes between versions</td><td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=13089">GF#13089</a></td> <td><a href="versions.html#rules">Version Management Policy</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fversions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fversions.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr> 
-       <tr><td>Add fhirVersion parameter to application/fhir mime type</td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16165">GF#16165</a></td> <td><a href="http.html#version-parameter">RESTful API</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fhttp.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fhttp.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-       <tr><td>Add the $versions operation</td><td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=17009">GF#17009</a></td> <td><a href="capabilitystatement-operations.html">Capability Statement Operations</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcapabilitystatement-operations.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcapabilitystatement-operations.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr> 
-       <tr><td>Allow exponential form for decimals (with corresponding consequences for precision)</td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16874">GF#16874</a></td> <td><a href="datatypes.html#decimal">Data Types</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fdatatypes.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fdatatypes.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a>, <a href="xml.html#decimal">XML</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fxml.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fxml.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-       <tr><td>Describe use of exponential form when searching numbers (+ clarifications for precision)</td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16369">GF#16369</a></td> <td><a href="search.html#decimal">Search</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fsearch.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fsearch.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-       <tr><td>Remove support for operations on historical resources <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=17258">GF#17258</a></td> <td><a href="operations.html">Operations</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Foperations.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Foperations.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-       <tr><td>Change Money Type to make it simpler <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16297">GF#16297</a></td> <td><a href="datatypes.html#Money">Data Types</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fdatatypes.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fdatatypes.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-       <tr><td>Change ElementDefinition.binding.valueSet to only be of type canonical <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16055">GF#16055</a></td> <td><a href="elementdefinition.html">Element Definition</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Felementdefinition.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Felementdefinition.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-       <tr><td>Remove restriction on Bundle containing multiple versions of the same resource <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=17085">GF#17085</a></td> <td><a href="bundle.html">Bundle</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fbundle.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fbundle.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-       <tr><td>Rename Binary.content to Binary.data and exclude it from summary (which makes it optional) <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16998">GF#16998</a>, <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16898">GF#16898</a></td> <td><a href="binary.html">Binary Resource</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fbinary.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fbinary.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr> 
-
-       <tr style="background-color: #eeeeee"><td colspan="3"><b>Normative / Conformance + Terminology</b></td></tr>
-       <tr><td>Remove ValueSet.$expand profile parameter, and add parameters from ExpansionProfile <b style="color: maroon">Breaking change!</b></td> <td>Vocab: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16337">GF#16337</a> &amp; <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16490">GF#16490</a></td> <td><a href="valueset-operation-expand.html">ValueSet.$expand</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-operation-expand.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-operation-expand.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-       <tr><td>Remove ValueSet.$expand.limitedExpansion parameter, and document how to use count instead <b style="color: maroon">Breaking change!</b></td> <td>Vocab: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16449">GF#16449</a></td> <td><a href="valueset-operation-expand.html">ValueSet $expand operation</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-operation-expand.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-operation-expand.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-       <tr><td>Move Valueset.extensible to an extension</td> <td>Vocab: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16427">GF#16427</a></td> <td><a href="valueset.html">ValueSet</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr> 
-       <tr><td>Add <a href="capabilitystatement-definitions.html#CapabilityStatement.implementation.custodian">CapabilityStatement.implementation.custodian</a></td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16342">GF#16342</a></td> <td><a href="capabilitystatement.html">CapabilityStatement</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcapabilitystatement.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcapabilitystatement.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-       <tr><td>Add CapabilityStatement.imports</td> <td>FHIR-I: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=14299">GF#14299</a></td> <td><a href="capabilitystatement.html">CapabilityStatement</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcapabilitystatement.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcapabilitystatement.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td></tr>
-
-       <tr style="background-color: #eeeeee"><td colspan="3"><b>Normative / Observation</b></td></tr>
-       <tr>
-        <td>Update definition of <code>subject</code> and add note <a href="safety.html">safety page</a> the <code>focus</code> element</td>
-        <td>OO: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16136">GF#16136</a></td>
-        <td><a href="observation.html">Observation</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fobservation.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fobservation.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td>
-        </tr>
-        <tr>
-        <td>Changed cardinality of <code >Observation.interpretation</code> and <br/><code >Observation.component.interpretation</code> from 0..1 to 0..*</td>
-        <td>OO: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=16231">GF#16231</a></td>
-        <td><a href="observation.html">Observation</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fobservation.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fobservation.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td>
-        </tr>
-        <tr>
-        <td>Changed <code>Observation.context</code> to <code>Observation.encounter</code> with type <code >Reference(Encounter)</code>. <b style="color: maroon">Breaking change!</b></td>
-        <td>OO: <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=17661">GF#17661</a></td>
-        <td><a href="observation.html">Observation</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fobservation.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fobservation.html" no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></td>
-        </tr>
-      </table>
-      <p><b>This is only the major changes</b>. More comprehensive lists can be found in the ballot introduction (later removed).</p>
-      <p>Major changes in the other parts of the specification:</p>
-      <ul>
-       <li>New Resources: <a href="medicationknowledge.html">MedicationKnowledge</a>, <a href="devicedefinition.html">DeviceDefinition</a>, <a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
-       <li>Renamed Resources: <code>OrgnizationRole</code> to <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <code>EligibilityRequest</code> to <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a>, 
-         <code>EligibilityResponse</code> to <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a>, and <code>ProductPlan</code> to <a href="insuranceplan.html">InsurancePlan</a></li>
-       <li>Significant rework around devices - in the <a href="device.html">Device</a> resource, remove <code>DeviceComponent</code> + new resource <a href="devicedefinition.html">DeviceDefinition</a></li>
-       <li>Update maps/diffs to R3 (see <a href="#maps">note</a> above)</li>
-       <li>New page listing <a href="best-practices.html">best practices</a></li>
-       <li>A sweeping change to code system and value set URLs to align with new terminology infrastructure</li>
-       <li>Add <a href="versioning.html">information</a> and <a href="capabilitystatement-operation-versions.html">operations</a> related to supporting multiple versions of FHIR</li>
-       <li>Rewrite <a href="async.html">Asynchronous Pattern Operation</a></li>
-       <li>New <a href="security.html">security notes</a> about suggested best practices, and new <a href="safety.html">safety notes</a> about deleting records</li>
-       <li>Lots of changes to <a href="financial-module.html">Financial Resources</a> (especially <a href="contract.html">Contract</a>)</li>
-      </ul> 
-    </td>
-  </tr>
-	<tr>
-		<td>3.4.0<a name="v3.4.0"></a></td>
-		<td>
-      Current build after 3.3.0 release
-    </td>
-  </tr>
-	<tr>
-		<td>3.3.0<a name="v3.3.0"></a></td>
-		<td>
-      <p><b>Release R4 Ballot #1</b>: Apr 3, 2018. R4 ballot #1. Major changes from R3:</p>
-      <ul>
-       <li>Mark all content with a standards status - Normative, Trial use, Draft, or external</li>
-       <li>Many minor &amp; major changes to data types, resources, operations</li>
-       <li>New Resources:      
-       <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>,
-       <a href="catalogentry.html">CatalogEntry</a>,
-       <a href="eventdefinition.html">EventDefinition</a>,
-       <a href="examplescenario.html">ExampleScenario</a>,
-       <a href="immunizationevaluation.html">ImmunizationEvaluation</a>,
-       <a href="invoice.html">Invoice</a>,
-       ItemInstance,
-       <a href="observationdefinition.html">ObservationDefinition</a>,
-       OccupationalData,
-       <a href="organizationaffiliation.html">OrganizationAffiliation</a>,
-       <a href="specimendefinition.html">SpecimenDefinition</a>,
-       <a href="terminologycapabilities.html">TerminologyCapabilities</a>,
-       UserSession and
-       <a href="verificationresult.html">VerificationResult</a>,
-       and a new set of resources for medication knowledge management:
-       <a href="medicinalproduct.html">MedicinalProduct</a>,
-       <a href="medicinalproductauthorization.html">MedicinalProductAuthorization</a>,
-       <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->,
-       <!--a href="medicinalproductdevicespec.html"-->MedicinalProductDeviceSpec<!--/a-->,
-       <a href="medicinalproductingredient.html">MedicinalProductIngredient</a>,
-       <a href="medicinalproductpackaged.html">MedicinalProductPackaged</a>,
-       <!--a href="medicinalproductpharmaceutical.html"-->MedicinalProductPharmaceutical<!--/a-->,
-       <a href="insuranceplan.html">InsurancePlan</a>,
-       <!--a href="substancepolymer.html"-->SubstancePolymer<!--/a-->,
-       <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a> and
-       <a href="substancespecification.html">SubstanceSpecification</a>.
-       </li>
-       <li>Renamed Resources: ProcedureRequest to <a href="servicerequest.html">ServiceRequest</a> &amp; BodySite to <a href="bodystructure.html">BodyStructure</a></li>
-       <li>Removed Resources: DataElement, ImagingManifest and ServiceDefinition</li>
-       <li>New Pages: <a href="async.html">Asynchronous Use</a>, <a href="storage.html">Persistence/Data bases</a>, <a href="fivews.html">FiveWs Pattern</a> and <a href="languages.html">Multi-language support</a></li>
-      </ul>
-    </td>
-  </tr>
-	<tr>
-		<td>3.2.0<a name="v3.2.0"></a></td>
-		<td>
-      <p><b>Release R4 Draft</b>: Dec 21, 2017. R4 draft ballot. Major changes:</p>
-      <ul>
-       <li>Ensure that all pages have a standards status, and enforce standards status throughout. Add dependency analysis</li>
-       <li>Many minor changes to data types, resources, operations</li>
-       <li>New Resources: <a href="catalogentry.html">CatalogEntry</a>, <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>, 
-          <a href="examplescenario.html">ExampleScenario</a>, <a href="terminologycapabilities.html">TerminologyCapabilities</a>, UserSession, <a href="invoice.html">Invoice</a>, 
-          <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="verificationresult.html">VerificationResult</a>, 
-          <a href="medicinalproduct.html">MedicinalProduct</a>, <a href="medicinalproductauthorization.html">MedicinalProductAuthorization</a> <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->, 
-          <a href="medicinalproductingredient.html">MedicinalProductIngredient</a>, <a href="medicinalproductpackaged.html">MedicinalProductPackaged</a>, 
-          <!-- a href="medicinalproductpharmaceutical.html"-->MedicinalProductPharmaceutical<!--/a--> <!--a href="medicinalproductdevicespec.html"-->MedicinalProductDeviceSpec<!--/a-->, 
-          <a href="substancespecification.html">SubstanceSpecification</a>, <!--a href="substancepolymer.html"-->SubstancePolymer<!--/a-->, <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a>, 
-          <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, ItemInstance 
-       </li>
-       <li>Add draft support for bulk data (<a href="async.html">Asynchronous API</a> + <a href="nd-json.html">nd-json format</a>)</li>
-      </ul>
-    </td>
-  </tr>
-	<tr>
-		<td>3.1.0<a name="v3.1.0"></a></td>
-		<td>R4 development begins</td>
-  </tr>
-	<tr>
-		<td>3.0.0<a name="v3.0.0"></a></td>
-		<td>
-      <p><b>Release 3</b>: Mar 21, 2017. STU3</p>
-      <p>
-        This is the full FHIR Release 3 (R3). R3 is a complete overhaul of the specification from R2, with over 2400 change proposals
-        process, and applied in R3. Of those changes, 380+ are labeled as a breaking change. Given this level of change, there is no
-        useful way to present a single change list. Users can use the R2/R3 difference comparison, the R2 &lt;-&gt; R3 transforms,
-        or the "Compare to R2" link at the foot of every page to help visualise the differences between R2 and R3.
-      </p>
-      <p>
-        Many of the changes made in this release (since 1.8.0) are in response to Quality Assurance processes in HL7,
-        with a goal of readying the specification for Normative processes in R4:
-      </p>
-      <ul>
-        <li>Reorder many resources and improve their definitions and bindings (Quality Assurance work)</li>
-        <li>Add draft resources <a href="adverseevent.html">AdverseEvent</a> and <a href="graphdefinition.html">GraphDefinition</a></li>
-        <li>Change to the <a href="profiling.html#discriminator">way discriminators work</a> in profiles (for profile/tooling authors)</li>
-        <li>Finalization of the <a href="rdf.html">Turtle (RDF) format, along with JSON-LD (later removed)</a></li>
-        <li>Consolidation of Vresion management issues into a single <a href="versions.html">Version Policy</a> page, and update to current policy</li>
-        <li>Add <a href="search.html#missing">rules about how missing data</a> in search</li>
-      </ul>
-      <p>
-        Roll up: Of all the many changes (thousands) between R2 and R3, these are the most significant:
-      </p>
-      <ul>
-        <li>Change the <a href="http.html#mime-type">FHIR mime type</a> to application/fhir+xml|json instead of application/xml|json+fhir (<b>breaking change</b>, for conformance to W3C+IETF rules)</li>
-        <li>Rename the "Conformance" resource to "<a href="capabilitystatement.html">CapabilityStatement</a>" and Deprecate use of the OPTIONS command to retrieve the CapabilityStatement</li>
-        <li><a href="search.html">Search</a> Changes around <a href="search.html#errors">errors in search parameters</a>, <a href="search.html#missing">missing data</a>, <a href="search.html#sort">sorting</a></li>
-        <li>Change <a href="datatypes.html#HumanName">HumanName</a>.family from 0..* to 0..1</li>
-        <li><a href="codesystem.html">CodeSystem</a> now separated out from <a href="valueset.html">ValueSet</a></li>
-      </ul>
-    </td>
-	</tr>
-	<tr>
-		<td>1.9.0</td>
-		<td>
-      <p><b>FHIR Rolling Build, 2016 Dec onwards</b><a name="v1.9.0"></a></p>
-    </td>
-	</tr>
-	<tr>
-		<td>1.8.0</td>
-		<td>
-      <p><b>FHIR QA Release, Dec 6, 2016</b><a name="v1.8.0"></a></p>
-      <p>
-      STU 3 Candidate, and also the basis for several implementation guide ballots and the <a href="https://confluence.hl7.org/display/FHIR/Connectathon+14">San Antonio Jan 2017 Connectathon</a>
-      </p>
-      <p><b>Breaking Changes Summary:</b></p>
-      <ul>
-        <li>Change <a href="datatypes.html#HumanName">HumanName</a>.family from 0..* to 0..1</li>
-        <li>Rename MedicationOrder and DiagnosticOrder to  <a href="medicationrequest.html">MedicationRequest</a> and DiagnosticRequest and make a series of changes to align with the <a href="request.html">Request Pattern</a></li>
-        <li>Add cross resource search + rework composite parameter expressions</li>
-        <li>Harmonise resource metadata across the Terminology, Conformance, and Knowledge resources</li>
-        <li>Change the way <a href="references.html#canonical">versioned references to canonical URLs</a> are handled</li>
-        <li>REST - servers must <a href="http.html#create">return a location header</a> on a create</li>
-        <li><a href="condition.html">Condition</a> status elements reworked</li>
-      </ul>
-      <p>
-        These are only the more significant changes, there were many 100s of changes made in response to ballot comments and ongoing implementation experience.
-        These include breaking changes to may resources. Structural changes are <a href="diff.html">summarized here</a>, and <code>Transforms between DSTU 2 and STU 3</code>
-        are provided for many resources.
-      </p>
-    </td>
-	</tr>
-	<tr>
-		<td>1.6.0</td>
-		<td>
-      <p><b>FHIR STU3 ballot, Aug 11, 2016</b><a name="v1.6.0"></a></p>
-      <p>
-      STU 3 ballot version, and also the basis for the <a href="https://confluence.hl7.org/display/FHIR/Connectathon+13">Baltimore Sept 2016 Connectathon</a>
-      </p>
-      <p><b>Publication Changes:</b></p>
-      <ul>
-       <li>Move the US Realm implementation guides out of the specification (see <a href="http://www.fhir.org/guides/registry">http://www.fhir.org/guides/registry</a>)</li>
-       <li>Rework the home page, and introduce modules as a way to navigate the specification + add significant new implementer advice (e.g. "<a href="modules.html">Getting Started</a>")</li>
-       <li>Change the Navigation menu to focus on indexes to the content in the specification</li>
-       <li>Move FHIRPath expression language to its <a href="http://hl7.org/fhirpath">long term home</a></li>
-      </ul>
-      <p><b>Technical Changes:</b></p>
-      <ul>
-        <li>RESTful API
-          <ul>
-           <li>Change the <a href="http.html#mime-type">FHIR mime type</a> to application/fhir+xml|json instead of application/xml|json+fhir (<b>breaking change</b>, for conformance to W3C+IETF rules)</li>
-           <li>Add new uses for the Prefer header (return OperationOutcome, and manage behavior related to unknown / unsupported search parameters</li>
-           <li>Deprecate use of the OPTIONS command to retrieve the CapabilityStatement</li>
-           <li>Add support for conditional references to the transaction interaction</li>
-           <li>Add reverse chaining</li>
-          </ul>
-        </li>
-        <li>Formats: No change to XML + JSON formats. Add <a href="rdf.html">Turtle Format</a>, and related validation tools</li>
-        <li>For Data Types and Resources, there is <a href="diff.html">formal difference</a> analysis from DSTU2 (also found throughout the specification), and <code>transforms between DSTU 2 and STU 3</code>
-        are provided for many resources</li>
-      </ul>
-    </td>
-	</tr>
-	<tr>
-		<td>1.5.0</td>
-		<td>
-      <p><b>FHIR Current Build Update, July 8 2016</b><a name="v1.5.0"></a></p>
-      <p>
-      Update current version to 1.5 to prevent confusion with implementations still running the May 2016 version.
-      </p>
-      <ul>
-       <li>There are many changes in this version from 1.4.0, but no formal list is provided. A formal list will be provided for 1.6 (as a diff to 1.4)</li>
-      </ul>
-    </td>
-	</tr>
-	<tr>
-		<td>1.4.0</td>
-		<td>
-      <p><b>FHIR Connectathon 12 Snapshot, Mar 30 2016</b><a name="v1.4.0"></a></p>
-      <p>
-      Frozen base for Connectathon 12 &amp; For Comment ballots:
-      </p>
-      <ul>
-       <li>
-       FHIR API and Serialization Format Enhancement
-        <ul>
-         <li>The <a href="search.html#sort">_sort parameter</a> has been reworked</li>
-         <li>New or extended search parameters for read, search or history: _type, _at, _summary, _elements</li>
-         <li>Change <a href="rdf.html">Turtle representation</a> - now ready for trial</li>
-        </ul>
-        <p>
-        </p>
-       </li>
-       <li>
-       Conformance resources with significant breaking changes and behavior:
-        <ul>
-         <li><a href="structuredefinition.html">StructureDefinition</a> - Type Handling: Changes to how the structure definition types work: <b>baseType</b> <i>replaces</i> <b>constrainedType</b> (now type) &amp; <b>baseDefinition</b> <i>replaces</i> <b>base</b></li>
-         <li><a href="codesystem.html">CodeSystem</a> now separated out from <a href="valueset.html">ValueSet</a>: CodeSystem is now a first class resource type in order to support use throughout the FHIR eco-system, such as to support value set expansion and validation. It is intended to be used for distributing the smaller ad-hoc code systems that are ubiquitously encountered throughout the healthcare process.</li>
-        </ul>
-       </li>
-       <li>
-       Other resources with significant breaking changes and behavior:
-        <ul>
-         <li><a href="allergyintolerance.html">AllergyIntolerance</a></li>
-         <li><a href="appointment.html">Appointment</a></li>
-         <li><a href="auditevent.html">AuditEvent</a></li>
-         <li><a href="claim.html">Claim</a></li>
-         <li><a href="claimresponse.html">ClaimResponse</a></li>
-         <li><a href="device.html">Device</a></li>
-         <li><a href="conceptmap.html">ConceptMap</a></li>
-         <li><a href="capabilitystatement.html">Conformance</a> (now CapabilityStatement)</li>
-         <li><a href="contract.html">Contract</a></li>
-         <li><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
-         <li><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
-        <li><a href="device.html">Device</a></li>
-         <li>DiagnosticRequest</li>
-         <li><a href="explanationofbenefit.html">ExplanationOfBenefit</a></li>
-         <li><a href="library.html">Library</a></li>
-         <li><a href="measure.html">Measure</a></li>
-         <li><a href="medication.html">Medication</a></li>
-         <li><a href="medicationadministration.html">MedicationAdministration</a></li>
-         <li><a href="medicationstatement.html">MedicationStatement</a></li>
-         <li><a href="observation.html">Observation</a>: the introduction of the Vital Signs Profile (proposed to be mandatory)</li>
-         <li><a href="operationdefinition.html">OperationDefinition</a></li>
-         <li><a href="patient.html">Patient</a></li>
-         <li><a href="paymentnotice.html">PaymentNotice</a></li>
-         <li><a href="paymentreconciliation.html">PaymentReconciliation</a></li>
-         <li><a href="practitioner.html">Practitioner</a></li>
-          <li><a href="provenance.html">Provenance</a></li>
-         <li>ReferralRequest</li>
-         <li><a href="schedule.html">Schedule</a></li>
-         <li><a href="molecularsequence.html">MolecularSequence</a></li>
-         <li><a href="slot.html">Slot</a></li>
-         <li><a href="structuredefinition.html">StructureDefinition</a></li>
-         <li><a href="testscript.html">TestScript</a></li>
-         <li><a href="valueset.html">ValueSet</a></li>
-        </ul>
-        <p>
-        </p>
-       </li>
-       <li>
-       Add new <b>draft</b> resources:
-        <ul>
-         <li><a href="careteam.html">CareTeam</a></li>
-         <li><a href="codesystem.html">CodeSystem</a></li>
-         <li><a href="compartmentdefinition.html">CompartmentDefinition</a></li>
-         <li><a href="linkage.html">Linkage</a></li>
-         <li><a href="measurereport.html">MeasureReport</a></li>
-         <li><a href="practitionerrole.html">PractitionerRole</a></li>
-         <li>Protocol</li>
-         <li><a href="structuremap.html">StructureMap</a></li>
-         <li><a href="task.html">Task</a></li>
-        </ul>
-       </li>
-      </ul>
-    </td>
-	</tr>
-	<tr>
-		<td>1.2.0</td>
-		<td>
-      <p><b>FHIR Connectathon 11 Snapshot, Dec 11 2015</b><a name="v1.2.0"></a></p>
-      <p>
-      Frozen base for Connectathon 11:
-      </p>
-      <ul>
-       <li>Remove GuidanceRequest</li>
-       <li>Add new <b>draft</b> resources: <a href="molecularsequence.html">MolecularSequence</a>, ExpansionProfile</li>
-       <li>Modifications to Financial Resource &amp; TestScript resource</li>
-      </ul>
-      <p>
-      Note: this version is temporary, and was removed after Connectathon 11 was complete
-      </p>
-    </td>
-	</tr>
-	<tr>
-		<td>1.1.0</td>
-		<td>
-      <p><b>GAO Ballot + technical corrections, Dec 2 2015</b><a name="v1.1.0"></a></p>
-      <p>
-      A ballot publication for the <code>GAO Ballot</code> that also includes:
-      </p>
-      <ul>
-       <li>Various technical corrections to the generated snapshots</li>
-       <li>Populate FHIRPath expressions in extensions for all search parameters and invariants</li>
-       <li>Add new <b>draft</b> resources: <code>GuidanceRequest</code>,  <a href="guidanceresponse.html">GuidanceResponse</a>,  <code>ModuleMetadata</code>,  <code>ModuleDefinition</code>,  <a href="library.html">Library</a>,  <code>DecisionSupportServiceModule</code>,  <code>DecisionSupportRule</code>,  <code>OrderSet</code>,  <a href="measure.html">Measure</a></li>
-       <li>Major restructure of <a href="questionnaire.html">Questionnaire</a></li>
-      </ul>
-    </td>
-	</tr>
-	<tr>
-		<td>1.0.2</td>
-		<td>
-      <p><b>Technical Correction 1, Oct 24 2015</b><a name="v1.0.2"></a></p>
-      <p>
-      A series of technical corrections to the specification following extensive review:
-      </p>
-      <ul>
-       <li>Corrections to Extension cardinalities in implementation guides</li>
-       <li>Corrections in the conformance resources that support the specifications</li>
-       <li>Correct several erroneous invariants</li>
-       <li>Various typos, broken links, and fixes in examples</li>
-       <li>For a comprehensive list of corrections, see the <a href="https://confluence.hl7.org/display/FHIR/DSTU2+Technical+Correction+1+Tasks">Task list for FHIR DSTU2 Technical Correction 1</a></li>
-      </ul>
-    </td>
-	</tr>
-	<tr>
-		<td>1.0.1</td>
-		<td>
-      <p><b>DSTU 2, Sept 23 2015</b></p>
-      <p>
-      Changes of significance during the QA process:
-      </p>
-      <ul>
-       <li>Remove the Clinical Quality Improvement Framework (CQIF) from this published version</li>
-       <li>made fixes to generated schematrons</li>
-       <li>updated generated comformance resources (StructureDefinitions and SearchParameters) so they were consistent with the specification</li>
-       <li>Many spelling / grammar / broken link fixes</li>
-      </ul>
-    </td>
-	</tr>
-	<tr>
-		<td>1.0.0</td>
-		<td>
-      <p><b>DSTU 2 QA Preview, Aug 31 2015</b></p>
-      <p>This version had extensive change as a result of the May 2015 DSTU ballot, ongoing testing, and the open change proposals (1317 tasks). The extent of the changes is best illustrated by the number of the
-        <a href="https://confluence.hl7.org/display/FHIR/DSTU2+Ballot+to+Final+breaking+changes">list of changes labeled 'breaking change'</a> - 158 changes of 1317 total tasks. Below is a list of the most important changes:</p>
-      <ul>
-        <li>General: introduced the <a href="versions.html#maturity">maturity framework</a></li>
-        <li><a href="http.html">RESTful API</a>: add batch, several clarifications around versioning &amp; transactional integrity, changed Bundle URL resolution rules</li>
-        <li><a href="search.html">Search</a>: changed the way &lt;&gt; etc.works, added _list parameter, changed rules around contained and included resources</li>
-        <li>Formats: added a <a href="xml.html">note about whitespace in XML</a>, added <a href="xml.html#schema-gen">code generation schemas</a></li>
-        <li>Data Types:
-          <ul>
-            <li>New data types: <a href="datatypes.html#markdown">markdown</a>, <a href="datatypes.html#Annotation">Annotation</a>, </li>
-            <li>changed data types: <a href="datatypes.html#Coding">Coding</a>, <a href="datatypes.html#Quantity">Quantity</a>, <a href="datatypes.html#Signature">Signature</a>, <a href="datatypes.html#Timing">Timing</a>, <a href="datatypes.html#Address">Address</a>, <a href="datatypes.html#ContactPoint">ContactPoint</a></li>
-            <li>changes to <a href="elementdefinition.html">ElementDefinition</a>: add base, make type.profile repeat, remove invariant.name and replace with invariant.requirements, remove binding.name, add min/max value</li>
-          </ul>
-        </li>
-        <li>Resources:
-          <ul>
-            <li>New resources: <a href="account.html">Account</a>, <a href="implementationguide.html">ImplementationGuide</a>, <a href="testscript.html">TestScript</a></li>
-            <li>renamed: Contraindication -&gt; <a href="detectedissue.html">DetectedIssue</a>, MedicationPrescription -&gt; <a href="medicationrequest.html">MedicationRequest</a>, QuestionnaireAnswers -&gt; <a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
-            <li>removed: Supply</li>
-            <li>changed: almost all resources - too many to list (1317 tasks worth of changes) - add, remove elements, change types, references, definitions &amp; value sets, re-order elements, provide much more documentation and new examples</li>
-          </ul>
-        </li>
-        <li>Implementation Guide:
-          <ul>
-            <li>Move <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut content</a> out</li>
-          </ul>
-        </li>
-      </ul>
-    </td>
-	</tr>
-	<tr>
-		<td>0.5.0</td>
-		<td>
-      <p><b>DSTU Ballot, May 2015</b></p>
-      <p>This version had extensive change as a result of the January 2015 Draft ballot, ongoing testing, and the open change proposals (over 800 tasks). The list below is a summary of the major changes to resource content. It shows only a limited number of the overall changes.</p>
-      <p><b>Enumerations</b></p>
-      <ul>
-        <li>All spaces removed</li>
-        <li>Extensive content changes not noted here</li>
-      </ul>
-      <p><b>New Data Types</b></p>
-      <ul>
-        <li><a href="datatypes.html#unsignedInt">unsignedInt</a></li>
-        <li><a href="datatypes.html#positiveInt">positiveInt</a></li>
-        <li><a href="datatypes.html#Signature">Signature</a></li>
-        <li><a href="resource.html#Meta">Meta</a></li>
-      </ul>
-      <p><b>Changed Data Types</b></p>
-      <ul>
-        <li><a href="datatypes.html#Coding">Coding</a> - remove valueSet property  </li>
-        <li><a href="datatypes.html#Attachment">Attachment</a> - add creation</li>
-        <li><a href="datatypes.html#Identifier">Identifier</a> - replace label with type</li>
-        <li><a href="datatypes.html#Timing">Timing</a> - major rework of content</li>
-        <li><a href="elementdefinition.html">ElementDefinition</a> - add label, code, rename 'formal' to definition, rename synonym to alias, add language to mapping, remove conformance and isExtensible and replace with strength</li>
-      </ul>
-      <p><b>New Resources</b></p>
-      <ul>
-        <li>BodySite</li>
-        <li><a href="claim.html">Claim</a></li>
-      </ul>
-      <p><b>Removed Resources</b></p>
-      <ul>
-        <li>CarePlan2 -&gt; collapsed into CarePlan</li>
-        <li>FamilyHistory -&gt; broken up into FamilyMemberHistory</li>
-        <li>InstitutionalClaim, OralHealthClaim, PharmacyClaim, ProfessionalClaim, VisionClaim -&gt; collapsed into Claim</li>
-        <li>Other - use Basic instead</li>
-        <li>PendedRequest,Readjudicate, Reversal, StatusRequest, StatusResponse - use ProcessRequest/Response instead</li>
-        <li>SupportingDocumentation - use DocumentManifest instead</li>
-		<li>ProcessRequest, ProcessResponse - use Task instead</li>
-      </ul>
-
-      <p><b>Renamed Resources</b></p>
-      <ul>
-        <li>Alert -&gt; Flag: 'alert' made people think it was an action like an alarm</li>
-        <li>SecurityEvent -&gt; AuditEvent: it wasn't just for security purposes</li>
-        <li>ClinicalAssessment -&gt; ClinicalImpression: people got confused with 'assessment' tools like APGAR score</li>
-        <li>Profile -&gt; StructureDefinition: 'Profile' is the process, a package of statements</li>
-      </ul>
-
-      <p><b>Changes Inside Resources</b></p>
-      <ul>
-        <li><a href="parameters.html">Parameters</a> - allow parameter.part to contain a resource</li>
-        <li><a href="allergyintolerance.html">AllergyIntolerance</a> - rename subject to patient</li>
-        <li><a href="appointment.html">Appointment</a> - remove lastModifiedBy/lastModified, add location</li>
-        <li><a href="appointmentresponse.html">AppointmentResponse</a> - remove lastModifiedBy/lastModified, add rename individual to actor</li>
-        <li><a href="auditevent.html">AuditEvent</a> - add .event.purposeOfEvent, participant.location, .policy, and .purposeOfUse</li>
-        <li><a href="bundle.html">Bundle</a> - major reorganization</li>
-        <li><a href="careplan.html">CarePlan</a> - pull goal out + other reorganization</li>
-        <li><a href="clinicalimpression.html">ClinicalImpression</a> - add status, replace careplan &amp; referral with trigger, rename diagnosis to finding, make plan 0..*, </li>
-        <li><a href="composition.html">Composition</a> - change .section.content to refer to List only, not any </li>
-        <li><a href="conceptmap.html">ConceptMap</a> - change identifier to url, add useContext, change telecom to contact, </li>
-        <li><a href="condition.html">Condition</a> - rename subject to patient, rename status to clinicalStatus, change to bodySite = code or Reference(BodySite), rename .codeableConcept to .code</li>
-        <li><a href="capabilitystatement.html">Conformance</a> (now CapabilityStatement) - change identifier to url, add useContext, change telecom to contact, add requirements and copyright, add support for conditional operations, </li>
-        <li><a href="contract.html">Contract</a> - extensive rewrite</li>
-        <li><a href="coverage.html">Coverage</a> - add bin, subscriberId</li>
-        <li>DataElement (now <a href="structuredefinition.html">StructureDefinition</a>) - total rewrite to use ElementDefinition</li>
-        <li><a href="device.html">Device</a> - add status, manufactureDate</li>
-        <li><a href="devicemetric.html">DeviceMetric</a> - rename operationalState to operationalStatus, add measurementMode, rename calibrationInfo to calibration, change color to an enumerations</li>
-        <li><a href="devicerequest.html">DeviceRequest</a>/<a href="deviceusestatement.html">DeviceUseStatement</a> - change to bodySite = code or Reference(BodySite)</li>
-        <li>DiagnosticRequest- change to bodySite = code or Reference(BodySite)</li>
-        <li><a href="diagnosticreport.html">DiagnosticReport</a> - add encounter</li>
-        <li><a href="documentmanifest.html">DocumentManifest</a> - add options for how content is referred to </li>
-        <li><a href="documentreference.html">DocumentReference</a> - add format, remove policyManager, make content : Attachment, and remove several related attributes, remove service reference and add context.practiceSetting, sourcePatientInfo, and related</li>
-        <li><a href="encounter.html">Encounter</a> - add incomingReferralRequest, allow reason to repeat, rename diet to dietPreference</li>
-        <li><a href="episodeofcare.html">EpisodeOfCare</a> - rename currentStatus to status, allow referralRequest to repeat, </li>
-        <li><a href="flag.html">Flag</a> - rename subject to patient, change from note to code</li>
-        <li><a href="goal.html">Goal</a> - add targetDate, statusDate, author, priority</li>
-        <li><a href="healthcareservice.html">HealthcareService</a> - extensive rewrite</li>
-        <li><code>ImagingObjectSelection</code> - remove retrieveAETitle, rename retrieveUrl to url, add frames</li>
-        <li><a href="imagingstudy.html">ImagingStudy</a> - add laterality, change url to attachment</li>
-        <li><a href="immunization.html">Immunization</a> - add encounter, rename subject to patient, rename refusedIndicator to wasNotGiven, rename refusalReason to reasonNotGiven</li>
-        <li><a href="immunizationrecommendation.html">ImmunizationRecommendation</a> - rename subject to patient</li>
-        <li><a href="list.html">List</a> - add title, status, change ordered to orderedBy, add note</li>
-        <li><a href="location.html">Location</a> - remove status</li>
-        <li><a href="media.html">Media</a> - remove created (-> Attachment)</li>
-        <li><a href="medication.html">Medication</a> - add batch</li>
-        <li><a href="medicationadministration.html">MedicationAdministration</a> - add reasonGiven, note, text. remove timing &amp; maxDosePerPeriod</li>
-        <li><a href="medicationdispense.html">MedicationDispense</a> - collapse to a single dispense, add daysSupply, note and substitution, change quantity to allow range</li>
-        <li><a href="medicationrequest.html">MedicationRequest</a> - add note, change quantity to allow range, </li>
-        <li><a href="medicationstatement.html">MedicationStatement</a> - add informationSource, status, dateAsserted, replace whenGiven with effective[x], remove device, add dosage.text</li>
-        <li><a href="namingsystem.html">NamingSystem</a> - add date, publisher, </li>
-        <li><a href="nutritionorder.html">NutritionOrder</a> - extensive rewrite</li>
-        <li><a href="observation.html">Observation</a> - change name to code, allow more types of value[x], change type of dataAbsentReason, change to bodySite = code or Reference(BodySite), allow identifier to repeat, add device, </li>
-        <li><a href="operationdefinition.html">OperationDefinition</a> - change identifier to url, add useContext, change telecom to contact, change name to title, add reuqirements, idempotent, </li>
-        <li><a href="operationoutcome.html">OperationOutcome</a> - change type of .issue.type</li>
-        <li><code>OrderResponse</code> - rename code to orderStatus</li>
-        <li><a href="organization.html">Organization</a> - remove location and contact.gender</li>
-        <li><a href="patient.html">Patient</a> - communication to allow 'preferred'</li>
-        <li><a href="person.html">Person</a> - rename other to target</li>
-        <li><a href="practitioner.html">Practitioner</a> - change type of birthDate, allow multiple roles per practitioner</li>
-        <li><a href="procedure.html">Procedure</a> - add status and category, change to bodySite = code or Reference(BodySite), allow date to be period too, add location, change followUp to code 0..*, add device tracking</li>
-        <li><a href="servicerequest.html">ServiceRequest</a> - change to bodySite = code or Reference(BodySite)</li>
-        <li><a href="provenance.html">Provenance</a> - change integritySignature to signature &amp; make it a type, allow reference by Reference as well as URI</li>
-        <li><a href="questionnaire.html">Questionnaire</a> - add telecom</li>
-        <li><a href="schedule.html">Schedule</a> - move lastModified</li>
-        <li><a href="searchparameter.html">SearchParameter</a> - change telecom to contact, add status, experimental, date, </li>
-        <li><a href="slot.html">Slot</a> - move lastModified</li>
-        <li><a href="specimen.html">Specimen</a> - change source to parent, change to bodySite = code or Reference(BodySite)</li>
-        <li><a href="structuredefinition.html">StructureDefinition</a> - complete rewrite</li>
-        <li><a href="subscription.html">Subscription</a> - change type of tag, reanme url to endPoint, </li>
-<!--
-        <li><a href="supply.html">Supply</a> - change type of whenHandedOver</li>
- -->
-        <li><a href="valueset.html">ValueSet</a> - change identifier to url, add useContext, change telecom to contact, replace purpose with useContext, add requirements, rename stableDate to lockedDate, change type of expansion.identifier, add expansion parameters</li>
-      </ul>
-    </td>
-	</tr>
-	<tr>
-		<td>0.4.0</td>
-		<td>
-      <p><b>Draft For Comment, January 2015 Ballot</b></p>
-      <p>Breaking Changes (full list):</p>
-			<ul>
-        <li>Replace atom and taglist with a native <a href="bundle.html">Bundle</a> format (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3728">3728</a>, <a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3558">3558</a>, <a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-2889">2889</a>) (and also <a href="binary.html">Binary</a>)</li>
-        <li>JSON: change how extensions are represented (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3471">3471</a>)</li>
-        <li>RESTful API: change how version specific upgrades work (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3451">3451</a>)</li>
-        <li>DataTypes:
-          <li>Rename Schedule to <a href="datatypes.html#Timing">Timing</a> (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3536">3536</a>, <a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3236">3236</a>) </li>
-          <li>Rename Contact to <a href="datatypes.html#ContactPoint">ContactPoint</a> (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3533">3533</a>) and swap order of elements (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3108">3108</a>))</li>
-          <li><a href="datatypes.html#Address">Address</a> - change zip to postCode (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-2888">2888</a>)</li>
-          <li><a href="datatypes.html#Quantity">Quantity</a>: Correct schema spelling for "QuantityCompararator" (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3531">3531</a>)</li>
-          <li>Change allowable values for the <a href="datatypes.html#id">id</a> type to include capital letters, and allow up to 64 chars (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3750">3750</a>)</li>
-        </li>
-        <li>Restructure Profile - only one structure, and pull <a href="structuredefinition.html">ExtensionDefinition</a> out of Profile (3647, 3498), and pull <a href="searchparameter.html">SearchParameter</a> out (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3626">3626</a>)</li>
-        <li>Profile: allow 0..* discriminator (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3131">3131</a>), and change the way discriminators work across resource boundaries (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3124">3124</a>) + generate multiple types properly (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-2856">2856</a>)</li>
-        <li>remove _validate interaction, and replace with $validate operation (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3686">3686</a>)</li>
-        <li><a href="patient.html">Patient</a>: separate birth time from birthDate (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3731">3731</a>), Change Administrative Gender from a CodableConcept to a Code. Also fixed the values as male|female|other|unknown with mappings to v2 and v3 (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3070">3070</a>)</li>
- <!--
-      <li><a href="supply.html">Supply</a>: Change Name of supply.kind binding (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3412">3412</a>)</li>
-   -->
- <li><a href="documentreference.html">DocumentReference</a>: change encoding of Hash to Base64 (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3291">3291</a>)</li>
-        <li><a href="group.html">Group</a>: rename header to title (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3126">3126</a>)</li>
-        <li><a href="condition.html">Condition</a>: split relatedItem into two (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3111">3111</a>)</li>
-        <li><a href="questionnaire.html">Questionnaire</a>: drop questionnaire.group.question.remarks (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3255">3255</a>) and move omitReason from extension to base resource (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3260">3260</a>)</li>
-        <li><a href="questionnaireresponse.html">QuestionnaireResponse</a>: allow multiple answers (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3146">3146</a>) </li>
-        <li><a href="valueset.html">ValueSet</a>: replace  ValueSet.compose.include.code with ValueSet.compose.include.concept (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3258">3258</a>), added new rules about expansion content (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3138">3138</a>)</li>
-        <li><a href="media.html">Media</a>: Rename element 'dateTime' to 'created' (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3174">3174</a>) and length to duration (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-2866">2866</a>)</li>
-        <li>Remove DeviceObservationReport and Query</li>
-        <li>Collapse AdverseReaction into <a href="allergyintolerance.html">AllergyIntolerance</a></li>
-        <li><a href="appointment.html">Appointment</a> changes - individual field renamed to actor, and added mappings to <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a></li>
-        <li><a href="familymemberhistory.html">FamilyMemberHistory</a> combined with <a href="list.html">List</a> replaces FamilyHistory (with corresponding updates to related profiles)</li>
-        <li><a href="flag.html">Flag</a> replaces Alert including improved clarification of how it is used and replacement of "note" with "code"</li>
-        <li><a href="careplan.html">CarePlan</a> significantly refactored including splitting Goal out as a distinct resource, moving elements between activity and detail, introduction of several new elements and supported relationship types</li>
-        <li></li>
-			</ul>
-      <p>New Resources:</p>
-      <ul>
-        <li><a href="appointment.html">Appointment</a></li>
-        <li><a href="appointmentresponse.html">AppointmentResponse</a></li>
-        <li><a href="basic.html">Basic</a></li>
-        <li><a href="claimresponse.html">ClaimResponse</a></li>
-        <li><a href="clinicalimpression.html">ClinicalImpression</a></li>
-        <li><a href="communication.html">Communication</a></li>
-        <li><a href="communicationrequest.html">CommunicationRequest</a></li>
-        <li><a href="contract.html">Contract</a></li>
-        <li><a href="detectedissue.html">Contraindication</a></li>
-        <li><a href="coverage.html">Coverage</a></li>
-        <li><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
-        <li><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
-        <li>DataElement (now <a href="structuredefinition.html">StructureDefinition</a>)</li>
-        <li><a href="devicemetric.html">DeviceMetric</a></li>
-        <li><a href="devicerequest.html">DeviceRequest</a> </li>
-        <li><a href="deviceusestatement.html">DeviceUseStatement</a></li>
-        <li><a href="enrollmentrequest.html">EnrollmentRequest</a></li>
-        <li><a href="enrollmentresponse.html">EnrollmentResponse</a></li>
-        <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
-        <li><a href="explanationofbenefit.html">ExplanationOfBenefit</a></li>
-        <li><a href="structuredefinition.html">StructureDefinition</a></li>
-        <li><a href="goal.html">Goal</a> </li>
-        <li><a href="healthcareservice.html">HealthcareService</a></li>
-        <li><code>ImagingObjectSelection</code></li>
-        <li><a href="claim.html">InstitutionalClaim</a></li>
-        <li><a href="namingsystem.html">NamingSystem</a></li>
-        <li><a href="nutritionorder.html">NutritionOrder</a></li>
-        <li><a href="operationdefinition.html">OperationDefinition</a></li>
-        <li><a href="claim.html">OralHealthClaim</a></li>
-        <li><a href="paymentnotice.html">PaymentNotice</a></li>
-        <li><a href="paymentreconciliation.html">PaymentReconciliation</a></li>
-        <li><a href="person.html">Person</a></li>
-        <li><a href="claim.html">PharmacyClaim</a></li>
-        <li><a href="servicerequest.html">ServiceRequest</a> </li>
-        <li><a href="claim.html">ProfessionalClaim</a></li>
-        <li><a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
-        <li>ReferralRequest</li>
-        <li><a href="riskassessment.html">RiskAssessment</a></li>
-        <li><a href="searchparameter.html">SearchParameter</a></li>
-        <li><a href="schedule.html">Schedule</a></li>
-        <li><a href="slot.html">Slot</a></li>
-        <li><a href="subscription.html">Subscription</a></li>
-        <li>SupportingDocumentation</li>
-        <li><a href="claim.html">VisionClaim</a></li>
-        <li><a href="visionprescription.html">VisionPrescription</a></li>
-      </ul>
-      <p>New Implementation Guides (see <code>discussion of status</code>)</p>
-      <ul>
-        <li><code>Argonaut Project</code></li>
-        <li><code>Data Access Framework</code></li>
-        <li><code>Structured Data Capture</code> &amp; <code>Structured Data Capture - Data Element Exchange</code></li>
-				<li>US Laboratory <code>Order</code>, <code>Report</code> &amp; <code>Report to Public Health</code></li>
-        <li><a href="ehrsrle/ehrsrle.html">EHRS Functional model - Record Lifecycle Events</a></li>
-			</ul>
-		</td>
-	</tr>
-  <tr>
-   <td>0.3.0</td>
-   <td>
-     <ul>
-       <li>Renamed Namespace to NamingSystem</li>
-       <li>Split <a href="questionnaireresponse.html">QuestionnaireResponse</a> from <a href="questionnaire.html">Questionnaire</a> and significantly revamped the
-       <a href="questionnaire.html">Questionnaire</a> in response to feedback from the Connectathon.</li>
-       <li>Added DataElement (now <a href="structuredefinition.html">StructureDefinition</a>) resource (has been previously discussed as ObservationDefinition)</li>
-       <li>Defined <a href="subscription.html">Subscription</a> resource for evaluation</li>
-       <li>Add <a href="datatypes.html#time">time</a> data type</li>
-       <li>Define RPC-type <a href="operations.html">operations</a> on the RESTful interface, and add <a href="operationdefinition.html">Operation Definition</a></li>
-       <li>Defined operations on several resources including <a href="conceptmap.html">ConceptMap</a>, <a href="questionnaire.html">Questionnaire</a> and <a href="valueset.html">ValueSet</a></li>
-       <li><a href="capabilitystatement.html">Conformance</a> (now CapabilityStatement): Change Conformance.rest.operation to Conformance.rest.interaction and Conformance.rest.resource.operation to Conformance.rest.resource.interaction, and add Conformance.rest.operation to point to <a href="operationdefinition.html">Operation Definition</a></li>
-       <li>Profile: add Profile.url, Profile.structure.snapshot and Profile.structure.differential, and remove query definition (now in OperationDefinition)</li>
-       <li>Add pages for <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>, and <a href="snomedct.html">SNOMED CT</a></li>
-       <li>Significant rework for <a href="conceptmap.html">ConceptMap</a> so it can be used to map between structures as well as value sets</li>
-       <li>Add <a href="detectedissue.html">Contraindication</a> and <a href="riskassessment.html">Risk Assessment</a> and added examples to other resources in support of these</li>
-       <li>Add Referral Request</li>
-       <li>Add supportingInformation to DiagnosticRequest</li>
-       <li>Add fulfills to <a href="encounter.html">Encounter</a></li>
-       <li>Add date and age[x] to <a href="familymemberhistory.html">FamilyHistory</a></li>
-       <li>Change cardinality of <a href="location.html">Location</a>.identifier to 0..*</li>
-       <li>Change cardinality of <a href="practitioner.html">Practitioner</a>.address to 0..*</li>
-       <li>Add <a href="observation.html">Observation</a>.encounter to 0..*</li>
-       <li>Temporarily added content for the <a href="http://hl7.org/fhir/us/sdc/index.html">Structured Data Capture implementation guide</a>, including profiles on several resources, conformance instances, etc.
-       This content will be moved to an external specification once the necessary tooling is in place to support that form of publication.</li>
-     </ul>
-   </td>
- </tr>
- <tr>
-   <td>0.2.1</td>
-   <td>
-     <ul>
-       <li>Minor new optional elements on value set for metadata, new extensions for all the rest of the VSD project metadata, formal profile to express basic minimum metadata for value set</li>
-     </ul>
-   </td>
- </tr>
- <tr>
-   <td><b>0.2.0</b></td>
-   <td>
-     <ul>
-       <li>Namespace:  adjustments based on Grahame's feedback</li>
-     </ul>
-   </td>
- </tr>
- <tr>
-   <td>0.1.0</td>
-   <td>
-     <ul>
-       <li>Add <a href="appointment.html">Appointment</a>, <a href="appointmentresponse.html">Appointment Response</a>, <a href="schedule.html">Schedule</a> and <a href="slot.html">Slot</a></li>
-       <li>Add <i>Namespace</i></li>
-     </ul>
-   </td>
- </tr>
-</table>
 
 <p>
-Note: a useful tool for displaying the differences between pages is the <a href="http://services.w3.org/htmldiff">W3C HTML Diff engine</a>.
+This <a href="ansi.html">ANSI Normative Standard</a> contains the Conformance parts of the FHIR specification - 
+the terminology infrastructure and the base resources that define FHIR implementations and that represent how the specification, and conformance to it, is defined.
 </p>
+<p>
+This standard uses the ANSI FHIR <a href="ansi-infrastructure.html">Infrastructure</a> standard.
+</p>
+
+
+<p>
+Content in this package:
+</p>
+<div style="border: 1px grey solid; padding: 5px">
+<table class="none"><tr>
+<td><p><b>Resources</b></p><ul>  <li><a href="capabilitystatement.html">CapabilityStatement</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcapabilitystatement.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcapabilitystatement.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcapabilitystatement.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcapabilitystatement.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a>
+<br/>+ <a href="capabilitystatement-definitions.html">Defns</a>: <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcapabilitystatement-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcapabilitystatement-definitions.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcapabilitystatement-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcapabilitystatement-definitions.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem.html">CodeSystem</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a>
+<br/>+ <a href="codesystem-definitions.html">Defns</a>: <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-definitions.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-definitions.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="operationdefinition.html">OperationDefinition</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Foperationdefinition.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Foperationdefinition.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Foperationdefinition.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Foperationdefinition.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a>
+<br/>+ <a href="operationdefinition-definitions.html">Defns</a>: <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Foperationdefinition-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Foperationdefinition-definitions.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Foperationdefinition-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Foperationdefinition-definitions.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="structuredefinition.html">StructureDefinition</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fstructuredefinition.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fstructuredefinition.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fstructuredefinition.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fstructuredefinition.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a>
+<br/>+ <a href="structuredefinition-definitions.html">Defns</a>: <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fstructuredefinition-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fstructuredefinition-definitions.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fstructuredefinition-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fstructuredefinition-definitions.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset.html">ValueSet</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a>
+<br/>+ <a href="valueset-definitions.html">Defns</a>: <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-definitions.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-definitions.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+</ul></td>
+<td><p><b>Operations</b></p><ul>  <li><a href="codesystem-operation-lookup.html">CodeSystem lookup</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-operation-lookup.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-operation-lookup.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-operation-lookup.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-operation-lookup.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-operation-subsumes.html">CodeSystem subsumes</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-operation-subsumes.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-operation-subsumes.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-operation-subsumes.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-operation-subsumes.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-operation-validate-code.html">CodeSystem validate-code</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-operation-validate-code.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-operation-validate-code.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-operation-validate-code.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-operation-validate-code.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-operation-expand.html">ValueSet expand</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-operation-expand.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-operation-expand.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-operation-expand.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-operation-expand.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-operation-validate-code.html">ValueSet validate-code</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-operation-validate-code.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-operation-validate-code.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-operation-validate-code.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-operation-validate-code.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+</ul></td>
+<td><p><b>Valuesets</b></p><ul>  <li><a href="valueset-FHIR-version.html">FHIRVersion</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-FHIR-version.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-FHIR-version.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-FHIR-version.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-FHIR-version.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-all-languages.html">All Languages</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-all-languages.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-all-languages.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-all-languages.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-all-languages.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-all-types.html">FHIRAllTypes</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-all-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-all-types.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-all-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-all-types.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-binding-strength.html">BindingStrength</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-binding-strength.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-binding-strength.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-binding-strength.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-binding-strength.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-capability-statement-kind.html">CapabilityStatementKind</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-capability-statement-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-capability-statement-kind.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-capability-statement-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-capability-statement-kind.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-codesystem-content-mode.html">CodeSystemContentMode</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-codesystem-content-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-codesystem-content-mode.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-codesystem-content-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-codesystem-content-mode.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-codesystem-hierarchy-meaning.html">CodeSystemHierarchyMeaning</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-codesystem-hierarchy-meaning.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-codesystem-hierarchy-meaning.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-codesystem-hierarchy-meaning.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-codesystem-hierarchy-meaning.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-concept-property-type.html">PropertyType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-concept-property-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-concept-property-type.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-concept-property-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-concept-property-type.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-conditional-delete-status.html">ConditionalDeleteStatus</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-conditional-delete-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-conditional-delete-status.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-conditional-delete-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-conditional-delete-status.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-conditional-read-status.html">ConditionalReadStatus</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-conditional-read-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-conditional-read-status.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-conditional-read-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-conditional-read-status.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-defined-types.html">FHIRDefinedType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-defined-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-defined-types.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-defined-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-defined-types.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-definition-use.html">Structure Definition Use Codes / Keywords</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-definition-use.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-definition-use.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-definition-use.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-definition-use.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-designation-use.html">Designation Use</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-designation-use.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-designation-use.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-designation-use.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-designation-use.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-document-mode.html">DocumentMode</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-document-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-document-mode.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-document-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-document-mode.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-event-capability-mode.html">EventCapabilityMode</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-event-capability-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-event-capability-mode.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-event-capability-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-event-capability-mode.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-extension-context-type.html">ExtensionContextType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-extension-context-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-extension-context-type.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-extension-context-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-extension-context-type.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-filter-operator.html">FilterOperator</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-filter-operator.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-filter-operator.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-filter-operator.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-filter-operator.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-jurisdiction.html">Jurisdiction</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-jurisdiction.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-jurisdiction.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-jurisdiction.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-jurisdiction.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-message-transport.html">MessageTransport</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-message-transport.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-message-transport.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-message-transport.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-message-transport.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-operation-kind.html">OperationKind</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-operation-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-operation-kind.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-operation-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-operation-kind.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-operation-parameter-use.html">OperationParameterUse</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-operation-parameter-use.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-operation-parameter-use.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-operation-parameter-use.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-operation-parameter-use.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-publication-status.html">PublicationStatus</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-publication-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-publication-status.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-publication-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-publication-status.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-reference-handling-policy.html">ReferenceHandlingPolicy</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-reference-handling-policy.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-reference-handling-policy.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-reference-handling-policy.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-reference-handling-policy.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-resource-types.html">ResourceType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-resource-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-resource-types.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-resource-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-resource-types.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-restful-capability-mode.html">RestfulCapabilityMode</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-restful-capability-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-restful-capability-mode.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-restful-capability-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-restful-capability-mode.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-restful-security-service.html">RestfulSecurityService</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-restful-security-service.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-restful-security-service.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-restful-security-service.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-restful-security-service.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-search-param-type.html">SearchParamType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-search-param-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-search-param-type.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-search-param-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-search-param-type.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-structure-definition-kind.html">StructureDefinitionKind</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-structure-definition-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-structure-definition-kind.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-structure-definition-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-structure-definition-kind.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-system-restful-interaction.html">SystemRestfulInteraction</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-system-restful-interaction.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-system-restful-interaction.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-system-restful-interaction.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-system-restful-interaction.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-type-derivation-rule.html">TypeDerivationRule</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-type-derivation-rule.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-type-derivation-rule.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-type-derivation-rule.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-type-derivation-rule.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-type-restful-interaction.html">TypeRestfulInteraction</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-type-restful-interaction.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-type-restful-interaction.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-type-restful-interaction.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-type-restful-interaction.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="valueset-versioning-policy.html">ResourceVersionPolicy</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fvalueset-versioning-policy.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-versioning-policy.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fvalueset-versioning-policy.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fvalueset-versioning-policy.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+</ul></td>
+<td><p><b>Codesystems</b></p><ul>  <li><a href="codesystem-FHIR-version.html">FHIRVersion</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-FHIR-version.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-FHIR-version.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-FHIR-version.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-FHIR-version.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-abstract-types.html">AbstractType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-abstract-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-abstract-types.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-abstract-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-abstract-types.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-binding-strength.html">BindingStrength</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-binding-strength.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-binding-strength.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-binding-strength.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-binding-strength.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-capability-statement-kind.html">CapabilityStatementKind</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-capability-statement-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-capability-statement-kind.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-capability-statement-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-capability-statement-kind.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-codesystem-content-mode.html">CodeSystemContentMode</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-codesystem-content-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-codesystem-content-mode.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-codesystem-content-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-codesystem-content-mode.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-codesystem-hierarchy-meaning.html">CodeSystemHierarchyMeaning</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-codesystem-hierarchy-meaning.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-codesystem-hierarchy-meaning.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-codesystem-hierarchy-meaning.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-codesystem-hierarchy-meaning.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-concept-property-type.html">PropertyType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-concept-property-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-concept-property-type.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-concept-property-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-concept-property-type.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-conditional-delete-status.html">ConditionalDeleteStatus</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-conditional-delete-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-conditional-delete-status.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-conditional-delete-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-conditional-delete-status.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-conditional-read-status.html">ConditionalReadStatus</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-conditional-read-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-conditional-read-status.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-conditional-read-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-conditional-read-status.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-data-types.html">DataType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-data-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-data-types.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-data-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-data-types.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-definition-use.html">Structure Definition Use Codes / Keywords</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-definition-use.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-definition-use.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-definition-use.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-definition-use.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-document-mode.html">DocumentMode</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-document-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-document-mode.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-document-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-document-mode.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-event-capability-mode.html">EventCapabilityMode</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-event-capability-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-event-capability-mode.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-event-capability-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-event-capability-mode.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-extension-context-type.html">ExtensionContextType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-extension-context-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-extension-context-type.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-extension-context-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-extension-context-type.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-filter-operator.html">FilterOperator</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-filter-operator.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-filter-operator.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-filter-operator.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-filter-operator.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-message-transport.html">MessageTransport</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-message-transport.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-message-transport.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-message-transport.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-message-transport.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-operation-kind.html">OperationKind</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-operation-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-operation-kind.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-operation-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-operation-kind.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-operation-parameter-use.html">OperationParameterUse</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-operation-parameter-use.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-operation-parameter-use.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-operation-parameter-use.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-operation-parameter-use.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-publication-status.html">PublicationStatus</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-publication-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-publication-status.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-publication-status.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-publication-status.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-reference-handling-policy.html">ReferenceHandlingPolicy</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-reference-handling-policy.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-reference-handling-policy.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-reference-handling-policy.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-reference-handling-policy.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-resource-types.html">ResourceType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-resource-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-resource-types.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-resource-types.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-resource-types.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-restful-capability-mode.html">RestfulCapabilityMode</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-restful-capability-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-restful-capability-mode.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-restful-capability-mode.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-restful-capability-mode.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-restful-interaction.html">FHIR Restful Interactions</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-restful-interaction.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-restful-interaction.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-restful-interaction.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-restful-interaction.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-restful-security-service.html">RestfulSecurityService</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-restful-security-service.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-restful-security-service.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-restful-security-service.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-restful-security-service.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-search-param-type.html">SearchParamType</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-search-param-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-search-param-type.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-search-param-type.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-search-param-type.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-structure-definition-kind.html">StructureDefinitionKind</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-structure-definition-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-structure-definition-kind.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-structure-definition-kind.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-structure-definition-kind.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-type-derivation-rule.html">TypeDerivationRule</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-type-derivation-rule.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-type-derivation-rule.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-type-derivation-rule.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-type-derivation-rule.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+  <li><a href="codesystem-versioning-policy.html">ResourceVersionPolicy</a> <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2Fcodesystem-versioning-policy.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-versioning-policy.html" no-external="true" title="Difference to R3" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px">&Delta;R</a>  <a href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2Fcodesystem-versioning-policy.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fcodesystem-versioning-policy.html" no-external="true" title="Difference to last ballot" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px">&Delta;B</a></li>
+</ul></td>
+</tr></table></div>
+
+
 
 </div>
 
@@ -1008,14 +237,14 @@ Note: a useful tool for displaying the differences between pages is the <a href=
 		<div class="container"><!-- container -->
 			<div class="inner-wrapper">
 				<p>
-        &reg;© HL7.org 2011+. FHIR Release 4 Candidate (v4.0.0-0dd70c3172) generated on Thu, Aug 8, 2019 18:42+1000. <a  style="color: #ffffff" href="qa.html">QA Page</a>
+        &reg;© HL7.org 2011+. FHIR Release 4 (Technical Correction #1) (v4.0.1) generated on Fri, Nov 1, 2019 08:31+1100. <a  style="color: #ffffff" href="qa.html">QA Page</a>
         <br/>
         <span style="color: #FFFF77">
         Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search</a> | 
                <a style="color: #b8dcf9" href="history.html">Version History</a> | 
                <a style="color: #b8dcf9" href="toc.html">Table of Contents</a> | 
                <a style="color: #b8dcf9" href="credits.html">Credits</a> | 
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Fhistory.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fhistory.html">Compare to R3</a> |                
+               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Fansi-conformance.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fansi-conformance.html">Compare to R3</a> |                
                <a style="color: #b8dcf9" rel="license" href="license.html"><img src="cc0.png" style="border-style: none;" alt="CC0"/></a> | 
                <a style="color: #b8dcf9" target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a>   
         </span>

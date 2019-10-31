@@ -185,8 +185,8 @@ public class ProfileGenerator {
   
   private void generateElementDefinition(StructureDefinition source, ElementDefinition ed, ElementDefinition parent) throws Exception {
     String id = ed.getPath().replace("[x]", "X");
-    if (id.length() > 64)
-      id = id.substring(0, 64);
+    if (id.length() > 61)
+      id = id.substring(0, 61);
 
     if (!id.contains("."))
       return; // throw new Exception("Don't generate data element for root of resources or types");
@@ -194,10 +194,10 @@ public class ProfileGenerator {
       return; // throw new Exception("Don't generate data element for reference elements");
     if (Utilities.existsInList(ed.getType().get(0).getCode(), "Element", "BackboneElement"))
       return; // throw new Exception("Don't generate data element for elements that are not leaves");
-    
+          
     StructureDefinition de;
     if (des.containsKey(id)) {
-      de = des.get("de-"+id);
+      de = des.get(id);
       // do it again because we now have more information to generate with
       de.getSnapshot().getElement().clear();
       de.getExtension().clear();
@@ -665,7 +665,7 @@ public class ProfileGenerator {
     ToolingExtensions.addUrlExtension(t, ToolingExtensions.EXT_FHIR_TYPE, "string");
     if (!Utilities.noString(type.getRegex()))
       ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegex());
-//    generateElementDefinition(ecB, ecA);
+    generateElementDefinition(p, ecB, ecA);
 
     containedSlices.clear();
     addElementConstraintToSnapshot(p);
@@ -825,8 +825,8 @@ public class ProfileGenerator {
 
     // now, the snapshot
     new ProfileUtilities(context, issues, pkp).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType(), "http://hl7.org/fhir", p.getName());
-//    for (ElementDefinition ed : p.getSnapshot().getElement())
-//      generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
+    for (ElementDefinition ed : p.getSnapshot().getElement())
+      generateElementDefinition(p, ed, getParent(ed, p.getSnapshot().getElement()));
 
     p.getDifferential().getElement().get(0).getType().clear();
     p.getSnapshot().getElement().get(0).getType().clear();
@@ -935,8 +935,7 @@ public class ProfileGenerator {
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     defineElement(null, p, p.getSnapshot().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource, true, "BackboneElement", r.getRoot().typeCode(), true);
     for (ElementDefinition ed : p.getSnapshot().getElement())
-      if (!ed.hasBase() && !logical)
-        generateElementDefinition(p, ed, getParent(ed, p.getSnapshot().getElement()));
+      generateElementDefinition(p, ed, getParent(ed, p.getSnapshot().getElement()));
 
     if (!logical) {
       List<String> names = new ArrayList<String>();
@@ -1744,7 +1743,9 @@ public class ProfileGenerator {
         con.setSeverity(ConstraintSeverity.fromCode(inv.getSeverity()));
       con.setHuman(inv.getEnglish());
       con.setXpath(inv.getXpath());
-      con.setSource(source);
+      if (source != null) {
+        con.setSource("http://hl7.org/fhir/StructureDefinition/"+source);
+      }
       if (!"n/a".equals(inv.getExpression()))
         con.setExpression(inv.getExpression());
       ce.getConstraint().add(con);
@@ -1858,7 +1859,7 @@ public class ProfileGenerator {
     inv.setHuman("All FHIR elements must have a @value or children");
     inv.setExpression("hasValue() or (children().count() > id.count())");
     inv.setXpath("@value|f:*|h:div");
-    inv.setSource("Element");
+    inv.setSource("http://hl7.org/fhir/StructureDefinition/Element");
     return ed;  
   }
   
@@ -1884,7 +1885,7 @@ public class ProfileGenerator {
     inv.setHuman("Must have either extensions or value[x], not both");
     inv.setExpression("extension.exists() != value.exists()");
     inv.setXpath("exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])");
-    inv.setSource("Extension");
+    inv.setSource("http://hl7.org/fhir/StructureDefinition/Extension");
     return ed;  
   }
   
@@ -1918,7 +1919,7 @@ public class ProfileGenerator {
     inv.setHuman("Must have either extensions or value[x], not both");
     inv.setExpression("extension.exists() != value.exists()");
     inv.setXpath("exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])");
-    inv.setSource("Extension");
+    inv.setSource("http://hl7.org/fhir/StructureDefinition/Extension");
     
     return ex;
   }

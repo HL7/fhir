@@ -2705,7 +2705,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
       s.close();
 
-      Bundle expansionFeed = new Bundle();
+      expansionFeed = new Bundle();
       Set<String> urlset = new HashSet<>();
       expansionFeed.setId("valueset-expansions");
       expansionFeed.setType(BundleType.COLLECTION);
@@ -3010,12 +3010,16 @@ public class Publisher implements URIResolver, SectionNumberer {
     String corePath = Utilities.path(root, "hl7.fhir.r4.core", "package");
     String examplesPath = Utilities.path(root, "hl7.fhir.r4.examples", "package");
     String elementsPath = Utilities.path(root, "hl7.fhir.r4.elements", "package");
-    int coreTotal = new File(corePath).list().length;
-    int examplesTotal = new File(examplesPath).list().length;
-    int elementsTotal = new File(elementsPath).list().length;
+    String expansionsPath = Utilities.path(root, "hl7.fhir.r4.expansions", "package");
+    int coreTotal = new File(corePath).list().length-1;
+    int examplesTotal = new File(examplesPath).list().length-1;
+    int elementsTotal = new File(elementsPath).list().length-1;
+    int expansionsTotal = new File(expansionsPath).list().length-1;
+        
     int coreCount = 0;
     int examplesCount = 0;
     int elementsCount = 0;
+    int expansionsCount = 0;
     JsonParser jp = new JsonParser();
     for (String n : npm.list("package")) {
       if (n.contains("-")) {
@@ -3027,7 +3031,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         } else {
           examplesCount++;
           InputStream src = npm.load("package", n);
-          OutputStream dst = new FileOutputStream(Utilities.path(elementsPath, n));
+          OutputStream dst = new FileOutputStream(Utilities.path(examplesPath, n));
           copyData(src, dst);
           if (isCoreResource(n)) {
             coreCount++;
@@ -3038,9 +3042,17 @@ public class Publisher implements URIResolver, SectionNumberer {
         }
       }
     }
+    for (BundleEntryComponent be : expansionFeed.getEntry()) {
+      ValueSet vs = (ValueSet) be.getResource();
+      expansionsCount++;
+      vs.setText(null);
+      String n = "ValueSet-"+vs.getId();
+      jp.compose(new FileOutputStream(Utilities.path(expansionsPath, n)), vs);
+    }
     System.out.println("  Core @ "+corePath+": Replaced "+coreCount+" of "+coreTotal);
     System.out.println("  Examples @ "+examplesPath+": Replaced "+examplesCount+" of "+examplesTotal);
     System.out.println("  Elements @ "+elementsPath+": Replaced "+elementsCount+" of "+elementsTotal);
+    System.out.println("  Expansions @ "+expansionsPath+": Replaced "+expansionsCount+" of "+expansionsTotal);
   }
   
   private boolean isCoreResource(String n) {
@@ -4535,6 +4547,8 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private Set<String> examplesProcessed = new HashSet<String>();
+
+  private Bundle expansionFeed;
 
   
   private void processExample(Example e, ResourceDefn resn, StructureDefinition profile, Profile pack, ImplementationGuideDefn ig) throws Exception {

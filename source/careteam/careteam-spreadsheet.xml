@@ -14,8 +14,9 @@
   
   
   
-  <ActiveSheet>9</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -774,8 +775,7 @@
    <Column ss:StyleID="s68" ss:Width="29.0"/>
    <Column ss:StyleID="s68" ss:Width="34.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="119.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="51.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="65.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="7" ss:StyleID="s68" ss:Width="65.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="167.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="81.0"/>
    <Column ss:Span="1" ss:StyleID="s68" ss:Width="52.0"/>
@@ -3491,7 +3491,7 @@
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">CareTeam.participant</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">onBehalfOf.exists() implies (member.resolve() is Practitioner)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">onBehalfOf.exists() implies (member.resolve().iif(empty(), true, ofType(Practitioner).exists()))</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">starts-with(f:member/f:reference/@value, 'Practitioner/') or contains(f:member/f:reference/@value, '/Practitioner/') or exists(ancestor::*/f:contains/f:Practitioner/f:id[@value=substring-after(current()/f:member/f:reference/@value, '#')]) or not(exists(f:onBehalfOf))</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3939,6 +3939,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5695,8 +5696,7 @@
   <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="31" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s111" ss:Width="125.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="376.0"/>
-   <Column ss:StyleID="s111" ss:Width="51.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="69.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="4" ss:StyleID="s111" ss:Width="69.0"/>
    <Column ss:StyleID="s111" ss:Width="45.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="252.0"/>
    <Column ss:StyleID="s111" ss:Width="172.0"/>
@@ -6780,7 +6780,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

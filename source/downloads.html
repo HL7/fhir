@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+<div class="col-12"><!--ReleaseHeader--><p id="publish-box"></p><!--EndReleaseHeader-->
 
 
 <h1>Downloads</h1>
@@ -102,8 +102,15 @@
 
   <tr>
     <td>NPM Package</td>
-    <td>The <a href="package.tgz">NPM Package used by many of the FHIR tools</a> (particularly the IG publisher and the validator). 
-		This contains all the conformance &amp; example resources, and various publishing support files. Note that the tools usually find this package directly, and there's no need to download it</td>
+    <td>The NPM Packages are used by many FHIR tools. Four packages are provided:
+      <ul>
+        <li><a href="hl7.fhir.r4.core.tgz">hl7.fhir.r4.core</a>: all the conformance related resources</li>
+        <li><a href="hl7.fhir.r4.examples.tgz">hl7.fhir.r4.examples</a>: all the conformance related resources</li>
+        <li><a href="hl7.fhir.r4.elements.tgz">hl7.fhir.r4.elements</a>: all the conformance related resources</li>
+        <li><a href="hl7.fhir.r4.expansions.tgz">hl7.fhir.r4.expansions</a>: all the conformance related resources</li>
+      </ul>
+      Note that the tools usually find the packages directly, and there's no need to download them
+    </td>
   </tr>
 
   <tr>

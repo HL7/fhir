@@ -1947,31 +1947,35 @@ public class ProfileUtilities extends TranslatingUtilities {
       // todo: constraints are cumulative. there is no replacing
       for (ElementDefinitionConstraintComponent s : base.getConstraint()) { 
         s.setUserData(IS_DERIVED, true);
-        if (!s.hasSource())
-          s.setSource(base.getId());
+        if (!s.hasSource()) {
+          s.setSource(srcSD.getUrl());
+        }
       }
       if (derived.hasConstraint()) {
       	for (ElementDefinitionConstraintComponent s : derived.getConstraint()) {
           if (!base.hasConstraint(s.getKey())) {
-      	  ElementDefinitionConstraintComponent inv = s.copy();
-          base.getConstraint().add(inv);
-      	}
-      }
+      	    ElementDefinitionConstraintComponent inv = s.copy();
+            base.getConstraint().add(inv);
+        	}
+        }
       }
       for (IdType id : derived.getCondition()) {
-        if (!base.hasCondition(id))
+        if (!base.hasCondition(id)) {
           base.getCondition().add(id);
+        }
       }
       
       // now, check that we still have a bindable type; if not, delete the binding - see task 8477
-      if (dest.hasBinding() && !hasBindableType(dest))
+      if (dest.hasBinding() && !hasBindableType(dest)) {
         dest.setBinding(null);
+      }
         
       // finally, we copy any extensions from source to dest
       for (Extension ex : derived.getExtension()) {
         StructureDefinition sd  = context.fetchResource(StructureDefinition.class, ex.getUrl());
-        if (sd == null || sd.getSnapshot() == null || sd.getSnapshot().getElementFirstRep().getMax().equals("1"))
+        if (sd == null || sd.getSnapshot() == null || sd.getSnapshot().getElementFirstRep().getMax().equals("1")) {
           ToolingExtensions.removeExtension(dest, ex.getUrl());
+        }
         dest.addExtension(ex.copy());
       }
     }
