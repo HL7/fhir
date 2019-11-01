@@ -52,12 +52,14 @@ changes for James
 */
 public class JavaEnumerationsGenerator extends JavaBaseGenerator {
   private Map<String, String> enumInfo;
+  private Map<String, String> adornments;
   
   
-	public JavaEnumerationsGenerator(OutputStream out, Definitions definitions, Map<String, String> enumInfo) throws UnsupportedEncodingException {
+	public JavaEnumerationsGenerator(OutputStream out, Definitions definitions, Map<String, String> enumInfo, Map<String, String> adornments) throws UnsupportedEncodingException {
 		super(out);
 		this.definitions = definitions;
     this.enumInfo = enumInfo;
+    this.adornments = adornments;
 	}
 
 	public void generate(Date genDate, String version) throws Exception {		
@@ -176,6 +178,12 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 
     write("        }\r\n"); 
+
+    if (adornments.containsKey(tns)) {
+      write("// added from java-adornments.txt:\r\n");
+      write(adornments.get(tns)+"\r\n");
+      write("// end addition\r\n");
+    }
 
 		write("    }\r\n");
 		write("\r\n");

@@ -1,0 +1,73 @@
+<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
+	<id value="example-breakglass-start"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Authorized Break-Glass period has been declared to enable immediate emergent treatment condition. This AuditEvent indicates the start of the Break-Glass event. Another would indicate the stop of that Break-Glass period, providd there is a session or state that can detect the end of the break-glass event.</div>
+	</text>
+	<type>
+		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+		<code value="110113"/>
+		<display value="Security Alert"/>
+	</type>
+	<subtype>
+		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+		<code value="110127"/>
+		<display value="Emergency Override Started"/>
+	</subtype>
+	<action value="E"/>
+	<!-- when was the break-glass started -->
+	<recorded value="2013-09-22T00:08:00Z"/>
+	<outcome value="0"/>
+	<outcomeDesc value="Successful  Start of Break-Glass"/>
+	<purposeOfEvent>
+		<!-- why was the break-glass declared -->
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+			<code value="ETREAT"/>
+			<display value="Emergency Treatment"/>
+		</coding>
+	</purposeOfEvent>
+	<agent>
+		<!-- who declared the break-glass -->
+		<who>
+				<reference value="Practitioner/f001"/>
+		</who>
+		<requestor value="true"/>
+		<!-- where was the break-glass emergency declared -->
+		<location>
+			<reference value="Location/1"/>
+		</location>
+		<network>
+			<address value="custodian.net"/>
+			<type value="1"/>
+		</network>
+	</agent>
+	<source>
+		<!-- what system detected this break-glass -->
+		<site value="Watcher"/>
+		<observer>
+			<display value="Watchers Accounting of Disclosures Application"/>
+		</observer>
+		<type>
+			<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
+			<code value="4"/>
+			<display value="Application Server"/>
+		</type>
+	</source>
+	<entity>
+		<!-- patient whos data is being accessed -->
+		<what>
+			<reference value="Patient/example"/>
+		</what>
+		<type>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
+			<code value="1"/>
+			<display value="Person"/>
+		</type>
+		<role>
+			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
+			<code value="1"/>
+			<display value="Patient"/>
+		</role>
+	</entity>
+</AuditEvent>

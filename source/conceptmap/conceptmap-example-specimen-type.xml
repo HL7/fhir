@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <sourceCanonical value="http://terminology.hl7.org/ValueSet/v2-0487"/>
-  <targetCanonical value="http://snomed.info/id?fhir_vs"/>
+  <targetCanonical value="http://snomed.info/sct?fhir_vs"/>
   <group>
     <source value="http://terminology.hl7.org/CodeSystem/v2-0487"/>
     <target value="http://snomed.info/sct"/>

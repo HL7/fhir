@@ -31,7 +31,7 @@
   <effectiveDateTime value="2018-02-01"/>
   <performer>
     <!-- 0..* Reference(Practitioner|PractitionerRole|Organization|     CareTeam|Patient|RelatedPerson)Who is responsible for the observation -->
-    <reference value="Encounter/example"/>
+    <reference value="Practitioner/example"/>
   </performer>
   <valueCodeableConcept>
     <coding>
