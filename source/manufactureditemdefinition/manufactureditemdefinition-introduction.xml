@@ -3,14 +3,32 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p>
-			Any pharmaceutical product or combination of pharmaceutical products that may be administered to human beings (or animals) for treating or preventing disease, with the aim/purpose of making a medical diagnosis or to restore, correct or modify physiological functions. 
+			ManufacturedItemDefinition is to be used when you need to describe an actual physical medication item such as a tablet or capsule. 
+			This is typically for regulatory or manufacturing use cases, rather than day to day prescribing or dispensing.
 		</p>
 		<p>
-			A Medicinal Product may contain in the packaging one or more manufactured items and one or more pharmaceutical products. In certain regions a Medicinal Product may also be defined as any substance or combination of substances which may be used to make a medical diagnosis.
+			The manufactured item describes the physical characteristics of the item, as opposed to its pharmaceutical aspects 
+			(which may only apply after mixing with other items - to become an AdministrableProductDefinition), 
+			or its packaging, or legal aspects (which apply only to the whole group of packing and manufactured items). 
+			There are typically multiple instances of the item in the packaging (a PackagedProductDefinition resource) 
+			and this is indicated by the quantity within the package (e.g. 12 tablets), referencing a single copy of the manufactured item.
 		</p>
 		<p>
-			This applies to proprietary medicinal products for human use intended to be placed on the market and to industrially manufactured medicinal products, the marketing of which has been authorised by a Medicines Regulatory Agency. However, the provisions do not apply to: i) medicinal products prepared according to prescription (e.g. prepared in a pharmacy from a prescription intended for a specific patient), ii) medicinal products prepared in accordance with an official formula (e.g. prepared in a pharmacy in accordance with the instructions in a pharmacopoeia and intended to be given direct to the patient by the pharmacy), iii) medicinal products intended for research and development trials (see 11.2 Investigational Medicinal Product) and to iv) intermediate products intended for subsequent processing by an authorised manufacturer.
-			[from ENV 13607 and ENV 12610]
+			This is the only resource that treats the "tablet" (or whatever it may be) as a physical object.
+			It is still definitional however - it describes all instances of this tablet.
+			The resource aims to capture the definition of a single medication item type, such as a tablet of aspirin with a certain form, shape, manufacturer. 
+			It is not intended to describe and be instantiated for each medication item, i.e. it is not an actual real instance of a tablet, 
+			but rather represents (e.g.) all tablets of the same medication item type, that are described by the ManufacturedItemDefinition.
+		</p>
+		<p>
+			To define several package variations, e.g. pack of 10 tablets and of 50 tablets, you would need only one ManufacturedItemDefinition, 
+			referenced from both (and associated with a numeric quantity of 10 or 50 in the respective PackagedProductDefintions).
+			To prescribe or dispense 100 tablets, you would not generally need this resource at all, 
+			because usually the code of the medication as a whole is sufficient, plus a quantity, e.g. 100 of "ABC123" (meaning e.g. aspirin 75 mg).
+		</p>
+		<p>
+			This resource excludes devices and other items found in medication packaging such as scissors, bottle stoppers, 
+			applicators and so on (which would use DeviceDefinition).
 		</p>
 	</div>
 </div>
