@@ -19,13 +19,13 @@
 	</progress>
 	<progress>
 		<type value="Milestone"/>
-		<milestone value="Randomized"/>
-		<startDate value="2019-06-10"/>
+		<milestone value="SignedUp"/>
+		<startDate value="2019-06-08"/>
 	</progress>
 	<progress>
 		<type value="Milestone"/>
-		<milestone value="SignedUp"/>
-		<startDate value="2019-06-08"/>
+		<milestone value="Randomized"/>
+		<startDate value="2019-06-10"/>
 	</progress>
 	<study>
     <reference value="ResearchStudy/example"/>
