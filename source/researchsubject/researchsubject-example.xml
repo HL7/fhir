@@ -13,6 +13,7 @@
     <value value="123"/>
 	</identifier>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<progress>
 		<type value="Enrollment"/>
 		<state value="on-study"/>
@@ -28,6 +29,9 @@
 		<milestone value="Randomized"/>
 		<startDate value="2019-06-10"/>
 	</progress>
+=======
+	<status value="candidate"/>
+>>>>>>> parent of 2b8421e0c7... Added ResearchSubject.progress
 =======
 	<status value="candidate"/>
 >>>>>>> parent of 2b8421e0c7... Added ResearchSubject.progress
