@@ -12,6 +12,7 @@
     <system value="http://example.org/studysubjectids"/>
     <value value="123"/>
 	</identifier>
+<<<<<<< HEAD
 	<progress>
 		<type value="Enrollment"/>
 		<state value="on-study"/>
@@ -27,6 +28,9 @@
 		<milestone value="Randomized"/>
 		<startDate value="2019-06-10"/>
 	</progress>
+=======
+	<status value="candidate"/>
+>>>>>>> parent of 2b8421e0c7... Added ResearchSubject.progress
 	<study>
     <reference value="ResearchStudy/example"/>
 	</study>
