@@ -81,7 +81,7 @@ In a StructureDefinition, this will look like:
         &lt;type value=&quot;value&quot;/&gt;
         &lt;path value=&quot;system&quot;/&gt;
       &lt;/discriminator/&gt;
-      &lt;discriminator&gt;
+      &lt;discriminator value=&quot;system&quot;/&gt;
         &lt;type value=&quot;value&quot;/&gt;
         &lt;path value=&quot;use&quot;/&gt;
       &lt;/discriminator/&gt;
@@ -383,7 +383,7 @@ In a StructureDefinition, this will look like:
   &lt;element&gt; 
     &lt;path value=&quot;Observation.component&quot;/&gt;
     &lt;slicing&gt;
-      &lt;discriminator&gt;
+      &lt;discriminator value=&quot;system&quot;/&gt;
         &lt;type value=&quot;value&quot;/&gt;
         &lt;path value=&quot;code&quot;/&gt;
       &lt;/discriminator/&gt;
@@ -475,7 +475,7 @@ Here are the relevant parts of the Profile on patient:
         &lt;!-- this first element defines the slicing, and carries the base definition forward --&gt;
         &lt;slicing&gt;
           &lt;!-- Extensions are always discriminated by URL --&gt;
-          &lt;discriminator&gt;
+          &lt;discriminator value=&quot;system&quot;/&gt;
             &lt;type value=&quot;value&quot;/&gt;
             &lt;path value=&quot;url&quot;/&gt;
           &lt;/discriminator/&gt;
@@ -562,9 +562,9 @@ the LOINC code in the observation.
       &lt;path value=&quot;DiagnosticReport.result&quot;/&gt;
       &lt;slicing&gt;
         &lt;!-- this is sliced by the code value of the target of the reference --&gt;
-        &lt;discriminator&gt;
+        &lt;discriminator value=&quot;system&quot;/&gt;
           &lt;type value=&quot;value&quot;/&gt;
-          &lt;path value=&quot;resolve().code&quot;/&gt;
+          &lt;path value=&quot;reference.code&quot;/&gt;
         &lt;/discriminator/&gt;
         &lt;!-- have to be in the specified order --&gt;
         &lt;ordered value=&quot;true&quot;/&gt;
@@ -580,8 +580,8 @@ the LOINC code in the observation.
       &lt;!-- snip definition parts --&gt;
       &lt;type&gt;
         &lt;code value=&quot;Reference&quot;/&gt;
-        &lt;!-- this target must conform to the &quot;Cholesterol&quot; structure --&gt;
-        &lt;targetProfile value=&quot;http://acme.org/fhir/StructureDefinition/Cholesterol&quot;/&gt;
+        &lt;!-- this element must conform to the &quot;Cholesterol&quot; structure --&gt;
+        &lt;profile value=&quot;http://acme.org/fhir/StructureDefinition/Cholesterol&quot;/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
     &lt;!-- next 3 slices all the same, but different names for profile --&gt;
@@ -591,8 +591,8 @@ the LOINC code in the observation.
       &lt;!-- snip definition parts --&gt;
       &lt;type&gt;
         &lt;code value=&quot;Reference&quot;/&gt;
-        &lt;!-- this target must conform to the &quot;Triglyceride&quot; structure --&gt;
-        &lt;targetProfile value=&quot;http://acme.org/fhir/StructureDefinition/Triglyceride&quot;/&gt;
+        &lt;!-- this element must conform to the &quot;Triglyceride&quot; structure --&gt;
+        &lt;profile value=&quot;http://acme.org/fhir/StructureDefinition/Triglyceride&quot;/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
     &lt;element&gt;
@@ -601,8 +601,8 @@ the LOINC code in the observation.
       &lt;!-- snip definition parts --&gt;
       &lt;type&gt;
         &lt;code value=&quot;Reference&quot;/&gt;
-        &lt;!-- this target must conform to the &quot;LDLCholesterol&quot; structure --&gt;
-        &lt;targetProfile value=&quot;http://acme.org/fhir/StructureDefinition/LDLCholesterol&quot;/&gt;
+        &lt;!-- this element must conform to the &quot;LDLCholesterol&quot; structure --&gt;
+        &lt;profile value=&quot;http://acme.org/fhir/StructureDefinition/LDLCholesterol&quot;/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
     &lt;element&gt;
@@ -611,8 +611,8 @@ the LOINC code in the observation.
       &lt;!-- snip definition parts --&gt;
       &lt;type&gt;
         &lt;code value=&quot;Reference&quot;/&gt;
-        &lt;!-- this target must conform to the &quot;HDLCholesterol&quot; structure --&gt;
-        &lt;targetProfile value=&quot;http://acme.org/fhir/StructureDefinition/HDLCholesterol&quot;/&gt;
+        &lt;!-- this element must conform to the &quot;HDLCholesterol&quot; structure --&gt;
+        &lt;profile value=&quot;http://acme.org/fhir/StructureDefinition/HDLCholesterol&quot;/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
     &lt;!-- snip elements --&gt;
@@ -973,7 +973,7 @@ In a StructureDefinition, this will look like:
   &lt;element&gt; 
     &lt;path value=&quot;Composition.section&quot;/&gt;
     &lt;slicing&gt;
-      &lt;discriminator&gt;
+      &lt;discriminator value=&quot;system&quot;/&gt;
         &lt;type value=&quot;value&quot;/&gt;
         &lt;path value=&quot;code&quot;/&gt;
       &lt;/discriminator/&gt;
@@ -1027,7 +1027,7 @@ In a StructureDefinition, this will look like:
   &lt;element&gt; 
     &lt;path value=&quot;Composition.section.section&quot;/&gt;
     &lt;slicing&gt;
-      &lt;discriminator&gt;
+      &lt;discriminator value=&quot;system&quot;/&gt;
         &lt;type value=&quot;value&quot;/&gt;
         &lt;path value=&quot;code&quot;/&gt;
       &lt;/discriminator/&gt;

@@ -128,11 +128,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 //      ElementDefn elem = root.getElementByName("reference");
 //      elem.getTypes().get(0);
 //    }
-
-		write("package org.hl7.fhir.r5.model;\r\n");
-		write("\r\n/*-\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
-		write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n"); 
 		
+		write("package org.hl7.fhir.r5.model;\r\n");
+		write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
+		write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     if (clss != JavaGenClass.Constraint) {
       boolean l = true; // hasList(root);
       boolean h = hasXhtml(root);
@@ -140,16 +139,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       boolean s = hasString(root);
       boolean e = hasSharedEnums(root);
       if (l || h || d || e) {
-        if (l) {
-          write("import java.util.ArrayList;\r\n");
-          write("import java.util.Date;\r\n");
-          write("import java.util.List;\r\n");
-        } else {
-          write("import java.util.Date;\r\n");
-
-        }
-        write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
-        write("import org.hl7.fhir.instance.model.api.ICompositeType;\r\n");
+        if (l)
+          write("import java.util.*;\r\n");
         if (h) {
           write("import org.hl7.fhir.utilities.xhtml.NodeType;\r\n");
           write("import org.hl7.fhir.utilities.xhtml.XhtmlNode;\r\n");
@@ -157,56 +148,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write("\r\n");
         if (d)
           write("import java.math.*;\r\n");
-        if ("Element".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IBaseElement;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IBaseHasExtensions;\r\n");
-        } else if ("DomainResource".equals(name)) {
-          write("import java.util.Collections;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IDomainResource;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IBaseDatatypeElement;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IBaseHasExtensions;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IBaseHasModifierExtensions;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IBaseBackboneElement;\r\n");
-        } else if ("ElementDefinition".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.ICompositeType;\r\n");
-          write("import org.hl7.fhir.r5.model.Enumerations.BindingStrength;\r\n");
-          write("import org.hl7.fhir.r5.model.Enumerations.BindingStrengthEnumFactory;\r\n");
-          write("import org.hl7.fhir.r5.utils.ToolingExtensions;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IBaseDatatypeElement;\r\n");
-        } else if ("Meta".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IBaseMetaType;\r\n");
-        } else if ("Bundle".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IBaseBundle;\r\n");
-        } else if ("Binary".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IBaseBinary;\r\n");
-        } else if ("CapabilityStatement".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IBaseConformance;\r\n");
-        } else if ("OperationOutcome".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IBaseOperationOutcome;\r\n");
-        } else if ("Parameters".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IBaseParameters;\r\n");
-        } else if ("Reference".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IAnyResource;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IBaseReference;\r\n");
-          write("import org.hl7.fhir.instance.model.api.ICompositeType;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IIdType;\r\n");
-        } else if ("Narrative".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.INarrative;\r\n");
-          
-        } else {
-          write("import org.hl7.fhir.instance.model.api.IBaseDatatypeElement;\r\n");          
-        }
-        if ("Extension".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IBaseExtension;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IBaseDatatype;\r\n");
-          write("import org.hl7.fhir.instance.model.api.IBaseHasExtensions;\r\n");
-        }
-        if ("Coding".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IBaseCoding;\r\n");
-        }
-        if ("Resource".equals(name)) {
-          write("import org.hl7.fhir.instance.model.api.IAnyResource;\r\n");
-        }
         if (s)
           write("import org.hl7.fhir.utilities.Utilities;\r\n");
         if (e)
@@ -216,17 +157,18 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write("import ca.uhn.fhir.model.api.annotation.ResourceDef;\r\n");
         write("import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;\r\n");
       } 
-      if (clss == JavaGenClass.Resource || "BackboneElement".equals(name)) {
-        write("import org.hl7.fhir.instance.model.api.IBaseBackboneElement;\r\n");
-      }
       write("import ca.uhn.fhir.model.api.annotation.Child;\r\n");
-      write("import ca.uhn.fhir.model.api.annotation.ChildOrder;\r\n");
+      if (HAPI_16) {
+        write("import ca.uhn.fhir.model.api.annotation.ChildOrder;\r\n");
+      }
+      write("import ca.uhn.fhir.model.api.annotation.Description;\r\n");
     }
     if (clss != JavaGenClass.Resource) {
       write("import ca.uhn.fhir.model.api.annotation.DatatypeDef;\r\n");
     }
-    write("import ca.uhn.fhir.model.api.annotation.Description;\r\n");
     write("import ca.uhn.fhir.model.api.annotation.Block;\r\n");
+    write("import org.hl7.fhir.instance.model.api.*;\r\n");
+    write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     
     classname = upFirst(name);
     if (adornments.containsKey(classname+".imports")) {
@@ -499,16 +441,15 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	}
 
   private void generateImpl(String namenn, ResourceDefn resourceDefn, String jn, ElementDefn root, String version, Date genDate) throws Exception {
-// TODO - restore this 
-//    write("  public "+namenn+" get"+namenn+"() {\r\n"); 
-//    write("    return new "+jn+namenn+"Impl(this);\r\n"); 
-//    write("  }\r\n"); 
-//
-//    // now, generate the implementation
-//    JavaPatternImplGenerator jrg = new JavaPatternImplGenerator(new FileOutputStream(javaPatternDir+jn+namenn+"Impl.java"), definitions, adornments, enumInfo);
-//    jrg.generate(resourceDefn.getRoot(), jn, JavaGenClass.Resource, null, genDate, version, false, null, null, namenn, root);
-//    jrg.close();
-//
+    write("  public "+namenn+" get"+namenn+"() {\r\n"); 
+    write("    return new "+jn+namenn+"Impl(this);\r\n"); 
+    write("  }\r\n"); 
+
+    // now, generate the implementation
+    JavaPatternImplGenerator jrg = new JavaPatternImplGenerator(new FileOutputStream(javaPatternDir+jn+namenn+"Impl.java"), definitions, adornments, enumInfo);
+    jrg.generate(resourceDefn.getRoot(), jn, JavaGenClass.Resource, null, genDate, version, false, null, null, namenn, root);
+    jrg.close();
+
   }
 
   private boolean doGenerateField(ElementDefn e) throws Exception {
@@ -1173,8 +1114,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     if (isPrimitive(e.typeCode()) || (e.getTypes().size() == 1 && e.typeCode().startsWith("canonical("))) {
       if (e.unbounded())
         write(" return add"+upFirst(getElementName(name, false))+"Element();\r\n");
-      else if ("Reference.reference".equals(e.getPath()) && "Reference".equals(upFirst(getElementName(name, false))))
-        write(" return get"+upFirst(getElementName(name, false))+"Element_();\r\n");
+//      else if (e.getPath().equals("Reference.reference"))
+//        write(" return get"+upFirst(getElementName(name, false))+"Element_();\r\n");
       else
         write(" return get"+upFirst(getElementName(name, false))+"Element();\r\n");
     } else if (e.typeCode().equals("Resource") || e.typeCode().equals("DomainResource")) {
@@ -1182,7 +1123,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     } else if (e.unbounded()) {
       write(" return add"+upFirst(getElementName(name, false))+"(); \r\n");
     } else  {
-      write(" return get"+upFirst(getElementName(name, false))+"();\r\n");
+      write(" return get"+upFirst(getElementName(name, false))+"(); \r\n");
     }
   }
 
@@ -1961,22 +1902,17 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       jdoc(indent, e.getDefinition());
       writeAttributeAnnotation(indent, e, order, tn);
       writeWithHash(indent+"protected "+tn+" "+getElementName(e.getName(), true)+";\r\n");
-      write("\r\n");
+			write("\r\n");
+      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
+        List<String> params = e.getTypes().get(0).getParams();
+        String rn = params.size() == 1 ? params.get(0) : "Resource";
+        if (rn.equals("Any"))
+          rn = "Resource";
+        else if (rn.equals("List"))
+          rn = "ListResource";
+      }
 		}
 	}
-
-  public String getReferenceType(ElementDefn e) {
-    String rn = "Resource";
-    if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
-      List<String> params = e.getTypes().get(0).getParams();
-      rn = params.size() == 1 ? params.get(0) : "Resource";
-      if (rn.equals("Any"))
-        rn = "Resource";
-      else if (rn.equals("List"))
-        rn = "ListResource";
-    }
-    return rn;
-  }
 
   private void writeAttributeAnnotation(String indent, ElementDefn e, int order, String tn) throws Exception {
     String elementName = getElementName(e.getName(), true);
@@ -2245,6 +2181,16 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		      write(indent+"}\r\n\r\n");
 		    }
 
+		    //TODO: remove this - Reference type has a field to hold these things too and 
+		    // that's cleaner. Deprecated by JA on 2016-05-28
+		    if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
+		      List<String> params = e.getTypes().get(0).getParams();
+		      String rn = params.size() == 1 ? params.get(0) : "Resource";
+		      if (rn.equals("Any"))
+		        rn = "Resource";
+		      else if (rn.equals("List"))
+		        rn = "ListResource";
+		    }
 		  }
 		} else {
       if (isJavaPrimitive(e) || (e.getTypes().size() == 1 && e.typeCode().startsWith("canonical("))) {
@@ -2335,9 +2281,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           write(indent+"    if (Configuration.errorOnAutoCreate())\r\n");
           write(indent+"      throw new Error(\"Attempt to auto-create "+className+"."+getElementName(e.getName(), true)+"\");\r\n");
           write(indent+"    else if (Configuration.doAutoCreate())\r\n");
-          if ("XhtmlNode".equals(tn))
-            write(indent+"      this."+getElementName(e.getName(), true)+" = new XhtmlNode(NodeType.Element, \"div\"); // cc.1\r\n");
-          else
           write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"(); // cc\r\n");
         }
         write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
@@ -2382,6 +2325,14 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"  return this;\r\n");
         write(indent+"}\r\n");
         write("\r\n");
+        if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {
+          List<String> params = e.getTypes().get(0).getParams();
+          String rn = params.size() == 1 ? params.get(0) : "Resource";
+          if (rn.equals("Any"))
+            rn = "Resource";
+          else if (rn.equals("List"))
+            rn = "ListResource";
+			  }			  
 			}
 		}
 

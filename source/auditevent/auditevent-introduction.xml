@@ -33,11 +33,11 @@ All actors - such as applications, processes, and services - involved in an audi
 This will likely result in multiple AuditEvent entries that show whether privacy and security 
 safeguards, such as access control, are properly functioning across an enterprise's system-of-systems. 
 Thus, it is typical to get an auditable event recorded by both the application in a workflow process and the servers that support them. 
-For this reason, duplicate entries are expected, which is helpful because it may aid in the detection of 
-security, privacy, or other operational problems. For example, 
+For this reason, duplicate entries are expected, which is helpful because it may aid in the detection of. For example, 
 fewer than expected actors being recorded in a multi-actor process or attributes related to those records being in 
 conflict, which is an indication of a security problem.
-There may be non-participating actors, such as trusted intermediary, that also detect a security, privacy, or operational relevant event and thus would record an AuditEvent.
+There may be non-participating actors, such as trusted intermediary, that also detect a security relevant event and thus would record 
+an AuditEvent, such as a trusted intermediary.
 </p>
 <p>
 Security relevant events are not limited to communications or RESTful events. They include: 

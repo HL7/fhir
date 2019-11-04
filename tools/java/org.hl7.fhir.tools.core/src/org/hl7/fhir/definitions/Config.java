@@ -41,30 +41,8 @@ public class Config {
     return new SimpleDateFormat("EEE, MMM d, yyyy HH:mmZ", new Locale("en", "US"));
   }
 
-  
   public static final String FULL_LICENSE_CODE = 
-  
-
-" * #%L\r\n"+
-" * org.hl7.fhir.r5\r\n"+
-" * %%\r\n"+
-" * Copyright (C) 2014 - 2019 Health Level 7\r\n"+
-" * %%\r\n"+
-" * Licensed under the Apache License, Version 2.0 (the \"License\");\r\n"+
-" * you may not use this file except in compliance with the License.\r\n"+
-" * You may obtain a copy of the License at\r\n"+
-" * \r\n"+
-" *      http://www.apache.org/licenses/LICENSE-2.0\r\n"+
-" * \r\n"+
-" * Unless required by applicable law or agreed to in writing, software\r\n"+
-" * distributed under the License is distributed on an \"AS IS\" BASIS,\r\n"+
-" * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n"+
-" * See the License for the specific language governing permissions and\r\n"+
-" * limitations under the License.\r\n"+
-" * #L%\r\n"+
-" */\r\n"+
-"\r\n"+
-"/*\r\n"+
+      
 "  Copyright (c) 2011+, HL7, Inc.\r\n"+
 "  All rights reserved.\r\n"+
 "  \r\n"+

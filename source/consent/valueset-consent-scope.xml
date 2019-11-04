@@ -15,6 +15,7 @@
     </telecom>
   </contact>
   <description value="This value set includes the four Consent scope codes."/>
+  <copyright value="This is an example set."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>

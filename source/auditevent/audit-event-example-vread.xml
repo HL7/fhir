@@ -74,14 +74,9 @@
 		</what>
 		<type>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
-			<code value="1"/>
-			<display value="Person"/>
+			<code value="2"/>
+			<display value="System Object"/>
 		</type>
-		<role>
-			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
-			<code value="1"/>
-			<display value="Patient"/>
-		</role>
 		<lifecycle>
 			<system value="http://terminology.hl7.org/CodeSystem/dicom-audit-lifecycle"/>
 			<code value="6"/>

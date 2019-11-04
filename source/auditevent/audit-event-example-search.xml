@@ -81,5 +81,4 @@
 		</role>
 		<query value="aHR0cDovL2ZoaXItZGV2LmhlYWx0aGludGVyc2VjdGlvbnMuY29tLmF1L29wZW4vRW5jb3VudGVyP3BhcnRpY2lwYW50PTEz"/>
 	</entity>
-	<!-- could include an .entity of the patient if possible -->
 </AuditEvent>

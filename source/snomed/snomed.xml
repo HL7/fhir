@@ -12954,10 +12954,6 @@
     <display value="Prognosis/outlook finding"/>
     <display value="Prognosis/outlook finding (finding)"/>
   </concept>
-  <concept id="365861007" display="Finding of immune status">
-    <display value="Finding of immune status"/>
-    <display value="Finding of immune status (finding)"/>
-  </concept>
   <concept id="36629006" display="Legal marriage">
     <display value="Legal marriage"/>
     <display value="Legal married state"/>
@@ -14214,11 +14210,6 @@
     <display value="Procedure not wanted"/>
     <display value="Procedure not wanted (situation)"/>
   </concept>
-  <concept id="416471007" display="Family history of clinical finding">
-    <display value="Family history of clinical finding"/>
-    <display value="Family medical history"/>
-    <display value="Family history of clinical finding (situation)"/>
-  </concept>
   <concept id="41672002" display="Respiratory disease specialist">
     <display value="Respiratory disease specialist"/>
     <display value="Respiratory disease specialist (occupation)"/>
@@ -14488,10 +14479,6 @@
   <concept id="425268008" display="Review of care plan">
     <display value="Review of care plan (procedure)"/>
     <display value="Review of care plan"/>
-  </concept>
-  <concept id="425457005" display="History of vaccination">
-    <display value="History of vaccination (situation)"/>
-    <display value="History of vaccination"/>
   </concept>
   <concept id="425620007" display="Metal">
     <display value="Metal (substance)"/>
@@ -15637,12 +15624,6 @@
   <concept id="60786005" display="Lilac buff turkey">
     <display value="Lilac buff turkey"/>
     <display value="Lilac buff turkey (organism)"/>
-  </concept>
-  <concept id="609328004" display="Allergy">
-    <display value="Allergy"/>
-    <display value="Allergic disposition"/>
-    <display value="Allergic disposition (finding)"/>
-    <display value="A propensity to developing a pathological immune process generally directed towards a foreign antigen, which results in tissue injury. It is most often applied to type I hypersensitivity but other hypersensitivity types especially type IV (e.g. allergic contact dermatitis) may be involved. Revised nomenclature for allergy for global use:Report of the Nomenclature Review Committee of the World Allergy Organization, October 2003."/>
   </concept>
   <concept id="60958006" display="Maryland pig">
     <display value="Maryland pig"/>

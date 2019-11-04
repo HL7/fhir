@@ -237,12 +237,14 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("package org.hl7.fhir.r5.formats;\r\n");
     write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
+    for (DefinedCode dc : definitions.getPrimitives().values())
+      write("import org.hl7.fhir.r5.model."+getPrimitiveTypeModelName(dc.getCode())+";\r\n");
     write("import org.hl7.fhir.r5.model.*;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
+    write("import org.hl7.fhir.r5.utils.formats.JsonTrackingParser.PresentedBigDecimal;\r\n");
     write("import org.hl7.fhir.utilities.xhtml.XhtmlNode;\r\n");
     write("import org.hl7.fhir.exceptions.FHIRFormatError;\r\n");
     write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
-    write("org.hl7.fhir.utilities.json.JsonTrackingParser.PresentedBigDecimal;\r\n");
     write("import com.google.gson.JsonObject;\r\n");
     write("import com.google.gson.JsonArray;\r\n");
     write("import com.google.gson.JsonElement;\r\n");
@@ -251,17 +253,6 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("\r\n");
     write("public class JsonParser extends JsonParserBase {\r\n");
     write("\r\n");
-    write("\r\n");
-    write("public JsonParser() {\r\n");
-    write("  super();\r\n");
-    write("}\r\n");
-    write("\r\n");
-    write("public JsonParser(boolean allowUnknownContent) {\r\n");
-    write("  super();\r\n");
-    write("  setAllowUnknownContent(allowUnknownContent);\r\n");
-    write("}\r\n");
-    write("\r\n");
-
   }
 
 
@@ -1199,7 +1190,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("      ;\r\n");
     write(regti.toString());
     write("    else\r\n");
-    write("      throw new Error(\"Unhandled type: \"+type.fhirType());\r\n");
+    write("      throw new Error(\"Unhandled type\");\r\n");
     write("  }\r\n\r\n");
     //
     //    write("  private boolean nameIsTypeName(XmlPullParser xpp, String prefix) {\r\n");

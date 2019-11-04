@@ -1,48 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ManufacturedItemDefinition xmlns="http://hl7.org/fhir">
-  <id value="example"/>
-  <manufacturedDoseForm>
-    <coding>
-      <system value="http://ema.europa.eu/example/manufactureddoseform"/>
-      <code value="Film-coatedtablet"/>
-    </coding>
-  </manufacturedDoseForm>
-  <unitOfPresentation>
-    <coding>
-      <system value="http://ema.europa.eu/example/unitofpresentation"/>
-      <code value="Tablet"/>
-    </coding>
-  </unitOfPresentation>
-  <manufacturer>
-    <reference value="Organization/example"/>
-  </manufacturer>
-  <ingredient>
-    <reference value="Ingredient/example"/>
-  </ingredient>
-  <characteristic>
-    <code>
+    <id value="example"/>
+    <manufacturedDoseForm>
       <coding>
-        <code value="shape"/>
+        <system value="http://ema.europa.eu/example/manufactureddoseform"/>
+        <code value="Film-coatedtablet"/>
       </coding>
-    </code>
-    <valueString value="Oval"/>
-  </characteristic>
-  <characteristic>
-    <code>
+    </manufacturedDoseForm>
+    <unitOfPresentation>
       <coding>
-        <code value="color"/>
+        <system value="http://ema.europa.eu/example/unitofpresentation"/>
+        <code value="Tablet"/>
       </coding>
-    </code>
-    <valueCoding>
-      <code value="pink"/>
-    </valueCoding>
-  </characteristic>
-  <characteristic>
-    <code>
-      <coding>
-        <code value="imprint"/>
-      </coding>
-    </code> 
-    <valueString value="894"/>
-  </characteristic>
+    </unitOfPresentation>
+    <manufacturer>
+      <reference value="Organization/example"/>
+    </manufacturer>
+    <ingredient>
+      <reference value="Ingredient/example"/>
+    </ingredient>
+    <physicalCharacteristics>
+      <shape value="Oval"/>
+      <color value="Pink"/>
+      <imprint value="894"/>
+    </physicalCharacteristics>
 </ManufacturedItemDefinition>

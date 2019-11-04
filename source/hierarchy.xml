@@ -285,7 +285,6 @@ signatures.html
   	  <page type="resource" resource="ObservationDefinition"/>
   	  <page type="resource" resource="SpecimenDefinition"/>
   	  <page type="resource" resource="CatalogEntry"/>
-      <page title="Product Pattern" filename="product.html"/>
       <!-- Think these 3 need to be left off as are REALLy drafty -->
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>

@@ -4384,7 +4384,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Pattern and fixed are mutually exclusive</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Pattern and value are mutually exclusive</Data></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">pattern.empty() or fixed.empty()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'pattern')])) or not(exists(f:*[starts-with(local-name(.), 'fixed')]))</Data></Cell>

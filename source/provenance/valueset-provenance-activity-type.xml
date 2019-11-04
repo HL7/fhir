@@ -51,9 +51,6 @@
 			<concept><code value="APPEND"/>	</concept>
 			<concept><code value="NULLIFY"/> </concept>
 		</include>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
-		</include>
 <!-- GF#19410 removed these
 		<include>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>

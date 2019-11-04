@@ -23,19 +23,15 @@
  <tr><td>System</td><td>The URI <a href="http://www.ama-assn.org/go/cpt">http://www.ama-assn.org/go/cpt</a> identifies the CPT code system</td></tr>
  <tr><td>Version</td><td>Where a version is appropriate, use the year of release e.g. 2014</td></tr>
  <tr><td>Code</td><td>"Code" in the CPT tables (a 5-character code)</td></tr>
- <tr><td>Display</td><td>The correct display for a CPT code is one of the descriptions associated with the code. There are multiple description options that vary by length and target audience, including: long descriptions, medium descriptions, short descriptions, consumer friendly descriptors and clinician descriptors.</td></tr>
- <tr><td>Inactive</td><td>For CPT Link ontology licensees, inactive codes are listed in the History folder in the “Deleted_DTK_pipe” and “Deleted_DTK_tab” files.
-   <br/>
-   For CPT flat file licensees, codes that exist in the flat file are active and codes that are not present are inactive. Deletions/changes between the previous release year and current release year are displayed in the “Appendix B” PDF.</td></tr>
+ <tr><td>Display</td><td>"Description" in the CPT tables</td></tr>
+ <tr><td>Inactive</td><td>Todo: Describe how it is determined which concepts are inactive</td></tr>
  <tr><td>Subsumption</td><td>No Subsumption relationships are defined by CPT</td></tr>
  <tr><td>Filter Properties</td><td>None defined</td></tr>
 </table>
 
 <h3>Version Issues</h3>
 <p>
-A new code-year of CPT is released by the end of August each year for use the subsequent calendar year. 
-CPT versions are identified simply by the year of their release. For example, the CPT 2020 codes are released 
-at the end of August 2019 and intended for use during the 2020 calendar year.
+CPT is released each October. CPT versions are identified simply by the year of their release.
 </p>
 
 <h3>Example Usage</h3>
@@ -43,7 +39,7 @@ at the end of August 2019 and intended for use during the 2020 calendar year.
 <pre class="xml" fragment="Coding">
   &lt;coding&gt;
     &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
-    &lt;version value=&quot;2019&quot;/&gt;
+    &lt;version value=&quot;2014&quot;/&gt;
     &lt;code value=&quot;31502&quot;/&gt;
     &lt;display value=&quot;Tracheotomy tube change prior to establishment of fistula tract&quot;/&gt;
   &lt;/coding&gt;
@@ -52,10 +48,10 @@ at the end of August 2019 and intended for use during the 2020 calendar year.
 <h3>Copyright/License Issues</h3>
 
 <p>
-CPT is a registered trademark of the American Medical Association. The AMA holds the copyright for the CPT coding system and a license is required for use.
+CPT is a registered trademark of the American Medical Association. The AMA holds the copyright for the CPT coding system.
 </p>
 <p>
-When Value Sets include CPT codes, the copyright element should include the text "Current Procedural Terminology (CPT) is copyright 2019 American Medical Association. All rights reserved.". The year in the copyright element should be adjusted to reflect the release year(s) being used.  
+When Value Sets include CPT codes, the copyright element should include the text "CPT copyright 2014 American Medical Association. All rights reserved.".
 </p>
 
 <h3>CPT Filter Properties</h3>

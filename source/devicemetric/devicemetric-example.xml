@@ -23,7 +23,7 @@
 		<reference value="Device/dev1"/>
 	</source>
 	<parent>
-		<reference value="Device/dc102"/>
+		<reference value="DeviceDefinition/dc102"/>
 	</parent>
 	<operationalStatus value="on"/>
 	<color value="blue"/>

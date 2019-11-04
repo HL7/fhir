@@ -2,36 +2,9 @@
 	<id value="example-disclosure"/>
 	<text>
 		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>Disclosure by some idiot, for marketing reasons, to places unknown, of a Poor Sap, data about Everthing important.</p>
-			<p>
-				<b> type:</b> Export</p>
-			<p>
-				<b> subtype:</b> HIPAA Disclosure</p>
-			<p>
-				<b> action:</b> Read</p>
-			<p>
-				<b> severity:</b> Notice: normal but signficant condition</p>
-			<p>
-				<b> recorded:</b> September 22, 2013</p>
-			<p>
-				<b> PurposeOfEvent:</b> Healthcare Marketing</p>
-			<p>
-				<b> source agent:</b> user ID</p>
-			<p>
-				<b> source agent location:</b> Location 1</p>
-			<p>
-				<b> source agent network id:</b> custodian.net</p>
-			<p>
-				<b> recipient agent:</b> practitioner ID</p>
-			<p>
-				<b> recipient agent network id:</b> marketing.land</p>
-			<p>
-				<b> patient:</b> patient identity</p>
-			<p>
-				<b> data exposed:</b> list of data</p>
-		</div>
-	</text>
+		<div xmlns="http://www.w3.org/1999/xhtml">Disclosure by some idiot, for marketing reasons, to places unknown, of a Poor Sap, data about Everthing important.</div>
+	</text>    
+
 	<type>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110106"/>
@@ -42,7 +15,6 @@
 		<display value="HIPAA disclosure"/>
 	</subtype>
 	<action value="R"/>
-	<severity value="Notice"/>
 	<recorded value="2013-09-22T00:08:00Z"/>
 	<outcome value="0"/>
 	<outcomeDesc value="Successful  Disclosure"/>
@@ -53,6 +25,7 @@
 			<display value="healthcare marketing"/>
 		</coding>
 	</purposeOfEvent>
+
 	<agent>
 		<!-- who disclosed the data -->
 		<type>
@@ -171,6 +144,7 @@
 			<code value="DELAU"/>
 			<display value="delete after use"/>
 		</securityLabel>
-		<name value="data about Everthing important"/>
+		<name value="Namne of What"/>
+		<description value="data about Everthing important"/>
 	</entity>
 </AuditEvent>
