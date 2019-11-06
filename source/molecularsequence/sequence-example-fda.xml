@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MolecularSequence>
+<MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="fda-example"/>
     <type value="dna"/>
     <coordinateSystem value="1"/>
