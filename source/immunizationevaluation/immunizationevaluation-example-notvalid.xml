@@ -32,8 +32,8 @@
 	<doseStatusReason>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status-reason"/>
-			<code value="outsidesched"/>
-			<display value="Administered outside recommended schedule"/>
+			<code value="outsideschedule"/>
+			<display value="Outside Schedule"/>
 		</coding>
 	</doseStatusReason>
 	<series value="Vaccination Series 1"/>
