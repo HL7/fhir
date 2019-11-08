@@ -3,6 +3,7 @@
 	[%stu-note%]
 	<p>TODO</p>
 	<ol>
+        <li>Clarify relationship to FHIRcast or websub</li>
 		<li>
 			<p>Updates to "Managing Subscriptions and Errors"</p>
 			<ul>
@@ -22,23 +23,25 @@
 		Safety and Security
 	</h2>
 	<p>
-		Servers are responsible for maintaining the security of patient data in accordance with their organizational policies.  Recommendations provided below are for informational purposes only and should be reviewed prior to implementation.
+		Servers are responsible for following <a href="security.html">FHIR sercurity guidance</a>.  Recommendations specific to subscriptions are provided below.
 	</p>
 	<p>
-		Servers are responsible for verifying that any notification which includes PHI has been appropriately authorized and secured (e.g., a client MAY ask for information they are not authorized to view).  Servers SHOULD reject any <code>Subscription</code> request which does not meet their policy requirements.
+		A subscription is a request for future event notifications. As with any client-initiated interaction, Subscriptions could request information that a client is not allowed to see, and servers SHALL enforce authorization in accordance with their policy requirements. Servers SHOULD take a Subscription's Topic and filters into account when authorizing the creation of a Subscription, and SHOULD ensure that authorization is (still) in place at the time of each event notification.
+    <p>
+        When sending an event notification, servers can adopt various strategies to ensure that authorization is still in place. Some strategies may provide imperfect assurance (e.g., a server might rely on signed tokens with some pre-specified lifetime as evidence of authorization). In addition to these strategies, servers can mitigate the risk of disclosing sensitive information by limiting the payload types it supports (e.g., by prohibiting certain clients from requesting <code>full</code> notification payloads and relying instead on <code>id-only</code> payloads).
 	</p>
 	<p>
-		<code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.).  Implementers MAY use their judgement on including limited-use secrets (e.g., a token to verify that a message is from the desired source).
+		<code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.).  Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in <code>Subscription.channel.header</code> to verify that a message is from the desired source).
 	</p>
 	<p>
-		Executing each of the channels documented in this specification involves the server sending a communication that MAY reveal information about the client and server relationship, and, if the entire resource is sent, administrative or clinical information that may be quite sensitive and/or protected under law. Servers are responsible for ensuring appropriate security is employed for each channel. The subscription resource does not address these concerns directly - it is assumed that these are administered by other configuration processes. For instance, a server might maintain a whitelist of acceptable servers for the rest-create/rest-update methods.
+		Each channel type involves the server sending a communication that could reveal information about the client and server relationship, as well as sensitive administrative or clinical information. Servers are responsible for ensuring appropriate security is employed for each channel. The Subscription resource does not address these concerns directly; it is assumed that these are administered by other configuration processes. For instance, a server might maintain a whitelist of acceptable endpoints or trusted certificate authorities for rest-hook channels.
 	</p>
 
 	<a name="subscription-notification"/>
 	<h2>
 		Subscription Notification
 	</h2>
-	<p>The three types of notifications which a server is able to send to a client are the <em>Event</em>, <em>Handshake</em> and <em>Heartbeat</em> notification. All of the notification types are <a href="bundle.html#history">history Bundles</a> with added extensions on the <code>Bundle.meta</code> element to define Subscription notification specific details.</p>
+	<p>This specification describes three distinct outbound notification types: <em>Event</em>, <em>Handshake</em> and <em>Heartbeat</em>. For each, the notification body is a <a href="bundle.html#history">history Bundle</a> with specific extensions on the <code>Bundle.meta</code> element to convey Subscription notification details.</p>
 	<p>
 		<em>TODO: In the following sections provide specific guidance for each channel types this including for REST Hooks + Web Sockets</em>
 	</p>
@@ -52,7 +55,7 @@
 			<a href="subscription-example-notification-id-only.html">Example event notification</a>
 		</li>
 	</ul>
-	<p>The client expectations upon receipt of receipt of a Handshake notification are defined by each implementation.</p>
+	<p>The client expectations upon receipt of a Handshake notification are defined separately for each channel type (e.g., for the <code>rest-hook</code> channel type, a client endpoint responds to event notifications with standard HTTP response codes).</p>
 	<a name="handshake-notification"/>
 	<h3>
 		Handshake Notification
@@ -63,25 +66,25 @@
 			<a href="subscription-example-handshake.html">Example handshake notification</a>
 		</li>
 	</ul>
-	<p>The client is not expected to take any special action in receipt of a Handshake notification beyond the channel requirements.</p>
+	<p>The client is not expected to take any special action in receipt of a Handshake notification beyond the channel-specific requirement for receiving an event notification.</p>
 	<a name="heartbeat-notification"/>
 	<h3>
  		Heartbeat Notification
 	</h3>
-	<p>Servers may periodically send notifications across a channel to ensure that the connection is still alive and valid. The Heartbeat notification is an empty History Bundle sent without incrementing the subscription event count.</p>
+	<p>Servers MAY periodically send notifications across a channel to ensure that the connection is still alive and valid (e.g., in accordance with a client's requested heartbat interval). The Heartbeat notification is an empty History Bundle sent without incrementing the subscription event count.</p>
 	<ul>
 		<li>
 			<a href="subscription-example-heartbeat.html">Example heartbeat notification</a>
 		</li>
 	</ul>
-	<p>The client is not expected to take any special action in receipt of a Heartbeat notification beyond the channel requirements.</p>
+	<p>The client is not expected to take any special action in receipt of a Handshake notification beyond the channel-specific requirement for receiving an event notification.</p>
 	<a name="bundle-extensions-for-subscriptions"/>
 	<h3>
  		Bundle Extensions for Subscriptions
 	</h3>
 	<ul>
 		<li>
-			<p>The <a href="extension-subscription-event-count.html">subscription-event-count</a> extension is used to indicate the number of times a notification has been attempted on this Subscription PRIOR to this notification being sent.</p>
+			<p>The <a href="extension-subscription-event-count.html">subscription-event-count</a> extension indicates the number of unique events that have triggered notification attempts on this Subscription PRIOR to the current notification being sent.</p>
 			<ul>
 				<li>
 					<p>In the case of a handshake, this count will always be zero (0).</p>
@@ -89,8 +92,11 @@
 				<li>
 					<p>In the case of a heartbeat notification, this count will be the same as the last notification and will not be incremented due to the heartbeat notification.</p>
 				</li>
+                <li>
+					<p>In the case of event notifications, the event count will be incremented by the number of notifications contained within this bundle (often a single notification, though servers may choose to batch notifications within a short time interval).</p>
+				</li>
 				<li>
-					<p>In the case of event notifications, the event count will be incremented by the number of notifications contained within this bundle (typically a single notification, though servers may choose to batch notifications within a short time interval).</p>
+					<p>In the case of an event notification that cannot be delivered (e.g., because a client endpoint is offline), the server MAY retry delivery but does not increment the event count; the count represents unique events, not unique delivery attempts.</p>
 				</li>
 			</ul>
 		</li>
@@ -98,41 +104,39 @@
 	<!-- end list -->
 	<ul>
 		<li>
-			<p>The <a href="extension-bundle-event-count.html">bundle-event-count</a> extension represents the number of events ( event-notifications, notifications ??) within the Bundle. This is of particular interest in several ways:</p>
+			<p>The <a href="extension-bundle-event-count.html">bundle-event-count</a> extension represents the number of event notifications conveyed by the Bundle. This helps clients:</p>
 			<ul>
 				<li>
-					<p>Determining if a notification requires further processing (e.g., discarding handshake and heartbeat)</p>
+					<p>Determine if a notification requires further processing (e.g., a client might discard handshake and heartbeat notifications)</p>
 				</li>
 				<li>
-					<p>Determining the number of events in <code>empty</code> payload scenarios</p>
+					<p>Determine the number of events it should expeect to find in follow-on queries when the in <code>empty</code> payload type is used</p>
 				</li>
 				<li>
-					<p>Server batching (e.g., a server sending at max one notification per second)</p>
-				</li>
-				<li>
-					<p>In the case of a handshake, this count will always be zero (0).</p>
+					<p>Handle batched results (e.g., a server sending at max one notification per second)</p>
 				</li>
 			</ul>
+            <p>For handshake and heartbeat notifications, the <code>bundle-event-count</code> will alwayhs be zero.</p>
 		</li>
 	</ul>
 	<!-- end list -->
 	<ul>
 		<li>
-			<p>The <a href="extension-subscription-status.html">subscription-status</a> extension is used to represent the <a href="valueset-subscription-status.html">Subscription status values</a> at the time the notification is sent. Note that the status might change between the time the notification is sent and the time it is received/processed, and therefore this status recorded in the extension is not guaranteed to represent status of the Subscription at any time prior-to or after this notification is sent. The field is useful primarily as a hint to inform the client if the server has encountered errors in notifications immediately preceding this notification.</p>
+			<p>The <a href="extension-subscription-status.html">subscription-status</a> extension represents the <a href="valueset-subscription-status.html">Subscription status values</a> at the time the notification is sent. Note that the status might change between the time the notification is sent and the time it is received/processed, and therefore this status recorded in the extension is not guaranteed to represent status at the time of receipt. The field is useful as a hint to inform the client if the server has encountered errors in notifications immediately preceding this notification.</p>
 		</li>
 		<li>
-			<p>The <a href="extension-subscription-topic-url.html">subscription-topic-url</a> extension references the Topic resource relevant to this notification. The URL is an absolute references to the resource on the server that generated the notification and <em>NOT</em> a reference its canonical URL.</p>
+			<p>The <a href="extension-subscription-topic-url.html">subscription-topic-url</a> extension references the Topic resource relevant to this notification, as an absolute URL for the Topic resource on the server that generated the notification (<em>NOT</em> a reference to a canonical Topic URL.)</p>
 		</li>
 		<li>
-			<p>The <a href="extension-subscription-url.html">subscription-url</a> extension references the Subscription resource which triggered this notification. The URL is an absolute references to the resource on the server that generated the notification.</p>
+			<p>The <a href="extension-subscription-url.html">subscription-url</a> extension references the Subscription resource that triggered this notification, as an absolute URL for the Subscription resource on the server that generated the notification.</p>
 		</li>
 	</ul>
 	<a name="payloads"/>
 	<h3>
  		Payloads
 	</h3>
-	<p>There are three options available when specifying the contents of a Notification: <code>empty</code>,		<code>id-only</code>, and <code>full-resource</code>. These options change the amount of information conveyed in the notification bundle itself.</p>
-	<p>When deciding which payload type to request, the client <b>SHOULD</b> consider both ease in processing and security of PHI. If any untrusted hosts are included in processing notifications, it is <em>STRONGLY</em> recommended to use an <code>empty</code> payload to protect confidential health information.</p>
+	<p>There are three options available when specifying the contents of a Notification: <code>empty</code>, <code>id-only</code>, and <code>full-resource</code>. These options change the level of detail conveyed in the notification Bundle entries.</p>
+	<p>When deciding which payload type to request, systems <b>SHOULD</b> consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems SHOULD use the minimum level of detail consistent with the use case. In practice, <code>id-only</code> provides a good balance for many real-world scenarios.</p>
 	<p>Examples:</p>
 	<ul>
 		<li>
@@ -155,9 +159,11 @@
 	</h3>
 	<p>When a Subscription is created for a REST Hook channel type, the server <b>SHALL</b> set initial status to <code>requested</code>, pending verification of the nominated endpoint URL. After a successful handshake notification has been sent and accepted, the server <b>SHALL</b> update the status to <code>active</code>. Any errors in the initial handshake <b>SHALL</b> result in the status being changed to <code>error</code>.
 	</p>
-	<p>When the server processes an event meeting the specified criteria, the server POSTs an event notification to the client's nominated endpoint URL (i.e. to the <code>channel[type=rest-hook].endpoint</code>) as shown in the following examples. The content-type of the POST <b>SHALL</b> match the contentType (<code>channel.payload.contentType</code>) requested during creation of the Subscription. Note that the server <b>SHALL</b> append the headers, if any are given, to the POST request that it makes to the client.</p>
+	<p>To convey an event notification, the server POSTs to the client's nominated endpoint URL (i.e. to the <code>channel[type=rest-hook].endpoint</code>) as shown in the following examples. The content-type of the POST <b>SHALL</b> match the contentType (<code>channel.payload.contentType</code>) requested during creation of the Subscription. Each <code>channel.header</code> value <b>SHALL</b> be conveyed as an HTTP request header.</p>
 	<p>For consistency, the rest of this document assumes <code>application/fhir+json</code> has been selected, and will be referred to as JSON.</p>
-	<p>This example uses an event notification with an emp>ty payload to alert the subscriber that new results are available:</p>
+
+    <h4>Empty Payload Example</h4>
+	<p>This example uses an event notification with an empty payload to alert the subscriber that new results are available:</p>
 	<p>Request:</p>
 	<p>
 		<code>POST to [client endpoint]</code>
@@ -194,8 +200,10 @@
   "type": "history",
   "timestamp": "2019-08-07T10:24:13.1882432-05:00"
 }</pre>
-	<p>Since the content element is set to <code>empty</code>, the data in the resources is only available through the REST API which helps consolidate authorization and authentication logic. When the subscriber receives a POST to its nominated endpoint it may queries the server to fetch all the relevant resources based on the Topic. The parameter <code>&amp;_since=:last</code> (where :last is replaced by the time at which the client last checked) may be appended to the query fetch the most recent resources. For example, in this example the topic is patient admission, and the subscriber may fetch the most recent Encounters for a patient or group of patients.</p>
-	<p>In this example, the event notification contains the only the ids for resource. This provide the subscriber with the id for fetching the data.</p>
+	<p>Since the content element is set to <code>empty</code>, the data in the resources is only available through the REST API, which helps consolidate authorization and authentication logic. When the subscriber receives a POST to its nominated endpoint it might query the server to fetch all the relevant resources based on the Topic and applicable filters. The client might include a <code>&amp;_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, the Topic above is patient admission, and the subscriber might fetch the most recent Encounters for a patient or group of patients.</p>
+
+    <h4>ID-Only Payload Example</h4>
+	<p>In this example, the event notification contains the only the ids for resource. This provides the subscriber with a resource ID for focused follow-on queries.</p>
 	<p>Request:</p>
 	<p>
 		<code>POST to [client endpoint]</code>
@@ -244,8 +252,10 @@
     }
   ]
 }</pre>
-	<p>Since the content element is set to <code>id-only</code>, like in the first scenario, the data in the resources is only available through the REST API which helps consolidate authorization and authentication logic. When the subscriber receives a POST to its nominated endpoint it may queries the server to fetch all the relevant resources using the supplied resource ids. For example, in this example the topic is patient admission, and the subscriber may fetch the Encounter(s) for a patient or group of patients.</p>
-	<p>In this example, the event notification contains the the entire resource. This is usually appropriate for defining routing rules within a managed eco-system such as a healthcare institution.</p>
+	<p>Since the content element is set to <code>id-only</code> the data in the resources is only available through the REST API which (as in the <code>empty</code> payload example) helps consolidate authorization and authentication logic. When the subscriber receives a POST to its nominated endpoint it might query the server to fetch all the relevant resources using the supplied resource ids. For example, the Topic above is patient admission, and the subscriber may fetch the Encounter(s) for a patient or group of patients.</p>
+
+    <h4>Full Payload Example</h4>
+	<p>In this example, the event notification contains the the entire resource. This is usually appropriate for defining routing rules within a managed ecosystem such as a healthcare institution.</p>
 	<p>Request:</p>
 	<p>
 		<code>POST to [client endpoint]</code>
@@ -311,7 +321,7 @@
     }
   ]
 }</pre>
-	<p>This requests that a server forward a copy of any matching resource in JSON format to the nominated server as an <a href="http.html#update">Update operation</a> (i.e PUT) using the nominated URL as the <a href="http.html#root">service base</a>. In order to execute this channel, the server <b>SHALL</b> know how to authenticate appropriately with the destination server. This can be done by the subscription resource providing an authentication header for the server to use, or alternatively, the server may be specifically configured to be able to use the nominated server.</p>
+	<p>This requests that a server forward a copy of any matching resource in JSON format to the nominated server as a create, update, or delete operation within the history bundle. </p>
 	<a name="rest-hook-security"/>
 	<h4>
 		Channel Security Notes
