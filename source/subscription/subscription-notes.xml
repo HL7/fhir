@@ -77,7 +77,7 @@
 			<a href="subscription-example-heartbeat.html">Example heartbeat notification</a>
 		</li>
 	</ul>
-	<p>The client is not expected to take any special action in receipt of a Handshake notification beyond the channel-specific requirement for receiving an event notification.</p>
+	<p>The client is not expected to take any special action in receipt of a Heartbeat notification beyond the channel-specific requirement for receiving an event notification.</p>
 	<a name="bundle-extensions-for-subscriptions"/>
 	<h3>
  		Bundle Extensions for Subscriptions
