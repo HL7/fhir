@@ -16,7 +16,7 @@
       By adjusting <code>Subscription.channel.payload.content</code>, subscribers can request event notifications that include full resource content; or just the ID of the triggering resource; or an empty notification body.
     </p>
     <p>
-      Several channel channels are defined in the core specification:
+      Several channels are defined in the core specification:
     </p>
     <ul>
       <li><a href="#rest-hook"><b>rest-hook</b></a>: Notifications are sent via HTTPS POST to the <code>Subscription.channel.endpoint</code> URL (e.g., <code>https://...</code>)</li>
