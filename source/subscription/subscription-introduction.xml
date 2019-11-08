@@ -1,54 +1,55 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<div>
-<a name="scope"></a>
-<h2>Scope and Usage</h2>
-<p>
-The subscription resource is used to define a push-based transaction from a server to another system.  A suscriber subscribes to one or more predefined <a href="topic.html">Topics</a> which the server supports. Subscribers typically receive only a subset of the total event notifications for a given topic by filtering on the content. The filtering criteria are defined by the Topic resource.  Once a subscription is created, any topics that meet the filtering criteria cause a notification to be sent using the provided channel.
-</p>
-<p>
-The server is able to send notifications without any information about the matching resource, or with the entire resource.
-</p>
-<p>
-Several different types of channels are supported:
-</p>
-<ul>
- <li><b>rest-hook</b>: A notification is POSTed to the client nominated URL identified in the Subscription resource.</li>
- <li><b>websocket</b>: A PING message is sent to the designated URI</li>
- <li><b>email/sms</b>: A notification is sent to the nominated email address or SMS number</li>
- <li><b>message</b>: The resource is sent to the application identified in the URI as a <a href="messaging.html">message</a></li>
-</ul>
-<p>
-See below for further discussion of the various channels. Note that sending
-the entire resource creates security concerns that must be managed by the server.
-</p>
-<p>
-Subscriptions are active resources; a server can only accept a subscription
-if it will execute the specified channel for any resources subsequently
-received. The subscription is no longer active once it is deleted from
-the server.
-</p>
-</div>
+  <div>
+    <a name="scope"></a>
+    <h2>Scope and Usage</h2>
+    <p>
+      The subscription resource is used to define a push-based transaction from a server to another system.  A suscriber subscribes to one or more predefined <a href="topic.html">Topics</a> which the server supports. Subscribers typically receive only a subset of the total event notifications for a given topic by filtering on the content. The allowed filtering criteria are defined by the <code>Topic</code> resource, while requested filters are specified within the <code>Subscription</code> resource.  Once a subscription is created, any resource change covered by a specified topic that meets the filtering criteria will cause a notification to be sent using the provided channel.
+    </p>
+    <p>
+      The server is able to send notifications without any information about the matching resource, with the ID of the matching resource, or with the entire resource.
+    </p>
+    <p>
+      Several different types of channels are defined here, while new channels can be <a href="#channel-extending">added</a>:
+    </p>
+    <ul>
+      <li><a href="#rest-hook"><b>rest-hook</b></a>: Notifications are sent via HTTP/S POST to the <code>Subscription.channel.endpoint</code> URL (e.g., https://...)</li>
+      <li><a href="#websockets"><b>websocket</b></a>: Notifications are sent via WS/S to a client connected via a WebSocket</li>
+      <li><a href="#email"><b>email</b></a>: Notifications are sent via SMTP/S, S/MIME, or Direct to the <code>Subscription.channel.endpoint</code> email URI (e.g., mailto:...)</li>
+      <li><a href="#sms"><b>sms</b></a>: Notifications are sent via SMS to the <code>Subscription.channel.endpoint</code> phone number URI (e.g., tel: ...)</li>
+      <li><a href="#messaging"><b>message</b></a>: Notifications are sent via <a href="messaging.html">FHIR messaging</a> to the application identified in the <code>Subscription.channel.endpoint</code> URI</li>
+    </ul>
+    <p>
+      See below for further discussion of the various channels. Note that sending
+      the entire resource creates security concerns that must be managed by the server.
+    </p>
+    <p>
+      Subscriptions are active resources; a server can only accept a subscription
+      if it will execute the specified channel for any resources subsequently
+      received. The subscription is no longer active once it is deleted from
+      the server.
+    </p>
+  </div>
 
-<div>
-<a name="bnr"></a>
-<h2>Boundaries and Relationships</h2>
-<p>
-As an alternative to subscriptions, the RESTful API describes a
-polling-based subscription method using <a href="bundle.html">bundles</a>
-and the <a href="http.html#history">history operation</a>. This method
-of polling allows for a much tighter relationship between the client and
-the server that doesn't involve missing updates and/or deletes.
-</p>
-<p>
-When using the <code>Subscription</code> resource, the FHIR server combines
-the roles of publisher and information distributer. Other arrangements
-of the publish and subscribe pattern describe separate agents for the two roles.
-Implementers may implement the <code>Subscription</code> resource using an
-architecture with separate agents, or using any other pub/sub architectire
-(e.g. see <a href="http://fhircast.org/">FHIRCast</a>, or, more generally,
-<a href="https://www.w3.org/TR/websub/">W3C Pub/Sub</a>).
-</p>
-</div>
+  <div>
+    <a name="bnr"></a>
+    <h2>Boundaries and Relationships</h2>
+    <p>
+      As an alternative to subscriptions, the RESTful API describes a
+      polling-based subscription method using <a href="bundle.html">bundles</a>
+      and the <a href="http.html#history">history operation</a>. This method
+      of polling allows for a much tighter relationship between the client and
+      the server that doesn't involve missing updates and/or deletes.
+    </p>
+    <p>
+      When using the <code>Subscription</code> resource, the FHIR server combines
+      the roles of publisher and information distributer. Other arrangements
+      of the publish and subscribe pattern describe separate agents for the two roles.
+      Implementers may implement the <code>Subscription</code> resource using an
+      architecture with separate agents, or using any other pub/sub architectire
+      (e.g. see <a href="http://fhircast.org/">FHIRCast</a>, or, more generally,
+      <a href="https://www.w3.org/TR/websub/">W3C Pub/Sub</a>).
+    </p>
+  </div>
 
 </div>
