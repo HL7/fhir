@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason"/>
@@ -11,7 +11,7 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="partial"/>
+    <code value="partialdose"/>
     <display value="Partial Dose"/>
     <definition value="The full volume of the dose was not administered to the patient."/>
   </concept>
@@ -24,5 +24,15 @@
     <code value="recall"/>
     <display value="Manufacturer Recall"/>
     <definition value="The vaccine was recalled by the manufacturer."/>
+  </concept>
+  <concept>
+    <code value="adversestorage"/>
+    <display value="Adverse Storage"/>
+    <definition value="The vaccine experienced adverse storage conditions."/>
+  </concept>
+  <concept>
+    <code value="expired"/>
+    <display value="Expired Product"/>
+    <definition value="The vaccine was expired at the time of administration."/>
   </concept>
 </CodeSystem>

@@ -399,7 +399,7 @@ public class ResourceValidator extends BaseValidator {
             String pp = trimIndexes(path);
             e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true, false);
             for (TypeRef t : e.getTypes()) {
-              if (t.getName().equals("Reference")) {
+              if (t.getName().equals("Reference")/* || t.getName().equals("canonical")*/ ) {
                 rule(errors, IssueType.STRUCTURE, rd.getName(), false, "Parameters of type uri cannot refer to the types Reference or canonical ("+p.getCode()+")");
               }
             }
