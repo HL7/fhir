@@ -137,6 +137,7 @@
 	</h3>
 	<p>There are three options available when specifying the contents of a Notification: <code>empty</code>, <code>id-only</code>, and <code>full-resource</code>. These options change the level of detail conveyed in the notification Bundle entries.</p>
 	<p>When deciding which payload type to request, systems <b>SHOULD</b> consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems SHOULD use the minimum level of detail consistent with the use case. In practice, <code>id-only</code> provides a good balance for many real-world scenarios.</p>
+
 	<p>Examples:</p>
 	<ul>
 		<li>
@@ -539,7 +540,7 @@
 	<p>The subscription resource is authored by the client with an initial status of "requested". A new subscription is created on the server using the RESTful create or update interaction. After a successful transaction, the client parses the Location header and saves the new Subscription's logical id for use in subsequent operations.</p>
 	<p>When the server receives a subscription, it <b>SHOULD</b> check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and process it like a normal <a href="http.html#create">create</a>. If it isn't, it <b>SHOULD</b> return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
 	</p>
-	<p>The criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc. Note that the subscription remains active after the client access tokens expire.</p>
+	<p>The criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc. Note that the subscription MAY remain active after the client access tokens expire.</p>
 	<p>Once the server has activated the subscription, it sets the status to <code>active</code> (note: the server may do this as it accepts the resource if it wants).</p>
 	<p>An appropriately authorized client can use search and/or history operations to see what subscriptions are currently active on the server. Once the subscription is no longer desired, the client deletes the subscription from the server.</p>
 	<p>The server may retry the notification a fixed number of times and/or refer errors to its own alert logs. If the notification fails, the server <b>SHOULD</b> set the status to <code>error</code> and mark the error in the resource. If the notification succeeds, the server <b>SHOULD</b> update the status to <code>active</code> and may remove any error codes. If a subscription fails consistently a server may choose set the subscription status to <code>off</code> and stop trying to send notifications.</p>
