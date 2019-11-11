@@ -25,11 +25,13 @@
 	<p>
 		Servers are responsible for following <a href="security.html">FHIR sercurity guidance</a>.  Recommendations specific to subscriptions are provided below.
 	</p>
-	<p>
-		A subscription is a request for future event notifications. As with any client-initiated interaction, Subscriptions could request information that a client is not allowed to see, and servers SHALL enforce authorization in accordance with their policy requirements. Servers SHOULD take a Subscription's Topic and filters into account when authorizing the creation of a Subscription, and SHOULD ensure that authorization is (still) in place at the time of each event notification.
-    <p>
-        When sending an event notification, servers can adopt various strategies to ensure that authorization is still in place. Some strategies may provide imperfect assurance (e.g., a server might rely on signed tokens with some pre-specified lifetime as evidence of authorization). In addition to these strategies, servers can mitigate the risk of disclosing sensitive information by limiting the payload types it supports (e.g., by prohibiting certain clients from requesting <code>full-resource</code> notification payloads and relying instead on <code>id-only</code> payloads).
-	</p>
+  <p>
+    A subscription is a request for future event notifications. As with any client-initiated interaction, Subscriptions could request information that a client is not allowed to see, and servers SHALL enforce authorization in accordance with their policy requirements. Servers SHOULD take a Subscription's Topic and filters into account when authorizing the creation of a Subscription, and SHOULD ensure that authorization is (still) in place at the time of each event notification.
+  </p>
+  <p>
+  When sending an event notification, servers can adopt various strategies to ensure that authorization is still in place. Some strategies may provide imperfect assurance (e.g., a server might rely on signed tokens with some pre-specified lifetime as evidence of authorization). In addition to these strategies, servers can mitigate the risk of disclosing sensitive information by limiting the payload types it supports (e.g., by prohibiting certain clients from requesting <code>full-resource</code> notification payloads and relying instead on <code>id-only</code> payloads).
+  </p>
+
 	<p>
 		<code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.).  Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in <code>Subscription.channel.header</code> to verify that a message is from the desired source).
 	</p>
