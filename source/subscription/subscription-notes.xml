@@ -547,5 +547,5 @@
 	<h2>
  		Tracking Subscription Notifications
 	</h2>
-	<p>Servers implementing Subscriptions are responsible for complying with their policies on information logging.  Servers are encouraged to track all sent notifications, for example with the use of <a href="auditevent.html">AuditEvent</a> or <a href="communication.html">Communication</a> resources.
+	<p>Servers implementing Subscriptions are responsible for complying with their policies on information logging.  Servers are encouraged to track all sent notifications, for example with the use of <a href="auditevent.html">AuditEvent</a> or <a href="communication.html">Communication</a> resources.</p>
 </div>
