@@ -3,7 +3,7 @@
   <id value="notification-empty" />
   <meta>
     <extension url="http://hl7.org/fhir/StructureDefinition/subscription-event-count">
-        <valueUnsignedInt value="1" />
+        <valueDecimal value="1" />
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/bundle-event-count">
       <valueUnsignedInt value="1" />
