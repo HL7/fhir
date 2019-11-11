@@ -38,4 +38,4 @@ changes back to source when done. this is a hack)
 
 ---
 ##### Copyright HL7, Inc.
-Open-source under BSD3 (License)[./LICENSE]
+Open-source under BSD3 [License](/LICENSE)

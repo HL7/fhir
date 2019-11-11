@@ -18,6 +18,7 @@ import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.r5.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.VersionUtilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
@@ -55,22 +56,21 @@ public class XLSXConvertor {
   }
 
   private IContextResourceLoader loaderForVersion(String version) {
-    if (version.equals("1.0.2"))
+    if (VersionUtilities.isR2Ver(version))
       return new R2ToR5Loader();
-    if (version.equals("1.4.0"))
+    if (VersionUtilities.isR2BVer(version))
       return new R2016MayToR5Loader(); // special case
-    if (version.equals("3.0.1"))
+    if (VersionUtilities.isR3Ver(version))
       return new R3ToR5Loader();    
-    if (version.equals("4.0.0"))
+    if (VersionUtilities.isR4Ver(version))
       return new R4ToR5Loader();    
     return null;
   }
 
   private Map<String, byte[]> loadPackage(NpmPackage pi) throws IOException {
     Map<String, byte[]> res = new HashMap<String, byte[]>();
-    for (String s : pi.list("package")) {
-      if (s.startsWith("StructureDefinition-"))
-        res.put(s, TextFile.streamToBytes(pi.load("package", s)));
+    for (String s : pi.listResources("StructureDefinition")) {
+      res.put(s, TextFile.streamToBytes(pi.load("package", s)));
     }
     return res;    
   }

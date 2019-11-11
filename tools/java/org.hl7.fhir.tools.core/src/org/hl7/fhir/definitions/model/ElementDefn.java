@@ -1078,6 +1078,12 @@ public class ElementDefn {
       return rd.getNormativeVersion();
   }
 
+  @Override
+  public String toString() {
+    return path == null ? name : path;
+  }
+  
+
   
 }
 

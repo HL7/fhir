@@ -45,6 +45,7 @@ import org.hl7.fhir.r5.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.VersionUtilities;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 
 import com.google.gson.JsonObject;
@@ -60,18 +61,19 @@ public class SpecNPMPackageGenerator {
     byte[] json;
     byte[] xml;
   }
+//
+//  public static void main(String[] args) throws Exception {
+////    generateForVersion("F:\\fhir\\web\\DSTU2", "http://hl7.org/fhir/DSTU2");
+//    generateForVersion("E:\\fhir\\web\\2016May", "http://hl7.org/fhir/2016May", new Date());
+////    generateForVersion("F:\\fhir\\web\\STU3", "http://hl7.org/fhir/2016STU3");
+//    System.out.println("Done");
+//  }
 
-  public static void main(String[] args) throws Exception {
-//    generateForVersion("F:\\fhir\\web\\DSTU2", "http://hl7.org/fhir/DSTU2");
-    generateForVersion("E:\\fhir\\web\\2016May", "http://hl7.org/fhir/2016May", new Date());
-//    generateForVersion("F:\\fhir\\web\\STU3", "http://hl7.org/fhir/2016STU3");
-    System.out.println("Done");
-  }
-
-  private static void generateForVersion(String folder, String url, Date genDate) throws Exception {
-    SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
-    self.generate(folder, url, false, genDate);
-  }
+//  private static void generateForVersion(String folder, String url, Date genDate) throws Exception {
+//    SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
+//    self.generate(folder, url, false, genDate);
+//  }
+//  
   
   public void generate(String folder, String url, boolean forWeb, Date genDate) throws Exception {
     System.out.println("Generate Package for "+folder);
@@ -143,7 +145,7 @@ public class SpecNPMPackageGenerator {
     
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     new org.hl7.fhir.r5.formats.JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
-    npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());
+//    npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());
     addConvertedIg(npm, ig, version.toCode());
     for (ResourceEntry e : reslist) {
       npm.addFile(Category.RESOURCE, e.type+"-"+e.id+".json", e.json);
@@ -189,15 +191,15 @@ public class SpecNPMPackageGenerator {
   }
 
   private void addConvertedIg(NPMPackageGenerator npm, ImplementationGuide ig, String version) throws IOException, FHIRException {
-    if (version.equals(Constants.VERSION))
+    if (VersionUtilities.isR5Ver(version))
       addConvertedIg5(npm, ig);
-    else if (version.equals("4.0.0"))
+    else if (VersionUtilities.isR4Ver(version))
       addConvertedIg4(npm, ig);
-    else if (version.equals("3.0.1"))
+    else if (VersionUtilities.isR3Ver(version))
       addConvertedIg3(npm, ig);
-    else if (version.equals("1.4.0"))
+    else if (VersionUtilities.isR2BVer(version))
       addConvertedIg14(npm, ig);
-    else if (version.equals("1.0.2"))
+    else if (VersionUtilities.isR2Ver(version))
       addConvertedIg10(npm, ig);
   }
 
@@ -311,13 +313,13 @@ public class SpecNPMPackageGenerator {
 
   private List<ResourceEntry> makeResourceList(Map<String, byte[]> files, String version) throws FHIRFormatError, IOException {
     List<ResourceEntry> res = new ArrayList<SpecNPMPackageGenerator.ResourceEntry>();
-    if (version.equals(Constants.VERSION))
+    if (VersionUtilities.isR4Ver(version))
       makeResourceList4(files, version, res);
-    else if (version.equals("3.0.1"))
+    else if (VersionUtilities.isR3Ver(version))
       makeResourceList3(files, version, res);
-    else if (version.equals("1.4.0"))
+    else if (VersionUtilities.isR2BVer(version))
       makeResourceList14(files, version, res);
-    else if (version.equals("1.0.2"))
+    else if (VersionUtilities.isR2Ver(version))
       makeResourceList10(files, version, res);
     return res;
   }

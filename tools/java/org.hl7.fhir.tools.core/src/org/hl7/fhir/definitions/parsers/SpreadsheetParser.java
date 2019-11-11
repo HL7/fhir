@@ -2156,6 +2156,7 @@ public class SpreadsheetParser {
 	  exu.setXmlAttribute(true);
 	  exe.getElements().add(exu);
 	  exu.setFixed(new UriType(ex.getUrl()));
+	  exu.getTypes().add(new TypeRef().setName("uri"));
 
 	  if (invariants != null) {
 	    for (Invariant inv : invariants.values()) {
