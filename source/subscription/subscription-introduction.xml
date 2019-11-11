@@ -22,7 +22,6 @@
       <li><a href="#rest-hook"><b>rest-hook</b></a>: Notifications are sent via HTTPS POST to the <code>Subscription.channel.endpoint</code> URL (e.g., <code>https://...</code>)</li>
       <li><a href="#websockets"><b>websocket</b></a>: Notifications are sent via WS/S to a client connected via a WebSocket</li>
       <li><a href="#email"><b>email</b></a>: Notifications are sent via SMTP/S, S/MIME, or Direct to the <code>Subscription.channel.endpoint</code> email URI (e.g., <code>mailto:...</code>)</li>
-      <li><a href="#sms"><b>sms</b></a>: Notifications are sent via SMS to the <code>Subscription.channel.endpoint</code> phone number URI (e.g., <code>tel: ...</code>)</li>
       <li><a href="#messaging"><b>message</b></a>: Notifications are sent via <a href="messaging.html">FHIR messaging</a> to the application identified in the <code>Subscription.channel.endpoint</code> URI</li>
     </ul>
     <p>

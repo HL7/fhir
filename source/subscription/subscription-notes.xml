@@ -180,7 +180,7 @@
     "extension": [
       {
         "url": "http://hl7.org/fhir/StructureDefinition/subscription-event-count",
-        "valueUnsignedInt": 1
+        "valueDecimal": 1
       },
       {
         "url": "http://hl7.org/fhir/StructureDefinition/bundle-event-count",
@@ -220,7 +220,7 @@
     "extension": [
       {
         "url": "http://hl7.org/fhir/StructureDefinition/subscription-event-count",
-        "valueUnsignedInt": 2
+        "valueDecimal": 2
       },
       {
         "url": "http://hl7.org/fhir/StructureDefinition/bundle-event-count",
@@ -272,7 +272,7 @@
     "extension": [
       {
         "url": "http://hl7.org/fhir/StructureDefinition/subscription-event-count",
-        "valueUnsignedInt": 3
+        "valueDecimal": 3
       },
       {
         "url": "http://hl7.org/fhir/StructureDefinition/bundle-event-count",
@@ -431,41 +431,6 @@
 		Email (SMTP) is not a secure channel.  Implementers must ensure that any messages containing PHI have been secured according to their policy requirements (e.g., use of a system such as <a href="http://directproject.org/">Direct</a>).
 	</p>
 
-	<a name="sms"/>
-	<h3>
-		SMS
-	</h3>
-	<p>A client can register for its user to receive notifications by SMS:</p>
-	<pre fragment="Subscription" class="json">
-{
-  "channel":{
-    "type": {
-      "coding":[
-        {
-          "system":"http://terminology.hl7.org/CodeSystem/subscription-channel-type",
-          "code":"sms"
-        }
-      ]
-    },
-    "endpoint":"tel:+1555-345-5555",
-		"payload": {
-			"content": "id-only"
-		}
-  }
-}</pre>
-	<p>
-		SMS messages are extremely limited in size, so <code>channel.payload.content</code> will typically be <code>empty</code> or <code>id-only</code>.  In practice, either of these payload options are likely to result in a message with a link to a portal site (either informing the user there is something to view in the former, or a link to a specific resource in the latter).  The recipient may be human, but this is not always the case.
-	</p>
-	[%stu-note%]
-	Warning: The Email/SMS channel types are not yet defined in a highly standardized way, and may not be consistently support by servers. More work is required.
-	[%end-note%]
-	<h4>
-		Channel Security Notes
-	</h4>
-	<p>
-		SMS is not a secure channel.  Implementers must ensure that any messages containing PHI have been secured according to their policy requirements.
-	</p>
-
 	<a name="messaging"/>
 	<h3>
 		Messaging
@@ -479,7 +444,7 @@
       "coding":[
           {
             "system":"http://terminology.hl7.org/CodeSystem/subscription-channel-type",
-            "code":"sms"
+            "code":"message"
           }
       ]
     },
