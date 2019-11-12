@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/RequestGroup" alias RequestGro
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group RequestGroup(source src : RequestGroupR3, target tgt : RequestGroup) extends DomainResource <<type+>> {
+group RequestGroup(source src : RequestGroup, target tgt : RequestGroupR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesCanonical -> tgt.definition;
   src.basedOn -> tgt.basedOn;

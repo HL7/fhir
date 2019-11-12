@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/PaymentReconciliation" alias P
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group PaymentReconciliation(source src : PaymentReconciliationR3, target tgt : PaymentReconciliation) extends DomainResource <<type+>> {
+group PaymentReconciliation(source src : PaymentReconciliation, target tgt : PaymentReconciliationR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.period -> tgt.period;

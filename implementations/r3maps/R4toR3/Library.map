@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Library" alias LibraryR3 as ta
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Library(source src : LibraryR3, target tgt : Library) extends DomainResource <<type+>> {
+group Library(source src : Library, target tgt : LibraryR3) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;

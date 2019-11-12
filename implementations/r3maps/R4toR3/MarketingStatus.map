@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/MarketingStatus" alias Marketi
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group MarketingStatus(source src : MarketingStatusR3, target tgt : MarketingStatus) extends BackboneElement <<type+>> {
+group MarketingStatus(source src : MarketingStatus, target tgt : MarketingStatusR3) extends BackboneElement <<type+>> {
   src.country -> tgt.country;
   src.jurisdiction -> tgt.jurisdiction;
   src.status -> tgt.status;

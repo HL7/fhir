@@ -2044,6 +2044,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   public String r3nameForResource(String name) {
+    if ("BodyStructure".equals(name)) {
+      return "BodySite";
+    }
+    if ("CoverageEligibilityRequest".equals(name)) {
+      return "EligibilityRequest";
+    }
+    if ("CoverageEligibilityResponse".equals(name)) {
+      return "EligibilityResponse";
+    }
+    if ("CoverageEligibilityResponse".equals(name)) {
+      return "EligibilityResponse";
+    }
+    if ("MolecularSequence".equals(name)) {
+      return "Sequence";
+    }
     return name;
   }
 

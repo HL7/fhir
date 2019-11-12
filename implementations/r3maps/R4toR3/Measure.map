@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Measure" alias MeasureR3 as ta
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Measure(source src : MeasureR3, target tgt : Measure) extends DomainResource <<type+>> {
+group Measure(source src : Measure, target tgt : MeasureR3) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;

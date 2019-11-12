@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/CarePlan" alias CarePlanR3 as 
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group CarePlan(source src : CarePlanR3, target tgt : CarePlan) extends DomainResource <<type+>> {
+group CarePlan(source src : CarePlan, target tgt : CarePlanR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesCanonical -> tgt.definition;
   src.basedOn -> tgt.basedOn;

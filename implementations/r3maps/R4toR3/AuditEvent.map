@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/AuditEvent" alias AuditEventR3
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group AuditEvent(source src : AuditEventR3, target tgt : AuditEvent) extends DomainResource <<type+>> {
+group AuditEvent(source src : AuditEvent, target tgt : AuditEventR3) extends DomainResource <<type+>> {
   src.type -> tgt.type;
   src.subtype -> tgt.subtype;
   src.action -> tgt.action;

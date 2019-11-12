@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/EnrollmentResponse" alias Enro
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group EnrollmentResponse(source src : EnrollmentResponseR3, target tgt : EnrollmentResponse) extends DomainResource <<type+>> {
+group EnrollmentResponse(source src : EnrollmentResponse, target tgt : EnrollmentResponseR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.request -> tgt.request;

@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/DomainResource" alias DomainRe
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group DomainResource(source src : DomainResourceR3, target tgt : DomainResource) extends Resource <<type+>> {
+group DomainResource(source src : DomainResource, target tgt : DomainResourceR3) extends Resource <<type+>> {
   src.text -> tgt.text;
   src.contained -> tgt.contained;
   src.extension where url.startsWith('http://hl7.org/fhir/3.0/StructureDefinition').not() and (url != 'http://hl7.org/fhir/StructureDefinition/patient-animal') -> tgt.extension;
