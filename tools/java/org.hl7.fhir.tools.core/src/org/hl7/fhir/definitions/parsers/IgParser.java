@@ -24,6 +24,7 @@ import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
 import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.r5.context.MetadataResourceManager;
 import org.hl7.fhir.r5.formats.XmlParser;
 import org.hl7.fhir.r5.model.BooleanType;
 import org.hl7.fhir.r5.model.CodeSystem;
@@ -84,14 +85,14 @@ return null;
   private Map<String, MappingSpace> mappings;
   private WorkGroup committee;
   private Map<String, ConstraintStructure> profileIds;
-  private Map<String, CodeSystem> codeSystems;
+  private MetadataResourceManager<CodeSystem> codeSystems;
   private OIDRegistry registry;
-  private Map<String, ConceptMap> maps;
+  private MetadataResourceManager<ConceptMap> maps;
   private Map<String, WorkGroup> workgroups;
   private boolean exceptionIfExcelNotNormalised;
 
 
-  public IgParser(Logger logger, BuildWorkerContext context, Calendar genDate, ProfileKnowledgeProvider pkp, Map<String, BindingSpecification> commonBindings, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, OIDRegistry registry, Map<String, ConceptMap> maps, Map<String, WorkGroup> workgroups, boolean exceptionIfExcelNotNormalised) {
+  public IgParser(Logger logger, BuildWorkerContext context, Calendar genDate, ProfileKnowledgeProvider pkp, Map<String, BindingSpecification> commonBindings, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, MetadataResourceManager<CodeSystem> codeSystems, OIDRegistry registry, MetadataResourceManager<ConceptMap> maps, Map<String, WorkGroup> workgroups, boolean exceptionIfExcelNotNormalised) {
     super();
     this.logger = logger;
     this.context = context;

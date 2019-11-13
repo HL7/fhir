@@ -23,6 +23,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.r5.context.MetadataResourceManager;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.r5.model.ValueSet;
@@ -65,7 +66,7 @@ public class FhirTurtleGenerator {
      * Only produce the v3 vocabulary for appending to rim.ttl
      * Placeholder for now - has no effect in this generation
      */
-    public void executeV3(Map<String, ValueSet> valuesets, Map<String, CodeSystem> codeSystems) throws Exception {
+    public void executeV3(MetadataResourceManager<ValueSet> valuesets, MetadataResourceManager<CodeSystem> codeSystems) throws Exception {
 //        for (String csName : codeSystems.keySet()) {
 //            CodeSystem cs = codeSystems.get(csName);
 //            if (cs == null) {

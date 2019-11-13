@@ -42,6 +42,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.context.IWorkerContext;
+import org.hl7.fhir.r5.context.MetadataResourceManager;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.ConceptMap;
 import org.hl7.fhir.r5.model.NamingSystem;
@@ -164,9 +165,9 @@ public class Definitions {
   private Map<String, ArrayList<String>> statusCodes = new HashMap<String, ArrayList<String>>();
 
   // access to raw resources - to be removed and replaced by worker context at some stage
-  private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
-  private Map<String, ConceptMap> conceptMaps = new HashMap<String, ConceptMap>();
-  private Map<String, CodeSystem> codeSystems = new HashMap<String, CodeSystem>();
+  private MetadataResourceManager<ValueSet> valuesets = new MetadataResourceManager<ValueSet>();
+  private MetadataResourceManager<ConceptMap> conceptMaps = new MetadataResourceManager<ConceptMap>();
+  private MetadataResourceManager<CodeSystem> codeSystems = new MetadataResourceManager<CodeSystem>();
   private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
   private Set<String> styleExemptions = new HashSet<String>();
 
@@ -413,15 +414,15 @@ public class Definitions {
     return sortedTypeNames;
   }
 
-  public Map<String, ConceptMap> getConceptMaps() {
+  public MetadataResourceManager<ConceptMap> getConceptMaps() {
     return conceptMaps;
   }
 
-  public Map<String, ValueSet> getValuesets() {
+  public MetadataResourceManager<ValueSet> getValuesets() {
     return valuesets;
   }
 
-  public Map<String, CodeSystem> getCodeSystems() {
+  public MetadataResourceManager<CodeSystem> getCodeSystems() {
     return codeSystems;
   }
 

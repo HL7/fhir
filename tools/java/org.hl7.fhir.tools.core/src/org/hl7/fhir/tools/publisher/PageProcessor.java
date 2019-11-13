@@ -126,6 +126,7 @@ import org.hl7.fhir.r5.conformance.ProfileComparer;
 import org.hl7.fhir.r5.conformance.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
 import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.r5.context.MetadataResourceManager;
 import org.hl7.fhir.r5.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.r5.formats.FormatUtilities;
 import org.hl7.fhir.r5.formats.IParser;
@@ -402,9 +403,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private Document v2src;
   private Document v3src;
   private final QaTracker qa = new QaTracker();
-  private Map<String, ConceptMap> conceptMaps = new HashMap<String, ConceptMap>();
-  private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
-  private Map<String, ImplementationGuide> guides = new HashMap<String, ImplementationGuide>();
+  private MetadataResourceManager<ConceptMap> conceptMaps = new MetadataResourceManager<ConceptMap>();
+  private MetadataResourceManager<StructureDefinition> profiles = new MetadataResourceManager<StructureDefinition>();
+  private MetadataResourceManager<ImplementationGuide> guides = new MetadataResourceManager<ImplementationGuide>();
   private Map<String, Resource> igResources = new HashMap<String, Resource>();
   private Map<String, String> svgs = new HashMap<String, String>();
   private Translations translations = new Translations();
@@ -2097,7 +2098,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
     }
 
-    for (ValueSet vs : getValueSets().values()) {
+    for (ValueSet vs : getValueSets().getList()) {
       if (!diffEngine.getRevision().getValuesets().containsKey(vs.getUrl()))
         diffEngine.getRevision().getValuesets().put(vs.getUrl(), vs);
       if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
@@ -3000,7 +3001,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String conceptmaplist(String id, String level) throws FHIRException {
     List<ConceptMap> cmaps = new ArrayList<ConceptMap>();
-    for (ConceptMap cm : conceptMaps.values()) {
+    for (ConceptMap cm : conceptMaps.getList()) {
       if (getCMRef(cm.getSource()).equals(id) || getCMRef(cm.getTarget()).equals(id))
         cmaps.add(cm);
     }
@@ -3063,7 +3064,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String xreferencesForV2(String name, String level) {
-    if (!definitions.getValuesets().containsKey("http://terminology.hl7.org/ValueSet/v2-"+name))
+    if (!definitions.getValuesets().has("http://terminology.hl7.org/ValueSet/v2-"+name))
       return ". ";
     String n = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v2-"+name).present().replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
     StringBuilder b = new StringBuilder();
@@ -3104,8 +3105,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString()+". ";
   }
 
-  private ValueSet findRelatedValueset(String n, Map<String, ValueSet> vslist, String prefix) {
-    for (String s : vslist.keySet()) {
+  private ValueSet findRelatedValueset(String n, MetadataResourceManager<ValueSet> vslist, String prefix) {
+    for (String s : vslist.keys()) {
       ValueSet ae = vslist.get(s);
       String url = ae.getUrl();
       if (url.startsWith(prefix)) {
@@ -3421,7 +3422,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     List<String> names = new ArrayList<String>();
     Map<String, CodeSystem> map = new HashMap<String, CodeSystem>();
 
-    for (CodeSystem cs : definitions.getCodeSystems().values()) {
+    for (CodeSystem cs : definitions.getCodeSystems().getList()) {
       if (cs != null) {
         String n = cs.getUrl();
         if (n.contains("/v3-")) {
@@ -3452,7 +3453,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     List<String> names = new ArrayList<String>();
     Map<String, ValueSet> map = new HashMap<String, ValueSet>();
 
-    for (ValueSet vs : definitions.getValuesets().values()) {
+    for (ValueSet vs : definitions.getValuesets().getList()) {
       String n = vs.getUrl();
       if (n.contains("/v3")) {
         names.add(n);
@@ -3743,7 +3744,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String generateCSUsage(CodeSystem cs, String prefix) throws Exception {
     StringBuilder b = new StringBuilder();
-    for (ValueSet vs : definitions.getValuesets().values()) {
+    for (ValueSet vs : definitions.getValuesets().getList()) {
       boolean uses = false;
       for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
         if (inc.hasSystem() && inc.getSystem().equals(cs.getUrl()))
@@ -3771,7 +3772,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String generateValueSetUsage(ValueSet vs, String prefix, boolean addTitle) throws Exception {
     List<String> items = new ArrayList<>();
     if (vs.hasUrl()) {
-      for (CodeSystem cs : getCodeSystems().values()) {
+      for (CodeSystem cs : getCodeSystems().getList()) {
         if (cs != null) {
           if (vs.getUrl().equals(cs.getValueSet())) {
             addItem(items, "<li>CodeSystem: This value set is the designated 'entire code system' value set for <a href=\""+ prefix+cs.getUserString("path") + "\">"+cs.getName()+"</a> "+"</li>\r\n");
@@ -3780,14 +3781,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
     }
 
-    for (ConceptMap cm : getConceptMaps().values()) {
+    for (ConceptMap cm : getConceptMaps().getList()) {
       if (cm.hasSourceUriType() && cm.getSourceUriType().equals(vs.getUrl())) {
         addItem(items, "<li>ConceptMap: Translation source in <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.present()+"</a> "+"</li>\r\n");
       } else if (cm.hasSourceCanonicalType() && (cm.getSourceCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getSourceCanonicalType().getValue()))) {
         addItem(items, "<li>ConceptMap: Translation source in <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.getName()+"</a> "+"</li>\r\n");
       }
     }
-    for (ConceptMap cm : getConceptMaps().values()) {
+    for (ConceptMap cm : getConceptMaps().getList()) {
       if (cm.hasTargetUriType() && cm.getTargetUriType().equals(vs.getUrl())) {
         addItem(items, "<li>ConceptMap: Translation target in <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.present()+"</a> "+"</li>\r\n");
       } else if (cm.hasTargetCanonicalType() && (cm.getTargetCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getTargetCanonicalType().getValue()))) {
@@ -3821,7 +3822,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       scanForUsage(items, vs, sd, sd.getUserString("path"), prefix);
     }
 
-    for (ValueSet vsi : definitions.getValuesets().values()) {
+    for (ValueSet vsi : definitions.getValuesets().getList()) {
       String path = (String) vsi.getUserData("path");
       if (vs.hasCompose()) {
         for (ConceptSetComponent t : vs.getCompose().getInclude()) {
@@ -4721,7 +4722,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
     List<String> names = new ArrayList<String>();
-    names.addAll(definitions.getCodeSystems().keySet());
+    names.addAll(definitions.getCodeSystems().keys());
 
 
 //    for (String n : definitions.getBindings().keySet()) {
@@ -4754,7 +4755,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("<table class=\"codes\">\r\n");
     s.append(" <tr><td><b>Name</b></td><td><b>Source</b></td><td><b>Target</b></td></tr>\r\n");
     List<String> sorts = new ArrayList<String>();
-    sorts.addAll(conceptMaps.keySet());
+    sorts.addAll(conceptMaps.keys());
     Collections.sort(sorts);
 
     for (String sn : sorts) {
@@ -4797,17 +4798,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("<table class=\"codes\">\r\n");
     s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td></tr>\r\n");
     List<String> namespaces = new ArrayList<String>();
-    Map<String, ValueSet> vslist = new HashMap<String, ValueSet>();
-    for (String sn : definitions.getValuesets().keySet()) {
+    MetadataResourceManager<ValueSet> vslist = new MetadataResourceManager<ValueSet>();
+    for (String sn : definitions.getValuesets().keys()) {
       ValueSet vs = definitions.getValuesets().get(sn);
-      vslist.put(vs.getUrl(), vs);
+      vslist.see(vs);
       String n = getNamespace(sn);
       if (!n.equals("http://hl7.org/fhir/ValueSet") && !namespaces.contains(n) && !sn.startsWith("http://terminology.hl7.org/ValueSet/v2-") && !sn.startsWith("http://terminology.hl7.org/ValueSet/v3-"))
         namespaces.add(n);
     }
     for (String sn : definitions.getExtraValuesets().keySet()) {
       ValueSet vs = definitions.getExtraValuesets().get(sn);
-      vslist.put(vs.getUrl(), vs);
+      vslist.see(vs);
     }
     Collections.sort(namespaces);
     generateVSforNS(s, "http://hl7.org/fhir/ValueSet", vslist, true, ig);
@@ -4817,15 +4818,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return s.toString();
   }
 
-  private void generateVSforNS(StringBuilder s, String ns, Map<String, ValueSet> vslist, boolean hasId, ImplementationGuideDefn ig) throws FHIRException {
+  private void generateVSforNS(StringBuilder s, String ns, MetadataResourceManager<ValueSet> vslist, boolean hasId, ImplementationGuideDefn ig) throws FHIRException {
     List<String> sorts = new ArrayList<String>();
-    for (String sn : vslist.keySet()) {
-      ValueSet vs = vslist.get(sn);
+    for (ValueSet vs : vslist.getList()) {
       ImplementationGuideDefn vig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
       if (ig == vig) {
-        String n = getNamespace(sn);
-        if (ns.equals(n) && !sn.startsWith("http://terminology.hl7.org/ValueSet/v2-") && !sn.startsWith("http://terminology.hl7.org/ValueSet/v3-"))
-          sorts.add(sn);
+        String n = getNamespace(vs.getUrl());
+        if (ns.equals(n) && !vs.getUrl().startsWith("http://terminology.hl7.org/ValueSet/v2-") && !vs.getUrl().startsWith("http://terminology.hl7.org/ValueSet/v3-"))
+          sorts.add(vs.getUrl());
       }
     }
     if (!sorts.isEmpty()) {
@@ -4895,6 +4895,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String getTail(String sn) {
+    if (!sn.contains("/")) {
+      System.out.print(sn);
+    }
+      
     return sn.substring(getNamespace(sn).length()+1);
   }
 
@@ -5421,7 +5425,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String fixUrlReference(String n) {
     if (n.startsWith("urn:ietf:rfc:"))
       return "http://tools.ietf.org/html/rfc"+n.split("\\:")[3];
-    if (definitions.getCodeSystems().containsKey(n))
+    if (definitions.getCodeSystems().has(n))
       return (String) definitions.getCodeSystems().get(n).getUserData("path");
     return n;
   }
@@ -6061,7 +6065,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String getSnomedCTConceptList() throws Exception {
     Map<String, SnomedConceptUsage> concepts = new HashMap<String, SnomedConceptUsage>();
-    for (ValueSet vs : definitions.getValuesets().values()) {
+    for (ValueSet vs : definitions.getValuesets().getList()) {
       for (ConceptSetComponent cc : vs.getCompose().getInclude())
         if (cc.hasSystem() && cc.getSystem().equals("http://snomed.info/sct")) {
           for (ConceptReferenceComponent c : cc.getConcept()) {
@@ -6072,10 +6076,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
               concepts.put(c.getCode(), new SnomedConceptUsage(c.getCode(), d, vs));
           }
           for (ConceptSetFilterComponent c : cc.getFilter()) {
-            if (c.getProperty() == null) {
-              System.out.println("what?");
-            }
-            if (c.getProperty().equals("concept")) {
+            if ("concept".equals(c.getProperty())) {
               ConceptDefinitionComponent def = workerContext.getCodeDefinition("http://snomed.info/sct", c.getValue());
               if (def==null) {
                 throw new Exception("Unable to retrieve definition for SNOMED code: " + c.getValue());
@@ -6121,7 +6122,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>CLD</b></td><td>Usage</td></tr>\r\n");
 
     List<String> sorts = new ArrayList<String>();
-    for (ValueSet vs : definitions.getValuesets().values()) {
+    for (ValueSet vs : definitions.getValuesets().getList()) {
       if (referencesSnomed(vs))
         sorts.add(vs.getUrl());
     }
@@ -6203,11 +6204,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (!ig.isCore()) {
         boolean found = false;
         if ("terminology".equals(purpose)) {
-          for (ValueSet vs : definitions.getValuesets().values()) {
+          for (ValueSet vs : definitions.getValuesets().getList()) {
             if (vs.getUserData(ToolResourceUtilities.NAME_RES_IG) == ig)
               found = true;
           }
-          for (ConceptMap cm : conceptMaps.values()) {
+          for (ConceptMap cm : conceptMaps.getList()) {
             if (cm.getUserData(ToolResourceUtilities.NAME_RES_IG) == ig)
               found = true;
           }
@@ -9599,15 +9600,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     atom.getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl("http://hl7.org/fhir/"+vs.fhirType()+"/"+vs.getId()));
   }
 
-  public Map<String, CodeSystem> getCodeSystems() {
+  public MetadataResourceManager<CodeSystem> getCodeSystems() {
     return definitions.getCodeSystems();
   }
 
-  public Map<String, ValueSet> getValueSets() {
+  public MetadataResourceManager<ValueSet> getValueSets() {
     return definitions.getValuesets();
   }
 
-  public Map<String, ConceptMap> getConceptMaps() {
+  public MetadataResourceManager<ConceptMap> getConceptMaps() {
     return conceptMaps;
   }
 
@@ -9666,7 +9667,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     workerContext.loadLoinc(Utilities.path(folders.srcDir, "loinc", "loinc.xml"));
   }
 
-  public Map<String, StructureDefinition> getProfiles() {
+  public MetadataResourceManager<StructureDefinition> getProfiles() {
     return profiles;
   }
 
@@ -9701,9 +9702,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return collapse(corePath, type.toLowerCase()+".html");
     else if (definitions.hasType(type))
       return collapse(corePath, definitions.getSrcFile(type)+".html#"+type);
-    else if (profiles.containsKey(type) && profiles.get(type).hasUserData("path"))
+    else if (profiles.has(type) && profiles.get(type).hasUserData("path"))
       return collapse(corePath, profiles.get(type).getUserString("path"));
-    else if (profiles.containsKey("http://hl7.org/fhir/StructureDefinition/"+type) && profiles.get("http://hl7.org/fhir/StructureDefinition/"+type).hasUserData("path"))
+    else if (profiles.has("http://hl7.org/fhir/StructureDefinition/"+type) && profiles.get("http://hl7.org/fhir/StructureDefinition/"+type).hasUserData("path"))
       return collapse(corePath, profiles.get("http://hl7.org/fhir/StructureDefinition/"+type).getUserString("path"));
     else
       return collapse(corePath, type.toLowerCase()+".html");
@@ -9797,7 +9798,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
       br.url = "v3/"+ref.substring(39)+"/vs.html";
       br.display = ref.substring(39);
-    } else if (definitions.getValuesets().containsKey(ref)) {
+    } else if (definitions.getValuesets().has(ref)) {
       ValueSet vs = definitions.getValuesets().get(ref);
       br.url = vs.getUserString("path");
       br.display = vs.present();
@@ -10506,7 +10507,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   private String genCSList() throws FHIRException {
     StringBuilder b = new StringBuilder();
     List<String> names = new ArrayList<String>();
-    names.addAll(definitions.getCodeSystems().keySet());
+    names.addAll(definitions.getCodeSystems().keys());
     Collections.sort(names);
     for (String n : names) {
       CodeSystem cs = definitions.getCodeSystems().get(n);
@@ -10530,7 +10531,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   private String genCSListX() throws FHIRException {
     StringBuilder b = new StringBuilder();
     List<String> names = new ArrayList<String>();
-    names.addAll(definitions.getCodeSystems().keySet());
+    names.addAll(definitions.getCodeSystems().keys());
     Collections.sort(names);
     for (String n : names) {
       CodeSystem cs = definitions.getCodeSystems().get(n);
@@ -10634,16 +10635,16 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
       definitions.addNs("http://hl7.org/fhir/"+n, "Data Type Profile "+n, definitions.getSrcFile(n)+".html#"+n);
     for (String n : definitions.getInfrastructure().keySet())
       definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSrcFile(n)+".html#"+n);
-    for (CodeSystem cs : getCodeSystems().values())
+    for (CodeSystem cs : getCodeSystems().getList())
       if (cs != null && cs.getUrl().startsWith("http://hl7.org/fhir"))
         definitions.addNs(cs.getUrl(), "CodeSystem "+cs.getName(), cs.getUserString("path"));
-    for (ValueSet vs : getValueSets().values())
+    for (ValueSet vs : getValueSets().getList())
       if (vs.getUrl().startsWith("http://hl7.org/fhir"))
         definitions.addNs(vs.getUrl(), "ValueSet "+vs.present(), vs.getUserString("path"));
-    for (ConceptMap cm : getConceptMaps().values())
+    for (ConceptMap cm : getConceptMaps().getList())
       if (cm.getUrl().startsWith("http://hl7.org/fhir"))
         definitions.addNs(cm.getUrl(), "Concept Map"+cm.getName(), cm.getUserString("path"));
-    for (StructureDefinition sd : profiles.values())
+    for (StructureDefinition sd : profiles.getList())
       if (sd.getUrl().startsWith("http://hl7.org/fhir") && !definitions.getResourceTemplates().containsKey(sd.getName()))
         definitions.addNs(sd.getUrl(), "Profile "+sd.getName(), sd.getUserString("path"));
     for (StructureDefinition sd : workerContext.getExtensionDefinitions())
