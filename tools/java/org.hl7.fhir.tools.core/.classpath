@@ -73,15 +73,6 @@
 	<classpathentry kind="lib" path="../imports/org.eclipse.emf.ecore.xmi-2.9.1-v20131212-0545.jar"/>
 	<classpathentry kind="lib" path="../imports/org.eclipse.emf.ecore-2.9.2-v20131212-0545.jar"/>
 	<classpathentry kind="lib" path="../imports/org.everit.json.schema-1.9.1.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.convertors-4.0.20-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu2-4.0.20-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu3-4.0.20-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu2016may-4.0.20-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.publisher.core-0.9.80-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.r4-4.0.20-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.r5-4.0.20-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.utilities-4.0.20-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.validation-4.0.20-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="../imports/poi-4.0.1.jar"/>
 	<classpathentry kind="lib" path="../imports/poi-ooxml-4.0.1.jar"/>
 	<classpathentry kind="lib" path="../imports/poi-ooxml-schemas-4.0.1.jar"/>
@@ -118,5 +109,14 @@
 	<classpathentry kind="lib" path="../imports/xmlbeans-3.1.0.jar"/>
 	<classpathentry kind="lib" path="../imports/xpp3_xpath-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="../imports/xpp3-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.convertors-4.0.36-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu2-4.0.36-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu3-4.0.36-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu2016may-4.0.36-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.publisher.core-0.9.94-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.r4-4.0.36-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.r5-4.0.36-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.utilities-4.0.36-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.validation-4.0.36-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

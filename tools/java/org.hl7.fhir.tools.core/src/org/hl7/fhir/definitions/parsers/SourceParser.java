@@ -814,7 +814,7 @@ public class SourceParser {
       cs.setVersion(Constants.VERSION);
     cs.setUserData("path", "codesystem-"+cs.getId()+".html");
     cs.setUserData("filename", "codesystem-"+cs.getId());
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
   }
 
 

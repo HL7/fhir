@@ -428,3 +428,43 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+  "code" : "_ServiceDeliveryLocationRoleType"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ServiceDeliveryLocationRoleType",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+  "code" : "_PersonalRelationshipRoleType"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "PersonalRelationshipRoleType",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+  "code" : "FAMMEMB"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "family member",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+  "code" : "MIL"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "military",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

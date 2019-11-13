@@ -252,7 +252,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       jgen.close();
     }
     
-    for (CodeSystem cs : definitions.getCodeSystems().values()) {
+    for (CodeSystem cs : definitions.getCodeSystems().getList()) {
       if (cs != null) {
         if (!cs.hasId())
           throw new Exception("No id on "+cs.getUrl());

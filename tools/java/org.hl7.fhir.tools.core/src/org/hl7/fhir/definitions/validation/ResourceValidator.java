@@ -57,6 +57,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.context.IWorkerContext;
+import org.hl7.fhir.r5.context.MetadataResourceManager;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
@@ -104,7 +105,7 @@ public class ResourceValidator extends BaseValidator {
   private final Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
   private final Map<String, SearchParameterGroup> spgroups = new HashMap<String, SearchParameterGroup>();
   private Translations translations;
-  private final Map<String, CodeSystem> codeSystems;
+  private final MetadataResourceManager<CodeSystem> codeSystems;
   private SpellChecker speller;
   private int maxElementLength;
   private List<FHIRPathUsage> fpUsages;
@@ -114,7 +115,7 @@ public class ResourceValidator extends BaseValidator {
   
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
-	public ResourceValidator(Definitions definitions, Translations translations, Map<String, CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages, List<String> suppressedMessages, IWorkerContext context) throws IOException {
+	public ResourceValidator(Definitions definitions, Translations translations, MetadataResourceManager<CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages, List<String> suppressedMessages, IWorkerContext context) throws IOException {
 		super();
 		source = Source.ResourceValidator;
 		this.definitions = definitions;

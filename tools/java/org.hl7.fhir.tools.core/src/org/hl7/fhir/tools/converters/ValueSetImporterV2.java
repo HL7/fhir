@@ -353,8 +353,8 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
         valuesets.add(vp);
         vs.setId("v2-"+FormatUtilities.makeId(id));
         vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
-        page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-        page.getValueSets().put(vs.getUrl(), vs);
+        page.getDefinitions().getValuesets().see(vs);
+        page.getValueSets().see(vs);
       }
       e = XMLUtil.getNextSibling(e);
     }
@@ -648,9 +648,9 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vp.vs = vs;
     vp.cs = cs;
     page.getVsValidator().validate(errors, "v2 table "+id, cs, false, true);
-    page.getCodeSystems().put(vp.cs.getUrl(), vp.cs);
+    page.getCodeSystems().see(vp.cs);
     page.getVsValidator().validate(errors, "v2 table "+id, vs, false, true);
-    page.getValueSets().put(vp.vs.getUrl(), vp.vs);
+    page.getValueSets().see(vp.vs);
 
   }
 
@@ -822,9 +822,9 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vp.vs = vs;
     vp.cs = cs;
     page.getVsValidator().validate(errors, "v2 table "+id, cs, false, true);
-    page.getCodeSystems().put(vp.cs.getUrl(), vp.cs);
+    page.getCodeSystems().see(vp.cs);
     page.getVsValidator().validate(errors, "v2 table "+id, vs, false, true);
-    page.getValueSets().put(vp.vs.getUrl(), vp.vs);
+    page.getValueSets().see(vp.vs);
   }
 
   public String getIndex(Document v2src, boolean cs) throws IOException {

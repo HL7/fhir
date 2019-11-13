@@ -91,7 +91,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
 
     List<String> codes = new ArrayList<String>();
     for (TypeRef t : definitions.getKnownTypes())
@@ -164,7 +164,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);    
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
         
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getKnownResources().keySet());
@@ -216,7 +216,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);    
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
 
     cs.addConcept().setCode("Type").setDisplay("Type").setDefinition("A place holder that means any kind of data type");
     cs.addConcept().setCode("Any").setDisplay("Any").setDefinition("A place holder that means any kind of resource");
@@ -264,7 +264,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
 
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getEvents().keySet());
@@ -382,7 +382,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
   }
 
   private List<String> sorted(Set<String> keys) {
