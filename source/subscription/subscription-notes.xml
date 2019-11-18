@@ -139,7 +139,6 @@
 	</h3>
 	<p>There are three options available when specifying the contents of a Notification: <code>empty</code>, <code>id-only</code>, and <code>full-resource</code>. These options change the level of detail conveyed in the notification Bundle entries.</p>
 	<p>When deciding which payload type to request, systems <b>SHOULD</b> consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems SHOULD use the minimum level of detail consistent with the use case. In practice, <code>id-only</code> provides a good balance for many real-world scenarios.</p>
-
 	<p>Examples:</p>
 	<ul>
 		<li>
