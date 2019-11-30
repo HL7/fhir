@@ -86,8 +86,10 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 		if (type.getParams().size() == 1) {
 			if (type.isResourceReference())
 				return "Reference";
-			else if (type.isCanonical())
+      else if (type.isCanonical())
         return "CanonicalType";
+      else if (type.isCodeableReference())
+        return "CodeableReference";
 			else
 				throw new Exception("not supported");
 		} else if (type.getParams().size() > 1) {
@@ -95,6 +97,8 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 				return "Reference";
 			else if (type.isCanonical())
         return "CanonicalType";
+      else if (type.isCodeableReference())
+        return "CodeableReference";
       else
 				throw new Exception("not supported");
 		} else {

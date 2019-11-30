@@ -66,13 +66,13 @@
     <reference value="Practitioner/f007"/>
     <display value="Patrick Pump"/>
   </requester>
-  <reasonCode>
+  <reason>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="44054006"/>
       <display value="Diabetes mellitus type 2 (disorder)"/>
     </coding>
-  </reasonCode>
+  </reason>
   <note>
     <text value="Check blood sugar levels before taking insulin"/>
   </note>

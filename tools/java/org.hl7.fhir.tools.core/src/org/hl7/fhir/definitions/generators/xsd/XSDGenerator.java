@@ -398,6 +398,8 @@ public class XSDGenerator  {
       return "Reference";
     else if (type.isCanonical())
       return "canonical";
+    else if (type.isCodeableReference())
+      return "CodeableReference";
 		else if (type.getName().equals("code")) {
 			String en = null;
 			if (e.hasBinding()) {

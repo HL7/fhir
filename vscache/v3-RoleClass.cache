@@ -1,0 +1,101 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+  "code" : "_RoleClassRelationshipFormal"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "RoleClassRelationshipFormal",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+  "code" : "_RoleClassPartitive"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "RoleClassPartitive",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+  "code" : "MANU"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "manufactured product",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+  "code" : "SPEC"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "specimen",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+  "code" : "ROL"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "role",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+  "code" : "AGNT"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "agent",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+  "code" : "SDLOC"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "service delivery location",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+  "code" : "_RoleClassPassive"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "RoleClassPassive",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+  "code" : "_RoleClassAssociative"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "RoleClassAssociative",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+  "code" : "_RoleClassMutualRelationship"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "RoleClassMutualRelationship",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

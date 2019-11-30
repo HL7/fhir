@@ -26,13 +26,13 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="11840006"/>
             <display value="Traveller's Diarrhea (disorder)"/>
         </coding>
-    </reasonCode>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="500mg daily for 5 days" />

@@ -35,13 +35,13 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="92814006"/>
             <display value="Chronic Lymphoid Leukemia (disorder)"/>
         </coding>
-    </reasonCode>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>

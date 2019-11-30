@@ -37,13 +37,13 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
         </requester>
-    <reasonCode>
+    <reason>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="92818009"/>
             <display value="Chronic myeloid Leukemia (disorder)"/>
         </coding>
-    </reasonCode>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text

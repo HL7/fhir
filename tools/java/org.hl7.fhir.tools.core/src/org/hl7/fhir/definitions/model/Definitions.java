@@ -165,9 +165,9 @@ public class Definitions {
   private Map<String, ArrayList<String>> statusCodes = new HashMap<String, ArrayList<String>>();
 
   // access to raw resources - to be removed and replaced by worker context at some stage
-  private MetadataResourceManager<ValueSet> valuesets = new MetadataResourceManager<ValueSet>();
-  private MetadataResourceManager<ConceptMap> conceptMaps = new MetadataResourceManager<ConceptMap>();
-  private MetadataResourceManager<CodeSystem> codeSystems = new MetadataResourceManager<CodeSystem>();
+  private MetadataResourceManager<ValueSet> valuesets = new MetadataResourceManager<ValueSet>(false);
+  private MetadataResourceManager<ConceptMap> conceptMaps = new MetadataResourceManager<ConceptMap>(false);
+  private MetadataResourceManager<CodeSystem> codeSystems = new MetadataResourceManager<CodeSystem>(false);
   private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
   private Set<String> styleExemptions = new HashSet<String>();
 
