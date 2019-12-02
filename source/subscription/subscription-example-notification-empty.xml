@@ -12,7 +12,7 @@
       <valueCode value="active" />
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/subscription-topic-url">
-      <valueUrl value="https://example.org/baseR4/Topic/admission" />
+      <valueUrl value="https://example.org/baseR4/SubscriptionTopic/admission" />
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/subscription-url">
       <valueUrl value="https://example.org/Subscription/cb2dce51-a1f5-40b4-a98b-c934eae368e8" />

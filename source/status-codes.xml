@@ -3856,7 +3856,7 @@
     <Cell ss:Index="34"><Data ss:Type="String">not-taken</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Topic.status</Data></Cell>
+    <Cell><Data ss:Type="String">SubscriptionTopic.status</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">retired</Data></Cell>

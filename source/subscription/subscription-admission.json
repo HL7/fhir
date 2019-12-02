@@ -4,7 +4,7 @@
 	"name": "AdmissionExample",
 	"status": "active",
 	"topic": {
-		"reference": "Topic/admission"
+		"reference": "SubscriptionTopic/admission"
 	},
 	"reason": "subscription for beginning of a clinical encounter for patient 123",
 	"filterBy": [

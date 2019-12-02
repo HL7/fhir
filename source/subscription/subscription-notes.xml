@@ -26,7 +26,7 @@
 		Servers are responsible for following <a href="security.html">FHIR sercurity guidance</a>.  Recommendations specific to subscriptions are provided below.
 	</p>
   <p>
-    A subscription is a request for future event notifications. As with any client-initiated interaction, Subscriptions could request information that a client is not allowed to see, and servers SHALL enforce authorization in accordance with their policy requirements. Servers SHOULD take a Subscription's Topic and filters into account when authorizing the creation of a Subscription, and SHOULD ensure that authorization is (still) in place at the time of each event notification.
+    A subscription is a request for future event notifications. As with any client-initiated interaction, Subscriptions could request information that a client is not allowed to see, and servers SHALL enforce authorization in accordance with their policy requirements. Servers SHOULD take a Subscription's SubscriptionTopic and filters into account when authorizing the creation of a Subscription, and SHOULD ensure that authorization is (still) in place at the time of each event notification.
   </p>
   <p>
   When sending an event notification, servers can adopt various strategies to ensure that authorization is still in place. Some strategies may provide imperfect assurance (e.g., a server might rely on signed tokens with some pre-specified lifetime as evidence of authorization). In addition to these strategies, servers can mitigate the risk of disclosing sensitive information by limiting the payload types it supports (e.g., by prohibiting certain clients from requesting <code>full-resource</code> notification payloads and relying instead on <code>id-only</code> payloads).
@@ -127,7 +127,7 @@
 			<p>The <a href="extension-subscription-status.html">subscription-status</a> extension represents the <a href="valueset-subscription-status.html">Subscription status values</a> at the time the notification is sent. Note that the status might change between the time the notification is sent and the time it is received/processed, and therefore this status recorded in the extension is not guaranteed to represent status at the time of receipt. The field is useful as a hint to inform the client if the server has encountered errors in notifications immediately preceding this notification.</p>
 		</li>
 		<li>
-			<p>The <a href="extension-subscription-topic-url.html">subscription-topic-url</a> extension references the Topic resource relevant to this notification, as an absolute URL for the Topic resource on the server that generated the notification (<em>NOT</em> a reference to a canonical Topic URL.)</p>
+			<p>The <a href="extension-subscription-topic-url.html">subscription-topic-url</a> extension references the SubscriptionTopic resource relevant to this notification, as an absolute URL for the SubscriptionTopic resource on the server that generated the notification (<em>NOT</em> a reference to a canonical SubscriptionTopic URL.)</p>
 		</li>
 		<li>
 			<p>The <a href="extension-subscription-url.html">subscription-url</a> extension references the Subscription resource that triggered this notification, as an absolute URL for the Subscription resource on the server that generated the notification.</p>
@@ -191,7 +191,7 @@
       },
       {
         "url": "http://hl7.org/fhir/StructureDefinition/subscription-topic-url",
-        "valueUrl": "https://example.org/baseR4/Topic/admission"
+        "valueUrl": "https://example.org/baseR4/SubscriptionTopic/admission"
       },
       {
         "url": "http://hl7.org/fhir/StructureDefinition/subscription-url",
@@ -202,7 +202,7 @@
   "type": "history",
   "timestamp": "2019-08-07T10:24:13.1882432-05:00"
 }</pre>
-	<p>Since the content element is set to <code>empty</code>, the data in the resources is only available through the REST API, which helps consolidate authorization and authentication logic. When the subscriber receives a POST to its nominated endpoint it might query the server to fetch all the relevant resources based on the Topic and applicable filters. The client might include a <code>&amp;_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, the Topic above is patient admission, and the subscriber might fetch the most recent Encounters for a patient or group of patients.</p>
+	<p>Since the content element is set to <code>empty</code>, the data in the resources is only available through the REST API, which helps consolidate authorization and authentication logic. When the subscriber receives a POST to its nominated endpoint it might query the server to fetch all the relevant resources based on the SubscriptionTopic and applicable filters. The client might include a <code>&amp;_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, the Topic above is patient admission, and the subscriber might fetch the most recent Encounters for a patient or group of patients.</p>
 
     <h4>ID-Only Payload Example</h4>
 	<p>In this example, the event notification contains the only the ids for resource. This provides the subscriber with a resource ID for focused follow-on queries.</p>
@@ -231,7 +231,7 @@
       },
       {
         "url": "http://hl7.org/fhir/StructureDefinition/subscription-topic-url",
-        "valueUrl": "https://example.org/baseR4/Topic/admission"
+        "valueUrl": "https://example.org/baseR4/SubscriptionTopic/admission"
       },
       {
         "url": "http://hl7.org/fhir/StructureDefinition/subscription-url",
@@ -254,7 +254,7 @@
     }
   ]
 }</pre>
-	<p>Since the content element is set to <code>id-only</code> the data in the resources is only available through the REST API which (as in the <code>empty</code> payload example) helps consolidate authorization and authentication logic. When the subscriber receives a POST to its nominated endpoint it might query the server to fetch all the relevant resources using the supplied resource ids. For example, the Topic above is patient admission, and the subscriber may fetch the Encounter(s) for a patient or group of patients.</p>
+	<p>Since the content element is set to <code>id-only</code> the data in the resources is only available through the REST API which (as in the <code>empty</code> payload example) helps consolidate authorization and authentication logic. When the subscriber receives a POST to its nominated endpoint it might query the server to fetch all the relevant resources using the supplied resource ids. For example, the SubscriptionTopic above is patient admission, and the subscriber may fetch the Encounter(s) for a patient or group of patients.</p>
 
     <h4>Full Payload Example</h4>
 	<p>In this example, the event notification contains the the entire resource. This is usually appropriate for defining routing rules within a managed ecosystem such as a healthcare institution.</p>
@@ -283,7 +283,7 @@
       },
       {
         "url": "http://hl7.org/fhir/StructureDefinition/subscription-topic-url",
-        "valueUrl": "https://example.org/baseR4/Topic/admission"
+        "valueUrl": "https://example.org/baseR4/SubscriptionTopic/admission"
       },
       {
         "url": "http://hl7.org/fhir/StructureDefinition/subscription-url",

@@ -953,6 +953,12 @@
 		<translation lang="it">Sottoscrizione</translation>
 		<translation lang="es">Suscripción</translation>
 	</item>
+	<item id="SubscriptionTopic">
+		<translation lang="en">SubscriptionTopic</translation>
+		<translation lang="es">Tema de Suscripción</translation>
+		<translation lang="fr">Souscription Sujet</translation>
+		<translation lang="zh">话题</translation>
+	</item>
 	<item id="Substance">
 		<translation lang="en">Substance</translation>
 		<translation lang="zh">物质</translation>
@@ -1011,12 +1017,6 @@
 		<translation lang="es">ScriptDePrueba</translation>
 		<translation lang="fr">ScriptTest</translation>
 		<translation lang="zh">测试脚本</translation>
-	</item>
-	<item id="Topic">
-		<translation lang="en">Topic</translation>
-		<translation lang="es">Tema</translation>
-		<translation lang="fr">Sujet</translation>
-		<translation lang="zh">话题</translation>
 	</item>
 	<item id="User">
 		<translation lang="en">User</translation>

@@ -4,7 +4,7 @@
 	<name value="AdmissionExample"/>
 	<status value="active"/>
 	<topic>
-		<reference value="Topic/admission"/>
+		<reference value="SubscriptionTopic/admission"/>
 	</topic>
 	<end value="2019-08-07T11:15:18Z" />
 	<reason value="subscription for beginning of a clinical encounter for patient 123"/>

@@ -13,7 +13,7 @@
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-A FHIR based subscriptions is split into two FHIR resources. Topic describes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic.  Subscription describes a particular client's request to be notified about a Topic.
+A FHIR based subscriptions is split into two FHIR resources. SubscriptionTopic describes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic.  Subscription describes a particular client's request to be notified about a Topic.
 </p>
 </div>
 

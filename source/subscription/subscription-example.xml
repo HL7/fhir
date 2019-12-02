@@ -4,7 +4,7 @@
 	<name value="AdmissionExample"/>
 	<status value="active"/>
   <topic>
-		<reference value="Topic/admission"/>
+		<reference value="SubscriptionTopic/admission"/>
 	</topic>
 	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
 	<filterBy>

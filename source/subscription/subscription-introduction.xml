@@ -4,7 +4,7 @@
     <a name="scope"></a>
     <h2>Scope and Usage</h2>
     <p>
-      The subscription resource is used to establish proactive event notifications from a FHIR server to another system.  Subscribers request event notifications within a predefined <a href="topic.html">Topic</a> that the server supports, and can further refine their notifications by supplying filters. Each <code>Topic</code> resource defines a set of allowed filters (<code>Topic.canFilterBy</code>), which a subscriber refer to within a <code>Subscription</code> resource (<code>Subscription.filterBy</code>).  Once a subscription is created, any event matching a specified Topic that meets the filtering criteria will cause a notification to be sent using the provided channel.
+      The subscription resource is used to establish proactive event notifications from a FHIR server to another system.  Subscribers request event notifications within a predefined <a href="subscriptiontopic.html">SubscriptionTopic</a> that the server supports, and can further refine their notifications by supplying filters. Each <code>SubscriptionTopic</code> resource defines a set of allowed filters (<code>SubscriptionTopic.canFilterBy</code>), which a subscriber refer to within a <code>Subscription</code> resource (<code>Subscription.filterBy</code>).  Once a subscription is created, any event matching a specified SubscriptionTopic that meets the filtering criteria will cause a notification to be sent using the provided channel.
     </p>
     <p>
       Subscriptions are active resources; a server can only accept a subscription

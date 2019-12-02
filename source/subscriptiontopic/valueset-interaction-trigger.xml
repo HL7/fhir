@@ -11,7 +11,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-	<description value="FHIR RESTful interaction codes used for Topic trigger."/>
+	<description value="FHIR RESTful interaction codes used for SubscriptionTopic trigger."/>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/restful-interaction"/>

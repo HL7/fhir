@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Topic xmlns="http://hl7.org/fhir">
+<SubscriptionTopic xmlns="http://hl7.org/fhir">
 	<id value="admission"/>
-	<url value="http://argonautproject.org/subscription-ig/Topic/admission"/>
+	<url value="http://argonautproject.org/subscription-ig/SubscriptionTopic/admission"/>
 	<title value="admission"/>
 	<status value="active"/>
 	<resourceTrigger>
@@ -21,4 +21,4 @@
 		<matchType value="not-in" />
 		<documentation value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
 	</canFilterBy>
-</Topic>
+</SubscriptionTopic>
