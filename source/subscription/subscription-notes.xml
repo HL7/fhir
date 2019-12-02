@@ -73,7 +73,7 @@
 	<h3>
  		Heartbeat Notification
 	</h3>
-	<p>Servers MAY periodically send notifications across a channel to ensure that the connection is still alive and valid (e.g., in accordance with a client's requested heartbat interval). The Heartbeat notification is an empty History Bundle sent without incrementing the subscription event count.</p>
+	<p>Servers MAY periodically send notifications across a channel to ensure that the connection is still alive and valid (e.g., in accordance with a client's requested heartbeat interval). The Heartbeat notification is an empty History Bundle sent without incrementing the subscription event count.</p>
 	<ul>
 		<li>
 			<a href="subscription-example-heartbeat.html">Example heartbeat notification</a>
