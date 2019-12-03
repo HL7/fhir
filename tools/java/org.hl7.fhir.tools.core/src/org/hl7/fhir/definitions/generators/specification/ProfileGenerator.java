@@ -1504,7 +1504,7 @@ public class ProfileGenerator {
         List<TypeRef> expandedTypes = new ArrayList<TypeRef>();
         for (TypeRef t : e.getTypes()) {
           // Expand any Resource(A|B|C) references
-          if (t.hasParams() && !Utilities.existsInList(t.getName(), "Reference", "canonical")) {
+          if (t.hasParams() && !Utilities.existsInList(t.getName(), "Reference", "canonical", "CodeableReference")) {
             throw new Exception("Only resource types can specify parameters.  Path " + path + " in profile " + p.getName());
           }
           if(t.getParams().size() > 1)
@@ -1585,7 +1585,7 @@ public class ProfileGenerator {
                 pr.add("http://hl7.org/fhir/StructureDefinition/" + pn);
             } else 
               pr.add("http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile));
-            if (type.getWorkingCode().equals("Reference") || type.getWorkingCode().equals("canonical") ) {
+            if (type.getWorkingCode().equals("Reference") || type.getWorkingCode().equals("canonical")  || type.getWorkingCode().equals("CodeableReference") ) {
               for (String pn : pr) {
                 type.addTargetProfile(pn);
                 if (e.hasHierarchy())
@@ -2002,7 +2002,7 @@ public class ProfileGenerator {
     ce.getType(src.typeCode());
     // this one should never be used
     if (!Utilities.noString(src.getTypes().get(0).getProfile())) {
-      if (ce.getType().equals("Reference") || ce.getType().equals("canonical") ) throw new Error("Should not happen");
+      if (ce.getType().equals("Reference") || ce.getType().equals("canonical") || ce.getType().equals("CodeableReference") ) throw new Error("Should not happen");
       ce.getType().get(0).addProfile(src.getTypes().get(0).getProfile());
     }
     // todo? conditions, constraints, binding, mapping
@@ -2079,7 +2079,7 @@ public class ProfileGenerator {
           String pr = t.hasProfile() ? t.getProfile() :
              // this should only happen if t.getParams().size() == 1
             "http://hl7.org/fhir/StructureDefinition/"+(tp.equals("Any") ? "Resource" : tp);
-          if (type.getWorkingCode().equals("Reference") || type.getWorkingCode().equals("canonical") )
+          if (type.getWorkingCode().equals("Reference") || type.getWorkingCode().equals("canonical")  || type.getWorkingCode().equals("CodeableReference") )
             type.addTargetProfile(pr); 
           else
             type.addProfile(pr);
@@ -2104,7 +2104,7 @@ public class ProfileGenerator {
         } else {
           ElementDefinition.TypeRefComponent type = dst.getType(t.getName());
           if (t.hasProfile())
-            if (type.getWorkingCode().equals("Reference"))
+            if (type.getWorkingCode().equals("Reference") || type.getWorkingCode().equals("CodeableReference"))
               type.addTargetProfile(t.getProfile()); 
             else
               type.addProfile(t.getProfile());

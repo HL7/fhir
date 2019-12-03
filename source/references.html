@@ -642,6 +642,33 @@ References for which the hierarchical behavior is not specified:
  [%circular-references null%]
 </ul>
 
+<div class="draft-content">
+<a name="CodeableReference"></a>
+<a name="codeablereference"></a>
+<h2>CodeableReference - Reference by Instance or By Class</h2>
+
+<p>
+This data type is mostly used for reason for an action.
+</p>
+
+[%dt CodeableReference 1%]
+
+<p>&nbsp;</p>
+
+
+<div class="use">
+<p><b>Constraints</b></p>
+<p>
+At least one of <code>reference</code>, <code>identifier</code> and <code>coding</code> SHALL be present (unless an extension is provided).
+</p>
+<p>
+[%dt.constraints CodeableReference%]
+</p>
+</div>
+
+
+</div>
+
 </div>
 
 [%file newfooter%]
@@ -657,6 +684,7 @@ References for which the hierarchical behavior is not specified:
    currentTabIndex = '0';
 
 $( '#tabs-Reference' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-CodeableReference' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 
 
 function store(currentTab) {
@@ -666,6 +694,7 @@ function store(currentTab) {
   } catch(exception){
   }
   $( '#tabs-Reference' ).tabs('option', 'active', currentTab);
+  $( '#tabs-CodeableReference' ).tabs('option', 'active', currentTab);
 }
 </script>
 

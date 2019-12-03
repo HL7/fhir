@@ -109,14 +109,14 @@
 	<classpathentry kind="lib" path="../imports/xmlbeans-3.1.0.jar"/>
 	<classpathentry kind="lib" path="../imports/xpp3_xpath-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="../imports/xpp3-1.1.4c.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.convertors-4.0.36-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu2-4.0.36-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu3-4.0.36-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu2016may-4.0.36-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.publisher.core-0.9.94-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.r4-4.0.36-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.r5-4.0.36-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.utilities-4.0.36-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="../imports/org.hl7.fhir.validation-4.0.36-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.convertors-4.1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu2-4.1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu3-4.1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.dstu2016may-4.1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.publisher.core-1.0.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.r4-4.1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.r5-4.1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.utilities-4.1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../imports/org.hl7.fhir.validation-4.1.9-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

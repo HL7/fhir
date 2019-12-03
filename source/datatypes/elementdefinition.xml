@@ -15,7 +15,7 @@
   
   
   <TabRatio>694</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4271,7 +4271,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <FilterOn/>
@@ -4456,7 +4455,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition.type</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">targetProfile is only allowed if the type is Reference or canonical</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">(code='Reference' or code = 'canonical') or targetProfile.empty()</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">(code='Reference' or code = 'canonical' or code = 'CodeableReference') or targetProfile.empty()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:targetProfile)) or (f:code/@value = 'Reference')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4772,6 +4771,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

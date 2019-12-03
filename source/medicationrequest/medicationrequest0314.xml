@@ -27,13 +27,13 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="40930008"/>
             <display value="Hypothyroidism (disorder)"/>
         </coding>
-    </reasonCode>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="75mcg daily" />

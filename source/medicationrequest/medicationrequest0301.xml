@@ -102,13 +102,13 @@
             <display value="Public Health Nurse"/>
         </coding>
     </performerType>
-    <reasonCode>
+    <reason>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="297217002"/>
             <display value="Rib Pain (finding)"/>
         </coding>
-    </reasonCode>
+    </reason>
     <insurance>
         <reference value="Coverage/9876B1"/>
     </insurance>

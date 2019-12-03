@@ -383,9 +383,9 @@
           <reference value="Practitioner/example"/>
           <display value="Peter Practitioner"/>
         </requester>
-        <reasonCode>
+        <reason>
           <text value="Management of Asthma"/>
-        </reasonCode>
+        </reason>
       <!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
              <dosageInstruction>

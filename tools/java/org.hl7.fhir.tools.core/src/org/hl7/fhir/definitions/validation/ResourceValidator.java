@@ -757,7 +757,7 @@ public class ResourceValidator extends BaseValidator {
 		if (e.hasBinding()) {
 		  boolean ok = false;
 		  for (TypeRef tr : e.getTypes()) {
-		    ok = ok || Utilities.existsInList(tr.getName(), "code", "id", "Coding", "CodeableConcept", "uri", "Quantity");
+		    ok = ok || Utilities.existsInList(tr.getName(), "code", "id", "Coding", "CodeableConcept", "uri", "Quantity", "CodeableReference");
 		  }
 		  rule(errors, IssueType.STRUCTURE, path, ok, "Can only specify bindings for coded data types (not ("+e.typeCode()+")");
 		  if (e.getBinding().getValueSet() != null && e.getBinding().getValueSet().getName() == null)

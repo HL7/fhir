@@ -27,13 +27,13 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="30242009"/>
             <display value="Scarlet Fever (disorder)"/>
         </coding>
-    </reasonCode>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>

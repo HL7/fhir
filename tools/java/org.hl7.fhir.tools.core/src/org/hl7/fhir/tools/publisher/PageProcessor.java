@@ -403,9 +403,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private Document v2src;
   private Document v3src;
   private final QaTracker qa = new QaTracker();
-  private MetadataResourceManager<ConceptMap> conceptMaps = new MetadataResourceManager<ConceptMap>();
-  private MetadataResourceManager<StructureDefinition> profiles = new MetadataResourceManager<StructureDefinition>();
-  private MetadataResourceManager<ImplementationGuide> guides = new MetadataResourceManager<ImplementationGuide>();
+  private MetadataResourceManager<ConceptMap> conceptMaps = new MetadataResourceManager<ConceptMap>(false);
+  private MetadataResourceManager<StructureDefinition> profiles = new MetadataResourceManager<StructureDefinition>(false);
+  private MetadataResourceManager<ImplementationGuide> guides = new MetadataResourceManager<ImplementationGuide>(false);
   private Map<String, Resource> igResources = new HashMap<String, Resource>();
   private Map<String, String> svgs = new HashMap<String, String>();
   private Translations translations = new Translations();
@@ -4798,7 +4798,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("<table class=\"codes\">\r\n");
     s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td></tr>\r\n");
     List<String> namespaces = new ArrayList<String>();
-    MetadataResourceManager<ValueSet> vslist = new MetadataResourceManager<ValueSet>();
+    MetadataResourceManager<ValueSet> vslist = new MetadataResourceManager<ValueSet>(false);
     for (String sn : definitions.getValuesets().keys()) {
       ValueSet vs = definitions.getValuesets().get(sn);
       vslist.see(vs);
