@@ -80,11 +80,13 @@
         <display value="Patrick Pump"/>
     </requester>
     <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="237840007"/>
             <display value="Disorder of Electrolytes (disorder)"/>
         </coding>
+      </concept>
     </reason>
     <dosageInstruction>
         <sequence value="1"/>

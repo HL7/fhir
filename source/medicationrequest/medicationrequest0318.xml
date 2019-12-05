@@ -39,11 +39,13 @@
         <display value="Patrick Pump"/>
     </requester>
     <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="11840006"/>
             <display value="Traveller's Diarrhea (disorder)"/>
         </coding>
+      </concept>
     </reason>
     <note>
         <text value="culture expected back in 12 hours - may switch depending on results"/>
