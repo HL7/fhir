@@ -79,13 +79,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="237840007"/>
             <display value="Disorder of Electrolytes (disorder)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="KCl 20 mEq in 1 L 0.9%NS IV at 100 ml/hr" />

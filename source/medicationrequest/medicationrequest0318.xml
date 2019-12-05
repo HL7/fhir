@@ -38,13 +38,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="11840006"/>
             <display value="Traveller's Diarrhea (disorder)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <note>
         <text value="culture expected back in 12 hours - may switch depending on results"/>
     </note>

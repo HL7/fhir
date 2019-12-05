@@ -68,13 +68,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="84757009"/>
             <display value="Epilepsy (disorder)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="0.05 - 0.1mg/kg IV over 2-5 minutes every 15 minutes as needed" />

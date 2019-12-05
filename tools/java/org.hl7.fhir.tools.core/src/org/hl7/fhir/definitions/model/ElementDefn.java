@@ -504,6 +504,18 @@ public class ElementDefn {
 		return tn.toString();
 	}
 
+  public String typeCodeNoParams() {
+    StringBuilder tn = new StringBuilder();
+    boolean first = true;
+    for (TypeRef t : types) {
+      if (!first)
+        tn.append("|");
+      first = false;
+      tn.append(t.getName());
+    }
+    return tn.toString();
+  }
+
   public String typeCodeBase() {
     List<String> ts = new ArrayList<>();
 
