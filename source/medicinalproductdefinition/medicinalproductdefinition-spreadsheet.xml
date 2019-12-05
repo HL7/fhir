@@ -608,7 +608,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R43C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="43" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="44" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s68" ss:Width="521.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="32.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="24.0"/>
@@ -1393,6 +1393,23 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">A regulator which oversees the operation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21" ss:StyleID="s76"><Data ss:Type="String">Medicines Regulatory Agency (Organisation)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="27" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.manufacturingBusinessOperation.authorization</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Reference(RegulatedAuthorization)</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">An authorization for this process, either as a logical reference, holding just an identifier, or a full refererence to a resource that captures the details. The authorization mayu possibly apply to several products or a wider scope of process of which this is a part</Data></Cell>
+    <Cell ss:Index="21" ss:StyleID="s76"><Data ss:Type="String">Medicines Regulatory Agency (Organisation)</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1413,7 +1430,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>33</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
