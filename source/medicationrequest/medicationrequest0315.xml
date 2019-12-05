@@ -69,11 +69,13 @@
         <display value="Patrick Pump"/>
     </requester>
     <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="84757009"/>
             <display value="Epilepsy (disorder)"/>
         </coding>
+      </concept>
     </reason>
     <dosageInstruction>
         <sequence value="1"/>

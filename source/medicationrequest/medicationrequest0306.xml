@@ -38,11 +38,13 @@
         <display value="Patrick Pump"/>
         </requester>
     <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="92818009"/>
             <display value="Chronic myeloid Leukemia (disorder)"/>
         </coding>
+      </concept>
     </reason>
     <dosageInstruction>
         <sequence value="1"/>

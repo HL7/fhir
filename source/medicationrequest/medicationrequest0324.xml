@@ -28,11 +28,13 @@
         <display value="Patrick Pump"/>
     </requester>
     <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="30242009"/>
             <display value="Scarlet Fever (disorder)"/>
         </coding>
+      </concept>
     </reason>
     <dosageInstruction>
         <sequence value="1"/>

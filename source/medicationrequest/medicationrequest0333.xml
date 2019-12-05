@@ -50,11 +50,13 @@
         
     </requester>
     <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="297217002"/>
             <display value="Rib Pain (finding)"/>
         </coding>
+      </concept>
     </reason>
     <note>
         <text value="Patient told to take with food"/>

@@ -36,11 +36,13 @@
         <display value="Patrick Pump"/>
     </requester>
     <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="92814006"/>
             <display value="Chronic Lymphoid Leukemia (disorder)"/>
         </coding>
+      </concept>
     </reason>
     <dosageInstruction>
         <sequence value="1"/>
