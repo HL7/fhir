@@ -59,24 +59,18 @@
 		</countryLanguage>
 	</name>
 	<manufacturingBusinessOperation>
-		<operationType>
-			<coding>
-				<system value="http://ema.europa.eu/example/manufacturingOperationType"/>
-				<code value="Batchrelease"/>
-			</coding>
-		</operationType>
-		<authorisationReferenceNumber>
-			<system value="http://ema.europa.eu/example/manufacturingAuthorisationReferenceNumber"/>
-			<value value="1324TZ"/>
-		</authorisationReferenceNumber>
+		<typeCoding>
+			<system value="http://ema.europa.eu/example/manufacturingOperationType"/>
+			<code value="Batchrelease"/>
+		</typeCoding>
 		<effectiveDate>
 			<start value="2013-03-15"/>
 		</effectiveDate>
-		<manufacturer>
-			<reference value="Organization/example"/>
-		</manufacturer>
-		<regulator>
-			<reference value="Organization/example"/>
-		</regulator>
+		<authorization>
+			<identifier>
+				<system value="http://ema.europa.eu/example/manufacturingAuthorisationReferenceNumber"/>
+				<value value="1324TZ"/>
+			</identifier>
+		</authorization>
 	</manufacturingBusinessOperation>
 </MedicinalProductDefinition>
