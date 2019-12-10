@@ -37,15 +37,13 @@ public class QaTracker {
   
   public void countDefinitions(Definitions definitions) throws Exception {
     current.resources = definitions.getResources().size();
-    current.types = definitions.getResources().size() + definitions.getTypes().size() + definitions.getStructures().size()  
+    current.types = definitions.getResources().size() + definitions.getTypes().size()   
          + definitions.getShared().size() + definitions.getPrimitives().size()+ definitions.getInfrastructure().size();
     current.packs = definitions.getPackList().size();
     
     for (ResourceDefn r : definitions.getResources().values())
       countPaths(r.getRoot());
     for (ElementDefn e : definitions.getTypes().values())
-      countPaths(e);
-    for (ElementDefn e : definitions.getStructures().values())
       countPaths(e);
     for (String e : definitions.getShared())
       countPaths(definitions.getElementDefn(e));

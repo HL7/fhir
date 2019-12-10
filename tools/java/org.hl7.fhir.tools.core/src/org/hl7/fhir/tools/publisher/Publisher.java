@@ -867,8 +867,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     genXhtmlProfile();
     for (TypeDefn t : page.getDefinitions().getTypes().values())
       genTypeProfile(t);
-    for (TypeDefn t : page.getDefinitions().getStructures().values())
-      genTypeProfile(t);
     for (TypeDefn t : page.getDefinitions().getInfrastructure().values())
       genTypeProfile(t);
 
@@ -1826,8 +1824,6 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (String n : page.getDefinitions().getTypes().keySet())
       page.getValidationErrors().addAll(val.checkStucture(n, page.getDefinitions().getTypes().get(n)));
-    for (String n : page.getDefinitions().getStructures().keySet())
-      page.getValidationErrors().addAll(val.checkStucture(n, page.getDefinitions().getStructures().get(n)));
     
     val.checkSearchParams(page.getValidationErrors(), page.getDefinitions().getResourceByName("Resource"));
     val.checkSearchParams(page.getValidationErrors(), page.getDefinitions().getResourceByName("DomainResource"));
@@ -2195,7 +2191,7 @@ public class Publisher implements URIResolver, SectionNumberer {
               buildSearchDefinition(rd, spd);
             splist.add(spd.getResource());
           }
-          rd = Utilities.noString(rd.getRoot().typeCode()) ? null : page.getDefinitions().getResourceByName(rd.getRoot().typeCode());
+          rd = "Base".equals(rd.getRoot().typeCode())  ? null : page.getDefinitions().getResourceByName(rd.getRoot().typeCode());
         }
         EnumSet<FHIROperationType> ops = EnumSet.of(FHIROperationType.READ, FHIROperationType.SEARCH, FHIROperationType.CREATE, FHIROperationType.UPDATE, FHIROperationType.DELETE);
         gql.generateResource(new FileOutputStream(filename), sd, splist, ops);
@@ -3859,8 +3855,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (TypeDefn e : page.getDefinitions().getTypes().values())
       produceTypeProfile(e);
     for (TypeDefn e : page.getDefinitions().getInfrastructure().values())
-      produceTypeProfile(e);
-    for (TypeDefn e : page.getDefinitions().getStructures().values())
       produceTypeProfile(e);
     for (ProfiledType c : page.getDefinitions().getConstraints().values())
       produceProfiledTypeProfile(c);
@@ -5974,8 +5968,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceCoverageWarnings() throws Exception {
-    for (ElementDefn e : page.getDefinitions().getStructures().values())
-      produceCoverageWarning("", e);
     for (ElementDefn e : page.getDefinitions().getTypes().values())
       produceCoverageWarning("", e);
     for (String s : page.getDefinitions().sortedResourceNames()) {

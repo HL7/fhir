@@ -84,7 +84,7 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
         row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
         row.getCells().add(dc = gen.new Cell()); // analysis 
       } else {
-        row.getCells().add(gen.new Cell(null, prefix+e.typeCode().toLowerCase()+".html", e.typeCode(), null, null)); // type
+        row.getCells().add(gen.new Cell(null, prefix+definitions.getSrcFile(e.typeCode())+".html#"+e.typeCode(), e.typeCode(), null, null)); // type
         row.getCells().add(dc = gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); // analysis
       }
     } else {
@@ -92,11 +92,11 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); // card.
         row.setIcon("icon_element.gif", HierarchicalTableGenerator.TEXT_ICON_ELEMENT);
         if (mode == RenderMode.RESOURCE)
-          row.getCells().add(gen.new Cell(null, prefix+"backboneelement.html", "BackboneElement", null, null));
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#BackboneElement", "BackboneElement", null, null));
         else if (e.getName().equals("Element"))
           row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
         else
-          row.getCells().add(gen.new Cell(null, prefix+"element.html", "Element", null, null));   
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#BackBoneElement", "Element", null, null));   
         row.getCells().add(dc = gen.new Cell()); // analysis 
       } else if (e.getTypes().size() == 1) {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); // card.

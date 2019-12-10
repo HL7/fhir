@@ -72,6 +72,8 @@ public class TableGenerator extends BaseGenerator {
         row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
       else if ("Logical".equals(e.typeCode()))
         row.getCells().add(gen.new Cell(null, prefix+"structuredefinition.html#logical", e.typeCode(), null, null)); 
+      else if ("Base".equals(e.typeCode()))
+        row.getCells().add(gen.new Cell(null, prefix+definitions.getSrcFile("Base")+".html#"+e.typeCode(), e.typeCode(), null, null)); 
       else
         row.getCells().add(gen.new Cell(null, prefix+e.typeCode().toLowerCase()+".html", e.typeCode(), null, null)); 
       // todo: base elements
@@ -80,13 +82,15 @@ public class TableGenerator extends BaseGenerator {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         row.setIcon("icon_element.gif", HierarchicalTableGenerator.TEXT_ICON_ELEMENT);
         if (mode == RenderMode.RESOURCE)
-          row.getCells().add(gen.new Cell(null, prefix+"backboneelement.html", "BackboneElement", null, null));
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#BackBoneElement", "BackboneElement", null, null));
+        else if (e.getName().equals("Type"))
+          row.getCells().add(gen.new Cell(null, null, "", null, null)); 
         else if (e.getName().equals("Element"))
-          row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#Base", "Base", null, null)); 
         else if (e.typeCode().equals("BackboneElement"))
-          row.getCells().add(gen.new Cell(null, prefix+"backboneelement.html", "BackBoneElement", null, null));   
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#BackBoneElement", "BackBoneElement", null, null));   
         else
-          row.getCells().add(gen.new Cell(null, prefix+"element.html", "Element", null, null));   
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#Element", "Element", null, null));   
       } else if (e.getTypes().size() == 1) {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         String t = e.getTypes().get(0).getName();
@@ -125,7 +129,7 @@ public class TableGenerator extends BaseGenerator {
         }
         row.getCells().add(c);
       } else {
-        row.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null));   
+        row.getCells().add(gen.new Cell(null, null, isRoot ? "" : e.describeCardinality(), null, null));   
         row.setIcon("icon_choice.gif", HierarchicalTableGenerator.TEXT_ICON_CHOICE);
         row.getCells().add(gen.new Cell(null, null, "", null, null));   
       }

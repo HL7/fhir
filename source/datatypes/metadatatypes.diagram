@@ -1,5 +1,5 @@
 [diagram]
-classes=ContactDetail,Contributor,DataRequirement,ParameterDefinition,RelatedArtifact,TriggerDefinition,UsageContext,Expression
+classes=DataType,ContactDetail,Contributor,DataRequirement,ParameterDefinition,RelatedArtifact,TriggerDefinition,UsageContext,Expression
 attributes=false
 
 [size]
@@ -7,11 +7,12 @@ width=350
 height=148
 
 [directions]
+DataType=0;0
 ContactDetail=-150;-50
 Contributor=-30;-50
 DataRequirement=70;-50
 RelatedArtifact=-150;0
-UsageContext=100;0
+TriggerDefinition=80;0
 ParameterDefinition=-150;50
-TriggerDefinition=60;50
+UsageContext=80;50
 Expression=-10;50
