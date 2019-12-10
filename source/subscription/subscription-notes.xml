@@ -222,7 +222,7 @@
 			When a Subscription is created for a REST Hook channel type, the server <b>SHALL</b> set initial status to <code>requested</code>, pending verification of the nominated endpoint URL. After a successful handshake notification has been sent and accepted, the server <b>SHALL</b> update the status to <code>active</code>. Any errors in the initial handshake <b>SHALL</b> result in the status being changed to <code>error</code>.
 		</p>
 		<p>
-			To receive notifications via HTTP/S POST, a client should request a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>rest-hook</code> (from the <a href="CodeSystem/subscription-channel-type">subscription-channel-type</a> Code System) and set the endpoint (<code>Subscription.channel.endpoint</code>) to the appropriate client URL.  Note that this URL must be accessible by the hosting server.
+			To receive notifications via HTTP/S POST, a client should request a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>rest-hook</code> (from the subscription-channel-type Code System) and set the endpoint (<code>Subscription.channel.endpoint</code>) to the appropriate client URL.  Note that this URL must be accessible by the hosting server.
 		</p>
 		<p>
 			To convey an event notification, the server POSTs a Bundle to the client's nominated endpoint URL per the format requests in the Subscription. The content-type of the POST <b>SHALL</b> match the contentType (<code>channel.payload.contentType</code>) requested during creation of the Subscription. Each <code>channel.header</code> value <b>SHALL</b> be conveyed as an HTTP request header.
@@ -241,7 +241,7 @@
 			While the primary interface for FHIR servers is the FHIR REST API, notifications need not occur via REST.  Indeed, some subscribers may be unable to expose an outward-facing HTTP server to receive triggered notifications.  For example, a pure client-side Web app or mobile app may want to subscribe to a data feed without polling using the /history operation. This can be accomplished using a websocket notification channel.
 		</p>
 		<p>
-			A client can declare its intention to receive notifications via Web Sockets by requesting a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>websocket</code> (from the <a href="CodeSystem/subscription-channel-type">subscription-channel-type</a> Code System).
+			A client can declare its intention to receive notifications via Web Sockets by requesting a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>websocket</code> (from the subscription-channel-type Code System).
 		</p>
 		<p>
 			The subscriber then initiates a Web Socket connection to the server, at a URL advertised in the FHIR server's Capability statement (subscriptions/webSocketUrl (todo)). A simple protocol is used to listen for notifications:
@@ -292,7 +292,7 @@
 			While the primary interface for FHIR servers is the FHIR REST API, notifications need not occur via REST.  Indeed, some subscribers may be unable to maintain an outward-facing HTTP server to receive triggered notifications.  For example, a public health organization may want to be notified of outbreaks of various illnesses.  This can be accomplished using an email notification channel.
 		</p>
 		<p>
-			A client can declare its intention to receive notifications via Email by requesting a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>email</code> (from the <a href="CodeSystem/subscription-channel-type">subscription-channel-type</a> Code System) and setting the endpoint (<code>Subscription.channel.endpoint</code>) to the appropriate email URI (e.g., <code>mailto:public_health_notifications@example.org</code>).
+			A client can declare its intention to receive notifications via Email by requesting a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>email</code> (from the subscription-channel-type Code System) and setting the endpoint (<code>Subscription.channel.endpoint</code>) to the appropriate email URI (e.g., <code>mailto:public_health_notifications@example.org</code>).
 		</p>
 		<p>
 			The server will send a new message for each matching resource.  The server will create a message based on the values present in the <code>channel.payload.contentType</code> and <code>channel.payload.content</code> fields.  If a server cannot honor the requested combination, the server can either reject the request or modify it on creation to be suitable.
@@ -330,7 +330,7 @@
 			There are times when it is desireable to use Subscriptions as a communication channel between FHIR servers.  This can be accomplished using the message notification channel.
 		</p>
 		<p>
-			To receive notifications via messaging, a client should request a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>message</code> (from the <a href="CodeSystem/subscription-channel-type">subscription-channel-type</a> Code System) and set the endpoint (<code>Subscription.channel.endpoint</code>) to the FHIR server base URL.  Note that this URL must be accessible by the hosting server.
+			To receive notifications via messaging, a client should request a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>message</code> (from the subscription-channel-type Code System) and set the endpoint (<code>Subscription.channel.endpoint</code>) to the FHIR server base URL.  Note that this URL must be accessible by the hosting server.
 		</p>
 		<p>For each matching resource, a server will send a message to the nominated end-point. Most servers will require that the end-point is white-listed prior to allowing these kinds of subscriptions.</p>
 		[%stu-note%]
