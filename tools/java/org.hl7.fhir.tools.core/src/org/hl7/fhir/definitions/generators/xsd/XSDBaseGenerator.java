@@ -353,7 +353,7 @@ public class XSDBaseGenerator {
       }
     }
     
-    if (!elem.getName().equals("Element")) {
+    if (!elem.getName().equals("Base")) {
       write("      </xs:extension>\r\n");
       write("    </xs:complexContent>\r\n");
     }
