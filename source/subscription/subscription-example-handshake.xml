@@ -3,7 +3,7 @@
   <id value="handshake" />
   <meta>
     <extension url="http://hl7.org/fhir/StructureDefinition/subscription-event-count">
-      <valueUnsignedInt value="0" />
+      <valueInteger64 value="0" />
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/bundle-event-count">
       <valueUnsignedInt value="0" />

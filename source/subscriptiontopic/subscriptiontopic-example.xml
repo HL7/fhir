@@ -18,7 +18,7 @@
 		<fhirPathCriteria value="%previous.status!=&#x27;in-progress&#x27; and %current.status=&#x27;in-progress&#x27;"/>
 	</resourceTrigger>
 	<canFilterBy>
-		<name value="patient" />
+		<searchParamName value="patient" />
 		<matchType value="=" />
 		<documentation value="Exact match to a patient resource (reference)" />
   </canFilterBy>

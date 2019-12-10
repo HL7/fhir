@@ -8,7 +8,7 @@
 	</topic>
 	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
 	<filterBy>
-		<name vlaue="patient"/>
+		<searchParamName vlaue="patient"/>
 		<value value="Patient/123"/>
 	</filterBy>
 	<channel>

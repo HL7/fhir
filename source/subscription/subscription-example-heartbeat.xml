@@ -3,7 +3,7 @@
   <id value="heartbeat" />
   <meta>
     <extension url="http://hl7.org/fhir/StructureDefinition/subscription-event-count">
-      <valueUnsignedInt value="20" />
+      <valueInteger64 value="20" />
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/bundle-event-count">
       <valueUnsignedInt value="0" />

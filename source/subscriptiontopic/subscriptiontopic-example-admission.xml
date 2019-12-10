@@ -15,7 +15,7 @@
 		<fhirPathCriteria value="%previous.status!='in-progress' and %current.status='in-progress'"/>
 	</resourceTrigger>
 	<canFilterBy>
-		<name value="patient"/>
+		<searchParamName value="patient"/>
 		<matchType value="=" />
 		<matchType value="in" />
 		<matchType value="not-in" />

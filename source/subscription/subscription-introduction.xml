@@ -4,7 +4,7 @@
     <a name="scope"></a>
     <h2>Scope and Usage</h2>
     <p>
-      The subscription resource is used to establish proactive event notifications from a FHIR server to another system.  Subscribers request event notifications within a predefined <a href="subscriptiontopic.html">SubscriptionTopic</a> that the server supports, and can further refine their notifications by supplying filters. Each <code>SubscriptionTopic</code> resource defines a set of allowed filters (<code>SubscriptionTopic.canFilterBy</code>), which a subscriber refer to within a <code>Subscription</code> resource (<code>Subscription.filterBy</code>).  Once a subscription is created, any event matching a specified SubscriptionTopic that meets the filtering criteria will cause a notification to be sent using the provided channel.
+      The <code>Subscription</code> resource is used to establish proactive event notifications from a FHIR server to another system.  Subscribers request event notifications within a predefined <a href="subscriptiontopic.html">SubscriptionTopic</a> that the server supports, and can further refine their notifications by supplying filters. Each <code>SubscriptionTopic</code> resource defines a set of allowed filters (<code>SubscriptionTopic.canFilterBy</code>), which a subscriber refer to within a <code>Subscription</code> resource (<code>Subscription.filterBy</code>).  Once a subscription is created, any event matching a specified SubscriptionTopic that meets the filtering criteria will cause a notification to be sent using the provided channel.
     </p>
     <p>
       Subscriptions are active resources; a server can only accept a subscription
@@ -34,22 +34,58 @@
     <a name="bnr"></a>
     <h2>Boundaries and Relationships</h2>
     <p>
-      As an alternative to subscriptions, the RESTful API describes a
+      There is a close relationship between <a href="subscriptiontopic.html">SubscriptionTopic</a> and <code>Subscription</code>.
+      <ul>
+        <li>
+          A <code>SubscriptionTopic</code> defines the <b>data</b> and <b>change</b> a <code>Subscription</code> uses to trigger notifications.
+        </li>
+        <li>
+          A <code>Subscription</code> describes a particular client's request to be notified about events defined in a <code>SubscriptionTopic</code> and how those notifications should be delivered.
+        </li>
+        <li>
+          A <code>Subscription</code> may define additional filters to be applied when detecting events for notifications, but only as defined and allowed in the relevant <code>SubscriptionTopic</code>.
+        </li>
+      </ul>
+    </p>
+    <p>
+      The use of Subscriptions requires the use of SubscriptionTopics - without an underlying SubscriptionTopic, a Subscription has no meaning and will not trigger any client notifications.
+    </p>
+    <p>
+      As an alternative to subscriptions, the FHIR REST API describes a
       polling-based method for observing events using <a href="bundle.html">bundles</a>
       and the <a href="http.html#history">history operation</a>. This method
-      of polling allows for a much tighter relationship between the client and
-      the server that doesn't involve missing updates and/or deletes.
+      of polling allows for a more straightforward implementation, but can cause delays
+      in process (e.g., time between polling operations) and will result in higher computational
+      costs on the server (e.g., processing queries when there are no state changes).
     </p>
     <p>
       When using the <code>Subscription</code> resource, the FHIR server combines
-      the roles of publisher and information distributer. Other arrangements
-      of the publish and subscribe pattern describe separate agents for the two roles.
-      Implementers may implement the <code>Subscription</code> resource using an
-      architecture with separate agents, or using any other pub/sub architectire
-      (e.g. see <a href="http://fhircast.org/">FHIRCast</a>, or, more generally,
-      <a href="https://www.w3.org/TR/websub/">W3C Pub/Sub</a>).
+      the roles of publisher and information distributer. Some arrangements
+      of the 'publish and subscribe' pattern describe separate agents for the two roles.
+      This specification makes no recommendations towards the internal architecture of 
+      server implementations.
     </p>
-    <p>TODO: Does this imply that Subscriptions can be built on top of FHIRCast?</p>
+
+    <a name="relationtofhircast" />
+    <h3>Relation to FHIRcast</h3>
+    <p>
+      <a href="http://fhircast.org">FHIRcast</a> is a HTTP-based framework for user-activity synchronization across applications.  FHIRcast and Subscription are both conceptually based <a href="https://www.w3.org/TR/websub/">W3 WebSub</a>, and while the mechanics of two projects look similar, they are fundamentally different projects used to address different use cases.  In particular:
+      <ul>
+        <li>
+          <p>FHIRcast is designed to be used by multiple applications on the same device</p>
+          <p>Subscriptions are designed to be used by multiple distinct systems</p>
+        </li>
+        <li>
+          <p>FHIRcast sends only single-event notifications</p>
+          <p>Subscriptions allow servers to batch multiple notifications in high-frequency scenarios</p>
+        </li>
+        <li>
+          <p>FHIRcast is designed around short-lived sessions</p>
+          <p>Subscriptions are intented to be long-lived resources</p>
+        </li>
+      </ul>
+    </p>
+
   </div>
 
 </div>

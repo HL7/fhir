@@ -1846,7 +1846,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">probably is best as string since chaining will make it hard to encode</Data></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">SubscriptionTopic.canFilterBy.name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">SubscriptionTopic.canFilterBy.searchParamName</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2462,7 +2462,7 @@
     <Cell ss:StyleID="s127"><Data ss:Type="String">!filter-name</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">SubscriptionTopic.resourceTrigger.canFilterBy.name</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">SubscriptionTopic.resourceTrigger.canFilterBy.searchParamName</Data></Cell>
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">

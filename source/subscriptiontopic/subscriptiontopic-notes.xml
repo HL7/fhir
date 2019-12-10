@@ -1,20 +1,71 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+	<a name="implementing" />
+	<h2>Implementation Notes</h2>
+	<p>
+		Each server is responsible for accurately implementing each SubscriptionTopic it advertises support for.  Due to the breadth of possible topics, detailed implementation guidance cannot be provided here.  Following are a few topics to consider when implementing a Subscription Topic within a server:
+	</p>
+
+		<a name="filtering" />
+		<h3>Filter Checks</h3>
+		<p>
+			TODO:
+			Filters need to be checked before and after operations which may result in a notification.  For example...
+		</p>
+		<ul>
+			<li>
+				Create operation: before fails, after succeeds
+			</li>
+			<li>
+				Delete opertaion: before succeeds, after fails
+			</li>
+			<li>
+				Update operation: before succeeds, after fails
+			</li>
+			<li>
+				Update operation: before fails, after succeeds
+			</li>
+			<li>
+				Update operation: before succeeds, after succeeds
+			</li>
+			<li>
+				Generic operation (computably defined)...
+			</li>
+		</ul>
 
   <a name="defining" />
-  <h2>
-    Defining Subscription Topics
-  </h2>
-	<p>Defining a new Subscription Topic requires clear communication to implementers of both clients and servers around requirements and expectations.  Below are some areas which should be considered when creating a Subscription Topic.  Anyone defining a Topic is encouraged to publish the (IG?) at (?).
+  <h2>Defining Subscription Topics</h2>
+	<p>
+		Defining a new <code>SubscriptionTopic</code> requires clear communication to implementers of both clients and servers around requirements and expectations.  Anyone defining a <code>SubscriptionTopic</code> is encouraged to publish their definition at <a href="https://registry.fhir.org/">registry.fhir.org</a>.  Below are some areas which should be considered when creating a <code>SubscriptionTopic</code>.
 	</p>
-	[%stu-note%]
-	Warning: This section is still in early drafting.
-	[%end-note%]
+
+	<p>
+		Definitions for Subscription Topics have parts, which are described in more detail below.  Good definitions will have useful definitions in more than one part (e.g., a conceptual definition as well as a computable definition), but the highest priority for a server implementation is to accurately trigger notifications based on the concept definition.
+	</p>
+	
+	<a name="generalconcepts" />
+	<h3>General Concepts</h3>
+	<p>
+		Subscription Topics MUST always document the concept they represent.  While a short definition is included in the <code>SubscriptionTopic</code> itself, this documentation will typically not be sufficient for implementers to support.  Definitions must be clear and specific.  For example, if the goal is to define an 'admission' topic, the single word is common enough to feel sufficient - implementers generally know what an 'admission' is and could implement something that would qualify.  However, is the intention to represent a patient being physically admitted to a care facility, or the start of a clinical encounter?  Either definition is common, and without more information implementations will not be consistent.  Without complete and specific definitions, server implementions will vary and clients will have unexpected behavior.
+	</p>
+
+	<a name="resourceoperations" />
+	<h3>Resource Operations</h3>
+	<p>
+		Subscription Topics based on Resource Operations are the simplest to describe - definitions include the resource type (e.g., <code>Patient</code>, <code>Encounter</code>) and the operation of interest (e.g., <code>create</code>, <code>delete</code>).  Servers implementing topics defined this way are expected to trigger notifications any time that type of operation 
+	</p>
+	<p>
+		A note about <code>update</code> operations: a topic based on the <code>update</code> operation does not require servers to monitor resources for actual changes.  Servers MAY generate notifications on their internal triggers, regardless of actual changes (e.g., a client issuing an HTTP PUT with an identical resource).
+	</p>
+	
+	<a name="computabledefinitions" />
+	<h3>Computable Definitions</h3>
+	<p>
+		Computable Definitions serve two purposes when defining topics.  Some server implementers may be able to use computable definitions either directly or with minimal changes.  In this scenario, the benifit of a computable definition is quite large (e.g., user-defined <code>SubscriptionTopics</code>, high portability, etc.).  However, even implementers that do not use the computable definition directly will read the definitions to understand, specifically, what is being defined.
+	</p>
 
 	<a name="deriving" />
-	<h2>
-		Deriving from existing Subscription Topics
-	</h2>
+	<h2>Deriving from existing Subscription Topics</h2>
   <p>Implementers are encouraged to add additional filters, but cannot remove existing ones nor change the 'concept' of a SubscriptionTopic during derivation.  For example:</p>
 	<ul>
 		<li>Deriving a new SubscriptionTopic with the same concept but a different computable definition is OK.</li>
