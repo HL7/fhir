@@ -145,7 +145,6 @@ public class Definitions {
   private Map<String, DefinedCode> primitives = new HashMap<String, DefinedCode>();
 	private Map<String, ProfiledType> constraints = new HashMap<String, ProfiledType>();
 	private Map<String, TypeDefn> types = new HashMap<String, TypeDefn>();
-	private Map<String, TypeDefn> structures = new HashMap<String, TypeDefn>();
 	private Map<String, TypeDefn> infrastructure = new HashMap<String, TypeDefn>();
   private Map<String, ResourceDefn> baseResources = new HashMap<String, ResourceDefn>();
   private Map<String, ResourceDefn> resources = new HashMap<String, ResourceDefn>();
@@ -165,9 +164,9 @@ public class Definitions {
   private Map<String, ArrayList<String>> statusCodes = new HashMap<String, ArrayList<String>>();
 
   // access to raw resources - to be removed and replaced by worker context at some stage
-  private MetadataResourceManager<ValueSet> valuesets = new MetadataResourceManager<ValueSet>();
-  private MetadataResourceManager<ConceptMap> conceptMaps = new MetadataResourceManager<ConceptMap>();
-  private MetadataResourceManager<CodeSystem> codeSystems = new MetadataResourceManager<CodeSystem>();
+  private MetadataResourceManager<ValueSet> valuesets = new MetadataResourceManager<ValueSet>(false);
+  private MetadataResourceManager<ConceptMap> conceptMaps = new MetadataResourceManager<ConceptMap>(false);
+  private MetadataResourceManager<CodeSystem> codeSystems = new MetadataResourceManager<CodeSystem>(false);
   private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
   private Set<String> styleExemptions = new HashSet<String>();
 
@@ -197,20 +196,26 @@ public class Definitions {
       name = "Element";
     
 		TypeDefn root = null;
-		if (types.containsKey(name))
+		if (types.containsKey(name)) {
 			root = types.get(name);
-		if (structures.containsKey(name))
-			root = structures.get(name);
-		if (infrastructure.containsKey(name))
+		}
+		if (infrastructure.containsKey(name)) {
 			root = infrastructure.get(name);
-    if (baseResources.containsKey(name))
+		}
+    if (baseResources.containsKey(name)) {
       return baseResources.get(name).getRoot();
-		if (resources.containsKey(name))
+    }
+		if (resources.containsKey(name)) {
 			root = resources.get(name).getRoot();
-		if (hasLogicalModel(name))
+		}
+		if (hasLogicalModel(name)) {
 		  root = getLogicalModel(name).getResource().getRoot();
+		}
+		if (root == null && constraints.containsKey(name)) {
+		  root = types.get(constraints.get(name).getBaseType());
+		}
 		if (root == null)
-			throw new Exception("unable to find resource or composite type " + name);
+			throw new Exception("unable to find resource or composite type '" + name+"'");
 		return root;
 	}
 
@@ -220,8 +225,6 @@ public class Definitions {
     ElementDefn root = null;
     if (types.containsKey(name))
       root = types.get(name);
-    if (structures.containsKey(name))
-      root = structures.get(name);
     if (infrastructure.containsKey(name))
       root = infrastructure.get(name);
     if (baseResources.containsKey(name))
@@ -262,12 +265,6 @@ public class Definitions {
 	// ConstrainedTypes.
 	public Map<String, TypeDefn> getTypes() {
 		return types;
-	}
-
-	// List the CompositeTypes as found under [structures] that aren't
-	// ConstrainedTypes.
-	public Map<String, TypeDefn> getStructures() {
-		return structures;
 	}
 
 	// List the CompositeTypes as found under [infrastructure] that aren't
@@ -407,7 +404,6 @@ public class Definitions {
     if (sortedTypeNames == null) {
       sortedTypeNames = new ArrayList<String>();
       sortedTypeNames.addAll(getTypes().keySet());
-      sortedTypeNames.addAll(getStructures().keySet());
       sortedTypeNames.addAll(getInfrastructure().keySet());
       Collections.sort(sortedTypeNames);
     }
@@ -600,7 +596,7 @@ public class Definitions {
     }
     int i = 1;
     while (e != null && i < parts.length) {
-      if (hasType(e.typeCode()) && !"BackboneElement".equals(e.typeCode()))
+      if (hasType(e.typeCode()) && !getElementDefn(e.typeCode()).isAbstractType())
         e = getElementDefn(e.typeCode());
       e = e.getElementByName(parts[i], true, this, purpose, followType);
       i++;
@@ -763,7 +759,7 @@ public class Definitions {
       if (/* dc instanceof PrimitiveType && */ dc.getCode().equals(name))
         return true;
     }
-    return name.equals("xhtml") || types.containsKey(name) || structures.containsKey(name) || infrastructure.containsKey(name);
+    return name.equals("xhtml") || types.containsKey(name) || infrastructure.containsKey(name);
   }
 
   public boolean hasAbstractResource(String name) {
@@ -785,7 +781,6 @@ public class Definitions {
     Set<String> res = new HashSet<String>();
     res.add("Element");
     res.addAll(types.keySet());
-    res.addAll(structures.keySet());
     res.addAll(infrastructure.keySet());
     return res;
   }

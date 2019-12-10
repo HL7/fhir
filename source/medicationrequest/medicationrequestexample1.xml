@@ -46,10 +46,12 @@
     <reference value="Practitioner/f007"/>
     <display value="Patrick Pump"/>
   </requester>
-  <reasonReference>
-    <reference value="Condition/f201"/>
-    <display value="condition for prescribing this medication"/>
-  </reasonReference>
+  <reason>
+    <reference>
+      <reference value="Condition/f201"/>
+      <display value="condition for prescribing this medication"/>
+    </reference>
+  </reason>
   <note>
     <text value="Chlorthalidone increases urniation so take it in the morning"/>
   </note>

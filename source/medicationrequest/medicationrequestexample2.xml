@@ -31,13 +31,15 @@
 		<reference value="Practitioner/f007"/>
 		<display value="Patrick Pump"/>
 	</requester>	
-	<reasonCode>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="59621000"/>
-			<display value="Essential hypertension (disorder)"/>
-		</coding>
-	</reasonCode>
+	<reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="59621000"/>
+        <display value="Essential hypertension (disorder)"/>
+      </coding>
+    </concept>
+	</reason>
 	<dosageInstruction>
 		<sequence value="1"/>
 		<text value="Take one tablet daily as directed"/>

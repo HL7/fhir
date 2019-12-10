@@ -1,6 +1,7 @@
 package org.hl7.fhir.definitions.generators.specification;
  
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -23,6 +25,7 @@ import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.StandardsStatus;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 
@@ -201,6 +204,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.end();
     
     String s = new String(bytes.toByteArray());
+    TextFile.stringToFile(s.substring(s.indexOf(">")+1), "C:\\temp\\svg\\"+new File(filename).getName()+".svg");
     return s.substring(s.indexOf(">")+1);
   }
 
@@ -210,6 +214,7 @@ public class SvgGenerator extends BaseGenerator {
     XMLWriter xml = new XMLWriter(bytes, "UTF-8");
     generate(resource, xml);
     String s = new String(bytes.toByteArray());
+    TextFile.stringToFile(s.substring(s.indexOf(">")+1), "C:\\temp\\svg\\"+resource.getName()+".svg");
     return s.substring(s.indexOf(">")+1);
   }
 
@@ -219,6 +224,7 @@ public class SvgGenerator extends BaseGenerator {
     links.clear();
     XMLWriter xml = new XMLWriter(new FileOutputStream(filename), "UTF-8");
     generate(resource, xml);
+    FileUtils.copyFile(new File(filename), new File("C:\\temp\\svg\\"+resource.getName()+"-"+new File(filename).getName()+".svg"));
   }
 
   public String generate(StructureDefinition definition, String filename, String id) throws Exception {
@@ -262,10 +268,10 @@ public class SvgGenerator extends BaseGenerator {
   private Point determineMetrics(String[] classNames) throws Exception {
     double width = textWidth("Element") * 1.8;
     double height = HEADER_HEIGHT + GAP_HEIGHT*2;
-    if ("true".equals(ini.getStringProperty("diagram", "element-attributes"))) {
-      height = height + LINE_HEIGHT + GAP_HEIGHT;
-      width = textWidth("extension : Extension 0..*");
-    }
+//    if ("true".equals(ini.getStringProperty("diagram", "element-attributes"))) {
+//      height = height + LINE_HEIGHT + GAP_HEIGHT;
+//      width = textWidth("extension : Extension 0..*");
+//    }
 
     Point p = new Point(0, 0, PointKind.unknown);
     ClassItem item = new ClassItem(p.x, p.y, width, height, id);
@@ -342,8 +348,13 @@ public class SvgGenerator extends BaseGenerator {
         String[] svg = uml.split("\\;");
         e.setSvgLeft(Integer.parseInt(svg[0]));
         e.setSvgTop(Integer.parseInt(svg[1]));
-      } else
+      } else if (!Utilities.noString(uml) && uml.contains(",")) {
+        String[] svg = uml.split("\\,");
+        e.setSvgLeft(Integer.parseInt(svg[0]));
+        e.setSvgTop(Integer.parseInt(svg[1]));
+      } else {      
         e.setUmlDir(uml);
+      }
     }
     
     Point p = new Point(e.getSvgLeft(), e.getSvgTop(), PointKind.unknown);
@@ -669,66 +680,87 @@ public class SvgGenerator extends BaseGenerator {
   }
 
   private ClassItem drawElement(XMLWriter xml, String[] classNames) throws Exception {
-    boolean onlyElement = classNames.length == 1 && classNames[0].equals("Element");
+    boolean onlyElement = false; //  classNames.length == 1 && classNames[0].equals("Base");
     
-    xml.attribute("id", "n"+(++nc));
-    xml.enter("g");
-    ClassItem item = classes.get(null);
-    boolean be = !definitions.hasPrimitiveType(classNames[0]) && definitions.getElementDefn(classNames[0]).typeCode().equals("BackboneElement");
-    String tn = be ? "BackboneElement" : "Element";
-    xml.attribute("x", Double.toString(item.left));
-    xml.attribute("y", Double.toString(item.top));
-    xml.attribute("rx", "4");
-    xml.attribute("ry", "4");
-    xml.attribute("width", Double.toString(be ? item.width + 10 : item.width));
-    xml.attribute("height", Double.toString(be ? item.height + LINE_HEIGHT : item.height));
-    xml.attribute("filter", "url(#shadow"+id+")");
-    xml.attribute("style", "fill:"+StandardsStatus.NORMATIVE.getColorSvg()+";stroke:black;stroke-width:1");
-    if (!makeTargets)
-      xml.attribute("id", "n"+(++nc));
-    else
-      xml.attribute("id", item.getId());
-    xml.element("rect", null);    
-
-    xml.attribute("x", Double.toString(item.left + item.width / 2));
-    xml.attribute("y", Double.toString(item.top+HEADER_HEIGHT));
-    xml.attribute("fill", "black");
-    xml.attribute("id", "n"+(++nc));
-    xml.attribute("class", "diagram-class-title");
-    xml.enter("text");
-    xml.attribute("xlink:href", makeRel(definitions.getSrcFile(tn)+".html#"+tn));
-    xml.attribute("id", "n"+(++nc));
-    xml.enter("a");
-    xml.text(tn);
-    xml.exit("a");
-    xml.exit("text");
-    
-    if ("true".equals(ini.getStringProperty("diagram", "element-attributes")) || onlyElement) {
-      xml.attribute("x1", Double.toString(item.left));
-      xml.attribute("y1", Double.toString(item.top+HEADER_HEIGHT + GAP_HEIGHT*2));
-      xml.attribute("x2", Double.toString(item.left+item.width));
-      xml.attribute("y2", Double.toString(item.top+HEADER_HEIGHT + GAP_HEIGHT*2));
-      xml.attribute("style", "stroke:dimgrey;stroke-width:1");
-      xml.attribute("id", "n"+(++nc));
-      xml.element("line", null);    
-      addExtension(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT);
-      if (be)
-        addModifierExtension(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT);
-    }
-    xml.exit("g");
+//    ClassItem item = null;
+//    if (classNames.length != 1 || !classNames[0].equals("Base")) {
+//      item = classes.get(null);
+//      xml.attribute("id", "n"+(++nc));
+//      xml.enter("g");
+//      String tn = definitions.hasPrimitiveType(classNames[0]) ? "Element" : definitions.getElementDefn(classNames[0]).typeCode();
+//      boolean be = false;
+//      if (!definitions.hasType(tn)) {
+//        be = !definitions.hasPrimitiveType(classNames[0]) && definitions.getElementDefn(classNames[0]).typeCode().equals("BackboneElement");
+//        tn = be ? "BackboneElement" : "Element";
+//      }
+//      xml.attribute("x", Double.toString(item.left));
+//      xml.attribute("y", Double.toString(item.top));
+//      xml.attribute("rx", "4");
+//      xml.attribute("ry", "4");
+//      xml.attribute("width", Double.toString(item.width));
+//      xml.attribute("height", Double.toString(HEADER_HEIGHT + GAP_HEIGHT*2));
+//      xml.attribute("filter", "url(#shadow"+id+")");
+//      xml.attribute("style", "fill:"+StandardsStatus.NORMATIVE.getColorSvg()+";stroke:maroon;stroke-width:1");
+//      if (!makeTargets)
+//        xml.attribute("id", "n"+(++nc));
+//      else
+//        xml.attribute("id", item.getId());
+//      xml.element("rect", null);    
+//
+//      xml.attribute("x", Double.toString(item.left + item.width / 2));
+//      xml.attribute("y", Double.toString(item.top+HEADER_HEIGHT));
+//      xml.attribute("fill", "black");
+//      xml.attribute("id", "n"+(++nc));
+//      xml.attribute("class", "diagram-class-title");
+//      xml.enter("text");
+//      xml.attribute("xlink:href", makeRel(definitions.getSrcFile(tn)+".html#"+tn));
+//      xml.attribute("id", "n"+(++nc));
+//      xml.enter("a");
+//      xml.text(tn);
+//      xml.exit("a");
+//      xml.exit("text");
+//
+//      // no attributes on parent...
+////      if ("true".equals(ini.getStringProperty("diagram", "element-attributes")) || onlyElement) {
+////        xml.attribute("x1", Double.toString(item.left));
+////        xml.attribute("y1", Double.toString(item.top+HEADER_HEIGHT + GAP_HEIGHT*2));
+////        xml.attribute("x2", Double.toString(item.left+item.width));
+////        xml.attribute("y2", Double.toString(item.top+HEADER_HEIGHT + GAP_HEIGHT*2));
+////        xml.attribute("style", "stroke:dimgrey;stroke-width:1");
+////        xml.attribute("id", "n"+(++nc));
+////        xml.element("line", null);    
+////        addExtension(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT);
+////        if (be)
+////          addModifierExtension(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT);
+////      }
+//      xml.exit("g");
+//    } else {
+//       System.out.print("?");
+//    }
 
     for (String cn : classNames) {
       if (definitions.getPrimitives().containsKey(cn)) {
         DefinedCode cd = definitions.getPrimitives().get(cn);
         ElementDefn fake = fakes.get(cn);
-        if (cd instanceof DefinedStringPattern)
+        if (cd instanceof DefinedStringPattern) {
           links.add(new Link(classes.get(fakes.get(((DefinedStringPattern) cd).getBase())), drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
-        else
-          links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
+        } else {
+          ClassItem parent = classes.get(definitions.getElementDefn("PrimitiveType"));
+          if (parent == null) {
+            drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE); 
+          } else {
+            links.add(new Link(parent, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));
+          }
+        }
       } else if ("xhtml".equals(cn)) {
         DefinedCode cd = new DefinedCode("xhtml", "XHTML for resource narrative", null);
         ElementDefn fake = fakes.get(cn);
-        links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
+        ClassItem parent = classes.get(definitions.getElementDefn("DataType"));
+        if (parent == null) {
+          drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE);
+        } else {
+          links.add(new Link(parent, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));
+        }
       } else if (definitions.getConstraints().containsKey(cn)) {
         ProfiledType cd = definitions.getConstraints().get(cn);
         ElementDefn fake = fakes.get(cn);
@@ -737,20 +769,19 @@ public class SvgGenerator extends BaseGenerator {
       } else if (definitions.getPrimitives().containsKey(cn)) {
         DefinedCode cd = new DefinedCode("xhtml", "XHTML for resource narrative", null);
         ElementDefn fake = fakes.get(cn);
-        links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
+        //links.add(new Link(item, 
+        drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE);//, LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
       } else if (!onlyElement) {
         ElementDefn e = definitions.getElementDefn(cn);
-        ClassItem parent = item;
-        if (e.typeCode().equals("Structure"))
-          parent = classes.get(definitions.getElementDefn("BackboneElement"));
-        else if (!(Utilities.noString(e.typeCode()) || e.typeCode().equals("Type") || e.typeCode().equals("Structure")))
-          parent = classes.get(definitions.getElementDefn(e.typeCode()));
-        if (parent == null)
-          parent = item;
-        links.add(new Link(parent, drawClass(xml, e, false, null, true, cn, null, e.getStandardsStatus()), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));
+        ClassItem parent = Utilities.noString(e.typeCode()) ? null : classes.get(definitions.getElementDefn(e.typeCode()));
+        if (parent == null) {
+          drawClass(xml, e, false, null, true, cn, null, e.getStandardsStatus());
+        } else {
+          links.add(new Link(parent, drawClass(xml, e, false, null, true, cn, null, e.getStandardsStatus()), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));
+        }
       }
     }
-    return item;
+    return null;
   }
 
   private ClassItem drawClass(XMLWriter xml, ElementDefn e, boolean isRoot, ResourceDefn resource, boolean link, String path, DefinedCode primitive, StandardsStatus status) throws Exception {
@@ -773,7 +804,7 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("style", "fill:"+r.getStatus().getColorSvg()+";stroke:black;stroke-width:1");
       status = r.getStatus();
     } else if (e == null || e.getStandardsStatus() == null )
-      xml.attribute("style", "fill:"+status.getColorSvg()+";stroke:black;stroke-width:1");
+      xml.attribute("style", "fill:"+(status == null ? "#ffffff" : status.getColorSvg())+";stroke:black;stroke-width:1");
     else {
       xml.attribute("style", "fill:"+e.getStandardsStatus().getColorSvg()+";stroke:black;stroke-width:1");
       status = e.getStandardsStatus();
@@ -801,6 +832,9 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("class", "diagram-class-title");
     if (link) {
       xml.attribute("id", "n"+(++nc));
+      if (e.isAbstractType()) {
+        xml.attribute("style", "font-style: italic");
+      }
       xml.enter("text");
       xml.attribute("xlink:href", makeRel(definitions.getSrcFile(tn)+".html#"+tn));
       xml.attribute("id", "n"+(++nc));
@@ -810,6 +844,9 @@ public class SvgGenerator extends BaseGenerator {
       xml.exit("text");
     } else if (isRoot) {
       xml.attribute("id", "n"+(++nc));
+      if (e.isAbstractType()) {
+        xml.attribute("style", "font-style: italic");
+      }
       xml.enter("text");
       xml.text(tn);
       if (Utilities.noString(e.typeCode())) {
@@ -821,9 +858,10 @@ public class SvgGenerator extends BaseGenerator {
         if ("Logical".equals(e.typeCode()))
           xml.attribute("xlink:href", prefix+"structuredefinition.html#logical");
         else
-          xml.attribute("xlink:href", prefix+e.typeCode().toLowerCase()+".html");
+          xml.attribute("xlink:href", prefix+definitions.getSrcFile(e.typeCode())+".html#"+e.typeCode());
         xml.attribute("class", "diagram-class-reference");
         xml.attribute("id", "n"+(++nc));
+        xml.attribute("style", "font-style: italic");
         xml.element("a", e.typeCode());
         xml.text(")");
         xml.exit("tspan");
@@ -923,12 +961,23 @@ public class SvgGenerator extends BaseGenerator {
     for (int i = 1; i < tl.size(); i++) {
       allSame = t.equals(tl.get(i).getName());
     }
-    if (allSame && t.equals("Reference"))
+    if (allSame && t.equals("Reference")) {
       return "Reference";
-    else if (allSame && t.equals("canonical"))
-        return "canonical";
-      else
-      return "Type";
+    } else if (allSame && t.equals("canonical")) {
+      return "canonical";
+    }  else {
+      boolean allPrimitive = true;
+      for (TypeRef tr : tl) {
+        if (!definitions.hasPrimitiveType(tr.getName())) {
+          allPrimitive = false;
+        }
+      }
+      if (allPrimitive) {
+        return "PrimitiveType";
+      } else {
+        return "DataType";
+      }
+    }
   }
 
   private boolean isReference(String name) {

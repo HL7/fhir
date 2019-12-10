@@ -49,13 +49,15 @@
         <display value="Patrick Pump"/>
         
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="297217002"/>
             <display value="Rib Pain (finding)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <note>
         <text value="Patient told to take with food"/>
     </note>

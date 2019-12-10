@@ -26,13 +26,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="473189005"/>
             <display value="On subcutaneous insulin for diabetes mellitus (finding)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="20 Units SC three times daily" />

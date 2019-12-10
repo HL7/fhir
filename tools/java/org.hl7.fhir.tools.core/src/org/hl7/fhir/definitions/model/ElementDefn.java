@@ -98,6 +98,7 @@ public class ElementDefn {
 	private String orderMeaning;
 	private StandardsStatus standardsStatus; // defaults to container value
 	private Boolean hierarchy;
+	private boolean abstractType;
 	
 	public ElementDefn() {
 		super();
@@ -504,6 +505,18 @@ public class ElementDefn {
 		return tn.toString();
 	}
 
+  public String typeCodeNoParams() {
+    StringBuilder tn = new StringBuilder();
+    boolean first = true;
+    for (TypeRef t : types) {
+      if (!first)
+        tn.append("|");
+      first = false;
+      tn.append(t.getName());
+    }
+    return tn.toString();
+  }
+
   public String typeCodeBase() {
     List<String> ts = new ArrayList<>();
 
@@ -664,7 +677,7 @@ public class ElementDefn {
 			  res = this.getElementForPath(res.typeCode().substring(1), definitions, purpose, throughChoice, followType);
 			} else if (definitions.dataTypeIsSharedInfo(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
-			} else if (definitions.hasType(res.typeCode())) {
+			} else if (definitions.hasType(res.typeCode()) && !"Base".equals(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
 			}
 			t = res.getElementByName(en, throughChoice, definitions, purpose, followType);
@@ -1081,6 +1094,14 @@ public class ElementDefn {
   @Override
   public String toString() {
     return path == null ? name : path;
+  }
+
+  public boolean isAbstractType() {
+    return abstractType;
+  }
+
+  public void setAbstractType(boolean abstractType) {
+    this.abstractType = abstractType;
   }
   
 

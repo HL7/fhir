@@ -38,6 +38,7 @@ public class JsonLDDefinitionsGenerator {
 	  addProperty(context, "value", "fhir:value", "xsd:string");
     addProperty(context, "decimal", "fhir:value", "xsd:decimal");
     addProperty(context, "integer", "fhir:value", "xsd:integer");
+    addProperty(context, "integer64", "fhir:value", "xsd:string");
     addProperty(context, "boolean", "fhir:value", "xsd:boolean");
     addProperty(context, "binary", "fhir:value", "xsd:base64Binary");
     addProperty(context, "date", "fhir:value", "xsd:date");

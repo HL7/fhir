@@ -748,12 +748,6 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
         regtn.append("    else if (value instanceof "+nn+")\r\n      compose"+nn+"(parent, parentType, name, ("+nn+")value, index);\r\n");
     }
 
-    for (ElementDefn n : definitions.getStructures().values()) {
-      generateComposer(n, JavaGenClass.Structure);
-      String nn = javaClassName(n.getName());
-//      regtn.append("    else if (value instanceof "+nn+")\r\n      compose"+nn+"(parent, parentType, name, ("+nn+")value, index);\r\n");
-    }
-
     for (String s : definitions.getBaseResources().keySet()) {
       ResourceDefn n = definitions.getBaseResources().get(s);
       generateComposer(n.getRoot(), n.isAbstract() ? JavaGenClass.AbstractResource : JavaGenClass.Resource);
@@ -1020,6 +1014,8 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
       //        return "java.lang.Boolean";
       //      else if (t.equals("integer"))
       //        return "Integer";
+      //      else if (t.equals("integer64"))
+      //        return "Integer64?";
       //      else if (t.equals("decimal"))
       //        return "Decimal";
       //      else if (t.equals("base64Binary"))
