@@ -961,12 +961,23 @@ public class SvgGenerator extends BaseGenerator {
     for (int i = 1; i < tl.size(); i++) {
       allSame = t.equals(tl.get(i).getName());
     }
-    if (allSame && t.equals("Reference"))
+    if (allSame && t.equals("Reference")) {
       return "Reference";
-    else if (allSame && t.equals("canonical"))
-        return "canonical";
-      else
-      return "Type";
+    } else if (allSame && t.equals("canonical")) {
+      return "canonical";
+    }  else {
+      boolean allPrimitive = true;
+      for (TypeRef tr : tl) {
+        if (!definitions.hasPrimitiveType(tr.getName())) {
+          allPrimitive = false;
+        }
+      }
+      if (allPrimitive) {
+        return "PrimitiveType";
+      } else {
+        return "DataType";
+      }
+    }
   }
 
   private boolean isReference(String name) {
