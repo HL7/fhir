@@ -110,13 +110,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 //      regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
 //      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
 //    }
-    for (ElementDefn n : definitions.getStructures().values()) {
-      generate(n, JavaGenClass.Structure);
-//      regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-//      regt2.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-//      regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-//      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
-    }
+
     
     for (String s : definitions.getBaseResources().keySet()) {
       ResourceDefn n = definitions.getBaseResources().get(s);
@@ -818,11 +812,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 //      regtp.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
 ////      regn.append("    if (xpp.getName().equals(prefix+\""+n.getCode()+"\"))\r\n      return true;\r\n");
 //    }
-    for (ElementDefn n : definitions.getStructures().values()) {
-        generateComposer(n, JavaGenClass.Structure);
-//        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
-        //      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
-    }
+
 
     for (String s : definitions.getBaseResources().keySet()) {
       ResourceDefn n = definitions.getBaseResources().get(s);
@@ -906,6 +896,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 
     write("  protected void compose"+upFirst(dc.getCode())+"(String name, "+tn+" value) throws IOException  {\r\n");
     if (dc.getCode().equals("integer")  || dc.getCode().equals("unsignedInt") || dc.getCode().equals("positiveInt") || dc.getCode().equals("boolean"))
+      write("    if (value != null) { // "+dc.getCode()+"\r\n");
+    else if (dc.getCode().equals("integer64") )
       write("    if (value != null) { // "+dc.getCode()+"\r\n");
     else if (dc.getCode().equals("decimal") || dc.getCode().equals("uri") || dc.getCode().equals("base64Binary") || dc.getCode().equals("instant") || dc.getCode().equals("date") || dc.getCode().equals("dateTime"))
       write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {// "+dc.getCode()+"\r\n");

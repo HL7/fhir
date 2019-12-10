@@ -92,9 +92,6 @@ public class FhirTurtleGenerator {
         for (String n : sorted(definitions.getTypes().keySet()))
             genElementDefn(definitions.getTypes().get(n));
 
-        for (String n : sorted(definitions.getStructures().keySet()))
-            genElementDefn(definitions.getStructures().get(n));
-
         for (String n : sorted(definitions.getConstraints().keySet())) {
             genProfiledType(definitions.getConstraints().get(n));
         }

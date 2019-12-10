@@ -130,8 +130,6 @@ public class ResourceValidator extends BaseValidator {
 		  l = Math.max(l, n.length());
     for (String n : definitions.getPrimitives().keySet())
       l = Math.max(l, n.length());
-    for (String n : definitions.getStructures().keySet())
-      l = Math.max(l, n.length());
     for (String n : definitions.getConstraints().keySet())
       l = Math.max(l, n.length());
     for (String n : definitions.getInfrastructure().keySet())
@@ -584,7 +582,7 @@ public class ResourceValidator extends BaseValidator {
   }
 
   private boolean parentHasOp(String rname, String opname) throws Exception {
-    if (Utilities.noString(rname))
+    if (Utilities.noString(rname) || "Base".equals(rname))
         return false;
     ResourceDefn r = definitions.getResourceByName(rname);
     for (Operation op : r.getOperations()) {

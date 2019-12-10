@@ -99,6 +99,7 @@ import org.hl7.fhir.r5.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r5.model.Extension;
 import org.hl7.fhir.r5.model.Factory;
 import org.hl7.fhir.r5.model.InstantType;
+import org.hl7.fhir.r5.model.Integer64Type;
 import org.hl7.fhir.r5.model.IntegerType;
 import org.hl7.fhir.r5.model.MarkdownType;
 import org.hl7.fhir.r5.model.Meta;
@@ -254,7 +255,7 @@ public class ProfileGenerator {
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
-    p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element");
+    p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/PrimitiveType");
     p.setType(type.getCode());
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
@@ -426,6 +427,10 @@ public class ProfileGenerator {
     if (type.getCode().equals("integer")) {
       ed.setMinValue(new IntegerType(-2147483648));
       ed.setMaxValue(new IntegerType(2147483647));       
+    }
+    if (type.getCode().equals("integer64")) {
+      ed.setMinValue(new Integer64Type(-9223372036854775808L));
+      ed.setMaxValue(new Integer64Type(9223372036854775807L));       
     }
     if (type.getCode().equals("string")) {
       ed.setMaxLength(1024 * 1024);
@@ -685,7 +690,7 @@ public class ProfileGenerator {
     p.setId(t.getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ t.getName());
     p.setKind(StructureDefinitionKind.COMPLEXTYPE);
-    p.setAbstract(t.getName().equals("Element") || t.getName().equals("BackboneElement") );
+    p.setAbstract(t.isAbstractType());
     p.setUserData("filename", t.getName().toLowerCase());
     p.setUserData("path", definitions.getSrcFile(t.getName())+".html#"+t.getName());
     assert !Utilities.noString(t.typeCode());

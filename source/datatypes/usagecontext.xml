@@ -810,7 +810,7 @@
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">DataType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5405,8 +5405,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="26" ss:StyleID="s109" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s109" ss:Width="115.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s109" ss:Width="274.0"/>
-   <Column ss:StyleID="s109" ss:Width="51.0"/>
-   <Column ss:StyleID="s109" ss:Width="45.0"/>
+   <Column ss:Index="4" ss:StyleID="s109" ss:Width="45.0"/>
    <Column ss:StyleID="s109" ss:Width="146.0"/>
    <Column ss:StyleID="s109" ss:Width="172.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s109" ss:Width="97.0"/>

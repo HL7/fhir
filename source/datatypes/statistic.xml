@@ -1232,7 +1232,7 @@
     <Cell><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Is Modifier</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">If Y, indicates this element modifies the meaning of sibling or descendant elements.  Defaults to N</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Summary</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">If Y, element is included in the summary view (query with _summary=true).  Default is N</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Binding</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">        </Font><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Binding for coded data - either from local Bindings tab or declared elsewhere</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Binding</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Binding for coded data - either from local Bindings tab or declared elsewhere</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">W5</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Example</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">An example of the expected sort of value for this element.</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Default Value</Data><Comment ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The value to be assumed if the element is omitted from the instance.  Only permitted for simple data types</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1256,7 +1256,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">BackboneElement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">BackboneType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3172,7 +3172,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -5466,8 +5466,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="28" ss:StyleID="s135" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s135" ss:Width="175.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s135" ss:Width="274.0"/>
-   <Column ss:StyleID="s135" ss:Width="51.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s135" ss:Width="110.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="4" ss:StyleID="s135" ss:Width="110.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s135" ss:Width="208.0"/>
    <Column ss:StyleID="s135" ss:Width="172.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s135" ss:Width="97.0"/>

@@ -1,0 +1,17 @@
+[diagram]
+classes=Base,Element,BackboneElement,DataType,Resource,DomainResource,PrimitiveType,BackboneType
+attributes=true
+
+[size]
+width=600
+height=320
+
+[directions]
+Element=0;0
+DataType=20;110
+PrimitiveType=0;200
+Base=200;20
+BackboneElement=140;100
+Resource=360;0
+DomainResource=370;120
+BackboneType=140;190

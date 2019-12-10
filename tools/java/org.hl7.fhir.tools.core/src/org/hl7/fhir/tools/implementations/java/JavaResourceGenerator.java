@@ -1120,7 +1120,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           if (e.typeCode().equals("*")) {
             // master list in datatypes.html
             for (String t : new String[] {
-                "base64Binary", "boolean", "canonical", "code", "date", "dateTime", "decimal", "id", "instant", "integer", "markdown", "oid", 
+                "base64Binary", "boolean", "canonical", "code", "date", "dateTime", "decimal", "id", "instant", "integer", "integer64", "markdown", "oid", 
                 "positiveInt", "string", "time", "unsignedInt", "uri", "url", "uuid", "Address", "Annotation", "Attachment", "CodeableConcept", 
                 "Coding", "ContactPoint", "HumanName", "Identifier", "Period", "Quantity", "Range", "Ratio", "Reference", "SampledData", 
                 "Signature", "Timing", "Dosage"
@@ -2292,6 +2292,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         if (e.typeCode().equals("boolean"))
           write(indent+"  return this."+getElementName(e.getName(), true)+" == null || this."+getElementName(e.getName(), true)+".isEmpty() ? false : this."+getElementName(e.getName(), true)+".getValue();\r\n");
         else if (e.typeCode().equals("integer") || e.typeCode().equals("unsignedInt") || e.typeCode().equals("positiveInt"))
+          write(indent+"  return this."+getElementName(e.getName(), true)+" == null || this."+getElementName(e.getName(), true)+".isEmpty() ? 0 : this."+getElementName(e.getName(), true)+".getValue();\r\n");
+        else if (e.typeCode().equals("integer64"))
           write(indent+"  return this."+getElementName(e.getName(), true)+" == null || this."+getElementName(e.getName(), true)+".isEmpty() ? 0 : this."+getElementName(e.getName(), true)+".getValue();\r\n");
         else
           write(indent+"  return this."+getElementName(e.getName(), true)+" == null ? null : this."+getElementName(e.getName(), true)+".getValue();\r\n");

@@ -1,5 +1,5 @@
 [diagram]
-classes=instant,time,date,dateTime,decimal,boolean,integer,string,uri,base64Binary,code,id,oid,unsignedInt,positiveInt,markdown,url,canonical,uuid
+classes=PrimitiveType,instant,time,date,dateTime,decimal,boolean,integer,string,uri,base64Binary,code,id,oid,unsignedInt,positiveInt,markdown,url,canonical,uuid,integer64
 attributes=false
 
 [size]
@@ -7,15 +7,17 @@ width=350
 height=248
 
 [directions]
+PrimitiveType=-10;0
 integer=20;50
-decimal=-110;0
+decimal=-110;-22
+integer64=-110;15
 instant=-110;-60
 time=-40;-60
 string=-40;50
 date=0;-60
 uri=90;50
 dateTime=40;-60
-boolean=95;0
+boolean=110;0
 base64Binary=120;-60
 unsignedInt=-40;140
 positiveInt=80;140
@@ -23,6 +25,6 @@ code=-110;50
 id=-25;100
 oid=110;100
 markdown=-110;100
-url=180;0
+url=185;0
 canonical=136;50
 uuid=150;100

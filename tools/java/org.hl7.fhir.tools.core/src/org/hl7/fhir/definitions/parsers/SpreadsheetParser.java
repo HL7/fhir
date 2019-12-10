@@ -105,6 +105,7 @@ import org.hl7.fhir.r5.model.Factory;
 import org.hl7.fhir.r5.model.IdType;
 import org.hl7.fhir.r5.model.Identifier;
 import org.hl7.fhir.r5.model.InstantType;
+import org.hl7.fhir.r5.model.Integer64Type;
 import org.hl7.fhir.r5.model.IntegerType;
 import org.hl7.fhir.r5.model.OidType;
 import org.hl7.fhir.r5.model.Period;
@@ -332,6 +333,7 @@ public class SpreadsheetParser {
     scanNestedTypes(resource, resource.getRoot(), resource.getName());
     resolveElementReferences(resource, resource.getRoot());
 
+    resource.getRoot().setAbstractType(isAbstract);
 		return resource;
 	}
 
@@ -1986,6 +1988,8 @@ public class SpreadsheetParser {
         return new BooleanType(Boolean.valueOf(source));
       if (type.equals("integer"))
         return new IntegerType(Integer.valueOf(source));
+      if (type.equals("integer64"))
+        return new Integer64Type(Long.valueOf(source));
       if (type.equals("unsignedInt"))
         return new UnsignedIntType(Integer.valueOf(source));
       if (type.equals("positiveInt"))

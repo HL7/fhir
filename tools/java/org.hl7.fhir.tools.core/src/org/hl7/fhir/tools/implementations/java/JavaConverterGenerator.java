@@ -79,9 +79,6 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
     for (String s : sorted(definitions.getTypes().keySet())) {
       generate(definitions.getTypes().get(s), JavaGenClass.Type, null);
     }
-    for (String s : sorted(definitions.getStructures().keySet())) {
-      generate(definitions.getStructures().get(s), JavaGenClass.Type, null);
-    }
     for (String s : sorted(definitions.getConstraints().keySet())) {
       generate(definitions.getConstraints().get(s));
     }
@@ -127,12 +124,6 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
         write("      return convert"+s+"((org.hl7.fhir.dstu3.model."+s+") src);\r\n");
       }
     }
-    for (String s : sorted(definitions.getStructures().keySet())) {
-      if (!exemptTypeName(s)) {
-        write("    if (src instanceof org.hl7.fhir.dstu3.model."+s+")\r\n");
-        write("      return convert"+s+"((org.hl7.fhir.dstu3.model."+s+") src);\r\n");
-      }
-    }    
     for (String s : sorted(definitions.getConstraints().keySet())) {
       write("    if (src instanceof org.hl7.fhir.dstu3.model."+s+")\r\n");
       write("      return convert"+s+"((org.hl7.fhir.dstu3.model."+s+") src);\r\n");
@@ -159,12 +150,6 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
         write("      return convert"+s+"((org.hl7.fhir.r5.model."+s+") src);\r\n");
       }
     }
-    for (String s : sorted(definitions.getStructures().keySet())) {
-      if (!exemptTypeName(s)) {
-        write("    if (src instanceof org.hl7.fhir.r5.model."+s+")\r\n");
-        write("      return convert"+s+"((org.hl7.fhir.r5.model."+s+") src);\r\n");
-      }
-    }    
     for (String s : sorted(definitions.getConstraints().keySet())) {
       write("    if (src instanceof org.hl7.fhir.r5.model."+s+")\r\n");
       write("      return convert"+s+"((org.hl7.fhir.r5.model."+s+") src);\r\n");
