@@ -169,7 +169,7 @@
 			When deciding which payload type to request, systems <b>SHOULD</b> consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems SHOULD use the minimum level of detail consistent with the use case. In practice, <code>id-only</code> provides a good balance for many real-world scenarios.
 		</p>
 		<p>
-			If a server will not honor a payload type (e.g., will not send <code>full-resource</code> over HTTP), the server may either reject the Subscription request or report back to the subscriber that the subscription was accepted as modified.
+			If a server will not honor a payload type (e.g., will not send <code>full-resource</code> over HTTP), the server should reject the Subscription request, but may accept it and report back to the subscriber that it was modified.
 		</p>
 
 			<a name="payloads-empty" />
@@ -295,7 +295,7 @@
 			A client can declare its intention to receive notifications via Email by requesting a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>email</code> (from the subscription-channel-type Code System) and setting the endpoint (<code>Subscription.channel.endpoint</code>) to the appropriate email URI (e.g., <code>mailto:public_health_notifications@example.org</code>).
 		</p>
 		<p>
-			The server will send a new message for each matching resource.  The server will create a message based on the values present in the <code>channel.payload.contentType</code> and <code>channel.payload.content</code> fields.  If a server cannot honor the requested combination, the server can either reject the request or modify it on creation to be suitable.
+			The server will send a new message for each matching resource.  The server will create a message based on the values present in the <code>channel.payload.contentType</code> and <code>channel.payload.content</code> fields.  If a server cannot honor the requested combination, the server should reject the Subscription request rather than send unexpected email messages.
 		</p>
 		<p>The email channel sets two guidelines about content:</p>
 			<ul>
