@@ -204,7 +204,6 @@ public class SvgGenerator extends BaseGenerator {
     xml.end();
     
     String s = new String(bytes.toByteArray());
-    TextFile.stringToFile(s.substring(s.indexOf(">")+1), "C:\\temp\\svg\\"+new File(filename).getName()+".svg");
     return s.substring(s.indexOf(">")+1);
   }
 
@@ -214,7 +213,6 @@ public class SvgGenerator extends BaseGenerator {
     XMLWriter xml = new XMLWriter(bytes, "UTF-8");
     generate(resource, xml);
     String s = new String(bytes.toByteArray());
-    TextFile.stringToFile(s.substring(s.indexOf(">")+1), "C:\\temp\\svg\\"+resource.getName()+".svg");
     return s.substring(s.indexOf(">")+1);
   }
 
@@ -224,7 +222,6 @@ public class SvgGenerator extends BaseGenerator {
     links.clear();
     XMLWriter xml = new XMLWriter(new FileOutputStream(filename), "UTF-8");
     generate(resource, xml);
-    FileUtils.copyFile(new File(filename), new File("C:\\temp\\svg\\"+resource.getName()+"-"+new File(filename).getName()+".svg"));
   }
 
   public String generate(StructureDefinition definition, String filename, String id) throws Exception {
