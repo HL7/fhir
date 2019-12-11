@@ -6,33 +6,6 @@
 		Each server is responsible for accurately implementing each SubscriptionTopic it advertises support for.  Due to the breadth of possible topics, detailed implementation guidance cannot be provided here.  Following are a few topics to consider when implementing a Subscription Topic within a server:
 	</p>
 
-		<a name="filtering" />
-		<h3>Filter Checks</h3>
-		<p>
-			TODO:
-			Filters need to be checked before and after operations which may result in a notification.  For example...
-		</p>
-		<ul>
-			<li>
-				Create operation: before fails, after succeeds
-			</li>
-			<li>
-				Delete opertaion: before succeeds, after fails
-			</li>
-			<li>
-				Update operation: before succeeds, after fails
-			</li>
-			<li>
-				Update operation: before fails, after succeeds
-			</li>
-			<li>
-				Update operation: before succeeds, after succeeds
-			</li>
-			<li>
-				Generic operation (computably defined)...
-			</li>
-		</ul>
-
   <a name="defining" />
   <h2>Defining Subscription Topics</h2>
 	<p>
@@ -40,29 +13,98 @@
 	</p>
 
 	<p>
-		Definitions for Subscription Topics have parts, which are described in more detail below.  Good definitions will have useful definitions in more than one part (e.g., a conceptual definition as well as a computable definition), but the highest priority for a server implementation is to accurately trigger notifications based on the concept definition.
+		Definitions for Subscription Topics fall into three categories, which are described in more detail below.  Good definitions will have useful definitions for two parts (conceptual and one of the other two), but the server implementation should always prioritize accurately representing the concept definition.
 	</p>
 	
-	<a name="generalconcepts" />
-	<h3>General Concepts</h3>
+	<a name="concept-definition" />
+	<h3>Concept Definition</h3>
 	<p>
-		Subscription Topics MUST always document the concept they represent.  While a short definition is included in the <code>SubscriptionTopic</code> itself, this documentation will typically not be sufficient for implementers to support.  Definitions must be clear and specific.  For example, if the goal is to define an 'admission' topic, the single word is common enough to feel sufficient - implementers generally know what an 'admission' is and could implement something that would qualify.  However, is the intention to represent a patient being physically admitted to a care facility, or the start of a clinical encounter?  Either definition is common, and without more information implementations will not be consistent.  Without complete and specific definitions, server implementions will vary and clients will have unexpected behavior.
+		Subscription Topics MUST always document the concept it represents.  While a short definition is included in the <code>SubscriptionTopic</code> itself, this documentation will typically not be sufficient for implementers.  Definitions must be clear and specific.  For example, if the goal is to define an 'admission' topic, the single word is common enough to feel sufficient - implementers generally know what an 'admission' is and could implement something that would qualify.  However, is the intention to represent a patient being physically admitted to a care facility, or the start of a clinical encounter?  Either definition is common, and without more information implementations will not be consistent.  Without complete and specific definitions, server implementions will vary and clients will have unexpected behavior.
 	</p>
 
-	<a name="resourceoperations" />
-	<h3>Resource Operations</h3>
+	<a name="resource-operation-pairs" />
+	<h3>Resource Operation Pairs</h3>
 	<p>
-		Subscription Topics based on Resource Operations are the simplest to describe - definitions include the resource type (e.g., <code>Patient</code>, <code>Encounter</code>) and the operation of interest (e.g., <code>create</code>, <code>delete</code>).  Servers implementing topics defined this way are expected to trigger notifications any time that type of operation 
+		Subscription Topics based on Resource Operation Pairs are the simplest to describe - definitions include the resource type (e.g., <code>Patient</code>, <code>Encounter</code>) and the operation of interest (e.g., <code>create</code>, <code>delete</code>).
 	</p>
 	<p>
-		A note about <code>update</code> operations: a topic based on the <code>update</code> operation does not require servers to monitor resources for actual changes.  Servers MAY generate notifications on their internal triggers, regardless of actual changes (e.g., a client issuing an HTTP PUT with an identical resource).
+		Subscription Topics for resource-operation pairs are defined using the <code>SubscriptionTopic.resourceTrigger.resourceType</code> and <code>SubscriptionTopic.resourceTrigger.methodCriteria</code> fields.
 	</p>
 	
-	<a name="computabledefinitions" />
-	<h3>Computable Definitions</h3>
+		<a name="resource-operation-create" />
+		<h4>Resource: Create</h4>
+		<p>
+			Subscription Topics defined around resource <code>create</code> operations are triggered each time a resource of the specified type is created.
+		</p>
+		<p>
+			Filters for <code>create</code> operations are restricted to the type of resource being created and must be evaluated on the created resource instance.  If more complicated filtering is required (e.g., new Observations when a Patient has a given diagnosis), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
+		</p>
+		<ul>
+			<li>
+				Example using 'create' operation
+			</li>
+		</ul>
+		
+		<a name="resource-operation-delete" />
+		<h4>Resource: Delete</h4>
+		<p>
+			Subscription Topics defined around resource <code>delete</code> operations are triggered each time a resource of the specified type is deleted.
+		</p>
+		<p>
+			Filters for <code>delete</code> operations are restricted to the type of resource being deleted and must be evaluated on the resource instance being deleted.  If more complicated filtering is required (e.g., deleting a Patient which has a particular Observation), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
+		</p>
+		<ul>
+			<li>
+				Example using 'delete' operation
+			</li>
+		</ul>
+		
+		<a name="resource-operation-update" />
+		<h4>Resource: Update</h4>
+		<p>
+			Subscription Topics defined around resource <code>update</code> operations are triggered each time the server updates a resource of the specified type.  Triggering an <code>update</code> operation does not imply that the resource has changes visible to the subscriber, nor does it require servers to monitor resources for actual changes.  Servers MAY generate notifications on their internal triggers, regardless of actual changes (e.g., a client issuing an HTTP PUT with an identical resource).
+		</p>
+		<p>
+			Filters for <code>update</code> operations are restricted to the type of resource being updated and must be evaluated on the resource instance after the update is performed (e.g., post-state change).  If more complicated filtering is required (e.g., detecting when an Encounter leaves the 'in-progress' state), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
+		</p>
+		<ul>
+			<li>
+				Example using 'update' operation
+			</li>
+		</ul>
+	
+	<a name="resource-value-tests" />
+	<h3>Resource Value Tests</h3>
+	<p>
+		If a topic requires more granularity than operations provide, a topic can provide either FHIRPath or query (<a href="search.html">Search</a>) definitions to test against state changes.
+	</p>
 	<p>
 		Computable Definitions serve two purposes when defining topics.  Some server implementers may be able to use computable definitions either directly or with minimal changes.  In this scenario, the benifit of a computable definition is quite large (e.g., user-defined <code>SubscriptionTopics</code>, high portability, etc.).  However, even implementers that do not use the computable definition directly will read the definitions to understand, specifically, what is being defined.
 	</p>
+
+		<a name="fhirpath-criteria" />
+		<h4>FHIRPath Definitions</h4>
+		<p>
+			A FHIRPath expression can be evaluated against the state change...
+		</p>
+		<p>
+			FHIRPath expression input variables:
+		</p>
+		<ul>
+			<li>
+				Variable [previous] = resource instance prior to state change being applied
+			</li>
+			<li>
+				Variable [current] - resource instance post state change being applied
+			</li>
+		</ul>
+
+		<a name="query-criteria" />
+		<h4>Query (Search) Definitions</h4>
+		<p>
+			Query definitions are based on Search evaluations...
+		</p>
+
 
 	<a name="deriving" />
 	<h2>Deriving from existing Subscription Topics</h2>

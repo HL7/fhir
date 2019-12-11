@@ -4,19 +4,19 @@
   <a name="scope"></a>
   <h2>Scope and Usage</h2>
   <p>
-    The <code>SubscriptionTopic</code> resource is used to define conceptual or computable events for <a href="Subscription.html">Subscription</a> resources.  A <code>SubscriptionTopic</code> defines the <b>data</b> and <b>change</b> of interest so that implementing servers can implement specific functionality around subscriptions and clearly communicate boundaries to clients.
+    The <code>SubscriptionTopic</code> resource is used to define conceptual or computable events for <a href="Subscription.html">Subscription</a> resources.  A <code>SubscriptionTopic</code> defines the <b>data</b> and <b>change</b> of interest so that implementing servers can implement specific functionality around subscriptions and clearly communicate boundaries to clients.  In other words, a SubscriptionTopic is a way of describing a state change to know that it is of interest.  Because it covers a state change, a SubscriptionTopic is typically defined with either a resource-operation pair or resource values tested against the previous and current states.
   </p>
   <p>
     A <code>SubscriptionTopic</code> represents a well-defined concept to both a client and a server.  These concepts fall under several categories:
     <ul>
       <li>
-        General Concepts - e.g., Start of a Clinical Encounter, New Observation
+        Concept Definition - e.g., Start of a Clinical Encounter, New Observation
       </li>
       <li>
-        Resource (<a href="http.html">RESTful</a>) Operations - e.g., <code>create</code> on <code>Observation</code> resources
+        Resource Operation Pairs - e.g., <code>create</code> on <code>Observation</code> resources
       </li>
       <li>
-        Computable Definitions - e.g., Encounter:<code>%previous.status!='in-progress' and %current.status='in-progress'</code>
+        Resource Value Tests - e.g., Encounter:<code>%previous.status!='in-progress' and %current.status='in-progress'</code>
       </li>
     </ul>
   </p>
