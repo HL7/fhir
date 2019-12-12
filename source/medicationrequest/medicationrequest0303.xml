@@ -202,9 +202,9 @@
             <system value="http://unitsofmeasure.org"/>
             <code value="d"/> 
         </expectedSupplyDuration>
-        <performer>
+        <dispenser>
             <reference value="Organization/f001"></reference>
-        </performer>
+        </dispenser>
     </dispenseRequest>   
     <substitution>
         <allowedCodeableConcept>
