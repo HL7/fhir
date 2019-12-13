@@ -895,16 +895,16 @@ public class Publisher implements URIResolver, SectionNumberer {
       r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
     }
 
-    for (ResourceDefn r : page.getDefinitions().getResourceTemplates().values()) {
-      r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(r.getConformancePack(), r, "core", true));
-      ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
-      r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
-      if (page.getProfiles().has(r.getProfile().getUrl()))
-        throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
-      page.getProfiles().see(r.getProfile());
-    }
+//    for (ResourceDefn r : page.getDefinitions().getResourceTemplates().values()) {
+//      r.setConformancePack(makeConformancePack(r));
+//      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(r.getConformancePack(), r, "core", true));
+//      ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
+//      r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
+//      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
+//      if (page.getProfiles().has(r.getProfile().getUrl()))
+//        throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
+//      page.getProfiles().see(r.getProfile());
+//    }
     
     for (ProfiledType pt : page.getDefinitions().getConstraints().values()) {
       genProfiledTypeProfile(pt);
@@ -2440,10 +2440,10 @@ public class Publisher implements URIResolver, SectionNumberer {
         produceResource2(r, false, null, false);
       }
     }
-    for (String rname : page.getDefinitions().getResourceTemplates().keySet()) {
-        ResourceDefn r = page.getDefinitions().getResourceTemplates().get(rname);
-        produceResource2(r, false, null, true);
-    }
+//    for (String rname : page.getDefinitions().getResourceTemplates().keySet()) {
+//        ResourceDefn r = page.getDefinitions().getResourceTemplates().get(rname);
+//        produceResource2(r, false, null, true);
+//    }
     
     for (Compartment c : page.getDefinitions().getCompartments()) {
       if (buildFlags.get("all")) {

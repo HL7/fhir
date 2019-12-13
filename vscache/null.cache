@@ -10,7 +10,7 @@
       "system" : "http://terminology.hl7.org/CodeSystem/subscriber-relationship"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -28,7 +28,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/library-type"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -46,7 +46,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/library-type"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -64,7 +64,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/library-type"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -82,7 +82,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -100,7 +100,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-type"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -118,7 +118,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -136,7 +136,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -154,7 +154,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -172,7 +172,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -190,7 +190,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-population"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -208,7 +208,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/composite-measure-scoring"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -226,7 +226,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -244,7 +244,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/action-type"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",
@@ -262,7 +262,7 @@ v: {
       "system" : "http://terminology.hl7.org/CodeSystem/plan-definition-type"
     }]
   }
-}, "lang":"null"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
 v: {
   "display" : "",
   "severity" : "error",

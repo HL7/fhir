@@ -2185,7 +2185,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           b.append("<a href=\""+m.getLink()+"\">"+Utilities.escapeXml(m.getTitle())+"</a></td>\r\n");
         else
           b.append(Utilities.escapeXml(m.getTitle())+"</td>\r\n");
-        b.append("  <td>Formal URL: "+s+ (m.getPreamble() != null ? "<br/>"+new XhtmlComposer(false, true).compose(m.getPreamble()) : "")+"</td>\r\n");
+        b.append("  <td>Formal URL: <code>"+s+"</code>"+ (m.getPreamble() != null ? "<br/>"+new XhtmlComposer(false, true).compose(m.getPreamble()) : "")+"</td>\r\n");
         b.append(" </tr>\r\n");
       }        
     }
@@ -3728,7 +3728,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String genIgToc(ImplementationGuideDefn ig) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false, true);
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(ig.genToc(gen), "../", 0, null));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(ig.genToc(gen, "toc"), "../", 0, null));
   }
 
   private String generateToc() throws Exception {
@@ -3738,7 +3738,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     Collections.sort(entries, new SectionSorter());
     Set<String> pages = new HashSet<String>();
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false, true);
-    TableModel model = gen.new TableModel();
+    TableModel model = gen.new TableModel("toc");
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Table of Contents", "Table of Contents", null, 0));
     Deque<TocItem> stack = new ArrayDeque<TocItem>();
 
@@ -8048,7 +8048,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append(" </tr>\r\n");
     }
     if (count == 0)
-      b.append("<tr><td>No Extensions defined for "+(tn.equals("primitives")? "primitive types" : "this type")+" (though <a href=\"element-extensions.html\">extensions on all Elements</a>)</td></tr>");
+      b.append("<tr><td>No Extensions defined for "+(tn.equals("primitives")? "primitive types" : "this type")+" (though see <a href=\"element-extensions.html\">extensions on all Elements</a>)</td></tr>");
 
     if (profiles) {
       count = 0;

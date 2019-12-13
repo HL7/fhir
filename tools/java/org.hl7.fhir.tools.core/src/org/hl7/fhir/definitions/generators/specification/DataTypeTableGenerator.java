@@ -15,7 +15,7 @@ public class DataTypeTableGenerator extends TableGenerator {
 
   public XhtmlNode generate(ElementDefn e, Set<String> outputTracker) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics, false);
-    TableModel model = gen.initNormalTable("", false, true);
+    TableModel model = gen.initNormalTable("", false, true, e.getName());
     
     model.getRows().add(genElement(e, gen, false, e.getName(), false, "", RenderMode.DATATYPE, true, e.getStandardsStatus()));
     

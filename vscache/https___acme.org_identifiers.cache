@@ -73,3 +73,14 @@ v: {
   "error" : "The code system \"https://acme.org/identifiers\" is not known; The code provided (https://acme.org/identifiers#GRP) is not  valid in the value set Identifier Type Codes"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/identifiers",
+  "code" : "GRP",
+  "display" : "Group"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"https://acme.org/identifiers\" is not known (encountered paired with code = \"GRP\"); The code provided (https://acme.org/identifiers#GRP) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
