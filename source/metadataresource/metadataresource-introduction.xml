@@ -1,0 +1,36 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+
+<div>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
+<p>
+The MetadataResource serves as the base type for resources that carry publication metadata:
+</p>
+<ul>
+ <li>They have a canonical URL (note: all resources with a canonical URL are specializations of this type)</li>
+ <li>They have version, status, and data properties to help manage their publication</li>
+ <li>They carry metadata about their use, including copyright information</li>
+</ul>
+
+<p>
+As an abstract resource, this resource is never created directly; instead, one of its descendant resources (<a href="resourcelist.html">see List of Resources</a>) is created.
+</p>
+
+</div>
+
+<div>
+<a name="bnr"></a>
+<h2>Boundaries and Relationships</h2>
+
+<p>
+This resource extends the base <a href="domainresource.html">DomainResource</a>. The following resources 
+specialize this type:
+</p>
+
+[%canonical-resources%]
+
+</div>
+
+
+</div>

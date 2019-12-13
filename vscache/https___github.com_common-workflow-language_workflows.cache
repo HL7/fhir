@@ -73,3 +73,14 @@ v: {
   "error" : "The code system \"https://github.com/common-workflow-language/workflows\" is not known; The code provided (https://github.com/common-workflow-language/workflows#CWL) is not  valid in the value set Identifier Type Codes"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://github.com/common-workflow-language/workflows",
+  "code" : "CWL",
+  "display" : "lobSTR"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"https://github.com/common-workflow-language/workflows\" is not known (encountered paired with code = \"CWL\"); The code provided (https://github.com/common-workflow-language/workflows#CWL) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

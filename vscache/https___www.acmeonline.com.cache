@@ -40,3 +40,24 @@ v: {
   "error" : "The code system \"https://www.acmeonline.com\" is not known; The code provided (https://www.acmeonline.com#4503) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://www.acmeonline.com",
+  "code" : "4503"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"https://www.acmeonline.com\" is not known (encountered paired with code = \"4503\"); The code provided (https://www.acmeonline.com#4503) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://www.acmeonline.com",
+  "code" : "4503",
+  "display" : "Biopsy without Microscopic Description (1 Site/Lesion)-Standard"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"https://www.acmeonline.com\" is not known (encountered paired with code = \"4503\"); The code provided (https://www.acmeonline.com#4503) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

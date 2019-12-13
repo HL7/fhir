@@ -73,3 +73,14 @@ v: {
   "error" : "The code system \"urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd\" is not known; The code provided (urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd#IHE XDS Metadata) is not  valid in the value set Identifier Type Codes"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd",
+  "code" : "IHE XDS Metadata",
+  "display" : "submission set classificationNode"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd\" is not known (encountered paired with code = \"IHE XDS Metadata\"); The code provided (urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd#IHE XDS Metadata) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

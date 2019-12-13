@@ -73,6 +73,7 @@ import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.TerminologyServiceOptions;
 import org.hl7.fhir.utilities.TranslatorXml;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationOptions;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
@@ -450,7 +451,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   
-  public ValidationResult validateCode(TerminologyServiceOptions options, String system, String code, String display) {
+  public ValidationResult validateCode(ValidationOptions options, String system, String code, String display) {
     try {
       if (system.equals("http://snomed.info/sct"))
         return verifySnomed(code, display);
@@ -722,13 +723,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     this.definitions = definitions;    
   }
 
-
-
-  @Override
-  public Set<String> typeTails() {
-    return new HashSet<String>(Arrays.asList("Integer","Integer64","UnsignedInt","PositiveInt","Decimal","DateTime","Date","Time","Instant","String","Uri","Url","Canonical","Oid","Uuid","Id","Boolean","Code","Markdown","Base64Binary","Coding","CodeableConcept","Attachment","Identifier","Quantity","SampledData","Range","Period","Ratio","HumanName","Address","ContactPoint","Timing","Reference","Annotation","Signature","Meta"));
-  }
-
   @Override
   public List<StructureDefinition> allStructures() {
     List<StructureDefinition> result = new ArrayList<StructureDefinition>();
@@ -805,7 +799,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   public void generateSnapshot(StructureDefinition p) throws DefinitionException, FHIRException {
-    if (!p.hasSnapshot() && p.getKind() != StructureDefinitionKind.LOGICAL) {
+    generateSnapshot(p, false);
+  }
+  public void generateSnapshot(StructureDefinition p, boolean ifLogical) throws DefinitionException, FHIRException {
+    if (!p.hasSnapshot() && (ifLogical || p.getKind() != StructureDefinitionKind.LOGICAL)) {
       if (!p.hasBaseDefinition())
         throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
       StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBaseDefinition());

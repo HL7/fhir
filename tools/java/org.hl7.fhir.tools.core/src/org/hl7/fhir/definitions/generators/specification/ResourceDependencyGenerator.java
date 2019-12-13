@@ -51,7 +51,7 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
   public XhtmlNode generate(ElementDefn e, String prefix) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics, true);
     RenderMode mode = RenderMode.RESOURCE;
-    TableModel model = initTable(gen, prefix, mode == RenderMode.LOGICAL);
+    TableModel model = initTable(gen, prefix, mode == RenderMode.LOGICAL, e.getName());
 
     
     model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode, true));
@@ -337,9 +337,9 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
     addInfo(gen, row, cell, text, link);
   }
 
-  private TableModel initTable(HierarchicalTableGenerator gen, String prefix, boolean b) {
+  private TableModel initTable(HierarchicalTableGenerator gen, String prefix, boolean b, String id) {
 
-    TableModel model = gen.new TableModel();
+    TableModel model = gen.new TableModel(id);
 
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Name", "The logical name of the element", null, 0));
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Card.", "Minimum and Maximum # of times the the element can appear in the instance", null, 0));

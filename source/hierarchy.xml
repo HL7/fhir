@@ -105,6 +105,7 @@ signatures.html
         <page title="Definitions" filename="resource-definitions.html"/>
       </page>
       <page type="resource" resource="DomainResource"/>
+      <page type="resource" resource="MetadataResource"/>
       <page title="ElementDefinition" filename="elementdefinition.html">
         <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
         <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>

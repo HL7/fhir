@@ -30,3 +30,14 @@ v: {
   "error" : "The code system \"http://terminology.hl7.org/CodeSystem/v3-ActIncidentCode\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/v3-ActIncidentCode#SPT) is not  valid in the value set v3.ActIncidentCode"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActIncidentCode",
+  "code" : "SPT",
+  "display" : "Sporting Accident"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/v3-ActIncidentCode\" is not known (encountered paired with code = \"SPT\"); The code provided (http://terminology.hl7.org/CodeSystem/v3-ActIncidentCode#SPT) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

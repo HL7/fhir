@@ -19,3 +19,13 @@ v: {
   "error" : "The code system \"http://ema.europa.eu/example/unitofpresentation\" is not known; The code provided (http://ema.europa.eu/example/unitofpresentation#Tablet) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/unitofpresentation",
+  "code" : "Tablet"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://ema.europa.eu/example/unitofpresentation\" is not known (encountered paired with code = \"Tablet\"); The code provided (http://ema.europa.eu/example/unitofpresentation#Tablet) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

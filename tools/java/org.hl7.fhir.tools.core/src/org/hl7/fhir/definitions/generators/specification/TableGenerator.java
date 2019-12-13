@@ -294,7 +294,7 @@ public class TableGenerator extends BaseGenerator {
 
   
   private boolean isReference(String t) {
-    return t.equals("Reference") || t.equals("canonical"); 
+    return t.equals("Reference") || t.equals("CodeableReference") || t.equals("canonical"); 
   }  
 
   private void presentLogicalMapping(HierarchicalTableGenerator gen, Cell c, String logical, String prefix) {
