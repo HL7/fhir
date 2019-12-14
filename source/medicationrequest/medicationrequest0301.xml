@@ -200,9 +200,9 @@
             <system value="http://unitsofmeasure.org"/>
             <code value="d"/> 
         </expectedSupplyDuration>
-        <performer>
+        <dispenser>
             <reference value="Organization/example"></reference>
-        </performer>
+        </dispenser>
     </dispenseRequest>   
     <substitution>
         <allowedBoolean value="true"></allowedBoolean>
