@@ -432,7 +432,7 @@ public class ImplementationGuideDefn {
   }
   
   public TableModel genToc(HierarchicalTableGenerator gen, String id) throws FHIRException {
-    TableModel model = gen.new TableModel(id);
+    TableModel model = gen.new TableModel(id, true);
     
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Table Of Contents", null, null, 0));
     addPage(gen, model.getRows(), ig.getDefinition().getPage());    

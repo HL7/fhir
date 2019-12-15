@@ -339,7 +339,7 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
 
   private TableModel initTable(HierarchicalTableGenerator gen, String prefix, boolean b, String id) {
 
-    TableModel model = gen.new TableModel(id);
+    TableModel model = gen.new TableModel(id, true);
 
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Name", "The logical name of the element", null, 0));
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Card.", "Minimum and Maximum # of times the the element can appear in the instance", null, 0));
