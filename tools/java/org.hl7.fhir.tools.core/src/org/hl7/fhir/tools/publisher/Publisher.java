@@ -240,6 +240,7 @@ import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
@@ -880,7 +881,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getProfiles().see(r.getProfile());
         ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
         r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-        r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
+        r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, "", false));
     }
 
     for (String rn : page.getDefinitions().sortedResourceNames()) {
@@ -892,7 +893,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getProfiles().see(r.getProfile());
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
+      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, "", false));
     }
 
 //    for (ResourceDefn r : page.getDefinitions().getResourceTemplates().values()) {
@@ -1049,7 +1050,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
       t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-      t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t, null));
+      t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t, null, false));
     } catch (Exception e) {
       throw new Exception("Error generating profile for '"+t.getName()+"': "+e.getMessage(), e);
     }
@@ -1755,6 +1756,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private boolean initialize(String folder) throws Exception {
+    HierarchicalTableGenerator.ACTIVE_TABLES = true;
     page.setDefinitions(new Definitions());
     page.getWorkerContext().setCanRunWithoutTerminology(!web);
 

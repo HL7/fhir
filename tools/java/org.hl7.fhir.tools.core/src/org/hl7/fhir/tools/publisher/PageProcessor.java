@@ -513,7 +513,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String treeForDt(String dt) throws Exception {
     DataTypeTableGenerator gen = new DataTypeTableGenerator(folders.dstDir, this, dt, false);
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(definitions.getElementDefn(dt), null));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(definitions.getElementDefn(dt), null, true));
   }
 
   private String xmlForDt(String dt, String pn) throws Exception {
@@ -2427,7 +2427,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String genCompModel(StructureDefinition sd, String name, String base, String prefix) throws Exception {
     if (sd == null)
       return "<p style=\"color: maroon\">No "+name+" could be generated</p>\r\n";
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, prefix, false, false, null));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, prefix, false, false, null, true));
   }
 
   private String genCmpMessages(ProfileComparison cmp) {
@@ -3738,7 +3738,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     Collections.sort(entries, new SectionSorter());
     Set<String> pages = new HashSet<String>();
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false, true);
-    TableModel model = gen.new TableModel("toc");
+    TableModel model = gen.new TableModel("toc", true);
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Table of Contents", "Table of Contents", null, 0));
     Deque<TocItem> stack = new ArrayDeque<TocItem>();
 
@@ -4100,7 +4100,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String genResourceTable(ResourceDefn res, String prefix) throws Exception {
     ResourceTableGenerator gen = new ResourceTableGenerator(folders.dstDir, this, res.getName()+"-definitions.html", false);
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(res, prefix));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(res, prefix, true));
   }
 
   private String genResourceConstraints(ResourceDefn res, String prefix) throws Exception {
@@ -9482,7 +9482,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String generateProfileStructureTable(ConstraintStructure profile, boolean diff, String filename, String baseName, String prefix) throws Exception {
     String fn = filename.contains(".") ? filename.substring(0, filename.indexOf('.')) : filename;
     String deffile = fn+"-definitions.html";
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix, prefix, false, false, null));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix, prefix, false, false, null, true));
   }
 
   private boolean isAggregationEndpoint(String name) {

@@ -13,11 +13,11 @@ public class ResourceTableGenerator extends TableGenerator {
     super(dest, page, pageName == null ? null : pageName.toLowerCase(), inlineGraphics);
   }
 
-  public XhtmlNode generate(ResourceDefn r, String prefix) throws Exception {
+  public XhtmlNode generate(ResourceDefn r, String prefix, boolean isActive) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics, true);
     ElementDefn e = r.getRoot();
     RenderMode mode = e.typeCode().equals("Logical") && hasLogicalMapping(e) ? RenderMode.LOGICAL : RenderMode.RESOURCE;
-    TableModel model = gen.initNormalTable(prefix, mode == RenderMode.LOGICAL, true, r.getName());
+    TableModel model = gen.initNormalTable(prefix, mode == RenderMode.LOGICAL, true, r.getName(), isActive);
 
     
     model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode, true, r.getStatus()));
