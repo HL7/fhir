@@ -301,6 +301,11 @@
 		<id>logical</id>
 		<sort>25</sort>
 		<publish>true</publish>
+    <preamble>
+			<p>
+      These mappings map logical models to their conceptual equivalents in FHIR. One example of their use is to map from the CDA and V2 coded data types to CodeableConcept and Coding so that the validator can validate them on a terminology server
+     </p>
+		</preamble>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/auditevent</url>
