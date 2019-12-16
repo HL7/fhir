@@ -48,7 +48,7 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Limitations</h4>
         <ul>
             <li>Only works for automated execution where the decision to perform the request and the execution of the request can be done synchronously within the HTTP timeout period (generally on the order of 10s of seconds).</li>
-            <li>Requires that the placer have authority to post directly to the placer's system</li>
+            <li>Requires that the placer have authority to post directly to the filler's system</li>
             <li>Requires that the "request" be expressible as a simple creation, update or operation invocation</li>
             <li>Only works for "fulfillment" requests for Request resources - can't handle request for state changes or information</li>
             <li>Only way to cancel the request is with a separate custom operation</li>
