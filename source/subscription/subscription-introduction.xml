@@ -21,7 +21,7 @@
     <ul>
       <li><a href="#rest-hook"><b>rest-hook</b></a>: Notifications are sent via HTTPS POST to the <code>Subscription.channel.endpoint</code> URL (e.g., <code>https://...</code>)</li>
       <li><a href="#websockets"><b>websocket</b></a>: Notifications are sent via WS/S to a client connected via a WebSocket</li>
-      <li><a href="#email"><b>email</b></a>: Notifications are sent via SMTP/S, S/MIME, or Direct to the <code>Subscription.channel.endpoint</code> email URI (e.g., <code>mailto:...</code>)</li>
+      <li><a href="#email"><b>email</b></a>: Notifications are sent via SMTP/S, S/MIME, or Direct SMTP to the <code>Subscription.channel.endpoint</code> email URI (e.g., <code>mailto:...</code>)</li>
       <li><a href="#messaging"><b>message</b></a>: Notifications are sent via <a href="messaging.html">FHIR messaging</a> to the application identified in the <code>Subscription.channel.endpoint</code> URI</li>
     </ul>
     <p>
@@ -55,7 +55,7 @@
       polling-based method for observing events using <a href="bundle.html">bundles</a>
       and the <a href="http.html#history">history operation</a>. This method
       of polling allows for a more straightforward implementation, but can cause delays
-      in process (e.g., time between polling operations) and will result in higher computational
+      in process (e.g., time between polling operations) and may result in higher computational
       costs on the server (e.g., processing queries when there are no state changes).
     </p>
     <p>
@@ -69,11 +69,11 @@
     <a name="relationtofhircast" />
     <h3>Relation to FHIRcast</h3>
     <p>
-      <a href="http://fhircast.org">FHIRcast</a> is a HTTP-based framework for user-activity synchronization across applications.  FHIRcast and Subscription are both conceptually based <a href="https://www.w3.org/TR/websub/">W3 WebSub</a>, and while the mechanics of two projects look similar, they are fundamentally different projects used to address different use cases.  In particular:
+      <a href="http://fhircast.org">FHIRcast</a> is a framework for user-activity synchronization across applications.  FHIRcast and Subscription are both conceptually based <a href="https://www.w3.org/TR/websub/">W3 WebSub</a>, and while the mechanics of two projects look similar, they are fundamentally different projects used to address different use cases.  In particular:
       <ul>
         <li>
-          <p>FHIRcast is designed to be used by multiple applications on the same device</p>
-          <p>Subscriptions are designed to be used by multiple distinct systems</p>
+          <p>FHIRcast is designed to be used by multiple applications perhaps with the same user and typically on the same device</p>
+          <p>Subscriptions are designed to be used by multiple distinct systems, often outside of a user workflow</p>
         </li>
         <li>
           <p>FHIRcast sends only single-event notifications</p>

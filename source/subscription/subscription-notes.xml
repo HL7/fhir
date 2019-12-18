@@ -57,7 +57,7 @@
 		<a name="handshake-notification"/>
 		<h3>Handshake Notification</h3>
 		<p>
-			When a connection to an Endpoint is established, the Server will send an empty History Bundle as a Handshake notification to the client.
+			When a connection to an Endpoint is established, a server MAY send a Handshake notification to the endpoint.  A Handshake notification is an empty History Bundle sent without incrementing the subscription event count.
 		</p>
 		<ul>
 			<li>
