@@ -20,7 +20,7 @@
 	<a name="safety"/>
 	<h2>Safety and Security</h2>
 	<p>
-		Servers are responsible for following <a href="security.html">FHIR sercurity guidance</a>.  Recommendations specific to subscriptions are provided below.
+		Servers are responsible for following <a href="security.html">FHIR security guidance</a>.  Recommendations specific to subscriptions are provided below.
 	</p>
   <p>
     A subscription is a request for future event notifications. As with any client-initiated interaction, Subscriptions could request information that a client is not allowed to see, and servers SHALL enforce authorization in accordance with their policy requirements. Servers SHOULD take a Subscription's SubscriptionTopic and filters into account when authorizing the creation of a Subscription, and SHOULD ensure that authorization is (still) in place at the time of each event notification.
@@ -137,7 +137,7 @@
 					</li>
 				</ul>
 				<p>
-					For handshake and heartbeat notifications, the <code>bundle-event-count</code> will alwayhs be zero.
+					For handshake and heartbeat notifications, the <code>bundle-event-count</code> will always be zero.
 				</p>
 			</li>
 		</ul>
@@ -178,7 +178,7 @@
 				An example notification with an <code>empty</code> payload can be found <a href="subscription-example-notification-empty.html">here</a>.
 			</p>
 			<p>
-				With the content type of <code>empty</code>, the resources involved in triggering the notification are only available through the REST API, which helps consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>&amp;_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notificaiton is for a topic about patient admission, the subscriber might query for the most recent Encounters for a patient or group of patients.
+				With the content type of <code>empty</code>, the resources involved in triggering the notification are only available through the REST API, which helps consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>&amp;_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notification is for a topic about patient admission, the subscriber might query for the most recent Encounters for a patient or group of patients.
 			</p>
 
 			<a name="payloads-id-only" />
