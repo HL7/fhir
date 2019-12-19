@@ -525,7 +525,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
           if (e.getElement().getProperty().getStructure().getBaseDefinition().contains("MetadataResource")) {
             String urle = e.getElement().getChildValue("url");
             String v = e.getElement().getChildValue("url");
-            if (urle.startsWith("http://hl7.org/fhir") && !Constants.VERSION.equals(v)) {
+            if (urle != null && urle.startsWith("http://hl7.org/fhir") && !Constants.VERSION.equals(v)) {
               e.getElement().setChildValue("version", Constants.VERSION);
               
             }

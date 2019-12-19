@@ -659,7 +659,7 @@ public class ElementDefn {
 	public ElementDefn getElementForPath(String pathname, Definitions definitions, String purpose, boolean throughChoice, boolean followType) throws Exception {
 		String[] path = pathname.split("\\.");
 
-		if (!path[0].equals(getName()))
+		if (!path[0].equals(getName()) && !path[0].equals("{{name}}"))
 			throw new Exception("Element Path '" + pathname
 					+ "' is not legal in this context ("+purpose+") - expected "+getName()+" found "+path[0]);
 

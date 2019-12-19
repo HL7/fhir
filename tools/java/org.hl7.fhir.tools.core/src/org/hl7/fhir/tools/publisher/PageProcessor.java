@@ -1371,6 +1371,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+others.get(s2)+s3;
       else  if (com[0].equals("canonical-resources")) 
         src = s1+listCanonicalResources()+s3;
+      else  if (com[0].equals("metadata-resources")) 
+        src = s1+listCanonicalResources()+s3;
       else if (com[0].equals("special-search-parameters")) { 
         src = s1+listSpecialParameters()+s3;
       } else if (com[0].equals("diff-links-all")) { 
@@ -4611,11 +4613,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       pfx = "../../../";
 
     b.append("<ul class=\"nav nav-tabs\">");
-    b.append(makeHeaderTab("Formats", pfx + "formats.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Definitionsany ", pfx + "formats.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("XML", pfx + "xml.html", "xml".equals(mode)));
     b.append(makeHeaderTab("JSON", pfx + "json.html", "json".equals(mode)));
     b.append(makeHeaderTab("ND-JSON", pfx + "nd-json.html", "ndjson".equals(mode)));
     b.append(makeHeaderTab("RDF", pfx + "rdf.html", "rdf".equals(mode)));
+    b.append(makeHeaderTab("UML", pfx + "uml.html", "uml".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -9319,7 +9322,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (!"0".equals(ed.getMax())) {
         List<ElementDefinitionConstraintComponent> list = new ArrayList<ElementDefinition.ElementDefinitionConstraintComponent>();
         for (ElementDefinitionConstraintComponent t : ed.getConstraint()) {
-          if (!t.hasSource()) {
+          if (!t.hasSource() || t.getSource().equals(profile.getUrl())) {
             list.add(t);
           }
         }

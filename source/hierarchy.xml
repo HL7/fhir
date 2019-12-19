@@ -56,11 +56,12 @@ signatures.html
         <page title="Examples" filename="extensibility-examples.html"/>
         <page title="Detailed Description" filename="extensibility-definitions.html"/>
       </page>
-      <page title="Formats" filename="formats.html">
-        <page title="XML" filename="xml.html"/>
-        <page title="JSON" filename="json.html"/>
-        <page title="ND-JSON" filename="nd-json.html"/>
-        <page title="RDF" filename="rdf.html"/>
+      <page title="Resource Definitions" filename="formats.html">
+        <page title="XML format" filename="xml.html"/>
+        <page title="JSON format" filename="json.html"/>
+        <page title="ND-JSON format" filename="nd-json.html"/>
+        <page title="RDF Definition" filename="rdf.html"/>
+        <page title="UML Definition" filename="uml.html"/>
       </page>
       <page title="Change Management and Versioning" filename="versions.html">
         <page title="Timelines" filename="timelines.html"/>
@@ -105,6 +106,7 @@ signatures.html
         <page title="Definitions" filename="resource-definitions.html"/>
       </page>
       <page type="resource" resource="DomainResource"/>
+      <page type="resource" resource="CanonicalResource"/>
       <page type="resource" resource="MetadataResource"/>
       <page title="ElementDefinition" filename="elementdefinition.html">
         <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>

@@ -32,10 +32,10 @@ public class XPathQueryGenerator {
     this.definitions = definitions;
   }
 
-  public String generateXpath(List<String> list) throws Exception {
+  public String generateXpath(List<String> list, String rn) throws Exception {
     StringBuilder b = new StringBuilder();
     for (String ppath : list) {
-      String path[] = splitPath(ppath);
+      String path[] = splitPath(rn != null ? ppath.replace("{{name}}", rn) : ppath);
       if (path[path.length -1].endsWith("[x]")) {
         ElementDefn defn = definitions.getElementDefn(path[0]);
         ElementDefn ed = defn.getElementForPath(ppath, definitions, "Search parameter xpath generation", true, false);

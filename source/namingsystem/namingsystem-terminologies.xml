@@ -5,6 +5,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-sct"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-sct"/>
         <name value="SNOMED CT (IHTSDO)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -27,6 +28,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-rxnorm"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-rxnorm"/>
         <name value="RxNorm (US NLM)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -49,6 +51,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-loinc"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-loinc"/>
         <name value="LOINC (LOINC.org)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -71,6 +74,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-ucum"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-ucum"/>
         <name value="UCUM: (UnitsOfMeasure.org)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -94,6 +98,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-nci"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-nci"/>
         <name value="NCI Metathesaurus"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -116,6 +121,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-cpt"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-cpt"/>
         <name value="AMA CPT codes"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -138,6 +144,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-ndf-rt"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-ndf-rt"/>
         <name value="NDF-RT (National Drug File – Reference Terminology)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -160,6 +167,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-unii"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-unii"/>
         <name value="Unique Ingredient Identifier (UNII)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -182,6 +190,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-ndc"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-ndc"/>
         <name value="NDC/NHRIC Codes"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -204,6 +213,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-cvx"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-cvx"/>
         <name value="CVX (Vaccine Administered)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -226,6 +236,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-iso-3166"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-iso-3166"/>
         <name value="ISO 2 letter Country Codes"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -249,6 +260,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-nubc-disch"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-nubc-disch"/>
         <name value="NUBC code system for Patient Discharge Status"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -272,6 +284,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-radlex"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-radlex"/>
         <name value="RadLex"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -294,6 +307,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-icd-10"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-icd-10"/>
         <name value="ICD-10 International (WHO)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -316,6 +330,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-icd-10-nl"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-icd-10-nl"/>
         <name value="ICD-10 International (WHO) (Dutch Variant)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -338,6 +353,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-icd-10-cm"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-icd-10-cm"/>
         <name value="ICD-10 International (WHO) (US Variant)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -355,6 +371,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-idc-10-pcs"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-idc-10-pcs"/>
         <name value="ICD-10 PCS Codes (CMS)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -377,6 +394,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-icd-9-cm"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-icd-9-cm"/>
         <name value="ICD-9 USA (CDC)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -399,6 +417,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-icd-9-cm-diagnosis"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-icd-9-cm-diagnosis"/>
         <name value="ICD-9 USA (CDC)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -416,6 +435,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-icd-9-cm-procedure"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-icd-9-cm-procedure"/>
         <name value="ICD-9 USA (CDC)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -433,6 +453,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-icpc-1"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-icpc-1"/>
         <name value="ICPC (International Classification of Primary Care) (PH3C)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -450,6 +471,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-icpc-1-nl"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-icpc-1-nl"/>
         <name value="ICPC (International Classification of Primary Care) (PH3C)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -472,6 +494,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-icpc-2"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-icpc-2"/>
         <name value="ICPC (International Classification of Primary Care) (PH3C)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -494,6 +517,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-icf"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-icf"/>
         <name value="ICF (International Classification of Functioning, Disability and Health) (WHO)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -516,6 +540,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-atc"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-atc"/>
         <name value="Anatomical Therapeutic Chemical Classification System (WHO)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -538,6 +563,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-lang"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-lang"/>
         <name value="IETF language (see Tags for Identifying Languages - BCP 47)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -556,6 +582,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-mimetype"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-mimetype"/>
         <name value="Mime Types (see Multipurpose Internet Mail Extensions (MIME) Part Four - BCP 13)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -574,6 +601,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-mdc"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-mdc"/>
         <name value="Medical Device Codes defined in ISO 11073-10101 (see RTM Management service)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -597,6 +625,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-dicom"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-dicom"/>
         <name value="DICOM Code Definitions"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -620,6 +649,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-hgnc"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-hgnc"/>
         <name value="HGNC: Human Gene Nomenclature Committee"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -642,6 +672,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-ensembl"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-ensembl"/>
         <name value="ENSEMBL reference sequence identifiers"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -660,6 +691,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-refseq"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-refseq"/>
         <name value="REFSEQ : National Center for Biotechnology Information (NCBI) Reference Sequences"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -682,6 +714,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-clinvar"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-clinvar"/>
         <name value="ClinVar"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -700,6 +733,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-seq-ont"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-seq-ont"/>
         <name value="Sequence Ontology"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -717,6 +751,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-hgvs"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-hgvs"/>
         <name value="HGVS : Human Genome Variation Society"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -739,6 +774,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-dbsnp"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-dbsnp"/>
         <name value="DBSNP : Single Nucleotide Polymorphism database"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -761,6 +797,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-cosmic"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-cosmic"/>
         <name value="COSMIC : Catalogue Of Somatic Mutations In Cancer"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -783,6 +820,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-lrg-sequence"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-lrg-sequence"/>
         <name value="LRG : Locus Reference Genomic Sequences"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -805,6 +843,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-omim"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-omim"/>
         <name value="OMIM : Online Mendelian Inheritance in Man"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -827,6 +866,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-pubmed"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-pubmed"/>
         <name value="PubMed"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -849,6 +889,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-pkb"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-pkb"/>
         <name value="PHARMGKB : Pharmacogenomic Knowledge Base"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -871,6 +912,7 @@
     <resource>
       <NamingSystem>
         <id value="tx-clinical-trials"/>
+        <url value="http://hl7.org/fhir/NamingSystem/tx-clinical-trials"/>
         <name value="ClinicalTrials.gov"/>
         <status value="draft"/>
         <kind value="codesystem"/>

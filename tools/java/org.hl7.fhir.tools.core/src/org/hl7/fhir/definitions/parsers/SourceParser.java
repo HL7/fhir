@@ -244,18 +244,25 @@ public class SourceParser {
 
     // basic infrastructure
     for (String n : ini.getPropertyNames("resource-infrastructure")) {
-      ResourceDefn r = loadResource(n, null, true, false);
       String[] parts = ini.getStringProperty("resource-infrastructure", n).split("\\,");
+      boolean isAbstract = false;
+      boolean isInterface = false;
       if (parts[0].equals("abstract")) {
-        r.setAbstract(true);
+        isAbstract = true;
+      } else if (parts[0].equals("interface")) {
+        isAbstract = true;
+        isInterface = true;
       }
+      ResourceDefn r = loadResource(n, null, true, isInterface);
+      r.setAbstract(isAbstract);
+      r.setInterface(isInterface);
       definitions.getBaseResources().put(parts[1], r);
     }
 
-    logger.log("Load Resource Templates", LogMessageType.Process);
-    for (String n : ini.getPropertyNames("resource-templates")) {
-      loadResource(n, definitions.getResourceTemplates(), false, true);
-    }
+//    logger.log("Load Resource Templates", LogMessageType.Process);
+//    for (String n : ini.getPropertyNames("resource-templates")) {
+//      loadResource(n, definitions.getResourceTemplates(), false, true);
+//    }
     
     logger.log("Load Resources", LogMessageType.Process);
     for (String n : ini.getPropertyNames("resources")) {
@@ -496,15 +503,20 @@ public class SourceParser {
 
   private void processSearchExpressions() throws Exception {
     for (ResourceDefn rd : definitions.getBaseResources().values())
-      processSearchExpressions(rd);      
+      processSearchExpressions(rd, false);      
     for (ResourceDefn rd : definitions.getResources().values())
-      processSearchExpressions(rd);          
+      processSearchExpressions(rd, true);          
   }
 
-  private void processSearchExpressions(ResourceDefn rd) throws Exception {
+  private void processSearchExpressions(ResourceDefn rd, boolean replace) throws Exception {
     for (SearchParameterDefn sp : rd.getSearchParams().values())
-      if (Utilities.noString(sp.getExpression()))
-        sp.setExpression(convertToExpression(rd, sp.getPaths(), sp.getWorkingTargets(), sp));
+      if (Utilities.noString(sp.getExpression())) {
+        String exp = convertToExpression(rd, sp.getPaths(), sp.getWorkingTargets(), sp);
+        if (replace) {
+          exp = exp.replace("{{name}}", rd.getName());
+        }
+        sp.setExpression(exp);
+      }
   }
 
   private String convertToExpression(ResourceDefn rd, List<String> pn, Set<String> targets, SearchParameterDefn sp) throws Exception {
@@ -516,9 +528,11 @@ public class SourceParser {
       
       ElementDefn ed;
       List<ElementDefn> trace = new ArrayList<ElementDefn>();
-      if (p.startsWith(rd.getName()+"."))
+      if (p.startsWith(rd.getName()+".")) {
         ed = rd.getRoot().getElementByName(p, true, definitions, "search parameter generation", true, trace);
-      else
+      } else if (p.startsWith("{{name}}.")) {
+        ed = rd.getRoot().getElementByName(p.replace("{{name}}", rd.getName()), true, definitions, "search parameter generation", true, trace);
+      } else
         throw new Exception("huh?");
       if (ed == null)
         throw new Exception("not found: "+p);
@@ -1168,7 +1182,7 @@ public class SourceParser {
     String sc = ini.getStringProperty("security-categorization", root.getName().toLowerCase());
     if (sc != null)
       root.setSecurityCategorization(SecurityCategorization.fromCode(sc));
-    else if (!Utilities.existsInList(root.getName(), "Resource", "DomainResource", "MetadataResource"))
+    else if (!Utilities.existsInList(root.getName(), "Resource", "DomainResource", "CanonicalResource", "MetadataResource", "MetadataPattern"))
       throw new Exception("Must have an entry in the security-categorization section of fhir.ini for the resource "+root.getName());
 
     for (EventDefn e : sparser.getEvents())

@@ -312,7 +312,15 @@ public class SvgGenerator extends BaseGenerator {
   
   private Point determineMetrics(ElementDefn e, ClassItem source, String path, boolean isRoot, DefinedCode primitive) throws Exception {
     
-    double width = textWidth(e.getName()) * 1.8 + (isRoot ? textWidth(" (Resource)") : 0);
+    String t = e.getName();
+    if (isRoot) {
+      t = t + " {"+e.typeCodeNoParams()+")";
+    }
+    if (definitions.getBaseResources().containsKey(e.getName()) && definitions.getBaseResources().get(e.getName()).isInterface()) {
+      t = t + " «Interface»";
+    }
+    double width = textWidth(t) * 1.8;
+    //double width = textWidth(e.getName()) * 1.8 + (isRoot ? textWidth(" (Resource)") : 0);
     double height;
     if (attributes) {
       if (primitive != null) {
@@ -784,9 +792,13 @@ public class SvgGenerator extends BaseGenerator {
   private ClassItem drawClass(XMLWriter xml, ElementDefn e, boolean isRoot, ResourceDefn resource, boolean link, String path, DefinedCode primitive, StandardsStatus status) throws Exception {
     ClassItem item = classes.get(e);
     String tn = e.getName();
-    if (!definitions.hasPrimitiveType(tn) && !tn.equals("xhtml"))
+    if (!definitions.hasPrimitiveType(tn) && !tn.equals("xhtml")) {
       tn = Utilities.capitalize(tn);
+    }
     ResourceDefn r = definitions.hasResource(tn) ? definitions.getResourceByName(tn) : null;
+    if (r == null) {
+      r = definitions.getBaseResources().get(tn);
+    }
 
     xml.attribute("id", "n"+(++nc));
     xml.enter("g");
@@ -797,7 +809,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("width", Double.toString(item.width));
     xml.attribute("height", Double.toString(item.height));
     xml.attribute("filter", "url(#shadow"+id+")");
-    if (isRoot && r != null) {
+    if (r != null) {
       xml.attribute("style", "fill:"+r.getStatus().getColorSvg()+";stroke:black;stroke-width:1");
       status = r.getStatus();
     } else if (e == null || e.getStandardsStatus() == null )
@@ -838,6 +850,13 @@ public class SvgGenerator extends BaseGenerator {
       xml.enter("a");
       xml.text(tn);
       xml.exit("a");
+      if (definitions.getBaseResources().containsKey(e.getName()) && definitions.getBaseResources().get(e.getName()).isInterface()) {
+        xml.text(" ");
+        xml.attribute("xlink:href", makeRel("uml.html#interface"));
+        xml.enter("a");
+        xml.text("«Interface»");
+        xml.exit("a");
+      }
       xml.exit("text");
     } else if (isRoot) {
       xml.attribute("id", "n"+(++nc));
@@ -862,6 +881,13 @@ public class SvgGenerator extends BaseGenerator {
         xml.element("a", e.typeCode());
         xml.text(")");
         xml.exit("tspan");
+      }
+      if (definitions.getBaseResources().containsKey(e.getName()) && definitions.getBaseResources().get(e.getName()).isInterface()) {
+        xml.text(" ");
+        xml.attribute("xlink:href", makeRel("uml.html#interface"));
+        xml.enter("a");
+        xml.text("«Interface»");
+        xml.exit("a");
       }
       xml.exit("text");
     } else if (e.hasStatedType()) {
