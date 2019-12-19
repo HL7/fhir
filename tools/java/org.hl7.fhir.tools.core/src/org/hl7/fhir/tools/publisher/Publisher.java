@@ -896,16 +896,16 @@ public class Publisher implements URIResolver, SectionNumberer {
       r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, "", false));
     }
 
-//    for (ResourceDefn r : page.getDefinitions().getResourceTemplates().values()) {
-//      r.setConformancePack(makeConformancePack(r));
-//      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(r.getConformancePack(), r, "core", true));
-//      ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
-//      r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-//      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
-//      if (page.getProfiles().has(r.getProfile().getUrl()))
-//        throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
-//      page.getProfiles().see(r.getProfile());
-//    }
+    for (ResourceDefn r : page.getDefinitions().getResourceTemplates().values()) {
+      r.setConformancePack(makeConformancePack(r));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(r.getConformancePack(), r, "core", true));
+      ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
+      r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
+      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, "", true));
+      if (page.getProfiles().has(r.getProfile().getUrl()))
+        throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
+      page.getProfiles().see(r.getProfile());
+    }
     
     for (ProfiledType pt : page.getDefinitions().getConstraints().values()) {
       genProfiledTypeProfile(pt);
@@ -1690,7 +1690,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     result.setType(getSearchParamType(i.getType()));
     result.setDocumentation(i.getDescription());
     if (Utilities.noString(i.getXPath()))
-      i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths())); // used elsewhere later
+      i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths(), rn)); // used elsewhere later
     return result;
   }
 

@@ -472,12 +472,14 @@ public class XSDBaseGenerator {
       write("    <xs:complexContent>\r\n");
       write("      <xs:extension base=\""+res.getRoot().typeCode()+"\">\r\n");
     }
-    write("        <xs:sequence>\r\n");
+    if (!res.isInterface()) {
+      write("        <xs:sequence>\r\n");
 
-    for (ElementDefn e : res.getRoot().getElements()) {
+      for (ElementDefn e : res.getRoot().getElements()) {
         generateElement(res.getRoot(), e, null, null);
+      }
+      write("        </xs:sequence>\r\n");
     }
-    write("        </xs:sequence>\r\n");
     if (!isBase) {
       write("      </xs:extension>\r\n");
       write("    </xs:complexContent>\r\n");

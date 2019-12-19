@@ -1,0 +1,36 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+
+<div>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
+<p>
+The CanonicalResource represents resources that have a canonical URL:
+</p>
+<ul>
+ <li>They have a canonical URL (note: all resources with a canonical URL are specializations of this type)</li>
+ <li>They have version, status, and data properties to help manage their publication</li>
+ <li>They carry some additional metadata about their use, including copyright information</li>
+</ul>
+
+<p>
+As an interface, this type is never created directly - see <a href="uml.html#interfaces">Resource Interfaces</a> for more details.
+</p>
+
+</div>
+
+<div>
+<a name="bnr"></a>
+<h2>Boundaries and Relationships</h2>
+
+<p>
+This interface extends the base <a href="domainresource.html">DomainResource</a>. The following resources 
+implement this interface:
+</p>
+
+[%canonical-resources%]
+
+</div>
+
+
+</div>

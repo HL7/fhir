@@ -8,6 +8,7 @@
     <resource>
       <NamingSystem>
         <id value="dicom-uid"/>
+        <url value="http://hl7.org/fhir/NamingSystem/dicom-uid"/>
         <name value="DICOM Unique Id"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -39,6 +40,7 @@
     <resource>
       <NamingSystem>
         <id value="us-ssn"/>
+        <url value="http://hl7.org/fhir/NamingSystem/us-ssn"/>
         <name value="United States Social Security Number"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -80,6 +82,7 @@
     <resource>
       <NamingSystem>
         <id value="us-medicare"/>
+        <url value="http://hl7.org/fhir/NamingSystem/us-medicare"/>
         <name value="United States Medicare Number"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -121,6 +124,7 @@
     <resource>
       <NamingSystem>
         <id value="us-mbi"/>
+        <url value="http://hl7.org/fhir/NamingSystem/us-mbi"/>
         <name value="Medicare Beneficiary Identifier (United States)"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -162,6 +166,7 @@
     <resource>
       <NamingSystem>
         <id value="us-npi"/>
+        <url value="http://hl7.org/fhir/NamingSystem/us-npi"/>
         <name value="United States National Provider Identifier"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -202,6 +207,7 @@
     <resource>
       <NamingSystem>
         <id value="gtin"/>
+        <url value="http://hl7.org/fhir/NamingSystem/gtin"/>
         <name value="Global Trade Item Number (GTIN)"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -236,6 +242,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.2"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.2"/>
         <name value="Alaska Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -269,6 +276,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.1"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.1"/>
         <name value="Alabama Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -302,6 +310,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.5"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.5"/>
         <name value="Arkansas Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -335,6 +344,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.4"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.4"/>
         <name value="Arizona Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -368,6 +378,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.6"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.6"/>
         <name value="California Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -401,6 +412,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.8"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.8"/>
         <name value="Colorado Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -434,6 +446,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.9"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.9"/>
         <name value="Connecticut Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -467,6 +480,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.11"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.11"/>
         <name value="DC Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -500,6 +514,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.10"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.10"/>
         <name value="Delaware Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -533,6 +548,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.12"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.12"/>
         <name value="Florida Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -566,6 +582,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.13"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.13"/>
         <name value="Georgia Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -599,6 +616,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.15"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.15"/>
         <name value="Hawaii Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -632,6 +650,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.18"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.18"/>
         <name value="Indiana Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -665,6 +684,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.19"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.19"/>
         <name value="Iowa Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -698,6 +718,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.16"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.16"/>
         <name value="Idaho Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -731,6 +752,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.17"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.17"/>
         <name value="Illinois Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -764,6 +786,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.20"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.20"/>
         <name value="Kansas Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -797,6 +820,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.21"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.21"/>
         <name value="Kentucky Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -830,6 +854,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.22"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.22"/>
         <name value="Louisiana Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -863,6 +888,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.25"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.25"/>
         <name value="Massachusetts Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -896,6 +922,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.24"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.24"/>
         <name value="Maryland Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -929,6 +956,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.23"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.23"/>
         <name value="Maine Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -962,6 +990,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.26"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.26"/>
         <name value="Michigan Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -995,6 +1024,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.27"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.27"/>
         <name value="Minnesota Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1028,6 +1058,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.29"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.29"/>
         <name value="Missouri Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1061,6 +1092,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.28"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.28"/>
         <name value="Mississippi Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1094,6 +1126,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.30"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.30"/>
         <name value="Montana Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1127,6 +1160,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.36"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.36"/>
         <name value="New York Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1160,6 +1194,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.37"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.37"/>
         <name value="North Carolina Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1193,6 +1228,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.38"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.38"/>
         <name value="North Dakota Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1226,6 +1262,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.31"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.31"/>
         <name value="Nebraska Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1259,6 +1296,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.33"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.33"/>
         <name value="New Hampshire Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1292,6 +1330,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.34"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.34"/>
         <name value="New Jersey Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1325,6 +1364,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.35"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.35"/>
         <name value="New Mexico Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1358,6 +1398,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.32"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.32"/>
         <name value="Nevada Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1391,6 +1432,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.39"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.39"/>
         <name value="Ohio Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1424,6 +1466,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.40"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.40"/>
         <name value="Oklahoma Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1457,6 +1500,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.41"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.41"/>
         <name value="Oregon Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1490,6 +1534,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.42"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.42"/>
         <name value="Pennsylvania Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1523,6 +1568,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.44"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.44"/>
         <name value="Rhode Island Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1556,6 +1602,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.45"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.45"/>
         <name value="South Carolina Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1589,6 +1636,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.46"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.46"/>
         <name value="South Dakota Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1622,6 +1670,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.47"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.47"/>
         <name value="Tennessee Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1655,6 +1704,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.48"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.48"/>
         <name value="Texas Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1688,6 +1738,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.49"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.49"/>
         <name value="Utah Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1721,6 +1772,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.51"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.51"/>
         <name value="Virginia Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1754,6 +1806,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.50"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.50"/>
         <name value="Vermont Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1787,6 +1840,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.53"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.53"/>
         <name value="Washington Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1820,6 +1874,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.55"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.55"/>
         <name value="Wisconsin Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1853,6 +1908,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.54"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.54"/>
         <name value="West Virginia Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
@@ -1886,6 +1942,7 @@
     <resource>
       <NamingSystem>
         <id value="4.3.56"/>
+        <url value="http://hl7.org/fhir/NamingSystem/4.3.56"/>
         <name value="Wyoming Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>

@@ -250,7 +250,7 @@ public class SpreadsheetParser {
 
 	public TypeDefn parseCompositeType() throws Exception {
 		isProfile = false;
-		return parseCommonTypeColumns(false).getRoot();
+		return parseCommonTypeColumns(false, false).getRoot();
 	}
 
 	private Sheet loadSheet(String name) {
@@ -268,8 +268,9 @@ public class SpreadsheetParser {
       return "inv";
   }
 
-	private ResourceDefn parseCommonTypeColumns(boolean isResource) throws Exception {
+	private ResourceDefn parseCommonTypeColumns(boolean isResource, boolean isTemplate) throws Exception {
 		ResourceDefn resource = new ResourceDefn();
+		resource.setInterface(isTemplate);
 
 		Sheet sheet = loadSheet("Bindings");
 		if (sheet != null)
@@ -361,21 +362,42 @@ public class SpreadsheetParser {
   }
 
   private void copySearchParameters(ResourceDefn resource) {
-    for (SearchParameterDefn sps : template.getSearchParams().values()) {
-      if (sps.getPaths().size() == 0  || hasPath(resource, sps.getPaths().get(0))) {
-        SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle, resource.getName(), resource.getStatus());
-        resource.getSearchParams().put(spt.getCode(), spt);
+    if (!resource.isInterface()) {
+      ResourceDefn t2 = definitions.getBaseResources().get(template.getRoot().typeCode());
+      if (t2 != null && t2.isInterface()) {
+        for (SearchParameterDefn sps : t2.getSearchParams().values()) {
+          if (sps.getPaths().size() == 0  || hasPath(resource, sps.getPaths().get(0))) {
+            SearchParameterDefn spt = new SearchParameterDefn(sps, t2.getName(), resource.getName(), templateTitle, resource.getName(), resource.getStatus());
+            resource.getSearchParams().put(spt.getCode(), spt);
+          }
+        }
+      }
+      for (SearchParameterDefn sps : template.getSearchParams().values()) {
+        if (sps.getPaths().size() == 0  || hasPath(resource, sps.getPaths().get(0))) {
+          SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle, resource.getName(), resource.getStatus());
+          resource.getSearchParams().put(spt.getCode(), spt);
+        }
       }
     }
   }
 
   private void copyInvariants(ResourceDefn resource) {
-    String abb = ini.getStringProperty("tla", resource.getName());
-    if (abb == null)
-      abb = ini.getStringProperty("tla", resource.getName().toLowerCase());
-    for (String n : template.getRoot().getInvariants().keySet()) {
-      Invariant inv = template.getRoot().getInvariants().get(n);
-      resource.getRoot().getInvariants().put(n.replace("inv", abb), new Invariant(inv, template.getName(), resource.getName(), templateTitle, abb));
+    if (!resource.isInterface()) {
+      String abb = ini.getStringProperty("tla", resource.getName());
+      if (abb == null)
+        abb = ini.getStringProperty("tla", resource.getName().toLowerCase());
+      ResourceDefn t2 = definitions.getBaseResources().get(template.getRoot().typeCode());
+      if (t2 != null && t2.isInterface()) {
+        String t2Title = Utilities.unCamelCase(t2.getName()); 
+        for (String n : t2.getRoot().getInvariants().keySet()) {
+          Invariant inv = t2.getRoot().getInvariants().get(n);
+          resource.getRoot().getInvariants().put(n.replace("inv", abb), new Invariant(inv, t2.getName(), resource.getName(), t2Title, abb));
+        }
+      }
+      for (String n : template.getRoot().getInvariants().keySet()) {
+        Invariant inv = template.getRoot().getInvariants().get(n);
+        resource.getRoot().getInvariants().put(n.replace("inv", abb), new Invariant(inv, template.getName(), resource.getName(), templateTitle, abb));
+      }
     }
   }
 
@@ -478,7 +500,7 @@ public class SpreadsheetParser {
 
 	public ResourceDefn parseResource(boolean isTemplate) throws Exception {
 	  isProfile = false;
-	  ResourceDefn root = parseCommonTypeColumns(true);
+	  ResourceDefn root = parseCommonTypeColumns(true, isTemplate);
 	  
     
 	  readInheritedMappings(root, loadSheet("Inherited Mappings"));
@@ -895,7 +917,7 @@ public class SpreadsheetParser {
             sp.setDescription(d);
           }
 
-          sp.setXpath(Utilities.noString(xp) ? new XPathQueryGenerator(definitions, log, null).generateXpath(pn) : xp);
+          sp.setXpath(Utilities.noString(xp) ? new XPathQueryGenerator(definitions, log, null).generateXpath(pn, null) : xp);
           sp.setXpathUsage(readSearchXPathUsage(sheet.getColumn(row, "Path Usage"), row));
         }
         sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
@@ -1807,11 +1829,16 @@ public class SpreadsheetParser {
 		TypeParser tp = new TypeParser();
 		e.getTypes().addAll(tp.parse(sheet.getColumn(row, "Type"), isProfile, profileExtensionBase, context, !path.contains("."), this.name));
 		if (isRoot && e.getTypes().size() == 1 && definitions  != null) {
-		  if (definitions.getResourceTemplates().containsKey(e.getTypes().get(0).getName())) {
+		  String t = e.getTypes().get(0).getName();
+		  if (definitions.getResourceTemplates().containsKey(t)) {
 		    // we've got a template in play.
-		    template = definitions.getResourceTemplates().get(e.getTypes().get(0).getName());
+		    template = definitions.getResourceTemplates().get(t);
 		    templateTitle = Utilities.unCamelCase(e.getName());
 		    e.getTypes().get(0).setName(template.getRoot().getTypes().get(0).getName());
+      } else if (definitions.getBaseResources().containsKey(t) && definitions.getBaseResources().get(t).isInterface()) {
+        // we've got a template in play.
+        template = definitions.getBaseResources().get(t);
+        templateTitle = Utilities.unCamelCase(e.getName());
 		  }
 		}
 
@@ -1849,7 +1876,7 @@ public class SpreadsheetParser {
       else
         e.setShortDefn(sheet.getColumn(row, "Short Name"));
     if (!isProfile && e.getShortDefn() == null)
-      throw new Exception("A short definition is required "+ getLocation(row));
+      throw new Exception("A short definition is required for "+e.getName()+" at "+ getLocation(row));
 
     if (sheet.hasColumn(row, "Definition"))
       if (sheet.getColumn(row, "Definition").startsWith("&"))
@@ -1877,11 +1904,11 @@ public class SpreadsheetParser {
 		  String ms = sheet.getColumn(row, mappings.get(n).getColumnName());
 		  if (mappings.get(n).getColumnName().equals("Snomed Code") && !Utilities.noString(ms))
 		    System.out.println("!!");
-		  e.addMapping(n, ms);
+		  e.addMapping(n, ms.trim());
 		}
     if (pack != null) {
       for (String n : pack.getMappingSpaces().keySet()) {
-        e.addMapping(n, sheet.getColumn(row, pack.getMappingSpaces().get(n).getColumnName()));
+        e.addMapping(n, sheet.getColumn(row, pack.getMappingSpaces().get(n).getColumnName()).trim());
       }
     }
     if (sheet.hasColumn("Hierarchy"))
@@ -1920,6 +1947,13 @@ public class SpreadsheetParser {
 	  for (ElementDefn ted : template.getRoot().getElements()) {
 	    if (ted.getName().equals(parts[1]))
 	      return ted;
+	  }
+	  ResourceDefn t2 = definitions.getBaseResources().get(template.getRoot().typeCode());
+	  if (t2 != null && t2.isInterface()) {
+	    for (ElementDefn ted : t2.getRoot().getElements()) {
+	      if (ted.getName().equals(parts[1]))
+	        return ted;
+	    }	    
 	  }
     return null;
   }
@@ -2276,7 +2310,7 @@ public class SpreadsheetParser {
     exe.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
     doAliases(sheet, row, exe);
     for (String n : mappings.keySet()) {
-      exe.addMapping(n, sheet.getColumn(row, mappings.get(n).getColumnName()));
+      exe.addMapping(n, sheet.getColumn(row, mappings.get(n).getColumnName()).trim());
     }
     exe.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
     exe.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));

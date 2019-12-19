@@ -156,6 +156,7 @@ public class ResourceDefn  {
 
   private StandardsStatus status = StandardsStatus.TRIAL_USE;
   private boolean abstract_;
+  private boolean interface_;
   private WorkGroup wg;
   private Profile conformancePack;
 
@@ -501,5 +502,14 @@ public class ResourceDefn  {
       url = "http://hl7.org/fhir/interface";
     return url;
   }
+
+  public boolean isInterface() {
+    return interface_;
+  }
+
+  public void setInterface(boolean interface_) {
+    this.interface_ = interface_;
+  }
+  
   
 }
