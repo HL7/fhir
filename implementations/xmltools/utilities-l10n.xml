@@ -1036,6 +1036,10 @@
         <value lang="nl-NL">Verwijzing</value>
     </translation>
     <translation key="Status">
+        <comment>Status</comment>
+        <value lang="en-us">Status</value>
+    </translation>
+    <translation key="Time">
         <comment>Dates: Time</comment>
         <value lang="en-us">Time</value>
         <value lang="de-ch">Zeit</value>
