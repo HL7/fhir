@@ -40,8 +40,7 @@ Decision support generated plans following specific practice guidelines (e.g. st
 diabetes plan, falls prevention, etc.)
 </li>
 <li>
-Self-maintained patient or care-giver authored plans identifying their goals and an integrated
-understanding of actions to be taken
+Self-maintained patient or care-giver authored plans identifying their goals and an integrated understanding of actions to be taken.  This does not include the legal Advance Directives, which should be represented with either the Consent resource with Consent.category = Advance Directive or with a specific request resource with intent = directive.  Informal advance directives could be represented as a Goal, such as "I want to die at home."
 </li>
 </ul>
 <p>

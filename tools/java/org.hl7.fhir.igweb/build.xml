@@ -2,9 +2,8 @@
 <project name="igweb" default="war">
 
   <path id="compile.classpath">
-    <pathelement path="../org.hl7.fhir.igtools/bin/" />
     <pathelement path="../../../implementations/java/org.hl7.fhir.utilities/bin/" />
-    <pathelement path="../../../implementations/java/org.hl7.fhir.r4/bin/" />
+    <pathelement path="../../../implementations/java/org.hl7.fhir.r5/bin/" />
     <pathelement path="../../../implementations/java/org.hl7.fhir.convertors/bin/" />
     <pathelement location="../imports/commons-lang3-3.3.2.jar" />
     <pathelement location="../imports/commons-cli-1.4.jar" />
@@ -51,13 +50,10 @@
       </fileset>
     </copy>
     <copy flatten="false" todir="build/classes" includeemptydirs="false">
-      <fileset dir="../../../tools/java/org.hl7.fhir.igtools/bin/">
-        <include name="**/*.class" />
-      </fileset>
       <fileset dir="../../../implementations/java/org.hl7.fhir.utilities/bin/">
         <include name="**/*.class" />
       </fileset>
-      <fileset dir="../../../implementations/java/org.hl7.fhir.r4/bin/">
+      <fileset dir="../../../implementations/java/org.hl7.fhir.r5/bin/">
         <include name="**/*.class" />
       </fileset>
       <fileset dir="../../../implementations/java/org.hl7.fhir.convertors/bin/">

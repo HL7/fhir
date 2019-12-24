@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0311"/>
     <status value="completed"/>
    <medicationCodeableConcept>
        <coding>
            <system value="http://hl7.org/fhir/sid/ndc"/>
-           <code value="50090-0001"/>
+           <code value="0713-0118"/>
            <display value="Acetaminophen 120mg Suppository"/>
        </coding>
    </medicationCodeableConcept>

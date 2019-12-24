@@ -2,14 +2,14 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd" xmlns="http://hl7.org/fhir">
    <id value="med0317"/>
    
-      <form>
+      <doseForm>
          <coding>
             <system value="http://snomed.info/sct"/>
             <code value="385219001"/>
             <display value="Injection Solution (qualifier value)"/>
          </coding>
          <text value="Injection Solution (qualifier value)"/>
-      </form>
+      </doseForm>
       <ingredient>
          <itemCodeableConcept>
             <coding>
@@ -18,7 +18,7 @@
                <display value="Potassium Chloride"/>
             </coding>
          </itemCodeableConcept>
-         <strength>
+         <strengthRatio>
             <numerator>
                <value value="2"/>
                <system value="http://unitsofmeasure.org"/>
@@ -29,7 +29,7 @@
                <system value="http://unitsofmeasure.org"/>
                <code value="mL"/>
             </denominator>
-         </strength>
+         </strengthRatio>
       </ingredient>
       <ingredient>
          <itemCodeableConcept>
@@ -39,7 +39,7 @@
                <display value="Sodium Chloride 0.9% injectable solution"/>
             </coding>
          </itemCodeableConcept>
-         <strength>
+         <strengthRatio>
             <numerator>
                <value value="0.9"/>
                <system value="http://unitsofmeasure.org"/>
@@ -50,7 +50,7 @@
                <system value="http://unitsofmeasure.org"/>
                <code value="mL"/>
             </denominator>
-         </strength>
+         </strengthRatio>
       </ingredient>
    
 </Medication>

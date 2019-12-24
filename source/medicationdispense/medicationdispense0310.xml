@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0310"/>
     <contained>
@@ -9,7 +9,7 @@
             <code>
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
-                    <code value="16590-619-30"/>
+                    <code value="63481-623-70"/>
                     <display value="Percocet tablet"/>
                 </coding>
             </code>

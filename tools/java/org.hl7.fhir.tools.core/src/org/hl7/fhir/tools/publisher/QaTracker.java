@@ -14,6 +14,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.XsltUtilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 public class QaTracker {
@@ -36,15 +37,13 @@ public class QaTracker {
   
   public void countDefinitions(Definitions definitions) throws Exception {
     current.resources = definitions.getResources().size();
-    current.types = definitions.getResources().size() + definitions.getTypes().size() + definitions.getStructures().size()  
+    current.types = definitions.getResources().size() + definitions.getTypes().size()   
          + definitions.getShared().size() + definitions.getPrimitives().size()+ definitions.getInfrastructure().size();
     current.packs = definitions.getPackList().size();
     
     for (ResourceDefn r : definitions.getResources().values())
       countPaths(r.getRoot());
     for (ElementDefn e : definitions.getTypes().values())
-      countPaths(e);
-    for (ElementDefn e : definitions.getStructures().values())
       countPaths(e);
     for (String e : definitions.getShared())
       countPaths(definitions.getElementDefn(e));
@@ -74,7 +73,7 @@ public class QaTracker {
     s.append("</table>\r\n");
     
     String xslt = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "WarningsToQA.xslt");
-    s.append(Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt));
+    s.append(XsltUtilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt));
     
     return s.toString(); 
   }

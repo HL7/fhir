@@ -1,10 +1,10 @@
 package org.hl7.fhir.definitions.validation;
 
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r4.model.ElementDefinition;
-import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
-import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r5.model.ElementDefinition;
+import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ExtensionDefinitionValidator {
@@ -27,8 +27,8 @@ public class ExtensionDefinitionValidator {
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
       if (ed.getPath().startsWith("Extension.value") && !"0".equals(ed.getMax())) {
         for (TypeRefComponent tr : ed.getType()) {
-          if ("code".equals(tr.getCode())) {
-            if (!ed.hasBinding() || (ed.getBinding().getStrength() != BindingStrength.REQUIRED && !ed.getBinding().hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")))
+          if ("code".equals(tr.getWorkingCode())) {
+            if (!ed.hasSlicing() && (!ed.hasBinding() || (ed.getBinding().getStrength() != BindingStrength.REQUIRED && !ed.getBinding().hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet"))))
               throw new FHIRException("Extension "+sd.getUrl()+" has an element of type 'code' which must have required binding");
           }
         }

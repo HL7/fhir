@@ -30,16 +30,16 @@
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
   </subject>
-<context>
+<encounter>
   <reference value="Encounter/f001"></reference>
-</context>
+</encounter>
 <supportingInformation>
   <reference value ="Condition/f204"></reference>
 </supportingInformation>
- <effectivePeriod>
+  <occurencePeriod>
   <start value="2015-01-15T14:30:00+01:00"/>
   <end value="2015-01-15T14:30:00+01:00"/>
-</effectivePeriod>
+</occurencePeriod>
 
   <request>
     <reference value="MedicationRequest/medrx0317"/>

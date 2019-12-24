@@ -1,70 +1,8 @@
-<!DOCTYPE HTML>
-      
-[%settitle BackboneElement%]
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 <head>
-[%file newheader%]
+<meta http-equiv="Refresh" content="0; url=types-extras.html#BackboneElement" />
 </head>
 <body>
-[%file newnavbar%]
-
-<div class="col-12">
-
-
-<!--
- no repeating primitives in datatypes? No id's on primitives in datatypes...No dar on primitives in datatypes. It would be worthwhile to document that and the reason for it.
--->
-
-<%belheader base%>
-<h1>BackboneElement</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page%]
-
-<p>
-The base definition for complex elements defined as part of a resource definition - that is, elements that have children that are defined in the resource. <a href="datatypes.html">Data Type</a> elements do not use this type,
-though a few data types specialize it (<a href="datatypes.html#Timing">Timing</a>, <a href="dosage.html">Dosage</a>, <a href="elementdefinition.html">ElementDefinition</a>).
-For instance, <a href="patient.html#resource">Patient.contact</a> is an element that is defined as part of the patient resource, so it automatically 
-has the type <code>BackboneElement</code>.
-</p>
-
-<p>
-Note that the descendant types of <code>BackboneElement</code> are all declared implicitly as 
-part of the definitions of the resources. 
-</p>
-
-<a name="definition"></a>
-<h2 style="margin-bottom: 1px">
-Content
-</h2>
-
-[%dt BackboneElement 1%]
-
-</div>
-
-[%file newfooter%]
-
-<script src="external/jquery/jquery.js"> </script>
-<script src="jquery-ui.min.js"> </script>
-<script>
- try {
-   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
- } catch(exception){ 
- }
- if (!currentTabIndex)
-   currentTabIndex = '0';
-
-$( '#tabs-BackboneElement' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-     
-     
-function store(currentTab) {
-  document.activeElement.blur();
-  try {
-    sessionStorage.setItem('fhir-resource-tab-index', currentTab);
-  } catch(exception){ 
-  }
-  $( '#tabs-BackboneElement' ).tabs('option', 'active', currentTab);
-}     
-</script>
-  
+<p>This content has moved to <a href="types-extras.html#BackboneElement">here</a>.<!--!ns!--></p>
 </body>
 </html>

@@ -14,7 +14,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -118,6 +119,15 @@
     <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
    </Borders>
    <Interior/>
+  </Style>
+  <Style ss:ID="s79" ss:Parent="s18">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+   <NumberFormat/>
   </Style>
   <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
@@ -875,15 +885,6 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s178" ss:Parent="s18">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-   </Borders>
-   <Font ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-   <NumberFormat/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
@@ -946,9 +947,9 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s77"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s178"><Data ss:Type="String">This profile defines extensions that can be used to provide alignment with the Event workflow pattern data elements for concepts that may be generally applicable but may be sufficiently uncommon that they are more appropriate to include as extensions than as core properties of the resource.  See the workflow module for more discussion about this specification that are typically involved in workflow.</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">This profile defines extensions that can be used to provide alignment with the Event workflow pattern data elements for concepts that may be generally applicable but may be sufficiently uncommon that they are more appropriate to include as extensions than as core properties of the resource.  See the workflow module for more discussion about this specification that are typically involved in workflow.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -995,7 +996,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4234,7 +4234,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell ss:StyleID="s107"><Data ss:Type="String" x:Ticked="1">statusReason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation;DiagnosticReport;Media;SupplyDelivery;DeviceUseStatement </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation;DiagnosticReport;DocumentReference;SupplyDelivery;DeviceUseStatement </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Reason for current status&#xD;</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4292,7 +4292,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s129"><Data ss:Type="String">performerFunction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation.performer;DiagnosticReport.performer;Media.operator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation.performer;DiagnosticReport.performer;DocumentReference.author; Consent.performer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Performer Function</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">role</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4342,7 +4342,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="225">
     <Cell ss:StyleID="s135"><Data ss:Type="String">location</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation;DiagnosticReport;Media;SupplyDelivery</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation;DiagnosticReport;DocumentReference;SupplyDelivery</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Event Location</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4979,12 +4979,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>130</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

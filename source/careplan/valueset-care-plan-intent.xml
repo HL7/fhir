@@ -27,6 +27,9 @@
 	  <concept>
         <code value="option"/>
       </concept>
+	  <concept>
+        <code value="directive"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

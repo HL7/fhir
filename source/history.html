@@ -43,7 +43,7 @@ Major Milestones:
 <table class="grid">
   <tr>
     <td><a href="http://hl7.org/fhir/R4/index.html">Dec 27, 2018</a></td>
-    <td>4.0.0</td>
+    <td>4.1.0</td>
     <td>Release 4 (1<sup>st</sup> Normative Content + Trial Use Developments)
     </td>
   </tr>
@@ -91,7 +91,13 @@ template:
 notes: do not list revision in the version
 -->
 	<tr>
-		<td>4.0.0<a name="v4.0.0"></a></td>
+		<td>4.1.0<a name="v4.1.0"></a></td>
+		<td>
+      Current build after 4.1.0 release
+    </td>
+  </tr>
+	<tr>
+		<td>4.1.0<a name="v4.1.0"></a></td>
 		<td>
       <p><b>R4</b>: Dec 27, 2018. First Normative content, with many significant changes</p>
       <p>
@@ -119,7 +125,7 @@ notes: do not list revision in the version
            <li><a href="catalogentry.html">CatalogEntry</a></li>
            <li><a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
            <li><a href="devicedefinition.html">DeviceDefinition</a></li>
-           <li><a href="effectevidencesynthesis.html">EffectEvidenceSynthesis</a></li>
+           <li>EffectEvidenceSynthesis</li>
            <li><a href="eventdefinition.html">EventDefinition</a></li>
            <li><a href="evidence.html">Evidence</a></li>
            <li><a href="evidencevariable.html">EvidenceVariable</a></li>
@@ -128,21 +134,21 @@ notes: do not list revision in the version
            <li><a href="insuranceplan.html">InsurancePlan</a></li>
            <li><a href="invoice.html">Invoice</a></li>
            <li><a href="medicationknowledge.html">MedicationKnowledge</a></li>
-           <li><a href="medicinalproduct.html">MedicinalProduct</a></li>
-           <li><a href="medicinalproductauthorization.html">MedicinalProductAuthorization</a></li>
-           <li><a href="medicinalproductcontraindication.html">MedicinalProductContraindication</a></li>
-           <li><a href="medicinalproductindication.html">MedicinalProductIndication</a></li>
-           <li><a href="medicinalproductingredient.html">MedicinalProductIngredient</a></li>
-           <li><a href="medicinalproductinteraction.html">MedicinalProductInteraction</a></li>
-           <li><a href="medicinalproductmanufactured.html">MedicinalProductManufactured</a></li>
-           <li><a href="medicinalproductpackaged.html">MedicinalProductPackaged</a></li>
-           <li><a href="medicinalproductpharmaceutical.html">MedicinalProductPharmaceutical</a></li>
-           <li><a href="medicinalproductundesirableeffect.html">MedicinalProductUndesirableEffect</a></li>
+           <li>MedicinalProduct</li>
+           <li>MedicinalProductAuthorization</li>
+           <li>MedicinalProductContraindication</li>
+           <li>MedicinalProductIndication</li>
+           <li>MedicinalProductIngredient</li>
+           <li>MedicinalProductInteraction</li>
+           <li>MedicinalProductManufactured</li>
+           <li>MedicinalProductPackaged</li>
+           <li>MedicinalProductPharmaceutical</li>
+           <li>MedicinalProductUndesirableEffect</li>
            <li><a href="observationdefinition.html">ObservationDefinition</a></li>
            <li><a href="organizationaffiliation.html">OrganizationAffiliation</a></li>
-           <li><a href="researchdefinition.html">ResearchDefinition</a></li>
-           <li><a href="researchelementdefinition.html">ResearchElementDefinition</a></li>
-           <li><a href="riskevidencesynthesis.html">RiskEvidenceSynthesis</a></li>
+           <li>ResearchDefinition</li>
+           <li>ResearchElementDefinition</li>
+           <li>RiskEvidenceSynthesis</li>
            <li><a href="specimendefinition.html">SpecimenDefinition</a></li>
            <li><a href="substancepolymer.html">SubstancePolymer</a></li>
            <li><a href="substancereferenceinformation.html">SubstanceReferenceInformation</a></li>
@@ -274,17 +280,17 @@ notes: do not list revision in the version
        UserSession and
        <a href="verificationresult.html">VerificationResult</a>,
        and a new set of resources for medication knowledge management:
-       <a href="medicinalproduct.html">MedicinalProduct</a>,
-       <a href="medicinalproductauthorization.html">MedicinalProductAuthorization</a>,
-       <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->,
-       <!--a href="medicinalproductdevicespec.html"-->MedicinalProductDeviceSpec<!--/a-->,
-       <a href="medicinalproductingredient.html">MedicinalProductIngredient</a>,
-       <a href="medicinalproductpackaged.html">MedicinalProductPackaged</a>,
-       <!--a href="medicinalproductpharmaceutical.html"-->MedicinalProductPharmaceutical<!--/a-->,
+       MedicinalProduct,
+       MedicinalProductAuthorization,
+       MedicinalProductClinicals,
+       MedicinalProductDeviceSpec,
+       MedicinalProductIngredient,
+       MedicinalProductPackaged,
+       MedicinalProductPharmaceutical,
        <a href="insuranceplan.html">InsurancePlan</a>,
        <!--a href="substancepolymer.html"-->SubstancePolymer<!--/a-->,
        <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a> and
-         <!--a href="substancespecification.html"-->SubstanceSpecification<!--/a-->.
+         SubstanceSpecification.
        </li>
        <li>Renamed Resources: ProcedureRequest to <a href="servicerequest.html">ServiceRequest</a> &amp; BodySite to <a href="bodystructure.html">BodyStructure</a></li>
        <li>Removed Resources: DataElement, ImagingManifest and ServiceDefinition</li>
@@ -302,8 +308,8 @@ notes: do not list revision in the version
        <li>New Resources: <a href="catalogentry.html">CatalogEntry</a>, <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>, 
           <a href="examplescenario.html">ExampleScenario</a>, <a href="terminologycapabilities.html">TerminologyCapabilities</a>, UserSession, <a href="invoice.html">Invoice</a>, 
           <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="verificationresult.html">VerificationResult</a>, 
-          <a href="medicinalproduct.html">MedicinalProduct</a>, <a href="medicinalproductauthorization.html">MedicinalProductAuthorization</a> <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->, 
-          <a href="medicinalproductingredient.html">MedicinalProductIngredient</a>, <a href="medicinalproductpackaged.html">MedicinalProductPackaged</a>, 
+          MedicinalProduct, MedicinalProductAuthorization <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->, 
+          MedicinalProductIngredient, MedicinalProductPackaged, 
           <!-- a href="medicinalproductpharmaceutical.html"-->MedicinalProductPharmaceutical<!--/a--> <!--a href="medicinalproductdevicespec.html"-->MedicinalProductDeviceSpec<!--/a-->, 
           <!--a href="substancespecification.html"-->SubstanceSpecification<!--/a-->, <!--a href="substancepolymer.html"-->SubstancePolymer<!--/a-->, <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a>, 
           <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, ItemInstance 
@@ -469,7 +475,7 @@ notes: do not list revision in the version
          <li><a href="measure.html">Measure</a></li>
          <li><a href="medication.html">Medication</a></li>
          <li><a href="medicationadministration.html">MedicationAdministration</a></li>
-         <li><a href="medicationstatement.html">MedicationStatement</a></li>
+         <li>MedicationStatement</li>
          <li><a href="observation.html">Observation</a>: the introduction of the Vital Signs Profile (proposed to be mandatory)</li>
          <li><a href="operationdefinition.html">OperationDefinition</a></li>
          <li><a href="patient.html">Patient</a></li>
@@ -686,12 +692,11 @@ notes: do not list revision in the version
         <li><a href="immunizationrecommendation.html">ImmunizationRecommendation</a> - rename subject to patient</li>
         <li><a href="list.html">List</a> - add title, status, change ordered to orderedBy, add note</li>
         <li><a href="location.html">Location</a> - remove status</li>
-        <li><a href="media.html">Media</a> - remove created (-> Attachment)</li>
         <li><a href="medication.html">Medication</a> - add batch</li>
         <li><a href="medicationadministration.html">MedicationAdministration</a> - add reasonGiven, note, text. remove timing &amp; maxDosePerPeriod</li>
         <li><a href="medicationdispense.html">MedicationDispense</a> - collapse to a single dispense, add daysSupply, note and substitution, change quantity to allow range</li>
         <li><a href="medicationrequest.html">MedicationRequest</a> - add note, change quantity to allow range, </li>
-        <li><a href="medicationstatement.html">MedicationStatement</a> - add informationSource, status, dateAsserted, replace whenGiven with effective[x], remove device, add dosage.text</li>
+        <li>MedicationStatement - add informationSource, status, dateAsserted, replace whenGiven with effective[x], remove device, add dosage.text</li>
         <li><a href="namingsystem.html">NamingSystem</a> - add date, publisher, </li>
         <li><a href="nutritionorder.html">NutritionOrder</a> - extensive rewrite</li>
         <li><a href="observation.html">Observation</a> - change name to code, allow more types of value[x], change type of dataAbsentReason, change to bodySite = code or Reference(BodySite), allow identifier to repeat, add device, </li>
@@ -748,7 +753,6 @@ notes: do not list revision in the version
         <li><a href="questionnaire.html">Questionnaire</a>: drop questionnaire.group.question.remarks (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3255">3255</a>) and move omitReason from extension to base resource (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3260">3260</a>)</li>
         <li><a href="questionnaireresponse.html">QuestionnaireResponse</a>: allow multiple answers (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3146">3146</a>) </li>
         <li><a href="valueset.html">ValueSet</a>: replace  ValueSet.compose.include.code with ValueSet.compose.include.concept (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3258">3258</a>), added new rules about expansion content (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3138">3138</a>)</li>
-        <li><a href="media.html">Media</a>: Rename element 'dateTime' to 'created' (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3174">3174</a>) and length to duration (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-2866">2866</a>)</li>
         <li>Remove DeviceObservationReport and Query</li>
         <li>Collapse AdverseReaction into <a href="allergyintolerance.html">AllergyIntolerance</a></li>
         <li><a href="appointment.html">Appointment</a> changes - individual field renamed to actor, and added mappings to <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a></li>

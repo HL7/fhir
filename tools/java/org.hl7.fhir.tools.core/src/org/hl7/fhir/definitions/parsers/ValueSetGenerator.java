@@ -17,21 +17,21 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
-import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
-import org.hl7.fhir.r4.model.CodeType;
-import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.ContactDetail;
-import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.r4.model.Factory;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.r5.model.CodeSystem.CodeSystemHierarchyMeaning;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.r5.model.CodeType;
+import org.hl7.fhir.r5.model.Constants;
+import org.hl7.fhir.r5.model.ContactDetail;
+import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r5.model.Factory;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TranslationServices;
 import org.hl7.fhir.utilities.Utilities;
@@ -91,7 +91,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
 
     List<String> codes = new ArrayList<String>();
     for (TypeRef t : definitions.getKnownTypes())
@@ -113,7 +113,7 @@ public class ValueSetGenerator {
       }
     }
     ToolingExtensions.addCSComment(cs.addConcept().setCode("xhtml").setDisplay("XHTML").setDefinition("XHTML format, as defined by W3C, but restricted usage (mainly, no active content)"), "Special case: xhtml can only be used in the narrative Data Type");
-    markSpecialStatus(vs, cs);
+    markSpecialStatus(vs, cs, true);
   }
 
 //  private String version() {
@@ -123,17 +123,21 @@ public class ValueSetGenerator {
   private static final String SPECIAL_STATUS_NOTE = "This {name} is normative - it is generated based on the information defined in this specification. "+
     "The definition will remain fixed  across versions, but the actual contents will change from version to version";
   
-  private void markSpecialStatus(ValueSet vs, CodeSystem cs) {
+  private void markSpecialStatus(ValueSet vs, CodeSystem cs, boolean isNormative) {
     ToolingExtensions.setStringExtension(vs, "http://hl7.org/fhir/StructureDefinition/valueset-special-status", SPECIAL_STATUS_NOTE.replaceAll("\\{name\\}", "Value Set"));
+    if (isNormative) {
     ToolingExtensions.setStandardsStatus(vs, StandardsStatus.NORMATIVE, "4.0.0");
     ToolingExtensions.addIntegerExtension(vs, ToolingExtensions.EXT_FMM_LEVEL, 5);
+    }
     ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_WORKGROUP, "fhir");
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
     if (cs != null) {
       ToolingExtensions.setStringExtension(cs, "http://hl7.org/fhir/StructureDefinition/valueset-special-status", SPECIAL_STATUS_NOTE.replaceAll("\\{name\\}", "Code System"));
+      if (isNormative) {
       ToolingExtensions.setStandardsStatus(cs, StandardsStatus.NORMATIVE, "4.0.0");
       ToolingExtensions.addIntegerExtension(cs, ToolingExtensions.EXT_FMM_LEVEL, 5);
+      }
       ToolingExtensions.setCodeExtension(cs, ToolingExtensions.EXT_WORKGROUP, "fhir");
       cs.setStatus(PublicationStatus.ACTIVE);
       cs.setExperimental(false);
@@ -160,7 +164,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);    
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
         
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getKnownResources().keySet());
@@ -187,7 +191,7 @@ public class ValueSetGenerator {
       }
     }
 
-    markSpecialStatus(vs, cs);
+    markSpecialStatus(vs, cs, true);
   }
 
   private void genAbstractTypes(ValueSet vs) {
@@ -212,11 +216,11 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);    
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
 
     cs.addConcept().setCode("Type").setDisplay("Type").setDefinition("A place holder that means any kind of data type");
     cs.addConcept().setCode("Any").setDisplay("Any").setDefinition("A place holder that means any kind of resource");
-    markSpecialStatus(vs, cs);
+    markSpecialStatus(vs, cs, true);
   }
 
   private void genDefinedTypes(ValueSet vs, boolean doAbstract) throws Exception {
@@ -235,7 +239,7 @@ public class ValueSetGenerator {
         System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 9: is "+ec+", want to set to "+"fhir");
     }     
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
-    markSpecialStatus(vs, null);
+    markSpecialStatus(vs, null, true);
   }
 
   private void genMessageEvents(ValueSet vs) {
@@ -260,7 +264,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
 
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getEvents().keySet());
@@ -272,7 +276,7 @@ public class ValueSetGenerator {
       c.setDisplay(transform(e.getCode(), e.getTitle()));
       c.setDefinition(e.getDefinition());
     }
-    markSpecialStatus(vs, cs);
+    markSpecialStatus(vs, cs, false);
   }
 
   
@@ -378,7 +382,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
   }
 
   private List<String> sorted(Set<String> keys) {

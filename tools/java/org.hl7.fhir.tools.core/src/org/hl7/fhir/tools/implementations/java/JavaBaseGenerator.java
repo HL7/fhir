@@ -38,10 +38,10 @@ import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
-import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -86,8 +86,10 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 		if (type.getParams().size() == 1) {
 			if (type.isResourceReference())
 				return "Reference";
-			else if (type.isCanonical())
+      else if (type.isCanonical())
         return "CanonicalType";
+      else if (type.isCodeableReference())
+        return "CodeableReference";
 			else
 				throw new Exception("not supported");
 		} else if (type.getParams().size() > 1) {
@@ -95,6 +97,8 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 				return "Reference";
 			else if (type.isCanonical())
         return "CanonicalType";
+      else if (type.isCodeableReference())
+        return "CodeableReference";
       else
 				throw new Exception("not supported");
 		} else {
@@ -183,7 +187,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
     if (ok) {
       if (cd.getValueSet() != null && cd.getValueSet().hasCompose() && cd.getValueSet().getCompose().getInclude().size() == 1) {
         ConceptSetComponent inc = cd.getValueSet().getCompose().getIncludeFirstRep();
-        if (inc.hasSystem() && !inc.hasFilter() && !inc.hasConcept() && !inc.getSystem().startsWith("http://hl7.org/fhir"))
+        if (inc.hasSystem() && !inc.hasFilter() && !inc.hasConcept() && !(inc.getSystem().startsWith("http://hl7.org/fhir") || inc.getSystem().startsWith("http://terminology.hl7.org")))
           ok = false;
       }
     }

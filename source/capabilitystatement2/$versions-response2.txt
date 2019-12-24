@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+[other headers]
+
+{
+	"versions": ["3.0", "4.0"],
+	"default" : "4.0"
+}
+
+on in XML:
+
+<versions>
+  <version>3.0</version>
+  <version>4.0</version>
+  <default>4.0</default>
+</versions>
+
+

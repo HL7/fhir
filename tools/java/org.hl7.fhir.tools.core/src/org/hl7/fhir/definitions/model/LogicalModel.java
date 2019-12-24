@@ -1,10 +1,13 @@
 package org.hl7.fhir.definitions.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.model.ResourceDefn.PointSpec;
-import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.utilities.Utilities;
 
 public class LogicalModel {
  
@@ -14,6 +17,7 @@ public class LogicalModel {
   private StructureDefinition definition;
   private WorkGroup wg;
   private Map<String, PointSpec> layout = new HashMap<String, PointSpec>();
+  private List<String> implementations = new ArrayList<>();
   
   public LogicalModel() {
     super();
@@ -71,5 +75,14 @@ public class LogicalModel {
   public Map<String, PointSpec> getLayout() {
     return layout;
   }
+
+  public String getMappingUrl() {
+    return resource.getMappingUrl();
+  }
+
+  public List<String> getImplementations() {
+    return implementations;
+  }
   
+
 }

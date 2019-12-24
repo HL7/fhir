@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
@@ -12,8 +13,8 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.utils.TypesUtilities;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.utils.TypesUtilities;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -241,7 +242,15 @@ public class TurtleSpecGenerator extends OutputStreamWriter {
     if (t.hasParams()) {
       write("(");
       boolean firstp = true;
+      List<String> ap = new ArrayList<>();
       for (String p : t.getParams()) {
+        if (definitions.hasLogicalModel(p))
+          ap.addAll(definitions.getLogicalModel(p).getImplementations());
+        else
+          ap.add(p);
+      }
+      Collections.sort(ap);
+      for (String p : ap) {
         if (!firstp) {
           write("|");
           w++;

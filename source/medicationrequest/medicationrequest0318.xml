@@ -9,7 +9,7 @@
             <code>
                 <coding>
                     <system value="http://hl7.org/fhir/sid/ndc"/>
-                    <code value="0069-2587-10"/>
+                    <code value="0409-6531-02"/>
                     <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
                 </coding>
             </code>
@@ -38,13 +38,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="11840006"/>
             <display value="Traveller's Diarrhea (disorder)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <note>
         <text value="culture expected back in 12 hours - may switch depending on results"/>
     </note>
@@ -52,7 +54,12 @@
         <sequence value="1"/>
         <text value="500mg IV q6h x 3 days" />
         <timing>
+            <event value="2020-01-01"></event>
             <repeat>
+                <boundsPeriod>
+                    <start value="2020-01-01"></start>
+                    <end value="2020-01-10"></end>
+                </boundsPeriod>
                 <frequency value="1"/>
                 <period value="6"/>
                 <periodUnit value="h"/>

@@ -1,0 +1,6 @@
+// Request a list of versions supported by the server
+GET [base]/$versions
+Accept: application/fhir+xml
+[other headers]
+
+

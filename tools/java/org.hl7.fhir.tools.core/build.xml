@@ -2,37 +2,26 @@
 <project basedir="." default="build" name="org.hl7.fhir.tools">
   <property environment="env"/>
   <property name="org.hl7.fhir.rdf.location" value="../../../implementations/java/org.hl7.fhir.rdf"/>
-  <property name="org.hl7.fhir.igtools.location" value="../../../tools/java/org.hl7.fhir.igtools"/>
   <property name="debuglevel" value="source,lines,vars"/>
   <property name="target" value="1.8"/>
   <property name="source" value="1.8"/>
   <path id="org.hl7.fhir.rdf.classpath">
     <pathelement location="${org.hl7.fhir.rdf.location}/bin"/>
   </path>
-  <path id="org.hl7.fhir.igtools.classpath">
-    <pathelement location="${org.hl7.fhir.igtools.location}/bin"/>
-  </path>
   <path id="org.hl7.fhir.tools.classpath">
     <pathelement location="bin"/>
     <fileset dir="../imports" includes="*.jar"/>
     <path refid="org.hl7.fhir.rdf.classpath"/>
-    <path refid="org.hl7.fhir.igtools.classpath"/>
   </path>
   <target name="clean">
     <delete dir="bin"/>
   </target>
   <target depends="clean" name="cleanall">
     <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="clean"/>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.igtools.location}" inheritAll="false" target="clean"/>
   </target>
   <target depends="build-subprojects,build-project" name="build"/>
   <target name="build-subprojects">
     <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="build-project">
-      <propertyset>
-        <propertyref name="build.compiler"/>
-      </propertyset>
-    </ant>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.igtools.location}" inheritAll="false" target="build-project">
       <propertyset>
         <propertyref name="build.compiler"/>
       </propertyset>
@@ -122,10 +111,9 @@
   <target name="fhir-sources-jar" depends="build">
     <jar destfile="${maven-sources-jar}" filesetmanifest="mergewithoutmain">
       <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src" includes="**/*.java"/>
-      <fileset dir="../../../implementations/java/org.hl7.fhir.r4/src" includes="**/*.java"/>
+      <fileset dir="../../../implementations/java/org.hl7.fhir.r5/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.utilities/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.rdf/src" includes="**/*.java"/>
-      <fileset dir="../../../tools/java/org.hl7.fhir.igtools/src" includes="**/*.java"/>
     </jar>
   </target>
   <target name="fhir-javadoc-jar" depends="build">

@@ -34,8 +34,6 @@ public class SpellChecker {
       loadFromElement(t);
     for (TypeDefn t : definitions.getInfrastructure().values())
       loadFromElement(t);
-    for (TypeDefn t : definitions.getStructures().values())
-      loadFromElement(t);
   }
 
 

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+
+<!-- template-logical-mappings.html -->
+
+<%settitle Pattern {xtitle} - Analysis%>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-12">
+
+<%lmheader analysis%>
+
+<h2><%title%></h2>
+
+<table class="<%fmm-style%>">
+ <tr><td><a href="<%wg%>"><%wgt%></a></td><td><%fmm%></td><td><a href="versions.html#std-process">Informative</a><!--!ns!--></td><td></td></tr>
+</table>
+
+<p>Detailed Cross Analysis for the <%pattern-title%>.</p>
+
+<%pattern-analysis%>
+
+</div>
+
+<%file newfooter%>
+    
+</body>
+</html>

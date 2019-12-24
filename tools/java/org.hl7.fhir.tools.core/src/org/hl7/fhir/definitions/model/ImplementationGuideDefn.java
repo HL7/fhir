@@ -10,12 +10,12 @@ import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.parsers.IgParser;
 import org.hl7.fhir.definitions.parsers.IgParser.GuidePageKind;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r4.model.CodeType;
-import org.hl7.fhir.r4.model.ImplementationGuide;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r5.model.CodeType;
+import org.hl7.fhir.r5.model.ImplementationGuide;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
@@ -431,8 +431,8 @@ public class ImplementationGuideDefn {
     }
   }
   
-  public TableModel genToc(HierarchicalTableGenerator gen) throws FHIRException {
-    TableModel model = gen.new TableModel();
+  public TableModel genToc(HierarchicalTableGenerator gen, String id) throws FHIRException {
+    TableModel model = gen.new TableModel(id, true);
     
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Table Of Contents", null, null, 0));
     addPage(gen, model.getRows(), ig.getDefinition().getPage());    

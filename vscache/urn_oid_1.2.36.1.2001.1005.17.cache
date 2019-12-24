@@ -425,3 +425,63 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "code" : "FLUVAX"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Fluvax",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "code" : "GNFLU"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Influenza",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "code" : "GNHEP"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Hepatitis B",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "code" : "FLUVAX"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
+v: {
+  "display" : "Fluvax",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "code" : "GNFLU"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
+v: {
+  "display" : "Influenza",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "code" : "GNHEP"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
+v: {
+  "display" : "Hepatitis B",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

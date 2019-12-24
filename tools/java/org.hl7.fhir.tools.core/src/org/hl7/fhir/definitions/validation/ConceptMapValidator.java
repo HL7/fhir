@@ -1,7 +1,7 @@
 package org.hl7.fhir.definitions.validation;
 
 import org.hl7.fhir.definitions.model.Definitions;
-import org.hl7.fhir.r4.model.ConceptMap;
+import org.hl7.fhir.r5.model.ConceptMap;
 
 public class ConceptMapValidator {
 

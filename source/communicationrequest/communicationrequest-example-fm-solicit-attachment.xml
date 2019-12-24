@@ -73,7 +73,9 @@
     <reference value="Encounter/example"/>
   </encounter>
   <payload>
-    <contentString value="Please provide the accident report and any associated pictures to support your Claim# DEF5647."/>
+    <contentCodeableConcept>
+		<text value="Please provide the accident report and any associated pictures to support your Claim# DEF5647."/>
+	</contentCodeableConcept>
   </payload>
   <occurrenceDateTime value="2016-06-10T11:01:10-08:00"/>
   <authoredOn value="2016-06-10T11:01:10-08:00"/>
@@ -83,9 +85,9 @@
    <recipient>
       <reference value="#provider"/>
   </recipient>
-   <sender>
+   <informationProvider>
      <reference value="#payor"/>
-   </sender>
+   </informationProvider>
    
 
 </CommunicationRequest>

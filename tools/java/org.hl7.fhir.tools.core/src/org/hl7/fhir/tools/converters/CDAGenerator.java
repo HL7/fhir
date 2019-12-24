@@ -18,25 +18,25 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.r4.conformance.ProfileUtilities;
-import org.hl7.fhir.r4.conformance.XmlSchemaGenerator;
-import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.BooleanType;
-import org.hl7.fhir.r4.model.CodeType;
-import org.hl7.fhir.r4.model.ElementDefinition;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.PropertyRepresentation;
-import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.r4.model.Enumeration;
-import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
-import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.r4.model.StringType;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
-import org.hl7.fhir.r4.model.Type;
-import org.hl7.fhir.r4.model.UriType;
+import org.hl7.fhir.r5.conformance.ProfileUtilities;
+import org.hl7.fhir.r5.conformance.XmlSchemaGenerator;
+import org.hl7.fhir.r5.formats.IParser.OutputStyle;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.BooleanType;
+import org.hl7.fhir.r5.model.CodeType;
+import org.hl7.fhir.r5.model.ElementDefinition;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.PropertyRepresentation;
+import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r5.model.Enumeration;
+import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r5.model.StringType;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.r5.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.r5.model.Type;
+import org.hl7.fhir.r5.model.UriType;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -176,7 +176,7 @@ public class CDAGenerator {
       for (ElementDefinition ed : sd.getDifferential().getElement()) {
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
         for (TypeRefComponent t : ed.getType()) {
-          b.append(t.getCode());
+          b.append(t.getWorkingCode());
         }
         CommaSeparatedStringBuilder b2 = new CommaSeparatedStringBuilder();
         for (Enumeration<PropertyRepresentation> r : ed.getRepresentation())
@@ -861,7 +861,7 @@ public class CDAGenerator {
 
 
   private void checkType(TypeRefComponent t) {
-    String id = t.getCode();
+    String id = t.getWorkingCode();
     if (Utilities.existsInList(id, "string", "Element", "code", "boolean", "Resource"))
       return;
     for (StructureDefinition sd : structures) {

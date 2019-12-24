@@ -1,4 +1,5 @@
 INFORMATION: CodeSystem.concept.property.value[x]: An element of type CodeableConcept or Coding must have a binding
+INFORMATION: ValueSet.expansion.contains.property.value[x]: An element of type CodeableConcept or Coding must have a binding
 INFORMATION: DataElement.element: Name of child (element) overlaps with name of parent (DataElement)
 INFORMATION: ElementDefinition.definition: Name of child (definition) overlaps with name of parent (ElementDefinition)
 INFORMATION: EpisodeOfCare.careManager: Name of child (careManager) overlaps with name of parent (EpisodeOfCare)
@@ -48,3 +49,6 @@ WARNING: StructureDefinition.ext-context: Search Parameter 'StructureDefinition.
 WARNING: DataElement.stringency: Search Parameter 'DataElement.stringency' had no found values in any example. Consider reviewing the expression (DataElement.stringency)
 WARNING: DataElement.url: Search Parameter 'DataElement.url' had no found values in any example. Consider reviewing the expression (DataElement.url)
 WARNING: HealthcareService.eligibility.comment: MnM must have confirmed this should not be an Annotation
+INFORMATION: Binding @ Goal.target.detail[x]: Need to provide a binding
+WARNING: AdministrableProductDefinition.routeOfAdministration.targetSpecies: Element names should be singular
+WARNING: MedicinalProductDefinition.specialMeasures: Element names should be singular

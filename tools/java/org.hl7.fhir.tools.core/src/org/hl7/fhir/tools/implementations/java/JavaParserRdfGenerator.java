@@ -249,17 +249,15 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
   }
 
   private void start(String version, Date genDate) throws Exception {
-    write("package org.hl7.fhir.r4.formats;\r\n");
+    write("package org.hl7.fhir.r5.formats;\r\n");
     write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
-    for (DefinedCode dc : definitions.getPrimitives().values()) 
-      write("import org.hl7.fhir.r4.model."+getPrimitiveTypeModelName(dc.getCode())+";\r\n");
-    write("import org.hl7.fhir.r4.model.*;\r\n");
+    write("import org.hl7.fhir.r5.model.*;\r\n");
     write("import org.xmlpull.v1.*;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
     write("import org.hl7.fhir.exceptions.FHIRFormatError;\r\n");
     write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
-    write("import org.hl7.fhir.r4.utils.formats.Turtle.Complex;\r\n");
+    write("import org.hl7.fhir.r5.utils.formats.Turtle.Complex;\r\n");
     write("import java.io.IOException;\r\n");
     //  write("import java.util.*;\r\n");
     write("\r\n");
@@ -750,12 +748,6 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
         regtn.append("    else if (value instanceof "+nn+")\r\n      compose"+nn+"(parent, parentType, name, ("+nn+")value, index);\r\n");
     }
 
-    for (ElementDefn n : definitions.getStructures().values()) {
-      generateComposer(n, JavaGenClass.Structure);
-      String nn = javaClassName(n.getName());
-//      regtn.append("    else if (value instanceof "+nn+")\r\n      compose"+nn+"(parent, parentType, name, ("+nn+")value, index);\r\n");
-    }
-
     for (String s : definitions.getBaseResources().keySet()) {
       ResourceDefn n = definitions.getBaseResources().get(s);
       generateComposer(n.getRoot(), n.isAbstract() ? JavaGenClass.AbstractResource : JavaGenClass.Resource);
@@ -1022,6 +1014,8 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
       //        return "java.lang.Boolean";
       //      else if (t.equals("integer"))
       //        return "Integer";
+      //      else if (t.equals("integer64"))
+      //        return "Integer64?";
       //      else if (t.equals("decimal"))
       //        return "Decimal";
       //      else if (t.equals("base64Binary"))

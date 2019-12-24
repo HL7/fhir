@@ -26,13 +26,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="230456007"/>
             <display value="Status epilepticus (disorder)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <note>
         <text value="Patient should be counselled to ensure good dental hygiene"/>
     </note>

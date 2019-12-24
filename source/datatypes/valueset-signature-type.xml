@@ -7,16 +7,14 @@
   <name value="SignatureTypeCodes"/>
   <title value="Signature Type Codes"/>
   <status value="draft"/>
-  <publisher value="ASTM"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.astm.org/"/>
-    </telecom>
-  </contact>
+  <publisher value="HL7 FHIR"/>
+
   <description value="The Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. Examples include: author, transcriptionist/recorder, and witness."/>
-  <copyright value="These codes are excerpted from ASTM Standard, E1762-95(2013) - Standard Guide for Electronic Authentication of Health Care Information, Copyright by ASTM International, 100 Barr Harbor Drive, West Conshohocken, PA 19428. Copies of this standard are available through the ASTM Web Site at www.astm.org."/>
+  <copyright value="This value set includes contents from ASTM and ETSI which hold their own copyright."/>
   <compose>
+    <include>
+      <system value="http://uri.etsi.org/01903/v1.2.2"/>
+    </include>
     <include>
       <system value="urn:iso-astm:E1762-95:2013"/>
     </include>

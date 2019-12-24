@@ -32,14 +32,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.definitions.model.ResourceDefn.RimClass;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
 
 public class ResourceDefn  {
+
+  public enum RimClass {
+    UNKNOWN, ANY, ENTITY, ROLE, ACT, SPECIAL;
+    
+    public String toCode() {
+      switch (this) {
+      case ACT: return "Act";
+      case ANY: return "*";
+      case ENTITY: return "Entity";
+      case ROLE: return "Role";
+      case SPECIAL: return "(special)";
+      case UNKNOWN: return "??";
+      }
+      return null;
+    }
+  }
 
   public enum SecurityCategorization {
     ANONYMOUS, BUSINESS, INDIVIDUAL, PATIENT, NOT_CLASSIFIED;
@@ -139,6 +156,7 @@ public class ResourceDefn  {
 
   private StandardsStatus status = StandardsStatus.TRIAL_USE;
   private boolean abstract_;
+  private boolean interface_;
   private WorkGroup wg;
   private Profile conformancePack;
 
@@ -211,7 +229,7 @@ public class ResourceDefn  {
   private boolean forFutureUse = false;
   private String requirements;
   private boolean publishedInProfile;
-  private String normativeBallotPackage;
+  private String normativePackage;
   private String normativeVersion;
 
   public boolean isForFutureUse()
@@ -392,12 +410,12 @@ public class ResourceDefn  {
   }
 
   
-  public String getNormativeBallotPackage() {
-    return normativeBallotPackage;
+  public String getNormativePackage() {
+    return normativePackage;
   }
 
-  public void setNormativeBallotPackage(String value) {
-     this.normativeBallotPackage = value; 
+  public void setNormativePackage(String value) {
+     this.normativePackage = value; 
   }
 
   public void addHints(List<String> hints) {
@@ -444,6 +462,53 @@ public class ResourceDefn  {
 
   public void setNormativeVersion(String normativeVersion) {
     this.normativeVersion = normativeVersion;
+  }
+
+  public RimClass getRimClass() {
+    String mapping = root.getMapping("http://hl7.org/v3");
+    if (Utilities.noString(mapping))
+      return RimClass.UNKNOWN;
+    if (mapping.contains("["))
+      mapping = mapping.substring(0, mapping.indexOf("["));
+    if (Utilities.existsInList(mapping, "Act", "ControlAct", "FinancialContract", "FinanicalTransaction", "Account", "InvoiceElement", "Exposure", "DeviceTask", "ContextStructure", "Document", 
+        "Supply", "Diet", "DiagnosticImage", "Observation", "PublicHealthCase", "WorkingList", "PatientEncounter", "Procedure", "SubstanceAdministration",
+        // illegal, but in use
+        "Appointment", "ActSIte", "FinancialConsent", "Coverage", "Encounter", ".outboundRelationship", 
+        "act"))
+      return RimClass.ACT;
+    if (Utilities.existsInList(mapping, "Entity", "Place", "Organization", "Person", "LivingSubject", "NonPersonLivingSubject", "Material", "ManufacturedMaterial", "Container", "Device", 
+        "ManufacturedProduct"))
+      return RimClass.ENTITY;
+    if (Utilities.existsInList(mapping, "Role", "Access", "Patient", "LicensedEntity", "QualifiedEntity", "Employee", "RoleLink",
+        ".Role"))
+      return RimClass.ROLE;
+    if (Utilities.existsInList(mapping, "Act, Entity or Role"))
+      return RimClass.ANY;
+    if (Utilities.existsInList(mapping, "ED", "N/A", "n/a", "N/A - RIM doesn't know how to do this"))
+      return RimClass.SPECIAL;
+    if (mapping.toLowerCase().startsWith("n/a"))
+      return RimClass.SPECIAL;
+    return RimClass.UNKNOWN;
+//    throw new Error("Didn't understand RIM Mapping: "+mapping+" for "+getName());
+  }
+  
+  public String getMappingUrl() {
+    String url = null;
+    if (getName().equals("fivews"))
+      url = "http://hl7.org/fhir/fivews";
+    else if (Utilities.existsInList(getName(), "event", "request", "definition"))
+      url = "http://hl7.org/fhir/workflow";
+    else 
+      url = "http://hl7.org/fhir/interface";
+    return url;
+  }
+
+  public boolean isInterface() {
+    return interface_;
+  }
+
+  public void setInterface(boolean interface_) {
+    this.interface_ = interface_;
   }
   
   

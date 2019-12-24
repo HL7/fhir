@@ -10,7 +10,7 @@
   <code>
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
-      <code value="0069-2587-10"/>
+      <code value="0409-6531-02"/>
       <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
     </coding>
   </code>
@@ -18,13 +18,13 @@
   <manufacturer>
     <reference value="#org4" />
   </manufacturer>
-    <form>
+    <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385219001"/>
         <display value="Injection Solution (qualifier value)"/>
       </coding>
-    </form>
+    </doseForm>
     <ingredient>
       <itemCodeableConcept>
         <coding>
@@ -34,7 +34,7 @@
         </coding>
       </itemCodeableConcept>
       <isActive value="true"></isActive>
-      <strength>
+      <strengthRatio>
         <numerator>
           <value value="500"/>
           <system value="http://unitsofmeasure.org"/>
@@ -45,7 +45,7 @@
           <system value="http://unitsofmeasure.org"/>
           <code value="mL"/>
         </denominator>
-      </strength>
+      </strengthRatio>
     </ingredient>
   <batch>
     <lotNumber value="9494788"/>

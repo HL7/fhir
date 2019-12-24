@@ -52,16 +52,18 @@ changes for James
 */
 public class JavaEnumerationsGenerator extends JavaBaseGenerator {
   private Map<String, String> enumInfo;
+  private Map<String, String> adornments;
   
   
-	public JavaEnumerationsGenerator(OutputStream out, Definitions definitions, Map<String, String> enumInfo) throws UnsupportedEncodingException {
+	public JavaEnumerationsGenerator(OutputStream out, Definitions definitions, Map<String, String> enumInfo, Map<String, String> adornments) throws UnsupportedEncodingException {
 		super(out);
 		this.definitions = definitions;
     this.enumInfo = enumInfo;
+    this.adornments = adornments;
 	}
 
 	public void generate(Date genDate, String version) throws Exception {		
-		write("package org.hl7.fhir.r4.model;\r\n");
+		write("package org.hl7.fhir.r5.model;\r\n");
 		write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
 		write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     write("\r\n");
@@ -177,6 +179,12 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
     write("          }\r\n"); 
     write("        }\r\n"); 
 
+    if (adornments.containsKey(tns)) {
+      write("// added from java-adornments.txt:\r\n");
+      write(adornments.get(tns)+"\r\n");
+      write("// end addition\r\n");
+    }
+
 		write("    }\r\n");
 		write("\r\n");
 
@@ -226,7 +234,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
     write("    }\r\n"); 
     write("\r\n");
-    enumInfo.put("org.hl7.fhir.r4.model.Enumerations."+tns, url+"|"+el.toString());
+    enumInfo.put("org.hl7.fhir.r5.model.Enumerations."+tns, url+"|"+el.toString());
 	}
 
 }

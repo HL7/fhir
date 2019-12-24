@@ -17,7 +17,7 @@
 <table class="colsi"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure </a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
 
 <p>
-This page provides an index to the key commonly used documentation pages for FHIR. 
+This page provides an index to the key commonly used background documentation pages for FHIR. Also, see <a href="resourcelist.html">the list of <%res-type-count%> resources</a> defined by FHIR.
 </p>
 
 <table width="100%" style="table-layout: fixed">
@@ -32,9 +32,14 @@ This page provides an index to the key commonly used documentation pages for FHI
   <li><a href="compartmentdefinition.html">Compartments</a></li>
   <li><a href="narrative.html">Narrative</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
   <li><a href="extensibility.html">Extensibility</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="formats.html">Formats:</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a> 
-    <a href="xml.html">XML</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a>, 
-    <a href="json.html">JSON</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a>, &amp; <a href="rdf.html">RDF</a></li>
+  <li><a href="formats.html">Resource Definitions:</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:
+    <ul>
+      <li><a href="xml.html">XML Format</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+      <li><a href="json.html">JSON Format</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+      <li><a href="nd-json.html">ND-JSON Format</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+      <li><a href="rdf.html">RDF Definition</a></li>
+      <li><a href="uml.html">UML Definition</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+     </ul></li>
   <li><a href="terminologies.html">Terminologies</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a> (<a href="terminologies-systems.html">Code Systems</a>, <a href="terminologies-valuesets.html">Value Sets</a>)</li>
   <li><a href="fhirpath.html">FHIRPath</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
   <li><a href="mappings.html">Mappings</a> to other standards</li>
@@ -78,21 +83,28 @@ This page provides an index to the key commonly used documentation pages for FHI
 </ul>
 <p><b>Base Types</b></p>
 <ul>
-  <li><a href="datatypes.html">Data Types (Base)</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="types.html">Type Framework</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="datatypes.html">Data Types</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
   <li><a href="metadatatypes.html">Metadata Types</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
   <li><a href="resource.html">Resource</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
   <li><a href="domainresource.html">DomainResource</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="element.html">Element</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="backboneelement.html">BackboneElement</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="elementdefinition.html">ElementDefinition</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li>+ <a href="dosage.html">Dosage</a> (for medications)</li>
+  <li><a href="canonicalresource.html">CanonicalResource</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="metadataresource.html">MetadataResource</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
 </ul>
-<p><b>Design Patterns</b></p>
+<p><b>Special Purpose Types</b></p>
 <ul>
-  <li><a href="fivews.html">FiveWs (Attribution)</a></li>
-  <li><a href="event.html">Event</a></li>
-  <li><a href="request.html">Request</a></li>
-  <li><a href="definition.html">Definition</a></li>
+  <li><a href="elementdefinition.html">ElementDefinition</a> <a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="dosage.html">Dosage</a></li>
+  <li><a href="statistic.html">Statistic</a></li>
+  <li><a href="ordereddistribution.html">OrderedDistribution</a></li>
+</ul>
+<p><b>ANSI Documentation</b></p>
+<ul>
+  <li><a href="ansi.html">HL7, ANSI and the FHIR Standard</a></li>
+  <li><a href="ansi-infrastructure.html">FHIR Infrastructure Standard</a></li>
+  <li><a href="ansi-conformance.html">FHIR Conformance Standard</a></li>
+  <li><a href="ansi-patient.html">FHIR Patient Standard</a></li>
+  <li><a href="ansi-observation.html">FHIR Observation Standard</a></li>
 </ul>
 </td>
 

@@ -13,7 +13,7 @@
 <a name="base"></a>
 <h2>Search</h2>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page%]
+[%normative page infrastructure%]
 
 <p>
 Searching for resources is fundamental to the mechanics of FHIR.
@@ -2251,7 +2251,13 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#Age">Age</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Age%>Not used in search</td> 
+  <td><%xcm Age:number%></td> <!-- number -->
+  <td><%xcm Age:date%></td> <!-- date -->
+  <td><%xcm Age:reference%></td> <!-- reference -->
+  <td><%xcm Age:quantity%></td> <!-- quantity -->
+  <td><%xcm Age:uri%></td> <!-- uri -->
+  <td><%xcm Age:string%></td> <!-- string -->
+  <td><%xcm Age:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Annotation">Annotation</a></td>

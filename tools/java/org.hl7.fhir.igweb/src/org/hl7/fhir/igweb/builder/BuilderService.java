@@ -10,8 +10,8 @@ import org.hl7.fhir.igtools.publisher.Publisher;
 import org.hl7.fhir.igtools.publisher.SpecificationPackage;
 import org.hl7.fhir.igtools.publisher.Publisher.IGBuildMode;
 import org.hl7.fhir.igweb.Slf4jLogger;
-import org.hl7.fhir.r4.model.DateTimeType;
-import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
+import org.hl7.fhir.r5.model.DateTimeType;
+import org.hl7.fhir.r5.utils.client.FHIRToolingClient;
 
 public class BuilderService {
   /** Singleton instance */

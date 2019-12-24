@@ -1,28 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/consent.xsd">
   <id value="consent-example-notAuthor"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
-	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
-	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
-	than "withhold" or "withdraw" consent for.
-    <p>
-	specific to use-case 5) Withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location).  
-	</p><p>
-    Patient "P. van de Heuvel" wishes to have all of the PHI collected at the Good Health Psychiatric Hospital 
-   restricted from disclosure to every provider.
-   </p>
-   </div>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
+	    The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
+	    This example is to withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location).</p>
+      <p>Patient "P. van de Heuvel" wishes to have all of the PHI collected at the Burgers University Medical Center restricted from disclosure to every provider.</p>
+    </div>
   </text>
   <status value="active"/>
   <scope>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
-    </coding>  
-    </scope>
-    <category>
+    </coding>
+  </scope>
+  <category>
     <coding>
       <system value="http://loinc.org"/>
       <code value="59284-0"/>
@@ -33,7 +28,6 @@
     <display value="P. van de Heuvel"/>
   </patient>
   <dateTime value="2015-11-18"/>
-  <!-- not bound by a timeframe - Consent.period -->
   <organization>
     <reference value="Organization/f001"/>
   </organization>
@@ -46,20 +40,24 @@
   <policyRule>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-      <code value="OPTIN"/>
+      <code value="INFA"/>
     </coding>
   </policyRule>
   <provision>
-    <actor>
-      <role>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-          <code value="CST"/>
-        </coding>
-      </role>
-      <reference>
-        <reference value="Organization/f001"/>
-      </reference>
-    </actor>
+    <type value="permit"/>
+    <provision>
+      <type value="deny"/>
+      <actor>
+        <role>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+            <code value="CST"/>
+          </coding>
+        </role>
+        <reference>
+          <reference value="Organization/f001"/>
+        </reference>
+      </actor>
+    </provision>
   </provision>
 </Consent>

@@ -16,6 +16,7 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/sid/icd-10"/>
+      <!--
       <concept>
         <code value="123456"/>
         <display value="DIAG-1"/>
@@ -44,6 +45,7 @@
         <code value="321789"/>
         <display value="DIAG-6"/>
       </concept>
+      -->
     </include>
   </compose>
 </ValueSet>

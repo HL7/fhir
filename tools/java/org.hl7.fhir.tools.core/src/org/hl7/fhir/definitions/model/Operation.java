@@ -3,7 +3,7 @@ package org.hl7.fhir.definitions.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.r4.model.OperationDefinition;
+import org.hl7.fhir.r5.model.OperationDefinition;
 import org.hl7.fhir.utilities.StandardsStatus;
 
 public class Operation {

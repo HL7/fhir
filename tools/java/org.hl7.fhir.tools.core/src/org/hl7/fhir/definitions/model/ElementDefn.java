@@ -29,13 +29,15 @@ package org.hl7.fhir.definitions.model;
 
  */
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.model.ElementDefinition;
-import org.hl7.fhir.r4.model.Type;
+import org.hl7.fhir.r5.model.ElementDefinition;
+import org.hl7.fhir.r5.model.Type;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -96,6 +98,7 @@ public class ElementDefn {
 	private String orderMeaning;
 	private StandardsStatus standardsStatus; // defaults to container value
 	private Boolean hierarchy;
+	private boolean abstractType;
 	
 	public ElementDefn() {
 		super();
@@ -502,6 +505,64 @@ public class ElementDefn {
 		return tn.toString();
 	}
 
+  public String typeCodeNoParams() {
+    StringBuilder tn = new StringBuilder();
+    boolean first = true;
+    for (TypeRef t : types) {
+      if (!first)
+        tn.append("|");
+      first = false;
+      tn.append(t.getName());
+    }
+    return tn.toString();
+  }
+
+  public String typeCodeBase() {
+    List<String> ts = new ArrayList<>();
+
+    for (TypeRef t : types) {
+      ts.add(t.getName());
+    }
+    
+    Collections.sort(ts);
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (String t : ts)
+      b.append(t);
+    return b.toString();
+  }
+
+  public String resolvedTypeCode(Definitions definitions) {
+    StringBuilder tn = new StringBuilder();
+    boolean first = true;
+    for (TypeRef t : types) {
+      if (!first)
+        tn.append("|");
+      first = false;
+      tn.append(t.getName());
+      if (t.hasParams()) {
+        tn.append("(");
+        boolean f = true;
+        for (String s : t.getParams()) {
+          if (definitions.hasLogicalModel(s)) {
+            for (String sn : definitions.getLogicalModel(s).getImplementations()) {
+              if (!f)
+                tn.append("|");
+              f = false;
+              tn.append(sn);
+            }
+          } else {
+            if (!f)
+              tn.append("|");
+            f = false;
+            tn.append(s);
+          }
+        }
+        tn.append(")");
+      }
+    }
+    return tn.toString();
+  }
+
 	
 	public boolean usesCompositeType() {
 		return this.typeCode().startsWith("@");
@@ -598,7 +659,7 @@ public class ElementDefn {
 	public ElementDefn getElementForPath(String pathname, Definitions definitions, String purpose, boolean throughChoice, boolean followType) throws Exception {
 		String[] path = pathname.split("\\.");
 
-		if (!path[0].equals(getName()))
+		if (!path[0].equals(getName()) && !path[0].equals("{{name}}"))
 			throw new Exception("Element Path '" + pathname
 					+ "' is not legal in this context ("+purpose+") - expected "+getName()+" found "+path[0]);
 
@@ -616,7 +677,7 @@ public class ElementDefn {
 			  res = this.getElementForPath(res.typeCode().substring(1), definitions, purpose, throughChoice, followType);
 			} else if (definitions.dataTypeIsSharedInfo(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
-			} else if (definitions.hasType(res.typeCode())) {
+			} else if (definitions.hasType(res.typeCode()) && !"Base".equals(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
 			}
 			t = res.getElementByName(en, throughChoice, definitions, purpose, followType);
@@ -1029,7 +1090,21 @@ public class ElementDefn {
     else
       return rd.getNormativeVersion();
   }
+
+  @Override
+  public String toString() {
+    return path == null ? name : path;
+  }
+
+  public boolean isAbstractType() {
+    return abstractType;
+  }
+
+  public void setAbstractType(boolean abstractType) {
+    this.abstractType = abstractType;
+  }
   
+
   
 }
 

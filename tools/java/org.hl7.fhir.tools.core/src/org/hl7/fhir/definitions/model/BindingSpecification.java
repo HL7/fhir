@@ -33,16 +33,17 @@ import java.util.Map;
 
 import org.fhir.ucum.Utilities;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
-import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
-import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.r5.context.MetadataResourceManager;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
 
 /**
  * A concept domain - a use of terminology in FHIR.
@@ -364,7 +365,7 @@ public class BindingSpecification {
       ValueSetUtilities.setOID(valueSet, vsOid);
   }
 
-  public List<DefinedCode> getAllCodes(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, boolean wantComplete) throws Exception {
+  public List<DefinedCode> getAllCodes(MetadataResourceManager<CodeSystem> codeSystems, MetadataResourceManager<ValueSet> valueSets, boolean wantComplete) throws Exception {
     if (allCodes == null || allCodes.size() == 0 || wantComplete) {
       allCodes = new ArrayList<DefinedCode>();
       if (valueSet != null) {
@@ -375,7 +376,7 @@ public class BindingSpecification {
     return allCodes;
   }
 
-  private void getAllCodesForValueSet(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, boolean wantComplete, ValueSet vs) throws Exception {
+  private void getAllCodesForValueSet(MetadataResourceManager<CodeSystem> codeSystems, MetadataResourceManager<ValueSet> valueSets, boolean wantComplete, ValueSet vs) throws Exception {
     if (vs.hasCompose()) {
       for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
         if (cc.hasFilter() && wantComplete)

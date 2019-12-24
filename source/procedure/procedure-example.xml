@@ -17,7 +17,7 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-  <performedDateTime value="2013-04-05"/>
+  <occurrenceDateTime value="2013-04-05"/>
   <recorder>
     <reference value="Practitioner/example"/>
     <display value="Dr Cecil Surgeon"/>

@@ -19,27 +19,27 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
-import org.hl7.fhir.r4.formats.FormatUtilities;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
-import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.r4.model.DateTimeType;
-import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.r4.model.Extension;
-import org.hl7.fhir.r4.model.Factory;
-import org.hl7.fhir.r4.model.Narrative;
-import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
-import org.hl7.fhir.r4.model.StringType;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
-import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.r5.formats.FormatUtilities;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.r5.model.DateTimeType;
+import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r5.model.Extension;
+import org.hl7.fhir.r5.model.Factory;
+import org.hl7.fhir.r5.model.Narrative;
+import org.hl7.fhir.r5.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.r5.model.StringType;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r5.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.tools.publisher.SectionNumberer;
 import org.hl7.fhir.utilities.CSFile;
@@ -353,8 +353,8 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
         valuesets.add(vp);
         vs.setId("v2-"+FormatUtilities.makeId(id));
         vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
-        page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-        page.getValueSets().put(vs.getUrl(), vs);
+        page.getDefinitions().getValuesets().see(vs);
+        page.getValueSets().see(vs);
       }
       e = XMLUtil.getNextSibling(e);
     }
@@ -648,9 +648,9 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vp.vs = vs;
     vp.cs = cs;
     page.getVsValidator().validate(errors, "v2 table "+id, cs, false, true);
-    page.getCodeSystems().put(vp.cs.getUrl(), vp.cs);
+    page.getCodeSystems().see(vp.cs);
     page.getVsValidator().validate(errors, "v2 table "+id, vs, false, true);
-    page.getValueSets().put(vp.vs.getUrl(), vp.vs);
+    page.getValueSets().see(vp.vs);
 
   }
 
@@ -822,9 +822,9 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vp.vs = vs;
     vp.cs = cs;
     page.getVsValidator().validate(errors, "v2 table "+id, cs, false, true);
-    page.getCodeSystems().put(vp.cs.getUrl(), vp.cs);
+    page.getCodeSystems().see(vp.cs);
     page.getVsValidator().validate(errors, "v2 table "+id, vs, false, true);
-    page.getValueSets().put(vp.vs.getUrl(), vp.vs);
+    page.getValueSets().see(vp.vs);
   }
 
   public String getIndex(Document v2src, boolean cs) throws IOException {

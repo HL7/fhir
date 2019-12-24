@@ -19,6 +19,7 @@ signatures.html
     <page title="Table of Contents" filename="toc.html" icon="index.png">
       <page title="Documentation Index" filename="documentation.html"/>
       <page title="Resources" filename="resourcelist.html"/>
+      <page title="Patterns" filename="patterns.html"/>
       <page title="Profiles" filename="profilelist.html"/>
       <page title="Extensions" filename="extensibility-registry.html"/>
       <page title="Operations" filename="operationslist.html"/>
@@ -26,6 +27,14 @@ signatures.html
       <page title="Namespace List" filename="ns.html"/>
       <page title="Workgroup List" filename="wglist.html"/>
       <page title="Getting Started" filename="modules.html"/>
+      <page title="ANSI Documentation" filename="ansi.html">
+        <page title="ANSI FHIR Infrastructure Standard" filename="ansi-infrastructure.html"/>
+        <page title="ANSI FHIR Terminology &amp; Conformance Standard" filename="ansi-conformance.html"/>
+        <page title="ANSI FHIR Patient Standard" filename="ansi-patient.html"/>
+        <page title="ANSI FHIR Observation Standard" filename="ansi-observation.html"/>
+      
+      </page>
+      <page title="CI Build Search" filename="search-build.html"/>
 <!--      <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
     </page>
 
@@ -47,11 +56,12 @@ signatures.html
         <page title="Examples" filename="extensibility-examples.html"/>
         <page title="Detailed Description" filename="extensibility-definitions.html"/>
       </page>
-      <page title="Formats" filename="formats.html">
-        <page title="XML" filename="xml.html"/>
-        <page title="JSON" filename="json.html"/>
-        <page title="ND-JSON" filename="nd-json.html"/>
-        <page title="RDF" filename="rdf.html"/>
+      <page title="Resource Definitions" filename="formats.html">
+        <page title="XML format" filename="xml.html"/>
+        <page title="JSON format" filename="json.html"/>
+        <page title="ND-JSON format" filename="nd-json.html"/>
+        <page title="RDF Definition" filename="rdf.html"/>
+        <page title="UML Definition" filename="uml.html"/>
       </page>
       <page title="Change Management and Versioning" filename="versions.html">
         <page title="Timelines" filename="timelines.html"/>
@@ -74,12 +84,18 @@ signatures.html
       <page title="Outstanding Issues" filename="todo.html"/>
       <page title="Coming Challenges" filename="change.html"/>
 
+      <page title="Type Framework" filename="types.html">
+        <page title="Detailed Descriptions" filename="types-definitions.html"/>
+        <page title="Profiles and Extensions" filename="types-extras.html"/>
+        <page title="Mappings" filename="types-mappings.html"/>
+        <page title="R3 Conversions" filename="types-version-maps.html"/>
+      </page>
       <page title="Data Types" filename="datatypes.html">
         <page title="Examples" filename="datatypes-examples.html"/>
         <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
         <page title="Mappings" filename="datatypes-mappings.html"/>
         <page title="Profiles and Extensions" filename="datatypes-extras.html"/>
-        <page title="R2 Conversions" filename="datatypes-version-maps.html"/>
+        <page title="R3 Conversions" filename="datatypes-version-maps.html"/>
       </page>
       <page title="MetaData Types" filename="metadatatypes.html">
         <page title="Examples" filename="metadatatypes-examples.html"/>
@@ -90,13 +106,8 @@ signatures.html
         <page title="Definitions" filename="resource-definitions.html"/>
       </page>
       <page type="resource" resource="DomainResource"/>
-      <page title="Element" filename="element.html">
-        <page title="Element - Detailed Descriptions" filename="element-definitions.html"/>
-        <page title="Extensions - Element" filename="element-extras.html"/>
-      </page>
-      <page title="BackboneElement" filename="backboneelement.html">
-        <page title="BackboneElement Detailed Descriptions" filename="backboneelement-definitions.html"/>
-      </page>
+      <page type="resource" resource="CanonicalResource"/>
+      <page type="resource" resource="MetadataResource"/>
       <page title="ElementDefinition" filename="elementdefinition.html">
         <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
         <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
@@ -112,7 +123,7 @@ signatures.html
       <page type="resource" resource="Basic"/>
       <page type="resource" resource="Binary"/>
       <page type="resource" resource="Bundle"/>
-      
+
 
       <page type="resource" resource="Questionnaire"/>
       <page type="resource" resource="QuestionnaireResponse"/>
@@ -126,6 +137,7 @@ signatures.html
       <page type="resource" resource="OperationOutcome"/>
       <page type="resource" resource="Parameters"/>
       <page type="resource" resource="Subscription"/>
+      <page type="resource" resource="Topic"/>
       <page type="resource" resource="MessageHeader"/>
       <page type="resource" resource="MessageDefinition"/>
     </page>
@@ -192,6 +204,7 @@ signatures.html
         <page title="Examples" filename="profiling-examples.html"/>
       </page>
       <page type="resource" resource="CapabilityStatement"/>
+      <page type="resource" resource="CapabilityStatement2"/>
       <page type="resource" resource="StructureDefinition"/>
       <page type="resource" resource="OperationDefinition"/>
       <page type="resource" resource="SearchParameter"/>
@@ -272,9 +285,10 @@ signatures.html
       <page type="resource" resource="ResearchSubject"/>
   	  <page type="resource" resource="ChargeItem"/>
 	  <page type="resource" resource="ChargeItemDefinition"/>
-  	  <page type="resource" resource="ObservationDefinition"/> 
+  	  <page type="resource" resource="ObservationDefinition"/>
   	  <page type="resource" resource="SpecimenDefinition"/>
   	  <page type="resource" resource="CatalogEntry"/>
+      <page title="Product Pattern" filename="product.html"/>
       <!-- Think these 3 need to be left off as are REALLy drafty -->
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>
@@ -301,7 +315,7 @@ signatures.html
 
     <page title="Diagnostics" filename="diagnostics-module.html" icon="diagnostics.jpg">
       <page type="resource" resource="Observation"/>
-      <page type="resource" resource="Media"/>
+      <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DiagnosticReport"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingManifest"/>
@@ -317,7 +331,7 @@ signatures.html
       <page type="resource" resource="MedicationRequest"/>
       <page type="resource" resource="MedicationAdministration"/>
       <page type="resource" resource="MedicationDispense"/>
-      <page type="resource" resource="MedicationStatement"/>
+      <page type="resource" resource="MedicationUsage"/>
       <page type="resource" resource="Medication"/>
       <page type="resource" resource="MedicationKnowledge"/>
       <page type="resource" resource="Immunization"/>
@@ -328,16 +342,27 @@ signatures.html
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
       </page>
-      <page type="resource" resource="MedicinalProduct"/>
-      <page type="resource" resource="MedicinalProductAuthorization"/>
-      <page type="resource" resource="MedicinalProductContraindication"/>
-      <page type="resource" resource="MedicinalProductIndication"/>
-      <page type="resource" resource="MedicinalProductInteraction"/>
-      <page type="resource" resource="MedicinalProductUndesirableEffect"/>
-      <page type="resource" resource="MedicinalProductIngredient"/>
-    	<page type="resource" resource="MedicinalProductManufactured"/>
-    	<page type="resource" resource="MedicinalProductPackaged"/>
-    	<page type="resource" resource="MedicinalProductPharmaceutical"/>
+      <!--page type="resource" resource="RegulatedMedicinalProduct"/-->
+      <page type="resource" resource="MedicinalProductDefinition"/>
+      <!--page type="resource" resource="RegulatedPackagedProduct"/-->
+      <page type="resource" resource="PackagedProductDefinition"/>
+      <!--page type="resource" resource="RegulatedManufacturedItem"/-->
+      <page type="resource" resource="RegulatedAdministrableProduct"/>
+      <page type="resource" resource="ManufacturedItemDefinition"/>
+      <page type="resource" resource="AdministrableProductDefinition"/>
+      <!--page type="resource" resource="MedicinalProductAuthorization"/-->
+      <page type="resource" resource="RegulatedAuthorization"/>
+      <!--page type="resource" resource="MedicinalProductContraindication"/-->
+      <!--page type="resource" resource="ClinicalParticulars"/-->
+      <page type="resource" resource="ClinicalUseIssue"/>
+      <!--page type="resource" resource="MedicinalProductIndication"/-->
+      <!--page type="resource" resource="MedicinalProductInteraction"/>
+      <page type="resource" resource="MedicinalProductUndesirableEffect"/-->
+      <!--page type="resource" resource="MedicinalProductIngredient"/-->
+      <page type="resource" resource="Ingredient"/>
+    	<!--page type="resource" resource="MedicinalProductManufactured"/-->
+    	<!--page type="resource" resource="MedicinalProductPackaged"/-->
+    	<!--page type="resource" resource="MedicinalProductPharmaceutical"/-->
       <page type="resource" resource="SubstanceDefinition"/>
       <page type="resource" resource="SubstancePolymer"/>
       <page type="resource" resource="SubstanceProtein"/>
@@ -379,6 +404,9 @@ signatures.html
       <page title="Definition Pattern" filename="definition.html"/>
       <page title="Request Pattern" filename="request.html"/>
       <page title="Event Pattern" filename="event.html"/>
+      <page title="Participant Pattern" filename="participant.html"/>
+      <page title="Participant - Contactable Pattern" filename="participantcontactable.html"/>
+      <page title="Participant - Living Pattern" filename="participantliving.html"/>
       <page title="Workflow Overview" filename="workflow.html"/>
       <page title="Workflow Communication Patterns" filename="workflow-communications.html"/>
       <page title="Workflow Ad-Hoc Patterns" filename="workflow-ad-hoc.html"/>
@@ -390,6 +418,7 @@ signatures.html
       <page type="resource" resource="Slot"/>
       <page type="resource" resource="ServiceRequest"/>
       <page type="resource" resource="NutritionOrder"/>
+      <page type="resource" resource="NutritionIntake"/>
       <page type="resource" resource="VisionPrescription"/>
       <page type="resource" resource="ActivityDefinition"/>
       <page type="resource" resource="PlanDefinition"/>
@@ -397,7 +426,7 @@ signatures.html
       <page type="resource" resource="DeviceUseStatement"/>
       <page type="resource" resource="SupplyRequest"/>
       <page type="resource" resource="SupplyDelivery"/>
-      <page type="resource" resource="ExampleScenario"/>  
+      <page type="resource" resource="ExampleScenario"/>
 
     </page>
 
@@ -424,18 +453,26 @@ signatures.html
       <page title="Sharing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-distribution.html"/>
       <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
-      <page type="resource" resource="EffectEvidenceSynthesis"/>
+      <page title="Evidence and Statistics" filename="clinicalreasoning-evidence-and-statistics.html"/>
+      <page type="resource" resource="ConditionDefinition"/>
       <page type="resource" resource="EventDefinition"/>
       <page type="resource" resource="Evidence"/>
+      <page title="Statistic" filename="statistic.html">
+        <page title="Examples" filename="statistic-examples.html"/>
+        <page title="Detailed Descriptions" filename="statistic-definitions.html"/>
+        <page title="Statistic Mappings" filename="statistic-mappings.html"/>
+      </page>
+      <page title="OrderedDistribution" filename="ordereddistribution.html">
+        <page title="Examples" filename="ordereddistribution-examples.html"/>
+        <page title="Detailed Descriptions" filename="ordereddistribution-definitions.html"/>
+        <page title="OrderedDistribution Mappings" filename="ordereddistribution-mappings.html"/>
+      </page>
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="GuidanceResponse"/>
       <page type="resource" resource="RequestGroup"/>
       <page type="resource" resource="Measure"/>
       <page type="resource" resource="MeasureReport"/>
-      <page type="resource" resource="ResearchDefinition"/>
-      <page type="resource" resource="ResearchElementDefinition"/>
-      <page type="resource" resource="RiskEvidenceSynthesis"/>
     </page>
   </page>
 

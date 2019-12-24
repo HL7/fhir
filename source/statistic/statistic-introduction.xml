@@ -1,0 +1,31 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+
+<p><b>TODO:</b> Fill in a description here</p>
+
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p><b>TODO:</b> Fill in a description here</p>
+</div>
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Description of the population for which a recommendation or evidence summary is applicable, Description of the intervention or exposure for which a recommendation or evidence summary is applicable, and Description of the comparator state or the evidence is about or what the recommendation is against.
+
+These descriptions could be used in coded specifications of recommendations from clinical practice guidelines to facilitate searching for recommendations that match an individual patient (eg patient is in the population and meets the criteria for the comparator state but not the criteria for the recommended exposure state)
+
+These descriptions could be used in Summary of Findings tables from systematic reviews to facilitate the representation of medical knowledge when creating recommendations.
+
+These descriptions could be used in classification of new evidence reports to facilitate recognition of signal for updating existing evidence summaries and recommendations.
+</p>
+</div>
+-->
+
+</div>

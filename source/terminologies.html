@@ -16,7 +16,7 @@
 
 <h1>Using Codes in Resources</h1>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page%]
+[%normative page infrastructure%]
 <a name="bindings"></a>
 <p>
 Many elements in the FHIR resources have a <b>coded value</b>: some fixed string
@@ -73,7 +73,7 @@ LOINC system, the version of LOINC used for the definition, and the display assi
 }
 </pre>
 </div>
-
+<a name="type-list"> </a>
 <table class="grid">
  <tr><td colspan="2">When codes are carried in resources, one of several different data types is used:</td></tr>
  <tr><td><a href="datatypes.html#code">code</a><a name="code"></a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>

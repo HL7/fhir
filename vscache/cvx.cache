@@ -3598,3 +3598,65 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "01"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "DTP",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "104"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Hep A-Hep B",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "01",
+  "display" : "DTP"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "DTP",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "01"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
+v: {
+  "display" : "DTP",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "104"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
+v: {
+  "display" : "Hep A-Hep B",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "01",
+  "display" : "DTP"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
+v: {
+  "display" : "DTP",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

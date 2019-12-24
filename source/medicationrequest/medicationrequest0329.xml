@@ -6,14 +6,14 @@
     <contained>
         <Medication>
             <id value="med0319"/>
-                <form>
+                <doseForm>
                     <coding>
                         <system value="http://snomed.info/sct"/>
                         <code value="385101003"/>
                         <display value="Ointment"/>
                     </coding>
                     <text value="Ointment"/>
-                </form>
+                </doseForm>
                 <ingredient>
                     <itemCodeableConcept>
                         <coding>
@@ -22,7 +22,7 @@
                             <display value="Salicyclic Acid (substance)"/>
                         </coding>
                     </itemCodeableConcept>
-                    <strength>
+                    <strengthRatio>
                         <numerator>
                             <value value="5"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -33,7 +33,7 @@
                             <system value="http://unitsofmeasure.org"/>
                             <code value="g"/>
                         </denominator>
-                    </strength>
+                    </strengthRatio>
                 </ingredient>
                 <ingredient>
                     <itemCodeableConcept>
@@ -43,7 +43,7 @@
                             <display value="Salicyclic Acid (substance)"/>
                         </coding>
                     </itemCodeableConcept>
-                    <strength>
+                    <strengthRatio>
                         <numerator>
                             <value value="1"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -54,7 +54,7 @@
                             <system value="http://unitsofmeasure.org"/>
                             <code value="g"/>
                         </denominator>
-                    </strength>
+                    </strengthRatio>
                 </ingredient>
                 <ingredient>
                     <itemCodeableConcept>
@@ -64,7 +64,7 @@
                             <display value="White Petrolatum (substance)"/>
                         </coding>
                     </itemCodeableConcept>
-                    <strength>
+                    <strengthRatio>
                         <numerator>
                             <value value="94"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -75,7 +75,7 @@
                             <system value="http://unitsofmeasure.org"/>
                             <code value="g"/>
                         </denominator>
-                    </strength>
+                    </strengthRatio>
                 </ingredient>
             
         </Medication>

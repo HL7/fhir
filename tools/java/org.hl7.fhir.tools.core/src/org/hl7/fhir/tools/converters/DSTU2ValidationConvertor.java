@@ -4,25 +4,27 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
+import org.hl7.fhir.convertors.VersionConvertorAdvisor50;
 import org.hl7.fhir.convertors.VersionConvertor_10_40;
+import org.hl7.fhir.convertors.VersionConvertor_10_50;
 import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.Bundle;
-import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CompartmentDefinition;
-import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.Bundle;
+import org.hl7.fhir.r5.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CompartmentDefinition;
+import org.hl7.fhir.r5.model.ValueSet;
 
-public class DSTU2ValidationConvertor implements VersionConvertorAdvisor40 {
+public class DSTU2ValidationConvertor implements VersionConvertorAdvisor50 {
 
   private Bundle source;
-  private VersionConvertor_10_40 vc;
+  private VersionConvertor_10_50 vc;
   
   public void convert(String bundleSource, String bundleTarget) throws Exception {
     System.out.println("Convert "+bundleSource);
-    vc = new VersionConvertor_10_40(this);
+    vc = new VersionConvertor_10_50(this);
     
     try {
       source = (Bundle) new XmlParser().parse(new FileInputStream(bundleSource));
@@ -55,7 +57,7 @@ public class DSTU2ValidationConvertor implements VersionConvertorAdvisor40 {
   }
 
   @Override
-  public Resource convertR2(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
+  public Resource convertR2(org.hl7.fhir.r5.model.Resource resource) throws FHIRException {
     if (resource instanceof ValueSet) {
       ValueSet vs = (ValueSet) resource;
       if (vs.hasCompose() && vs.getCompose().getExclude().isEmpty() && vs.getCompose().getInclude().size() == 1 && !vs.getCompose().getInclude().get(0).hasValueSet()) {
@@ -73,12 +75,12 @@ public class DSTU2ValidationConvertor implements VersionConvertorAdvisor40 {
   }
 
   @Override
-  public org.hl7.fhir.dstu2016may.model.Resource convertR2016May(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
+  public org.hl7.fhir.dstu2016may.model.Resource convertR2016May(org.hl7.fhir.r5.model.Resource resource) throws FHIRException {
     return null;
   }
 
   @Override
-  public org.hl7.fhir.dstu3.model.Resource convertR3(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.Resource convertR3(org.hl7.fhir.r5.model.Resource resource) throws FHIRException {
     return null;
   }
 
@@ -102,6 +104,12 @@ public class DSTU2ValidationConvertor implements VersionConvertorAdvisor40 {
 
   @Override
   public CodeSystem getCodeSystem(ValueSet src) {
+    return null;
+  }
+
+  @Override
+  public org.hl7.fhir.r4.model.Resource convertR4(org.hl7.fhir.r5.model.Resource resource) throws FHIRException {
+    // TODO Auto-generated method stub
     return null;
   }
 

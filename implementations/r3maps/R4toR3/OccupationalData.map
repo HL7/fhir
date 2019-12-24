@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/OccupationalData" alias Occupa
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group OccupationalData(source src : OccupationalDataR3, target tgt : OccupationalData) extends DomainResource <<type+>> {
+group OccupationalData(source src : OccupationalData, target tgt : OccupationalDataR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.subject -> tgt.subject;

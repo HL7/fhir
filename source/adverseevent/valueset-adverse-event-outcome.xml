@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="AdverseEvent Outcome"/>
+  <title value="AdverseEvent Outcome"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes codes that describe the type of outcome from the adverse event."/>
+ <compose>
+	<include>
+      <system value="http://ncimeta.nci.nih.gov"/>    
+	  <concept>
+		<code value="C1705232"/>
+	  </concept>
+	  <concept>
+		<code value="C1709277"/>
+	  </concept>
+	  <concept>
+		<code value="C1709863"/>
+	  </concept>
+	  <concept>
+		<code value="C1709862"/>
+	  </concept>
+	  <concept>
+		<code value="C1709864"/>
+	  </concept>
+	  <concept>
+		<code value="C0439673"/>
+	  </concept>
+	</include>
+  </compose>
+
+</ValueSet>

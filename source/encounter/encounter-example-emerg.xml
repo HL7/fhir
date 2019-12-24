@@ -8,16 +8,9 @@
 	</text>
 	<status value="in-progress" />
 	<statusHistory>
-		<status value="arrived"/>
+		<status value="planned"/>
 		<period>
 			<start value="2017-02-01T07:15:00+10:00"/>
-			<end value="2017-02-01T07:35:00+10:00"/>
-		</period>
-	</statusHistory>
-	<statusHistory>
-		<status value="triaged"/>
-		<period>
-			<start value="2017-02-01T07:35:00+10:00"/>
 			<end value="2017-02-01T08:45:00+10:00"/>
 		</period>
 	</statusHistory>
@@ -29,7 +22,7 @@
 		</period>
 	</statusHistory>
 	<statusHistory>
-		<status value="onleave"/>
+		<status value="onhold"/>
 		<period>
 			<start value="2017-02-01T12:15:00+10:00"/>
 			<end value="2017-02-01T12:45:00+10:00"/>
@@ -38,7 +31,7 @@
 	<statusHistory>
 		<status value="in-progress"/>
 		<period>
-			<start value="2017-02-01T12:45:00+10:00"/>
+			<start value="2017-02-01T08:45:00+10:00"/>
 		</period>
 	</statusHistory>
 	<class>

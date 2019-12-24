@@ -1,0 +1,13 @@
+// Request a list of versions supported by the server
+
+GET [base]/$versions
+Accept: application/json
+[other headers]
+
+or
+
+GET [base]/$versions
+Accept: application/xml
+[other headers]
+
+

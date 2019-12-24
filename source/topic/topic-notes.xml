@@ -1,0 +1,29 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+
+  <a name="defining" />
+  <h2>
+    Defining Topics
+  </h2>
+	<p>Defining a new Topic requires clear communication to implementers of both clients and servers around requirements and expectations.  Below are some areas which should be considered when creating a Topic.  Anyone defining a Topic is encouraged to publish the (IG?) at (?).
+	</p>
+	[%stu-note%]
+	Warning: This section is still in early drafting.
+	[%end-note%]
+
+	<a name="deriving" />
+	<h2>
+		Deriving from existing Topics
+	</h2>
+  <p>Implementers are encouraged to add additional filters, but cannot remove existing ones nor change the 'concept' of a Topic during derivation.  For example:</p>
+	<ul>
+		<li>Deriving a new Topic with the same concept but a different computable definition is OK.</li>
+		<li>Deriving a new Topic to expose additional canFilterBy parameters is OK.</li>
+		<li>Deriving a new Topic to remove an existing canFilterBy parameter is NOT ok.</li>
+		<li>Deriving a new Topic based on a different resource than its parent is NOT ok (e.g., start/end of medication derived from encounter).</li>
+	</ul>
+  [%stu-note%]
+	Warning: This section is still in early drafting.
+	[%end-note%]
+
+</div>

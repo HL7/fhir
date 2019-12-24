@@ -41,28 +41,30 @@ import java.util.Map;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.conformance.ProfileUtilities;
-import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.ElementDefinition;
-import org.hl7.fhir.r4.model.ElementDefinition.AggregationMode;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionExampleComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionMappingComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.r4.model.Enumeration;
-import org.hl7.fhir.r4.model.IdType;
-import org.hl7.fhir.r4.model.PrimitiveType;
-import org.hl7.fhir.r4.model.StringType;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionMappingComponent;
-import org.hl7.fhir.r4.model.Type;
+import org.hl7.fhir.r5.conformance.ProfileUtilities;
+import org.hl7.fhir.r5.formats.IParser.OutputStyle;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.ElementDefinition;
+import org.hl7.fhir.r5.model.ElementDefinition.AggregationMode;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionExampleComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionMappingComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r5.model.Enumeration;
+import org.hl7.fhir.r5.model.IdType;
+import org.hl7.fhir.r5.model.PrimitiveType;
+import org.hl7.fhir.r5.model.StringType;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.r5.model.Type;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.StandardsStatus;
@@ -183,7 +185,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
   
   private boolean isProfiledExtension(ElementDefinition ec) {
-    return ec.getType().size() == 1 && "Extension".equals(ec.getType().get(0).getCode()) && ec.getType().get(0).hasProfile();
+    return ec.getType().size() == 1 && "Extension".equals(ec.getType().get(0).getWorkingCode()) && ec.getType().get(0).hasProfile();
   }
 
   private void generateElementInner(StructureDefinition profile, ElementDefinition d, int mode, ElementDefinition value) throws Exception {
@@ -299,25 +301,26 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private void describeType(StringBuilder b, TypeRefComponent t) throws Exception {
-    if (t.getCode() == null)
+    String tc = t.getWorkingCode();
+    if (tc == null)
       return;
-    if (t.getCode().startsWith("="))
+    if (tc.startsWith("="))
       return;
     
-    if (t.getCode().startsWith("xs:")) {
-      b.append(t.getCode());
+    if (tc.startsWith("xs:")) {
+      b.append(tc);
     } else {
       b.append("<a href=\"");
       b.append(prefix);         
-      b.append(definitions.getSrcFile(t.getCode()));
+      b.append(definitions.getSrcFile(tc));
       b.append(".html#");
-      String type = t.getCode();
+      String type = tc;
       if (type.equals("*"))
         b.append("open");
       else 
-        b.append(t.getCode());
+        b.append(tc);
       b.append("\">");
-      b.append(t.getCode());
+      b.append(tc);
       b.append("</a>");
     }
     if (t.hasProfile() || t.hasTargetProfile()) {
@@ -427,7 +430,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       Boolean b = (Boolean) id.getUserData(ProfileUtilities.IS_DERIVED);
       return b.booleanValue();
     } else {
-      //  if it was snapshotted in process? can't happen? - only happens on extensions... no id too, and then definitely inherited
+      //  if it was snapshotted in process? can't happen? - only happens on extensions... no id too, and then definitely inherited. see https://xkcd.com/2200/
       return true;
     }
   }
@@ -518,6 +521,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		  tableRowNE("Type", null, "<a href=\"#"+type.substring(1)+"\">See "+type.substring(1)+"</a>");
 		else
 		  tableRowNE("Type", "datatypes.html", type);
+		if (e.typeCode().contains("Reference("))
+      tableRowNE("Patterns", "patterns.html", patternAnalysis(e));
 		if (e.hasHierarchy())
 	    tableRow("Hierarchy", "references.html#circular", e.getHierarchy() ? "This reference is part of a strict Hierarchy" : "This reference may point back to the same instance (including transitively)");
     if (path.endsWith("[x]"))
@@ -541,6 +546,29 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		tableRow("To Do", null, e.getTodo());
 	}
 	
+	private String patternAnalysis(ElementDefn e) {
+	  StringBuilder b = new StringBuilder();
+	  boolean first = true;
+	  for (TypeRef tr : e.getTypes()) {
+	    if (tr.getPatterns() != null) {
+	      if (first) first = false; else b.append("<br/>\r\n");
+	      if (tr.getPatterns().isEmpty())
+	        b.append(tr.summary()+": No common pattern");
+	      else {
+	        CommaSeparatedStringBuilder cb = new CommaSeparatedStringBuilder();
+	        for (String s : tr.getPatterns()) {
+	          cb.append("<a href=\""+s.toLowerCase()+".html#"+s+"\">"+s+"</a>");
+	        }
+	        if (tr.getPatterns().size() == 0)
+            b.append(tr.summary()+": Common pattern = "+cb.toString());
+	        else
+	          b.append(tr.summary()+": Common patterns = "+cb.toString());
+	      }
+	    }
+	  }
+	  return b.toString();
+	}
+
   private String getStandardsStatusStyle(StandardsStatus status) {
     return "background-color: "+status.getColor();
   }
@@ -737,10 +765,22 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		      b.append("(");
 		      boolean firstp = true;
 		      for (String p : t.getParams()) {
-		        if (!firstp)
-		          b.append(" | ");
-            b.append("<a href=\""+prefix+typeLink(p)+"\">"+p+"</a>");
-		        firstp = false;
+            if (!firstp)
+              b.append(" | ");
+            firstp = false;
+		        if (definitions.hasLogicalModel(p)) {
+              b.append("<a href=\""+prefix+typeLink(p)+"\">"+p+"</a>[");
+              boolean firstpn = true;
+              for (String pn : definitions.getLogicalModel(p).getImplementations()) {
+                if (!firstpn)
+                  b.append(", ");
+                firstpn = false;
+                b.append("<a href=\""+prefix+typeLink(pn)+"\">"+pn+"</a>");
+              }		          
+              b.append("]");
+		        } else {
+		          b.append("<a href=\""+prefix+typeLink(p)+"\">"+p+"</a>");
+		        }
 		      }
 		      b.append(")");
 		    }		  first = false;

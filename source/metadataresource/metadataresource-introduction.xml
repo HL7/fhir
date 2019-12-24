@@ -1,0 +1,31 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+
+<div>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
+<p>
+The MetadataResource represents resources that carry additional publication metadata over other canonical resources, describing their review and use in more details.
+</p>
+
+<p>
+As an interface, this type is never created directly - see <a href="uml.html#interfaces">Resource Interfaces</a> for more details.
+</p>
+
+</div>
+
+<div>
+<a name="bnr"></a>
+<h2>Boundaries and Relationships</h2>
+
+<p>
+This resource interface extends the <a href="canonicalresource.html">CanonicalResource</a> interface. The following resources 
+implement this interface:
+</p>
+
+[%metadata-resources%]
+
+</div>
+
+
+</div>

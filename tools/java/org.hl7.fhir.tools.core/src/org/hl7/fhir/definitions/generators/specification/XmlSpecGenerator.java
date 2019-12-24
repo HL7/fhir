@@ -34,6 +34,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
@@ -42,19 +43,19 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.ElementDefinition;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.PropertyRepresentation;
-import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.r4.model.Enumeration;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.Type;
-import org.hl7.fhir.r4.model.UriType;
-import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r5.formats.IParser.OutputStyle;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.ElementDefinition;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.PropertyRepresentation;
+import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r5.model.Enumeration;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.Type;
+import org.hl7.fhir.r5.model.UriType;
+import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -484,7 +485,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     String en = asValue ? "value[x]" : name;
 
     if (en.contains("[x]") && elem.getType().size() == 1)
-      en = en.replace("[x]", upFirst(elem.getType().get(0).getCode()));
+      en = en.replace("[x]", upFirst(elem.getType().get(0).getWorkingCode()));
 
     String closeOut;
     if (elem.hasSlicing()) {
@@ -510,9 +511,9 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       write("<span style=\"color: navy\">" + getUrl(children)+"</span>");
       write("\"");
     }
-      if (elem.getType().size() == 1 && (definitions.getPrimitives().containsKey(elem.getType().get(0).getCode()))) {
+      if (elem.getType().size() == 1 && (definitions.getPrimitives().containsKey(elem.getType().get(0).getWorkingCode()))) {
         doneType = true;
-        write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + prefix+dtRoot + definitions.getSrcFile(elem.getType().get(0).getCode())+ ".html#" + elem.getType().get(0).getCode() + "\">" + elem.getType().get(0).getCode()+ "</a></span>]\"/");
+        write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + prefix+dtRoot + definitions.getSrcFile(elem.getType().get(0).getWorkingCode())+ ".html#" + elem.getType().get(0).getWorkingCode() + "\">" + elem.getType().get(0).getWorkingCode()+ "</a></span>]\"/");
       }
       write("&gt;");
 
@@ -732,7 +733,15 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       if (t.hasParams()) {
         write("(");
         boolean firstp = true;
+        List<String> ap = new ArrayList<>();
         for (String p : t.getParams()) {
+          if (definitions.hasLogicalModel(p))
+            ap.addAll(definitions.getLogicalModel(p).getImplementations());
+          else
+            ap.add(p);
+        }
+        Collections.sort(ap);
+        for (String p : ap) {
           if (!firstp) {
             write("|");
             w++;
@@ -778,22 +787,23 @@ public class XmlSpecGenerator extends OutputStreamWriter {
         write("|");
         w++;
       }
-      if (w + t.getCode().length() > 80) {
+      if (w + t.getWorkingCode().length() > 80) {
         write("\r\n  ");
         for (int j = 0; j < indent; j++)
           write(" ");
         w = indent+2;
       }
-      w = w + t.getCode().length(); // again, could be wrong if this is an extension, but then it won't wrap
-      if (t.getCode().equals("list"))
-        write(t.getCode());
-      else if (t.getCode().equals("Extension") && t.hasProfile())
+      String tc = t.getWorkingCode();
+      w = w + tc.length(); // again, could be wrong if this is an extension, but then it won't wrap
+      if (tc.equals("list"))
+        write(tc);
+      else if (tc.equals("Extension") && t.hasProfile())
         write("<a href=\""+prefix+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().get(0).getValue().substring(1)+"</span></a>");     
       else {
-        write("<a href=\"" + prefix+(dtRoot + definitions.getSrcFile(t.getCode())
-            + ".html#" + t.getCode() + "\">" + t.getCode())
+        write("<a href=\"" + prefix+(dtRoot + definitions.getSrcFile(tc)
+            + ".html#" + tc + "\">" + tc)
             + "</a>");
-        if (t.getCode().equals("Reference") && t.hasTargetProfile()) {
+        if (tc.equals("Reference") && t.hasTargetProfile()) {
           write("(");
           String pt = t.getTargetProfile().get(0).getValue();
           if (pt.startsWith("http://hl7.org/fhir/StructureDefinition/") && definitions.hasResource(pt.substring(40))) {

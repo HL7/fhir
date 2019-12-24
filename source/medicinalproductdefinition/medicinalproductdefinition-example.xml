@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproductdefinition.xsd">
+	<id value="example"/>
+	<identifier>
+		<system value="http://ema.europa.eu/example/MPID"/>
+		<value value="{mpid}"/>
+	</identifier>
+	<productClassification>
+		<coding>
+			<system value="http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem"/>
+			<code value="WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02"/>
+		</coding>
+	</productClassification>
+	<attachedDocument>
+		<reference value="DocumentReference/example"/>
+	</attachedDocument>
+	<masterFile>
+		<reference value="DocumentReference/example"/>
+	</masterFile>
+	<name>
+		<productName value="Equilidem 2.5 mg film-coated tablets"/>
+		<namePart>
+			<part value="Equilidem"/>
+			<type>
+				<code value="INV"/>
+			</type>
+		</namePart>
+		<namePart>
+			<part value="2.5 mg"/>
+			<type>
+				<code value="STR"/>
+			</type>
+		</namePart>
+		<namePart>
+			<part value="film-coated tablets"/>
+			<type>
+				<code value="FRM"/>
+			</type>
+		</namePart>
+		<countryLanguage>
+			<country>
+				<coding>
+					<system value="http://ema.europa.eu/example/countryCode"/>
+					<code value="EU"/>
+				</coding>
+			</country>
+			<jurisdiction>
+				<coding>
+					<system value="http://ema.europa.eu/example/jurisdictionCode"/>
+					<code value="EU"/>
+				</coding>
+			</jurisdiction>
+			<language>
+				<coding>
+					<system value="http://ema.europa.eu/example/languageCode"/>
+					<code value="EN"/>
+				</coding>
+			</language>
+		</countryLanguage>
+	</name>
+	<manufacturingBusinessOperation>
+		<typeCoding>
+			<system value="http://ema.europa.eu/example/manufacturingOperationType"/>
+			<code value="Batchrelease"/>
+		</typeCoding>
+		<effectiveDate>
+			<start value="2013-03-15"/>
+		</effectiveDate>
+		<authorization>
+			<identifier>
+				<system value="http://ema.europa.eu/example/manufacturingAuthorisationReferenceNumber"/>
+				<value value="1324TZ"/>
+			</identifier>
+		</authorization>
+	</manufacturingBusinessOperation>
+</MedicinalProductDefinition>

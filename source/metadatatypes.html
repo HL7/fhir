@@ -14,7 +14,7 @@
 
 <h1>MetaData Types</h1>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
-[%normative page%]
+[%normative page infrastructure%]
 
 
 <p>
@@ -47,7 +47,7 @@ For an index of all data types, see <a href="datatypes.html">the Data types page
 <a name="ContactDetail"></a>
 <a name="contactdetail"></a>
 <h3 style="margin-bottom: 1px">ContactDetail</h3>
-[%StandardsStatus normative DataType%]
+[%StandardsStatus normative DataType infrastructure%]
 
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#ContactDetail">Examples</a>, <a href="metadatatypes-definitions.html#ContactDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ContactDetail">Mappings</a>.
@@ -123,7 +123,7 @@ See also <a href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a 
 
 <p>DataRequirements are used by knowledge modules to communicate the set of required data to a consumer in a way that is computable (as opposed to a set of named parameters which must be integrated by hand based on the meaning of the parameter as communicated through the documentation).</p>
 
-<p>DataRequirements are typically used to communicate patient-dependent information such as MedicationStatements and Encounters, whereas Parameters are typically used to communicate patient-independent information such as configuration values.</p>
+<p>DataRequirements are typically used to communicate patient-dependent information such as MedicationUsages and Encounters, whereas Parameters are typically used to communicate patient-independent information such as configuration values.</p>
 
 <p>For example, consider the following CQL expression:</p>
 
@@ -188,7 +188,7 @@ See also <a href="metadatatypes-examples.html#ParameterDefinition">Examples</a>,
 
 <p>The ParameterDefinition structure defines a parameter to a knowledge asset such as a decision support rule or quality measure.</p>
 
-<p>Parameters are typically used to communicate patient-independent information such as configuration values, whereas DataRequirements are typically used to communicate patient-dependent information such as MedicationStatements and Encounters.</p>
+<p>Parameters are typically used to communicate patient-independent information such as configuration values, whereas DataRequirements are typically used to communicate patient-dependent information such as MedicationUsages and Encounters.</p>
 
 [%dt ParameterDefinition 1%]
 <div class="use">

@@ -29,18 +29,18 @@
   <manufacturer>
       <reference value="#org2"/>
   </manufacturer>
-    <form>
+    <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385055001"/>
         <display value="Tablet dose form (qualifier value)"/>
       </coding>
-    </form>
+    </doseForm>
     <ingredient>
       <itemReference>
         <reference value="#sub04"/>
       </itemReference>
-      <strength>
+      <strengthRatio>
         <numerator>
           <value value="500"/>
           <system value="http://unitsofmeasure.org"/>
@@ -51,7 +51,7 @@
           <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
           <code value="TAB"/>
         </denominator>
-      </strength>
+      </strengthRatio>
     </ingredient>
   <batch>
     <lotNumber value="9494788"/>

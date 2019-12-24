@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Account" alias AccountR3 as ta
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Account(source src : AccountR3, target tgt : Account) extends DomainResource <<type+>> {
+group Account(source src : Account, target tgt : AccountR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.type -> tgt.type;

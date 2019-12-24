@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="example-cpt-all"/>
+	<url value="http://hl7.org/fhir/ValueSet/example-cpt-all"/>
+	<name value="All CPT codes"/>
+	<status value="active"/>
+	<date value="2015-03-12"/>
+	<publisher value="Health Level Seven International (Vocabulary)"/>
+	<description value="A value set that includes all CPT codes"/>
+	<useContext>
+    <code>
+      <system value="http://example.org/fhir/CodeSystem/use-contexts"/>
+      <code value="species"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="337915000"/>
+        <display value="Homo sapiens (organism)"/>
+      </coding>
+    </valueCodeableConcept>
+	</useContext>
+	<jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+	</jurisdiction>
+	<copyright value="CPT Copyright © 2014 American Medical Association. All rights reserved."/>
+	<compose>
+		<include>
+			<system value="http://www.ama-assn.org/go/cpt"/>
+		</include>
+	</compose>
+</ValueSet>

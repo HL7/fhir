@@ -12,7 +12,7 @@
 
 <div class="col-12">
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page%]
+[%normative page infrastructure%]
 <h2>Version Management Policy</h2>
 
 <p>
@@ -42,7 +42,7 @@ develops a standard so that implementers know what to expect as the standard evo
 </p>
 
 <p>
-HL7 has four descriptive terms that describe the level of stability and implementation readiness associated with
+HL7 has five descriptive terms that describe the level of stability and implementation readiness associated with
 different aspects of the specification.  They are as follows:
 </p>
 <table>
@@ -52,14 +52,22 @@ different aspects of the specification.  They are as follows:
       <th>Description</th>
     </tr>
     <tr>
-      <th style="background-color: #efefef; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="draft"></a>Draft</th>
-      <td>This portion of the specification is not considered to be complete enough or sufficiently reviewed to be
-      safe for implementation.  It may have known issues or still be in the "in development" stage.  It is included
-      in the publication as a place-holder, to solicit feedback from the implementation community and/or to give
-      implementers some insight as to functionality likely to be included in future versions of the specification.
-      Content at this level should only be implemented by the brave or desperate and is very much "use at your own
-      risk". The content that is <i>Draft</i> that will usually be elevated to <i>Trial Use</i> once review and 
-      correction is complete after it has been subjected to ballot</td>
+      <th style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="normative"></a>Normative</th>
+      <td>This content been approved by the <a href="ansi.html">ANSI standards process</a>.  It has been subject to review and production implementation in a wide variety of environments.
+      The content is considered to be stable and has been 'locked', subjecting it to FHIR 
+      <a href="#change">Inter-version Compatibility Rules</a>.  While changes are possible, they are
+      expected to be infrequent and are tightly constrained.
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+      For all content marked with one of the following indicators - i.e. not 'Normative', the following statement applies:
+      <blockquote>
+      The information contained in this (portion of a document) is not part of this American National Standard (ANS) and has not been processed in accordance 
+      with ANSI’s requirements for an ANSI Standard. As such, this (portion of a document) may contain material that has not been subjected to public review or a 
+      consensus process. In addition, it does not contain requirements necessary for formal conformance to the standard.
+      </blockquote>
+      </td>
     </tr>
     <tr>
       <th style="background-color: #fff5e6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="stu"></a>Trial Use</th>
@@ -77,11 +85,14 @@ different aspects of the specification.  They are as follows:
       </td>
     </tr>
     <tr>
-      <th style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="normative"></a>Normative</th>
-      <td>This content has been subject to review and production implementation in a wide variety of environments.
-      The content is considered to be stable and has been 'locked', subjecting it to FHIR 
-      <a href="#change">Inter-version Compatibility Rules</a>.  While changes are possible, they are
-      expected to be infrequent and are tightly constrained.</td>
+      <th style="background-color: #efefef; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="draft"></a>Draft</th>
+      <td>This portion of the specification is not considered to be complete enough or sufficiently reviewed to be
+      safe for implementation.  It may have known issues or still be in the "in development" stage.  It is included
+      in the publication as a place-holder, to solicit feedback from the implementation community and/or to give
+      implementers some insight as to functionality likely to be included in future versions of the specification.
+      Content at this level should only be implemented by the brave or desperate and is very much "use at your own
+      risk". The content that is <i>Draft</i> that will usually be elevated to <i>Trial Use</i> once review and 
+      correction is complete after it has been subjected to ballot</td>
     </tr>
     <tr>
       <th style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;">Informative</th>
@@ -131,22 +142,12 @@ though all Trial Use resources contain normative content from <a href="resource.
 and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Data types</a>.
 </p>
 
-
-
-<p style="background-color: #ffefef; border:1px solid maroon; padding: 5px;">
-This release (Release 3) is a <i>Trial Use</i> Specification, though a little of the content (where marked 
-specifically at the top of the page) is <i>Draft</i>. For Release 4, <i>some</i> content is <i>Normative</i>.
-</p>
-
 <p>
 Notes:
 </p>
 <ul>
  <li>The above statuses can apply to both the standard overall as well as to individual components of the FHIR specification</li>
- <li>Between FHIR release 2 and 3, HL7 changed from using "DSTU" (Draft Standard for Trial Use) to just simply "STU" (Standard for Trial Use)
-  to reflect the maturity of the FHIR specification: Release 2 and particularly this Release 3 are far beyond 
-  "draft" specifications and have been and will be widely implemented.</li>
- <li>Most pages in the specification identify their status explicitly. The few pages that don't are Table of contents pages, and are all <i>Informative</i></li>
+ <li>All pages in the specification identify their status explicitly. A few pages are Table of contents or other kinds of navigational pages, and are <i>Informative</i></li>
  <li>Some content is labeled with the status "External", which means that the content is maintained in another standard, and the status must be found by consulting that other standard. In this case, the Maturity Model does not apply</li>
 </ul>
 
@@ -711,13 +712,13 @@ Formal Definitions for extensions:
 	  <td>R2 Extensions:</td>
 		<td style="background-color: #EEEEEE">n/a</td>
 		<td>hl7.fhir.extensions.r2:3.0.1 <a href="http://hl7.org/fhir/1.0/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
-		<td>hl7.fhir.extensions.r2:4.0.0 <a href="http://hl7.org/fhir/1.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r2:4.1.0 <a href="http://hl7.org/fhir/1.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
 	</tr>
   <tr>
 	  <td>R3 Extensions:</td>
 		<td>hl7.fhir.extensions.r3:1.0.2 <a href="http://hl7.org/fhir/3.0/extensions/1.0/package.tgz"><img src="npm16.png"/></a></td>
 		<td style="background-color: #EEEEEE">n/a`</td>
-		<td>hl7.fhir.extensions.r3:4.0.0 <a href="http://hl7.org/fhir/3.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r3:4.1.0 <a href="http://hl7.org/fhir/3.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
 	</tr>
   <tr>
 	  <td>R4 Extensions:</td>

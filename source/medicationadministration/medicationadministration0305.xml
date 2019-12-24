@@ -16,13 +16,13 @@
         <manufacturer>
           <reference value="Organization/mmanu" />
         </manufacturer>
-          <form>
+          <doseForm>
             <coding>
               <system value="http://snomed.info/sct"/>
               <code value="421637006"/>
               <display value="Lyophilized powder for injectable solution (qualifier value) "/>
             </coding>
-          </form>
+          </doseForm>
 <batch>
         <lotNumber value="12345"/>
         <expirationDate value="2019-10-31"/>
@@ -32,7 +32,7 @@
       
     </Medication>
   </contained>
-  <instantiates value="http://www.bccancer.bc.ca/chemotherapy-protocols-site/Documents/Lymphoma-Myeloma/ULYBRENTUX%20Protocol_1Jun2017.pdf"/>
+  <instantiatesUri value="http://www.bccancer.bc.ca/chemotherapy-protocols-site/Documents/Lymphoma-Myeloma/ULYBRENTUX%20Protocol_1Jun2017.pdf"/>
   <status value="completed"/>
   <medicationReference>
     <reference value="#med0306"/> 
@@ -41,14 +41,14 @@
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
   </subject>
-  <context> 
+  <encounter> 
     <reference value="Encounter/f001"/>
     <display value="encounter who leads to this prescription"/>
-  </context>
- <effectivePeriod>
+  </encounter>
+  <occurencePeriod>
   <start value="2015-01-15T04:30:00+01:00"/>
    <end value="2015-01-15T14:30:00+01:00"/>
-</effectivePeriod>
+</occurencePeriod>
   <performer>
     <actor>
     <reference value="Practitioner/f007"/>

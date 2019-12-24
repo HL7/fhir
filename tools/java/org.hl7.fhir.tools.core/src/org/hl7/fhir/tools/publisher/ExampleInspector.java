@@ -29,29 +29,29 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
-import org.hl7.fhir.r4.context.IWorkerContext;
-import org.hl7.fhir.r4.elementmodel.Element;
-import org.hl7.fhir.r4.elementmodel.Manager;
-import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
-import org.hl7.fhir.r4.elementmodel.ObjectConverter;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.Base;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.OperationDefinition;
-import org.hl7.fhir.r4.model.SearchParameter;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.TypeDetails;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.utils.FHIRPathEngine;
-import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
-import org.hl7.fhir.r4.utils.IResourceValidator;
-import org.hl7.fhir.r4.utils.IResourceValidator.BestPracticeWarningLevel;
-import org.hl7.fhir.r4.utils.IResourceValidator.IValidatorResourceFetcher;
-import org.hl7.fhir.r4.utils.IResourceValidator.IdStatus;
-import org.hl7.fhir.r4.utils.IResourceValidator.ReferenceValidationPolicy;
-import org.hl7.fhir.r4.validation.InstanceValidator;
-import org.hl7.fhir.r4.validation.XmlValidator;
+import org.hl7.fhir.r5.context.IWorkerContext;
+import org.hl7.fhir.r5.elementmodel.Element;
+import org.hl7.fhir.r5.elementmodel.Manager;
+import org.hl7.fhir.r5.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.r5.elementmodel.ObjectConverter;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.Base;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.Constants;
+import org.hl7.fhir.r5.model.OperationDefinition;
+import org.hl7.fhir.r5.model.SearchParameter;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.TypeDetails;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.utils.FHIRPathEngine;
+import org.hl7.fhir.r5.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.r5.utils.IResourceValidator;
+import org.hl7.fhir.r5.utils.IResourceValidator.BestPracticeWarningLevel;
+import org.hl7.fhir.r5.utils.IResourceValidator.IValidatorResourceFetcher;
+import org.hl7.fhir.r5.utils.IResourceValidator.IdStatus;
+import org.hl7.fhir.r5.utils.IResourceValidator.ReferenceValidationPolicy;
+import org.hl7.fhir.r5.validation.InstanceValidator;
+import org.hl7.fhir.r5.validation.XmlValidator;
 import org.hl7.fhir.rdf.ModelComparer;
 import org.hl7.fhir.rdf.ShExValidator;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -137,14 +137,19 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     public boolean conformsToProfile(Object appContext, Base item, String url) throws FHIRException {
       IResourceValidator val = context.newValidator();
       List<ValidationMessage> valerrors = new ArrayList<ValidationMessage>();
-      if (item instanceof org.hl7.fhir.r4.model.Resource) {
-        val.validate(appContext, valerrors, (org.hl7.fhir.r4.model.Resource) item, url);
+      if (item instanceof org.hl7.fhir.r5.model.Resource) {
+        val.validate(appContext, valerrors, (org.hl7.fhir.r5.model.Resource) item, url);
         boolean ok = true;
         for (ValidationMessage v : valerrors)
           ok = ok && v.getLevel().isError();
         return ok;
       }
       throw new NotImplementedException("Not done yet (IGPublisherHostServices.conformsToProfile), when item is element");
+    }
+
+    @Override
+    public ValueSet resolveValueSet(Object appContext, String url) {
+      return null;
     }
   }
   
@@ -165,7 +170,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
   private boolean bySchematron = VALIDATE_BY_SCHEMATRON;
   private boolean byJsonSchema = VALIDATE_BY_JSON_SCHEMA;
   private boolean byRdf = VALIDATE_RDF;
-  private ExampleHostServices hostServices; 
+  private ExampleHostServices hostServices;
   
   public ExampleInspector(IWorkerContext context, Logger logger, String rootDir, String xsltDir, List<ValidationMessage> errors, Definitions definitions) throws JsonSyntaxException, FileNotFoundException, IOException {
     super();
@@ -516,11 +521,11 @@ public class ExampleInspector implements IValidatorResourceFetcher {
       ResourceDefn r = definitions.getResourceByName(parts[0]);
       for (Example e : r.getExamples()) {
         if (e.getElement() == null && e.hasXml()) {
-          e.setElement(new org.hl7.fhir.r4.elementmodel.XmlParser(context).parse(e.getXml()));
+          e.setElement(new org.hl7.fhir.r5.elementmodel.XmlParser(context).parse(e.getXml()));
           if (e.getElement().getProperty().getStructure().getBaseDefinition().contains("MetadataResource")) {
             String urle = e.getElement().getChildValue("url");
             String v = e.getElement().getChildValue("url");
-            if (urle.startsWith("http://hl7.org/fhir") && !Constants.VERSION.equals(v)) {
+            if (urle != null && urle.startsWith("http://hl7.org/fhir") && !Constants.VERSION.equals(v)) {
               e.getElement().setChildValue("version", Constants.VERSION);
               
             }

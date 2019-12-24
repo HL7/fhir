@@ -17,6 +17,7 @@
 			<code value="dietary"/>
 		</coding>
 	</category>
+	<continuous value="true"/>
 	<priority>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/goal-priority" />

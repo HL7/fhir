@@ -9,12 +9,12 @@
     </coding>
   </code>
   
-    <form>
+    <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385157007"/>
         <display value="Nasal Spray"/>
       </coding>
-    </form>
+    </doseForm>
   
 </Medication>

@@ -18,6 +18,7 @@
   
   
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -119,7 +120,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="147" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="148" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
@@ -198,7 +199,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CareTeam</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">patient | participant </Data></Cell>
-    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
    </Row>
@@ -230,6 +231,9 @@
     <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ClinicalUseIssue</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CodeSystem</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -242,11 +246,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CommunicationRequest</Data></Cell>
-    <Cell><Data ss:Type="String">subject | sender | recipient | requester</Data></Cell>
+    <Cell><Data ss:Type="String">subject | information-provider | recipient | requester</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>
-    <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>
-    <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
+    <Cell><Data ss:Type="String">information-provider | recipient | requester</Data></Cell>
+    <Cell><Data ss:Type="String">information-provider | recipient | requester</Data></Cell>
+    <Cell><Data ss:Type="String">information-provider | recipient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CompartmentDefinition</Data></Cell>
@@ -275,6 +279,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CapabilityStatement</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CapabilityStatement2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DetectedIssue</Data></Cell>
@@ -438,19 +445,12 @@
     <Cell><Data ss:Type="String">Location</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Media</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">subject | operator</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Medication</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration</Data></Cell>
     <Cell><Data ss:Type="String">patient | performer | subject</Data></Cell>
-    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">device</Data></Cell>
@@ -458,6 +458,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationDispense</Data></Cell>
     <Cell><Data ss:Type="String">subject | patient | receiver</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">performer | receiver</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -467,9 +468,10 @@
     <Cell ss:Index="5"><Data ss:Type="String">requester</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicationStatement</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationUsage</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">source</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">source</Data></Cell>
     <Cell><Data ss:Type="String">source</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -482,6 +484,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NamingSystem</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionIntake</Data></Cell>
+    <Cell><Data ss:Type="String">subject | source</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">source</Data></Cell>
+    <Cell><Data ss:Type="String">source</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NutritionOrder</Data></Cell>
@@ -711,34 +720,22 @@
     <Cell><Data ss:Type="String">OrganizationAffiliation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProduct</Data></Cell>
+    <Cell><Data ss:Type="String">MedicinalProductDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductAuthorization</Data></Cell>
+    <Cell><Data ss:Type="String">PackagedProductDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductContraindication</Data></Cell>
+    <Cell><Data ss:Type="String">ManufacturedItemDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductIndication</Data></Cell>
+    <Cell><Data ss:Type="String">AdministrableProductDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductInteraction</Data></Cell>
+    <Cell><Data ss:Type="String">Ingredient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductUndesirableEffect</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductIngredient</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductManufactured</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductPackaged</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductPharmaceutical</Data></Cell>
+    <Cell><Data ss:Type="String">RegulatedAuthorization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubstanceDefinition</Data></Cell>
@@ -770,23 +767,20 @@
    <Row>
     <Cell><Data ss:Type="String">ChargeItemDefinition</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ResearchDefinition</Data></Cell>
+   <Row ss:Index="143">
+    <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ResearchElementDefinition</Data></Cell>
+   <Row ss:Index="146">
+    <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">Evidence</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
+    <Cell><Data ss:Type="String">Topic</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">EffectEvidenceSynthesis</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">RiskEvidenceSynthesis</Data></Cell>
+    <Cell><Data ss:Type="String">Topic</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -805,7 +799,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>136</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

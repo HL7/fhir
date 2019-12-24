@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>9</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -774,10 +774,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s165">
-   <Font ss:Color="#333333" ss:FontName="Arial" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s166" ss:Parent="s63">
+  <Style ss:ID="s163" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
@@ -786,6 +783,9 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s164">
+   <Font ss:Color="#333333" ss:FontName="Arial" x:Family="Swiss"/>
   </Style>
  </Styles>
  <Names>
@@ -872,7 +872,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">MetadataResource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">CanonicalResource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1883,10 +1883,10 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">GuideParameterCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3574,6 +3574,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5715,7 +5716,7 @@
     <Cell ss:StyleID="s101"><Data ss:Type="String">GuideParameterCode</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Code of parameter that is input to the guide</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">#guide-parameter-code</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
@@ -6129,8 +6130,8 @@
    <Row ss:AutoFitHeight="0" ss:StyleID="s151">
     <Cell ss:StyleID="s153"><Data ss:Type="String">apply</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">Apply Metadata Value</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">If the value of this string 0..* parameter is one of the metadata fields then all conformance resources will have any specified [Resource].[field] overwritten with the ImplementationGuide.[field], where field is one of: version, date, status, publisher, contact, copyright, experimental, jurisdiction, useContext</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">Apply Metadata Value</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">If the value of this string 0..* parameter is one of the metadata fields then all conformance resources will have any specified [Resource].[field] overwritten with the ImplementationGuide.[field], where field is one of: version, date, status, publisher, contact, copyright, experimental, jurisdiction, useContext</Data></Cell>
     <Cell ss:StyleID="s154"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
@@ -6194,8 +6195,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -6219,7 +6218,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">html</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">HTML</Data></Cell>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">Page is proper xhtml with no templating.  Will be brought across unchanged for standard post-processing</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">Page is proper xhtml with no templating.  Will be brought across unchanged for standard post-processing</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">markdown</Data></Cell>

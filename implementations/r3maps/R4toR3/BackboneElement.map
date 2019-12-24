@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/BackboneElement" alias Backbon
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group BackboneElement(source src : BackboneElementR3, target tgt : BackboneElement) extends Element <<type+>> {
+group BackboneElement(source src : BackboneElement, target tgt : BackboneElementR3) extends Element <<type+>> {
   src.modifierExtension -> tgt.modifierExtension;
 }
 

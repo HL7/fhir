@@ -27,46 +27,57 @@ import org.fhir.ucum.UcumEssenceService;
 import org.fhir.ucum.UcumException;
 import org.fhir.ucum.UcumService;
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.context.BaseWorkerContext;
-import org.hl7.fhir.r4.context.HTMLClientLogger;
-import org.hl7.fhir.r4.context.IWorkerContext;
-import org.hl7.fhir.r4.formats.IParser;
-import org.hl7.fhir.r4.formats.JsonParser;
-import org.hl7.fhir.r4.formats.ParserType;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
-import org.hl7.fhir.r4.model.ConceptMap;
-import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide;
-import org.hl7.fhir.r4.model.NamingSystem;
-import org.hl7.fhir.r4.model.NamingSystem.NamingSystemIdentifierType;
-import org.hl7.fhir.r4.model.NamingSystem.NamingSystemUniqueIdComponent;
-import org.hl7.fhir.r4.model.OperationOutcome;
-import org.hl7.fhir.r4.model.Parameters;
-import org.hl7.fhir.r4.model.Parameters.ParametersParameterComponent;
-import org.hl7.fhir.r4.model.StringType;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.r4.terminologies.TerminologyClient;
-import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
-import org.hl7.fhir.r4.utils.INarrativeGenerator;
-import org.hl7.fhir.r4.utils.IResourceValidator;
-import org.hl7.fhir.r4.utils.NarrativeGenerator;
-import org.hl7.fhir.r4.utils.client.EFhirClientException;
+import org.hl7.fhir.r5.conformance.ProfileUtilities;
+import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.r5.context.BaseWorkerContext;
+import org.hl7.fhir.r5.context.HTMLClientLogger;
+import org.hl7.fhir.r5.context.IWorkerContext;
+import org.hl7.fhir.r5.context.MetadataResourceManager;
+import org.hl7.fhir.r5.formats.IParser;
+import org.hl7.fhir.r5.formats.JsonParser;
+import org.hl7.fhir.r5.formats.ParserType;
+import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.r5.model.ConceptMap;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r5.model.ImplementationGuide;
+import org.hl7.fhir.r5.model.NamingSystem;
+import org.hl7.fhir.r5.model.NamingSystem.NamingSystemIdentifierType;
+import org.hl7.fhir.r5.model.NamingSystem.NamingSystemUniqueIdComponent;
+import org.hl7.fhir.r5.model.OperationOutcome;
+import org.hl7.fhir.r5.model.Parameters;
+import org.hl7.fhir.r5.model.Parameters.ParametersParameterComponent;
+import org.hl7.fhir.r5.model.StringType;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.r5.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r5.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.r5.terminologies.TerminologyClient;
+import org.hl7.fhir.r5.terminologies.TerminologyClientR5;
+import org.hl7.fhir.r5.utils.INarrativeGenerator;
+import org.hl7.fhir.r5.utils.IResourceValidator;
+import org.hl7.fhir.r5.utils.NarrativeGenerator;
+import org.hl7.fhir.r5.utils.client.EFhirClientException;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.OIDUtils;
+import org.hl7.fhir.utilities.TerminologyServiceOptions;
 import org.hl7.fhir.utilities.TranslatorXml;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationOptions;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.w3c.dom.Document;
@@ -93,7 +104,7 @@ import org.xml.sax.SAXException;
  - list of resource names
 
  */
-public class BuildWorkerContext extends BaseWorkerContext implements IWorkerContext {
+public class BuildWorkerContext extends BaseWorkerContext implements IWorkerContext, ProfileKnowledgeProvider {
 
   private static final String SNOMED_EDITION = "900000000000207008"; // international
 //  private static final String SNOMED_EDITION = "731000124108"; // us edition
@@ -110,7 +121,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   
 
 
-  public BuildWorkerContext(Definitions definitions, TerminologyClient client, Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles, Map<String, ImplementationGuide> guides, String folder) throws UcumException, ParserConfigurationException, SAXException, IOException, FHIRException {
+  public BuildWorkerContext(Definitions definitions, TerminologyClient client, MetadataResourceManager<CodeSystem> codeSystems, MetadataResourceManager<ValueSet> valueSets, MetadataResourceManager<ConceptMap> maps, MetadataResourceManager<StructureDefinition> profiles, MetadataResourceManager<ImplementationGuide> guides, String folder) throws UcumException, ParserConfigurationException, SAXException, IOException, FHIRException {
     super(codeSystems, valueSets, maps, profiles, guides);
     this.definitions = definitions;
     this.txClient = client;
@@ -176,7 +187,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (type.hasProfile())
       return getStructure(type.getProfile().get(0).getValue());
     else
-      return getStructure(type.getCode());
+      return getStructure(type.getWorkingCode());
   }
 
   @Override
@@ -440,7 +451,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   
-  public ValidationResult validateCode(String system, String code, String display) {
+  public ValidationResult validateCode(ValidationOptions options, String system, String code, String display) {
     try {
       if (system.equals("http://snomed.info/sct"))
         return verifySnomed(code, display);
@@ -461,7 +472,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     } catch (Exception e) {
       return new ValidationResult(IssueSeverity.ERROR, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
     }
-    return super.validateCode(system, code, display);
+    return super.validateCode(options, system, code, display);
   }
 
   
@@ -580,7 +591,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         triedServer = true;
         // for this, we use the FHIR client
         if (txClient == null) {
-          txClient = new TerminologyClientR4(tsServer);
+          txClient = new TerminologyClientR5(tsServer);
           this.txLog = new HTMLClientLogger(null);
         }
         Map<String, String> params = new HashMap<String, String>();
@@ -712,13 +723,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     this.definitions = definitions;    
   }
 
-
-
-  @Override
-  public Set<String> typeTails() {
-    return new HashSet<String>(Arrays.asList("Integer","UnsignedInt","PositiveInt","Decimal","DateTime","Date","Time","Instant","String","Uri","Url","Canonical","Oid","Uuid","Id","Boolean","Code","Markdown","Base64Binary","Coding","CodeableConcept","Attachment","Identifier","Quantity","SampledData","Range","Period","Ratio","HumanName","Address","ContactPoint","Timing","Reference","Annotation","Signature","Meta"));
-  }
-
   @Override
   public List<StructureDefinition> allStructures() {
     List<StructureDefinition> result = new ArrayList<StructureDefinition>();
@@ -794,5 +798,67 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     return ucum;
   }
 
+  public void generateSnapshot(StructureDefinition p) throws DefinitionException, FHIRException {
+    generateSnapshot(p, false);
+  }
+  public void generateSnapshot(StructureDefinition p, boolean ifLogical) throws DefinitionException, FHIRException {
+    if (!p.hasSnapshot() && (ifLogical || p.getKind() != StructureDefinitionKind.LOGICAL)) {
+      if (!p.hasBaseDefinition())
+        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
+      StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBaseDefinition());
+      if (sd == null)
+        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") base "+p.getBaseDefinition()+" could not be resolved");
+      List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
+      List<String> errors = new ArrayList<String>();
+      ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
+      pu.setThrowException(false);
+      pu.sortDifferential(sd, p, p.getUrl(), errors);
+      for (String err : errors)
+        msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
+      pu.generateSnapshot(sd, p, p.getUrl(), Utilities.extractBaseUrl(sd.getUserString("path")), p.getName());
+      for (ValidationMessage msg : msgs) {
+        if ((msg.getLevel() == ValidationMessage.IssueSeverity.ERROR) || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)
+          throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot: "+msg.getMessage());
+      }
+      if (!p.hasSnapshot())
+        throw new FHIRException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot");
+      pu = null;
+    }
+  }
+
+  @Override
+  public boolean isDatatype(String typeSimple) {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public boolean hasLinkFor(String typeSimple) {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public String getLinkFor(String corePath, String typeSimple) {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public BindingResolution resolveBinding(StructureDefinition def, ElementDefinitionBindingComponent binding, String path) throws FHIRException {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public BindingResolution resolveBinding(StructureDefinition def, String url, String path) throws FHIRException {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public String getLinkForProfile(StructureDefinition profile, String url) {
+    throw new Error("Not done yet");
+  }
+
+  @Override
+  public boolean prependLinks() {
+    throw new Error("Not done yet");
+  }
 
 }

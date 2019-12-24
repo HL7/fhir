@@ -1,29 +1,23 @@
 <!DOCTYPE HTML>
 
-<!-- template-comparison-set.html -->
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<%file newheader%>
+ <title>[%title%]</title/>
+ <link rel="stylesheet" href="fhir.css"/>
 </head>
 <body>
-<%file newnavbar%>
 
-<div class="col-12">
-
-<h2>Comparison <%pc.title%></h2>
+<h2>Comparison [%title%]</h2>
 
 <p> 
-This is a comparison between the 2 implementation guides <%pc.left%> and <%pc.right%>, 
+This is a comparison between the 2 profiles guides [%left%] and [%right%], 
 generated to help compare the interoperability of implementations based on the two 
-implementation guides, or, alternatively, for implementers to understand what is required
-to conform to both implementation guides. 
+profiles, or, alternatively, for implementers to understand what is required
+to conform to both profiles. 
 </p>
 
 <p>
-The comparison consists of a series of comparisons between the constraint 
-definitions defined in the implementation guide. For each comparison, 
-implementers can review:
+Implementers can review:
 </p>
 <ul>
  <li>A series of messages from the comparison algorithm. Errors indicate that solutions cannot be interoperable across both implementation guides (or that there are structural flaws in the definition of at least one)</li>
@@ -33,15 +27,11 @@ implementers can review:
 
 <h3>Comparisons</h3>
 
-<%pc.table%>
+[%table%]
 
 <h3>ValueSets</h3>
 
-<%pc.valuesets%>
-
-</div>
-
-<%file newfooter%>
+[%valuesets%]
 
 </body>
 </html>

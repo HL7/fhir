@@ -29,14 +29,18 @@
       <concept>
         <code value="PATOBJ"/>
       </concept>
-    </include>
-    <include>
-      <system value="http://snomed.info/sct"/>
-      <filter>
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="310376006"/>
-      </filter>
+      <concept>
+        <code value="PHILISOP"/>
+      </concept>
+      <concept>
+        <code value="RELIG"/>
+      </concept>
+      <concept>
+        <code value="VACEFF"/>
+      </concept>
+      <concept>
+        <code value="VACSAF"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

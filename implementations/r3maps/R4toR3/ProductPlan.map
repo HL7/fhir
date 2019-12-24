@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ProductPlan" alias ProductPlan
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group ProductPlan(source src : ProductPlanR3, target tgt : ProductPlan) extends DomainResource <<type+>> {
+group ProductPlan(source src : ProductPlan, target tgt : ProductPlanR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.type -> tgt.type;

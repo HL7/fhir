@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductClinicals" ali
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group MedicinalProductClinicals(source src : MedicinalProductClinicalsR3, target tgt : MedicinalProductClinicals) extends DomainResource <<type+>> {
+group MedicinalProductClinicals(source src : MedicinalProductClinicals, target tgt : MedicinalProductClinicalsR3) extends DomainResource <<type+>> {
   src.undesirableEffects as s -> tgt.undesirableEffects as t then MedicinalProductClinicalsUndesirableEffects(s, t);
   src.therapeuticIndication as s -> tgt.therapeuticIndication as t then MedicinalProductClinicalsTherapeuticIndication(s, t);
   src.contraindication as s -> tgt.contraindication as t then MedicinalProductClinicalsContraindication(s, t);

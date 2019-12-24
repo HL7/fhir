@@ -1402,8 +1402,8 @@ do the expansions or find a terminology server that supports the same version of
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>
-            <code value="MedicationStatement"/>
-            <display value="MedicationStatement"/>
+            <code value="MedicationUsage"/>
+            <display value="MedicationUsage"/>
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>
@@ -6851,7 +6851,7 @@ The content type or mime type to be specified in Accept or Content-Type header."
         </extension>
         <url value="http://hl7.org/fhir/ValueSet/medication-statement-status"/>
         <version value="1.0.2"/>
-        <name value="MedicationStatementStatus"/>
+        <name value="MedicationUsageStatus"/>
         <status value="draft"/>
         <experimental value="false"/>
         <publisher value="HL7 (FHIR Project)"/>
@@ -6866,7 +6866,7 @@ The content type or mime type to be specified in Accept or Content-Type header."
           </telecom>
         </contact>
         <date value="2016-05-27T22:57:07+10:00"/>
-        <description value="A set of codes indicating the current status of a MedicationStatement."/>
+        <description value="A set of codes indicating the current status of a MedicationUsage."/>
         <codeSystem>
           <system value="http://hl7.org/fhir/medication-statement-status"/>
           <version value="1.0.2"/>
@@ -8270,9 +8270,9 @@ The content type or mime type to be specified in Accept or Content-Type header."
             <definition value="An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called &quot;MedicationOrder&quot; rather than &quot;MedicationPrescription&quot; to generalize the use across inpatient and outpatient settings as well as for care plans, etc."/>
           </concept>
           <concept>
-            <code value="MedicationStatement"/>
-            <display value="MedicationStatement"/>
-            <definition value="A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient&#39;s memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains 
+            <code value="MedicationUsage"/>
+            <display value="MedicationUsage"/>
+            <definition value="A record of a medication that is being consumed by a patient.   A MedicationUsage may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient&#39;s memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains 
 
 The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient&#39;s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information."/>
           </concept>
@@ -8761,8 +8761,8 @@ The primary difference between a medication statement and a medication administr
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>
-            <code value="MedicationStatement"/>
-            <display value="MedicationStatement"/>
+            <code value="MedicationUsage"/>
+            <display value="MedicationUsage"/>
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>
@@ -11290,8 +11290,8 @@ Information for which the patient seeks heightened confidentiality. Sensitive in
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>
-            <code value="MedicationStatement"/>
-            <display value="MedicationStatement"/>
+            <code value="MedicationUsage"/>
+            <display value="MedicationUsage"/>
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>

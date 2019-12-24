@@ -3,13 +3,13 @@
  xmlns="http://hl7.org/fhir">
    <id value="med0318"/>
   
-    <form>
+    <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385221006"/>
         <display value="Injection emulsion"/>
       </coding>
-    </form>
+    </doseForm>
     <ingredient>
       <itemCodeableConcept>
         <coding>

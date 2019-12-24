@@ -5,24 +5,25 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
-import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.r4.model.ConceptMap;
-import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.ConceptMap.ConceptMapGroupComponent;
-import org.hl7.fhir.r4.model.ConceptMap.SourceElementComponent;
-import org.hl7.fhir.r4.model.ConceptMap.TargetElementComponent;
-import org.hl7.fhir.r4.model.ContactDetail;
-import org.hl7.fhir.r4.model.ContactPoint;
-import org.hl7.fhir.r4.model.Enumerations.ConceptMapEquivalence;
-import org.hl7.fhir.r4.model.Factory;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
-import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.r5.context.MetadataResourceManager;
+import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r5.model.ConceptMap;
+import org.hl7.fhir.r5.model.Constants;
+import org.hl7.fhir.r5.model.ConceptMap.ConceptMapGroupComponent;
+import org.hl7.fhir.r5.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.r5.model.ConceptMap.TargetElementComponent;
+import org.hl7.fhir.r5.model.ContactDetail;
+import org.hl7.fhir.r5.model.ContactPoint;
+import org.hl7.fhir.r5.model.Enumerations.ConceptMapRelationship;
+import org.hl7.fhir.r5.model.Factory;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r5.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xls.XLSXmlParser.Sheet;
 
@@ -32,10 +33,10 @@ public class CodeListToValueSetParser {
   private ValueSet valueSet;
   private String version;
   private String sheetName;
-  private Map<String, CodeSystem> codeSystems;
-  private Map<String, ConceptMap> maps;
+  private MetadataResourceManager<CodeSystem> codeSystems;
+  private MetadataResourceManager<ConceptMap> maps;
 
-  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps) throws Exception {
+  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, MetadataResourceManager<CodeSystem> codeSystems, MetadataResourceManager<ConceptMap> maps) throws Exception {
     super();
     this.sheet = sheet;
     this.sheetName = sheetName;
@@ -72,7 +73,7 @@ public class CodeListToValueSetParser {
       cs.setVersion(version);
       cs.setCaseSensitive(true);
       cs.setContent(CodeSystemContentMode.COMPLETE);
-      codeSystems.put(cs.getUrl(), cs);
+      codeSystems.see(cs);
 
       for (int row = 0; row < sheet.rows.size(); row++) {
         if (Utilities.noString(sheet.getColumn(row, "System"))) {
@@ -176,7 +177,7 @@ public class CodeListToValueSetParser {
       for (ConceptReferenceComponent c : cc.getConcept()) {
         processV2Map(cm, cc.getSystem(), c.getCode(), c.getUserString("v2"));
       }
-    maps.put(cm.getUrl(), cm);
+    maps.see(cm);
   }
 
   private void processV2ConceptDefs(ConceptMap cm, String url, List<ConceptDefinitionComponent> list) throws Exception {
@@ -207,13 +208,13 @@ public class CodeListToValueSetParser {
       tgt.setComment(comm);
 
       if (rel.equals("="))
-        tgt.setEquivalence(ConceptMapEquivalence.EQUAL);
+        tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals("~"))
-        tgt.setEquivalence(ConceptMapEquivalence.EQUIVALENT);
+        tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals(">"))
-        tgt.setEquivalence(ConceptMapEquivalence.WIDER);
+        tgt.setRelationship(ConceptMapRelationship.BROADER);
       else if (rel.equals("<")) {
-        tgt.setEquivalence(ConceptMapEquivalence.NARROWER);
+        tgt.setRelationship(ConceptMapRelationship.NARROWER);
         if (!tgt.hasComment())
           throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else
@@ -270,7 +271,7 @@ public class CodeListToValueSetParser {
       for (ConceptReferenceComponent c : cc.getConcept()) {
         processV3Map(cm, cc.getSystem(), c.getCode(), c.getUserString("v2"));
       }
-    maps.put(cm.getUrl(), cm);
+    maps.see(cm);
   }
 
   private void processV3ConceptDefs(ConceptMap cm, String url, List<ConceptDefinitionComponent> list) throws Exception {
@@ -305,13 +306,13 @@ public class CodeListToValueSetParser {
       tgt.setComment(comm);
 
       if (rel == null || rel.equals("="))
-        tgt.setEquivalence(ConceptMapEquivalence.EQUAL);
+        tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals("~"))
-        tgt.setEquivalence(ConceptMapEquivalence.EQUIVALENT);
+        tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals("<"))
-        tgt.setEquivalence(ConceptMapEquivalence.WIDER);
+        tgt.setRelationship(ConceptMapRelationship.BROADER);
       else if (rel.equals(">")) {
-        tgt.setEquivalence(ConceptMapEquivalence.NARROWER);
+        tgt.setRelationship(ConceptMapRelationship.NARROWER);
         if (!tgt.hasComment())
           throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else

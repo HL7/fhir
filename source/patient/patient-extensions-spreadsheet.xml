@@ -4642,7 +4642,7 @@
     <Cell ss:StyleID="s132"><Data ss:Type="String">mothersMaidenName</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Patient.extension(http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-mothersMaidenName)</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName')</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Search based on patient's mother's maiden name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

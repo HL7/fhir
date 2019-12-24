@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
-	<!--     
-  This file is for the convenience of implementers, to enable sharing of language translations.     
-  There is no obligation for any implementer to use the messages contained in this file, but     
-  all implementers are welcome to do so. The reference platforms use these messages.     
-  
-  Any implementer is welcome to add additional items or translations     
-  When proposing changes, the following people have an interest in the language:       
-    english: grahame@healthintersections.com.au       
-    dutch: Ewout, Alexander       
-    italian: origama       
-    chinese: niehongchao (at com dot foxmail)       
-    polish : radomski (at iehr in eu)       
-    french : Frederic (dot) Laurent (at gmail dot com)       
-    
-  
-  
-  Language codes in this file are defined as ll[-CC], where ll is the lowercase ISO 639-1 alpha 2    
-  language code and CC is the uppercase ISO 3166-1 alpha 2 country code. The country code is    
-  optional so legal codes are for example:      
-    de-DE  :  German German      
-    de-CH  :  Swiss German      
-    de     :  German      
-    en-US  :  US American English      
-    en     :  English      
-    fr     :  French    
-  
-  NOTE: while translations for Resource Names are provided they should be used for rendering purposes          
-  only, and not in the URI, as XML node name, or JSON label etc.    
+	<!--
+  This file is for the convenience of implementers, to enable sharing of language translations.
+  There is no obligation for any implementer to use the messages contained in this file, but
+  all implementers are welcome to do so. The reference platforms use these messages.
+
+  Any implementer is welcome to add additional items or translations
+  When proposing changes, the following people have an interest in the language:
+    english: grahame@healthintersections.com.au
+    dutch: Ewout, Alexander
+    italian: origama
+    chinese: niehongchao (at com dot foxmail)
+    polish : radomski (at iehr in eu)
+    french : Frederic (dot) Laurent (at gmail dot com)
+
+
+
+  Language codes in this file are defined as ll[-CC], where ll is the lowercase ISO 639-1 alpha 2
+  language code and CC is the uppercase ISO 3166-1 alpha 2 country code. The country code is
+  optional so legal codes are for example:
+    de-DE  :  German German
+    de-CH  :  Swiss German
+    de     :  German
+    en-US  :  US American English
+    en     :  English
+    fr     :  French
+
+  NOTE: while translations for Resource Names are provided they should be used for rendering purposes
+  only, and not in the URI, as XML node name, or JSON label etc.
 -->
 
 	<!-- 3s -->
@@ -126,6 +126,9 @@
 		<translation lang="es">DeclaracionDeCapacidad</translation>
 		<translation lang="zh">能力声明</translation>
 	</item>
+	<item id="CapabilityStatement2">
+		<translation lang="en">CapabilityStatement2</translation>
+	</item>
 	<item id="CarePlan">
 		<translation lang="en">CarePlan</translation>
 		<translation lang="es">PlanDeCuidado</translation>
@@ -173,6 +176,12 @@
 		<translation lang="it">ImpressioneClinica</translation>
 		<translation lang="zh">临床印象</translation>
 	</item>
+	<!--item id="ClinicalParticulars">
+		<translation lang="en">ClinicalParticulars</translation>
+	</item-->
+	<item id="ClinicalUseIssue">
+		<translation lang="en">ClinicalUseIssue</translation>
+	</item>
 	<item id="CodeSystem">
 		<translation lang="en">CodeSystem</translation>
 		<translation lang="es">SistemaDeCodigos</translation>
@@ -218,6 +227,9 @@
 		<translation lang="zh">情况</translation>
 		<translation lang="fr">Condition</translation>
 		<translation lang="it">Condizione</translation>
+	</item>
+	<item id="ConditionDefinition">
+		<translation lang="en">ConditionDefinition</translation>
 	</item>
 	<item id="Consent">
 		<translation lang="en">Consent</translation>
@@ -323,9 +335,6 @@
 		<translation lang="es">RecursoDeDominio</translation>
 		<translation lang="zh">领域资源</translation>
 	</item>
-  <item id="EffectEvidenceSynthesis">
-    <translation lang="en">EffectEvidenceSynthesis</translation>
-  </item>
 	<item id="Encounter">
 		<translation lang="en">Encounter</translation>
 		<translation lang="zh">就医过程</translation>
@@ -364,11 +373,11 @@
 		<translation lang="es">DefinitionDeEvento</translation>
 		<translation lang="zh">事件定义</translation>
 	</item>
-  <item id="Evidence">
-    <translation lang="en">Evidence</translation>
-  </item>
-  <item id="EvidenceVariable">
-    <translation lang="en">EvidenceVariable</translation>
+	<item id="Evidence">
+		<translation lang="en">Evidence</translation>
+	</item>
+	<item id="EvidenceVariable">
+		<translation lang="en">EvidenceVariable</translation>
 	</item>
 	<item id="ExampleScenario">
 		<translation lang="en">ExampleScenario</translation>
@@ -558,38 +567,66 @@
 		<translation lang="fr">PrescriptionMédicamenteuseTODO</translation>
 		<translation lang="es">PrescripciónMedicaciónTODO  /PrescripcionMedicamento</translation>
 	</item>
-	<item id="MedicationStatement">
-		<translation lang="en">MedicationStatement</translation>
-		<translation lang="zh">药物声明</translation>
-		<translation lang="fr">ÉtatMédication</translation>
-		<translation lang="es">ResumenMedicación /ResumenMedicamento</translation>
+	<item id="MedicationUsage">
+		<translation lang="en">MedicationUsage</translation>
 	</item>
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>
 	</item>
-	<item id="MedicinalProduct">
+	<!--item id="MedicinalProduct">
 		<translation lang="en">MedicinalProduct</translation>
 		<translation lang="it">ProdottoMedicinale</translation>
+	</item-->
+	<item id="RegulatedMedicinalProduct">
+		<translation lang="en">RegulatedMedicinalProduct</translation>
+	</item>
+	<item id="MedicinalProductDefinition">
+		<translation lang="en">MedicinalProductDefinition</translation>
+	</item>
+	<item id="RegulatedPackagedProduct">
+		<translation lang="en">RegulatedPackagedProduct</translation>
+	</item>
+	<item id="PackagedProductDefinition">
+		<translation lang="en">PackagedProductDefinition</translation>
+	</item>
+	<item id="RegulatedManufacturedItem">
+		<translation lang="en">RegulatedManufacturedItem</translation>
+	</item>
+	<item id="ManufacturedItemDefinition">
+		<translation lang="en">ManufacturedItemDefinition</translation>
+	</item>
+	<item id="RegulatedAdministrableProduct">
+		<translation lang="en">RegulatedAdministrableProduct</translation>
+	</item>
+	<item id="AdministrableProductDefinition">
+		<translation lang="en">AdministrableProductDefinition</translation>
 	</item>
 	<item id="MedicinalProductAuthorization">
 		<translation lang="en">MedicinalProductAuthorization</translation>
 		<translation lang="it">AutorizzazioneProdottoMedicinale</translation>
 	</item>
-	<item id="MedicinalProductContraindication">
+	<item id="RegulatedAuthorization">
+		<translation lang="en">RegulatedAuthorization</translation>
+	</item>
+	<!--item id="MedicinalProductContraindication">
 		<translation lang="en">MedicinalProductContraindication</translation>
-	</item>
-	<item id="MedicinalProductIndication">
+	</item-->
+	<!--item id="MedicinalProductIndication">
 		<translation lang="en">MedicinalProductInteraction</translation>
-	</item>
-	<item id="MedicinalProductInteraction">
+	</item-->
+	<!--item id="MedicinalProductInteraction">
 		<translation lang="en">MedicinalProductInteraction</translation>
 	</item>
 	<item id="MedicinalProductUndesirableEffect">
 		<translation lang="en">MedicinalProductUndesirableEffect</translation>
-	</item>
+	</item-->
 	<item id="MedicinalProductIngredient">
 		<translation lang="en">MedicinalProductIngredient</translation>
 		<translation lang="it">IngredienteProdottoMedicinale</translation>
+	</item>
+	<item id="Ingredient">
+		<translation lang="en">Ingredient</translation>
+		<!--translation lang="it">IngredienteProdottoMedicinale</translation-->
 	</item>
 	<item id="MedicinalProductManufactured">
 		<translation lang="en">MedicinalProductManufactured</translation>
@@ -627,12 +664,15 @@
 		<translation lang="en">NewBundle</translation>
 		<translation lang="fr">NouveauPaquet</translation>
 	</item>
-	<item id="NutritionOrder">
-		<translation lang="en">NutritionOrder</translation>
-		<translation lang="fr">OrdreNutrition</translation>
-		<translation lang="es">OrdenNutrición</translation>
-		<translation lang="zh">营养医嘱</translation>
+	<item id="NutritionIntake">
+		<translation lang="en">NutritionIntake</translation>
 	</item>
+        <item id="NutritionOrder">
+                <translation lang="en">NutritionOrder</translation>
+                <translation lang="fr">OrdreNutrition</translation>
+                <translation lang="es">OrdenNutrición</translation>
+                <translation lang="zh">营养医嘱</translation>
+        </item>
 	<item id="Observation">
 		<translation lang="en">Observation</translation>
 		<translation lang="zh">观察</translation>
@@ -712,7 +752,7 @@
 		<translation lang="en">PaymentReconciliation</translation>
 		<translation lang="fr">RéconciliationPaiement</translation>
 		<translation lang="it">RiconciliazionePagamento</translation>
-		<translation lang="es">ConciliacionDePago</translation> 
+		<translation lang="es">ConciliacionDePago</translation>
 		<translation lang="zh">付款对账</translation>
 	</item>
 	<item id="Person">
@@ -819,12 +859,6 @@
 		<translation lang="es">GrupoDeSolicitudes</translation>
 		<translation lang="zh">请求分组</translation>
 	</item>
-  <item id="ResearchDefinition">
-    <translation lang="en">ResearchDefinition</translation>
-  </item>
-  <item id="ResearchElementDefinition">
-    <translation lang="en">ResearchElementDefinition</translation>
-  </item>
 	<item id="ResearchStudy">
 		<translation lang="en">ResearchStudy</translation>
 		<translation lang="es">EstudioDeInvestigacion</translation>
@@ -846,9 +880,6 @@
 		<translation lang="es">EvaluacionDeRiesgo</translation>
 		<translation lang="zh">风险评估</translation>
 	</item>
-  <item id="RiskEvidenceSynthesis">
-    <translation lang="en">RiskEvidenceSynthesis</translation>
-  </item>
 	<item id="Schedule">
 		<translation lang="en">Schedule</translation>
 		<translation lang="es">Agenda</translation>
@@ -980,6 +1011,12 @@
 		<translation lang="es">ScriptDePrueba</translation>
 		<translation lang="fr">ScriptTest</translation>
 		<translation lang="zh">测试脚本</translation>
+	</item>
+	<item id="Topic">
+		<translation lang="en">Topic</translation>
+		<translation lang="es">Tema</translation>
+		<translation lang="fr">Sujet</translation>
+		<translation lang="zh">话题</translation>
 	</item>
 	<item id="User">
 		<translation lang="en">User</translation>
@@ -2210,8 +2247,8 @@
 	<item id="MSG_UNKNOWN_COMPARTMENT">
 		<translation lang="en">Unknown Compartment %s    </translation>
 	</item>
-  
-  
+
+
   <item id="CS1">
     <translation lang="en">Copyright Statement</translation>
     <translation lang="nl">Copyright</translation>
@@ -2268,5 +2305,5 @@
     <translation lang="en">This code system %s defines many codes, but they are not represented here</translation>
     <translation lang="nl">Dit code systeem %s definieert een groot aantal codes, maar deze zijn hier niet beschikbaar</translation>
   </item>
-  
+
 </translations>

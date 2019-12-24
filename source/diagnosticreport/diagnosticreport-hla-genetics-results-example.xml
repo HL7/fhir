@@ -72,7 +72,7 @@ ServiceRequest/123  (report is based on this request)
 					<extension url="text">
 						<valueString value="HLA-A:01:01G+HLA-A*01:02^HLA-B*15:01:01:01+HLA-B*57:01:01^HLA-C*01:02:01+HLA-C*03:04:01:01"/>
 					</extension>
-					<extension url="uri">
+					<extension url="url">
 						<valueUri value="https://gl.nmdp.org/imgt-hla/3.23.0/multilocus-unphased-genotype/i"/>
 					</extension>
 				</extension>

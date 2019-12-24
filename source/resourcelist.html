@@ -13,7 +13,7 @@
 <h2>Resource Index</h2>
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 <p>
-This page is provided to help find resources quickly. There is also a more <a href="resourceguide.html">detailed classification, ontology, and description</a>. For background
+This page is provided to help find what you are looking for quickly - there are <%res-type-count%> resources. There is also a more <a href="resourceguide.html">detailed classification, ontology, and description</a>. For background
 to the layout on the layers in this page, see the <a href="overview-arch.html#framework">Architect's Overview</a>.
 See also the abstract Base Resources <a href="resource.html">Resource</a> and <a href="domainresource.html">DomainResource</a>.
 </p>
@@ -42,6 +42,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
  <tr class="frm-contents">
   <td class="frm-set"><ul class="frm-set">[%rescat Foundation.Conformance%]
     <li><a title="[%resdesc CapabilityStatement%]" href="capabilitystatement.html">CapabilityStatement</a>[%fmmshort CapabilityStatement%]</li>
+    <li><a title="[%resdesc CapabilityStatement2%]" href="capabilitystatement2.html">CapabilityStatement2</a>[%fmmshort CapabilityStatement2%]</li>
     <li><a title="[%resdesc StructureDefinition%]" href="structuredefinition.html">StructureDefinition</a>[%fmmshort StructureDefinition%]</li>
     <li><a title="[%resdesc ImplementationGuide%]" href="implementationguide.html">ImplementationGuide</a>[%fmmshort ImplementationGuide%]</li>
     <li><a title="[%resdesc SearchParameter%]" href="searchparameter.html">SearchParameter</a>[%fmmshort SearchParameter%]</li>
@@ -79,6 +80,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
     <li><a title="[%resdesc OperationOutcome%]" href="operationoutcome.html">OperationOutcome</a>[%fmmshort OperationOutcome%]</li>
     <li><a title="[%resdesc Parameters%]" href="parameters.html">Parameters</a>[%fmmshort Parameters%]</li>
     <li><a title="[%resdesc Subscription%]" href="subscription.html">Subscription</a>[%fmmshort Subscription%]</li>
+    <li><a title="[%resdesc Topic%]" href="topic.html">Topic</a>[%fmmshort Topic%]</li>
   </ul></td>
  </tr>
  <tr class="frm-break"><td colspan="6"></td></tr>
@@ -149,7 +151,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   </ul></td>
   <td class="frm-set"><ul class="frm-set">[%rescat Clinical.Diagnostics%]
     <li><a title="[%resdesc Observation%]" href="observation.html">Observation</a>[%fmmshort Observation%]</li>
-     <li><a title="[%resdesc Media%]" href="media.html">Media</a>[%fmmshort Media%]</li>
+     <li><a title="[%resdesc DocumentReference%]" href="documentreference.html">DocumentReference</a>[%fmmshort DocumentReference%]</li>
     <li><a title="[%resdesc DiagnosticReport%]" href="diagnosticreport.html">DiagnosticReport</a>[%fmmshort DiagnosticReport%]</li>
     <li><a title="[%resdesc Specimen%]" href="specimen.html">Specimen</a>[%fmmshort Specimen%]</li>
     <li><a title="[%resdesc BodyStructure%]" href="bodystructure.html">BodyStructure</a>[%fmmshort BodyStructure%]</li>
@@ -161,7 +163,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
     <li><a title="[%resdesc MedicationRequest%]" href="medicationrequest.html">MedicationRequest</a>[%fmmshort MedicationRequest%]</li>
     <li><a title="[%resdesc MedicationAdministration%]" href="medicationadministration.html">MedicationAdministration</a>[%fmmshort MedicationAdministration%]</li>
     <li><a title="[%resdesc MedicationDispense%]" href="medicationdispense.html">MedicationDispense</a>[%fmmshort MedicationDispense%]</li>
-    <li><a title="[%resdesc MedicationStatement%]" href="medicationstatement.html">MedicationStatement</a>[%fmmshort MedicationStatement%]</li>
+    <li><a title="[%resdesc MedicationUsage%]" href="medicationusage.html">MedicationUsage</a>[%fmmshort MedicationUsage%]</li>
     <li><a title="[%resdesc Medication%]" href="medication.html">Medication</a>[%fmmshort Medication%]</li>
     <li><a title="[%resdesc MedicationKnowledge%]" href="medicationknowledge.html">MedicationKnowledge</a>[%fmmshort MedicationKnowledge%]</li>
     <li><a title="[%resdesc Immunization%]" href="immunization.html">Immunization</a>[%fmmshort Immunization%]</li>
@@ -239,8 +241,9 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
     <li><a title="[%resdesc ResearchSubject%]" href="researchsubject.html">ResearchSubject</a>[%fmmshort ResearchSubject%]</li>
   </ul></td>
   <td class="frm-set"><ul class="frm-set">[%rescat Specialized.Definitional Artifacts%]
-	
+
     <li><a title="[%resdesc ActivityDefinition%]" href="activitydefinition.html">ActivityDefinition</a>[%fmmshort ActivityDefinition%]</li>
+    <li><a title="[%resdesc ConditionDefinition%]" href="conditiondefinition.html">ConditionDefinition</a>[%fmmshort ConditionDefinition%]</li>
     <li><a title="[%resdesc DeviceDefinition%]" href="devicedefinition.html">DeviceDefinition</a>[%fmmshort DeviceDefinition%]</li>
     <li><a title="[%resdesc EventDefinition%]" href="eventdefinition.html">EventDefinition</a>[%fmmshort EventDefinition%]</li>
     <li><a title="[%resdesc ObservationDefinition%]" href="observationdefinition.html">ObservationDefinition</a>[%fmmshort ObservationDefinition%]</li>
@@ -249,12 +252,8 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
     <li><a title="[%resdesc SpecimenDefinition%]" href="specimendefinition.html">SpecimenDefinition</a>[%fmmshort SpecimenDefinition%]</li>
   </ul></td>
   <td class="frm-set"><ul class="frm-set">[%rescat Specialized.Evidence-Based Medicine%]
-    <li><a title="[%resdesc ResearchDefinition%]" href="researchdefinition.html">ResearchDefinition</a>[%fmmshort ResearchDefinition%]</li>
-    <li><a title="[%resdesc ResearchElementDefinition%]" href="researchelementdefinition.html">ResearchElementDefinition</a>[%fmmshort ResearchElementDefinition%]</li>
     <li><a title="[%resdesc Evidence%]" href="evidence.html">Evidence</a>[%fmmshort Evidence%]</li>
     <li><a title="[%resdesc EvidenceVariable%]" href="evidencevariable.html">EvidenceVariable</a>[%fmmshort EvidenceVariable%]</li>
-    <li><a title="[%resdesc EffectEvidenceSynthesis%]" href="effectevidencesynthesis.html">EffectEvidenceSynthesis</a>[%fmmshort EffectEvidenceSynthesis%]</li>
-    <li><a title="[%resdesc RiskEvidenceSynthesis%]" href="riskevidencesynthesis.html">RiskEvidenceSynthesis</a>[%fmmshort RiskEvidenceSynthesis%]</li>
   </ul></td>
   <td class="frm-set"><ul class="frm-set">[%rescat Specialized.Quality Reporting &amp; Testing%]
     <li><a title="[%resdesc Measure%]" href="measure.html">Measure</a>[%fmmshort Measure%]</li>
@@ -263,20 +262,18 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
     <li><a title="[%resdesc TestReport%]" href="testreport.html">TestReport</a>[%fmmshort TestReport%]</li>
   </ul></td>
   <td class="frm-set"><ul class="frm-set">[%rescat Specialized.Medication Definition%]
-    <li><a title="[%resdesc MedicinalProduct%]" href="medicinalproduct.html">MedicinalProduct</a>[%fmmshort MedicinalProduct%]</li>
-    <li><a title="[%resdesc MedicinalProductAuthorization%]" href="medicinalproductauthorization.html">MedicinalProductAuthorization</a>[%fmmshort MedicinalProductAuthorization%]</li>
-    <li><a title="[%resdesc MedicinalProductContraindication%]" href="medicinalproductcontraindication.html">MedicinalProductContraindication</a>[%fmmshort MedicinalProductContraindication%]</li>
-    <li><a title="[%resdesc MedicinalProductIndication%]" href="medicinalproductindication.html">MedicinalProductIndication</a>[%fmmshort MedicinalProductIndication%]</li>
-    <li><a title="[%resdesc MedicinalProductIngredient%]" href="medicinalproductingredient.html">MedicinalProductIngredient</a>[%fmmshort MedicinalProductIngredient%]</li>
-    <li><a title="[%resdesc MedicinalProductInteraction%]" href="medicinalproductinteraction.html">MedicinalProductInteraction</a>[%fmmshort MedicinalProductInteraction%]</li>
-    <li><a title="[%resdesc MedicinalProductManufactured%]" href="medicinalproductmanufactured.html">MedicinalProductManufactured</a>[%fmmshort MedicinalProductManufactured%]</li>
-    <li><a title="[%resdesc MedicinalProductPackaged%]" href="medicinalproductpackaged.html">MedicinalProductPackaged</a>[%fmmshort MedicinalProductPackaged%]</li>
-    <li><a title="[%resdesc MedicinalProductPharmaceutical%]" href="medicinalproductpharmaceutical.html">MedicinalProductPharmaceutical</a>[%fmmshort MedicinalProductPharmaceutical%]</li>
-    <li><a title="[%resdesc MedicinalProductUndesirableEffect%]" href="medicinalproductundesirableeffect.html">MedicinalProductUndesirableEffect</a>[%fmmshort MedicinalProductUndesirableEffect%]</li>
+    <li><a title="[%resdesc MedicinalProductDefinition%]" href="medicinalproductdefinition.html">MedicinalProductDefinition</a>[%fmmshort MedicinalProductDefinition%]</li>
+    <li><a title="[%resdesc RegulatedAuthorization%]" href="regulatedauthorization.html">RegulatedAuthorization</a>[%fmmshort RegulatedAuthorization%]</li>
+    <li><a title="[%resdesc Ingredient%]" href="ingredient.html">Ingredient</a>[%fmmshort Ingredient%]</li>
+    <li><a title="[%resdesc ManufacturedItemDefinition%]" href="manufactureditemdefinition.html">ManufacturedItemDefinition</a>[%fmmshort ManufacturedItemDefinition%]</li>
+    <li><a title="[%resdesc PackagedProductDefinition%]" href="packagedproductdefinition.html">PackagedProductDefinition</a>[%fmmshort PackagedProductDefinition%]</li>
+    <li><a title="[%resdesc AdministrableProductDefinition%]" href="administrableproductdefinition.html">AdministrableProductDefinition</a>[%fmmshort AdministrableProductDefinition%]</li>
+    <li><a title="[%resdesc ClinicalUseIssue%]" href="clinicaluseissue.html">ClinicalUseIssue</a>[%fmmshort ClinicalUseIssue%]</li>
+    <li><a title="[%resdesc SubstanceDefinition%]" href="substancedefinition.html">SubstanceDefinition</a>[%fmmshort SubstanceDefinition%]</li>
     <li><a title="[%resdesc SubstancePolymer%]" href="substancepolymer.html">SubstancePolymer</a>[%fmmshort SubstancePolymer%]</li>
     <li><a title="[%resdesc SubstanceReferenceInformation%]" href="substancereferenceinformation.html">SubstanceReferenceInformation</a>[%fmmshort SubstanceReferenceInformation%]</li>
-    <li><a title="[%resdesc SubstanceDefinition%]" href="SubstanceDefinition.html">SubstanceDefinition</a>[%fmmshort SubstanceDefinition%]</li>
-    
+    <li><a title="[%resdesc SubstanceDefinition%]" href="substancedefinition.html">SubstanceDefinition</a>[%fmmshort SubstanceDefinition%]</li>
+
   </ul></td>
  </tr>
  <tr class="frm-break"><td colspan="6"></td></tr>
@@ -305,6 +302,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc BodyStructure%]" href="bodystructure.html">BodyStructure</a>[%fmmshort BodyStructure%]</li>
   <li><a title="[%resdesc Bundle%]" href="bundle.html">Bundle</a>[%fmmshort Bundle%]</li>
   <li><a title="[%resdesc CapabilityStatement%]" href="capabilitystatement.html">CapabilityStatement</a>[%fmmshort CapabilityStatement%]</li>
+  <li><a title="[%resdesc CapabilityStatement2%]" href="capabilitystatement2.html">CapabilityStatement2</a>[%fmmshort CapabilityStatement2%]</li>
   <li><a title="[%resdesc CarePlan%]" href="careplan.html">CarePlan</a>[%fmmshort CarePlan%]</li>
   <li><a title="[%resdesc CareTeam%]" href="careteam.html">CareTeam</a>[%fmmshort CareTeam%]</li>
   <li><a title="[%resdesc CatalogEntry%]" href="catalogentry.html">CatalogEntry</a>[%fmmshort CatalogEntry%]</li>
@@ -320,6 +318,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc Composition%]" href="composition.html">Composition</a>[%fmmshort Composition%]</li>
   <li><a title="[%resdesc ConceptMap%]" href="conceptmap.html">ConceptMap</a>[%fmmshort ConceptMap%]</li>
   <li><a title="[%resdesc Condition%]" href="condition.html">Condition</a> (aka Problem)[%fmmshort Condition%]</li>
+  <li><a title="[%resdesc ConditionDefinition%]" href="conditiondefinition.html">ConditionDefinition</a>[%fmmshort ConditionDefinition%]</li>
   <li><a title="[%resdesc Consent%]" href="consent.html">Consent</a>[%fmmshort Consent%]</li>
   <li><a title="[%resdesc Contract%]" href="contract.html">Contract</a>[%fmmshort Contract%]</li>
   <li><a title="[%resdesc Coverage%]" href="coverage.html">Coverage</a>[%fmmshort Coverage%]</li>
@@ -338,7 +337,6 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc DiagnosticReport%]" href="diagnosticreport.html">DiagnosticReport</a>[%fmmshort DiagnosticReport%]</li>
   <li><a title="[%resdesc DocumentManifest%]" href="documentmanifest.html">DocumentManifest</a>[%fmmshort DocumentManifest%]</li>
   <li><a title="[%resdesc DocumentReference%]" href="documentreference.html">DocumentReference</a>[%fmmshort DocumentReference%]</li>
-  <li><a title="[%resdesc EffectEvidenceSynthesis%]" href="effectevidencesynthesis.html">EffectEvidenceSynthesis</a>[%fmmshort EffectEvidenceSynthesis%]</li>
   <li><a title="[%resdesc Encounter%]" href="encounter.html">Encounter</a>[%fmmshort Encounter%]</li>
   <li><a title="[%resdesc Endpoint%]" href="endpoint.html">Endpoint</a>[%fmmshort Endpoint%]</li>
   <li><a title="[%resdesc EnrollmentRequest%]" href="enrollmentrequest.html">EnrollmentRequest</a>[%fmmshort EnrollmentRequest%]</li>
@@ -373,30 +371,25 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
 <ul>
   <li><a title="[%resdesc Measure%]" href="measure.html">Measure</a>[%fmmshort Measure%]</li>
   <li><a title="[%resdesc MeasureReport%]" href="measurereport.html">MeasureReport</a>[%fmmshort MeasureReport%]</li>
-  <li><a title="[%resdesc Media%]" href="media.html">Media</a>[%fmmshort Media%]</li>
   <li><a title="[%resdesc Medication%]" href="medication.html">Medication</a>[%fmmshort Medication%]</li>
   <li><a title="[%resdesc MedicationAdministration%]" href="medicationadministration.html">MedicationAdministration</a>[%fmmshort MedicationAdministration%]</li>
   <li><a title="[%resdesc MedicationDispense%]" href="medicationdispense.html">MedicationDispense</a>[%fmmshort MedicationDispense%]</li>
   <li><a title="[%resdesc MedicationKnowledge%]" href="medicationknowledge.html">MedicationKnowledge</a>[%fmmshort MedicationKnowledge%]</li>
   <li><a title="[%resdesc MedicationRequest%]" href="medicationrequest.html">MedicationRequest</a>[%fmmshort MedicationRequest%]</li>
-  <li><a title="[%resdesc MedicationStatement%]" href="medicationstatement.html">MedicationStatement</a>[%fmmshort MedicationStatement%]</li>
-  <li><a title="[%resdesc MedicinalProduct%]" href="medicinalproduct.html">MedicinalProduct</a>[%fmmshort MedicinalProduct%]</li>
-  <li><a title="[%resdesc MedicinalProductAuthorization%]" href="medicinalproductauthorization.html">MedicinalProductAuthorization</a>[%fmmshort MedicinalProductAuthorization%]</li>
-  <li><a title="[%resdesc MedicinalProductContraindication%]" href="medicinalproductcontraindication.html">MedicinalProductContraindication</a>[%fmmshort MedicinalProductContraindication%]</li>
-  <li><a title="[%resdesc MedicinalProductIndication%]" href="medicinalproductindication.html">MedicinalProductIndication</a>[%fmmshort MedicinalProductIndication%]</li>
-  <li><a title="[%resdesc MedicinalProductIngredient%]" href="medicinalproductingredient.html">MedicinalProductIngredient</a>[%fmmshort MedicinalProductIngredient%]</li>
-  <li><a title="[%resdesc MedicinalProductInteraction%]" href="medicinalproductinteraction.html">MedicinalProductInteraction</a>[%fmmshort MedicinalProductInteraction%]</li>
-  <li><a title="[%resdesc MedicinalProductManufactured%]" href="medicinalproductmanufactured.html">MedicinalProductManufactured</a>[%fmmshort MedicinalProductManufactured%]</li>
-  <li><a title="[%resdesc MedicinalProductPackaged%]" href="medicinalproductpackaged.html">MedicinalProductPackaged</a>[%fmmshort MedicinalProductPackaged%]</li>
-  <li><a title="[%resdesc MedicinalProductPharmaceutical%]" href="medicinalproductpharmaceutical.html">MedicinalProductPharmaceutical</a>[%fmmshort MedicinalProductPharmaceutical%]</li>
-  <li><a title="[%resdesc MedicinalProductUndesirableEffect%]" href="medicinalproductundesirableeffect.html">MedicinalProductUndesirableEffect</a>[%fmmshort MedicinalProductUndesirableEffect%]</li>
+  <li><a title="[%resdesc MedicationUsage%]" href="medicationusage.html">MedicationUsage</a>[%fmmshort MedicationUsage%]</li>
+  <li><a title="[%resdesc MedicinalProductDefinition%]" href="medicinalproductdefinition.html">MedicinalProductDefinition</a>[%fmmshort MedicinalProductDefinition%]</li>
+  <li><a title="[%resdesc RegulatedAuthorization%]" href="regulatedauthorization.html">RegulatedAuthorization</a>[%fmmshort RegulatedAuthorization%]</li>
+  <li><a title="[%resdesc Ingredient%]" href="ingredient.html">Ingredient</a>[%fmmshort Ingredient%]</li>
+  <li><a title="[%resdesc ManufacturedItemDefinition%]" href="manufactureditemdefinition.html">ManufacturedItemDefinition</a>[%fmmshort ManufacturedItemDefinition%]</li>
+  <li><a title="[%resdesc PackagedProducDefinitiont%]" href="packagedproductdefinition.html">PackagedProductDefinition</a>[%fmmshort PackagedProductDefinition%]</li>
+  <li><a title="[%resdesc AdministrableProductDefinition%]" href="administrableproductdefinition.html">AdministrableProductDefinition</a>[%fmmshort AdministrableProductDefinition%]</li>
   <li><a title="[%resdesc MessageDefinition%]" href="messagedefinition.html">MessageDefinition</a>[%fmmshort MessageDefinition%]</li>
   <li><a title="[%resdesc MessageHeader%]" href="messageheader.html">MessageHeader</a>[%fmmshort MessageHeader%]</li>
   <li><a title="[%resdesc MolecularSequence%]" href="molecularsequence.html">MolecularSequence</a>[%fmmshort MolecularSequence%]</li>
   <li><a title="[%resdesc NamingSystem%]" href="namingsystem.html">NamingSystem</a>[%fmmshort NamingSystem%]</li>
   <li><a title="[%resdesc NutritionOrder%]" href="nutritionorder.html">NutritionOrder</a>[%fmmshort NutritionOrder%]</li>
   <li><a title="[%resdesc Observation%]" href="observation.html">Observation</a>[%fmmshort Observation%]</li>
-  <li><a title="[%resdesc ObservationDefinition%]" href="observationdefinition.html">ObservationDefinition</a>[%fmmshort ObservationDefinition%]</li>  
+  <li><a title="[%resdesc ObservationDefinition%]" href="observationdefinition.html">ObservationDefinition</a>[%fmmshort ObservationDefinition%]</li>
   <li><a title="[%resdesc OperationDefinition%]" href="operationdefinition.html">OperationDefinition</a>[%fmmshort OperationDefinition%]</li>
   <li><a title="[%resdesc OperationOutcome%]" href="operationoutcome.html">OperationOutcome</a>[%fmmshort OperationOutcome%]</li>
   <li><a title="[%resdesc Organization%]" href="organization.html">Organization</a>[%fmmshort Organization%]</li>
@@ -410,8 +403,8 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc Practitioner%]" href="practitioner.html">Practitioner</a>[%fmmshort Practitioner%]</li>
 </ul>
 </td><td style="border-left: 1px solid #eeeeee">
-<p><b>P-Z:</b></p> 
-<ul>  
+<p><b>P-Z:</b></p>
+<ul>
   <li><a title="[%resdesc PractitionerRole%]" href="practitionerrole.html">PractitionerRole</a>[%fmmshort PractitionerRole%]</li>
   <li><a title="[%resdesc Procedure%]" href="procedure.html">Procedure</a>[%fmmshort Procedure%]</li>
   <li><a title="[%resdesc Provenance%]" href="provenance.html">Provenance</a>[%fmmshort Provenance%]</li>
@@ -419,12 +412,9 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc QuestionnaireResponse%]" href="questionnaireresponse.html">QuestionnaireResponse</a>[%fmmshort QuestionnaireResponse%]</li>
   <li><a title="[%resdesc RelatedPerson%]" href="relatedperson.html">RelatedPerson</a>[%fmmshort RelatedPerson%]</li>
   <li><a title="[%resdesc RequestGroup%]" href="requestgroup.html">RequestGroup</a>[%fmmshort RequestGroup%]</li>
-  <li><a title="[%resdesc ResearchDefinition%]" href="researchdefinition.html">ResearchDefinition</a>[%fmmshort ResearchDefinition%]</li>
-  <li><a title="[%resdesc ResearchElementDefinition%]" href="researchelementdefinition.html">ResearchElementDefinition</a>[%fmmshort ResearchElementDefinition%]</li>
   <li><a title="[%resdesc ResearchStudy%]" href="researchstudy.html">ResearchStudy</a>[%fmmshort ResearchStudy%]</li>
   <li><a title="[%resdesc ResearchSubject%]" href="researchsubject.html">ResearchSubject</a>[%fmmshort ResearchSubject%]</li>
   <li><a title="[%resdesc RiskAssessment%]" href="riskassessment.html">RiskAssessment</a>[%fmmshort RiskAssessment%]</li>
-  <li><a title="[%resdesc RiskEvidenceSynthesis%]" href="riskevidencesynthesis.html">RiskEvidenceSynthesis</a>[%fmmshort RiskEvidenceSynthesis%]</li>
   <li><a title="[%resdesc Schedule%]" href="schedule.html">Schedule</a>[%fmmshort Schedule%]</li>
   <li><a title="[%resdesc SearchParameter%]" href="searchparameter.html">SearchParameter</a>[%fmmshort SearchParameter%]</li>
   <li><a title="[%resdesc ServiceRequest%]" href="servicerequest.html">ServiceRequest</a>[%fmmshort ServiceRequest%]</li>
@@ -437,13 +427,14 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc Substance%]" href="substance.html">Substance</a>[%fmmshort Substance%]</li>
   <li><a title="[%resdesc SubstancePolymer%]" href="substancepolymer.html">SubstancePolymer</a>[%fmmshort SubstancePolymer%]</li>
   <li><a title="[%resdesc SubstanceReferenceInformation%]" href="substancereferenceinformation.html">SubstanceReferenceInformation</a>[%fmmshort SubstanceReferenceInformation%]</li>
-  <li><a title="[%resdesc SubstanceDefinition%]" href="SubstanceDefinition.html">SubstanceDefinition</a>[%fmmshort SubstanceDefinition%]</li>
+  <li><a title="[%resdesc SubstanceDefinition%]" href="substancedefinition.html">SubstanceDefinition</a>[%fmmshort SubstanceDefinition%]</li>
   <li><a title="[%resdesc SupplyDelivery%]" href="supplydelivery.html">SupplyDelivery</a>[%fmmshort SupplyDelivery%]</li>
   <li><a title="[%resdesc SupplyRequest%]" href="supplyrequest.html">SupplyRequest</a>[%fmmshort SupplyRequest%]</li>
   <li><a title="[%resdesc Task%]" href="task.html">Task</a>[%fmmshort Task%]</li>
   <li><a title="[%resdesc TerminologyCapabilities%]" href="terminologycapabilities.html">TerminologyCapabilities</a>[%fmmshort TerminologyCapabilities%]</li>
   <li><a title="[%resdesc TestReport%]" href="testreport.html">TestReport</a>[%fmmshort TestReport%]</li>
   <li><a title="[%resdesc TestScript%]" href="testscript.html">TestScript</a>[%fmmshort TestScript%]</li>
+  <li><a title="[%resdesc Topic%]" href="topic.html">Topic</a>[%fmmshort Topic%]</li>
   <li><a title="[%resdesc ValueSet%]" href="valueset.html">ValueSet</a>[%fmmshort ValueSet%]</li>
   <li><a title="[%resdesc VerificationResult%]" href="verificationresult.html">VerificationResult</a>[%fmmshort VerificationResult%]</li>
   <li><a title="[%resdesc VisionPrescription%]" href="visionprescription.html">VisionPrescription</a>[%fmmshort VisionPrescription%]</li>
@@ -483,7 +474,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc MedicationRequest%]" href="medicationrequest.html">MedicationRequest</a>[%fmmshort MedicationRequest%]</li>
   <li><a title="[%resdesc MedicationAdministration%]" href="medicationadministration.html">MedicationAdministration</a>[%fmmshort MedicationAdministration%]</li>
   <li><a title="[%resdesc MedicationDispense%]" href="medicationdispense.html">MedicationDispense</a>[%fmmshort MedicationDispense%]</li>
-  <li><a title="[%resdesc MedicationStatement%]" href="medicationstatement.html">MedicationStatement</a>[%fmmshort MedicationStatement%]</li>
+  <li><a title="[%resdesc MedicationUsage%]" href="medicationusage.html">MedicationUsage</a>[%fmmshort MedicationUsage%]</li>
   <li><a title="[%resdesc Immunization%]" href="immunization.html">Immunization</a>[%fmmshort Immunization%]</li>
   <li><a title="[%resdesc ImmunizationEvaluation%]" href="immunizationevaluation.html">ImmunizationEvaluation</a>[%fmmshort ImmunizationEvaluation%]</li>
   <li><a title="[%resdesc ImmunizationRecommendation%]" href="immunizationrecommendation.html">ImmunizationRecommendation</a>[%fmmshort ImmunizationRecommendation%]</li>
@@ -492,7 +483,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
 <p><b>Diagnostics:</b></p>
 <ul>
   <li><a title="[%resdesc Observation%]" href="observation.html">Observation</a>[%fmmshort Observation%]</li>
-    <li><a title="[%resdesc Media%]" href="media.html">Media</a>[%fmmshort Media%]</li>
+    <li><a title="[%resdesc DocumentReference%]" href="documentreference.html">DocumentReference</a>[%fmmshort DocumentReference%]</li>
   <li><a title="[%resdesc DiagnosticReport%]" href="diagnosticreport.html">DiagnosticReport</a>[%fmmshort DiagnosticReport%]</li>
   <li><a title="[%resdesc ServiceRequest%]" href="servicerequest.html">ServiceRequest</a>[%fmmshort ServiceRequest%]</li>
   <li><a title="[%resdesc Specimen%]" href="specimen.html">Specimen</a>[%fmmshort Specimen%]</li>
@@ -596,7 +587,8 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc OperationOutcome%]" href="operationoutcome.html">OperationOutcome</a>[%fmmshort OperationOutcome%]</li>
   <li><a title="[%resdesc Parameters%]" href="parameters.html">Parameters</a>[%fmmshort Parameters%]</li>
   <li><a title="[%resdesc Subscription%]" href="subscription.html">Subscription</a>[%fmmshort Subscription%]</li>
-</ul>
+  <li><a title="[%resdesc Topic%]" href="topic.html">Topic</a>[%fmmshort Topic%]</li>
+  </ul>
 </td></tr>
 <tr><td colspan="4" style="border-top: silver solid 1px"><b>Conformance</b></td></tr>
 <tr><td>

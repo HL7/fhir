@@ -559,7 +559,7 @@
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">DataType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3070,7 +3070,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3882,7 +3882,7 @@
     <Cell><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">valueset-signature-type</Data></Cell>
     <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">1.2.840.10065.1.12</Data></Cell>
+    <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>

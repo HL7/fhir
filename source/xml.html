@@ -23,7 +23,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
-[%normative page%]
+[%normative page infrastructure%]
 
 <p>
 The XML representation for a resource is described using this format: 
@@ -217,6 +217,11 @@ on <a href="documents.html">Document bundles</a> and their related processes is 
 use of digital signatures.
 [%end-note%]
 
+<p>
+Note that following normalization procedures in XML can assign the same normalized text to resources 
+with slightly different meanings, since leading whitespace matters in markdown text, and the XML representation 
+serializes the <a href="datatypes.html#markdown">markdown</a> datatype using attributes.
+</p>
 
 
 

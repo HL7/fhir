@@ -11,7 +11,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
@@ -44,7 +44,7 @@ public class TableGenerator extends BaseGenerator {
   protected boolean dictLinks() {
     return pageName != null;
   }
-  protected Row genElement(ElementDefn e, HierarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix, RenderMode mode, boolean isRoot, StandardsStatus rootStatus) throws Exception {
+  protected Row genElement(ElementDefn e, HierarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix, RenderMode mode, boolean isRoot, StandardsStatus rootStatus, boolean isAbstract, boolean isInterface) throws Exception {
     Row row = gen.new Row();
 
     row.setAnchor(path);
@@ -52,14 +52,23 @@ public class TableGenerator extends BaseGenerator {
     row.getCells().add(gen.new Cell(null, dictLinks() ? pageName+"#"+path.replace("[", "_").replace("]", "_") : null, e.getName(), path+" : "+e.getDefinition(), null));
     Cell gc = gen.new Cell();
     row.getCells().add(gc);
-    if (e.hasMustSupport() && e.isMustSupport()) 
+    if (e.hasMustSupport() && e.isMustSupport()) {
       gc.addStyledText("This element must be supported", "S", "white", "red", prefix+"conformance-rules.html#mustSupport", false);
-    if (e.isModifier()) 
+    }
+    if (e.isModifier()) { 
       gc.addStyledText("This element is a modifier element", "?!", null, null, prefix+"conformance-rules.html#isModifier", false);
-    if (e.isSummary()) 
+    }
+    if (e.isSummary()) { 
       gc.addStyledText("This element is included in summaries", "\u03A3", null, null, prefix+"elementdefinition-definitions.html#ElementDefinition.isSummary", false);
-    if (!e.getInvariants().isEmpty() || !e.getStatedInvariants().isEmpty()) 
+    }
+    if (!isRoot && (!e.getInvariants().isEmpty() || !e.getStatedInvariants().isEmpty())) { 
       gc.addStyledText("This element has or is affected by some invariants", "I", null, null, prefix+"conformance-rules.html#constraints", false);
+    }
+    if (isInterface) {
+      gc.addStyledText("This is an abstract type", "«A»", null, null, prefix+"uml.html#abstract", false);      
+    } else if (isAbstract) {
+      gc.addStyledText("This is an interface resource", "«I»", null, null, prefix+"uml.html#interface", false);      
+    }
     if (rootStatus != null)
       gc.addStyledText("Standards Status = "+rootStatus.toDisplay(), rootStatus.getAbbrev(), "black", rootStatus.getColor(), prefix+"versions.html#std-process", true);
     else if (e.getStandardsStatus() != null)
@@ -72,6 +81,8 @@ public class TableGenerator extends BaseGenerator {
         row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
       else if ("Logical".equals(e.typeCode()))
         row.getCells().add(gen.new Cell(null, prefix+"structuredefinition.html#logical", e.typeCode(), null, null)); 
+      else if ("Base".equals(e.typeCode()))
+        row.getCells().add(gen.new Cell(null, prefix+definitions.getSrcFile("Base")+".html#"+e.typeCode(), e.typeCode(), null, null)); 
       else
         row.getCells().add(gen.new Cell(null, prefix+e.typeCode().toLowerCase()+".html", e.typeCode(), null, null)); 
       // todo: base elements
@@ -80,13 +91,15 @@ public class TableGenerator extends BaseGenerator {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         row.setIcon("icon_element.gif", HierarchicalTableGenerator.TEXT_ICON_ELEMENT);
         if (mode == RenderMode.RESOURCE)
-          row.getCells().add(gen.new Cell(null, prefix+"backboneelement.html", "BackboneElement", null, null));
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#BackBoneElement", "BackboneElement", null, null));
+        else if (e.getName().equals("Type"))
+          row.getCells().add(gen.new Cell(null, null, "", null, null)); 
         else if (e.getName().equals("Element"))
-          row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#Base", "Base", null, null)); 
         else if (e.typeCode().equals("BackboneElement"))
-          row.getCells().add(gen.new Cell(null, prefix+"backboneelement.html", "BackBoneElement", null, null));   
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#BackBoneElement", "BackBoneElement", null, null));   
         else
-          row.getCells().add(gen.new Cell(null, prefix+"element.html", "Element", null, null));   
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#Element", "Element", null, null));   
       } else if (e.getTypes().size() == 1) {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); 
         String t = e.getTypes().get(0).getName();
@@ -125,7 +138,7 @@ public class TableGenerator extends BaseGenerator {
         }
         row.getCells().add(c);
       } else {
-        row.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null));   
+        row.getCells().add(gen.new Cell(null, null, isRoot ? "" : e.describeCardinality(), null, null));   
         row.setIcon("icon_choice.gif", HierarchicalTableGenerator.TEXT_ICON_CHOICE);
         row.getCells().add(gen.new Cell(null, null, "", null, null));   
       }
@@ -180,7 +193,7 @@ public class TableGenerator extends BaseGenerator {
       ElementDefn f = definitions.getElementDefn(e.typeCode());
       while (f != null) {
         ancestors.add(0, f);
-        f = Utilities.noString(f.typeCode()) ? null : definitions.getElementDefn(f.typeCode());
+        f = Utilities.noString(f.typeCode()) || "Logical".equals(f.typeCode()) ? null : definitions.getElementDefn(f.typeCode());
       }
       
       cc.getPieces().add(gen.new Piece("br"));
@@ -259,8 +272,9 @@ public class TableGenerator extends BaseGenerator {
         row.getSubRows().add(choicerow);
       }
     } else
-      for (ElementDefn c : e.getElements())
-        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, mode, false, null));
+      for (ElementDefn c : e.getElements()) {
+        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, mode, false, null, false, false));
+      }
     return row; 
   }      
 
@@ -290,7 +304,7 @@ public class TableGenerator extends BaseGenerator {
 
   
   private boolean isReference(String t) {
-    return t.equals("Reference") || t.equals("canonical"); 
+    return t.equals("Reference") || t.equals("CodeableReference") || t.equals("canonical"); 
   }  
 
   private void presentLogicalMapping(HierarchicalTableGenerator gen, Cell c, String logical, String prefix) {

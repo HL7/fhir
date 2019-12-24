@@ -73,3 +73,14 @@ v: {
   "error" : "The code system \"https://hive.biochemistry.gwu.edu\" is not known; The code provided (https://hive.biochemistry.gwu.edu#biocompute) is not  valid in the value set Identifier Type Codes"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://hive.biochemistry.gwu.edu",
+  "code" : "biocompute",
+  "display" : "obj.1001"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"https://hive.biochemistry.gwu.edu\" is not known (encountered paired with code = \"biocompute\"); The code provided (https://hive.biochemistry.gwu.edu#biocompute) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

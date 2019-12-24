@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Task" alias TaskR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Task(source src : TaskR3, target tgt : Task) extends DomainResource <<type+>> {
+group Task(source src : Task, target tgt : TaskR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesUri -> tgt.definition;
   src.instantiatesCanonical -> tgt.definition;

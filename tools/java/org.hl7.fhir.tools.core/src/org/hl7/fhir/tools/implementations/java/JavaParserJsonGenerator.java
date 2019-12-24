@@ -116,13 +116,6 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 //        regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
 //      }
 //    }
-    for (ElementDefn n : definitions.getStructures().values()) {
-      generateParser(n, JavaGenClass.Structure);
-//      regt.append("    else if (json.has(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json.getAsJsonObject(prefix+\""+n.getName()+"\"));\r\n");
-//      regt2.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json);\r\n");
-//      regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-//      regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
-    }
 
     for (String s : definitions.getBaseResources().keySet()) {
       ResourceDefn n = definitions.getBaseResources().get(s);
@@ -227,24 +220,22 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       return shrt ? "Boolean" : "java.lang.Boolean";
     if ("decimal".equals(code))
       return shrt ? "BigDecimal" : "java.math.BigDecimal";
-    if ("integer".equals(code))
+    if ("integer".equals(code) || "integer64".equals(code) )
       return shrt ? "Long" : "java.lang.Long";
     else
       return "String";
   }
 
   private void start(String version, Date genDate) throws Exception {
-    write("package org.hl7.fhir.r4.formats;\r\n");
+    write("package org.hl7.fhir.r5.formats;\r\n");
     write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
-    for (DefinedCode dc : definitions.getPrimitives().values())
-      write("import org.hl7.fhir.r4.model."+getPrimitiveTypeModelName(dc.getCode())+";\r\n");
-    write("import org.hl7.fhir.r4.model.*;\r\n");
+    write("import org.hl7.fhir.r5.model.*;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
-    write("import org.hl7.fhir.r4.utils.formats.JsonTrackingParser.PresentedBigDecimal;\r\n");
     write("import org.hl7.fhir.utilities.xhtml.XhtmlNode;\r\n");
     write("import org.hl7.fhir.exceptions.FHIRFormatError;\r\n");
     write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
+    write("org.hl7.fhir.utilities.json.JsonTrackingParser.PresentedBigDecimal;\r\n");
     write("import com.google.gson.JsonObject;\r\n");
     write("import com.google.gson.JsonArray;\r\n");
     write("import com.google.gson.JsonElement;\r\n");
@@ -253,6 +244,17 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("\r\n");
     write("public class JsonParser extends JsonParserBase {\r\n");
     write("\r\n");
+    write("\r\n");
+    write("public JsonParser() {\r\n");
+    write("  super();\r\n");
+    write("}\r\n");
+    write("\r\n");
+    write("public JsonParser(boolean allowUnknownContent) {\r\n");
+    write("  super();\r\n");
+    write("  setAllowUnknownContent(allowUnknownContent);\r\n");
+    write("}\r\n");
+    write("\r\n");
+
   }
 
 
@@ -703,11 +705,6 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 //        regti.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"Inner(("+n.getName()+") type);\r\n");
 //      }
 //    }
-    for (ElementDefn n : definitions.getStructures().values()) {
-        generateComposer(n, JavaGenClass.Structure);
-//        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
-//        regti.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"Inner(("+n.getName()+") type);\r\n");
-    }
 
     for (String s : definitions.getBaseResources().keySet()) {
       ResourceDefn n = definitions.getBaseResources().get(s);
@@ -836,6 +833,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    if (value != null && value.hasValue()) {\r\n");
     if (dc.getCode().equals("integer") || dc.getCode().equals("positiveInt") || dc.getCode().equals("unsignedInt"))
       write("        prop(name, Integer.valueOf(value.getValue()));\r\n");
+    else if (dc.getCode().equals("integer64"))
+      write("        prop(name, value.getValue().toString());\r\n");
     else  if (dc.getCode().equals("boolean"))
       write("        prop(name, value.getValue());\r\n");
     else  if (dc.getCode().equals("decimal"))
@@ -1130,6 +1129,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     //        return formal ? "boolean" : "java.lang.Boolean";
     //      else if (t.equals("integer"))
     //        return "int";
+    //      else if (t.equals("integer64"))
+    //        return "long";
     //      else if (t.equals("decimal"))
     //        return formal ? "BigDecimal" : "BigDecimal";
     //      else if (t.equals("base64Binary"))
@@ -1190,7 +1191,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("      ;\r\n");
     write(regti.toString());
     write("    else\r\n");
-    write("      throw new Error(\"Unhandled type\");\r\n");
+    write("      throw new Error(\"Unhandled type: \"+type.fhirType());\r\n");
     write("  }\r\n\r\n");
     //
     //    write("  private boolean nameIsTypeName(XmlPullParser xpp, String prefix) {\r\n");

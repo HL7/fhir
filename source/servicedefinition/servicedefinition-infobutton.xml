@@ -148,7 +148,7 @@
                   <div>
                      <p style="margin-top: 5px;">
                         <b>type: </b>
-                        <span>MedicationStatement</span>
+                        <span>MedicationUsage</span>
                      </p>
                   </div>
                </td>
@@ -199,7 +199,7 @@
 
   <!-- Medication List -->
   <dataRequirement>
-    <type value="MedicationStatement"/>
+    <type value="MedicationUsage"/>
   </dataRequirement>
 
 </ServiceDefinition>

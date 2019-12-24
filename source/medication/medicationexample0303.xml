@@ -18,13 +18,13 @@
   <manufacturer>
     <reference value="#org6"/>
   </manufacturer>
-    <form>
+    <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="385219001"/>
         <display value="Injection solution (qualifier vallue)"/>
       </coding>
-    </form>
+    </doseForm>
     <ingredient>
       <itemCodeableConcept>
         <coding>
@@ -33,7 +33,7 @@
           <display value="Alemtuzamab (substance)"/>
         </coding>
       </itemCodeableConcept>
-      <strength>
+      <strengthRatio>
         <numerator>
           <value value="12"/>
           <system value="http://unitsofmeasure.org"/>
@@ -44,7 +44,7 @@
           <system value="http://unitsofmeasure.org"/>
           <code value="mL"/>
         </denominator>
-      </strength>
+      </strengthRatio>
     </ingredient>
   <batch>
     <lotNumber value="9494788"/>

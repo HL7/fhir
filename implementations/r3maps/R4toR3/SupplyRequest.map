@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/SupplyRequest" alias SupplyReq
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group SupplyRequest(source src : SupplyRequestR3, target tgt : SupplyRequest) extends DomainResource <<type+>> {
+group SupplyRequest(source src : SupplyRequest, target tgt : SupplyRequestR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.category -> tgt.category;

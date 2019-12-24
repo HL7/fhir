@@ -71,3 +71,203 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "_SubstanceAdminSubstitutionReason"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "SubstanceAdminSubstitutionReason",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "PurposeOfUse"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "purpose of use",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "COVERAGE"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "coverage under policy or program",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "ETREAT"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "Emergency Treatment",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "HMARKT"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "healthcare marketing",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "HOPERAT"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "healthcare operations",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "HPAYMT"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "healthcare payment",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "HRESCH"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "healthcare research",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "PATRQT"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "patient requested",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "PUBHLTH"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "public health",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "TREAT"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "treatment",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "COVERAGE"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "coverage under policy or program",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "ETREAT"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "Emergency Treatment",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "HMARKT"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "healthcare marketing",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "HOPERAT"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "healthcare operations",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "HPAYMT"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "healthcare payment",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "HRESCH"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "healthcare research",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "PATRQT"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "patient requested",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "PUBHLTH"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "public health",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "TREAT"
+}, "valueSet" :null, "lang":"en-US"}####
+v: {
+  "display" : "treatment",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

@@ -43,7 +43,7 @@
 		<reference value="Patient/example"/>
 		<display value="Peter James"/>
 	</subject>
-	<performedDateTime value="2018-04-05"/>
+	<occurrenceDateTime value="2018-04-05"/>
 	<performer>
 		<actor>
 			<reference value="Practitioner/example"/>

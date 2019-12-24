@@ -1,5 +1,9 @@
 package org.hl7.fhir.definitions.generators.specification;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -8,9 +12,9 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
@@ -47,7 +51,7 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
   public XhtmlNode generate(ElementDefn e, String prefix) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics, true);
     RenderMode mode = RenderMode.RESOURCE;
-    TableModel model = initTable(gen, prefix, mode == RenderMode.LOGICAL);
+    TableModel model = initTable(gen, prefix, mode == RenderMode.LOGICAL, e.getName());
 
     
     model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode, true));
@@ -80,7 +84,7 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
         row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
         row.getCells().add(dc = gen.new Cell()); // analysis 
       } else {
-        row.getCells().add(gen.new Cell(null, prefix+e.typeCode().toLowerCase()+".html", e.typeCode(), null, null)); // type
+        row.getCells().add(gen.new Cell(null, prefix+definitions.getSrcFile(e.typeCode())+".html#"+e.typeCode(), e.typeCode(), null, null)); // type
         row.getCells().add(dc = gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); // analysis
       }
     } else {
@@ -88,11 +92,11 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); // card.
         row.setIcon("icon_element.gif", HierarchicalTableGenerator.TEXT_ICON_ELEMENT);
         if (mode == RenderMode.RESOURCE)
-          row.getCells().add(gen.new Cell(null, prefix+"backboneelement.html", "BackboneElement", null, null));
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#BackboneElement", "BackboneElement", null, null));
         else if (e.getName().equals("Element"))
           row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
         else
-          row.getCells().add(gen.new Cell(null, prefix+"element.html", "Element", null, null));   
+          row.getCells().add(gen.new Cell(null, prefix+"types.html#BackBoneElement", "Element", null, null));   
         row.getCells().add(dc = gen.new Cell()); // analysis 
       } else if (e.getTypes().size() == 1) {
         row.getCells().add(gen.new Cell(null, null, path.contains(".") ? e.describeCardinality() : "", null, null)); // card.
@@ -109,18 +113,32 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
           c.getPieces().add(gen.new Piece(null, "(", null));
           boolean first = true;
           for (String rt : e.getTypes().get(0).getParams()) {
-            if (!first)
-              c.getPieces().add(gen.new Piece(null, " | ", null));
-            if (first && isProfile && e.getTypes().get(0).getProfile() != null)
-              c.getPieces().add(gen.new Piece(null, e.getTypes().get(0).getProfile(), null));
-            else
-              c.getPieces().add(gen.new Piece(prefix+findPage(rt)+".html", rt, null));
-            first = false;
+            if (definitions.hasLogicalModel(rt)) {
+             for (String rtn : definitions.getLogicalModel(rt).getImplementations()) {
+               if (!first)
+                 c.getPieces().add(gen.new Piece(null, " | ", null));
+               c.getPieces().add(gen.new Piece(prefix+findPage(rtn)+".html", rtn, null));
+               first = false;               
+             }
+            } else {
+              if (!first)
+                c.getPieces().add(gen.new Piece(null, " | ", null));
+              if (first && isProfile && e.getTypes().get(0).getProfile() != null)
+                c.getPieces().add(gen.new Piece(null, e.getTypes().get(0).getProfile(), null));
+              else
+                c.getPieces().add(gen.new Piece(prefix+findPage(rt)+".html", rt, null));
+              first = false;
+            }
           }
           c.getPieces().add(gen.new Piece(null, ")", null));
           row.getCells().add(dc = gen.new Cell()); // analysis 
           for (String rt : e.getTypes().get(0).getParams()) 
-            addTypeToAnalysis(gen, row, dc, true, e.getStandardsStatus(), rt);
+            if (definitions.hasLogicalModel(rt)) {
+              for (String rtn : definitions.getLogicalModel(rt).getImplementations()) {
+                addTypeToAnalysis(gen, row, dc, true, e.getStandardsStatus(), rtn);                
+              }
+            } else
+              addTypeToAnalysis(gen, row, dc, true, e.getStandardsStatus(), rt);
         } else if (definitions.getPrimitives().containsKey(t)) {
           row.setIcon("icon_primitive.png", HierarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
           row.getCells().add(c = gen.new Cell(null, prefix+"datatypes.html#"+t, t, null, null));
@@ -176,16 +194,23 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
             c.getPieces().add(gen.new Piece(prefix+"references.html", "Reference", null));
             c.getPieces().add(gen.new Piece(null, "(", null));
           boolean first = true;
+          List<String> tt = new ArrayList<>();
           for (String rt : tr.getParams()) {
+            if (definitions.hasLogicalModel(rt))
+              tt.addAll(definitions.getLogicalModel(rt).getImplementations());
+            else
+              tt.add(rt);
+          }
+          Collections.sort(tt);
+          for (String rt : tt) {
             if (!first)
               c.getPieces().add(gen.new Piece(null, " | ", null));
             c.getPieces().add(gen.new Piece(prefix+findPage(rt)+".html", rt, null));
             first = false;
           }
           choicerow.getCells().add(dc = gen.new Cell()); // analysis 
-          for (String rt : e.getTypes().get(0).getParams()) 
-            addTypeToAnalysis(gen, choicerow, dc, true, e.getStandardsStatus(), rt);
-          
+          for (String rt : tt) 
+            addTypeToAnalysis(gen, choicerow, dc, true, e.getStandardsStatus(), rt);          
         } else if (definitions.getPrimitives().containsKey(t)) {
           choicerow.getCells().add(gen.new Cell(null, null, e.getName().replace("[x]",  Utilities.capitalize(t)), definitions.getPrimitives().get(t).getDefinition(), null));
           choicerow.getCells().add(gen.new Cell(null, null, "", null, null));
@@ -209,7 +234,6 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
           choicerow.getCells().add(dc = gen.new Cell()); // analysis 
           addTypeToAnalysis(gen, choicerow, dc, false, e.getStandardsStatus(), t);
         }
-      
         row.getSubRows().add(choicerow);
       }
     } else
@@ -289,7 +313,8 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
       if (ok)
         ; // addInfo(gen, row, dc, "OK ("+type+" = FMM"+tgtFMM+"-"+tgtSS.toDisplay()+" vs. Element = FMM"+fmm+"-"+elementStatus.toDisplay()+")", null);
       else if (ref)
-        addWarning(gen, row, dc, "Type Warning: ("+type+" = FMM"+tgtFMM+"-"+tgtSS.toDisplay()+" vs. Element = FMM"+fmm+"-"+elementStatus.toDisplay()+")", null);
+        addWarning(gen, row, dc, "Type Warning: ("+type+" = FMM"+tgtFMM+"-"+(tgtSS == null ? "null" : tgtSS.toDisplay())+" vs. Element = FMM"+fmm+"-"+elementStatus.toDisplay()+")", null);
+        
       else
         addError(gen, row, dc, "Type Error: ("+type+" = FMM"+tgtFMM+"-"+tgtSS.toDisplay()+" vs. Element = FMM"+fmm+"-"+elementStatus.toDisplay()+")", null);
     }      
@@ -312,9 +337,9 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
     addInfo(gen, row, cell, text, link);
   }
 
-  private TableModel initTable(HierarchicalTableGenerator gen, String prefix, boolean b) {
+  private TableModel initTable(HierarchicalTableGenerator gen, String prefix, boolean b, String id) {
 
-    TableModel model = gen.new TableModel();
+    TableModel model = gen.new TableModel(id, true);
 
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Name", "The logical name of the element", null, 0));
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Card.", "Minimum and Maximum # of times the the element can appear in the instance", null, 0));

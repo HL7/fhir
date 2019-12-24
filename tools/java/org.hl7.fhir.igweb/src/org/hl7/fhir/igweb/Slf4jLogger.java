@@ -1,6 +1,6 @@
 package org.hl7.fhir.igweb;
 
-import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r5.context.IWorkerContext.ILoggingService;
 
 public class Slf4jLogger implements ILoggingService {
   private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(Slf4jLogger.class);

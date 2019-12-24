@@ -1,17 +1,14 @@
 <!DOCTYPE HTML>
 
-<!-- template-comparison.html -->
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<%file newheader%>
+  <title>[%left%] vs [%right%]</title>
+ <link rel="stylesheet" href="fhir.css"/>
 </head>
 <body>
-<%file newnavbar%>
 
-<div class="col-12">
 
-<h2><%cmp.left%> vs <%cmp.right%></h2>
+<h2>[%left%] vs [%right%]</h2>
 
 <h3>Messages</h3>
 
@@ -20,7 +17,7 @@ A series of messages from the comparison algorithm. Errors indicate that solutio
 both implementation guides (or that there are structural flaws in the definition of at least one).
 </p>
 
-<%cmp.messages%>
+[%messages%]
 
 <a name="intersection"></a>
 <h3>Intersection</h3>
@@ -30,7 +27,7 @@ The intersection of the 2 constraint statements. This is what resource authors (
 need to conform to produce content valid against both implementation guides.
 </p>
 
-<%cmp.subset%>
+[%subset%]
 
 <a name="union"></a>
 <h3>Union</h3>
@@ -40,11 +37,7 @@ The union of the 2 constraint statements. This is what resource authors (either 
 would need to be able to handle to accept content valid against either implementation guides.
 </p>
 
-<%cmp.superset%>
-
-</div>
-
-<%file newfooter%>
+[%superset%]
 
 </body>
 </html>

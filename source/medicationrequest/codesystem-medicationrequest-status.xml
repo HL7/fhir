@@ -17,7 +17,7 @@
   <concept>
     <code value="on-hold"/>
     <display value="On Hold"/>
-    <definition value="Actions implied by the prescription are to be temporarily halted, but are expected to continue later.  May also be called 'suspended'."/>
+    <definition value="Actions implied by the prescription are to be temporarily halted. The prescription might or might not be resumed. May also be called 'suspended'."/>
   </concept>
   <concept>
     <code value="cancelled"/>

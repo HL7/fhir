@@ -3,7 +3,7 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p>
-			AdverseEvent is an event resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event</a>
+			AdverseEvent is an event resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event</a>.  A single Adverse Event may need to be reported in multiple ways.  The form of the reporting is left to implementation guides based upon appropriate workflow patterns.
 		</p>
 		<p>
 			This resource applies to events that occur during the course of medical care or medical research which may impact an individual as the recipient of care or the participant in a research study.  There are also events that occur within a care setting that might or might not impact an individual but had the potential to cause an adverse event.  Health care organizations monitor and report both adverse events as well as events that had the potential to cause patient harm.  Data are often aggregated for reporting purposes.  

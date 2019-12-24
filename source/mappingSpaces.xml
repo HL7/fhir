@@ -32,6 +32,17 @@
     <pattern>true</pattern>
 	</space>
 	<space>
+		<url>http://hl7.org/fhir/interface</url>
+		<link>http://hl7.org/fhir/participant.html</link>
+		<columnName>Interface Mapping</columnName>
+		<title>Interface Pattern</title>
+		<id>interface</id>
+		<sort>0</sort>
+		<publish>true</publish>
+    <sparse>true</sparse>
+    <pattern>true</pattern>
+	</space>
+	<space>
 		<url>http://hl7.org/v2</url>
     <link>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185</link>
 		<columnName>v2 Mapping</columnName>
@@ -290,6 +301,11 @@
 		<id>logical</id>
 		<sort>25</sort>
 		<publish>true</publish>
+    <preamble>
+			<p>
+      These mappings map logical models to their conceptual equivalents in FHIR. One example of their use is to map from the CDA and V2 coded data types to CodeableConcept and Coding so that the validator can validate them on a terminology server
+     </p>
+		</preamble>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/auditevent</url>
@@ -419,6 +435,15 @@
 		<title>FHIR DocumentReference</title>
 		<id>fhirdocumentreference</id>
 		<sort>40</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+		<url>https://en.wikipedia.org/wiki/Identification_of_medicinal_products</url>
+		<link>https://en.wikipedia.org/wiki/Identification_of_medicinal_products</link>
+		<columnName>IDMP Mapping</columnName>
+		<title>IDMP Mapping</title>
+		<id>idmp</id>
+		<sort>41</sort>
 		<publish>true</publish>
 	</space>
 </mappingSpaces>

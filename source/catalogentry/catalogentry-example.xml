@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CatalogEntry xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/catalogentry.xsd">
-	<id value="example"/>
+<CatalogEntry xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <id value="example"/>
   <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"> </div>
   </text>
 
   <!-- insert contents here -->
   <identifier>
     <system value="http://example.com/identifier"/>
-    <value value="123"/>
+    <value value="456"/>
   </identifier>
-  
-  <type>
-    <text value="Medication"/>
-  </type>
-  
+  <name value="Serum electrolyte panel"/>
+  <type value="ActivityDefinition"/>
+  <status value="active"/>
+  <effectivePeriod>
+    <start value="2018-12-16"/>
+  </effectivePeriod>
   <orderable value="true"/>
-  
   <referencedItem>
-    <reference value="Medication/123"/>
+    <reference value="ActivityDefinition/789"/>
   </referencedItem>
-  
+  <updatedBy>
+    <reference value="Person/2"/>
+  </updatedBy>
+  <note>
+    <authorString value="Adam Man"/>
+    <text value="created as an example"/>
+  </note>
 </CatalogEntry>

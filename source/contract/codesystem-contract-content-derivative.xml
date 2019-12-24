@@ -14,7 +14,7 @@
       decisions, and providing query responses.</div>
   </text>
   <url value="http://terminology.hl7.org/CodeSystem/contract-content-derivative"/>
-  <version value="4.0.0"/>
+  <version value="4.1.0"/>
   <name value="ContractContentDerivative"/>
   <status value="draft"/>
   <experimental value="true"/>

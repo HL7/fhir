@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="AdverseEvent Participant Function"/>
+  <title value="AdverseEvent Participant Function"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes codes that describe the type of involvement of the actor in the adverse event."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <concept>
+        <code value="INF"/>
+      </concept>
+      <concept>
+        <code value="PART"/>
+      </concept>
+      <concept>
+        <code value="WIT"/>
+      </concept>
+	  <concept>
+        <code value="AUT"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

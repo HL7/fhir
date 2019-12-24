@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/AdverseEvent" alias AdverseEve
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group AdverseEvent(source src : AdverseEventR3, target tgt : AdverseEvent) extends DomainResource <<type+>> {
+group AdverseEvent(source src : AdverseEvent, target tgt : AdverseEventR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.actuality -> tgt.actuality;
   src.category as vs then {

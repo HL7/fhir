@@ -13,6 +13,21 @@
     <value value="123"/>
 	</identifier>
 	<status value="candidate"/>
+	<progress>
+		<type><text value="Local enrollment system"/></type>
+		<state><text value="local version of on-study"/></state>
+		<startDate value="2019-06-10"/>
+	</progress>
+	<progress>
+		<type><text value="Local milestone system"/></type>
+		<milestone><text value="Local versdion of signed up"/></milestone>
+		<startDate value="2019-06-06"/>
+	</progress>
+	<progress>
+		<type><text value="Local milestone system"/></type>
+		<milestone><text value="Local version of randomised"/></milestone>
+		<startDate value="2019-06-10"/>
+	</progress>
 	<study>
     <reference value="ResearchStudy/example"/>
 	</study>

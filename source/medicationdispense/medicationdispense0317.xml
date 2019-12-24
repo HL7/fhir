@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0317"/>
     <contained>
@@ -16,13 +16,13 @@
             <manufacturer>
                 <reference value="Organization/mmanu" />
             </manufacturer>
-                <form>
+                <doseForm>
                     <coding>
                         <system value="http://snomed.info/sct"/>
                         <code value="421637006"/>
                         <display value="Lyophilized powder for injectable solution (qualifier value) "/>
                     </coding>
-                </form>            
+                </doseForm>            
         </Medication>
     </contained>
     <status value="stopped"/>

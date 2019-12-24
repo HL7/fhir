@@ -13,13 +13,13 @@
           <display value="Lorazepam 2mg/ml injection solution 1ml vial (product)"/>
         </coding>
       </code>
-        <form>
+        <doseForm>
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="385219001"/>
             <display value="Injection solution (qualifier value)"/>
           </coding>
-        </form>
+        </doseForm>
         <ingredient>
           <itemCodeableConcept>
             <coding>
@@ -28,7 +28,7 @@
               <display value="Lorazepam (substance)"/>
             </coding>
           </itemCodeableConcept>
-          <strength>
+          <strengthRatio>
             <numerator>
               <value value="2"/>
               <system value="http://unitsofmeasure.org"/>
@@ -39,7 +39,7 @@
               <system value="http://unitsofmeasure.org"/>
               <code value="mL"/>
             </denominator>
-          </strength>
+          </strengthRatio>
         </ingredient>
       
     </Medication>
@@ -52,14 +52,14 @@
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
   </subject>
-  <context> 
+  <encounter> 
     <reference value="Encounter/f001"/>
     <display value="encounter who leads to this prescription"/>
-  </context>
- <effectivePeriod>
+  </encounter>
+  <occurencePeriod>
   <start value="2015-01-15T04:30:00+01:00"/>
    <end value="2015-01-15T14:30:00+01:00"/>
-</effectivePeriod>
+</occurencePeriod>
   <performer>
     <function>
       <coding>

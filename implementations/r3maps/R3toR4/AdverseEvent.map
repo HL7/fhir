@@ -10,7 +10,7 @@ group AdverseEvent(source src : AdverseEventR3, target tgt : AdverseEvent) exten
   src.actuality -> tgt.actuality;
   src.category as vs ->  tgt.category as vt,  vt.coding as c,  c.system = 'http://terminology.hl7.org/CodeSystem/adverse-event-category',  c.code = vs;
   src.type -> tgt.event;
-  src.description as vs where src.type.exists().not() ->  tgt.event as vt,  vt.text = vs "use description in leiu of type for event";
+  src.description as vs where src.type.exists().not() ->  tgt.event as vt,  vt.text = vs;  // use description in leiu of type for event
   src.subject -> tgt.subject;
   src.date -> tgt.date;
   src.detected -> tgt.detected;

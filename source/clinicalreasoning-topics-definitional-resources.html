@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-      
+
 [%settitle Clinical Reasoning%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
 </head>
-<body> 
+<body>
 [%file newnavbar%]
 
 <div class="col-12">
@@ -96,6 +96,22 @@
   &lt;/dynamicValue&gt;
 &lt;/ActivityDefinition&gt;
 </code></pre>
+
+<p>The <a href="evidencevariable.html">EvidenceVariable</a> resource supports the description of definitional resources for variables to be referenced from an Evidence resource:</p>
+
+<table class="grid">
+	<tbody>
+		<tr><td>Who</td><td>topic</td><td>Specifies the category of evidence variable (eg condition, exposure)</td></tr>
+		<tr><td>What</td><td>characteristic.definition[x]</td><td>Specifies a component of the definition of the evidence variable</td></tr>
+		<tr><td>When</td><td>participantEffective[x] and timeFromStart</td><td>Subelements of characteristic to specify when the definitional component was or will be determined</td></tr>
+		<tr><td>Where</td><td>type</td><td>Specifies the type of variable (eg dichotomous. Categorical, continuous, descriptive)</td></tr>
+		<tr><td>Why</td><td>Characteristic.method</td><td>Specifies how the definitional component was or will be determined</td></tr>
+	</tbody>
+</table>
+
+<p>For example, the following fragment illustrates a definition of chlorpromazine as an exposure in an evidence summary. In this example, only the What (characteristic.definitionCodeableConcept) is shown:</p>
+
+<p>*enter example here*</p>
 
 <p>Note to implementers: Although there is currently only one <i>definitional</i> resource defined (ActivityDefinition), the concept is general, and this was a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases of ActivityDefinition require more specialized elements to be added, the resource may be split.</p>
 

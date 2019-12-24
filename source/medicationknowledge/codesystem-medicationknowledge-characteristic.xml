@@ -44,4 +44,9 @@
     <display value="Logo"/>
     <definition value="Description of the Logo of the product"/>
   </concept>
+  <concept>
+    <code value="image"/>
+    <display value="Image"/>
+    <definition value="Description of the Image of the product"/>
+  </concept>
 </CodeSystem>

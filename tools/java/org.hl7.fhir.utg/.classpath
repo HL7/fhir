@@ -12,7 +12,7 @@
 	<classpathentry kind="lib" path="../../..//implementations/java/imports/hsqldb.jar"/>
 	<classpathentry kind="lib" path="../../..//implementations/java/imports/jackcess-2.1.6.jar"/>
 	<classpathentry kind="lib" path="../../..//implementations/java/imports/ucanaccess-4.0.2.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r5"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.convertors"/>
 	<classpathentry kind="lib" path="../../..//tools/java/imports/poi-3.17.jar"/>

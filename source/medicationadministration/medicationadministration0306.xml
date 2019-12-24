@@ -23,14 +23,14 @@
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
   </subject>
-  <context> 
+  <encounter> 
     <reference value="Encounter/f001"/>
     <display value="encounter who leads to this prescription"/>
-  </context>
-  <effectivePeriod>
+  </encounter>
+  <occurencePeriod>
   <start value="2015-01-15T04:30:00+01:00"/>
    <end value="2015-01-15T14:30:00+01:00"/>
-</effectivePeriod>
+</occurencePeriod>
   <performer>
     <function>
       <coding>

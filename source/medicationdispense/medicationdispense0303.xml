@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0303"/>
     <contained>
@@ -37,9 +37,9 @@
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>  
     </subject>
-    <context>
+    <encounter>
         <reference value="Encounter/f001"></reference>
-    </context>
+    </encounter>
     <performer>
         <actor>
             <reference value="Practitioner/f006"/>

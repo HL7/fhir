@@ -77,6 +77,10 @@
     <display value="Free-standing ambulatory surgery facility"/>
     <display value="Free-standing ambulatory surgery facility (environment)"/>
   </concept>
+  <concept id="105480006" display="Refusal of treatment by patient">
+    <display value="Refusal of treatment by patient"/>
+    <display value="Refusal of treatment by patient (situation)"/>
+  </concept>
   <concept id="105590001" display="Substance">
     <display value="Substance"/>
     <display value="Substances"/>
@@ -172,6 +176,10 @@
   <concept id="11429006" display="Consultation">
     <display value="Consultation"/>
     <display value="Consultation (procedure)"/>
+  </concept>
+  <concept id="115341008" display="Total measurement">
+    <display value="Total measurement"/>
+    <display value="Total measurement (qualifier value)"/>
   </concept>
   <concept id="115665000" display="Atopic state">
     <display value="Atopic state"/>
@@ -10740,6 +10748,18 @@
     <display value="FHC elite pig 9"/>
     <display value="FHC elite pig 9 (organism)"/>
   </concept>
+  <concept id="14106009" display="Cardiac pacemaker">
+    <display value="Cardiac pacemaker"/>
+    <display value="Cardiac pacemaker, device (physical object)"/>
+    <display value="Cardiac pacemaker implant"/>
+    <display value="Cardiac pacemaker, device"/>
+  </concept>
+  <concept id="14168008" display="Rabies">
+    <display value="Rabies"/>
+    <display value="Hydrophobia"/>
+    <display value="Lyssa"/>
+    <display value="Rabies (disorder)"/>
+  </concept>
   <concept id="14189004" display="Measles">
     <display value="Measles"/>
     <display value="Rubeola"/>
@@ -10851,6 +10871,11 @@
     <display value="Induced"/>
     <display value="Induced (qualifier value)"/>
   </concept>
+  <concept id="16541001" display="Yellow fever">
+    <display value="Yellow fever"/>
+    <display value="Yellow fever (disorder)"/>
+    <display value="YF - Yellow fever"/>
+  </concept>
   <concept id="166643006" display="Liver enzymes abnormal">
     <display value="Liver enzymes abnormal"/>
     <display value="Liver enzymes abnormal (finding)"/>
@@ -10882,6 +10907,12 @@
   <concept id="168139001" display="Peritoneal fluid sample">
     <display value="Peritoneal fluid sample"/>
     <display value="Peritoneal fluid sample (specimen)"/>
+  </concept>
+  <concept id="16814004" display="Pneumococcal infectious disease">
+    <display value="Pneumococcal infectious disease"/>
+    <display value="Pneumococcal infection"/>
+    <display value="Pneumococcal infectious disease (disorder)"/>
+    <display value="Pneumococcal disease"/>
   </concept>
   <concept id="168141000" display="Nasal fluid sample">
     <display value="Nasal fluid sample"/>
@@ -11039,6 +11070,28 @@
     <display value="Congenital rubella syndrome"/>
     <display value="Congenital rubella syndrome (disorder)"/>
   </concept>
+  <concept id="186747009" display="Coronavirus infection">
+    <display value="Coronavirus infection"/>
+    <display value="Coronavirus infection (disorder)"/>
+  </concept>
+  <concept id="186772009" display="RMSF - Rocky Mountain spotted fever">
+    <display value="RMSF - Rocky Mountain spotted fever"/>
+    <display value="Rocky Mountain spotted fever"/>
+    <display value="Rocky Mountain spotted fever (disorder)"/>
+    <display value="Rocky Mountain tick fever"/>
+    <display value="Sao Paulo fever"/>
+    <display value="Brazilian spotted fever"/>
+    <display value="American tick typhus"/>
+  </concept>
+  <concept id="186788009" display="Q fever">
+    <display value="Q fever"/>
+    <display value="Abattoir fever"/>
+    <display value="Balkan influenza"/>
+    <display value="Balkan grippe"/>
+    <display value="Query fever"/>
+    <display value="Q fever (disorder)"/>
+    <display value="Infection due to Coxiella burnetii"/>
+  </concept>
   <concept id="188340000" display="Malignant tumor of craniopharyngeal duct">
     <display value="Malignant tumor of craniopharyngeal duct"/>
     <display value="Malignant neoplasm of craniopharyngeal duct"/>
@@ -11064,12 +11117,31 @@
     <display value="Sucrose intolerance"/>
     <display value="Sucrose intolerance (disorder)"/>
   </concept>
+  <concept id="1912002" display="Fall">
+    <display value="Fall"/>
+    <display value="Fall (event)"/>
+  </concept>
   <concept id="191788006" display="Feminism in boy">
     <display value="Feminism in boy"/>
     <display value="Feminism in boy (finding)"/>
     <display value="Femininity in a boy"/>
     <display value="Effeminacy in boy"/>
     <display value="Behavioral characteristics of a boy which are considered typical of the gender role of a female."/>
+  </concept>
+  <concept id="19265001" display="Tularemia">
+    <display value="Tularemia"/>
+    <display value="Infection by Francisella tularensis"/>
+    <display value="Deer fly fever"/>
+    <display value="Rabbit fever"/>
+    <display value="Ohara&#39;s disease"/>
+    <display value="Yatobyo"/>
+    <display value="Pahvant Valley fever"/>
+    <display value="Pahvant Valley plague"/>
+    <display value="Tularaemia"/>
+    <display value="Tularemia (disorder)"/>
+    <display value="Deerfly fever"/>
+    <display value="Francis&#39; disease"/>
+    <display value="O&#39;Hara&#39;s disease"/>
   </concept>
   <concept id="19356005" display="Hunter horse">
     <display value="Hunter horse"/>
@@ -11218,6 +11290,10 @@
   <concept id="224687002" display="Prison hospital">
     <display value="Prison hospital"/>
     <display value="Prison hospital (environment)"/>
+  </concept>
+  <concept id="224930009" display="Services">
+    <display value="Services"/>
+    <display value="Services (qualifier value)"/>
   </concept>
   <concept id="22506004" display="British lop pig">
     <display value="British lop pig"/>
@@ -11398,10 +11474,24 @@
     <display value="Domestic goose"/>
     <display value="Domestic goose (organism)"/>
   </concept>
+  <concept id="23502006" display="Lyme disease">
+    <display value="Lyme disease"/>
+    <display value="Steere&#39;s disease"/>
+    <display value="Lyme borreliosis"/>
+    <display value="Lyme disease (disorder)"/>
+    <display value="Infection due to Borrelia burgdorferi sensu lato"/>
+  </concept>
   <concept id="23506009" display="Normal flora">
     <display value="Normal flora"/>
     <display value="Pathogenic bacteria not recovered"/>
     <display value="Normal flora (finding)"/>
+  </concept>
+  <concept id="23511006" display="Meningococcal infectious disease">
+    <display value="Meningococcal infectious disease"/>
+    <display value="Infection due to Neisseria meningitidis"/>
+    <display value="Meningococcal infection"/>
+    <display value="Meningococcal infectious disease (disorder)"/>
+    <display value="Meningococcal disease"/>
   </concept>
   <concept id="235157009" display="Endoscopic brushings of GIT">
     <display value="Endoscopic brushings of GIT"/>
@@ -11420,6 +11510,11 @@
   <concept id="23992007" display="Black-winged bronze turkey">
     <display value="Black-winged bronze turkey"/>
     <display value="Black-winged bronze turkey (organism)"/>
+  </concept>
+  <concept id="240613006" display="Typhus group rickettsial disease">
+    <display value="Typhus group rickettsial disease"/>
+    <display value="Typhus group rickettsial disease (disorder)"/>
+    <display value="Typhus"/>
   </concept>
   <concept id="240977001" display="Biopsy of skin">
     <display value="Biopsy of skin"/>
@@ -11910,6 +12005,11 @@
     <display value="White Park cattle"/>
     <display value="White Park cattle breed"/>
   </concept>
+  <concept id="266113007" display="Genital warts">
+    <display value="Genital warts"/>
+    <display value="Genital wart"/>
+    <display value="Genital warts (disorder)"/>
+  </concept>
   <concept id="26643006" display="Oral route">
     <display value="Oral route"/>
     <display value="Per os"/>
@@ -12107,6 +12207,10 @@
     <display value="Pulmonary vascular structure"/>
     <display value="Pulmonary vascular structure (body structure)"/>
   </concept>
+  <concept id="281323002" display="Insufficient requesting detail">
+    <display value="Insufficient requesting detail"/>
+    <display value="Insufficient requesting detail (finding)"/>
+  </concept>
   <concept id="28138009" display="Slate turkey">
     <display value="Slate turkey"/>
     <display value="Slate turkey (organism)"/>
@@ -12164,6 +12268,10 @@
     <display value="Black Welsh cattle"/>
     <display value="Welsh black cattle"/>
     <display value="Black Welsh cattle breed"/>
+  </concept>
+  <concept id="288524001" display="Courses">
+    <display value="Courses"/>
+    <display value="Courses (qualifier value)"/>
   </concept>
   <concept id="28995006" display="Treated with">
     <display value="Treated with"/>
@@ -12805,6 +12913,16 @@
     <display value="CA - Cancer"/>
     <display value="Malignant neoplasm"/>
   </concept>
+  <concept id="363354003" display="Malignant tumour of cervix">
+    <display value="Malignant tumour of cervix"/>
+    <display value="Malignant tumor of cervix"/>
+    <display value="Malignant tumor of cervix (disorder)"/>
+    <display value="Cancer of cervix"/>
+    <display value="Malignant neoplasm of cervix"/>
+    <display value="Malignant neoplasm of cervix uteri"/>
+    <display value="Cancer of the uterine cervix"/>
+    <display value="Cervical cancer"/>
+  </concept>
   <concept id="363358000" display="Malignant tumor of lung">
     <display value="Malignant tumor of lung"/>
     <display value="Malignant tumour of lung"/>
@@ -12835,6 +12953,10 @@
   <concept id="365858006" display="Prognosis/outlook finding">
     <display value="Prognosis/outlook finding"/>
     <display value="Prognosis/outlook finding (finding)"/>
+  </concept>
+  <concept id="365861007" display="Finding of immune status">
+    <display value="Finding of immune status"/>
+    <display value="Finding of immune status (finding)"/>
   </concept>
   <concept id="36629006" display="Legal marriage">
     <display value="Legal marriage"/>
@@ -12884,6 +13006,10 @@
   <concept id="36989005" display="Mumps">
     <display value="Mumps"/>
     <display value="Mumps (disorder)"/>
+  </concept>
+  <concept id="370894009" display="Serious reportable event">
+    <display value="Serious reportable event (event)"/>
+    <display value="Serious reportable event"/>
   </concept>
   <concept id="371041009" display="Embolic stroke">
     <display value="Embolic stroke (disorder)"/>
@@ -12969,6 +13095,12 @@
     <display value="Entire body as a whole"/>
     <display value="Entire body as a whole (body structure)"/>
   </concept>
+  <concept id="38362002" display="Dengue">
+    <display value="Dengue"/>
+    <display value="Dengue fever"/>
+    <display value="Breakbone fever"/>
+    <display value="Dengue (disorder)"/>
+  </concept>
   <concept id="385055001" display="Tablet">
     <display value="Tablet"/>
     <display value="Tablets"/>
@@ -13000,6 +13132,10 @@
     <display value="Injection emulsion"/>
     <display value="Emulsion for injection"/>
     <display value="Injection emulsion (qualifier value)"/>
+  </concept>
+  <concept id="385268001" display="Oral dose form">
+    <display value="Oral dose form"/>
+    <display value="Oral dose form (dose form)"/>
   </concept>
   <concept id="385356007" display="Tumour stage finding">
     <display value="Tumor stage finding (finding)"/>
@@ -13132,6 +13268,12 @@
     <display value="Genus Equus"/>
     <display value="Horse"/>
     <display value="Horse, donkey, mule genus"/>
+  </concept>
+  <concept id="38907003" display="Varicella">
+    <display value="Varicella"/>
+    <display value="Varicella infection"/>
+    <display value="Chicken pox"/>
+    <display value="Varicella (disorder)"/>
   </concept>
   <concept id="39065001" display="Burn of ear">
     <display value="Burn of ear"/>
@@ -13507,6 +13649,10 @@
     <display value="BAL procedure"/>
     <display value="BAL - Bronchoalveolar lavage"/>
   </concept>
+  <concept id="397428000" display="Diphtheria">
+    <display value="Diphtheria (disorder)"/>
+    <display value="Diphtheria"/>
+  </concept>
   <concept id="397430003" display="Diphtheria due to Corynebacterium diphtheriae">
     <display value="Diphtheria due to Corynebacterium diphtheriae"/>
     <display value="Diphtheria caused by Corynebacterium diphtheriae (disorder)"/>
@@ -13521,12 +13667,24 @@
     <display value="Healthcare knowledge finding (finding)"/>
     <display value="Healthcare knowledge finding"/>
   </concept>
+  <concept id="397709008" display="Patient died">
+    <display value="Patient died (finding)"/>
+    <display value="Patient died"/>
+  </concept>
+  <concept id="398090008" display="Patient unavailable">
+    <display value="Patient unavailable (finding)"/>
+    <display value="Patient unavailable"/>
+  </concept>
   <concept id="398102009" display="Acute poliomyelitis">
     <display value="Acute poliomyelitis (disorder)"/>
     <display value="Acute poliomyelitis"/>
     <display value="Polio"/>
     <display value="PM - Poliomyelitis"/>
     <display value="Poliomyelitis"/>
+  </concept>
+  <concept id="398227009" display="Inadequate consent">
+    <display value="Inadequate consent (finding)"/>
+    <display value="Inadequate consent"/>
   </concept>
   <concept id="398254007" display="Pre-eclampsia">
     <display value="Pre-eclampsia (disorder)"/>
@@ -13859,6 +14017,14 @@
     <display value="Hypothyroid"/>
     <display value="Hypothyroidism (disorder)"/>
   </concept>
+  <concept id="409498004" display="Anthrax">
+    <display value="Anthrax (disorder)"/>
+    <display value="Anthrax"/>
+    <display value="Milzbrand"/>
+    <display value="Infection due to Bacillus anthracis"/>
+    <display value="Splenic fever"/>
+    <display value="Charbon"/>
+  </concept>
   <concept id="409519008" display="Contained casualty setting">
     <display value="Contained casualty setting (environment)"/>
     <display value="Contained casualty setting"/>
@@ -13987,6 +14153,10 @@
     <display value="Mucous membrane"/>
     <display value="Tunica mucosa"/>
   </concept>
+  <concept id="414859005" display="No consent for electronic record sharing">
+    <display value="No consent for electronic record sharing (finding)"/>
+    <display value="No consent for electronic record sharing"/>
+  </concept>
   <concept id="414916001" display="Obesity">
     <display value="Obesity (disorder)"/>
     <display value="Obesity"/>
@@ -14010,6 +14180,11 @@
     <display value="Vial - unit of product usage (qualifier value)"/>
     <display value="Vial - unit of product usage"/>
   </concept>
+  <concept id="415822001" display="Viral gastroenteritis due to Rotavirus">
+    <display value="Viral gastroenteritis due to Rotavirus"/>
+    <display value="Viral gastroenteritis caused by Rotavirus (disorder)"/>
+    <display value="Viral gastroenteritis caused by Rotavirus"/>
+  </concept>
   <concept id="416064006" display="Procedure not offered">
     <display value="Procedure not offered"/>
     <display value="Procedure not offered (situation)"/>
@@ -14023,13 +14198,26 @@
     <display value="Osteopathic manipulative medicine (qualifier value)"/>
     <display value="Osteopathic manipulative medicine"/>
   </concept>
+  <concept id="416308001" display="Refused consent for upload to national shared electronic record">
+    <display value="Refused consent for upload to national shared electronic record (finding)"/>
+    <display value="Refused consent for upload to national shared electronic record"/>
+  </concept>
   <concept id="416406003" display="Procedure discontinued">
     <display value="Procedure discontinued"/>
     <display value="Procedure discontinued (situation)"/>
   </concept>
+  <concept id="416409005" display="Refused consent for upload to local shared electronic record">
+    <display value="Refused consent for upload to local shared electronic record (finding)"/>
+    <display value="Refused consent for upload to local shared electronic record"/>
+  </concept>
   <concept id="416432009" display="Procedure not wanted">
     <display value="Procedure not wanted"/>
     <display value="Procedure not wanted (situation)"/>
+  </concept>
+  <concept id="416471007" display="Family history of clinical finding">
+    <display value="Family history of clinical finding"/>
+    <display value="Family medical history"/>
+    <display value="Family history of clinical finding (situation)"/>
   </concept>
   <concept id="41672002" display="Respiratory disease specialist">
     <display value="Respiratory disease specialist"/>
@@ -14300,6 +14488,10 @@
   <concept id="425268008" display="Review of care plan">
     <display value="Review of care plan (procedure)"/>
     <display value="Review of care plan"/>
+  </concept>
+  <concept id="425457005" display="History of vaccination">
+    <display value="History of vaccination (situation)"/>
+    <display value="History of vaccination"/>
   </concept>
   <concept id="425620007" display="Metal">
     <display value="Metal (substance)"/>
@@ -14789,6 +14981,10 @@
     <display value="Pediatric reduced calorie formula"/>
     <display value="Liquid formula intended for enteral and/or oral method of delivery, formulated to meet the nutritional needs of children and provide reduced calories relative to a standard formula."/>
   </concept>
+  <concept id="445060000" display="Left against medical advice">
+    <display value="Left against medical advice (finding)"/>
+    <display value="Left against medical advice"/>
+  </concept>
   <concept id="445085009" display="Tunneled central venous catheter">
     <display value="Tunneled central venous catheter (physical object)"/>
     <display value="Tunneled central venous catheter"/>
@@ -14948,6 +15144,14 @@
     <display value="On subcutaneous insulin for diabetes mellitus"/>
     <display value="On subcutaneous insulin for diabetes mellitus (finding)"/>
   </concept>
+  <concept id="4740000" display="Herpes zoster">
+    <display value="Herpes zoster"/>
+    <display value="Shingles"/>
+    <display value="Zona"/>
+    <display value="Herpes zoster infection"/>
+    <display value="Herpes zoster (disorder)"/>
+    <display value="Zoster"/>
+  </concept>
   <concept id="47505003" display="Posttraumatic stress disorder">
     <display value="Posttraumatic stress disorder"/>
     <display value="Traumatic neurosis"/>
@@ -14998,6 +15202,11 @@
     <display value="Veteran&#39;s administration hospital"/>
     <display value="V.A. hospital"/>
     <display value="Veteran&#39;s administration hospital (environment)"/>
+  </concept>
+  <concept id="4834000" display="Typhoid fever">
+    <display value="Typhoid fever"/>
+    <display value="Typhoid fever (disorder)"/>
+    <display value="Infection by Salmonella Typhi"/>
   </concept>
   <concept id="48387007" display="Incision of trachea">
     <display value="Incision of trachea"/>
@@ -15133,6 +15342,15 @@
     <display value="Dominique chicken"/>
     <display value="Dominique chicken (organism)"/>
   </concept>
+  <concept id="52947006" display="Japanese encephalitis virus disease">
+    <display value="Japanese encephalitis virus disease"/>
+    <display value="Japanese encephalitis"/>
+    <display value="Japanese B encephalitis"/>
+    <display value="JE - Japanese encephalitis"/>
+    <display value="JBE - Japanese B encephalitis"/>
+    <display value="Japanese encephalitis virus disease (disorder)"/>
+    <display value="Encephalitis, Japanese"/>
+  </concept>
   <concept id="53031002" display="Dexter cattle">
     <display value="Dexter cattle breed (organism)"/>
     <display value="Dexter cattle"/>
@@ -15240,6 +15458,20 @@
     <display value="Problem"/>
     <display value="Problem (finding)"/>
   </concept>
+  <concept id="55735004" display="Respiratory syncytial virus infection">
+    <display value="Respiratory syncytial virus infection"/>
+    <display value="Respiratory syncytial virus infection (disorder)"/>
+    <display value="RSV - Respiratory syncytial virus infection"/>
+  </concept>
+  <concept id="55822004" display="Hyperlipidemia">
+    <display value="Hyperlipidemia"/>
+    <display value="Lipidemia"/>
+    <display value="HLD - Hyperlipidemia"/>
+    <display value="HLD - Hyperlipidaemia"/>
+    <display value="Hyperlipidaemia"/>
+    <display value="Lipidaemia"/>
+    <display value="Hyperlipidemia (disorder)"/>
+  </concept>
   <concept id="5584006" display="Hospital-based outpatient peripheral vascular clinic">
     <display value="Hospital-based outpatient peripheral vascular clinic"/>
     <display value="Hospital-based outpatient peripheral vascular clinic (environment)"/>
@@ -15269,6 +15501,11 @@
     <display value="Klebsiella pneumoniae"/>
     <display value="Friedlander&#39;s bacillus"/>
     <display value="Klebsiella pneumoniae (organism)"/>
+  </concept>
+  <concept id="56717001" display="Tuberculosis">
+    <display value="Tuberculosis"/>
+    <display value="TB - Tuberculosis"/>
+    <display value="Tuberculosis (disorder)"/>
   </concept>
   <concept id="56764001" display="Holland chicken">
     <display value="Holland chicken"/>
@@ -15334,6 +15571,14 @@
     <display value="Hospital-based outpatient gastroenterology clinic"/>
     <display value="Hospital-based outpatient gastroenterology clinic (environment)"/>
   </concept>
+  <concept id="58750007" display="Plague">
+    <display value="Plague"/>
+    <display value="Infection by Yersinia pestis"/>
+    <display value="Pest"/>
+    <display value="Pestilential fever"/>
+    <display value="Black death"/>
+    <display value="Plague (disorder)"/>
+  </concept>
   <concept id="59210004" display="Navajo sheep">
     <display value="Navajo sheep"/>
     <display value="Navajo sheep (organism)"/>
@@ -15393,6 +15638,12 @@
     <display value="Lilac buff turkey"/>
     <display value="Lilac buff turkey (organism)"/>
   </concept>
+  <concept id="609328004" display="Allergy">
+    <display value="Allergy"/>
+    <display value="Allergic disposition"/>
+    <display value="Allergic disposition (finding)"/>
+    <display value="A propensity to developing a pathological immune process generally directed towards a foreign antigen, which results in tissue injury. It is most often applied to type I hypersensitivity but other hypersensitivity types especially type IV (e.g. allergic contact dermatitis) may be involved. Revised nomenclature for allergy for global use:Report of the Nomenclature Review Committee of the World Allergy Organization, October 2003."/>
+  </concept>
   <concept id="60958006" display="Maryland pig">
     <display value="Maryland pig"/>
     <display value="Maryland pig (organism)"/>
@@ -15419,6 +15670,12 @@
   <concept id="61204004" display="Dorking chicken">
     <display value="Dorking chicken"/>
     <display value="Dorking chicken (organism)"/>
+  </concept>
+  <concept id="61462000" display="Malaria">
+    <display value="Malaria"/>
+    <display value="Paludism"/>
+    <display value="Plasmodiosis"/>
+    <display value="Malaria (disorder)"/>
   </concept>
   <concept id="61839006" display="Cornish chicken">
     <display value="Cornish chicken"/>
@@ -15457,6 +15714,11 @@
   <concept id="63257005" display="Chantecler chicken">
     <display value="Chantecler chicken"/>
     <display value="Chantecler chicken (organism)"/>
+  </concept>
+  <concept id="63650001" display="Cholera">
+    <display value="Cholera"/>
+    <display value="Cholera (disorder)"/>
+    <display value="Vibrio cholerae infection"/>
   </concept>
   <concept id="64033007" display="Kidney">
     <display value="Kidney"/>
@@ -15612,6 +15874,11 @@
     <display value="Irrigation (procedure)"/>
     <display value="Administration that washes with a stream of liquid"/>
   </concept>
+  <concept id="67924001" display="Smallpox">
+    <display value="Smallpox"/>
+    <display value="Variola"/>
+    <display value="Smallpox (disorder)"/>
+  </concept>
   <concept id="6827000" display="Local community health center">
     <display value="Local community health center"/>
     <display value="Local community health centre"/>
@@ -15676,6 +15943,16 @@
     <display value="Stomach structure"/>
     <display value="Stomach structure (body structure)"/>
   </concept>
+  <concept id="700146008" display="No history of malignant tumor of breast">
+    <display value="No history of malignant tumor of breast"/>
+    <display value="No history of malignant neoplasm of breast"/>
+    <display value="No history of malignant tumour of breast"/>
+    <display value="No history of malignant neoplasm of breast (situation)"/>
+  </concept>
+  <concept id="70090004" display="Cowpox">
+    <display value="Cowpox"/>
+    <display value="Cowpox (disorder)"/>
+  </concept>
   <concept id="70210006" display="Orloff chicken">
     <display value="Orloff chicken"/>
     <display value="Orloff chicken (organism)"/>
@@ -15702,6 +15979,26 @@
     <display value="Precondition value (qualifier value)"/>
     <display value="Precondition value"/>
   </concept>
+  <concept id="704273008" display="Consent declined for examination of cardiovascular system">
+    <display value="Consent declined for examination of cardiovascular system"/>
+    <display value="Consent declined for examination of cardiovascular system (finding)"/>
+  </concept>
+  <concept id="704274002" display="Consent declined for examination of central nervous system">
+    <display value="Consent declined for examination of central nervous system (finding)"/>
+    <display value="Consent declined for examination of central nervous system"/>
+  </concept>
+  <concept id="704275001" display="Consent declined for examination of genitourinary system">
+    <display value="Consent declined for examination of genitourinary system"/>
+    <display value="Consent declined for examination of genitourinary system (finding)"/>
+  </concept>
+  <concept id="704276000" display="Consent declined for examination of musculoskeletal system">
+    <display value="Consent declined for examination of musculoskeletal system"/>
+    <display value="Consent declined for examination of musculoskeletal system (finding)"/>
+  </concept>
+  <concept id="704277009" display="Consent declined for examination of respiratory system">
+    <display value="Consent declined for examination of respiratory system"/>
+    <display value="Consent declined for examination of respiratory system (finding)"/>
+  </concept>
   <concept id="70429002" display="Game chicken">
     <display value="Game chicken"/>
     <display value="Game chicken (organism)"/>
@@ -15709,6 +16006,10 @@
   <concept id="70431006" display="Alpine goat">
     <display value="Alpine goat"/>
     <display value="Alpine goat (organism)"/>
+  </concept>
+  <concept id="704458005" display="Consent declined for examination of gastrointestinal system">
+    <display value="Consent declined for examination of gastrointestinal system (finding)"/>
+    <display value="Consent declined for examination of gastrointestinal system"/>
   </concept>
   <concept id="70457009" display="Icelandic horse">
     <display value="Icelandic horse"/>
@@ -15752,6 +16053,13 @@
     <display value="Assessment of passive range of motion (procedure)"/>
     <display value="Assessment of passive range of motion"/>
   </concept>
+  <concept id="7111000119109" display="Hepatitis E virus infection">
+    <display value="Hepatitis E virus infection"/>
+    <display value="Viral hepatitis E"/>
+    <display value="Viral hepatitis type E (disorder)"/>
+    <display value="Viral hepatitis type E"/>
+    <display value="Hepatitis E"/>
+  </concept>
   <concept id="71238008" display="Commercial brown egg layer type chicken">
     <display value="Commercial brown egg layer type chicken (organism)"/>
     <display value="Commercial brown egg layer type chicken"/>
@@ -15764,7 +16072,16 @@
     <display value="Cervix uteri structure"/>
     <display value="Cervix uteri structure (body structure)"/>
   </concept>
+  <concept id="712986001" display="Tickborne encephalitis">
+    <display value="Tickborne encephalitis"/>
+    <display value="Encephalitis caused by tick-borne encephalitis virus (disorder)"/>
+    <display value="Encephalitis caused by tick-borne encephalitis virus"/>
+  </concept>
   <concept id="71341001:272741003=7771000" display="Femur where Laterality = Left"/>
+  <concept id="713835001" display="Declined consent for use of patient data in risk stratification for unplanned hospital admission">
+    <display value="Declined consent for use of patient data in risk stratification for unplanned hospital admission"/>
+    <display value="Declined consent for use of patient data in risk stratification for unplanned hospital admission (finding)"/>
+  </concept>
   <concept id="71388002" display="Procedure">
     <display value="Procedure"/>
     <display value="Procedure (procedure)"/>
@@ -15787,10 +16104,27 @@
     <display value="Italian landrace pig"/>
     <display value="Italian landrace pig (organism)"/>
   </concept>
+  <concept id="719500002" display="Left care setting having refused treatment">
+    <display value="Left care setting having refused treatment (finding)"/>
+    <display value="Left care setting having refused treatment"/>
+  </concept>
+  <concept id="719590007" display="Influenza caused by seasonal influenza virus">
+    <display value="Influenza caused by seasonal influenza virus (disorder)"/>
+    <display value="Influenza caused by seasonal influenza virus"/>
+  </concept>
+  <concept id="719865001" display="Influenza caused by pandemic influenza virus">
+    <display value="Influenza caused by pandemic influenza virus (disorder)"/>
+    <display value="Influenza caused by pandemic influenza virus"/>
+  </concept>
   <concept id="72098002" display="Left arm">
     <display value="Left arm"/>
     <display value="Entire left upper arm"/>
     <display value="Entire left upper arm (body structure)"/>
+  </concept>
+  <concept id="721764008" display="Infection caused by Human poliovirus">
+    <display value="Infection caused by Human poliovirus (disorder)"/>
+    <display value="Infection caused by Human poliovirus"/>
+    <display value="Human poliovirus infection"/>
   </concept>
   <concept id="72311000" display="Health maintenance organization">
     <display value="Health maintenance organization"/>
@@ -15855,6 +16189,14 @@
     <display value="Wessex saddleback pig"/>
     <display value="Wessex saddleback pig (organism)"/>
   </concept>
+  <concept id="736542009" display="Pharmaceutical dose form">
+    <display value="Pharmaceutical dose form (dose form)"/>
+    <display value="Pharmaceutical dose form"/>
+  </concept>
+  <concept id="737038009" display="Declined consent for treatment">
+    <display value="Declined consent for treatment (finding)"/>
+    <display value="Declined consent for treatment"/>
+  </concept>
   <concept id="73761001" display="Colonoscopy">
     <display value="Colonoscopy"/>
     <display value="Endoscopy of colon"/>
@@ -15915,6 +16257,16 @@
   <concept id="75359005" display="Timolol maleate">
     <display value="Timolol maleate"/>
     <display value="Timolol maleate (substance)"/>
+  </concept>
+  <concept id="75702008" display="Brucellosis">
+    <display value="Brucellosis"/>
+    <display value="Malta fever"/>
+    <display value="Mediterranean fever"/>
+    <display value="Undulant fever"/>
+    <display value="Brucellosis (disorder)"/>
+    <display value="Cyprus fever"/>
+    <display value="Rock fever"/>
+    <display value="Gibraltar fever"/>
   </concept>
   <concept id="75709004" display="Pic pig">
     <display value="Pic pig"/>
@@ -16120,6 +16472,11 @@
     <display value="Narragansett turkey"/>
     <display value="Narragansett turkey (organism)"/>
   </concept>
+  <concept id="80612004" display="Leishmaniasis">
+    <display value="Leishmaniasis"/>
+    <display value="Leishmaniosis"/>
+    <display value="Leishmaniasis (disorder)"/>
+  </concept>
   <concept id="80657008" display="Bronchoscopy with brush biopsy">
     <display value="Bronchoscopy with brush biopsy"/>
     <display value="Bronchoscopy with bronchial brushings"/>
@@ -16291,6 +16648,10 @@
     <display value="Ass"/>
     <display value="Burro"/>
     <display value="Donkey"/>
+  </concept>
+  <concept id="85904008" display="Paratyphoid fever">
+    <display value="Paratyphoid fever"/>
+    <display value="Paratyphoid fever (disorder)"/>
   </concept>
   <concept id="86184003" display="Electrocardiographic monitor and recorder">
     <display value="Electrocardiographic monitor and recorder"/>

@@ -6,7 +6,7 @@
 		<!-- 0..1 The use of this identifier -->
 		<value value="Encounter_Roel_20130128"/>
 	</identifier>
-	<status value="finished"/>
+	<status value="completed"/>
 	<!--Encounter has finished-->
 	<class>
 		<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>

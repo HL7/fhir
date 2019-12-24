@@ -291,7 +291,7 @@
         <identifier>
           <value value="S100"/>
         </identifier>
-        <status value="finished"/>
+        <status value="completed"/>
         <class>
             <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
             <code value="IMP"/>
@@ -383,9 +383,11 @@
           <reference value="Practitioner/example"/>
           <display value="Peter Practitioner"/>
         </requester>
-        <reasonCode>
-          <text value="Management of Asthma"/>
-        </reasonCode>
+        <reason>
+          <concept>
+            <text value="Management of Asthma"/>
+          </concept>
+        </reason>
       <!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
              <dosageInstruction>
@@ -432,7 +434,7 @@
   <entry>
     <fullUrl value="urn:uuid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
     <resource>
-      <MedicationStatement>
+      <MedicationUsage>
       <!--   The Human readible version of the medication statement  -->
         <text>
           <status value="generated"/>
@@ -462,7 +464,7 @@
 
 
 
-       </MedicationStatement>
+       </MedicationUsage>
     </resource>
   </entry>
 <!--   The Allergy.  -->

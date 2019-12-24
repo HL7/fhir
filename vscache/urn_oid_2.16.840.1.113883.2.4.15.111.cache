@@ -2454,3 +2454,78 @@ v: {
   "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known; The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#17.000, (specialization)) is not  valid in the value set PracticeSettingCodeValueSet"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.2.4.15.111",
+  "code" : "01.000"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known; The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.000) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.2.4.15.111",
+  "code" : "01.000"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known (encountered paired with code = \"01.000\"); The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.000) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.2.4.15.111",
+  "code" : "01.011",
+  "display" : "Cardiothoracal surgery"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known (encountered paired with code = \"01.011\"); The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.011) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.2.4.15.111",
+  "code" : "01.015",
+  "display" : "Physician"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known (encountered paired with code = \"01.015\"); The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.015) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.2.4.15.111",
+  "code" : "01.018",
+  "display" : "Ear-, Nose and Throat"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known (encountered paired with code = \"01.018\"); The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.018) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.2.4.15.111",
+  "code" : "01.018",
+  "display" : "Keel- neus- en oorarts"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known (encountered paired with code = \"01.018\"); The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.018) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.2.4.15.111",
+  "code" : "17.000",
+  "display" : "Pharmacist"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known (encountered paired with code = \"17.000\"); The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#17.000) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

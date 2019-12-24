@@ -16,10 +16,10 @@
 	<encounter>
         <reference value="Encounter/f003"/>
     </encounter>
-	<performedPeriod>
+	<occurrencePeriod>
         <start value="2013-03-24T09:30:10+01:00"/>
         <end value="2013-03-24T10:30:10+01:00"/>
-    </performedPeriod>
+    </occurrencePeriod>
 	<performer>
         <function>
             <coding>

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.utilities.Utilities;
 
 public class BaseGenerator {

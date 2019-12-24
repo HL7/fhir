@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <a name="scope"></a>
@@ -14,11 +14,11 @@ handling instructions to which the authorized entity must comply:
  <li>Privacy Consent Directive: Agreement to collect, access, use or disclose (share) information.</li>
  <li>Medical Treatment Consent Directive: Consent to undergo a specific treatment (or record of refusal to consent).</li>
  <li>Research Consent Directive: Consent to participate in research protocol and information sharing required.</li>
- <li>Advance Care Directives: Consent to instructions for potentially needed medical treatment (e.g. DNR).</li>
-</ul>
+ </ul>
 <p>
-This resource is scoped to cover all four uses, but at this time, only the privacy use case is modeled.  
-The scope of the resource may change when the other possible scopes are investigated, tested, or profiled.
+This resource is scoped to cover all three uses, but at this time, only the privacy use case is fully modeled, others are being used but no formal modelling exists.  
+The scope of the resource may change when the other possible scopes are investigated, tested, or profiled. HL7 is working on Advance Directives and would welcome participation by the community.
+
 </p>
 <p>
 A FHIR Consent Directive instance is considered the encoded legally binding Consent Directive if it meets 
@@ -36,8 +36,8 @@ derivative of the legally binding Consent Directive, which has specific usage in
 </p>
 <p><b>Definitions:</b></p>
 <table class="grid">
- <tr><td>Consent</td><td>The record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time</td></tr>
- <tr><td>Consent Directive</td><td>The legal record of a healthcare consumer's agreement with a party responsible for enforcing the consumer’s choices, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of time</td></tr>
+ <tr><td>Consent</td><td>The record of a healthcare consumer’s policy choices or choices made on their behalf by a third party, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time</td></tr>
+ <tr><td>Consent Directive</td><td>The legal record of a healthcare consumer's agreement or agreements made on their behalf with a party responsible for enforcing the consumer’s choices or choices made on their behalf by a third party, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of time</td></tr>
  <tr><td>Consent Form</td><td>Human readable consent content describing one or more actions impacting the grantor for which the grantee would be authorized or prohibited from performing.  It includes the terms, rules, and conditions pertaining to the authorization or restrictions, such as effective time, applicability or scope, purposes of use, obligations and prohibitions to which the grantee must comply. Once a Consent Form is “executed” by means required by policy, such as verbal agreement, wet signature, or electronic/digital signature, it becomes a legally binding Consent Directive.</td></tr>
  <tr><td>Consent Directive Derivative</td><td>Consent Content that conveys the minimal set of information needed to manage Consent Directive workflow, including providing Consent Directive content sufficient to:
 <ul><li>Represent a Consent Directive</li>
@@ -127,9 +127,8 @@ directive. Applications may be able to follow the chain back to the source but s
 not generally assume that they are authorized to do this.
 </p>
 <p>
-Consent Directives are executed by verbal acknowledge or by being signed - either on paper, or digitally. Consent Signatures will
-be found in the <a href="provenance.html">Provenance</a> resource (example <a href="consent-example-signature.html">consent</a> and 
-<a href="provenance-consent-signature.html">signature</a>). Implementation Guides will generally 
+Consent Directives are executed by verbal acknowledgement or by being signed - either on paper, or digitally. Consent Signatures will
+be found in the <a href="provenance.html">Provenance</a> resource. Implementation Guides will generally 
 make rules about what signatures are required, and how they are to be shared and used.
 </p>
 </div>
@@ -138,8 +137,7 @@ make rules about what signatures are required, and how they are to be shared and
 <a name="bnc"></a>
 <h2>Background and Context</h2>
 <p>
-Change to
-"The Consent resource is structured with a base policy (represented as Consent.policy/Consent.policyRule) which is either opt-in or opt-out, followed by a listing of exceptions to that policy (represented as Consent.provision(s)). The exceptions can be additional positive 
+The Consent resource is structured with a base policy (represented as Consent.policy/Consent.policyRule) which is either opt-in or opt-out, followed by a listing of exceptions to that policy (represented as Consent.provision(s)). The exceptions can be additional positive 
 or negative exceptions upon the base policy. The set of exceptions include a list of data objects, 
 list of authors, list of recipients, list of Organizations, list of purposeOfUse, and Date Range.
 </p>

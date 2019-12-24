@@ -11,13 +11,13 @@
           <display value="Chlorthalidone 50mg tablet (product)"/>
         </coding>
       </code>
-      <form>
+      <doseForm>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="385055001"/>
           <display value="Tablet dose form (qualifier value)"/>
         </coding>
-      </form>
+      </doseForm>
     </Medication>
   </contained>
   <identifier>
@@ -46,10 +46,12 @@
     <reference value="Practitioner/f007"/>
     <display value="Patrick Pump"/>
   </requester>
-  <reasonReference>
-    <reference value="Condition/f201"/>
-    <display value="condition for prescribing this medication"/>
-  </reasonReference>
+  <reason>
+    <reference>
+      <reference value="Condition/f201"/>
+      <display value="condition for prescribing this medication"/>
+    </reference>
+  </reason>
   <note>
     <text value="Chlorthalidone increases urniation so take it in the morning"/>
   </note>

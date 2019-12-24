@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
@@ -13,16 +14,16 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r4.model.ElementDefinition;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
-import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.r4.model.PrimitiveType;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.r4.utils.TypesUtilities;
-import org.hl7.fhir.r4.utils.TypesUtilities.WildcardInformation;
+import org.hl7.fhir.r5.model.ElementDefinition;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
+import org.hl7.fhir.r5.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r5.model.PrimitiveType;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.utils.TypesUtilities;
+import org.hl7.fhir.r5.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -396,7 +397,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     String name =  tail(elem.getPath());
     String en = asValue ? "value[x]" : name;
     if (en.contains("[x]"))
-      en = en.replace("[x]", upFirst(type.getCode()));
+      en = en.replace("[x]", upFirst(type.getWorkingCode()));
     boolean unbounded = elem.hasMax() && elem.getMax().equals("*");
 
     String indentS = "";
@@ -507,8 +508,9 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     List<ElementDefinition> children = getChildren(elements, elem);
     String name =  tail(elem.getPath());
     String en = asValue ? "value[x]" : name;
+    String tc = type.getWorkingCode();
     if (en.contains("[x]"))
-      en = en.replace("[x]", upFirst(type.getCode()));
+      en = en.replace("[x]", upFirst(tc));
     boolean unbounded = elem.hasMax() && elem.getMax().equals("*");
     // 1. name
     write("\"<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
@@ -524,18 +526,18 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       assert(children.size() > 0);
       write("{");
       delayedCloseArray = true;
-    } else if (definitions.getPrimitives().containsKey(type.getCode())) {
-      if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
+    } else if (definitions.getPrimitives().containsKey(tc)) {
+      if (!(tc.equals("integer") || tc.equals("boolean") || tc.equals("decimal")))
         write("\"");
       if (elem.hasFixed()) 
         write(Utilities.escapeJson(((PrimitiveType) elem.getFixed()).asStringValue()));
       else
-        write("&lt;<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>&gt;");
-      if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
+        write("&lt;<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(tc)+ ".html#" + tc) + "\">" + tc+ "</a></span>&gt;");
+      if (!(tc.equals("integer") || tc.equals("boolean") || tc.equals("decimal")))
         write("\"");
     } else {
       write("{ ");
-      write("<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
+      write("<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(tc)+ ".html#" + tc) + "\">" + tc+ "</a></span>");
       if (type.hasProfile()) {
         if (type.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
           String t = type.getProfile().get(0).getValue().substring(40);
@@ -705,7 +707,15 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       if (t.hasParams()) {
         write("(");
         boolean firstp = true;
+        List<String> ap = new ArrayList<>();
         for (String p : t.getParams()) {
+          if (definitions.hasLogicalModel(p))
+            ap.addAll(definitions.getLogicalModel(p).getImplementations());
+          else
+            ap.add(p);
+        }
+        Collections.sort(ap);
+        for (String p : ap) {
           if (!firstp) {
             write("|");
             w++;

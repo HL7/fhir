@@ -9,11 +9,11 @@ import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r4.conformance.ProfileUtilities;
-import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
-import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.r5.conformance.ProfileUtilities;
+import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.r5.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.r5.model.StructureDefinition;
+import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -136,7 +136,7 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
 
   private String genLogicalModelTable(StructureDefinition sd, String prefix) throws Exception {
     ProfileUtilities pu = new ProfileUtilities(page.getWorkerContext(), null, this);
-    XhtmlNode x = pu.generateTable(sd.getId()+"-definitions.html", sd, sd.hasSnapshot() ? false : true, page.getFolders().dstDir, false, sd.getId(), true, prefix, prefix, true, false, null);
+    XhtmlNode x = pu.generateTable(sd.getId()+"-definitions.html", sd, sd.hasSnapshot() ? false : true, page.getFolders().dstDir, false, sd.getId(), true, prefix, prefix, true, false, null, true);
     return new XhtmlComposer(XhtmlComposer.HTML).compose(x);
   }
 
@@ -189,6 +189,10 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
     return page.resolveBinding(profile, binding, path);
   }
 
+  public BindingResolution resolveBinding(StructureDefinition profile, String ref, String path) throws FHIRException {
+    return page.resolveBinding(profile, ref, path);
+  }
+
   @Override
   public String getLinkForProfile(StructureDefinition profile, String url) {
     return page.getLinkForProfile(profile, url);
@@ -197,6 +201,12 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
   @Override
   public boolean prependLinks() {
     return page.prependLinks();
+  }
+
+  @Override
+  public String getLinkForUrl(String corePath, String s) {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

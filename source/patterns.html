@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+
+[%settitle Patterns%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<h1>Patterns Index</h1>
+
+<table class="colsi"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure </a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
+
+<p>
+This specification defines <a href="resourcelist.html"><%res-type-count%> Resources</a> as the primary means for exchange for data.  
+In addition, this specification defines a number of patterns to assist implementers to better understand the 
+relationships between the resources, and also to support the use of abstractions of the resources when implementing
+common tasks. 
+</p>
+<p>
+There are two different types of patterns:
+</p>
+<ul>
+ <li><b>Design Patterns</b>: General patterns that resources may follow to some degree, depending on the requirements of the domain that they represent</li>
+ <li><b>Interface Patterns</b>: Specific patterns that are intended to be used as operation abstractions for the resources that follow (=implement) them</li>
+</ul>
+
+
+<p><b>Design Patterns</b></p>
+
+<p>
+These patterns provide general guidelines around the design of the resources 
+that follow them. The resources that follow these patterns indicate how they 
+follow the pattern by mapping elements in the resource to the pattern. In 
+general, resources may:
+</p>
+<ul>
+ <li>have a matching element, or not (or define an extension for the element)</li>
+ <li>split different possible values between different elements </li>
+ <li>use different types, or codes that have different values</li>
+ <li>have different cardinalities, based on domain analysis</li>
+</ul>
+
+<p>
+The following Design Patterns are defined:
+</p>
+
+<ul>
+  <li><b><a href="fivews.html">FiveWs (Attribution)</a></b>: <%pattern-impls fivews%></li>
+  <li><b><a href="event.html">Event</a></b>: <%pattern-impls event%></li>
+  <li><b><a href="request.html">Request</a></b>: <%pattern-impls request%></li>
+  <li><b><a href="definition.html">Definition</a></b>: <%pattern-impls definition%></li>
+</ul>
+
+<p><b>Interface Patterns</b></p>
+<p>
+These patterns are intended to provide abstractions for the resources that follow them,
+for use by implementers. The resources that follow these patterns indicate how they 
+follow the pattern by mapping elements in the resource to the pattern. These patterns are 
+followed more closely, and resources may:
+</p>
+<ul>
+ <li>use a different name for the element</li>
+ <li>allow for a higher cardinality that the pattern</li>
+ <li>provide a concept map to map between values in the resource and the element values e.g. mapping a set of status codes to a active : boolean</li>
+ <li>use a different type with a defined conversion to the pattern type</li>
+</ul>
+<p>
+The following Interface Patterns are defined:
+</p>
+
+<ul>
+  <li><b><a href="participant.html">Participant</a></b>: <%pattern-impls participant%>
+    <ul>
+      <li><b><a href="participantcontactable.html">Participant - Contactable</a></b>: <%pattern-impls participantcontactable%>
+        <ul>
+          <li><b><a href="participantliving.html">Participant - Living</a></b>: <%pattern-impls participantliving%></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><b>Pattern Candidates</b></p>
+
+<p>
+Patterns are a work in progress. This analysis helps identify candidate patterns:
+</p>
+<%patterns-analysis%>
+
+</div>
+
+[%file newfooter%]
+
+
+</body>
+</html>

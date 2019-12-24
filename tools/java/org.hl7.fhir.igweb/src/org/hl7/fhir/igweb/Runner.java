@@ -13,7 +13,7 @@ import org.hl7.fhir.igtools.publisher.Publisher;
 import org.hl7.fhir.igtools.publisher.SpecificationPackage;
 import org.hl7.fhir.igweb.builder.BuilderService;
 import org.hl7.fhir.igweb.builder.Job;
-import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r5.context.IWorkerContext.ILoggingService;
 
 import com.google.gson.*;
 

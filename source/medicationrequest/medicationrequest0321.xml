@@ -11,13 +11,13 @@
           <display value="Novolog 100u/ml"/>
         </coding>
       </code>
-      <form>
+      <doseForm>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="385219001"/>
           <display value="Injection solution (qualifier value)"/>
         </coding>
-      </form>
+      </doseForm>
       <ingredient>
         <itemCodeableConcept>
           <coding>
@@ -26,7 +26,7 @@
             <display value="Insulin Aspart (substance)"/>
           </coding>
         </itemCodeableConcept>
-        <strength>
+        <strengthRatio>
           <numerator>
             <value value="100"/>
             <system value="http://unitsofmeasure.org"/>
@@ -37,7 +37,7 @@
             <system value="http://unitsofmeasure.org"/>
             <code value="mL"/>
           </denominator>
-        </strength>
+        </strengthRatio>
       </ingredient>
       <batch>
         <lotNumber value="12345"/>
@@ -66,13 +66,15 @@
     <reference value="Practitioner/f007"/>
     <display value="Patrick Pump"/>
   </requester>
-  <reasonCode>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="44054006"/>
-      <display value="Diabetes mellitus type 2 (disorder)"/>
-    </coding>
-  </reasonCode>
+  <reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="44054006"/>
+        <display value="Diabetes mellitus type 2 (disorder)"/>
+      </coding>
+    </concept>
+  </reason>
   <note>
     <text value="Check blood sugar levels before taking insulin"/>
   </note>
