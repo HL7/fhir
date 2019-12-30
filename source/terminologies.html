@@ -79,6 +79,7 @@ LOINC system, the version of LOINC used for the definition, and the display assi
  <tr><td><a href="datatypes.html#code">code</a><a name="code"></a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>
  <tr><td><a href="datatypes.html#Coding">Coding</a><a name="Coding"></a></td><td>A data type that has a <i>code</i> and a <i>system</i> element that identifies where the definition of the code comes from</td></tr>
  <tr><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a><a name="CodeableConcept"></a></td><td>A type that represents a concept by plain text and/or one or more <code>coding</code> elements (See the <a href="datatypes.html#CodeableConcept">datatype notes</a> for a discussion of code translations and using text in CodeableConcept)</td></tr>
+ <tr><td><a href="references.html#CodeableReference">CodeableReference</a><a name="CodeableReference"></a></td><td>A type that can have either a reference to another resource, or a to a concept using a <a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
  <tr><td colspan="2">In addition, the following data types also carry coded values, or content that can be treated as a code and bound to a valueset:</td></tr>
  <tr><td><a href="datatypes.html#Quantity">Quantity</a><a name="Quantity"></a></td><td>The instance has <i>system</i> and <i>code</i> elements for carrying a code for the type of unit, and these can be bound to a value set</td></tr>
  <tr><td><a href="datatypes.html#string">string</a><a name="string"></a></td><td>The instance carries a string. In some cases, applications may wish to control the set of valid strings for a particular element, so the string value can be treated as a coded element (like <code>code</code>)</td></tr>
@@ -447,6 +448,9 @@ If a required binding is applied to an element with maximum cardinality &gt; 1, 
 all the elements.
 </p>
 <p>
+Note: when a binding is applied to a <a href="references.html#CodeableReference">CodeableReference</a>, these rules also apply to it's <code>concept</code> property.
+</p>
+<p>
 The following  rules apply when required bindings are used with the <a href="datatypes.html#code">code</a> data type:
 </p>
 <ul>
@@ -495,7 +499,7 @@ concept that most closely matches the intended element instance meaning.
 If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then, as noted above, one of the Coding values 
 SHALL be from the specified extensibly-bound value set if a code in that value set applies, but if no applicable code exists in the 
 value set alternate code(s) from outside the value set may be used instead.  If no codes, including local codes, are available, then 
-text alone (in CodeableConcept.text) may be used.   
+text alone (in CodeableConcept.text) may be used. The same rules apply for the <code>concept</code> property of a <a href="references.html#CodeableReference">CodeableReference</a>.   
 </p>
 <p>
 If the data type is <a href="datatypes.html#Coding">Coding</a>, then the code/system SHALL be from the specified value set
