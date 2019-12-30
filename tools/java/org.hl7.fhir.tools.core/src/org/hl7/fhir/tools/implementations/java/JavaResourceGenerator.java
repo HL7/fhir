@@ -3,7 +3,6 @@ package org.hl7.fhir.tools.implementations.java;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
-import java.io.FileOutputStream;
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -46,7 +45,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.apache.commons.lang3.Validate;
-import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;

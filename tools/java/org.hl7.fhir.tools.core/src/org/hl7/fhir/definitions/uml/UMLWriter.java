@@ -6,19 +6,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.hl7.fhir.definitions.uml.UMLClass.UMLClassType;
 import org.hl7.fhir.definitions.uml.UMLDiagram.Point;
 import org.hl7.fhir.definitions.uml.UMLDiagram.UMLDiagramAssociation;
 import org.hl7.fhir.definitions.uml.UMLDiagram.UMLDiagramClass;
 import org.hl7.fhir.definitions.uml.UMLDiagram.UMLDiagramGeneralization;
 import org.hl7.fhir.definitions.uml.UMLEnumeration.UMLEnumerationCode;
-import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class UMLWriter {

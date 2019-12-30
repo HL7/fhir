@@ -28,7 +28,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,8 +35,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.hl7.fhir.definitions.Config;
 
 
 public class JavaFactoryGenerator extends JavaBaseGenerator {

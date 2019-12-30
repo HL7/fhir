@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.uml.UMLClass.UMLClassType;
-import org.hl7.fhir.definitions.uml.UMLPackage.UMLClassSorter;
 import org.hl7.fhir.utilities.Utilities;
 
 public class UMLPackage extends UMLEntity {

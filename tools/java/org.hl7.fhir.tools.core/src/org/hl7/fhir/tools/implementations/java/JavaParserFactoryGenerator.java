@@ -28,13 +28,10 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.hl7.fhir.definitions.Config;
 
 
 public class JavaParserFactoryGenerator extends JavaBaseGenerator {
