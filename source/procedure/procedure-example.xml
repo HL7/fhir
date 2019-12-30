@@ -32,9 +32,11 @@
       <display value="Dr Cecil Surgeon"/>
     </actor>
   </performer>  
-  <reasonCode>
-      <text value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
-  </reasonCode> 
+  <reason>
+       <concept>
+         <text value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
+       </concept>
+  </reason>
   <followUp>
     <text value="ROS 5 days  - 2013-04-10"/>
   </followUp>

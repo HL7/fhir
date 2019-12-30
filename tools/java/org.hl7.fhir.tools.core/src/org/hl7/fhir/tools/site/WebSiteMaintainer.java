@@ -2,16 +2,12 @@ package org.hl7.fhir.tools.site;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.json.JSONUtil;
 import org.hl7.fhir.utilities.json.JsonTrackingParser;
 
-import com.github.jsonldjava.utils.JsonUtils;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 public class WebSiteMaintainer {

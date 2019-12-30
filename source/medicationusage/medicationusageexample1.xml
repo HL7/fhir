@@ -99,13 +99,15 @@
   <derivedFrom>
     <reference value="MedicationRequest/medrx002"></reference>
   </derivedFrom>
-  <reasonCode>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="32914008"/>
-      <display value="Restless Legs"/>
-    </coding>
-  </reasonCode>
+  <reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="32914008"/>
+        <display value="Restless Legs"/>
+      </coding>
+    </concept>
+  </reason>
 
 
 

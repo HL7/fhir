@@ -2,7 +2,17 @@
 // whatever is between -- [Class] --------- and ---- will be added to the generated class without modification
 
 -- Element --
-  public void addExtension(String url, Type value) {
+  @Override
+  public String getIdBase() {
+    return getId();
+  }
+  
+  @Override
+  public void setIdBase(String value) {
+    setId(value);
+  }
+  
+  public void addExtension(String url, DataType value) {
     if (disallowExtensions)
       throw new Error("Extensions are not allowed in this context");
     Extension ex = new Extension();
@@ -39,21 +49,21 @@
     * This is used in the FHIRPath engine to record that no extensions are allowed for this item in the context in which it is used.
     * todo: enforce this....
     */
-  private boolean disallowExtensions;
+    private boolean disallowExtensions;
 
-  public boolean isDisallowExtensions() {
-    return disallowExtensions;
-  }
+    public boolean isDisallowExtensions() {
+      return disallowExtensions;
+    }
 
-  public Element setDisallowExtensions(boolean disallowExtensions) {
-    this.disallowExtensions = disallowExtensions;
-    return this;
-  }
+    public Element setDisallowExtensions(boolean disallowExtensions) {
+      this.disallowExtensions = disallowExtensions;
+      return this;
+    }
 
-  public Element noExtensions() {
-    this.disallowExtensions = true;
-    return this;
-  }
+    public Element noExtensions() {
+      this.disallowExtensions = true;
+      return this;
+    }
   
 ----
 
@@ -85,7 +95,7 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 -- TypeRefComponent --
 
   public boolean hasTarget() {
-    return Utilities.existsInList(getCode(), "Reference", "canonical");
+    return Utilities.existsInList(getCode(), "Reference", "canonical", "CodeableReference");
   }
   
     /**
@@ -100,11 +110,11 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
       return null;
     if (getCodeElement().hasExtension(ToolingExtensions.EXT_XML_TYPE)) {
       String s = getCodeElement().getExtensionString(ToolingExtensions.EXT_XML_TYPE);
-      if ("xsd:gYear OR xsd:gYearMonth OR xsd:date OR xsd:dateTime".equals(s))
+      if ("xsd:gYear OR xsd:gYearMonth OR xsd:date OR xsd:dateTime".equalsIgnoreCase(s))
         return "dateTime";
-      if ("xsd:gYear OR xsd:gYearMonth OR xsd:date".equals(s))
+      if ("xsd:gYear OR xsd:gYearMonth OR xsd:date".equalsIgnoreCase(s))
         return "date";
-      if ("xsd:dateTime".equals(s))
+      if ("xsd:dateTime".equalsIgnoreCase(s))
         return "instant";
       if ("xsd:token".equals(s))
         return "code";
@@ -118,13 +128,15 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
         return "integer";
       if ("xsd:decimal OR xsd:double".equals(s))
         return "decimal";
-      if ("xsd:base64Binary".equals(s))
+      if ("xsd:decimal".equalsIgnoreCase(s))
+        return "decimal";
+      if ("xsd:base64Binary".equalsIgnoreCase(s))
         return "base64Binary";
-      if ("xsd:positiveInteger".equals(s))
+      if ("xsd:positiveInteger".equalsIgnoreCase(s))
         return "positiveInt";
-      if ("xsd:nonNegativeInteger".equals(s))
+      if ("xsd:nonNegativeInteger".equalsIgnoreCase(s))
         return "unsignedInt";
-      if ("xsd:anyURI".equals(s))
+      if ("xsd:anyURI".equalsIgnoreCase(s))
         return "uri";
       
       throw new Error("Unknown xml type '"+s+"'");
@@ -132,6 +144,29 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
     return getCode();
   }
 
+  @Override
+  public String toString() {
+    String res = getCode();
+    if (hasProfile()) {
+      res = res + "{";
+      boolean first = true;
+      for (CanonicalType s : getProfile()) {
+        if (first) first = false; else res = res + "|";
+        res = res + s.getValue();
+      }
+      res = res + "}";
+    }
+    if (hasTargetProfile()) {
+      res = res + "->(";
+      boolean first = true;
+      for (CanonicalType s : getProfile()) {
+        if (first) first = false; else res = res + "|";
+        res = res + s.getValue();
+      }
+      res = res + ")";
+    }    
+    return res;
+  }
 ----
 
 // todo: should this be .getId()> 
@@ -221,6 +256,11 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
     return false;
   }  
 
+  public boolean isChoice() {
+    return getPath().endsWith("[x]");
+  }  
+
+
 ----
 
 
@@ -288,8 +328,16 @@ import org.hl7.fhir.r5.utils.StructureMapUtilities;
 
 ----
 
+-- ConceptDefinitionComponent --
 
--- MetadataResource --
+   @Override
+   public String toString() {
+     return getCode()+": "+getDisplay();
+   }   
+   
+----
+
+-- CanonicalResource --
       @Override
       public String toString() {
         return fhirType()+"["+getUrl()+"]";
@@ -314,6 +362,16 @@ import org.hl7.fhir.r5.utils.StructureMapUtilities;
   }
 ----
 
+-- BackboneType --
+
+  public void checkNoModifiers(String noun, String verb) throws FHIRException {
+        if (hasModifierExtension()) {
+          throw new FHIRException("Found unknown Modifier Exceptions on "+noun+" doing "+verb);
+        }
+        
+  }
+----
+
 -- DomainResource --
 
   public void checkNoModifiers(String noun, String verb) throws FHIRException {
@@ -323,7 +381,7 @@ import org.hl7.fhir.r5.utils.StructureMapUtilities;
         
   }
 
-  public void addExtension(String url, Type value) {
+  public void addExtension(String url, DataType value) {
     Extension ex = new Extension();
     ex.setUrl(url);
     ex.setValue(value);
@@ -500,6 +558,17 @@ ICoding
         return hasSystem() && hasCode() &&  this.getSystem().equals(system) && this.getCode().equals(code);
       }
       
+      public String toString() {
+        String base = getSystem();
+        if (hasVersion())
+          base = base+"|"+getVersion();
+        base = base + "#"+getCode();
+        if (hasDisplay())
+          base = base+": "+getDisplay();
+        return base;
+        
+      } 
+      
 ----
 
 -- CodeableConcept --
@@ -533,7 +602,7 @@ ICoding
   }
 
   @Override
-  Base64BinaryType getContentElement() {
+  public Base64BinaryType getContentElement() {
     return getDataElement();
   }
 
@@ -553,7 +622,7 @@ ICoding
     return this;
   }
 
-  public Parameters addParameter(String name, Type v) {
+  public Parameters addParameter(String name, DataType v) {
     if (v != null)
       addParameter().setName(name).setValue(v);
     return this;
@@ -583,7 +652,7 @@ ICoding
     return this;
   }
 
-  public Parameters setParameter(String name, Type v) {
+  public Parameters setParameter(String name, DataType v) {
     if (v != null) {
       for (ParametersParameterComponent p : getParameter()                                                                                     ) {
         if (p.getName().equals(name)) {
@@ -604,7 +673,7 @@ ICoding
     return false;
   }
 
-  public Type getParameter(String name) {
+  public DataType getParameter(String name) {
     for (ParametersParameterComponent p : getParameter()) {
       if (p.getName().equals(name))
         return p.getValue();
@@ -612,8 +681,8 @@ ICoding
     return null;
   }
 
-  public List<Type> getParameters(String name) {
-    List<Type> res = new ArrayList<Type>();
+  public List<DataType> getParameters(String name) {
+    List<DataType> res = new ArrayList<>();
     for (ParametersParameterComponent p : getParameter()) {
       if (p.getName().equals(name))
         res.add(p.getValue());
@@ -671,7 +740,7 @@ ICoding
     switch (getKind()) {
     case COMPLEXTYPE: return getDerivation() == TypeDerivationRule.CONSTRAINT ? "DataType Constraint" : "DataType" ;
     case LOGICAL: return getDerivation() == TypeDerivationRule.CONSTRAINT ? "Logical Model" : "Logical Model Profile";
-    case PRIMITIVETYPE: return getDerivation() == TypeDerivationRule.CONSTRAINT ? "Type Constraint" : "Type";
+    case PRIMITIVETYPE: return getDerivation() == TypeDerivationRule.CONSTRAINT ? "PrimitiveType Constraint" : "PrimitiveType";
     case RESOURCE: return getDerivation() == TypeDerivationRule.CONSTRAINT ? "Resource Profile" : "Resource";
     default:
       return "Definition";

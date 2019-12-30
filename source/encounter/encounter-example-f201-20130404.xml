@@ -34,9 +34,11 @@
          <reference value="Practitioner/f201"/>
     </individual>
  </participant>
- <reasonCode>
-   <text value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
- </reasonCode>
+ <reason>
+   <concept>
+     <text value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
+   </concept>
+ </reason>
  <!--No indication, because no referral took place-->
  <!--No hospitalization was deemed necessary-->
  <serviceProvider>

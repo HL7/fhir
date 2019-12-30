@@ -48,11 +48,10 @@ import java.util.Date;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Queue;
 import java.util.Set;
 import java.util.UUID;
 
@@ -114,6 +113,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.OIDRegistry;
+import org.hl7.fhir.definitions.uml.UMLModel;
 import org.hl7.fhir.definitions.validation.PatternFinder;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
@@ -126,7 +126,7 @@ import org.hl7.fhir.r5.conformance.ProfileComparer;
 import org.hl7.fhir.r5.conformance.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
 import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
-import org.hl7.fhir.r5.context.MetadataResourceManager;
+import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.r5.formats.FormatUtilities;
 import org.hl7.fhir.r5.formats.IParser;
@@ -137,6 +137,7 @@ import org.hl7.fhir.r5.model.Base;
 import org.hl7.fhir.r5.model.BooleanType;
 import org.hl7.fhir.r5.model.Bundle;
 import org.hl7.fhir.r5.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r5.model.CanonicalResource;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionDesignationComponent;
@@ -151,6 +152,7 @@ import org.hl7.fhir.r5.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.r5.model.ContactDetail;
 import org.hl7.fhir.r5.model.ContactPoint;
 import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.r5.model.DataType;
 import org.hl7.fhir.r5.model.DomainResource;
 import org.hl7.fhir.r5.model.ElementDefinition;
 import org.hl7.fhir.r5.model.ElementDefinition.ConstraintSeverity;
@@ -169,7 +171,6 @@ import org.hl7.fhir.r5.model.Extension;
 import org.hl7.fhir.r5.model.ImplementationGuide;
 import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
-import org.hl7.fhir.r5.model.MetadataResource;
 import org.hl7.fhir.r5.model.NamingSystem;
 import org.hl7.fhir.r5.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.r5.model.NamingSystem.NamingSystemUniqueIdComponent;
@@ -181,7 +182,6 @@ import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.r5.model.StructureDefinition.ExtensionContextType;
 import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionContextComponent;
 import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionMappingComponent;
-import org.hl7.fhir.r5.model.Type;
 import org.hl7.fhir.r5.model.TypeDetails;
 import org.hl7.fhir.r5.model.UriType;
 import org.hl7.fhir.r5.model.UsageContext;
@@ -210,7 +210,6 @@ import org.hl7.fhir.r5.utils.TypesUtilities.TypeClassification;
 import org.hl7.fhir.r5.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
-import org.hl7.fhir.tools.publisher.PageProcessor.TypeMappingStatus;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -403,9 +402,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private Document v2src;
   private Document v3src;
   private final QaTracker qa = new QaTracker();
-  private MetadataResourceManager<ConceptMap> conceptMaps = new MetadataResourceManager<ConceptMap>(false);
-  private MetadataResourceManager<StructureDefinition> profiles = new MetadataResourceManager<StructureDefinition>(false);
-  private MetadataResourceManager<ImplementationGuide> guides = new MetadataResourceManager<ImplementationGuide>(false);
+  private CanonicalResourceManager<ConceptMap> conceptMaps = new CanonicalResourceManager<ConceptMap>(false);
+  private CanonicalResourceManager<StructureDefinition> profiles = new CanonicalResourceManager<StructureDefinition>(false);
+  private CanonicalResourceManager<ImplementationGuide> guides = new CanonicalResourceManager<ImplementationGuide>(false);
   private Map<String, Resource> igResources = new HashMap<String, Resource>();
   private Map<String, String> svgs = new HashMap<String, String>();
   private Translations translations = new Translations();
@@ -432,7 +431,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private Map<String, Map<String, PageInfo>> normativePackages = new HashMap<String, Map<String, PageInfo>>();
   private List<String> normativePages = new ArrayList<String>();
   private MarkDownProcessor processor = new MarkDownProcessor(Dialect.COMMON_MARK);
-
+  private UMLModel uml = new UMLModel("fhir", "All definitions associated with the base FHIR Specification");
   private PatternFinder patternFinder;
   private Map<String, String> macros = new HashMap<String, String>();
   
@@ -897,7 +896,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
         src = s1+fmmBarColorStyle(ss, fmm)+s3;
       } else if (com[0].equals("fmm")) {
-        String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1], false) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
+        String fmm = resource == null || !(resource instanceof CanonicalResource) ? getFmm(com[1], false) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
         StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
         if (StandardsStatus.EXTERNAL == ss)
           src = s1+getFmmFromlevel(genlevel(level), "N/A")+s3;
@@ -916,7 +915,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             p = com[2]; 
           else if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus((DomainResource) resource)) {
             p = resource.getUserString("ballot.package");
-            wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).present();
+            wt = ((CanonicalResource) resource).fhirType()+" "+((CanonicalResource) resource).present();
           }
         }
         src = s1+(p == null ? "" : getMostlyNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
@@ -928,7 +927,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             p = com[2]; 
           else if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus((DomainResource) resource)) {
             p = resource.getUserString("ballot.package");
-            wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).present();
+            wt = ((CanonicalResource) resource).fhirType()+" "+((CanonicalResource) resource).present();
           }
         }
         src = s1+(p == null ? "" : getMixedNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
@@ -940,7 +939,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             p = com[2]; 
           else if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus((DomainResource) resource)) {
             p = resource.getUserString("ballot.package");
-            wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).present();
+            wt = ((CanonicalResource) resource).fhirType()+" "+((CanonicalResource) resource).present();
           }
         } 
         src = s1+(p == null && com.length != 2 ? "" : getNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
@@ -952,8 +951,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           st = ToolingExtensions.getStandardsStatus((DomainResource) resource);
         src = s1+(st == StandardsStatus.NORMATIVE ? getNormativeNote(genlevel(level), p, com[1], wt, file) : "")+s3;
       } else if (com[0].equals("fmmshort")) {
-        String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1], true) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
-        String npr = resource == null || !(resource instanceof MetadataResource) ? getNormativePackageRef(com[1]) : "";
+        String fmm = resource == null || !(resource instanceof CanonicalResource) ? getFmm(com[1], true) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
+        String npr = resource == null || !(resource instanceof CanonicalResource) ? getNormativePackageRef(com[1]) : "";
         src = s1+getFmmShortFromlevel(genlevel(level), fmm)+npr+s3;
       } else if (com[0].equals("normative-pages")) {
         src = s1+getNormativeList(genlevel(level), com[1])+s3;
@@ -1332,7 +1331,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("wg")) {
         src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group) ("+wg+" (1))" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
       } else if (com[0].equals("profile-context"))
-        src = s1+getProfileContext((MetadataResource) resource, genlevel(level))+s3;
+        src = s1+getProfileContext((CanonicalResource) resource, genlevel(level))+s3;
       else if (com[0].equals("res-list-maturity"))
         src = s1+buildResListByMaturity()+s3;
       else if (com[0].equals("res-list-security"))
@@ -2200,7 +2199,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String vscommittee(Resource resource) {
-    MetadataResource vs = (MetadataResource) resource;
+    CanonicalResource vs = (CanonicalResource) resource;
     WorkGroup wg = definitions.getWorkgroups().get(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP));
     return wg == null ? "??" : "<a _target=\"blank\" href=\""+wg.getUrl()+"\">"+wg.getName()+"</a> Work Group";
   }
@@ -3109,7 +3108,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
-  private String getCMRef(Type target) {
+  private String getCMRef(DataType target) {
     return target.primitiveValue();
   }
 
@@ -3124,7 +3123,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return prefix+vs.getUserData("path");
   }
 
-  private String describeValueSetByRef(Type reft) {
+  private String describeValueSetByRef(DataType reft) {
     String ref = reft.primitiveValue();
     ValueSet vs = definitions.getValuesets().get(ref);
     if (vs == null) {
@@ -3178,7 +3177,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString()+". ";
   }
 
-  private ValueSet findRelatedValueset(String n, MetadataResourceManager<ValueSet> vslist, String prefix) {
+  private ValueSet findRelatedValueset(String n, CanonicalResourceManager<ValueSet> vslist, String prefix) {
     for (String s : vslist.keys()) {
       ValueSet ae = vslist.get(s);
       String url = ae.getUrl();
@@ -4884,7 +4883,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("<table class=\"codes\">\r\n");
     s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td></tr>\r\n");
     List<String> namespaces = new ArrayList<String>();
-    MetadataResourceManager<ValueSet> vslist = new MetadataResourceManager<ValueSet>(false);
+    CanonicalResourceManager<ValueSet> vslist = new CanonicalResourceManager<ValueSet>(false);
     for (String sn : definitions.getValuesets().keys()) {
       ValueSet vs = definitions.getValuesets().get(sn);
       vslist.see(vs);
@@ -4904,7 +4903,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return s.toString();
   }
 
-  private void generateVSforNS(StringBuilder s, String ns, MetadataResourceManager<ValueSet> vslist, boolean hasId, ImplementationGuideDefn ig) throws FHIRException {
+  private void generateVSforNS(StringBuilder s, String ns, CanonicalResourceManager<ValueSet> vslist, boolean hasId, ImplementationGuideDefn ig) throws FHIRException {
     List<String> sorts = new ArrayList<String>();
     for (ValueSet vs : vslist.getList()) {
       ImplementationGuideDefn vig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
@@ -5545,7 +5544,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (vs == null)
       throw new Exception("no vs?");
     if (hasUnfixedContent(vs)) {
-      String s = "<p>&nbsp;</p>\r\n<a name=\"expansion\"> </a>\r\n<h2>Expansion</h2>\r\n<p>This expansion generated "+new SimpleDateFormat("dd MMM yyyy").format(genDate.getTime())+"</p>\r\n";
+      String s = "<p>&nbsp;</p>\r\n<a name=\"expansion\"> </a>\r\n<h2>Expansion</h2>\r\n<p>This expansion generated "+new SimpleDateFormat("dd MMM yyyy", new Locale("en", "US")).format(genDate.getTime())+"</p>\r\n";
       return s + expandVS(vs, prefix, "");
     } else
       return "";
@@ -8781,7 +8780,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return src;
   }
 
-  private String getProfileContext(MetadataResource mr, String prefix) throws DefinitionException {
+  private String getProfileContext(CanonicalResource mr, String prefix) throws DefinitionException {
     NarrativeGenerator gen = new NarrativeGenerator(prefix, "", workerContext, this);
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (UsageContext uc :  mr.getUseContext()) {
@@ -8804,7 +8803,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "<a href=\""+prefix+"metadatatypes.html#UsageContext\">Use Context</a>: "+b.toString();
   }
 
-  private boolean isTrialUse(MetadataResource mr) {
+  private boolean isTrialUse(CanonicalResource mr) {
     String s = ToolingExtensions.readStringExtension(mr, "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status");
     return s == null ? false : s.toLowerCase().contains("trial");
   }
@@ -9037,7 +9036,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "??";
   }
 
-  private String summariseValue(Type fixed) throws Exception {
+  private String summariseValue(DataType fixed) throws Exception {
     if (fixed instanceof org.hl7.fhir.r5.model.PrimitiveType)
       return ((org.hl7.fhir.r5.model.PrimitiveType) fixed).asStringValue();
     if (fixed instanceof CodeableConcept)
@@ -9678,15 +9677,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     atom.getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl("http://hl7.org/fhir/"+vs.fhirType()+"/"+vs.getId()));
   }
 
-  public MetadataResourceManager<CodeSystem> getCodeSystems() {
+  public CanonicalResourceManager<CodeSystem> getCodeSystems() {
     return definitions.getCodeSystems();
   }
 
-  public MetadataResourceManager<ValueSet> getValueSets() {
+  public CanonicalResourceManager<ValueSet> getValueSets() {
     return definitions.getValuesets();
   }
 
-  public MetadataResourceManager<ConceptMap> getConceptMaps() {
+  public CanonicalResourceManager<ConceptMap> getConceptMaps() {
     return conceptMaps;
   }
 
@@ -9745,7 +9744,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     workerContext.loadLoinc(Utilities.path(folders.srcDir, "loinc", "loinc.xml"));
   }
 
-  public MetadataResourceManager<StructureDefinition> getProfiles() {
+  public CanonicalResourceManager<StructureDefinition> getProfiles() {
     return profiles;
   }
 
@@ -10177,10 +10176,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return s.toString();
   }
 
-  private String asText(List<CodeType> target) {
+  private String asText(List<CodeType> list) {
     StringBuilder b = new StringBuilder();
     boolean first = true;
-    for (CodeType rn : target) {
+    for (CodeType rn : list) {
       if (first) {
         first = false;
         b.append("<br/>(");
@@ -10844,7 +10843,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   }
 
   @SuppressWarnings("rawtypes")
-  private String renderType(Type v) throws Exception {
+  private String renderType(DataType v) throws Exception {
     if (v instanceof org.hl7.fhir.r5.model.PrimitiveType)
       return ((org.hl7.fhir.r5.model.PrimitiveType) v).asStringValue();
     throw new Exception("unhandled default value");
@@ -11297,6 +11296,10 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   public String getLinkForUrl(String corePath, String s) {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  public UMLModel getUml() {
+    return uml;
   }
   
 }

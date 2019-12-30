@@ -74,12 +74,14 @@
 	<note>
 		<text value="Notes on adminstration of vaccine"/>
 	</note>
-	<reasonCode>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="429060002"/>
-		</coding>
-	</reasonCode>
+	<reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="429060002"/>
+      </coding>
+    </concept>
+	</reason>
 	<isSubpotent value="true"/>
 	<education>
 		<documentType value="253088698300010311120702"/>

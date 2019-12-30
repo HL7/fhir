@@ -18,9 +18,11 @@
     <display value="Donald Duck"/> 
   </informationSource>
 
-  <reasonReference>
-    <reference value="Observation/blood-pressure"></reference>
-  </reasonReference>
+  <reason>
+    <reference>
+      <reference value="Observation/blood-pressure"></reference>
+    </reference>
+  </reason>
   <note>
     <text value="Patient cannot remember the name of the tablet, but takes it every day in the morning for water retention"/>
   </note>

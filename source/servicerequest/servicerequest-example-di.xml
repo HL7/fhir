@@ -28,7 +28,9 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 			<reference value="Practitioner/example"/>
 			<display value="Dr. Adam Careful"/>
 	</requester>
-	<reasonCode>
-		<text value="Check for metastatic disease"/>
-	</reasonCode>
+	<reason>
+    <concept>
+  		<text value="Check for metastatic disease"/>
+    </concept>
+	</reason>
 </ServiceRequest>

@@ -2013,13 +2013,13 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">[#10296][#11119]#13196]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"><Data ss:Type="String">locationCode</Data></Cell>
-    <Cell ss:Formula="=R2C2&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s113"><Data ss:Type="String">ServiceRequest.locationCode</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">location</Data></Cell>
+    <Cell ss:Formula="=R2C2&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s113"><Data ss:Type="String">ServiceRequest.location</Data></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">CodeableReference(Location)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2047,7 +2047,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">locationReference</Data></Cell>
-    <Cell ss:Formula="=R2C2&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s113"><Data ss:Type="String">ServiceRequest.locationReference</Data></Cell>
+    <Cell ss:Formula="=&#34;!&#34;&amp;R2C2&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s113"><Data ss:Type="String">!ServiceRequest.locationReference</Data></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2079,13 +2079,13 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"><Data ss:Type="String">reasonCode</Data></Cell>
-    <Cell ss:Formula="=R2C2&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s113"><Data ss:Type="String">ServiceRequest.reasonCode</Data></Cell>
-    <Cell ss:Formula="=R2C3&amp;&#34;.&#34;&amp;RC[-2]" ss:StyleID="s98"><Data ss:Type="String">ServiceRequest.reasonCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">reason</Data></Cell>
+    <Cell ss:Formula="=R2C2&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s113"><Data ss:Type="String">ServiceRequest.reason</Data></Cell>
+    <Cell ss:Formula="=R2C3&amp;&#34;.&#34;&amp;RC[-2]" ss:StyleID="s98"><Data ss:Type="String">ServiceRequest.reason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">CodeableReference(Condition | Observation | DiagnosticReport | DocumentReference)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2098,11 +2098,11 @@
     <Cell ss:StyleID="s100"><Data ss:Type="String">Explanation/Justification for procedure or service</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in `supportingInfo`.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.   Use `CodeableConcept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all. To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise, use `concept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">.reasonCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">ORC.16, RF1-10</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Request.reasonCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Request.reason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ProcedureRequest.reason[x],"","0..1","","CodeableConcept|Reference(Condition)","","","ProcedureReason","","","","","","Why procedure should occur","The reason why the procedure is being proposed or ordered. This service request may be motivated by a Condition for instance.","","","","","","Action.indication.reason","","","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ProcedureRequest.reasonCode,"","0..*","","CodeableConcept","","Y","ProcedureRequestReason","why","","","","","Explanation/Justification for test","An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in `supportingInfo`.","","This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](ProcedureRequest-example-di.html).","",".reasonCode","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2114,7 +2114,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">reasonReference</Data></Cell>
-    <Cell ss:Formula="=R2C2&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s113"><Data ss:Type="String">ServiceRequest.reasonReference</Data></Cell>
+    <Cell ss:Formula="=&#34;!&#34;&amp;R2C2&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s113"><Data ss:Type="String">!ServiceRequest.reasonReference</Data></Cell>
     <Cell ss:Formula="=R2C3&amp;&#34;.&#34;&amp;RC[-2]" ss:StyleID="s98"><Data ss:Type="String">ServiceRequest.reasonReference</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5109,9 +5109,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>27</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -7815,8 +7815,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="25" ss:StyleID="s152" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s152" ss:Width="193.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s152" ss:Width="275.0"/>
-   <Column ss:StyleID="s152" ss:Width="51.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s152" ss:Width="64.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="4" ss:StyleID="s152" ss:Width="64.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s152" ss:Width="272.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s152" ss:Width="260.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s152" ss:Width="98.0"/>

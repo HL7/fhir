@@ -131,6 +131,7 @@ to being abstract, the definitions associated with the class have no implementat
   <li>There is no implementation of the interface described by the definition</li>
   <li>Any classes the implement the interface redeclare any attributes and associations that are on the interface, and gives them an order</li>
   <li>Such re-declarations will be consistent with the interface but may be a subset of the value domain e.g. the cardinality of an attribute may be 0..* on the interface, and 0..1 on a particular resource</li>
+  <li>In addition, the resource might not implement the attribute at all - this is equivalent to constraining the attribute to a cardinality of 0..0 - not used with this resource</li>
   <li>Since the interface supports both read and write, the interface is described using attributes not operations</li>
   <li>The interface resources also define search parameters, invariants and other information about the resources that are all inherited by the resources the implement these interfaces</li>
 </ul>

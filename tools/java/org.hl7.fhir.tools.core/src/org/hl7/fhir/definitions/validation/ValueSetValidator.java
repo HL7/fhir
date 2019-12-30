@@ -9,10 +9,10 @@ import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
+import org.hl7.fhir.r5.model.CanonicalResource;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.r5.model.MetadataResource;
 import org.hl7.fhir.r5.model.Resource;
 import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceComponent;
@@ -21,12 +21,11 @@ import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.r5.validation.BaseValidator;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
-import org.hl7.fhir.utilities.TerminologyServiceOptions;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.validation.ValidationOptions;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
+import org.hl7.fhir.utilities.validation.ValidationOptions;
 
 public class ValueSetValidator extends BaseValidator {
 
@@ -65,7 +64,7 @@ public class ValueSetValidator extends BaseValidator {
   private List<String> fixups;
   private Set<String> handled = new HashSet<String>();
   private List<VSDuplicateList> duplicateList = new ArrayList<ValueSetValidator.VSDuplicateList>();
-  private Map<String, MetadataResource> oids = new HashMap<String, MetadataResource>();
+  private Map<String, CanonicalResource> oids = new HashMap<String, CanonicalResource>();
   private Set<String> styleExemptions;
   private Set<String> valueSets = new HashSet<String>();
   private Set<String> codeSystems = new HashSet<String>();
@@ -496,7 +495,7 @@ public class ValueSetValidator extends BaseValidator {
       return c1;
   }
 
-  private String getWg(MetadataResource mr) {
+  private String getWg(CanonicalResource mr) {
    return ToolingExtensions.readStringExtension(mr, ToolingExtensions.EXT_WORKGROUP);
   }
 

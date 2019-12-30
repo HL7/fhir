@@ -90,13 +90,15 @@
     <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <reasonCode>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/reason-medication-given"/>
-      <code value="b"/>
-      <display value="Given as Ordered"/>
-    </coding>
-  </reasonCode>
+  <reason>
+    <concept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/reason-medication-given"/>
+        <code value="b"/>
+        <display value="Given as Ordered"/>
+      </coding>
+    </concept>
+  </reason>
   <request>
     <reference value="MedicationRequest/medrx0322"/>
   </request>

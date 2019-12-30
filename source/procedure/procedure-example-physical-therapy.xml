@@ -38,9 +38,11 @@
   <location>
     <display value="Sawbones Orthopedic Clinic"/>
   </location>    
-  <reasonCode>
-      <text value="assessment of mobility limitations due to osteoarthritis"/>
-  </reasonCode>  
+  <reason>
+       <concept>
+         <text value="assessment of mobility limitations due to osteoarthritis"/>
+       </concept>
+  </reason>
   <bodySite>
     <coding>
       <system value="http://snomed.info/sct"/>

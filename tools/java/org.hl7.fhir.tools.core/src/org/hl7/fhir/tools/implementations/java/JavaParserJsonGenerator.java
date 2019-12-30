@@ -36,7 +36,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
@@ -228,8 +227,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void start(String version, Date genDate) throws Exception {
     write("package org.hl7.fhir.r5.formats;\r\n");
-    write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
-    write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
+    startMark(version, genDate);
     write("import org.hl7.fhir.r5.model.*;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
     write("import org.hl7.fhir.utilities.xhtml.XhtmlNode;\r\n");

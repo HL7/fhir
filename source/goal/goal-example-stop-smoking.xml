@@ -27,12 +27,14 @@
 		<display value="Peter James Chalmers"/>
 	</subject>
 	<startDate value="2015-04-05" />
-	<outcomeCode>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="8517006"/>
-			<display value="Ex-smoker (finding)"/>
-		</coding>
-		<text value="Former smoker"/>
-	</outcomeCode>
+	<outcome>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="8517006"/>
+        <display value="Ex-smoker (finding)"/>
+      </coding>
+  		<text value="Former smoker"/>
+    </concept>
+	</outcome>
 </Goal>

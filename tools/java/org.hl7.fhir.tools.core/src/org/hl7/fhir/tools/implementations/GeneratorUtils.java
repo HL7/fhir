@@ -3,7 +3,6 @@ package org.hl7.fhir.tools.implementations;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.ElementDefn;
-import org.hl7.fhir.utilities.Utilities;
 
 /*
 Copyright (c) 2011+, HL7, Inc

@@ -29,7 +29,6 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -42,12 +41,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.jar.Attributes;
-import java.util.jar.JarEntry;
-import java.util.jar.JarOutputStream;
-import java.util.jar.Manifest;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -55,16 +49,7 @@ import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r5.model.CodeSystem;
-import org.hl7.fhir.r5.model.Constants;
-import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
-import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.r5.model.ImplementationGuide;
-import org.hl7.fhir.r5.model.ImplementationGuide.SPDXLicense;
 import org.hl7.fhir.r5.test.utils.ToolsHelper;
-import org.hl7.fhir.r5.utils.NPMPackageGenerator;
-import org.hl7.fhir.r5.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.r5.utils.Version;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
@@ -73,11 +58,8 @@ import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
-import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.ZipGenerator;
-import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
@@ -159,7 +141,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     javaIntfDir       =  implDir+"org.hl7.fhir.r5"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"interfaces"+sl;
     javaParserDir =  implDir+"org.hl7.fhir.r5"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r5"+sl+"formats"+sl;
     Utilities.createDirectory(javaDir);
-    Utilities.createDirectory(Utilities.path(javaDir, "codesystems"));
+    // Utilities.createDirectory(Utilities.path(javaDir, "codesystems"));
     Utilities.createDirectory(javaParserDir);
     Utilities.createDirectory(javaPatternsDir);
     Utilities.createDirectory(javaIntfDir);
@@ -202,13 +184,16 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
 
     for (String n : definitions.getInfrastructure().keySet()) {
-      ElementDefn root = definitions.getInfrastructure().get(n);
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo, javaPatternsDir);
-      jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Structure, null, genDate, version, false, null, null);
-      jgen.close();
-      hashes.put(n, Long.toString(jgen.getHashSum()));
-      if (!root.getName().equals("Element") && !root.getName().equals("BackboneElement") )
-        jFactoryGen.registerType(n,  root.getName());
+      // some of the base types are hand coded not generated
+      if (!Utilities.existsInList(n, "Base", "DataType", "PrimitiveType")) {
+        ElementDefn root = definitions.getInfrastructure().get(n);
+        JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo, javaPatternsDir);
+        jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Structure, null, genDate, version, false, null, null);
+        jgen.close();
+        hashes.put(n, Long.toString(jgen.getHashSum()));
+        if (!root.getName().equals("Element") && !root.getName().equals("BackboneElement") )
+          jFactoryGen.registerType(n,  root.getName());
+      }
     }
     for (String n : definitions.getTypes().keySet()) {
       ElementDefn root = definitions.getTypes().get(n);
@@ -235,26 +220,26 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       jgen.close();
     }
     
-    for (CodeSystem cs : definitions.getCodeSystems().getList()) {
-      if (cs != null) {
-        if (!cs.hasId())
-          throw new Exception("No id on "+cs.getUrl());
-        if (cs.getUserData("java-generated") == null && !cs.getId().startsWith("v2-")) {
-          String tns = tokenize(cs.getId());
-          JavaCodeSystemGenerator vsgen = new JavaCodeSystemGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+".java")));
-          vsgen.generate(genDate, version, cs, tns);
-          vsgen.close();
-          JavaCodeSystemFactoryGenerator vsfgen = new JavaCodeSystemFactoryGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+"EnumFactory.java")));
-          vsfgen.generate(genDate, version, cs, tns);
-          vsfgen.close();
-        }
-      }
-    }
-    // delete old files to save people finding and deleting them
-    deleteOldFile("XmlComposer");
-    deleteOldFile("XmlBaseComposer");
-    deleteOldFile("JsonComposer");
-    deleteOldFile("JsonBaseComposer");
+//    for (CodeSystem cs : definitions.getCodeSystems().getList()) {
+//      if (cs != null) {
+//        if (!cs.hasId())
+//          throw new Exception("No id on "+cs.getUrl());
+//        if (cs.getUserData("java-generated") == null && !cs.getId().startsWith("v2-")) {
+//          String tns = tokenize(cs.getId());
+//          JavaCodeSystemGenerator vsgen = new JavaCodeSystemGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+".java")));
+//          vsgen.generate(genDate, version, cs, tns);
+//          vsgen.close();
+//          JavaCodeSystemFactoryGenerator vsfgen = new JavaCodeSystemFactoryGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+"EnumFactory.java")));
+//          vsfgen.generate(genDate, version, cs, tns);
+//          vsfgen.close();
+//        }
+//      }
+//    }
+//    // delete old files to save people finding and deleting them
+//    deleteOldFile("XmlComposer");
+//    deleteOldFile("XmlBaseComposer");
+//    deleteOldFile("JsonComposer");
+//    deleteOldFile("JsonBaseComposer");
 
     JavaParserXmlGenerator jParserGenX = new JavaParserXmlGenerator(new FileOutputStream(javaParserDir+"XmlParser.java"));
     jParserGenX.generate(definitions, version, genDate);
@@ -355,8 +340,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       
     String s =
         "package org.hl7.fhir.r5.model;\r\n"+
-            "\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n"+
-            "// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n"+
+            JavaBaseGenerator.startLicenseValue()+
+            JavaBaseGenerator.startVMarkValue(version, genDate)+
             "\r\n"+
             "public class Constants {\r\n"+
             "\r\n"+

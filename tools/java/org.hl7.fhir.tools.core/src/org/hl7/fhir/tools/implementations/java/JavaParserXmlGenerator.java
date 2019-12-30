@@ -36,7 +36,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
@@ -146,33 +145,33 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   }
 
   private void genElement() throws Exception {
-    write("  protected boolean parseElementContent(int eventType, XmlPullParser xpp, Element res) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
-    write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"extension\")) \r\n");
-    write("      res.getExtension().add(parseExtension(xpp));\r\n");
-    write("    else\r\n");
-    write("      return false;\r\n");
-    write("      \r\n");
-    write("    return true;\r\n");    
-    write("  }\r\n");
-    write("\r\n");
-    write("  protected boolean parseBackboneElementContent(int eventType, XmlPullParser xpp, BackboneElement res) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
-    write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"modifierExtension\")) \r\n");
-    write("      res.getModifierExtension().add(parseExtension(xpp));\r\n");
-    write("    else\r\n");
-    write("      return parseElementContent(eventType, xpp, res);\r\n");
-    write("      \r\n");
-    write("    return true;\r\n");    
-    write("  }\r\n");
-    write("\r\n");
-    write("  protected boolean parseBackboneElementContent(int eventType, XmlPullParser xpp, BackboneType res) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
-    write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"modifierExtension\")) \r\n");
-    write("      res.getModifierExtension().add(parseExtension(xpp));\r\n");
-    write("    else\r\n");
-    write("      return parseElementContent(eventType, xpp, res);\r\n");
-    write("      \r\n");
-    write("    return true;\r\n");    
-    write("  }\r\n");
-    write("\r\n");
+//    write("  protected boolean parseElementContent(int eventType, XmlPullParser xpp, Element res) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
+//    write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"extension\")) \r\n");
+//    write("      res.getExtension().add(parseExtension(xpp));\r\n");
+//    write("    else\r\n");
+//    write("      return false;\r\n");
+//    write("      \r\n");
+//    write("    return true;\r\n");    
+//    write("  }\r\n");
+//    write("\r\n");
+//    write("  protected boolean parseBackboneElementContent(int eventType, XmlPullParser xpp, BackboneElement res) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
+//    write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"modifierExtension\")) \r\n");
+//    write("      res.getModifierExtension().add(parseExtension(xpp));\r\n");
+//    write("    else\r\n");
+//    write("      return parseElementContent(eventType, xpp, res);\r\n");
+//    write("      \r\n");
+//    write("    return true;\r\n");    
+//    write("  }\r\n");
+//    write("\r\n");
+//    write("  protected boolean parseBackboneElementContent(int eventType, XmlPullParser xpp, BackboneType res) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
+//    write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"modifierExtension\")) \r\n");
+//    write("      res.getModifierExtension().add(parseExtension(xpp));\r\n");
+//    write("    else\r\n");
+//    write("      return parseElementContent(eventType, xpp, res);\r\n");
+//    write("      \r\n");
+//    write("    return true;\r\n");    
+//    write("  }\r\n");
+//    write("\r\n");
   }
 
 //  private void genReference() throws Exception {
@@ -255,8 +254,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 
   private void start(String version, Date genDate) throws Exception {
     write("package org.hl7.fhir.r5.formats;\r\n");
-    write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
-    write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
+    startMark(version, genDate);
     write("import org.hl7.fhir.r5.model.*;\r\n");
     write("import org.xmlpull.v1.*;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
@@ -277,6 +275,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("\r\n");
 
   }
+
 
 
   private void generate(ElementDefn n, JavaGenClass clss) throws Exception {
@@ -340,47 +339,48 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     boolean bUseOwner = false;
     
     String pn = tn.contains("<") ? "\""+tn.substring(tn.indexOf('<')+1).replace(">", "") + "\"" : "";
-    
-    if (tn.contains(".")) {
-      write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(XmlPullParser xpp, "+pathClass(tn)+" owner) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
-      write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
-      bUseOwner = true;
-    } else {
-      write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
-      write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
-    }
-    if (clss == JavaGenClass.Resource)
-      write("    parse"+n.typeCode()+"Attributes(xpp, res);\r\n");
-    else if (clss == JavaGenClass.BackboneElement)
-      write("    parseBackboneAttributes(xpp, res);\r\n");
-    else if (clss == JavaGenClass.Type && !tn.contains("."))
-      write("    parseTypeAttributes(xpp, res);\r\n");
-    else
-      write("    parseElementAttributes(xpp, res);\r\n");
-    for (ElementDefn e : n.getElements()) {
-      if (e.typeCode().equals("xml:lang")) {
-        write("    if (xpp.getAttributeValue(null, \"xml:lang\") != null)\r\n");
-        write("        res.set"+upFirst(getElementName(e.getName(), true))+"(Factory.newCode(xpp.getAttributeValue(null, \"xml:Id\")));\r\n");
-      } else if (e.isXmlAttribute()) {
-        write("    if (xpp.getAttributeValue(null, \""+e.getName()+"\") != null)\r\n");
-        write("        res.set"+upFirst(getElementName(e.getName(), true))+"(xpp.getAttributeValue(null, \""+e.getName()+"\"));\r\n");        
-      }
-    }    
-    write("    next(xpp);\r\n");
-    write("    int eventType = nextNoWhitespace(xpp);\r\n");
-    write("    while (eventType != XmlPullParser.END_TAG) {\r\n");
-    if (tn.contains(".")) 
-      write("  if (!parse"+upFirst(tn).replace(".", "")+"Content(eventType, xpp, owner, res))\r\n");
-    else
-      write("  if (!parse"+upFirst(tn).replace(".", "")+"Content(eventType, xpp, res))\r\n");
-    write("        unknownContent(xpp);\r\n");
-    write("      eventType = nextNoWhitespace(xpp);\r\n");
-    write("    }\r\n");
-    write("    next(xpp);\r\n");
-    write("    parseElementClose(res);\r\n");
-    write("    return res;\r\n");
-    write("  }\r\n\r\n");    
 
+    if (!n.isAbstractType()) {
+      if (tn.contains(".")) {
+        write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(XmlPullParser xpp, "+pathClass(tn)+" owner) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
+        write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
+        bUseOwner = true;
+      } else {
+        write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
+        write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
+      }
+      if (clss == JavaGenClass.Resource)
+        write("    parse"+n.typeCode()+"Attributes(xpp, res);\r\n");
+      else if (clss == JavaGenClass.BackboneElement)
+        write("    parseBackboneAttributes(xpp, res);\r\n");
+      else if (clss == JavaGenClass.Type && !tn.contains("."))
+        write("    parseTypeAttributes(xpp, res);\r\n");
+      else
+        write("    parseElementAttributes(xpp, res);\r\n");
+      for (ElementDefn e : n.getElements()) {
+        if (e.typeCode().equals("xml:lang")) {
+          write("    if (xpp.getAttributeValue(null, \"xml:lang\") != null)\r\n");
+          write("        res.set"+upFirst(getElementName(e.getName(), true))+"(Factory.newCode(xpp.getAttributeValue(null, \"xml:Id\")));\r\n");
+        } else if (e.isXmlAttribute()) {
+          write("    if (xpp.getAttributeValue(null, \""+e.getName()+"\") != null)\r\n");
+          write("        res.set"+upFirst(getElementName(e.getName(), true))+"(xpp.getAttributeValue(null, \""+e.getName()+"\"));\r\n");        
+        }
+      }    
+      write("    next(xpp);\r\n");
+      write("    int eventType = nextNoWhitespace(xpp);\r\n");
+      write("    while (eventType != XmlPullParser.END_TAG) {\r\n");
+      if (tn.contains(".")) 
+        write("  if (!parse"+upFirst(tn).replace(".", "")+"Content(eventType, xpp, owner, res))\r\n");
+      else
+        write("  if (!parse"+upFirst(tn).replace(".", "")+"Content(eventType, xpp, res))\r\n");
+      write("        unknownContent(xpp);\r\n");
+      write("      eventType = nextNoWhitespace(xpp);\r\n");
+      write("    }\r\n");
+      write("    next(xpp);\r\n");
+      write("    parseElementClose(res);\r\n");
+      write("    return res;\r\n");
+      write("  }\r\n\r\n");    
+    }
     if (tn.contains(".")) 
       write("  protected boolean parse"+upFirst(tn).replace(".", "")+"Content(int eventType, XmlPullParser xpp, "+pathClass(tn)+" owner, "+tn+" res) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
     else

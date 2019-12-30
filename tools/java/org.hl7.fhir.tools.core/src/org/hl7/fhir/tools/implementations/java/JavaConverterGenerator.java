@@ -38,7 +38,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -210,8 +209,7 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
   private void start(String version, Date genDate) throws IOException {
     write("package org.hl7.fhir.convertors;\r\n\r\n");
     write("import org.hl7.fhir.exceptions.FHIRException;\r\n\r\n");
-    write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
-    write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
+    startMark(version, genDate);
     write("\r\n");
     write("public class VersionConvertor_30_40 {\r\n");
     write("\r\n");

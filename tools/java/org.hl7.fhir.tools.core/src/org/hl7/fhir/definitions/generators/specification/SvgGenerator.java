@@ -1,7 +1,6 @@
 package org.hl7.fhir.definitions.generators.specification;
  
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -25,7 +23,6 @@ import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.StandardsStatus;
-import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 
@@ -872,15 +869,26 @@ public class SvgGenerator extends BaseGenerator {
         xml.enter("tspan");
         xml.text(" (");
         if ("Logical".equals(e.typeCode()))
-          xml.attribute("xlink:href", prefix+"structuredefinition.html#logical");
+          xml.attribute("xlink:href", prefix+"types.html#Base");
         else
           xml.attribute("xlink:href", prefix+definitions.getSrcFile(e.typeCode())+".html#"+e.typeCode());
         xml.attribute("class", "diagram-class-reference");
         xml.attribute("id", "n"+(++nc));
         xml.attribute("style", "font-style: italic");
-        xml.element("a", e.typeCode());
+        if ("Logical".equals(e.typeCode())) {
+          xml.element("a", "Base");
+        } else {
+          xml.element("a", e.typeCode());
+        }
         xml.text(")");
         xml.exit("tspan");
+      }
+      if ("Logical".equals(e.typeCode())) {
+        xml.text(" ");
+        xml.attribute("xlink:href", makeRel("uml.html#pattern"));
+        xml.enter("a");
+        xml.text("«Pattern»");
+        xml.exit("a");        
       }
       if (definitions.getBaseResources().containsKey(e.getName()) && definitions.getBaseResources().get(e.getName()).isInterface()) {
         xml.text(" ");
@@ -1004,7 +1012,7 @@ public class SvgGenerator extends BaseGenerator {
   }
 
   private boolean isReference(String name) {
-    return name.equals("Reference") || name.equals("canonical");
+    return name.equals("Reference") || name.equals("canonical") || name.equals("CodeableReference");
   }
 
 
