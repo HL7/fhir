@@ -141,7 +141,7 @@ public class SpecNPMPackageGenerator {
     
     System.out.println(" .. Building NPM Package");
 
-    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folder, "package.tgz"), "http://hl7.org/fhir", url, PackageType.CORE, ig, genDate);
+    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folder, "hl7.fhir.r5.core.tgz"), "http://hl7.org/fhir", url, PackageType.CORE, ig, genDate);
     
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     new org.hl7.fhir.r5.formats.JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
@@ -313,7 +313,9 @@ public class SpecNPMPackageGenerator {
 
   private List<ResourceEntry> makeResourceList(Map<String, byte[]> files, String version) throws FHIRFormatError, IOException {
     List<ResourceEntry> res = new ArrayList<SpecNPMPackageGenerator.ResourceEntry>();
-    if (VersionUtilities.isR4Ver(version))
+    if (VersionUtilities.isR5Ver(version))
+      makeResourceList5(files, version, res);
+    else if (VersionUtilities.isR4Ver(version))
       makeResourceList4(files, version, res);
     else if (VersionUtilities.isR3Ver(version))
       makeResourceList3(files, version, res);
@@ -336,8 +338,30 @@ public class SpecNPMPackageGenerator {
             e.json = new org.hl7.fhir.r5.formats.JsonParser().composeBytes(be.getResource());
             e.xml = new org.hl7.fhir.r5.formats.XmlParser().composeBytes(be.getResource());
             e.conf = true;
-            if (be.getResource() instanceof org.hl7.fhir.r5.model.MetadataResource)
-              e.canonical = ((org.hl7.fhir.r5.model.MetadataResource) be.getResource()).getUrl();
+            if (be.getResource() instanceof org.hl7.fhir.r5.model.CanonicalResource)
+              e.canonical = ((org.hl7.fhir.r5.model.CanonicalResource) be.getResource()).getUrl();
+            res.add(e);
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  private List<ResourceEntry> makeResourceList5(Map<String, byte[]> files, String version, List<ResourceEntry> res) throws FHIRFormatError, IOException {
+    for (String k : files.keySet()) {
+      if (k.endsWith(".xml")) {
+        Bundle b = (Bundle) new org.hl7.fhir.r5.formats.XmlParser().parse(files.get(k));
+        for (org.hl7.fhir.r5.model.Bundle.BundleEntryComponent be : b.getEntry()) {
+          if (be.hasResource()) {
+            ResourceEntry e = new ResourceEntry();
+            e.type = be.getResource().fhirType();
+            e.id = be.getResource().getId();
+            e.json = new org.hl7.fhir.r5.formats.JsonParser().composeBytes(be.getResource());
+            e.xml = new org.hl7.fhir.r5.formats.XmlParser().composeBytes(be.getResource());
+            e.conf = true;
+            if (be.getResource() instanceof org.hl7.fhir.r5.model.CanonicalResource)
+              e.canonical = ((org.hl7.fhir.r5.model.CanonicalResource) be.getResource()).getUrl();
             res.add(e);
           }
         }

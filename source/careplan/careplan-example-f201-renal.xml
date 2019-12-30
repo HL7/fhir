@@ -68,10 +68,12 @@
   <careTeam>
     <reference value="#careteam"/>
   </careTeam>
-  <addressesReference>
-    <reference value="Condition/f204"/>
-    <display value="Roel's renal insufficiency"/>
-  </addressesReference>
+  <addresses>
+    <reference>
+      <reference value="Condition/f204"/>
+      <display value="Roel's renal insufficiency"/>
+    </reference>
+  </addresses>
   <goal>
     <reference value="#goal"/>
   </goal>

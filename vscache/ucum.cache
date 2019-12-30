@@ -116,37 +116,37 @@ e: {
     "contains" : [{
       "system" : "http://unitsofmeasure.org",
       "code" : "s",
-      "display" : "秒"
+      "display" : "second"
     },
     {
       "system" : "http://unitsofmeasure.org",
       "code" : "min",
-      "display" : "分钟"
+      "display" : "minute"
     },
     {
       "system" : "http://unitsofmeasure.org",
       "code" : "h",
-      "display" : "小时"
+      "display" : "hour"
     },
     {
       "system" : "http://unitsofmeasure.org",
       "code" : "d",
-      "display" : "天"
+      "display" : "day"
     },
     {
       "system" : "http://unitsofmeasure.org",
       "code" : "wk",
-      "display" : "星期"
+      "display" : "week"
     },
     {
       "system" : "http://unitsofmeasure.org",
       "code" : "mo",
-      "display" : "月"
+      "display" : "month"
     },
     {
       "system" : "http://unitsofmeasure.org",
       "code" : "a",
-      "display" : "年"
+      "display" : "year"
     }]
   }
 },

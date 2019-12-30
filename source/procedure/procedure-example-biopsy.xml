@@ -33,9 +33,11 @@
       <display value="Dr Bert Biopser"/>
     </actor>
   </performer>
-  <reasonCode>
-    <text value="Dark lesion l) forearm. getting darker last 3 months."/>
-  </reasonCode>
+  <reason>
+       <concept>
+       <text value="Dark lesion l) forearm. getting darker last 3 months."/>
+       </concept>
+  </reason>
   <bodySite>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -58,14 +60,16 @@
   <note>
     <text value="Standard Biopsy"/>
   </note> 
-  <usedCode>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="79068005"/>
-      <display value="Needle, device (physical object)"/>
-    </coding>
-    <text value="30-guage needle"/>
-  </usedCode>
+  <used>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="79068005"/>
+        <display value="Needle, device (physical object)"/>
+      </coding>
+      <text value="30-guage needle"/>
+    </concept>
+  </used>
 </Procedure>
 <!-- 
 

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
-import org.hl7.fhir.r5.context.MetadataResourceManager;
+import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
@@ -33,10 +33,10 @@ public class CodeListToValueSetParser {
   private ValueSet valueSet;
   private String version;
   private String sheetName;
-  private MetadataResourceManager<CodeSystem> codeSystems;
-  private MetadataResourceManager<ConceptMap> maps;
+  private CanonicalResourceManager<CodeSystem> codeSystems;
+  private CanonicalResourceManager<ConceptMap> maps;
 
-  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, MetadataResourceManager<CodeSystem> codeSystems, MetadataResourceManager<ConceptMap> maps) throws Exception {
+  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ConceptMap> maps) throws Exception {
     super();
     this.sheet = sheet;
     this.sheetName = sheetName;

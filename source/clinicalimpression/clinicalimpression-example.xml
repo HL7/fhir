@@ -44,11 +44,13 @@
   -->
   <summary value="provisional diagnoses of laceration of head and traumatic brain injury (TBI)"/>
   <finding>
-    <itemCodeableConcept>
-      <coding>
-        <system value="http://hl7.org/fhir/sid/icd-9"/>
-        <code value="850.0"/>
-      </coding>
-    </itemCodeableConcept>
+    <item>
+      <concept>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/icd-9"/>
+          <code value="850.0"/>
+        </coding>
+      </concept>
+    </item>
   </finding>
 </ClinicalImpression>

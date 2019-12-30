@@ -29,7 +29,9 @@
 			<display value="Dr Adam Careful"/>
 	</requester>
 	<!-- demonstrating in this example the reason reference element -->
-	<reasonReference>
-		<display value="Patient has a spinal fracture"/>
-	</reasonReference>
+	<reason>
+ 		<reference>
+      <display value="Patient has a spinal fracture"/>
+    </reference>
+	</reason>
 </ServiceRequest>

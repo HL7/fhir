@@ -80,7 +80,7 @@ import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
 import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
-import org.hl7.fhir.r5.context.MetadataResourceManager;
+import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.formats.FormatUtilities;
 import org.hl7.fhir.r5.formats.IParser;
 import org.hl7.fhir.r5.formats.IParser.OutputStyle;
@@ -98,6 +98,7 @@ import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r5.model.DateTimeType;
 import org.hl7.fhir.r5.model.DateType;
 import org.hl7.fhir.r5.model.DecimalType;
+import org.hl7.fhir.r5.model.Enumerations;
 import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r5.model.Enumerations.SearchParamType;
@@ -111,7 +112,7 @@ import org.hl7.fhir.r5.model.OidType;
 import org.hl7.fhir.r5.model.Period;
 import org.hl7.fhir.r5.model.PositiveIntType;
 import org.hl7.fhir.r5.model.Quantity;
-import org.hl7.fhir.r5.model.Quantity.QuantityComparator;
+import org.hl7.fhir.r5.model.Enumerations.QuantityComparator;
 import org.hl7.fhir.r5.model.Reference;
 import org.hl7.fhir.r5.model.SearchParameter;
 import org.hl7.fhir.r5.model.StringType;
@@ -121,7 +122,7 @@ import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionContextCompo
 import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r5.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r5.model.TimeType;
-import org.hl7.fhir.r5.model.Type;
+import org.hl7.fhir.r5.model.DataType;
 import org.hl7.fhir.r5.model.UnsignedIntType;
 import org.hl7.fhir.r5.model.UriType;
 import org.hl7.fhir.r5.model.UrlType;
@@ -176,14 +177,14 @@ public class SpreadsheetParser {
   private Map<String, ConstraintStructure> profileIds;
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private List<FHIRPathUsage> fpUsages;
-  private MetadataResourceManager<CodeSystem> codeSystems;
-  private MetadataResourceManager<ConceptMap> maps;
+  private CanonicalResourceManager<CodeSystem> codeSystems;
+  private CanonicalResourceManager<ConceptMap> maps;
   private Map<String, WorkGroup> workgroups;  
   private ResourceDefn template;
   private String templateTitle;
   private List<String> errors = new ArrayList<String>();
   
-	public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, Definitions definitions, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, MetadataResourceManager<ConceptMap> maps, boolean exceptionIfExcelNotNormalised) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, Definitions definitions, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, CanonicalResourceManager<ConceptMap> maps, boolean exceptionIfExcelNotNormalised) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, filename);
@@ -215,7 +216,7 @@ public class SpreadsheetParser {
 		this.maps = maps;
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, MetadataResourceManager<CodeSystem> codeSystems, MetadataResourceManager<ConceptMap> maps, Map<String, WorkGroup> workgroups, boolean exceptionIfExcelNotNormalised) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ConceptMap> maps, Map<String, WorkGroup> workgroups, boolean exceptionIfExcelNotNormalised) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     this.registry = registry;
@@ -1020,7 +1021,7 @@ public class SpreadsheetParser {
                 pn.add(p);
               if (t == SearchType.reference) {
                 if (e == null && !forProfile && !sheet.hasColumn(row, "Target Types"))
-                  throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has wrong path "+ getLocation(row));
+                  throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has wrong path '"+p+"' at "+ getLocation(row));
                 if (!forProfile && e != null && (!e.hasType("Reference")) && (!e.hasType("canonical")) && (!e.hasType("Resource")))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is reference, but the element type is "+e.typeCode());
               } else {
@@ -1989,7 +1990,7 @@ public class SpreadsheetParser {
   }
 
 
-  private Type processValue(Sheet sheet, int row, String column, String source, ElementDefn e) throws Exception {
+  private DataType processValue(Sheet sheet, int row, String column, String source, ElementDefn e) throws Exception {
     if (Utilities.noString(source))
       return null;
 	  if (e.getTypes().size() != 1)
@@ -2253,7 +2254,7 @@ public class SpreadsheetParser {
       }
       row++;
     }
-    ProfileGenerator gen = new ProfileGenerator(definitions, null, pkp, null, version, null, fpUsages, null);
+    ProfileGenerator gen = new ProfileGenerator(definitions, null, pkp, null, version, null, fpUsages, null, null);
     ProfileUtilities utils = new ProfileUtilities(this.context, issues, pkp);
     gen.convertElements(exe, ex, null);
     ex.getDifferential().getElementFirstRep().getType().clear();

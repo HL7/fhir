@@ -31,9 +31,11 @@
 	<performer>
 		<display value="Paul Therapist, PT"/>
 	</performer>
-	 <reasonCode>
-      <text value="assessment of mobility limitations due to osteoarthritis"/>
-  </reasonCode>
+	 <reason>
+    <concept>
+        <text value="assessment of mobility limitations due to osteoarthritis"/>
+    </concept>
+  </reason>
   <bodySite>
     <coding>
       <system value="http://snomed.info/sct"/>

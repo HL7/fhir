@@ -31,7 +31,7 @@ import org.hl7.fhir.r5.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetFilterComponent;
-import org.hl7.fhir.r5.model.ValueSet.FilterOperator;
+import org.hl7.fhir.r5.model.Enumerations.FilterOperator;
 import org.hl7.fhir.r5.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities.ConceptStatus;

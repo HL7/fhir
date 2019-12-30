@@ -82,6 +82,7 @@ import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.r5.model.Constants;
+import org.hl7.fhir.r5.model.Enumeration;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
@@ -98,7 +99,8 @@ import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeType;
 import org.hl7.fhir.r5.model.Composition;
 import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
-import org.hl7.fhir.r5.model.MetadataResource;
+import org.hl7.fhir.r5.model.Enumerations.ResourceTypeEnum;
+import org.hl7.fhir.r5.model.CanonicalResource;
 import org.hl7.fhir.r5.model.Resource;
 import org.hl7.fhir.r5.model.SearchParameter;
 import org.hl7.fhir.r5.model.StructureDefinition;
@@ -373,7 +375,7 @@ public class SourceParser {
     if (Utilities.noString(stated))
       stated = n;
     Resource res = new XmlParser().parse(new FileInputStream(file));
-    if (res instanceof MetadataResource) {
+    if (res instanceof CanonicalResource) {
       res.setUserData("external.url", stated);
       context.cacheResource(res);
       externals.addEntry().setFullUrl("http://hl7.org/fhir/"+res.fhirType()+"/"+res.getId()).setResource(res).addLink().setRelation("via").setUrl(stated);
@@ -1061,7 +1063,7 @@ public class SourceParser {
   private void genTypeProfile(org.hl7.fhir.definitions.model.TypeDefn t) throws Exception {
     StructureDefinition profile;
     try {
-      profile = new ProfileGenerator(definitions, context, page, genDate, version, null, fpUsages, page.getFolders().rootDir).generate(t);
+      profile = new ProfileGenerator(definitions, context, page, genDate, version, null, fpUsages, page.getFolders().rootDir, page.getUml()).generate(t);
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(dstDir, page, t.getName(), true);
       t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));

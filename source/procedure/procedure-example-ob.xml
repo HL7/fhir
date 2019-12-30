@@ -34,9 +34,11 @@
   <location>
     <display value="Women’s Hospital"/>
   </location>    
-  <reasonCode>
-      <text value="term pregnancy, active labor"/>
-  </reasonCode> 
+  <reason>
+       <concept>
+         <text value="term pregnancy, active labor"/>
+       </concept>
+  </reason>
   <outcome>
       <text value="delivery of healthy male infant"/>
   </outcome> 

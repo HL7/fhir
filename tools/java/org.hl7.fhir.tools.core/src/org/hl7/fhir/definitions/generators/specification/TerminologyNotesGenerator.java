@@ -169,7 +169,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       String path;
       List<CDUsage> list = txusages.get(cd);
       for (int i = 2; i < list.size(); i++) {
-        if (!list.get(i).element.typeCode().equals(list.get(1).element.typeCode()))
+        if (!matchesTypes(list.get(i).element.typeCodeNoParams(), list.get(1).element.typeCodeNoParams()))
           throw new Exception("Mixed types on one concept domain in one type - not yet supported by the build process for binding "+cd.getName()+" ("+list.get(i).element.typeCode()+" vs "+list.get(1).element.typeCode()+")");
       }
       String name = cd.getValueSet() != null ? cd.getValueSet().present() : cd.getName();
@@ -256,6 +256,16 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     }
     write("</table>\r\n<p> </p>\r\n");		
 	}
+
+  private boolean matchesTypes(String t1, String t2) {
+    if (t1.equals(t2)) {
+      return true;
+    }
+    if (Utilities.existsInList(t1, "CodeableConcept", "CodeableReference") && Utilities.existsInList(t2, "CodeableConcept", "CodeableReference")) {
+      return true;
+    }
+    return false;
+  }
 
   public static String describeBinding(String prefix, ElementDefinitionBindingComponent def, PageProcessor page) throws Exception {
     if (!def.hasValueSet()) 

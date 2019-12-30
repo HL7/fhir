@@ -119,10 +119,12 @@
   <careTeam>
     <reference value="#careteam"/>
   </careTeam>
-  <addressesReference>
-    <reference value="#p1"/>
-    <display value="pregnancy"/>
-  </addressesReference>
+  <addresses>
+    <reference>
+      <reference value="#p1"/>
+      <display value="pregnancy"/>
+    </reference>
+  </addresses>
   <goal>
     <reference value="#goal"/>
   </goal>

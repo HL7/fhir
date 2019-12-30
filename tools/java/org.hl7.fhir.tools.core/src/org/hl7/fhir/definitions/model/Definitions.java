@@ -42,7 +42,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.context.IWorkerContext;
-import org.hl7.fhir.r5.context.MetadataResourceManager;
+import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.ConceptMap;
 import org.hl7.fhir.r5.model.NamingSystem;
@@ -164,9 +164,9 @@ public class Definitions {
   private Map<String, ArrayList<String>> statusCodes = new HashMap<String, ArrayList<String>>();
 
   // access to raw resources - to be removed and replaced by worker context at some stage
-  private MetadataResourceManager<ValueSet> valuesets = new MetadataResourceManager<ValueSet>(false);
-  private MetadataResourceManager<ConceptMap> conceptMaps = new MetadataResourceManager<ConceptMap>(false);
-  private MetadataResourceManager<CodeSystem> codeSystems = new MetadataResourceManager<CodeSystem>(false);
+  private CanonicalResourceManager<ValueSet> valuesets = new CanonicalResourceManager<ValueSet>(false);
+  private CanonicalResourceManager<ConceptMap> conceptMaps = new CanonicalResourceManager<ConceptMap>(false);
+  private CanonicalResourceManager<CodeSystem> codeSystems = new CanonicalResourceManager<CodeSystem>(false);
   private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
   private Set<String> styleExemptions = new HashSet<String>();
 
@@ -410,15 +410,15 @@ public class Definitions {
     return sortedTypeNames;
   }
 
-  public MetadataResourceManager<ConceptMap> getConceptMaps() {
+  public CanonicalResourceManager<ConceptMap> getConceptMaps() {
     return conceptMaps;
   }
 
-  public MetadataResourceManager<ValueSet> getValuesets() {
+  public CanonicalResourceManager<ValueSet> getValuesets() {
     return valuesets;
   }
 
-  public MetadataResourceManager<CodeSystem> getCodeSystems() {
+  public CanonicalResourceManager<CodeSystem> getCodeSystems() {
     return codeSystems;
   }
 

@@ -1,4 +1,5 @@
 package org.hl7.fhir.tools.implementations.java;
+import java.io.IOException;
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -31,8 +32,10 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -53,6 +56,21 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 		super(out, "UTF-8");
 	}
 
+  public void startMark(String version, Date genDate) throws IOException {
+    write(startLicenseValue());
+    write(startVMarkValue(version, genDate));
+  }
+
+  public static String startLicenseValue() {
+    return "\r\n/*-\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n";
+  }
+
+  public static String startVMarkValue(String version, Date genDate) {
+    // return "// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n";
+    return "// Generated on Thu, Dec 13, 2018 14:07+1100 for FHIR v4.0.0\r\n\r\n";
+  }
+
+ 
   protected boolean isJavaPrimitive(ElementDefn e) {
     return e.getTypes().size() == 1 && (isPrimitive(e.typeCode()) || e.typeCode().equals("xml:lang"));
   }
@@ -74,7 +92,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 
 	protected String getTypeName(ElementDefn e) throws Exception {
 		if (e.getTypes().size() > 1) {
-			return "Type";
+			return "DataType";
 		} else if (e.getTypes().size() == 0) {
 			throw new Exception("not supported");
 		} else {
@@ -183,7 +201,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
   }
 
   protected boolean isEnum(BindingSpecification cd) {
-    boolean ok = cd.getBinding() == (BindingSpecification.BindingMethod.CodeList) || (cd.getStrength() == BindingStrength.REQUIRED && cd.getBinding() == BindingMethod.ValueSet);
+    boolean ok = cd != null && cd.getStrength() == BindingStrength.REQUIRED && (cd.getBinding() == (BindingSpecification.BindingMethod.CodeList) || cd.getBinding() == BindingMethod.ValueSet);
     if (ok) {
       if (cd.getValueSet() != null && cd.getValueSet().hasCompose() && cd.getValueSet().getCompose().getInclude().size() == 1) {
         ConceptSetComponent inc = cd.getValueSet().getCompose().getIncludeFirstRep();

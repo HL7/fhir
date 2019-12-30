@@ -51,9 +51,11 @@
   <performer>
     <reference value="Device/software"/>
   </performer>
-  <reasonCode>
-    <text value="Guideline Appropriate Ordering Assessment"/>
-  </reasonCode>
+  <reason>
+    <concept>
+      <text value="Guideline Appropriate Ordering Assessment"/>
+    </concept>
+  </reason>
   <outputParameters>
     <reference value="#outputParameters1"/>
   </outputParameters>

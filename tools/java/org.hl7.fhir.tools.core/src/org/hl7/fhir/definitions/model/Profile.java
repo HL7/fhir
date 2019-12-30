@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.r5.model.Composition;
-import org.hl7.fhir.r5.model.MetadataResource;
+import org.hl7.fhir.r5.model.CanonicalResource;
 import org.hl7.fhir.r5.model.SearchParameter;
 import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.r5.model.ValueSet;
@@ -193,7 +193,7 @@ public class Profile {
       b.append("search parameters");
     return b.toString();
   }
-  public MetadataResource getCandidateResource() {
+  public CanonicalResource getCandidateResource() {
     if (!profiles.isEmpty())
       return profiles.get(0).getResource();
     if (!extensions.isEmpty())

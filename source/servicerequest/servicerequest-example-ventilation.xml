@@ -35,7 +35,9 @@
 		<reference value="Practitioner/example"/>
 		<display value="Dr Cecil Surgeon"/>
 	</performer>
-	<reasonCode>
-		<text value="chronic obstructive lung disease (COLD)"/>
-	</reasonCode>
+	<reason>
+    <concept>
+  		<text value="chronic obstructive lung disease (COLD)"/>
+    </concept>
+	</reason>
 </ServiceRequest>

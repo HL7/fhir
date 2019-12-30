@@ -40,13 +40,13 @@ import java.util.Map;
 import org.hl7.fhir.definitions.Config;
 
 
-public class JavaFactoryGenerator extends OutputStreamWriter {
+public class JavaFactoryGenerator extends JavaBaseGenerator {
 
   private Map<String, String> resources = new HashMap<String, String>(); 
   private Map<String, String> types = new HashMap<String, String>(); 
 	
 	public JavaFactoryGenerator(OutputStream out) throws UnsupportedEncodingException {
-		super(out, "UTF-8");
+		super(out);
 	}
 
   public void registerReference(String name, String classname) {
@@ -59,8 +59,7 @@ public class JavaFactoryGenerator extends OutputStreamWriter {
   
 	public void generate(String version, Date genDate) throws Exception {
 		write("package org.hl7.fhir.r5.model;\r\n");
-    write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
-    write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
+    startMark(version, genDate);
     write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     write("\r\n");
 		write("public class ResourceFactory extends Factory {\r\n");

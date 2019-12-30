@@ -42,7 +42,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.r5.model.Constants;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
-import org.hl7.fhir.r5.context.MetadataResourceManager;
+import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.formats.IParser;
 import org.hl7.fhir.r5.formats.JsonParser;
 import org.hl7.fhir.r5.formats.XmlParser;
@@ -69,12 +69,12 @@ public class BindingsParser {
   private String root;
   private XLSXmlParser xls;
   private OIDRegistry registry;
-  private MetadataResourceManager<CodeSystem> codeSystems;
-  private MetadataResourceManager<ConceptMap> maps;
+  private CanonicalResourceManager<CodeSystem> codeSystems;
+  private CanonicalResourceManager<ConceptMap> maps;
   private Calendar genDate;
   private boolean exceptionIfExcelNotNormalised;
   
-  public BindingsParser(InputStream file, String filename, String root, OIDRegistry registry, String version, MetadataResourceManager<CodeSystem> codeSystems, MetadataResourceManager<ConceptMap> maps, Calendar genDate, boolean exceptionIfExcelNotNormalised) {
+  public BindingsParser(InputStream file, String filename, String root, OIDRegistry registry, String version, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ConceptMap> maps, Calendar genDate, boolean exceptionIfExcelNotNormalised) {
     this.file = file;
     this.filename = filename;
     this.root = root;

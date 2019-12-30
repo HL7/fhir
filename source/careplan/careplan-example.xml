@@ -69,25 +69,31 @@
 	<careTeam>
 		<reference value="CareTeam/example"/>
 	</careTeam>
-	<addressesReference>
-		<reference value="#p1"/>
-		<display value="obesity"/>
-	</addressesReference>
+	<addresses>
+    <reference>
+	  	<reference value="#p1"/>
+	  	<display value="obesity"/>
+    </reference>
+	</addresses>
 	<goal>
 		<reference value="Goal/example" />
 	</goal>
 	<activity>
-		<outcomeCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct" />
-				<code value="161832001" />
-				<display value="Progressive weight loss" />
-			</coding>
-		</outcomeCodeableConcept>
-		<outcomeReference>
-			<reference value="Observation/example" />
-			<display value="Weight Measured" />
-		</outcomeReference>
+		<outcome>
+      <concept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="161832001" />
+          <display value="Progressive weight loss" />
+        </coding>
+      </concept>
+		</outcome>
+		<outcome>
+      <reference>
+		   	<reference value="Observation/example" />
+		  	<display value="Weight Measured" />
+      </reference>
+		</outcome>
 		<detail>
 		<code>
 			<!--     LOINC code     -->

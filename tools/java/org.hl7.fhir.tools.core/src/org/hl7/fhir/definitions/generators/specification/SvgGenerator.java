@@ -872,15 +872,26 @@ public class SvgGenerator extends BaseGenerator {
         xml.enter("tspan");
         xml.text(" (");
         if ("Logical".equals(e.typeCode()))
-          xml.attribute("xlink:href", prefix+"structuredefinition.html#logical");
+          xml.attribute("xlink:href", prefix+"types.html#Base");
         else
           xml.attribute("xlink:href", prefix+definitions.getSrcFile(e.typeCode())+".html#"+e.typeCode());
         xml.attribute("class", "diagram-class-reference");
         xml.attribute("id", "n"+(++nc));
         xml.attribute("style", "font-style: italic");
-        xml.element("a", e.typeCode());
+        if ("Logical".equals(e.typeCode())) {
+          xml.element("a", "Base");
+        } else {
+          xml.element("a", e.typeCode());
+        }
         xml.text(")");
         xml.exit("tspan");
+      }
+      if ("Logical".equals(e.typeCode())) {
+        xml.text(" ");
+        xml.attribute("xlink:href", makeRel("uml.html#pattern"));
+        xml.enter("a");
+        xml.text("«Pattern»");
+        xml.exit("a");        
       }
       if (definitions.getBaseResources().containsKey(e.getName()) && definitions.getBaseResources().get(e.getName()).isInterface()) {
         xml.text(" ");
@@ -1004,7 +1015,7 @@ public class SvgGenerator extends BaseGenerator {
   }
 
   private boolean isReference(String name) {
-    return name.equals("Reference") || name.equals("canonical");
+    return name.equals("Reference") || name.equals("canonical") || name.equals("CodeableReference");
   }
 
 

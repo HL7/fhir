@@ -64,7 +64,7 @@ import org.hl7.fhir.r5.model.StringType;
 import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionMappingComponent;
-import org.hl7.fhir.r5.model.Type;
+import org.hl7.fhir.r5.model.DataType;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.StandardsStatus;
@@ -258,7 +258,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       return path;
   }
 
-  private String encodeValue(Type value) throws Exception {
+  private String encodeValue(DataType value) throws Exception {
     if (value == null || value.isEmpty())
       return null;
     if (value instanceof PrimitiveType)

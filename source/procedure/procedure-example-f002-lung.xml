@@ -34,9 +34,11 @@
             <display value="M.I.M. Versteegh"/>
         </actor>
     </performer>
-	<reasonCode>
-      <text value="Malignant tumor of lung"/>
-    </reasonCode>
+	<reason>
+       <concept>
+         <text value="Malignant tumor of lung"/>
+       </concept>
+    </reason>
     <bodySite>
         
             <coding>

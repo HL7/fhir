@@ -27,13 +27,15 @@
   </informationSource>
 
 
-  <reasonCode>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="65363002"/>
-      <display value="Otitis Media"/>
-    </coding>
-  </reasonCode>
+  <reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="65363002"/>
+        <display value="Otitis Media"/>
+      </coding>
+    </concept>
+  </reason>
 
   <note>
     <text value="Patient indicates they miss the occasional dose" />

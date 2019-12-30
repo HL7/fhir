@@ -58,9 +58,11 @@
 		<reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/76597"/>
 		<display value="Dr Dave"/>
 	</performer>
-	<reasonCode>
-		<text value="For consideration of Grommets"/>
-	</reasonCode>
+	<reason>
+    <concept>
+  		<text value="For consideration of Grommets"/>
+    </concept>
+	</reason>
 	<note>
 		<authorString value="Serena Shrink"/>
 		<time value="2014-02-14"/>
