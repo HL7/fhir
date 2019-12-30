@@ -223,8 +223,6 @@ import org.hl7.fhir.tools.converters.DSTU3ValidationConvertor;
 import org.hl7.fhir.tools.converters.SpecNPMPackageGenerator;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
 import org.hl7.fhir.tools.converters.ValueSetImporterV3;
-import org.hl7.fhir.tools.implementations.XMLToolsGenerator;
-import org.hl7.fhir.tools.implementations.java.JavaGenerator;
 import org.hl7.fhir.tools.publisher.ExampleInspector.EValidationFailed;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -407,8 +405,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private PageProcessor page;
   // private BookMaker book;
 
-  private JavaGenerator javaReferencePlatform;
-
   private boolean isGenerate;
   private boolean noArchive;
   private boolean web;
@@ -448,9 +444,6 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private String validateId;
 
-  private boolean wantRefImpl;
-
-
   public static void main(String[] args) throws Exception {
     //
 
@@ -465,7 +458,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     pub.noSound =  (args.length > 1 && hasParam(args, "-nosound"));
     pub.noPartialBuild = (args.length > 1 && hasParam(args, "-nopartial"));
     pub.isPostPR = (args.length > 1 && hasParam(args, "-post-pr"));
-    pub.wantRefImpl = (args.length > 0 && hasParam(args, "-java"));
     if (hasParam(args, "-resource"))
       pub.singleResource = getNamedParam(args, "-resource");
     if (hasParam(args, "-page"))
@@ -536,9 +528,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     try {
       tester.initialTests();
       page.setFolders(new FolderManager(folder, outputdir));
-
-      registerReferencePlatforms();
-
       if (!initialize(folder))
         throw new Exception("Unable to publish as preconditions aren't met");
 
@@ -1740,12 +1729,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     res.getInteraction().add(t);
   }
 
-  private void registerReferencePlatforms() throws FileNotFoundException, IOException {
-    javaReferencePlatform = new JavaGenerator(page.getFolders());
-    page.getReferenceImplementations().add(javaReferencePlatform);
-    page.getReferenceImplementations().add(new XMLToolsGenerator());
-  }
-
   public boolean checkFile(String purpose, String dir, String file, List<String> errors, String category) throws IOException {
     CSFile f = new CSFile(dir + file);
     if (file.contains("*"))
@@ -1787,8 +1770,6 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getDefinitions().getStructuralPages().add(s);
 
       Utilities.checkFolder(page.getFolders().xsdDir, errors);
-      for (PlatformGenerator gen : page.getReferenceImplementations())
-        Utilities.checkFolder(page.getFolders().implDir(gen.getName()), errors);
       checkFile("required", page.getFolders().srcDir, "hierarchy.xml", errors, "all");
       checkFile("required", page.getFolders().srcDir, "fhir-all.xsd", errors, "all");
       checkFile("required", page.getFolders().srcDir, "template.html", errors, "all");
@@ -2210,36 +2191,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     
     TextFile.stringToFile(page.genBackboneElementsJson(), Utilities.path(page.getFolders().dstDir, "backbone-elements.json"));
     TextFile.stringToFile(page.genChoiceElementsJson(), Utilities.path(page.getFolders().dstDir, "choice-elements.json"));
-    if (buildFlags.get("all")) {
-      if (wantRefImpl) {
-        for (PlatformGenerator gen : page.getReferenceImplementations()) {
-          page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);
-
-          String destDir = page.getFolders().dstDir;
-          String tmpImplDir = Utilities.path(page.getFolders().tmpDir, gen.getName(), "");
-          String actualImplDir = Utilities.path(page.getFolders().implDir(gen.getName()), "");
-
-          gen.generate(page.getDefinitions(), destDir, actualImplDir, tmpImplDir, page.getVersion().toCode(), page.getGenDate().getTime(), page, page.getBuildId());
-        }
-        throw new Error("Finished");
-      }
-      for (PlatformGenerator gen : page.getReferenceImplementations()) {
-        if (gen.doesCompile()) {
-          page.log("Compile " + gen.getName() + " Reference Implementation", LogMessageType.Process);
-          gen.setBuildId(page.getBuildId());
-          if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page, page.getValidationErrors(), page.isForPublication())) {
-            // Must always be able to compile Java to go on. Also, if we're
-            // building
-            // the web build, all generators that can compile, must compile
-            // without error.
-            if (gen.getName().equals("java")) // || web)
-              throw new Exception("Compile " + gen.getName() + " failed");
-            else
-              page.log("Compile " + gen.getName() + " failed, still going on.", LogMessageType.Error);
-          }
-        }
-      }
-    }
 
     page.log("Produce Schematrons", LogMessageType.Process);
     for (String rname : page.getDefinitions().sortedResourceNames()) {

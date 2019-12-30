@@ -390,7 +390,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private FolderManager folders;
   private FHIRVersion version;
   private Navigation navigation;
-  private final List<PlatformGenerator> referenceImplementations = new ArrayList<PlatformGenerator>();
   private IniFile ini;
   private final Calendar genDate = Calendar.getInstance();
   private final Date start = new Date();
@@ -831,8 +830,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genDataTypeUsage(com[1]) + s3;
       }  else if (com[0].equals("v3xref")) {
         src = s1 + xreferencesForV3(name) + s3;
-      }  else if (com[0].equals("reflink")) {
-        src = s1 + reflink(com[1]) + s3;
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
@@ -1088,8 +1085,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //        src = s1 + genBindingTable(false) + s3;
       else if (com[0].equals("resimplall"))
           src = s1 + genResImplList() + s3;
-      else if (com[0].equals("impllist"))
-        src = s1 + genReferenceImplList(pagePath) + s3;
       else if (com[0].equals("txurl"))
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vstxurl"))
@@ -3062,13 +3057,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String profileRef(String name) {
     return "Alternate definitions: Resource StructureDefinition (<a href=\""+name+".profile.xml.html\">XML</a>, <a href=\""+name+".profile.json.html\">JSON</a>)";
-  }
-
-  private String reflink(String name) {
-    for (PlatformGenerator t : referenceImplementations)
-      if (t.getName().equals(name))
-        return t.getReference(version.toCode());
-    return "??";
   }
 
   private String conceptmaplist(String id, String level) throws FHIRException {
@@ -5227,16 +5215,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   }
 
-  private String genReferenceImplList(String location) throws Exception {
-    StringBuilder s = new StringBuilder();
-    for (PlatformGenerator gen : referenceImplementations) {
-      if (gen.wantListAsDownload())
-        s.append("<tr><td><a href=\""+gen.getReference(version.toCode())+"\">"+gen.getTitle()+"</a></td><td>"+processMarkdown(location, gen.getDescription(version.toCode(), buildId), "")+"</td></tr>\r\n");
-    }
-    return s.toString();
-  }
-
-
   String processPageIncludesForPrinting(String file, String src, Resource resource, ImplementationGuideDefn ig) throws Exception {
     boolean even = false;
     List<String> tabs = new ArrayList<String>();
@@ -5387,8 +5365,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genNSList() + s3;
       else if (com[0].equals("resimplall"))
         src = s1 + genResImplList() + s3;
-      else if (com[0].equals("impllist"))
-        src = s1 + genReferenceImplList(file) + s3;
       else if (com[0].equals("txurl"))
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vstxurl"))
@@ -5761,8 +5737,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
-      }  else if (com[0].equals("reflink")) {
-        src = s1 + reflink(com[1]) + s3;
       } else if (com[0].equals("res-ref-list")) {
         src = s1+genResRefList(com[1])+s3;
       } else if (com[0].equals("sclist")) {
@@ -5898,8 +5872,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + xreferencesForFhir(name) + s3;
       else if (com[0].equals("resimplall"))
         src = s1 + genResImplList() + s3;
-      else if (com[0].equals("impllist"))
-        src = s1 + genReferenceImplList(file) + s3;
       else if (com[0].equals("txurl"))
         src = s1 + "http://hl7.org/fhir/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vstxurl"))
@@ -9539,10 +9511,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return navigation;
   }
 
-  public List<PlatformGenerator> getReferenceImplementations() {
-    return referenceImplementations;
-  }
-
   public IniFile getIni() {
     return ini;
   }
@@ -9987,8 +9955,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
-      }  else if (com[0].equals("reflink")) {
-        src = s1 + reflink(com[1]) + s3;
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
@@ -10070,8 +10036,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //        src = s1 + genBindingTable(false) + s3;
       else if (com[0].equals("resimplall"))
           src = s1 + genResImplList() + s3;
-      else if (com[0].equals("impllist"))
-        src = s1 + genReferenceImplList(pack.getId()) + s3;
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(pack.getId()) + s3;
       else if (com[0].equals("navlist"))
@@ -10653,7 +10617,6 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     vsValidator = null;
     suppressedMessages.clear();
     definitions.clean();
-    referenceImplementations.clear();
     
     conceptMaps = null;
     profiles = null;
