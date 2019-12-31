@@ -2711,7 +2711,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       npm.finish();
       if (!isCIBuild) {
         new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION).addPackageToCache("hl7.fhir.r5.expansions", "current", new FileInputStream(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz")), Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz"));
-        new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION).addPackageToCache("hl7.fhir.r5.core", "current", new FileInputStream(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.core.tgz")), Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.core.tgz"));
       }
       
       s = new FileOutputStream(page.getFolders().dstDir + "expansions.xml");
@@ -2914,7 +2913,9 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
       self.generate(page.getFolders().dstDir, page.getBaseURL(), false, page.getGenDate().getTime());
-
+      if (!isCIBuild) {
+        new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION).addPackageToCache("hl7.fhir.r5.core", "current", new FileInputStream(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.core.tgz")), Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.core.tgz"));
+      }
 
       page.log(" ...zips", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
