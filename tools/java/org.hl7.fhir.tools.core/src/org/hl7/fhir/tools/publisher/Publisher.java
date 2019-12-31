@@ -2668,9 +2668,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       s.close();
 
       ImplementationGuide expIg = new ImplementationGuide();
-      expIg.addFhirVersion(FHIRVersion._4_1_0);
+      expIg.addFhirVersion(FHIRVersion._4_2_0);
       expIg.setPackageId("hl7.fhir.r5.expansions");
-      expIg.setVersion(FHIRVersion._4_1_0.toCode());
+      expIg.setVersion(FHIRVersion._4_2_0.toCode());
       expIg.setLicense(ImplementationGuide.SPDXLicense.CC01_0);
       expIg.setTitle("FHIR R5 package : Expansions");
       expIg.setDescription("Expansions for the R5 version of the FHIR standard");
@@ -2709,7 +2709,10 @@ public class Publisher implements URIResolver, SectionNumberer {
         }
       }
       npm.finish();
-      new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION).addPackageToCache("hl7.fhir.r5.expansions", "current", new FileInputStream(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz")), Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz"));
+      if (!isCIBuild) {
+        new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION).addPackageToCache("hl7.fhir.r5.expansions", "current", new FileInputStream(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz")), Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz"));
+        new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION).addPackageToCache("hl7.fhir.r5.core", "current", new FileInputStream(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.core.tgz")), Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.core.tgz"));
+      }
       
       s = new FileOutputStream(page.getFolders().dstDir + "expansions.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, expansionFeed);
