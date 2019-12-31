@@ -14,7 +14,7 @@
             http://build.fhir.org/sc.html.</div>
     </text>
     <url value="http://hl7.org/fhir/asset-availability"/>
-    <version value="4.1.0"/>
+    <version value="4.2.0"/>
     <name value="ContractAssetAvailability"/>
     <status value="draft"/>
     <experimental value="true"/>
