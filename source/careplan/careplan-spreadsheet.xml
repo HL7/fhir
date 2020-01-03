@@ -855,6 +855,9 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s169">
+   <Font ss:Color="#172B4D" ss:FontName="Segoe UI" ss:Size="11" x:Family="Swiss"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R48C1"/>
@@ -4567,12 +4570,13 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="21" ss:StyleID="s112" ss:cExpandedColumnCount="5" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s112" ss:Width="86.0"/>
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="22" ss:StyleID="s112" ss:cExpandedColumnCount="5" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="164.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="57.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="110.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="210.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="383.0"/>
+   <Column ss:StyleID="s112" ss:Width="464.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s113">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">Unique name for search parameter - required, lower-case, dash-delimited string    </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type for parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4624,11 +4628,20 @@
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">activity-date</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">activity-scheduled-date</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">CarePlan.activity.detail.scheduled[x]</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Specified date occurs within period specified by CarePlan.activity.detail.scheduled[x]</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">CarePlan.activity.detail.scheduled.as(Timing) | CarePlan.activity.detail.scheduled.as(Period)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">activity-scheduled-string</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">CarePlan.activity.detail.scheduled[x]</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">CarePlan.activity.detail.scheduled.as(string)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">activity-reference</Data></Cell>
@@ -4748,13 +4761,13 @@
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C2:R20C2</Range>
+   <Range>R17C2:R21C2</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>"number,date,string,token,reference,composite,quantity"</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R15C2</Range>
+   <Range>R16C2</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>"number,date,string,token,reference,composite,uri,quantity"</Value>
