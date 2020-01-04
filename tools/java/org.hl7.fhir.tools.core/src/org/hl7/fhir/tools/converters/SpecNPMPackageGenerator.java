@@ -171,9 +171,9 @@ public class SpecNPMPackageGenerator {
     ig.setUrl("http://hl7.org/fhir/ImplementationGuide/fhir-xml");
     ig.setTitle("FHIR Core package (XML Conformance files)");
     ig.setDescription("FHIR Core package - the NPM package that contains all the definitions for the base FHIR specification (XML)");
-    ig.setPackageId("hl7.fhir.core.xml");
+    ig.setPackageId("hl7.fhir.r5.corexml");
 
-    npm = new NPMPackageGenerator(Utilities.path(folder, "package-xml.tgz"), "http://hl7.org/fhir", url, PackageType.CORE, ig, genDate);
+    npm = new NPMPackageGenerator(Utilities.path(folder, "hl7.fhir.r5.corexml.tgz"), "http://hl7.org/fhir", url, PackageType.CORE, ig, genDate);
     bs = new ByteArrayOutputStream();
     new org.hl7.fhir.r5.formats.XmlParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
     npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());
