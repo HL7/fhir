@@ -14,7 +14,7 @@
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"self\"); The code provided (#self) is not  valid in the value set SubscriberRelationshipCodes"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -32,7 +32,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"logic-library\"); The code provided (#logic-library) is not  valid in the value set LibraryType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -50,7 +50,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"model-definition\"); The code provided (#model-definition) is not  valid in the value set LibraryType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -68,7 +68,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"asset-collection\"); The code provided (#asset-collection) is not  valid in the value set LibraryType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -86,7 +86,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"proportion\"); The code provided (#proportion) is not  valid in the value set MeasureScoring"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -104,7 +104,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"process\"); The code provided (#process) is not  valid in the value set MeasureType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -122,7 +122,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"initial-population\"); The code provided (#initial-population) is not  valid in the value set MeasurePopulationType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -140,7 +140,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"denominator\"); The code provided (#denominator) is not  valid in the value set MeasurePopulationType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -158,7 +158,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"denominator-exclusions\"); The code provided (#denominator-exclusions) is not  valid in the value set MeasurePopulationType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -176,7 +176,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"numerator\"); The code provided (#numerator) is not  valid in the value set MeasurePopulationType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -194,7 +194,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"denominator-exclusion\"); The code provided (#denominator-exclusion) is not  valid in the value set MeasurePopulationType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -212,7 +212,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"opportunity\"); The code provided (#opportunity) is not  valid in the value set CompositeMeasureScoring"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -230,7 +230,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"cohort\"); The code provided (#cohort) is not  valid in the value set MeasureScoring"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -248,7 +248,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"create\"); The code provided (#create) is not  valid in the value set ActionType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -266,6 +266,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"clinical-protocol\"); The code provided (#clinical-protocol) is not  valid in the value set PlanDefinitionType"
+  "error" : "Error sending HTTP Post/Put Payload"
 }
 -------------------------------------------------------------------------------------
