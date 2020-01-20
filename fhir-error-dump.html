@@ -3,14 +3,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Uml - FHIR v4.1.0</title>
+  <title>Downloads - FHIR v4.2.0</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="author" content="http://hl7.org/fhir"/>
 
   <link href="fhir.css" rel="stylesheet"/>
-  <link rel="Prev" href="http://hl7.org/fhir/uml.html"/>
+  <link rel="Prev" href="http://hl7.org/fhir/downloads.html"/>
 
   <!-- Bootstrap core CSS -->
   <link href="./dist/css/bootstrap.css" rel="stylesheet"/>
@@ -87,9 +87,8 @@
 	<div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
 		<div class="container"><!-- container -->	
 			<ul class="breadcrumb">
-        <li><a href="foundation-module.html"><img src="foundation.png"/> Foundation</a></li>
-        <li><a href="formats.html">Resource Definitions</a></li>
-        <li><b>UML Definition</b></li>        <!-- uml.html / page / -->
+        <li><a href="implsupport-module.html"><img src="implsupport.png"/> Implementation Support</a></li>
+        <li><b>Downloads</b></li>        <!-- downloads.html / page / -->
 
 			</ul>	
 		</div><!-- /container -->
@@ -105,207 +104,221 @@
 
 <div class="col-12">
 
-<ul class="nav nav-tabs"><li><a href="formats.html">Definitionsany </a></li><li><a href="xml.html">XML</a></li><li><a href="json.html">JSON</a></li><li><a href="nd-json.html">ND-JSON</a></li><li><a href="rdf.html">RDF</a></li><li class="active"><a href="#">UML</a></li></ul>
 
+<h1>Downloads</h1>
 
-<a name="root"></a>
-<h2>UML definition</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-<table class="none" style="max-width: 790px; padding: 4px; border: 1px silver solid; background-color: #efffef">
- <tr>
-  <td>
-   <img src="assets/images/ansi-approved.gif" width="55" height="35"/>
-  </td>
-  <td style="vertical-align: middle">
-   This page has been approved as part of an <a href="https://www.ansi.org/">ANSI</a> standard.
-   See the <a href="ansi-infrastructure.html">Infrastructure</a> Package for further details.
-  </td>
- </tr>
-</table>
+<table class="colis"><tr><td id="wg"><a _target="blank" href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
+<table class="lines">
 
-<a name="uml"></a>
-<h3>UML</h3>
+  <tr>
+    <td colspan="2" style="background: #eeeeee"><b>Specification Downloads</b></td>
+  </tr>
+
+  <tr>
+    <td>FHIR Definitions</td>
+    <td>All the value sets, profiles, etc. defined as part of the FHIR specification, and the included implementation guides:
+      <ul>
+       <li><a href="definitions.xml.zip">XML</a></li>
+       <li><a href="definitions.json.zip">JSON</a></li>
+       <li><a href="definitions-r2.xml.zip">Forge</a>: Special version of definitions for <a href="https://simplifier.net/Forge">Forge</a> (temporary)</li>
+      </ul>
+      This is the master set of definitions that should be the first choice whenever generating any implementation artifacts. All
+      the other forms below include only subsets of the information available in these definition files, and do not contain all of the rules about what makes resources valid. Implementers
+      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
+
+  <tr>
+    <td>XML</td>
+    <td>
+      <ul>
+       <li><a href="examples.zip">Examples</a> - all the example resources in XML format</li>
+       <li><a href="fhir-all-xsd.zip">Validation Schemas</a> (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons)</li>
+       <li><a href="fhir-codegen-xsd.zip">Code Generation Schemas</a> (see <a href="xml.html#schema-gen">notes about code-generation schemas</a>)<br/>
+       <i>Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</i></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
+
+  <tr>
+    <td>JSON</td>
+    <td>
+      <ul>
+       <li><a href="examples-json.zip">Examples</a> - all the example resources in JSON format</li>
+       <li><a href="fhir.schema.json.zip">JSON Schema</a> (Needs <a href="https://json-schema.org/draft-06/json-schema-release-notes.html">JSON Schema draft-06</a> or more recent)</li>
+       <li><a href="examples-ndjson.zip">Examples</a> - all the example resources in <a href="nd-json.html">ND-JSON format</a> (bulk data format)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
+
+  <tr>
+    <td>RDF</td>
+    <td>
+      <ul>
+       <li><a href="examples-ttl.zip">Turtle Examples</a> - all the example resources in Turtle format</li>
+       <li><a href="fhir.schema.shex.zip">ShEx Schemas</a> - <a href="https://www.w3.org/2001/sw/wiki/ShEx">ShEx</a> definitions for validating RDF resources</li>
+       <li><a href="fhir.rdf.ttl.zip">Definitions</a> - the formal definitions that define the predicates and classes used in the RDF format (not up to date)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>GraphQL</td>
+    <td>
+      <ul>
+       <li><a href="fhir.schema.graphql.zip">GraphQL Schemas</a> </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><hr/></td>
+  </tr>
+
+  <tr>
+    <td>FHIR Specification</td>
+    <td><!--<a href="fhir-spec.zip"> -->The whole specification<!--</a>--> so that you can host your own local copy (does not include the downloads) (not downloadable from build.fhir.org)</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" style="background: #eeeeee"><b>Implementation Tools</b></td>
+  </tr>
+
+  <tr>
+    <td>Validator</td>
+    <td>The <a href="https://fhir.github.io/latest-ig-publisher/org.hl7.fhir.validator.jar">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information, or <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">Using the FHIR Validator</a> for parameter documentation</td>
+  </tr>
+
+  <tr>
+    <td>IG Publisher</td>
+    <td>The <a href="https://fhir.github.io/latest-ig-publisher/org.hl7.fhir.publisher.jar">Implementation Guide Publishing Tool</a> (see <a href="https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation">IG Publishing documentation</a>)</td>
+  </tr>
+
+  <tr>
+    <td>NPM Packages</td>
+    <td>
+      There are several packages that support the FHIR specification:
+      <ul>
+        <li><b><code><a href="hl7.fhir.r5.core.tgz">hl7.fhir.r5.core</a></code></b>: Contains all the resources needed to test conformance to the FHIR specification, and/or generate code</li>
+        <li><b><code><a href="hl7.fhir.r5.expansions.tgz">hl7.fhir.r5.expansions</a></code></b>: Contains the expansions of the subset of the value sets the have a required binding (other than those that can't be expanded at all)</li>
+        <li><b><code><a href="hl7.fhir.r5.examples.tgz">hl7.fhir.r5.examples</a></code></b>: All the resources that are defined as part of the FHIR specification</li>
+        <li><b><code><a href="hl7.fhir.r5.elements.tgz">hl7.fhir.r5.elements</a></code></b>: A set of <a href="structuredefinition.html">StructureDefinition</a> resources that represent the resources and data types as a series of independently defined data elements</li>
+        <li><b><code><a href="hl7.fhir.r5.corexml.tgz">hl7.fhir.r5.corexml</a></code></b>: The same content as hl7.fhir.r5.core, but with the resources in XML, not JSON</li>
+      </ul>    
+    These packages are used by many of the FHIR tools</a> (e.g. the IG publisher and the validator). Note that the tools usually find this package directly through the NPM-based distribution framework, and there's no need to download them</td>
+  </tr>
+
+  <tr>
+    <td>Spreadsheets</td>
+    <td>All the resource structures in a <a href="definitions.xlsx.zip">Spreadsheet Format</a> - mostly provided to assist with mapping</td>
+  </tr>
+
+  <tr>
+    <td>Translation File</td>
+    <td><a href="translations.xml">Translations of common FHIR names and messages</a> into multiple languages (see <a href="https://chat.fhir.org/#narrow/stream/10-translations">chat.fhir.org translations stream</a> for guidance on how to add to more)</td>
+  </tr>
+
+  <tr>
+    <td>Icon Pack</td>
+    <td>The <a href="icon-pack.zip">FHIR Icon at various resolutions</a>. Any FHIR Implementation created by an organization that has attended a connectathon is allowed to use the FHIR icon in association with the application (this policy will be reviewed in the future).</td>
+  </tr>
+
+  <tr>
+    <td>Test Cases</td>
+    <td>Test cases can mainly be found in the <a href="https://github.com/hapifhir/org.hl7.fhir.core/tree/master/org.hl7.fhir.r4/src/main/resources">org.hl7.fhir.core</a> repository</td>
+  </tr>
+
+  <tr>
+    <td>Code Generation Support</td>
+    <td>ValueSet expansions for the value sets used in schema generation (<a href="expansions.xml">XML</a> or <a href="expansions.json">JSON</a>) + a list of all <a href="choice-elements.json">choice elements</a> &amp; <a href="backbone-elements.json">backbone elements</a>.
+    Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" style="background: #eeeeee"><b>Reference Implementations</b><a name="refimpl"></a></td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+    There are many open source reference implementations available to help implementers.
+    Here are a list of the more common implementations used by implementers:
+    </td>
+  </tr>
+
+  <tr>
+   <td>Java</td>
+   <td>
+     <a href="http://jamesagnew.github.io/hapi-fhir/">HAPI-FHIR</a>:
+     Object Models, Parsers, Client + Server Framework, FHIR Validator, &amp; Utilities. The specification is built with this Java code
+   </td>
+  </tr>
+  <tr>
+   <td>C#</td>
+   <td>
+    <a href="https://www.nuget.org/packages/Hl7.Fhir.R4/">Hl7.Fhir.R4</a> / <a href="https://www.nuget.org/packages/Hl7.Fhir.STU3/">Hl7.Fhir.STU3</a>:
+    Object models, Parsers/Serializers, Utilities, and a Client. Source code on GitHub at <a href="https://github.com/FirelyTeam/fhir-net-api">https://github.com/FirelyTeam/fhir-net-api</a>
+   </td>
+  </tr>
+  <tr>
+   <td>Pascal</td>
+   <td>
+    <a href="http://github.com/grahamegrieve/fhirserver">FhirServer</a>:
+    Object models, Parsers/Serializers, Validator, Utilities, Client, and the FHIR Reference server. Requires <a href="https://www.embarcadero.com/products/delphi">Delphi</a> (Unicode versions)
+   </td>
+  </tr>
+  <tr>
+   <td>XML</td>
+   <td>
+    <a href="fhir-4.2.0-XMLTools-0.01.zip">XML Tools</a>:
+    Document Rendering Stylesheet, supplementary implementation schemas and transforms
+   </td>
+  </tr>
+  <tr>
+   <td>Javascript</td>
+   <td>See the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=35718838#OpenSourceImplementations-Javascript">HL7 wiki for Javascript libraries</a> (Clients and Utilities for both servers and clients)
+   </td>
+  </tr> 
+  <tr>
+   <td>Python</td>
+   <td>
+    <a href="https://github.com/smart-on-fhir/client-py">Python SMART on FHIR client</a>:
+    Object Model, Client and Utilities
+   </td>
+  </tr>
+  <tr>
+   <td>Swift</td>
+   <td>
+    <a href="https://github.com/smart-on-fhir/Swift-FHIR">Swift-FHIR</a>:
+    Object Model, Client and Utilities
+   </td>
+  </tr> 
+  
+ </table>
+
+<blockquote><p> <b>Implementation Note:</b> 
+These reference implementations are provided for implementer interest and assistance.
+While they may be used (and are) in production systems, HL7 and their various contributors accept no
+liability for their use. <span style="color: Maroon">Note that these reference implementations are
+provided to assist to implementers to adopt the specification, and some are maintained by the FHIR
+project team, but are not part of the specification, and implementations are not required to
+conform to these, nor are they subject to the formal standards process.</span>
+</p></blockquote>
+<hr/>
 <p>
-The UML diagrams represent the Resource and Type defined in this specification in UML.
+Full blown open source implementations for FHIR, some of which use these reference implementations, are
+listed on <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7 Confluence</a>.
 </p>
 <p>
-Each type is represented as a class with a name and an ancestor class (except for <a href="types.html#Base">Base</a>, which has no ancestor).
-In addition, types may be marked as abstract, aor assigned stereotypes that describe how they used. 
-</p>
-<p>
-Classes also have a zero or 
-more attributes defined, where each attribute has the following properties:
-</p>
-<ul>
- <li><code>name</code>: the name of the attribute</li>
- <li><code>type</code>: the type of the attribute - either another type defined in the speification, or (for <a href="datatypes.html#primitive">primitive types</a>) a type from XML Schema</li>
- <li><code>[cardinality]</code>: [min..max] control over the attribute cardinality. Attributes with Max cardinality >1 (usually <code>*</code>) are ordered, though
-   the meaning of the order may not be known or defined</li>
- <li><code>« stereotypes »</code>: these provide additional detail about the element - see below</li>
-</ul>
-<p>
-In addition, classes have zero or more associations, which are always aggregations, and have the following properties:
-</p>
-<ul>
- <li><code>name</code>: the name of the association (which is the name of the element that represents it in XML/JSON)</li>
- <li><code>[cardinality]</code>: [min..max] control over the association cardinality. Associations with Max cardinality >1 (usually <code>*</code>) are ordered, though
-   the meaning of the order may not be known or defined</li>
-</ul>
-
-
-
-<svg height="200.0" width="741.9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <defs>
-    <filter id="shadow13" height="200%" width="200%" y="0" x="0">
-      <feOffset result="offOut" dx="3" dy="3" in="SourceGraphic"/>
-      <feColorMatrix result="matrixOut" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" type="matrix" in="offOut"/>
-      <feGaussianBlur result="blurOut" stdDeviation="2" in="matrixOut"/>
-      <feBlend in2="blurOut" in="SourceGraphic" mode="normal"/>
-    </filter>
-  </defs>
-  <g>
-      <rect height="64.0" style="fill:#f0f8ff;stroke:black;stroke-width:1" width="213.2" filter="url(#shadow13)" rx="4" y="0.0" ry="4" x="190.0"/>
-      <line style="stroke:dimgrey;stroke-width:1" y1="28.0" y2="28.0" x2="403.2" x1="190.0"/>
-      <text fill="black" class="diagram-class-title" y="20.0" x="296.6">
-        <a xlink:href="#uml">NameA</a>
-      </text>
-      <text fill="black" class="diagram-class-detail" y="42.0" x="196.0">
-        <a xlink:href="datatypes-definitions.html#Timing.event">
-          <title>Documentation</title>element</a> : <a xlink:href="#uml">[type]</a> [0..*]</text>
-      <text fill="black" class="diagram-class-detail" y="56.0" x="196.0">
-        <a xlink:href="datatypes-definitions.html#Timing.code">
-          <title>Documentation</title>nameB</a> : <a xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a xlink:href="#uml">
-          <title>Value Set Description (Strength=Preferred)</title>Value Set Name</a>? »</text><g>
-        <rect height="65.0" style="fill:#f0f8ff;stroke:black;stroke-width:1" width="241.89999999999998" filter="url(#shadow13)" rx="4" y="110.0" ry="4" x="200.0"/>
-        <line style="stroke:dimgrey;stroke-width:1" y1="138.0" y2="138.0" x2="441.9" x1="200.0"/>
-        <text fill="black" class="diagram-class-title" y="130.0" x="320.95">NameC</text>
-        <text fill="black" class="diagram-class-detail" y="152.0" x="206.0">
-          <a xlink:href="datatypes-definitions.html#Timing.repeat.bounds_x_">
-            <title>Documentation</title>value[x]</a> : <a xlink:href="formats.html#umlchoice">Type</a> [0..1] « <a xlink:href="#uml">Type1</a>|<a xlink:href="#uml">Type2</a>|<a xlink:href="#">Type3</a> »</text>
-        <text fill="black" class="diagram-class-detail" y="166.0" x="206.0">
-          <a xlink:href="#uml">
-            <title>Docuementation</title>reference</a> : <a xlink:href="references.html">Reference</a> [0..1] « <a xlink:href="#uml">Resource1</a>|<a xlink:href="#uml">Resource2</a> »</text>
-    </g>
-  </g>
-  <line style="stroke:navy;stroke-width:1" y1="64.0" y2="110.0" x2="307.578612716763" x1="301.1040462427746"/>
-  <polygon transform="rotate(81.98816698671709 301.1040462427746 64.0)" style="fill:navy;stroke:navy;stroke-width:1" points="301.1040462427746,64.0 307.1040462427746,68.0 313.1040462427746,64.0 307.1040462427746,60.0 301.1040462427746,64.0"/>
-  <rect height="18.0" style="fill:white;stroke:black;stroke-width:0" width="24.0" y="80.0" x="292.0"/>
-  <text fill="black" class="diagram-class-linkage" y="90.0" x="304.0">
-    <a xlink:href="datatypes-definitions.html#Timing.repeat">
-      <title>Documentation</title>nameC</a>
-  </text>
-  <text fill="black" class="diagram-class-linkage" y="106.0" x="307.578612716763">[0..1]</text>
-</svg>
-
-<p>
-The elements and the data types are hyperlinks to the formal definitions of the parts. 
-</p>
-<p>
-Note that the order of elements in XML (the only serialization where order is required to be correct)
-cannot be inferred from the UML diagram - the attributes will be in the order presented, but the 
-order in which the associations are serialized, which are interspersed with the attributes, cannotbe determined.
-</p>
-
-<a name="abstract"></a>
-<h3>Abstract Classes</h3>
-
-<p>
-Some resources and types are labeled as <code>abstract</code>. Such classes are never instantiated with being specialized.
-This is the usual meaning of an abstract class in UML. In the diagrams, a class that is abstract has the class name in <i>italics</i>.
-This class diagram includes all the abstract types:
-</p>
-
-<svg id="n96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="840" height="410">  <defs>
-    <filter id="shadow3dt" x="0" y="0" width="200%" height="200%">
-      <feOffset result="offOut" in="SourceGraphic" dx="3" dy="3" />
-      <feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
-      <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="2" />
-      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-    </filter>
-  </defs><g id="n97"><rect id="n98" x="40.0" y="0.0" rx="4" ry="4" width="31.680000000000003" height="36.0" filter="url(#shadow3dt)" style="fill:#ecffec;stroke:black;stroke-width:1"/><line id="n99" x1="40.0" y1="28.0" x2="71.68" y2="28.0" style="stroke:dimgrey;stroke-width:1"/><text id="n100" x="55.84" y="20.0" fill="black" class="diagram-class-title" style="font-style: italic"><a id="n101" xlink:href="types.html#Base">Base</a></text></g><g id="n102"><rect id="n103" x="0.0" y="60.0" rx="4" ry="4" width="123.20000000000002" height="64.0" filter="url(#shadow3dt)" style="fill:#ecffec;stroke:black;stroke-width:1"/><line id="n104" x1="0.0" y1="88.0" x2="123.20000000000002" y2="88.0" style="stroke:dimgrey;stroke-width:1"/><text id="n105" x="61.60000000000001" y="80.0" fill="black" class="diagram-class-title" style="font-style: italic"><a id="n106" xlink:href="types.html#Element">Element</a></text><text id="n107" x="6.0" y="102.0" fill="black" class="diagram-class-detail"><a id="n108" xlink:href="datatypes-definitions.html#Element.id"><title>Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces</title>id</a> : <a id="n109" xlink:href="datatypes.html#string">string</a> [0..1]</text><text id="n113" x="6.0" y="116.0" fill="black" class="diagram-class-detail"><a id="n114" xlink:href="datatypes-definitions.html#Element.extension"><title>May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension</title>extension</a> : <a id="n115" xlink:href="extensibility.html#Extension">Extension</a> [0..*]</text></g><g id="n119"><rect id="n120" x="140.0" y="160.0" rx="4" ry="4" width="158.4" height="50.0" filter="url(#shadow3dt)" style="fill:#ecffec;stroke:black;stroke-width:1"/><line id="n121" x1="140.0" y1="188.0" x2="298.4" y2="188.0" style="stroke:dimgrey;stroke-width:1"/><text id="n122" x="219.2" y="180.0" fill="black" class="diagram-class-title" style="font-style: italic"><a id="n123" xlink:href="types.html#BackboneElement">BackboneElement</a></text><text id="n124" x="146.0" y="202.0" fill="black" class="diagram-class-detail"><a id="n125" xlink:href="datatypes-definitions.html#BackboneElement.modifierExtension"><title>May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
-
-Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself) (this element modifies the meaning of other elements)</title>modifierExtension</a> : <a id="n126" xlink:href="extensibility.html#Extension">Extension</a> [0..*]</text></g><g id="n130"><rect id="n131" x="20.0" y="170.0" rx="4" ry="4" width="63.36000000000001" height="36.0" filter="url(#shadow3dt)" style="fill:#ecffec;stroke:black;stroke-width:1"/><line id="n132" x1="20.0" y1="198.0" x2="83.36000000000001" y2="198.0" style="stroke:dimgrey;stroke-width:1"/><text id="n133" x="51.68000000000001" y="190.0" fill="black" class="diagram-class-title" style="font-style: italic"><a id="n134" xlink:href="types.html#DataType">DataType</a></text></g><g id="n135"><rect id="n136" x="135.0" y="10.0" rx="4" ry="4" width="184.8" height="92.0" filter="url(#shadow3dt)" style="fill:#ecffec;stroke:black;stroke-width:1"/><line id="n137" x1="135.0" y1="38.0" x2="319.8" y2="38.0" style="stroke:dimgrey;stroke-width:1"/><text id="n138" x="227.4" y="30.0" fill="black" class="diagram-class-title" style="font-style: italic"><a id="n139" xlink:href="resource.html#Resource">Resource</a></text><text id="n140" x="141.0" y="52.0" fill="black" class="diagram-class-detail"><a id="n141" xlink:href="resource-definitions.html#Resource.id"><title>The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes</title>id</a> : <a id="n142" xlink:href="datatypes.html#id">id</a> [0..1]</text><text id="n146" x="141.0" y="66.0" fill="black" class="diagram-class-detail"><a id="n147" xlink:href="resource-definitions.html#Resource.meta"><title>The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource</title>meta</a> : <a id="n148" xlink:href="resource.html#Meta">Meta</a> [0..1]</text><text id="n152" x="141.0" y="80.0" fill="black" class="diagram-class-detail"><a id="n153" xlink:href="resource-definitions.html#Resource.implicitRules"><title>A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc (this element modifies the meaning of other elements)</title>implicitRules</a> : <a id="n154" xlink:href="datatypes.html#uri">uri</a> [0..1]</text><text id="n158" x="141.0" y="94.0" fill="black" class="diagram-class-detail"><a id="n159" xlink:href="resource-definitions.html#Resource.language"><title>The base language in which the resource is written</title>language</a> : <a id="n160" xlink:href="datatypes.html#code">code</a> [0..1] &#xAB; <a id="n161" xlink:href="valueset-languages.html"><title>A human language. (Strength=Preferred)</title>CommonLanguages</a>? &#xBB;</text></g><g id="n166"><rect id="n167" x="360.0" y="20.0" rx="4" ry="4" width="158.4" height="92.0" filter="url(#shadow3dt)" style="fill:#ecffec;stroke:black;stroke-width:1"/><line id="n168" x1="360.0" y1="48.0" x2="518.4" y2="48.0" style="stroke:dimgrey;stroke-width:1"/><text id="n169" x="439.2" y="40.0" fill="black" class="diagram-class-title" style="font-style: italic"><a id="n170" xlink:href="domainresource.html#DomainResource">DomainResource</a></text><text id="n171" x="366.0" y="62.0" fill="black" class="diagram-class-detail"><a id="n172" xlink:href="domainresource-definitions.html#DomainResource.text"><title>A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety</title>text</a> : <a id="n173" xlink:href="narrative.html#Narrative">Narrative</a> [0..1]</text><text id="n177" x="366.0" y="76.0" fill="black" class="diagram-class-detail"><a id="n178" xlink:href="domainresource-definitions.html#DomainResource.contained"><title>These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope</title>contained</a> : <a id="n179" xlink:href="resource.html#Resource">Resource</a> [0..*]</text><text id="n183" x="366.0" y="90.0" fill="black" class="diagram-class-detail"><a id="n184" xlink:href="domainresource-definitions.html#DomainResource.extension"><title>May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension</title>extension</a> : <a id="n185" xlink:href="extensibility.html#Extension">Extension</a> [0..*]</text><text id="n189" x="366.0" y="104.0" fill="black" class="diagram-class-detail"><a id="n190" xlink:href="domainresource-definitions.html#DomainResource.modifierExtension"><title>May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
-
-Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself) (this element modifies the meaning of other elements)</title>modifierExtension</a> : <a id="n191" xlink:href="extensibility.html#Extension">Extension</a> [0..*]</text></g><g id="n195"><rect id="n196" x="0.0" y="260.0" rx="4" ry="4" width="102.96000000000001" height="36.0" filter="url(#shadow3dt)" style="fill:#ecffec;stroke:black;stroke-width:1"/><line id="n197" x1="0.0" y1="288.0" x2="102.96000000000001" y2="288.0" style="stroke:dimgrey;stroke-width:1"/><text id="n198" x="51.480000000000004" y="280.0" fill="black" class="diagram-class-title" style="font-style: italic"><a id="n199" xlink:href="datatypes.html#PrimitiveType">PrimitiveType</a></text></g><g id="n200"><rect id="n201" x="140.0" y="250.0" rx="4" ry="4" width="158.4" height="50.0" filter="url(#shadow3dt)" style="fill:#ecffec;stroke:black;stroke-width:1"/><line id="n202" x1="140.0" y1="278.0" x2="298.4" y2="278.0" style="stroke:dimgrey;stroke-width:1"/><text id="n203" x="219.2" y="270.0" fill="black" class="diagram-class-title" style="font-style: italic"><a id="n204" xlink:href="datatypes.html#BackboneType">BackboneType</a></text><text id="n205" x="146.0" y="292.0" fill="black" class="diagram-class-detail"><a id="n206" xlink:href="datatypes-definitions.html#BackboneType.modifierExtension"><title>May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element&#39;s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
-
-Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself) (this element modifies the meaning of other elements)</title>modifierExtension</a> : <a id="n207" xlink:href="extensibility.html#Extension">Extension</a> [0..*]</text></g><g id="n211"><rect id="n212" x="560.0" y="30.0" rx="4" ry="4" width="277.20000000000005" height="246.0" filter="url(#shadow3dt)" style="fill:#ecffec;stroke:black;stroke-width:1"/><line id="n213" x1="560.0" y1="58.0" x2="837.2" y2="58.0" style="stroke:dimgrey;stroke-width:1"/><text id="n214" x="698.6" y="50.0" fill="black" class="diagram-class-title" style="font-style: italic"><a id="n215" xlink:href="canonicalresource.html#CanonicalResource">CanonicalResource</a> <a xlink:href="uml.html#interface">&#xAB;Interface&#xBB;</a></text><text id="n216" x="566.0" y="72.0" fill="black" class="diagram-class-detail"><a id="n217" xlink:href="canonicalresource-definitions.html#CanonicalResource.url"><title>An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this {{title}} is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the {{title}} is stored on different servers</title>url</a> : <a id="n218" xlink:href="datatypes.html#uri">uri</a> [0..1]</text><text id="n222" x="566.0" y="86.0" fill="black" class="diagram-class-detail"><a id="n223" xlink:href="canonicalresource-definitions.html#CanonicalResource.identifier"><title>A formal identifier that is used to identify this {{title}} when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a id="n224" xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text><text id="n228" x="566.0" y="100.0" fill="black" class="diagram-class-detail"><a id="n229" xlink:href="canonicalresource-definitions.html#CanonicalResource.version"><title>The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a id="n230" xlink:href="datatypes.html#string">string</a> [0..1]</text><text id="n234" x="566.0" y="114.0" fill="black" class="diagram-class-detail"><a id="n235" xlink:href="canonicalresource-definitions.html#CanonicalResource.name"><title>A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a id="n236" xlink:href="datatypes.html#string">string</a> [0..1]</text><text id="n240" x="566.0" y="128.0" fill="black" class="diagram-class-detail"><a id="n241" xlink:href="canonicalresource-definitions.html#CanonicalResource.title"><title>A short, descriptive, user-friendly title for the {{title}}</title>title</a> : <a id="n242" xlink:href="datatypes.html#string">string</a> [0..1]</text><text id="n246" x="566.0" y="142.0" fill="black" class="diagram-class-detail"><a id="n247" xlink:href="canonicalresource-definitions.html#CanonicalResource.status"><title>The status of this {{title}}. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a id="n248" xlink:href="datatypes.html#code">code</a> [1..1] &#xAB; <a id="n249" xlink:href="valueset-publication-status.html"><title id="n250">The lifecycle status of an artifact. (Strength=Required)</title>PublicationStatus</a>! &#xBB;</text><text id="n256" x="566.0" y="156.0" fill="black" class="diagram-class-detail"><a id="n257" xlink:href="canonicalresource-definitions.html#CanonicalResource.experimental"><title>A Boolean value to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a id="n258" xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text><text id="n262" x="566.0" y="170.0" fill="black" class="diagram-class-detail"><a id="n263" xlink:href="canonicalresource-definitions.html#CanonicalResource.date"><title>The date  (and optionally time) when the {{title}} was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the {{title}} changes</title>date</a> : <a id="n264" xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text><text id="n268" x="566.0" y="184.0" fill="black" class="diagram-class-detail"><a id="n269" xlink:href="canonicalresource-definitions.html#CanonicalResource.publisher"><title>The name of the organization or individual that published the {{title}}</title>publisher</a> : <a id="n270" xlink:href="datatypes.html#string">string</a> [0..1]</text><text id="n274" x="566.0" y="198.0" fill="black" class="diagram-class-detail"><a id="n275" xlink:href="canonicalresource-definitions.html#CanonicalResource.contact"><title>Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a id="n276" xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text><text id="n280" x="566.0" y="212.0" fill="black" class="diagram-class-detail"><a id="n281" xlink:href="canonicalresource-definitions.html#CanonicalResource.description"><title>A free text natural language description of the {{title}} from a consumer&#39;s perspective</title>description</a> : <a id="n282" xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text><text id="n286" x="566.0" y="226.0" fill="black" class="diagram-class-detail"><a id="n287" xlink:href="canonicalresource-definitions.html#CanonicalResource.useContext"><title>The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate {{title}} instances</title>useContext</a> : <a id="n288" xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text><text id="n292" x="566.0" y="240.0" fill="black" class="diagram-class-detail"><a id="n293" xlink:href="canonicalresource-definitions.html#CanonicalResource.jurisdiction"><title>A legal or geographic region in which the {{title}} is intended to be used</title>jurisdiction</a> : <a id="n294" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] &#xAB; <a id="n295" xlink:href="valueset-jurisdiction.html"><title id="n296">Countries and regions within which this artifact is targeted for use. (Strength=Extensible)</title>Jurisdiction ValueSet</a>+ &#xBB;</text><text id="n302" x="566.0" y="254.0" fill="black" class="diagram-class-detail"><a id="n303" xlink:href="canonicalresource-definitions.html#CanonicalResource.purpose"><title>Explanation of why this {{title}} is needed and why it has been designed as it has</title>purpose</a> : <a id="n304" xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text><text id="n308" x="566.0" y="268.0" fill="black" class="diagram-class-detail"><a id="n309" xlink:href="canonicalresource-definitions.html#CanonicalResource.copyright"><title>A copyright statement relating to the {{title}} and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the {{title}}</title>copyright</a> : <a id="n310" xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text></g><g id="n314"><rect id="n315" x="315.0" y="200.0" rx="4" ry="4" width="221.76000000000005" height="78.0" filter="url(#shadow3dt)" style="fill:#ecffec;stroke:black;stroke-width:1"/><line id="n316" x1="315.0" y1="228.0" x2="536.76" y2="228.0" style="stroke:dimgrey;stroke-width:1"/><text id="n317" x="425.88" y="220.0" fill="black" class="diagram-class-title" style="font-style: italic"><a id="n318" xlink:href="metadataresource.html#MetadataResource">MetadataResource</a> <a xlink:href="uml.html#interface">&#xAB;Interface&#xBB;</a></text><text id="n319" x="321.0" y="242.0" fill="black" class="diagram-class-detail"><a id="n320" xlink:href="metadataresource-definitions.html#MetadataResource.approvalDate"><title>The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a id="n321" xlink:href="datatypes.html#date">date</a> [0..1]</text><text id="n325" x="321.0" y="256.0" fill="black" class="diagram-class-detail"><a id="n326" xlink:href="metadataresource-definitions.html#MetadataResource.lastReviewDate"><title>The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a id="n327" xlink:href="datatypes.html#date">date</a> [0..1]</text><text id="n331" x="321.0" y="270.0" fill="black" class="diagram-class-detail"><a id="n332" xlink:href="metadataresource-definitions.html#MetadataResource.effectivePeriod"><title>The period during which the {{title}} content was or is planned to be in active use</title>effectivePeriod</a> : <a id="n333" xlink:href="datatypes.html#Period">Period</a> [0..1]</text></g><line id="n337" x1="57.24108108108109" y1="36.0" x2="59.1091891891892" y2="60.0" style="stroke:navy;stroke-width:1"/><polygon id="n338" points="57.24108108108109,36.0 65.24108108108109,42.0 65.24108108108109,30.0 57.24108108108109,36.0" style="fill:white;stroke:navy;stroke-width:1" transform="rotate(85.54919466972677 57.24108108108109 36.0)"/><line id="n339" x1="115.82795698924731" y1="124.0" x2="176.83440860215057" y2="160.00000000000003" style="stroke:navy;stroke-width:1"/><polygon id="n340" points="115.82795698924731,124.0 123.82795698924731,130.0 123.82795698924731,118.0 115.82795698924731,124.0" style="fill:white;stroke:navy;stroke-width:1" transform="rotate(30.544919493962944 115.82795698924731 124.0)"/><line id="n341" x1="58.293333333333344" y1="124.0" x2="53.540000000000006" y2="170.0" style="stroke:navy;stroke-width:1"/><polygon id="n342" points="58.293333333333344,124.0 66.29333333333335,130.0 66.29333333333335,118.0 58.293333333333344,124.0" style="fill:white;stroke:navy;stroke-width:1" transform="rotate(95.8996250465277 58.293333333333344 124.0)"/><line id="n343" x1="71.68" y1="21.5085101422243" x2="135.0" y2="35.53369083702495" style="stroke:navy;stroke-width:1"/><polygon id="n344" points="71.68,21.5085101422243 79.68,27.5085101422243 79.68,15.5085101422243 71.68,21.5085101422243" style="fill:white;stroke:navy;stroke-width:1" transform="rotate(12.489196796562283 71.68 21.5085101422243)"/><line id="n345" x1="319.8" y1="60.362606232294624" x2="360.0" y2="62.260623229461764" style="stroke:navy;stroke-width:1"/><polygon id="n346" points="319.8,60.362606232294624 327.8,66.36260623229462 327.8,54.362606232294624 319.8,60.362606232294624" style="fill:white;stroke:navy;stroke-width:1" transform="rotate(2.703175725944825 319.8 60.362606232294624)"/><line id="n347" x1="51.64" y1="206.0" x2="51.52" y2="260.0" style="stroke:navy;stroke-width:1"/><polygon id="n348" points="51.64,206.0 59.64,212.0 59.64,200.0 51.64,206.0" style="fill:white;stroke:navy;stroke-width:1" transform="rotate(90.12732374488739 51.64 206.0)"/><line id="n349" x1="83.36000000000001" y1="204.45272206303727" x2="171.06206896551726" y2="250.00000000000003" style="stroke:navy;stroke-width:1"/><polygon id="n350" points="83.36000000000001,204.45272206303727 91.36000000000001,210.45272206303727 91.36000000000001,198.45272206303727 83.36000000000001,204.45272206303727" style="fill:white;stroke:navy;stroke-width:1" transform="rotate(27.44470116241865 83.36000000000001 204.45272206303727)"/><line id="n351" x1="518.4" y1="92.56283731688511" x2="560.0" y2="106.51503469545104" style="stroke:navy;stroke-width:1"/><polygon id="n352" points="518.4,92.56283731688511 526.4,98.56283731688511 526.4,86.56283731688511 518.4,92.56283731688511" style="fill:white;stroke:navy;stroke-width:1" transform="rotate(18.54090483623483 518.4 92.56283731688511)"/><line id="n353" x1="560.0" y1="196.70636550308" x2="536.76" y2="204.03490759753586" style="stroke:navy;stroke-width:1"/><polygon id="n354" points="560.0,196.70636550308 568.0,202.70636550308 568.0,190.70636550308 560.0,196.70636550308" style="fill:white;stroke:navy;stroke-width:1" transform="rotate(162.49776150811044 560.0 196.70636550308)"/></svg>
-
-
-<a name="stereotypes"></a>
-<h2>Stereotypes - Class</h2>
-
-This specification uses a number of stereotypes to further define the types and resources. 
-The following stereotypes are used on classes.
-
-<a name="interface"></a>
-<a name="interfaces"></a>
-<h3>Interface</h3>
-
-<p>
-Some of the abstract types are labeled with the stereotype <code>«Interface»</code>. This indicates that in addition 
-to being abstract, the definitions associated with the class have no implementation. As such: 
-</p>
-<ul>
-  <li>There is no implementation of the interface described by the definition</li>
-  <li>Any classes the implement the interface redeclare any attributes and associations that are on the interface, and gives them an order</li>
-  <li>Such re-declarations will be consistent with the interface but may be a subset of the value domain e.g. the cardinality of an attribute may be 0..* on the interface, and 0..1 on a particular resource</li>
-  <li>Since the interface supports both read and write, the interface is described using attributes not operations</li>
-  <li>The interface resources also define search parameters, invariants and other information about the resources that are all inherited by the resources the implement these interfaces</li>
-</ul>
-
-<p>
-Notes for implementers:
-</p>
-<ul>
-  <li>The interfaces are declared as part of a single hierarchy. This specification itself does not define any multiple inheritance</li>
-  <li>Some reference implementations may wish to represent the interfaces as classes internally - the best way to handle this depends on language features</li>
-</ul>
-
-<a name="abstract"></a>
-<h2>Abstract Classes</h2>
-<p>
-Todo: document
-</p>
-
-
-
-
-The UML diagrams also show the
-vocabulary bindings.  These are hyperlinks to the value set details.
-</p>
-<a name="umlchoice"></a>
-<p>
-Note: The actual order of the elements in XML cannot be determined from the diagram, nor whether a UML property becomes an element or an attribute in the XML representation.
-</p>
-<a name="binding"></a>
-<p>
-Bindings to value sets are indicated by a stereotype on the element. The stereotype has 2 parts: the value
-set name, and a symbol that denotes the strength of the binding:
-</p>
-<ul>
- <li>??: <a href="terminologies.html#example">Example</a> Binding</li>
- <li>?: <a href="terminologies.html#example">Preferred</a> Binding</li>
- <li>+: <a href="terminologies.html#example">Extensible</a> Binding</li>
- <li>!: <a href="terminologies.html#example">Required</a> Binding</li>
-</ul>
-
-<a name="stereotypes"></a>
-<h2>Abstract Classes</h2>
-
-
-<a name="abstract"></a>
-<h2>Abstract Classes</h2>
-<p>
-Todo: document
-</p>
-
-<a name="interface"></a>
-<a name="interfaces"></a>
-<h2>Interface Resources</h2>
-
-<p>
-Todo: document
+It is not necessary to use these particular implementations in order to be conformant. Any other approach
+may be used, including code generated from the schemas.
 </p>
 
 </div>
@@ -322,7 +335,7 @@ Todo: document
 		<div class="container"><!-- container -->
 			<div class="inner-wrapper">
 				<p>
-        FHIR &reg;© HL7.org 2011+. FHIR CI Build hl7.fhir.core#4.1.0 (GitHub 110e89ae9b) generated on Thu, Dec 19, 2019 18:10+1100. 
+        FHIR &reg;© HL7.org 2011+. FHIR CI Build hl7.fhir.core#4.2.0 (GitHub 7c0dbc2821) generated on Sun, Jan 12, 2020 07:53+1100. 
         <br/>
         <span style="color: #FFFF77">
         Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search</a> | 
@@ -330,7 +343,7 @@ Todo: document
                <a style="color: #b8dcf9" href="toc.html">Table of Contents</a> | 
                <a style="color: #ffffff" href="qa.html">QA Page</a> |
 <!--                <a style="color: #b8dcf9" href="credits.html">Credits</a> | -->
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Fuml.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fuml.html">Compare to R4</a> |                
+               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Fdownloads.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fdownloads.html">Compare to R4</a> |                
                <a style="color: #b8dcf9" rel="license" href="license.html"><img src="cc0.png" style="border-style: none;" alt="CC0"/></a> | 
                <a style="color: #b8dcf9" target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a>   
         </span>
