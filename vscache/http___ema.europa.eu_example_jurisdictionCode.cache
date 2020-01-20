@@ -29,3 +29,13 @@ v: {
   "error" : "The code system \"http://ema.europa.eu/example/jurisdictionCode\" is not known (encountered paired with code = \"EU\"); The code provided (http://ema.europa.eu/example/jurisdictionCode#EU) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/jurisdictionCode",
+  "code" : "EU"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://ema.europa.eu/example/jurisdictionCode\" is not known (encountered paired with code = \"EU\"); The code provided (http://ema.europa.eu/example/jurisdictionCode#EU) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

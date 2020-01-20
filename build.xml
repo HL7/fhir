@@ -55,7 +55,7 @@
   <target name="download-ivy" unless="offline">
     <mkdir dir="${ivy.jar.dir}"/>
     <echo message="installing ivy..."/>
-    <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar"
+    <get src="https://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar"
       dest="${ivy.jar.file}" usetimestamp="true"/>
   </target>
 

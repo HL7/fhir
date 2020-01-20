@@ -2529,3 +2529,13 @@ v: {
   "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known (encountered paired with code = \"17.000\"); The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#17.000) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.2.4.15.111",
+  "code" : "01.000"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.2.4.15.111\" is not known (encountered paired with code = \"01.000\"); The code provided (urn:oid:2.16.840.1.113883.2.4.15.111#01.000) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

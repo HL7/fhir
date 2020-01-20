@@ -332,7 +332,9 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     new DefinitionsUsageTracker(definitions).updateUsage(e);
     validator.validate(null, errorsInt, e);
     if (profile != null) {
-      validator.validate(null, errorsInt, e, profile);
+      List<StructureDefinition> list = new ArrayList<StructureDefinition>();
+      list.add(profile);
+      validator.validate(null, errorsInt, e, list);
     }
     return e;
   }

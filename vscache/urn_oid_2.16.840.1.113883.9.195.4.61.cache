@@ -193,3 +193,13 @@ v: {
   "error" : "The code system \"urn:oid:2.16.840.1.113883.9.195.4.61\" is not known (encountered paired with code = \"RSLT\"); The code provided (urn:oid:2.16.840.1.113883.9.195.4.61#RSLT) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:2.16.840.1.113883.9.195.4.61",
+  "code" : "RSLT"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"urn:oid:2.16.840.1.113883.9.195.4.61\" is not known (encountered paired with code = \"RSLT\"); The code provided (urn:oid:2.16.840.1.113883.9.195.4.61#RSLT) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

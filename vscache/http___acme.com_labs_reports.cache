@@ -154,3 +154,13 @@ v: {
   "error" : "The code system \"http://acme.com/labs/reports\" is not known (encountered paired with code = \"GHP\"); The code provided (http://acme.com/labs/reports#GHP) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.com/labs/reports",
+  "code" : "GHP"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://acme.com/labs/reports\" is not known (encountered paired with code = \"GHP\"); The code provided (http://acme.com/labs/reports#GHP) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
