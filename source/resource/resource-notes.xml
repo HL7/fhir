@@ -7,7 +7,7 @@
 There are two different ways to identify a resource:
 </p>
 <ul>
- <li>By a "Location" URL that identifies where is can be accessed (based on the "Logical ID"). This location will be change as it is copied/moved around</li>
+ <li>By a "Location" URL that identifies where it can be accessed (based on the "Logical ID"). This location will be change as it is copied/moved around</li>
  <li>By some inherent identifier ("Business Identifier" or "Canonical URL") that is part of the resource and remains fixed as it is copied/moved around</li>
 </ul>
 
