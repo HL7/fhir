@@ -667,12 +667,18 @@
 	<item id="NutritionIntake">
 		<translation lang="en">NutritionIntake</translation>
 	</item>
-        <item id="NutritionOrder">
-                <translation lang="en">NutritionOrder</translation>
-                <translation lang="fr">OrdreNutrition</translation>
-                <translation lang="es">OrdenNutrición</translation>
-                <translation lang="zh">营养医嘱</translation>
-        </item>
+	<item id="NutritionOrder">
+			<translation lang="en">NutritionOrder</translation>
+			<translation lang="fr">OrdreNutrition</translation>
+			<translation lang="es">OrdenNutrición</translation>
+			<translation lang="zh">营养医嘱</translation>
+	</item>
+	<item id="NutritionProduct">
+			<translation lang="en">NutritionProduct</translation>
+			<translation lang="fr">ProduitNutritionnel</translation>
+			<translation lang="es">ProductoNutricional</translation>
+	</item>
+
 	<item id="Observation">
 		<translation lang="en">Observation</translation>
 		<translation lang="zh">观察</translation>
