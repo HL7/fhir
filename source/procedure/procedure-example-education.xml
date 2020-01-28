@@ -38,7 +38,9 @@
   <location>
     <display value="Southside Community Health Center"/>
   </location>    
-  <reasonCode>
+  <reason>
+    <concept>
       <text value="early detection of breast mass"/>
-  </reasonCode>  
+    </concept>
+  </reason>
 </Procedure>

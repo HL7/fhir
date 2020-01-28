@@ -49,6 +49,9 @@ public class FolderManager {
   public FolderManager(String root, String outputdir) throws IOException {
     super();
     sl = File.separatorChar;
+    if (!new File(root).exists()) {
+      throw new IOException("Folder '"+root+"' not found");
+    }
     rootDir = root+sl;
     srcDir = root+sl+"source"+sl;
     sndBoxDir = root+sl+"sandbox"+sl;
@@ -58,6 +61,9 @@ public class FolderManager {
     xsdDir = root+sl+"schema"+sl;
     tmpResDir = xsdDir+"datatypes"+sl;
     tmpDir = root+sl+"temp"+sl;
+    if (!new File(root+sl+"temp").exists()) {
+      Utilities.createDirectory(root+sl+"temp");
+    }
     if (outputdir == null)
       dstDir = root+sl+"publish"+sl;
     else

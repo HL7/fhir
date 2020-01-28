@@ -34,9 +34,11 @@
             <display value="P. Voigt"/>
         </actor>
     </performer>
-	<reasonCode>
-      <text value="Heart valve disorder"/>
-    </reasonCode>
+	<reason>
+       <concept>
+         <text value="Heart valve disorder"/>
+       </concept>
+    </reason>
     <bodySite>
             <coding>
                 <system value="http://snomed.info/sct"/>

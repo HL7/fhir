@@ -56,8 +56,8 @@ import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.context.IWorkerContext;
-import org.hl7.fhir.r5.context.MetadataResourceManager;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
@@ -66,7 +66,6 @@ import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r5.utils.Translations;
 import org.hl7.fhir.r5.validation.BaseValidator;
-import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -105,7 +104,7 @@ public class ResourceValidator extends BaseValidator {
   private final Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
   private final Map<String, SearchParameterGroup> spgroups = new HashMap<String, SearchParameterGroup>();
   private Translations translations;
-  private final MetadataResourceManager<CodeSystem> codeSystems;
+  private final CanonicalResourceManager<CodeSystem> codeSystems;
   private SpellChecker speller;
   private int maxElementLength;
   private List<FHIRPathUsage> fpUsages;
@@ -115,7 +114,7 @@ public class ResourceValidator extends BaseValidator {
   
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
-	public ResourceValidator(Definitions definitions, Translations translations, MetadataResourceManager<CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages, List<String> suppressedMessages, IWorkerContext context) throws IOException {
+	public ResourceValidator(Definitions definitions, Translations translations, CanonicalResourceManager<CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages, List<String> suppressedMessages, IWorkerContext context) throws IOException {
 		super();
 		source = Source.ResourceValidator;
 		this.definitions = definitions;
@@ -318,7 +317,44 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, IssueType.STRUCTURE, rd.getName(), vsWarnings == 0 || "0".equals(rd.getFmmLevel()), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have an FMM level >1 ("+rd.getFmmLevel()+") if it has linked value set warnings ("+vsWarns.toString()+")");
     ok = hints == 0 || Integer.parseInt(rd.getFmmLevel()) < 3;
     rule(errors, IssueType.STRUCTURE, rd.getName(), ok, "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have an FMM level >2 ("+rd.getFmmLevel()+") if it has informational hints");
+    
+//    if (isInterface(rd.getRoot().typeCode())) {
+//      checkInterface(errors, rd, definitions.getBaseResources().get(rd.getRoot().typeCode()));
+//    }
 	}
+
+  private int checkInterface(List<ValidationMessage> errors, ResourceDefn self, ResourceDefn iface) {
+    int lastIndex = -1;
+    if (isInterface(iface.getRoot().typeCode())) {
+      lastIndex = checkInterface(errors, self, definitions.getBaseResources().get(iface.getRoot().typeCode()));
+    }
+    for (ElementDefn ei : iface.getRoot().getElements()) {
+      ElementDefn es = null;
+      for (ElementDefn t : self.getRoot().getElements()) {
+        if (ei.getName().equals(t.getName())) {
+          es = t;
+        }
+      }
+      List<String> path = new ArrayList<>();
+      path.add(self.getName());
+      if (rule(errors, IssueType.BUSINESSRULE, path, es != null, "[ic]: No definition for element '"+ei.getName()+" defined in "+iface.getName())) {
+        int index = self.getRoot().getElements().indexOf(es);
+        path.add(ei.getName());
+        rule(errors, IssueType.BUSINESSRULE, path, ei.getMinCardinality() <= es.getMinCardinality(), "[ic]: Min cardinality for "+self.getName()+"."+ei.getName()+" is "+es.getMinCardinality()+" but interface has "+ei.getMinCardinality());
+        rule(errors, IssueType.BUSINESSRULE, path, ei.getMaxCardinality() >= es.getMaxCardinality(), "[ic]: Max cardinality for "+self.getName()+"."+ei.getName()+" is "+es.getMaxCardinality()+" but interface has "+ei.getMaxCardinality());
+        for (TypeRef t : es.getTypes()) {
+          rule(errors, IssueType.BUSINESSRULE, path, ei.hasType(t.getName()), "[ic]: The type "+t.getName()+" is not valid in the interface");
+        }
+        rule(errors, IssueType.BUSINESSRULE, path, lastIndex < index, "[ic]: Out of order "+self.getName()+"."+ei.getName()+" ("+lastIndex+" / "+index);
+        lastIndex = index;
+      }
+    }
+    return lastIndex;
+  }
+
+  private boolean isInterface(String typeCode) {
+    return definitions.getBaseResources().containsKey(typeCode) && definitions.getBaseResources().get(typeCode).isInterface();
+  }
 
   public void checkSearchParams(List<ValidationMessage> errors, ResourceDefn rd) {
     for (org.hl7.fhir.definitions.model.SearchParameterDefn p : rd.getSearchParams().values()) {
@@ -629,6 +665,7 @@ public class ResourceValidator extends BaseValidator {
 //  	  else
 //  	    typeCounter.put(t.getName(), typeCounter.get(t.getName())+1);
 //	  }
+	  checkForCodeableReferenceCandidates(e, path);
 	  e.setPath(path);
 	  int vsWarnings = 0;
 	  if (!names.containsKey(e.getName()))
@@ -819,7 +856,62 @@ public class ResourceValidator extends BaseValidator {
 		return vsWarnings;
 	}
 
-	private boolean startsWithType(String sd) {
+	private void checkForCodeableReferenceCandidates(ElementDefn e, String path) {
+    List<ElementDefn> ccs = new ArrayList();
+    List<ElementDefn> refs = new ArrayList();
+
+    for (ElementDefn c : e.getElements()) {
+      if (c.getMaxCardinality() > 1) {
+        for (TypeRef tr : c.getTypes()) {
+          if (tr.getName().equals("CodeableConcept")) {
+            ccs.add(c);
+          }
+          if (tr.getName().equals("Reference")) {
+            refs.add(c);
+          }
+        }
+      }
+    }
+    if (ccs.size() > 0 && refs.size() > 0) {
+      List<String> m = new ArrayList<String>();
+      for (ElementDefn ecc : ccs) {
+        for (ElementDefn eref : refs) {
+          if (ecc == eref) {
+            if (ecc.getTypes().size() == 2) {
+              m.add(path+"."+ecc.getName());
+            }
+          } else if (!"".equals(firstWord(ecc.getName())) && firstWord(ecc.getName()).equals(firstWord(eref.getName()))) {
+            m.add(path+"."+firstWord(ecc.getName()));
+          }
+        }
+      }
+      for (String s : m) {
+        System.out.println("Candidate for CodeableReference: "+m);
+      }
+    }
+  }
+
+  private String firstWord(String words) { 
+    int t = -1;
+    for (int i = 0; i < words.length(); i++) {
+      if (Character.isUpperCase(words.charAt(i)) || words.charAt(i) == '[') {
+        t = i;
+        break;
+      }
+    }
+    return t < 1 ? "" : words.substring(0, t);
+  }
+
+  private int commonLeftHand(String scc, String sref) {
+    for (int i = 0; i < Integer.min(scc.length(), sref.length()); i++) {
+      if (scc.charAt(i) != sref.charAt(i)) {
+        return i;
+      }
+    }
+    return Integer.min(scc.length(), sref.length());
+  }
+
+  private boolean startsWithType(String sd) {
     for (String t : definitions.getPrimitives().keySet())
       if (sd.startsWith(t))
         return true;

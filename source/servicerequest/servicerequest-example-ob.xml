@@ -30,7 +30,9 @@
 	<performer>
 		<display value="Martha Midwife, RNP"/>
 	</performer>
-	<reasonCode>
-		<text value="term pregnancy, active labor"/>
-	</reasonCode>
+	<reason>
+    <concept>
+  		<text value="term pregnancy, active labor"/>
+    </concept>
+	</reason>
 </ServiceRequest>

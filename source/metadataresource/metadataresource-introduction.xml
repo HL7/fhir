@@ -5,16 +5,11 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The MetadataResource serves as the base type for resources that carry publication metadata:
+The MetadataResource represents resources that carry additional publication metadata over other canonical resources, describing their review and use in more details.
 </p>
-<ul>
- <li>They have a canonical URL (note: all resources with a canonical URL are specializations of this type)</li>
- <li>They have version, status, and data properties to help manage their publication</li>
- <li>They carry metadata about their use, including copyright information</li>
-</ul>
 
 <p>
-As an abstract resource, this resource is never created directly; instead, one of its descendant resources (<a href="resourcelist.html">see List of Resources</a>) is created.
+As an interface, this type is never created directly - see <a href="uml.html#interfaces">Resource Interfaces</a> for more details.
 </p>
 
 </div>
@@ -24,11 +19,11 @@ As an abstract resource, this resource is never created directly; instead, one o
 <h2>Boundaries and Relationships</h2>
 
 <p>
-This resource extends the base <a href="domainresource.html">DomainResource</a>. The following resources 
-specialize this type:
+This resource interface extends the <a href="canonicalresource.html">CanonicalResource</a> interface. The following resources 
+implement this interface:
 </p>
 
-[%canonical-resources%]
+[%metadata-resources%]
 
 </div>
 

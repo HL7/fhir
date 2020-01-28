@@ -49,9 +49,11 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 	    </coding>
 	    <text value='Nurse'/>
 	</performerType>
-	<reasonCode>
-		<text value="Check for Peanut Allergy"/>
-	</reasonCode>
+	<reason>
+    <concept>
+  		<text value="Check for Peanut Allergy"/>
+    </concept>
+	</reason>
 	<bodySite>
 			<coding>
 					<display value='Right arm'/>

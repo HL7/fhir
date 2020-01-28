@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Subscription xmlns="http://hl7.org/fhir">
+	<id value="admission"/>
+	<name value="AdmissionExample"/>
+	<status value="active"/>
+  <topic>
+		<reference value="SubscriptionTopic/admission"/>
+	</topic>
+	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
+	<filterBy>
+		<searchParamName vlaue="patient"/>
+		<value value="Patient/123"/>
+	</filterBy>
+	<channel>
+		<type value="rest-hook"/>
+	</channel>
+</Subscription>

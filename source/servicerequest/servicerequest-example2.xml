@@ -132,9 +132,11 @@
 			<display value="Dr Adam Careful"/>
 	</requester>
 	<!-- demonstrating in this example the reason reference element using a contained resource for the purpose of this example only typically would reference an external resource-->
-	<reasonReference>
-		<reference value="#cystic-fibrosis"/>
-	</reasonReference>
+	<reason>
+ 		<reference>
+      <reference value="#cystic-fibrosis"/>
+    </reference>
+	</reason>
 	<!-- demonstrating in this example the relevant history element using a contained resource for the purpose of this example only typically would reference an external resource-->
 	<relevantHistory>
 		<reference value="#signature"/>

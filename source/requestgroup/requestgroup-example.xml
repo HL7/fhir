@@ -51,9 +51,11 @@
   <author>
     <reference value="Practitioner/1"/>
   </author>
-  <reasonCode>
-    <text value="Treatment"/>
-  </reasonCode>
+  <reason>
+    <concept>
+      <text value="Treatment"/>
+    </concept>
+  </reason>
   <note>
     <text value="Additional notes about the request group"/>
   </note>

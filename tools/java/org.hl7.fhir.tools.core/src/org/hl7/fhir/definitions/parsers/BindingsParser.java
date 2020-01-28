@@ -34,21 +34,20 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
-import org.hl7.fhir.r5.model.Constants;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
-import org.hl7.fhir.r5.context.MetadataResourceManager;
+import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.formats.IParser;
 import org.hl7.fhir.r5.formats.JsonParser;
 import org.hl7.fhir.r5.formats.XmlParser;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeType;
 import org.hl7.fhir.r5.model.ConceptMap;
+import org.hl7.fhir.r5.model.Constants;
 import org.hl7.fhir.r5.model.DateTimeType;
 import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
@@ -69,12 +68,12 @@ public class BindingsParser {
   private String root;
   private XLSXmlParser xls;
   private OIDRegistry registry;
-  private MetadataResourceManager<CodeSystem> codeSystems;
-  private MetadataResourceManager<ConceptMap> maps;
+  private CanonicalResourceManager<CodeSystem> codeSystems;
+  private CanonicalResourceManager<ConceptMap> maps;
   private Calendar genDate;
   private boolean exceptionIfExcelNotNormalised;
   
-  public BindingsParser(InputStream file, String filename, String root, OIDRegistry registry, String version, MetadataResourceManager<CodeSystem> codeSystems, MetadataResourceManager<ConceptMap> maps, Calendar genDate, boolean exceptionIfExcelNotNormalised) {
+  public BindingsParser(InputStream file, String filename, String root, OIDRegistry registry, String version, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ConceptMap> maps, Calendar genDate, boolean exceptionIfExcelNotNormalised) {
     this.file = file;
     this.filename = filename;
     this.root = root;

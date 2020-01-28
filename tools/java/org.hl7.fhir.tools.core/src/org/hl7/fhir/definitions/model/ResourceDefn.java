@@ -32,7 +32,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.definitions.model.ResourceDefn.RimClass;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.utilities.StandardsStatus;
@@ -156,6 +155,7 @@ public class ResourceDefn  {
 
   private StandardsStatus status = StandardsStatus.TRIAL_USE;
   private boolean abstract_;
+  private boolean interface_;
   private WorkGroup wg;
   private Profile conformancePack;
 
@@ -501,5 +501,14 @@ public class ResourceDefn  {
       url = "http://hl7.org/fhir/interface";
     return url;
   }
+
+  public boolean isInterface() {
+    return interface_;
+  }
+
+  public void setInterface(boolean interface_) {
+    this.interface_ = interface_;
+  }
+  
   
 }

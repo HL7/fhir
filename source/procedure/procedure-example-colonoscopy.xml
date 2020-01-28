@@ -34,9 +34,11 @@
   <complicationDetail>
 		<display value="Perforated intestine condition"/>
   </complicationDetail>
-  <usedReference>
-		<display value="Colonoscope device"/>
-  </usedReference>
+  <used>
+    <reference>
+		  <display value="Colonoscope device"/>
+    </reference>
+  </used>
 </Procedure>
 <!-- 
 

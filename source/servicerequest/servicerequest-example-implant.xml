@@ -24,7 +24,9 @@
 		<reference value="Practitioner/example"/>
 		<display value="Dr Cecil Surgeon"/>
 	</performer>
-	<reasonCode>
-		<text value="Bradycardia"/>
-	</reasonCode>
+	<reason>
+    <concept>
+  		<text value="Bradycardia"/>
+    </concept>
+	</reason>
 </ServiceRequest>

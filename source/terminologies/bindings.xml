@@ -14,11 +14,11 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>/Users/rhausam/git-repo/fhir/source/terminologies/ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\conceptmap-spreadsheet.xml</Path>
+   <Path>\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\conceptmap-spreadsheet.xml</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
   <SupBook>
-   <Path>/Users/rhausam/git-repo/fhir/source/terminologies/ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\elementdefinition.xml</Path>
+   <Path>\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\elementdefinition.xml</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
   
@@ -26,8 +26,8 @@
   
   
   <TabRatio>780</TabRatio>
-  <ActiveSheet>11</ActiveSheet>
-  <FirstVisibleSheet>6</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -444,7 +444,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/rhausam/git-repo/fhir/source/terminologies/ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="='\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="44" ss:StyleID="s64" x:FullColumns="1" x:FullRows="1">
@@ -484,7 +484,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">#abstract-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.2.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">AdjudicationError</Data></Cell>
@@ -515,7 +515,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-AdministrativeGender</Data></Cell>
     <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v2-0001" ss:StyleID="s62"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0001</Data></Cell>
     <Cell><Data ss:Type="String">pa</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">AgeUnits</Data></Cell>
@@ -549,7 +549,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">CDSHooksIndicator</Data></Cell>
@@ -640,7 +640,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s83"/>
-    <Cell><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">DataAbsentReason</Data></Cell>
@@ -651,7 +651,7 @@
     <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v3-NullFlavor" ss:Index="10" ss:StyleID="s93"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-NullFlavor</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s76"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s76"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DataType</Data></Cell>
@@ -660,7 +660,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">#data-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.2.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">DefinitionResourceType</Data></Cell>
@@ -730,7 +730,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">#all-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FHIRDefinedType</Data></Cell>
@@ -747,7 +747,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s84"><Data ss:Type="String">FHIRVersion</Data></Cell>
@@ -764,7 +764,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s86"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s78"><Data ss:Type="String">Forms</Data></Cell>
@@ -816,7 +816,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell><Data ss:Type="String">4.2.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">Jurisdiction</Data></Cell>
@@ -827,7 +827,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s79"/>
     <Cell ss:Index="14" ss:StyleID="s77"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">KnowledgeResourceType</Data></Cell>
@@ -853,7 +853,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:Index="17"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">MaritalStatus</Data></Cell>
@@ -868,7 +868,7 @@
     <Cell ss:Index="12" ss:StyleID="s79"><Data ss:Type="String">pa</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s77"/>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
@@ -879,7 +879,7 @@
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s77"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">MimeType</Data></Cell>
@@ -897,7 +897,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s86"/>
-    <Cell><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s84"><Data ss:Type="String">NoteType</Data></Cell>
@@ -957,7 +957,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="12"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s77"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">Relationship</Data></Cell>
@@ -1013,7 +1013,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">#resource-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">SearchParamType</Data></Cell>
@@ -1029,7 +1029,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">SecurityLabels</Data></Cell>
@@ -1046,7 +1046,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">4.2.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SecurityRoleType</Data></Cell>
@@ -1083,7 +1083,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FHIR-version">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="23" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="26" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
    <Column ss:Width="39.0"/>
    <Column ss:Width="223.0"/>
@@ -1205,6 +1205,12 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">FHIR Release 3 (STU) with 1 technical errata</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">3.0.2</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">3.0.2</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">FHIR Release 3 (STU) with 2 technical errata</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">19</Data></Cell>
     <Cell><Data ss:Type="String">3.3.0</Data></Cell>
     <Cell><Data ss:Type="String">3.3.0</Data></Cell>
@@ -1223,10 +1229,22 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">FHIR Release 4 (Normative + STU)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.0.1</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.0.1</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">FHIR Release 4 (Normative + STU) with 1 technical errata</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">26</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.1.0</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Interim Version</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">23</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">4.1.0</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">4.1.0</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Current build after R4</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.2.0</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.2.0</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Preview #1</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1235,6 +1253,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4612,7 +4632,6 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5214,7 +5233,7 @@
  <Worksheet ss:Name="binding-strength">
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='binding-strength'!R1C1:R1C9"/>
-   <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/rhausam/git-repo/fhir/source/terminologies/ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
+   <NamedRange ss:Name="Invariantids" ss:RefersTo="='\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s115" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s115" ss:Width="80.0"/>

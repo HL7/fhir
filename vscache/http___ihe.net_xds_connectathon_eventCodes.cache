@@ -89,3 +89,13 @@ v: {
   "error" : "The code system \"http://ihe.net/xds/connectathon/eventCodes\" is not known (encountered paired with code = \"T-D8200\"); The code provided (http://ihe.net/xds/connectathon/eventCodes#T-D8200) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ihe.net/xds/connectathon/eventCodes",
+  "code" : "T-D8200"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://ihe.net/xds/connectathon/eventCodes\" is not known (encountered paired with code = \"T-D8200\"); The code provided (http://ihe.net/xds/connectathon/eventCodes#T-D8200) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

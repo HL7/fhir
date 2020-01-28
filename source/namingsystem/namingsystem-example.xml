@@ -16,6 +16,8 @@
     
     </div>
   </text>
+  <!-- this url identifies the *registration* of the IHI number, not the IH number itself -->
+  <url value="http://hl7.org/fhir/NamingSystem/example"/>
   <name value="SNOMED CT"/>
   <status value="active"/>
   <kind value="codesystem"/>

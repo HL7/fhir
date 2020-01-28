@@ -332,7 +332,9 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     new DefinitionsUsageTracker(definitions).updateUsage(e);
     validator.validate(null, errorsInt, e);
     if (profile != null) {
-      validator.validate(null, errorsInt, e, profile);
+      List<StructureDefinition> list = new ArrayList<StructureDefinition>();
+      list.add(profile);
+      validator.validate(null, errorsInt, e, list);
     }
     return e;
   }
@@ -525,7 +527,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
           if (e.getElement().getProperty().getStructure().getBaseDefinition().contains("MetadataResource")) {
             String urle = e.getElement().getChildValue("url");
             String v = e.getElement().getChildValue("url");
-            if (urle.startsWith("http://hl7.org/fhir") && !Constants.VERSION.equals(v)) {
+            if (urle != null && urle.startsWith("http://hl7.org/fhir") && !Constants.VERSION.equals(v)) {
               e.getElement().setChildValue("version", Constants.VERSION);
               
             }

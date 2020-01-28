@@ -63,9 +63,11 @@
         <start value="2013-03-11"/>
         <end value="2013-03-20"/>
     </period>
-    <reasonCode>
+    <reason>
+      <concept>
         <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
-    </reasonCode>
+      </concept>
+    </reason>
     <diagnosis>
       <condition>
           <reference value="Condition/stroke"/>

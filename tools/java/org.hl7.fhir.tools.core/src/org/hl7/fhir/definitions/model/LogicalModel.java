@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.model.ResourceDefn.PointSpec;
 import org.hl7.fhir.r5.model.StructureDefinition;
-import org.hl7.fhir.utilities.Utilities;
 
 public class LogicalModel {
  

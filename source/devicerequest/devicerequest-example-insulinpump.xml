@@ -55,12 +55,16 @@
 <performer>
   <display value="Nurse Rossignol"/>
 </performer>
-<reasonCode>
-  <text value="gastroparesis"/>
-</reasonCode>
-<reasonReference>
-  <display value="Gastroparesis"/>
-</reasonReference>
+<reason>
+  <concept>
+    <text value="gastroparesis"/>
+  </concept>
+</reason>
+<reason>
+  <reference>
+    <display value="Gastroparesis"/>
+  </reference>
+</reason>
 <supportingInfo>
   <display value="Previous results"/>
 </supportingInfo>
