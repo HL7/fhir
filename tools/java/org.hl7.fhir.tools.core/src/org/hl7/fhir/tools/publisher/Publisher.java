@@ -1104,7 +1104,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (base == null)
       throw new Exception("unable to find base profile "+diff.getUrl());
     List<String> errors = new ArrayList<String>();
-    new ProfileUtilities(page.getWorkerContext(), null, page).sortDifferential(base, diff, diff.getName(), errors);
+    new ProfileUtilities(page.getWorkerContext(), null, page).sortDifferential(base, diff, diff.getName(), errors, false);
 //    if (errors.size() > 0)
 //      throw new Exception("Error sorting profile "+diff.getName()+": "+errors.toString());
   }

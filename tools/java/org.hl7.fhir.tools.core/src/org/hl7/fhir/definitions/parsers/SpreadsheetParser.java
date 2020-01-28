@@ -2261,7 +2261,7 @@ public class SpreadsheetParser {
 
     StructureDefinition base = definitions != null ? definitions.getSnapShotForType("Extension") : this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Extension");
     List<String> errors = new ArrayList<String>();
-    utils.sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
+    utils.sortDifferential(base, ex, "extension "+ex.getUrl(), errors, false);
     assert(errors.size() == 0);
     utils.generateSnapshot(base, ex, ex.getUrl(), "http://hl7.org/fhir", ex.getName());
     utils.setIds(ex, true);

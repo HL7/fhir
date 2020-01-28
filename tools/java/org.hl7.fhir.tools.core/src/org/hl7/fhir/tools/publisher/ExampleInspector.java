@@ -117,7 +117,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     }
 
     @Override
-    public Base resolveReference(Object appContext, String url) {
+    public Base resolveReference(Object appContext, String url, Base refContext) {
       try {
         String[] s = url.split("/");
         if (s.length != 2 || !definitions.getResources().containsKey(s[0]))
@@ -203,6 +203,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);
     validator.getExtensionDomains().add("http://hl7.org/fhir/us");
     validator.setFetcher(this);
+    validator.setAllowExamples(true);
 
     xml = new XmlValidator(errorsInt, loadSchemas(), loadTransforms());
 
