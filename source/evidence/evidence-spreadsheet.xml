@@ -17,8 +17,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>8</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4014,7 +4014,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6344,49 +6343,49 @@
     <Cell ss:StyleID="s155"><Data ss:Type="String">In Book</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Include this example in the book form?</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Evidence1</Data></Cell>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Risk of fatal ICH with alteplase for stroke</Data></Cell>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">Corticosteroids vs No corticosteroids for Patients with Sepsis with Mortality (60 days to 1 year)</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example.xml</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Risk of fatal ICH with alteplase for stroke</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">example-stroke-alteplase-fatalICH</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-stroke-alteplase-fatalICH.xml</Data></Cell>
     <Cell ss:StyleID="s186"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Evidence2</Data></Cell>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Risk of fatal ICH without alteplase for stroke</Data></Cell>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">Corticosteroids for Patients with Sepsis with Mortality (60 days to 1 year)</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">Evidence-Example-MortalityLongTerm-Corticosteroids</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-mortalitylongterm-corticosteroids.xml</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Risk of fatal ICH without alteplase for stroke</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">example-stroke-no-alteplase-fatalICH</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-stroke-no-alteplase-fatalICH.xml</Data></Cell>
     <Cell ss:StyleID="s186"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Evidence3</Data></Cell>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Effect of Alteplase vs No alteplase on mRS 3-6 at 90 days in Stroke 0-3 hours prior</Data></Cell>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">No corticosteroids for Patients with Sepsis with Mortality (60 days to 1 year)</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">Evidence-Example-MortalityLongTerm-NoCorticosteroids</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-mortalitylongterm-nocorticosteroids.xml</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Effect of Alteplase vs No alteplase on mRS 3-6 at 90 days in Stroke 0-3 hours prior</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">example-stroke-0-3-alteplase-vs-no-alteplase-mRS3-6</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-stroke-0-3-alteplase-vs-no-alteplase-mRS3-6.xml</Data></Cell>
     <Cell ss:StyleID="s186"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"/>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior</Data></Cell>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s198"/>
-    <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s172"/>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2.xml</Data></Cell>
     <Cell ss:StyleID="s186"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"/>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12</Data></Cell>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s198"/>
-    <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s172"/>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">example-ASTRAL-12-alteplase-mRS3-6</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-ASTRAL-12-alteplase-mRS3-6.xml</Data></Cell>
     <Cell ss:StyleID="s186"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s197"/>
@@ -6698,6 +6697,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

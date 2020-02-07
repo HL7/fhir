@@ -97,23 +97,50 @@
 &lt;/ActivityDefinition&gt;
 </code></pre>
 
+<p>Note to implementers: Although there is currently only one <i>definitional</i> resource defined above (ActivityDefinition), the concept is general, and this was a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases of ActivityDefinition require more specialized elements to be added, the resource may be split.</p>
+
 <p>The <a href="evidencevariable.html">EvidenceVariable</a> resource supports the description of definitional resources for variables to be referenced from an Evidence resource:</p>
 
 <table class="grid">
 	<tbody>
-		<tr><td>Who</td><td>topic</td><td>Specifies the category of evidence variable (eg condition, exposure)</td></tr>
+		<tr><td>Who</td><td>topic</td><td>Could specify the category of evidence variable (eg condition, exposure); available for future uses</td></tr>
 		<tr><td>What</td><td>characteristic.definition[x]</td><td>Specifies a component of the definition of the evidence variable</td></tr>
-		<tr><td>When</td><td>participantEffective[x] and timeFromStart</td><td>Subelements of characteristic to specify when the definitional component was or will be determined</td></tr>
+		<tr><td>When</td><td>characteristic.timeFromStart</td><td>Subelement of characteristic to specify when the definitional component was or will be determined</td></tr>
 		<tr><td>Where</td><td>type</td><td>Specifies the type of variable (eg dichotomous. Categorical, continuous, descriptive)</td></tr>
-		<tr><td>Why</td><td>Characteristic.method</td><td>Specifies how the definitional component was or will be determined</td></tr>
+		<tr><td>How</td><td>Characteristic.method</td><td>Specifies how the definitional component was or will be determined</td></tr>
 	</tbody>
 </table>
 
-<p>For example, the following fragment illustrates a definition of chlorpromazine as an exposure in an evidence summary. In this example, only the What (characteristic.definitionCodeableConcept) is shown:</p>
-
-<p>*enter example here*</p>
-
-<p>Note to implementers: Although there is currently only one <i>definitional</i> resource defined (ActivityDefinition), the concept is general, and this was a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases of ActivityDefinition require more specialized elements to be added, the resource may be split.</p>
+<p>For example, the following fragment illustrates a definition of &quot;intracranial hemorrhage within 7 days&quot; as a characteristic from an EvidenceVariable instance:</p>
+<a name="evidencevariable-characteristic-example"> </a>
+<pre><code>&lt;characteristic&gt;
+  &lt;description value=&quot;intracranial hemorrhage within 7 days&quot;/&gt;
+  &lt;definitionCodeableConcept&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+      &lt;code value=&quot;1386000&quot;/&gt;
+      &lt;display value=&quot;Intracranial hemorrhage (disorder)&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/definitionCodeableConcept&gt;
+  &lt;timeFromStart&gt;
+    &lt;description value=&quot;within 7 days&quot;/&gt;
+    &lt;range&gt;
+      &lt;low&gt;
+        &lt;value value=&quot;0&quot;/&gt;
+        &lt;unit value=&quot;day&quot;/&gt;
+        &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+        &lt;code value=&quot;d&quot;/&gt;
+      &lt;/low&gt;
+      &lt;high&gt;
+        &lt;value value=&quot;7&quot;/&gt;
+        &lt;unit value=&quot;day&quot;/&gt;
+        &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+        &lt;code value=&quot;d&quot;/&gt;
+      &lt;/high&gt;
+    &lt;/range&gt;
+  &lt;/timeFromStart&gt;
+&lt;/characteristic&gt;
+</code></pre>
 
 </div>
 [%file newfooter%]
