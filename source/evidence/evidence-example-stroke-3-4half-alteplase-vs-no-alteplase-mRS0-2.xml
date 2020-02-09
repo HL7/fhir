@@ -26,7 +26,7 @@
 			<display value="acute ischemic stroke"/>
 		</evidenceSource>
 		<intendedGroup>
-			<reference value="Group/AcuteIschemicStroke0-4halfHours"/>
+			<reference value="Group/AcuteIschemicStroke3-4halfHours"/>
 			<display value="stroke at 3-4.5 hours"/>
 		</intendedGroup>
 		<directnessMatch>
