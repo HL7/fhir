@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Evidence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidence.xsd">
+  <id value="example-stroke-0-3-alteplase-vs-no-alteplase-mRS3-6"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        &quot;Effect of Alteplase vs No alteplase on mRS 3-6 at 90 days in Stroke 0-3 hours prior&quot; is a comparative effect estimate.
+      </p>
+	</div>
+  </text>
+  <url value="Evidence/example-stroke-0-3-alteplase-vs-no-alteplase-mRS3-6"/>
+  <title value="Effect of Alteplase vs No alteplase on mRS 3-6 at 90 days in Stroke 0-3 hours prior"/>
+  <status value="draft"/>
+  <relatedArtifact>
+	<type value="citation"/>
+	<label value="Wardlaw 2014"/>
+	<display value="Analysis 1.16 from Wardlaw 2014"/>
+	<citation value="Wardlaw JM, Murray V, Berge E, del Zoppo GJ. Thrombolysis for acute ischaemic stroke. Cochrane Database Syst Rev. 2014 Jul 29(7):CD000213. PMID 25072528"/>
+	<url value="https://doi.org/10.1002/14651858.CD000213.pub3"/>
+  </relatedArtifact>
+  <description value="mRS 3-6 at 90 days Odds Ratio 0.65 for Alteplase vs. No Alteplase in patients with acute ischemic stroke 0-3 hours prior"/>
+  <referentGroup>
+		<evidenceSource>
+			<reference value="Group/AcuteIschemicStroke0-3Hours"/>
+			<display value="stroke at 0-3 hours"/>
+		</evidenceSource>
+		<intendedGroup>
+			<reference value="Group/AcuteIschemicStroke0-3Hours"/>
+			<display value="stroke at 0-3 hours"/>
+		</intendedGroup>
+  </referentGroup>
+  <variableDefinition>
+		<variableRole>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+				<code value="measuredVariable"/>
+				<display value="measured variable"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<reference value="EvidenceVariable/example-mRS3-6-at-90days"/>
+			<display value="mRS 3-6 at 90 days"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<reference value="EvidenceVariable/example-dead-or-dependent-90day"/>
+			<display value="Dead or functionally dependent at 90 days"/>
+		</intendedDefinition>
+  </variableDefinition>
+  <variableDefinition>
+		<variableRole>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+				<code value="exposure"/>
+				<display value="exposure"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+			<display value="Alteplase for Stroke"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+			<display value="Alteplase for Stroke"/>
+		</intendedDefinition>
+  </variableDefinition>
+  <variableDefinition>
+		<variableRole>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+				<code value="referenceExposure"/>
+				<display value="reference exposure"/>
+			</coding>
+		</variableRole>
+		<actualDefinition>
+			<reference value="EvidenceVariable/example-no-alteplase"/>
+			<display value="no alteplase"/>
+		</actualDefinition>
+		<intendedDefinition>
+			<reference value="EvidenceVariable/example-no-alteplase"/>
+			<display value="no alteplase"/>
+		</intendedDefinition>
+  </variableDefinition>
+	<synthesisType>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/synthesis-type"/>
+			<code value="std-MA"/>
+			<display value="summary data meta-analysis"/>
+		</coding>
+	</synthesisType>
+	<studyType>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/study-type"/>
+			<code value="RCT"/>
+			<display value="randomized trial"/>
+		</coding>
+	</studyType>
+	<statistic>
+		<statisticType>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
+				<code value="C16932"/>
+				<display value="Odds Ratio"/>
+			</coding>
+		</statisticType>
+		<quantity>
+			<value value="0.65"/>
+		</quantity>
+		<sampleSize>
+			<numberOfStudies value="6"/>
+			<numberOfParticipants value="1779"/>
+			<numeratorCount value="1137"/>
+		</sampleSize>
+		<attributeEstimate>
+			<description value="95% CI 0.54 to 0.80"/>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/attribute-estimate-type"/>
+					<code value="C53324"/>
+					<display value="Confidence interval"/>
+				</coding>
+			</type>
+			<level value="0.95"/>
+			<range>
+				<low>
+					<value value="0.54"/>
+				</low>
+				<high>
+					<value value="0.8"/>
+				</high>
+			</range>
+		</attributeEstimate>
+		<attributeEstimate>
+			<description value="P-value = 0.000023"/>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/attribute-estimate-type"/>
+					<code value="C44185"/>
+					<display value="P-value"/>
+				</coding>
+			</type>
+			<quantity>
+				<value value="0.000023"/>
+			</quantity>
+		</attributeEstimate>
+		<attributeEstimate>
+			<description value="Heterogeneity I-sq = 0.0%"/>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/attribute-estimate-type"/>
+					<code value="0000420"/>
+					<display value="I-squared"/>
+				</coding>
+			</type>
+			<quantity>
+				<value value="0"/>
+				<unit value="%"/>
+				<system value="http://unitsofmeasure.org/"/>
+				<code value="%"/>
+			</quantity>
+		</attributeEstimate>
+	</statistic>
+	<certainty>
+		<description value="Moderate certainty due to risk of bias"/>
+		<rating>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+				<code value="moderate"/>
+				<display value="Moderate"/>
+			</coding>
+		</rating>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<code value="PublicationBias"/>
+					<display value="Publication bias"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<code value="no-concern"/>
+					<display value="no serious concern"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<code value="Inconsistency"/>
+					<display value="Inconsistency"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<code value="no-concern"/>
+					<display value="no serious concern"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<code value="Imprecision"/>
+					<display value="Imprecision"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<code value="no-concern"/>
+					<display value="no serious concern"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<code value="Indirectness"/>
+					<display value="Indirectness"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<code value="no-concern"/>
+					<display value="no serious concern"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+		<certaintySubcomponent>
+			<note>
+				<text value="results largely influenced by IST-3 trial which was unblinded and NINDS trial which had allocation concealment not stated and baseline imbalances"/>
+			</note>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<code value="RiskOfBias"/>
+					<display value="Risk of bias"/>
+				</coding>
+			</type>
+			<rating>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<code value="serious-concern"/>
+					<display value="serious concern"/>
+				</coding>
+			</rating>
+		</certaintySubcomponent>
+	</certainty>
+</Evidence>

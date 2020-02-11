@@ -92,6 +92,11 @@
 		<translation lang="zh">审计事件</translation>
 		<translation lang="fr">ÉvènementSécurité</translation>
 	</item>
+	<item id="Permission">
+		<translation lang="en">Permission</translation>
+		<translation lang="es">Permiso</translation>
+		<translation lang="fr">Permission</translation>
+	</item>
 	<item id="Basic">
 		<translation lang="en">Basic</translation>
 		<translation lang="es">Basico</translation>

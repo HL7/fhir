@@ -1,0 +1,53 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+<p>
+The Permission resource is intended to capture why data can be shared. It can be applied in two complementary situations:
+</p>
+<ol>
+<li>
+Describe why a specific capability or implementation is permitted to process data
+</li>
+<li>
+Describe why a given resource or set of resources are allowed to exist and/or be shared
+</li>
+
+</ol>
+<p>
+The Permission model is related to privacy laws like GDPR, and it intended to support implementations meet some of regulatory requirements. For example, having a Permission  associated with an interface (data transfer) supports a registry of Processing Activities (Art. 30 of GDPR).
+</p>
+
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+</p>
+<h3>Consent</h3>
+In many situations in healthcare, Consent is not necessary or a valid reason for processing data or sharing. Data can be shared due to 
+<ol>
+<li>
+Legal reasons: For example, mandatory reporting of infectious diseases - regardless of any positive or negative consent from the patient, some diagnosis must be submitted to the authorities
+</li>
+Contractual reasons: For provision of services e.g. reimbursement, performing a contract requires sharing information
+<li>
+</li>
+</ol>
+
+
+</div>
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+</div>

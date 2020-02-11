@@ -17,8 +17,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>8</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1765,7 +1765,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Various information categories of group</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Group from which the evidence is derived</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1791,7 +1791,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Non-actual group that is a set of characteristics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Group for which the evidence applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2285,7 +2285,7 @@
     <Cell ss:StyleID="s136"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s136"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s136"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Textual note of certainty subcomponent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s141"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s142"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2311,7 +2311,7 @@
     <Cell ss:StyleID="s136"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s136"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s136"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Footnotes and/or explanatory notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Type of certainty being rated</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s141"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s142"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3999,7 +3999,7 @@
     <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14" ss:Span="5"/>
-   <Row ss:Height="15" ss:Index="122"/>
+   <Row ss:AutoFitHeight="0" ss:Index="122"/>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4013,14 +4013,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Zoom>77</Zoom>
-   <Selected/>
+   <Zoom>80</Zoom>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>36</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6344,49 +6343,49 @@
     <Cell ss:StyleID="s155"><Data ss:Type="String">In Book</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Include this example in the book form?</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Evidence1</Data></Cell>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Risk of fatal ICH with alteplase for stroke</Data></Cell>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">Corticosteroids vs No corticosteroids for Patients with Sepsis with Mortality (60 days to 1 year)</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example.xml</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Risk of fatal ICH with alteplase for stroke</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">example-stroke-alteplase-fatalICH</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-stroke-alteplase-fatalICH.xml</Data></Cell>
     <Cell ss:StyleID="s186"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Evidence2</Data></Cell>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Risk of fatal ICH without alteplase for stroke</Data></Cell>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">Corticosteroids for Patients with Sepsis with Mortality (60 days to 1 year)</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">Evidence-Example-MortalityLongTerm-Corticosteroids</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-mortalitylongterm-corticosteroids.xml</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Risk of fatal ICH without alteplase for stroke</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">example-stroke-no-alteplase-fatalICH</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-stroke-no-alteplase-fatalICH.xml</Data></Cell>
     <Cell ss:StyleID="s186"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Evidence3</Data></Cell>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Effect of Alteplase vs No alteplase on mRS 3-6 at 90 days in Stroke 0-3 hours prior</Data></Cell>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">No corticosteroids for Patients with Sepsis with Mortality (60 days to 1 year)</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">Evidence-Example-MortalityLongTerm-NoCorticosteroids</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-mortalitylongterm-nocorticosteroids.xml</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Effect of Alteplase vs No alteplase on mRS 3-6 at 90 days in Stroke 0-3 hours prior</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">example-stroke-0-3-alteplase-vs-no-alteplase-mRS3-6</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-stroke-0-3-alteplase-vs-no-alteplase-mRS3-6.xml</Data></Cell>
     <Cell ss:StyleID="s186"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"/>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior</Data></Cell>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s198"/>
-    <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s172"/>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2.xml</Data></Cell>
     <Cell ss:StyleID="s186"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"/>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12</Data></Cell>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s198"/>
-    <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s172"/>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">example-ASTRAL-12-alteplase-mRS3-6</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">evidence-example-ASTRAL-12-alteplase-mRS3-6.xml</Data></Cell>
     <Cell ss:StyleID="s186"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s197"/>
@@ -6698,6 +6697,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

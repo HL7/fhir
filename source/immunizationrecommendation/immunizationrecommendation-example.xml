@@ -59,8 +59,8 @@
 		</dateCriterion>
 		<description value="First sequence in protocol"/>
 		<series value="Vaccination Series 1"/>
-		<doseNumberPositiveInt value="1"/>
-		<seriesDosesPositiveInt value="3"/>
+		<doseNumber value="1"/>
+		<seriesDoses value="3"/>
 		<supportingImmunization>
 			<reference value="Immunization/example"/>
 		</supportingImmunization>
