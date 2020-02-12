@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
-  <name value="MedicationRequest Category Codes"/>
+  <url value="http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location"/>
+  <name value="MedicationRequest Administration Location Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value=""/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-category"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"/>
   <content value="complete"/>
   <concept>
     <code value="inpatient"/>
@@ -23,10 +23,5 @@
     <code value="community"/>
     <display value="Community"/>
     <definition value="Includes requests for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.)"/>
-  </concept>
-  <concept>
-    <code value="discharge"/>
-    <display value="Discharge"/>
-    <definition value="Includes requests for medications created when the patient is being released from a facility"/>
   </concept>
 </CodeSystem>

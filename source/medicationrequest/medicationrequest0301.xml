@@ -67,7 +67,7 @@
     <intent value="order"/>
     <category>
         <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location"/>
             <code value="inpatient"/>
             <display value="Inpatient"/>
         </coding>

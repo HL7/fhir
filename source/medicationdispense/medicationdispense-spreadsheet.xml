@@ -15,8 +15,7 @@
   
   
   <TabRatio>719</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1324,14 +1323,14 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">MedicationDispenseCategory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">MedicationDispenseAdminLocation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Type of medication dispense</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates the type of medication dispense (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient)).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates the type of medication dispense (for example, drug classification like ATC, where meds would be administered, legal category of the medication.)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">The category can be used to include where the medication is expected to be consumed or other types of dispenses.  Invariants can be used to bind to different value sets when profiling to bind.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3731,13 +3730,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>23</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>15</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4703,11 +4701,11 @@
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s96"><Data ss:Type="String">MedicationDispenseCategory</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">MedicationDispenseAdminLocation</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A code describing where the dispensed medication is expected to be consumed or administered</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">valueset-medicationdispense-category</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">valueset-medicationdispense-admin-location</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -4970,6 +4968,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
