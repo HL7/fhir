@@ -858,4 +858,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     throw new Error("Not done yet");
   }
 
+  @Override
+  public StructureDefinition fetchRawProfile(String uri) {
+    StructureDefinition r = super.fetchResource(StructureDefinition.class, uri);
+    return r;
+  }
+  
 }

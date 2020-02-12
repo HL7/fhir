@@ -22,11 +22,10 @@ public class DSTU2ValidationConvertor implements VersionConvertorAdvisor50 {
   
   public void convert(String bundleSource, String bundleTarget) throws Exception {
     System.out.println("Convert "+bundleSource);
-    vc = new VersionConvertor_10_50(this);
     
     try {
       source = (Bundle) new XmlParser().parse(new FileInputStream(bundleSource));
-      org.hl7.fhir.dstu2.model.Bundle target = vc.convertBundle(source);
+      org.hl7.fhir.dstu2.model.Bundle target = (org.hl7.fhir.dstu2.model.Bundle) VersionConvertor_10_50.convertResource(source, this);
       new org.hl7.fhir.dstu2.formats.XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(bundleTarget), target);     
     } catch (Exception e) {
       throw new Exception(e);
@@ -62,7 +61,7 @@ public class DSTU2ValidationConvertor implements VersionConvertorAdvisor50 {
         String url = vs.getCompose().getInclude().get(0).getSystem();
         CodeSystem cs = findCodeSystem(url);
         if (cs != null) {
-          org.hl7.fhir.dstu2.model.ValueSet vst = vc.convertValueSet(vs);
+          org.hl7.fhir.dstu2.model.ValueSet vst = (org.hl7.fhir.dstu2.model.ValueSet) VersionConvertor_10_50.convertResource(vs);
           vst.setCompose(null);
           vst.setCodeSystem(vc.convertCodeSystem(cs));
           return vst;

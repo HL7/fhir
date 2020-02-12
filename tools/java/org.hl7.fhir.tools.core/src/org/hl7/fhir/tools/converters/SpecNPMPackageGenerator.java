@@ -220,7 +220,7 @@ public class SpecNPMPackageGenerator {
   }
 
   private void addConvertedIg10(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException, FHIRException {
-    org.hl7.fhir.dstu2.model.Resource res = new VersionConvertor_10_50(null).convertResource(ig);
+    org.hl7.fhir.dstu2.model.Resource res = VersionConvertor_10_50.convertResource(ig);
     npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".json", new org.hl7.fhir.dstu2.formats.JsonParser().composeBytes(res));
   }
 
@@ -257,7 +257,7 @@ public class SpecNPMPackageGenerator {
   }
 
   private void addConvertedIg10X(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException, FHIRException {
-    org.hl7.fhir.dstu2.model.Resource res = new VersionConvertor_10_50(null).convertResource(ig);
+    org.hl7.fhir.dstu2.model.Resource res = VersionConvertor_10_50.convertResource(ig);
     npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".xml", new org.hl7.fhir.dstu2.formats.XmlParser().composeBytes(res));
   }
 

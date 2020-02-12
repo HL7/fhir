@@ -902,7 +902,7 @@
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s69" ss:Width="107.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="10" ss:StyleID="s69" ss:Width="81.0"/>
    <Column ss:Span="1" ss:StyleID="s69" ss:Width="52.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="13" ss:StyleID="s69" ss:Width="80.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="121.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="161.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="114.0"/>
@@ -1191,7 +1191,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">What was administered</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">.participation[typeCode=CSM].role[classCode=ADMM]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">RXA-5-Administered Code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5995,10 +5995,10 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" ss:StyleID="s101" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="30" ss:StyleID="s101" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="251.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="275.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="4" ss:StyleID="s101" ss:Width="68.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="68.0"/>
    <Column ss:StyleID="s101" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="68.0"/>
    <Column ss:StyleID="s101" ss:Width="146.0"/>
@@ -6008,7 +6008,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="114.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s101" ss:Width="166.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="13" ss:StyleID="s101" ss:Width="107.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="107.0"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s114"><Data ss:Type="String">Binding Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique name across all resources</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Formal description of the types of codes allowed for elements with this binding</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
