@@ -201,7 +201,7 @@
             <code value="d"/> 
         </expectedSupplyDuration>
         <dispenser>
-            <reference value="Organization/example"></reference>
+            <reference value="Organization/2.16.840.1.113883.19.5"></reference>
         </dispenser>
     </dispenseRequest>   
     <substitution>
