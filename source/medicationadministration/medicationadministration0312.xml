@@ -9,13 +9,15 @@
       <value value="12345689"/>
   </identifier>
   <status value="completed"/>
-  <medicationCodeableConcept>
+  <medication>
+    <concept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="333919005"/>
       <display value="Fentanyl 25micrograms/hour patch (product)"/>
     </coding>
-  </medicationCodeableConcept>
+    </concept>
+  </medication>
  <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 

@@ -15,13 +15,15 @@
                     <text value="Injection Solution (qualifier value)"/>
                 </doseForm>
                 <ingredient>
-                    <itemCodeableConcept>
+                    <item>
+                        <concept>
                         <coding>
                             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                             <code value="204520"/>
                             <display value="Potassium Chloride"/>
                         </coding>
-                    </itemCodeableConcept>
+                        </concept>
+                    </item>
                     <strengthRatio>
                         <numerator>
                             <value value="2"/>
@@ -36,13 +38,15 @@
                     </strengthRatio>
                 </ingredient>
                 <ingredient>
-                    <itemCodeableConcept>
+                    <item>
+                    <concept>
                         <coding>
                             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                             <code value="313002"/>
                             <display value="Sodium Chloride 0.9% injectable solution"/>
                         </coding>
-                    </itemCodeableConcept>
+                    </concept>
+                    </item>
                     <strengthRatio>
                         <numerator>
                             <value value="0.9"/>
@@ -66,10 +70,12 @@
     </identifier>
     <status value="completed"/>
     <intent value="order"/>
-    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+    <medication> <!-- Linked to a RESOURCE Medication -->
+    <reference>
         <reference value="#med0317"/>
         <display value="Potassium Chloride 20mEq in 1L Normal Saline"/>
-    </medicationReference> 
+        </reference>
+    </medication> 
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>       

@@ -4,13 +4,15 @@
  xmlns="http://hl7.org/fhir"> 
   <id value="medadmin0313"/>
   <status value="completed"/>
-  <medicationCodeableConcept>
+  <medication>
+    <concept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="322254008"/>
       <display value="Paracetamol 240mg suppository (product)"/>
     </coding>
-  </medicationCodeableConcept>
+    </concept>
+  </medication>
  <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 

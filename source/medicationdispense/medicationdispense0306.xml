@@ -16,11 +16,13 @@
         </Medication>
     </contained>
     <status value="in-progress"/>
-    <medicationReference>
+    <medication>
+        <reference>
         <!-- Linked to a RESOURCE Medication -->
         <reference value="#med0303"/>
         <display value="Alemtuzumab 10mg/ml (Lemtrada)"/>
-    </medicationReference>
+        </reference>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>

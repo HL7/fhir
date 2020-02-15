@@ -4,9 +4,11 @@
  xmlns="http://hl7.org/fhir">
   <id value="example003"/>
   <status value="active"/>
-  <medicationCodeableConcept>
+  <medication>
+    <concept>
       <text value="Little Pink Pill for water retention"></text>
-  </medicationCodeableConcept>  
+    </concept>
+  </medication>  
   <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 

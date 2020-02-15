@@ -17,7 +17,7 @@
   <description value="MedicationAdministration Status Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/medication-admin-status"/>
+      <system value="http://hl7.org/fhir/CodeSystem/medication-admin-status"/>
     </include>
   </compose>
 </ValueSet>

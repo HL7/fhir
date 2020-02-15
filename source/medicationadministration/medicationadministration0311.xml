@@ -16,9 +16,11 @@
     </Medication>
   </contained>
   <status value="completed"/>
-  <medicationReference>
+  <medication>
+  <reference>
     <reference value="#med0304"/>
-  </medicationReference>
+  </reference>
+  </medication>
  <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 

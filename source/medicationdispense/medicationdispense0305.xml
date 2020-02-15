@@ -16,11 +16,13 @@
         </Medication>
     </contained>
     <status value="entered-in-error"/>
-    <medicationReference>
+    <medication>
         <!-- Linked to a RESOURCE Medication -->
+        <reference>
         <reference value="#med0311"/>
         <display value="Prednisone"/>
-    </medicationReference>
+        </reference>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>
