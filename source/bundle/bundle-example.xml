@@ -41,9 +41,11 @@
         <!-- snip -->
         <status value="unknown"/>
         <intent value="order"/>
-	      <medicationReference>
+	      <medication>
+	        <reference>
           <reference value="Medication/example"/>
-        </medicationReference>
+	        </reference>
+        </medication>
         <subject>
           <reference value="Patient/347"/>
         </subject>
