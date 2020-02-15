@@ -5,7 +5,10 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-This resource is an administrative resource that tracks individual instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, referenced when prescribing and dispensing devices for patient use or for ordering supplies, and used to record and transmit <a href="#udi">Unique Device Identifier (UDI)</a> information about a device such as a patient's implant.
+This is a base resource that tracks individual instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, which device was implanted in or explanted from a patient, dispensing a device to a patient for their use, managing inventory, or when requesting a specific device for a patient’s use.  The resource may be used to document the <a href="#udi">Unique Device Identifier (UDI)</a> information about a device where appropriate or necessary, such as a patient's implant.
+</p>
+<p>
+Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health. Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
 </p>
 
 </div>
@@ -18,15 +21,16 @@ These are the device related resources
 </p>
 <ul>
  <li>Device (this resource)</li>
- <li><a href="devicedefinition.html">DeviceDefinition</a> - Describes a "kind" of device - not a physical instance, cut a "catalog entry" where a device is defined by the manufacturer, reseller, or regulator.</li>
- <li><a href="devicemetric.html">DeviceMetric</a> - Describes a measurement, calculation or setting  capability of a medical device.</li>
+ <li><a href="devicedefinition.html">DeviceDefinition</a> - Describes a "kind" of device - not a physical instance A kind of device is frequently defined and documented by the manufacturer, reseller, or regulatory.  Documentation would include general information any information that applies to any instance of a device, and may be published through a catalog.  For example, the characteristics of a test analyzer, x-ray machine, or wheelchair.</li>
+ <li><a href="devicemetric.html">DeviceMetric</a> - Describes a measurement, calculation or setting capability of a device.  A Device may include multiple device metrics, each yielding a different observation.</li>
 </ul>
 <p>
-In FHIR, the "Device" is the "administrative" resource for the device (it does not change much and has manufacturer information etc.), whereas the DeviceComponent and DeviceMetric (which is really a kind of DeviceComponent) model the physical part, including operation status and is much more volatile.
-
-The physical composition of a Device is represented by the Devices pointing to their "parent". </p>
+In FHIR, the Device represents either the device in total, or a component of a larger device when there is a need for individual tracking of a component.  A Device as a component then points to the parent device it is part of.  The Device captures the actual data about the instance of the device that either provides identifying characteristics of the Device (including applicable UDI – unique device identification) and data that can vary by device, e.g., specific settings at a particular point in time.  The DeviceDefinition represents the data that is applicable to all devices that reference that DeviceDefinition.
+</p>
+<p>The  DeviceMetric  model the dynamic aspects of the Device, including operation status of those aspects and is consequently much more volatile. </p>
 <p>
-Devices differ from medications because they are not "used up" - they remain active in a patient in an ongoing fashion.  However, the specific boundary between medications and devices is defined at the implementation level and this standard does not enforce a boundary with the exception of devices that are implanted in a patient.   The <a href="medication.html">Medication</a> resource should not be used to represent implanted devices.
+Devices differ from medications because they are not "used up" - they remain active in or for a patient for a longer duration.  They also may be re-used, particularly non-implanted devices and those used for diagnostics and procedures. Frequently, when a device is packaged with a medication, the ordering, dispense, and administration processes typically focus on the medication aspects and reference the device, rather than that the Device is the focus of the ordering, dispense, and administration process.  In the case of an infusion pump, while some actions are focused on the device (e.g., ordering to a room or maintaining the pump), the focus is as well on the medication while the device is used for administration.  However, that separation is not always as clear and may be impacted by specific implementations.  Regardless, the <a href="medication.html">Medication</a> resource should not be used to represent (implanted) devices, rather reference the relationship where an actual device needs to be tracked in addition to the medication. 
+
 </p>
 
 </div>
