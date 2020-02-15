@@ -34,9 +34,11 @@
   </contained>
   <instantiatesUri value="http://www.bccancer.bc.ca/chemotherapy-protocols-site/Documents/Lymphoma-Myeloma/ULYBRENTUX%20Protocol_1Jun2017.pdf"/>
   <status value="completed"/>
-  <medicationReference>
+  <medication>
+  <reference>
     <reference value="#med0306"/> 
-  </medicationReference>
+    </reference>
+  </medication>
  <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 

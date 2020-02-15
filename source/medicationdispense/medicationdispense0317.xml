@@ -26,11 +26,13 @@
         </Medication>
     </contained>
     <status value="stopped"/>
-    <medicationReference>
+    <medication>
         <!-- Linked to a RESOURCE Medication -->
+        <reference>
         <reference value="#med0306"/>
         <display value="Brentixumab Vedotin (Adcetris)"/>
-    </medicationReference>
+        </reference>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck "/> 

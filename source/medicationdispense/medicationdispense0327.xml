@@ -4,13 +4,15 @@
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0327"/>
     <status value="completed"/>
-    <medicationCodeableConcept>
+    <medication>
+        <concept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="746763"/>
             <display value="Proventil 0.09mg/actuat (Albuterol sulfate 0.108mg/actuat from mouthpiece)"/>
         </coding>
-    </medicationCodeableConcept>
+        </concept>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>

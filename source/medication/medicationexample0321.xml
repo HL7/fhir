@@ -29,9 +29,11 @@
       </coding>
     </doseForm>
     <ingredient>
-      <itemReference>
+      <item>
+      <reference>
         <reference value="#sub03"/>
-      </itemReference>
+        </reference>
+      </item>
       <strengthRatio>
         <numerator>
           <value value="500"/>

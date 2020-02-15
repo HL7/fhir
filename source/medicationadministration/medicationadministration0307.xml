@@ -21,13 +21,15 @@
           </coding>
         </doseForm>
         <ingredient>
-          <itemCodeableConcept>
+          <item>
+            <concept>
             <coding>
               <system value="http://snomed.info/sct"/>
               <code value="387106007"/>
               <display value="Lorazepam (substance)"/>
             </coding>
-          </itemCodeableConcept>
+            </concept>
+          </item>
           <strengthRatio>
             <numerator>
               <value value="2"/>
@@ -45,9 +47,11 @@
     </Medication>
   </contained>
   <status value="completed"/>
-  <medicationReference>
+  <medication>
+  <reference>
     <reference value="#med0313"/> 
-  </medicationReference>
+  </reference>
+  </medication>
  <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 

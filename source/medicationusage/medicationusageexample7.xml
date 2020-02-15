@@ -25,9 +25,11 @@
     </Medication>
   </contained>
   <status value="active"/>
-  <medicationReference> <!-- Linked to a RESOURCE Medication -->
+  <medication> <!-- Linked to a RESOURCE Medication -->
+    <reference>
     <reference value="#med0315"/>
-  </medicationReference>
+    </reference>
+  </medication>
   <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 

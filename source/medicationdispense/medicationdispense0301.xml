@@ -16,11 +16,13 @@
         </Medication>
     </contained>
     <status value="in-progress"/>
-    <medicationReference>
+    <medication>
         <!-- Linked to a RESOURCE Medication -->
+        <reference>
         <reference value="#med0301"/>
         <display value="Vancomycin Hydrochloride"></display>
-    </medicationReference>
+        </reference>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/> 

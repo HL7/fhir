@@ -11,13 +11,15 @@
          <text value="Ointment"/>
       </doseForm>
       <ingredient>
-         <itemCodeableConcept>
+         <item>
+         <concept>
             <coding>
                <system value="http://snomed.info/sct"/>
                <code value="387253001"/>
                <display value="Salicyclic Acid (substance)"/>
             </coding>
-         </itemCodeableConcept>
+         </concept>
+         </item>
          <strengthRatio>
             <numerator>
                <value value="5"/>
@@ -32,13 +34,15 @@
          </strengthRatio>
       </ingredient>
       <ingredient>
-         <itemCodeableConcept>
+         <item>
+         <concept>
             <coding>
                <system value="http://snomed.info/sct"/>
                <code value="396458002"/>
                <display value="Hydrocortisone (substance)"/>
             </coding>
-         </itemCodeableConcept>
+         </concept>
+         </item>
          <strengthRatio>
             <numerator>
                <value value="1"/>
@@ -53,13 +57,15 @@
          </strengthRatio>
       </ingredient>
       <ingredient>
-         <itemCodeableConcept>
+         <item>
+         <concept>
             <coding>
                <system value="http://snomed.info/sct"/>
                <code value="126066007"/>
                <display value="White Petrolatum (substance)"/>
             </coding>
-         </itemCodeableConcept>
+         </concept>
+         </item>
          <strengthRatio>
             <numerator>
                <value value="94"/>

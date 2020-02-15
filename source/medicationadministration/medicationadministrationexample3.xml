@@ -23,9 +23,11 @@
       <display value="Administration of medication not done due to a contraindication (situation)"/>
     </coding>
   </statusReason>
-  <medicationReference>
+  <medication>
+    <reference>
     <reference value="#med0303"/> 
-  </medicationReference>
+    </reference>
+  </medication>
  <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 

@@ -52,9 +52,11 @@
     </Provenance>
   </contained>
   <status value="in-progress"/>
-  <medicationReference>
+  <medication>
+  <reference>
     <reference value="#med0301"/> 
-  </medicationReference>
+  </reference>
+  </medication>
  <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 

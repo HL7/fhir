@@ -22,10 +22,12 @@
     </identifier>
     <status value="completed"/>
     <intent value="order"/>
-    <medicationReference>
+    <medication>
+    <reference>
         <reference value="#med0302"/>
         <display value="Piperacillin/Tazobactam 4.5gm"/>
-    </medicationReference> 
+    </reference>
+    </medication> 
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>           

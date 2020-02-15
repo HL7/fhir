@@ -22,10 +22,12 @@
     </identifier>
     <status value="active"/>
     <intent value="order"/>
-    <medicationReference>
+    <medication>
+        <reference>
         <reference value="#med0304"/>
         <display value="Myleran 2mg tablet"/>
-    </medicationReference>
+        </reference>
+    </medication>
     <subject>
         <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>

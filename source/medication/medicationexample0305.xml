@@ -25,13 +25,15 @@
       </coding>
     </doseForm>
     <ingredient>
-      <itemCodeableConcept>
+      <item>
+      <concept>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="75359005"/>
           <display value="Timolol Maleate (substance)"/>
         </coding>
-      </itemCodeableConcept>
+      </concept>
+      </item>
       <strengthRatio>
         <numerator>
           <value value="5"/>

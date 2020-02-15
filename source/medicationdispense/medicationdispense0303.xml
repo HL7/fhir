@@ -19,9 +19,11 @@
         <reference value="Procedure/biopsy"></reference>
     </partOf>
    <status value="on-hold"/>
-    <statusReasonReference>
-        <reference value="DetectedIssue/allergy"></reference>
-    </statusReasonReference>
+    <statusReason>
+        <reference>
+            <reference value="DetectedIssue/allergy"></reference>
+        </reference>
+    </statusReason>
     <category>
         <coding>
             <system value="http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category"/>
@@ -29,10 +31,12 @@
             <display value="Outpatient"/>
         </coding>
     </category>
-    <medicationReference>
+    <medication>
         <!-- Linked to a RESOURCE Medication -->
+        <reference>
         <reference value="#med0310"/>
-    </medicationReference>
+        </reference>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>  

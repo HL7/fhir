@@ -9,13 +9,15 @@
         <value value="12345689"/>
     </identifier>
     <status value="in-progress"/>
-    <medicationCodeableConcept>
+    <medication>
+        <concept>
         <coding>
             <system value="http://hl7.org/fhir/sid/ndc"/>
             <code value="0378-1800-10"/>
             <display value="Levothyroxine Sodium Tablets, USP (75mcg)"/>
         </coding>
-    </medicationCodeableConcept>
+        </concept>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>
