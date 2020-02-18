@@ -367,13 +367,15 @@
         point to a patient resource on a server  -->
         <status value='unknown'/>
         <intent value="order"/>
-        <medicationCodeableConcept>
+        <medication>
+          <concept>
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="66493003"/>
           </coding>
           <text value="Theophylline 200mg"/>
-        </medicationCodeableConcept>
+          </concept>
+        </medication>
      <subject>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Peter Patient"/>
@@ -452,9 +454,11 @@
         <statusReason>
           <text value="Management of Asthma"/>
         </statusReason>
-        <medicationCodeableConcept>
+        <medication>
+          <concept>
           <text value="Ventolin Inhaler"/>
-        </medicationCodeableConcept>
+          </concept>
+        </medication>
         <subject>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Peter Patient"/>

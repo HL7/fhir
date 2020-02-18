@@ -22,10 +22,12 @@
     </identifier>
     <status value="completed"/>
     <intent value="order"/>
-   <medicationReference>
+   <medication>
+       <reference>
        <reference value="#med0312"/>
        <display value="Nystatin 100,000 u/ml oral suspension"/>
-   </medicationReference>
+       </reference>
+   </medication>
     <subject>
         <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>

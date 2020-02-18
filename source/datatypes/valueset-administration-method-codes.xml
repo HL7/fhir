@@ -36,13 +36,13 @@
       
 		<filter>
       
-			<!--   SNOMED CT - Children of SCTID: 422096002 "Dosing instruction fragment (qualifier value)" "   -->
+			<!--   SNOMED CT - Children of SCTID: 736665006 - Dose form administration method (administration method)" "   -->
         
 			<property value="concept"/>
         
 			<op value="is-a"/>
         
-			<value value="422096002"/>
+			<value value="736665006"/>
       
 		</filter>
     

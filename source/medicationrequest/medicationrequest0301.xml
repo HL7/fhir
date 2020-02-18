@@ -67,14 +67,16 @@
     <intent value="order"/>
     <category>
         <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location"/>
             <code value="inpatient"/>
             <display value="Inpatient"/>
         </coding>
     </category>
-    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+    <medication> <!-- Linked to a RESOURCE Medication -->
+        <reference>
            <reference value="#med0310"/>
-    </medicationReference> 
+        </reference>
+    </medication> 
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>           
@@ -201,7 +203,7 @@
             <code value="d"/> 
         </expectedSupplyDuration>
         <dispenser>
-            <reference value="Organization/example"></reference>
+            <reference value="Organization/2.16.840.1.113883.19.5"></reference>
         </dispenser>
     </dispenseRequest>   
     <substitution>

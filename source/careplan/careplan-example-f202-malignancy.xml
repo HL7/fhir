@@ -44,19 +44,25 @@
         <text value="TPF"/>
       </code>
         <ingredient>
-          <itemReference>
+          <item>
+            <reference>
             <reference value="#doce"/>
-          </itemReference>
+            </reference>
+          </item>
         </ingredient>
         <ingredient>
-          <itemReference>
+          <item>
+          <reference>
             <reference value="#cisp"/>
-          </itemReference>
+          </reference>
+          </item>
         </ingredient>
         <ingredient>
-          <itemReference>
+          <item>
+          <reference>
             <reference value="#fluo"/>
-          </itemReference>
+          </reference>
+          </item>
         </ingredient>
       
     </Medication>

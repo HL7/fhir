@@ -16,11 +16,13 @@
         </Medication>
     </contained>
     <status value="entered-in-error"/>
-    <medicationReference>
+    <medication>
         <!-- Linked to a RESOURCE Medication -->
+        <reference>
         <reference value="#med0312"/>
         <display value="Nystatin 100,000 units/ml oral suspension (product)"/>
-    </medicationReference>
+        </reference>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck "/> 

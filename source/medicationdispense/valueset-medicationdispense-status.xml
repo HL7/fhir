@@ -17,7 +17,7 @@
   <description value="MedicationDispense Status Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/medicationdispense-status"/>
+      <system value="http://hl7.org/fhir/CodeSystem/medicationdispense-status"/>
     </include>
   </compose>
 </ValueSet>

@@ -26,13 +26,15 @@
       </coding>
     </doseForm>
     <ingredient>
-      <itemCodeableConcept>
+      <item>
+      <concept>
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
           <code value="315266"/>
           <display value="Acetaminophen 500 MG"/>
         </coding>
-      </itemCodeableConcept>
+      </concept>
+      </item>
       <strengthRatio>
         <numerator>
           <value value="500"/>
@@ -47,13 +49,15 @@
       </strengthRatio>
     </ingredient>
     <ingredient>
-      <itemCodeableConcept>
+      <item>
+      <concept>
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
           <code value="901813"/>
           <display value="Diphenhydramine Hydrochloride 25 mg"/>
         </coding>
-      </itemCodeableConcept>
+      </concept>
+      </item>
       <strengthRatio>
         <numerator>
           <value value="25"/>

@@ -16,10 +16,12 @@
         </Medication>
     </contained>
     <status value="completed"/>
-    <medicationReference>
+    <medication>
+        <reference>
         <reference value="#med0320"></reference>
         <display value="Azithromycin 250mg capsule (product)"/>
-    </medicationReference>
+        </reference>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>

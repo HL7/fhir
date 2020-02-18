@@ -11,11 +11,13 @@
 	</identifier>
 	<status value="active"/>
 	<intent value="order"/>
-	<medicationReference>
+	<medication>
 		<!-- Linked to a RESOURCE Medication -->
+		<reference>
 		<reference value="Medication/med0316"/>
 		<display value="prescribed medication"/>
-	</medicationReference>
+		</reference>
+	</medication>
 	<subject>
 		<!-- Linked to the resource patient who needs the medication -->
 		<reference value="Patient/pat1"/>

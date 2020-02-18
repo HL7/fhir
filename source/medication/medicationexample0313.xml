@@ -28,13 +28,15 @@
     </denominator>
     </amount>
     <ingredient>
-      <itemCodeableConcept>
+      <item>
+        <concept>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="387106007"/>
           <display value="Lorazepam (substance)"/>
         </coding>
-      </itemCodeableConcept>
+        </concept>
+      </item>
       <strengthRatio>
         <numerator>
           <value value="2"/>

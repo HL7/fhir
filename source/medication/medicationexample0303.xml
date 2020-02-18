@@ -26,13 +26,15 @@
       </coding>
     </doseForm>
     <ingredient>
-      <itemCodeableConcept>
+      <item>
+      <concept>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="129472003"/>
           <display value="Alemtuzamab (substance)"/>
         </coding>
-      </itemCodeableConcept>
+      </concept>
+      </item>
       <strengthRatio>
         <numerator>
           <value value="12"/>
