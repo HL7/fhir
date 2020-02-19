@@ -14,7 +14,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="MedicationDispense Status Codes"/>
+  <description value="MedicationDispense Status Reason Codes"/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-status-reason"/>
