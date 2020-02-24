@@ -19,13 +19,15 @@
         </coding>
       </doseForm>
       <ingredient>
-        <itemCodeableConcept>
+        <item>
+          <concept>
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="325072002"/>
             <display value="Insulin Aspart (substance)"/>
           </coding>
-        </itemCodeableConcept>
+          </concept>
+        </item>
         <strengthRatio>
           <numerator>
             <value value="100"/>
@@ -52,10 +54,12 @@
   </identifier>
   <status value="active"/>
   <intent value="order"/>
-  <medicationReference>
+  <medication>
+  <reference>
     <reference value="#med0307"/>
     <display value="Novolog 100u/ml"/>
-  </medicationReference>
+    </reference>
+  </medication>
   <subject>
     <!-- Linked to the resource patient who needs the medication -->
     <reference value="Patient/pat1"/>

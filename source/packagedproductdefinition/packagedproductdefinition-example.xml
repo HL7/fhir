@@ -23,10 +23,7 @@
           <code value="Carton"/>
         </coding>
       </type>
-      <quantity>
-        <value value="1"/>
-        <unit value="1"/>
-      </quantity>
+      <quantity value="1"/>
       <material>
         <coding>
           <system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
@@ -99,10 +96,7 @@
             <code value="Blister"/>
           </coding>
         </type>
-        <quantity>
-          <value value="1"/>
-          <unit value="1"/>
-        </quantity>
+        <quantity value="1"/>
         <material>
           <coding>
             <system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>

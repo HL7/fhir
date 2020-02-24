@@ -29,4 +29,9 @@
     <display value="Final Checker"/>
     <definition value="Performed the final quality assurance on the prepared medication against the request. Typically, this is a pharmacist function."/>
   </concept>
+  <concept>
+    <code value="counsellor"/>
+    <display value="Counsellor"/>
+    <definition value="Provided the drug information to the patient at the time of dispensing."/>
+  </concept>
 </CodeSystem>

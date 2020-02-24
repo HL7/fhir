@@ -5,13 +5,15 @@
  xmlns="http://hl7.org/fhir">
   <id value="example006"/>
   <status value="active"/>
-  <medicationCodeableConcept>
+  <medication>
+    <concept>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="27658006"/>
         <display value="Amoxicillin (product)"/>
       </coding>
-  </medicationCodeableConcept>  
+    </concept>
+  </medication>  
   <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 

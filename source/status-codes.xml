@@ -17,7 +17,6 @@
   
   
   
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -323,7 +322,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R113C30"/>
   </Names>
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="122" ss:StyleID="s63" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="124" ss:StyleID="s63" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="237.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="70.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="74.0"/>
@@ -3869,6 +3868,44 @@
     <Cell ss:Index="16"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">unknown</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionProduct.status</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">inactive</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Permission.status</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s71"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -3885,9 +3922,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>25</TopRowBottomPane>
+   <TopRowBottomPane>100</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

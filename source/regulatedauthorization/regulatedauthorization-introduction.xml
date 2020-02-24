@@ -2,9 +2,42 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<p>
-			RegulatedAuthorization is a resource covering the Marketing Authorization of a Medicinal Product, from a regulatory point of view.
+		<p>RegulatedAuthorization is a resource covering the authorization of a type of medicinal product, item, treatment or service, from a regulatory point of view. 
+			It refers to generally being allowed to legally use that class of treatment, and not any specific use. 
+			(It is not directly related to security or permissions within a running application.)
 		</p>
+		<p>Regulated items - those subject to local, regional or international legislation for their use - are subject to authorization procedures and outcomes. 
+			This is a general approval not related to any particular instance of use or any patient.
+		</p>
+		<p>This may cover:
+		</p>
+		<p>Overall marketing of medicinal products. The right to make drugs (or devices etc.) available to patients in general.
+		</p>
+		<p>Approval for the manufacturing of medicinal products.
+		</p>
+		<p>Authorisation to perform certain procedures, such as the right of a practitioner or organization to use sedation/anaesthesia or radiation therapy in general (unrelated to any specific instance of use).
+		</p>
+		<p>Clinical Trial authorizations - overall approval for a certain trial to take place, or for parts of one - but not consent for individuals to be on the trial.
+		</p>
+		<p>Recording whether a laboratory test is approved for use by a regulator (e.g. FDA, or a more local authority).
+		</p>
+		<p>
+		Out of scope:
+		</p>
+		<p>Security authorizations - This resource is not directly related to "authorizations" as in permissions for users and actions in a security context. 
+		</p>
+		<p>Consent - which represents the choices and rights of an individual. Although there is a general legal right to give or withhold consent, consent is a record of a specific patients choice. 
+			This differs from the high level authorization of class of events or products to be used in general (within some legal framework), for any patient. 
+			The concepts are very broadly similar in concept, but are very different use cases in software terms, with little likelihood of confusion or overlap of implementation and properties.
+		</p>
+		<p>Contract - a contract is a legal agreement between two entities about a specific arrangement. 
+			It is optionally entered into by the parties, but then binding. 
+			This is different from a generalised legal framework (law) that exists (e.g. legislation about controlled drugs), but is then applied to a series of instances of, say, drug types and organizations. 
+			A contract is more similar to the drug legislation itself, rather than the applications of it. However the legal frameworks themselves are mostly static and are not generally represented in clinical systems.
+		</p>
+		<p>Authorizations of drugs - although the word is the same, the common concept of a physician authorizing a patient to have a certain drug (prescribing) 
+			is very different from the legal authorization to use that drug in a territory ("marketing authorization"). 
+			The context usually makes it very clear which is which (RegulatedAuthorization vs. MedicationRequest).</p>
 	</div>
 
 </div>

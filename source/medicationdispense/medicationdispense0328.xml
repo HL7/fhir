@@ -4,13 +4,15 @@
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0328"/>
     <status value="in-progress"/>
-    <medicationCodeableConcept>
+    <medication>
+        <concept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="1797870"/>
             <display value="Nasonex 0.05mg/ACTUAT Nasal Inhaler"/>
         </coding>
-    </medicationCodeableConcept>
+        </concept>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>

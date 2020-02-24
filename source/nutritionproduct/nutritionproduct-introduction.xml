@@ -1,0 +1,38 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+
+[%stu-note%]
+<a name="dstu"/>
+<strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
+[%end-note%]
+
+<p>
+This is the nutrition resource...
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+</p>
+</div>
+
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<h3>NutritionProduct vs Medication</h3>
+<h3>NutritionProduct vs Substance</h3>
+
+<p>
+
+</p>
+</div>
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+</div>

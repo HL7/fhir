@@ -10,14 +10,16 @@
       <id value="1111"/>
       <status value="unknown"/>
       <intent value="proposal"/>
-      <medicationCodeableConcept>
+      <medication>
+      <concept>
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
           <code value="12574" />
           <display value="gemcitabine" />
         </coding>
         <text value="gemcitabine" />
-      </medicationCodeableConcept>
+      </concept>
+      </medication>
       <subject>
         <reference value="Patient/example"/>
       </subject>
@@ -53,14 +55,16 @@
       <id value="2222"/>
       <status value="unknown"/>
       <intent value="proposal"/>
-      <medicationCodeableConcept>
+      <medication>
+      <concept>
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
           <code value="40048" />
           <display value="Carboplatin" />
         </coding>
         <text value="CARBOplatin" />
-      </medicationCodeableConcept>
+      </concept>
+      </medication>
       <subject>
         <reference value="Patient/example"/>
       </subject>

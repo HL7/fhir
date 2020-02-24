@@ -114,9 +114,11 @@
         <text value="Tablet dose form" />
       </doseForm>
       <ingredient>
-        <itemReference>
+        <item>
+          <reference>
           <reference value="#metoprololTartrate25Substance" />
-        </itemReference>
+          </reference>
+        </item>
         <strengthRatio>
           <numerator>
             <value value="25" />
@@ -208,9 +210,11 @@
         <text value="Tablet dose form" />
       </doseForm>
       <ingredient>
-        <itemReference>
+        <item>
+        <reference>
           <reference value="#metoprololTartrate50Substance" />
-        </itemReference>
+        </reference>
+        </item>
         <strengthRatio>
           <numerator>
             <value value="50" />
@@ -397,9 +401,11 @@
         <text value="Tablet dose form" />
       </doseForm>
       <ingredient>
-        <itemReference>
+        <item>
+        <reference>
           <reference value="#nitroglycerinSubstance" />
-        </itemReference>
+        </reference>
+        </item>
         <strengthRatio>
           <numerator>
             <value value="0.4" />

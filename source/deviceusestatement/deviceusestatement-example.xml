@@ -10,7 +10,9 @@
 		<reference value="Patient/example"/>
 	</subject>
 	<device>
-		<reference value="Device/example"/>
+		<reference>
+			<reference value="Device/example"/>
+		</reference>
 	</device>
 	<reason>
     <reference>

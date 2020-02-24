@@ -10,13 +10,15 @@
     </identifier>
     <status value="completed"/>
     <intent value="order"/>
-    <medicationCodeableConcept>
+    <medication>
+        <concept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="856907"/>
             <display value="Vicodin 5/500 Oral Tablet"/>
         </coding>
-    </medicationCodeableConcept>
+        </concept>
+    </medication>
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>        

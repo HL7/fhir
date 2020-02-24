@@ -15,8 +15,8 @@
   <category> 
     <coding> 
       <system value="http://terminology.hl7.org/CodeSystem/adverse-event-category"/> 
-      <code value="product-use-error"/> 
-      <display value="Product Use Error"/> 
+      <code value="medication-mishap"/> 
+      <display value="Medication Mishap"/> 
     </coding> 
   </category> 
 

@@ -30,7 +30,7 @@
 		</coding>
 	</doseStatus>
 	<series value="Vaccination Series 1"/>
-	<doseNumberPositiveInt value="1"/>
-	<seriesDosesPositiveInt value="3"/>
+	<doseNumber value="1"/>
+	<seriesDoses value="3"/>
 </ImmunizationEvaluation >
 

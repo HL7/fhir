@@ -743,9 +743,11 @@
           <text value="Tablet dose form"/>
         </doseForm>
         <ingredient>
-          <itemReference>
+          <item>
+            <reference>
             <reference value="#citalopramSubstance"/>
-          </itemReference>
+            </reference>
+          </item>
           <strengthRatio>
             <numerator>
               <value value="20"/>

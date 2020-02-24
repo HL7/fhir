@@ -4,13 +4,15 @@
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0311"/>
     <status value="completed"/>
-   <medicationCodeableConcept>
+   <medication>
+       <concept>
        <coding>
            <system value="http://hl7.org/fhir/sid/ndc"/>
            <code value="0713-0118"/>
            <display value="Acetaminophen 120mg Suppository"/>
        </coding>
-   </medicationCodeableConcept>
+       </concept>
+   </medication>
     <subject>       
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>
