@@ -925,7 +925,7 @@ public class ProfileGenerator {
 
       }
       List<String> errors = new ArrayList<String>();
-      new ProfileUtilities(context, null, pkp).sortDifferential(base, p, p.getName(), errors);
+      new ProfileUtilities(context, null, pkp).sortDifferential(base, p, p.getName(), errors, true);
       for (String se : errors)
         issues.add(new ValidationMessage(Source.ProfileValidator, IssueType.STRUCTURE, -1, -1, p.getUrl(), se, IssueSeverity.WARNING));
     }
@@ -1186,7 +1186,7 @@ public class ProfileGenerator {
     StructureDefinition base = definitions.getSnapShotForBase(p.getBaseDefinition());
 
     List<String> errors = new ArrayList<String>();
-    new ProfileUtilities(context, null, pkp).sortDifferential(base, p, p.getName(), errors);
+    new ProfileUtilities(context, null, pkp).sortDifferential(base, p, p.getName(), errors, false);
     for (String s : errors)
       issues.add(new ValidationMessage(Source.ProfileValidator, IssueType.STRUCTURE, -1, -1, p.getUrl(), s, IssueSeverity.WARNING));
     reset();

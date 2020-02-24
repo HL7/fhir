@@ -901,7 +901,7 @@
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s69" ss:Width="107.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="10" ss:StyleID="s69" ss:Width="81.0"/>
    <Column ss:Span="1" ss:StyleID="s69" ss:Width="52.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="13" ss:StyleID="s69" ss:Width="80.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="121.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="161.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="114.0"/>
@@ -6014,7 +6014,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="114.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s101" ss:Width="166.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="14" ss:StyleID="s101" ss:Width="107.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="107.0"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s114"><Data ss:Type="String">Binding Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique name across all resources</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Formal description of the types of codes allowed for elements with this binding</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -9,10 +9,10 @@
   <publisher value="HL7 EHR-FM"/>
   <definition>
     <grouping>
-      <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-spreadsheet">
         <valueUri value="auditevent-profile-ehrs-rle-spreadsheet.xml"/>
       </extension>
-      <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-spreadsheet">
         <valueUri value="provenance-profile-ehrs-rle-spreadsheet.xml"/>
       </extension>
       <name value="base"/>

@@ -52,7 +52,9 @@ import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r5.utils.TypesUtilities;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
@@ -133,7 +135,7 @@ public class XSDBaseGenerator {
     }
     // todo: what to do about this? 
     for (BindingSpecification b : definitions.getCommonBindings().values())
-      if ((b.getUseContexts().size() > 1 && b.getBinding() == BindingMethod.CodeList))
+      if (((b.getUseContexts().size() > 1  || b.isShared()) && isEnum(b)))
         generateEnum(b);
     if (outer) { 
       write("</xs:schema>\r\n");
@@ -141,6 +143,18 @@ public class XSDBaseGenerator {
     }
   }
 
+  protected boolean isEnum(BindingSpecification cd) {
+    boolean ok = cd.getBinding() == (BindingSpecification.BindingMethod.CodeList) || (cd.getStrength() == BindingStrength.REQUIRED && cd.getBinding() == BindingMethod.ValueSet);
+    if (ok) {
+      if (cd.getValueSet() != null && cd.getValueSet().hasCompose() && cd.getValueSet().getCompose().getInclude().size() == 1) {
+        ConceptSetComponent inc = cd.getValueSet().getCompose().getIncludeFirstRep();
+        if (inc.hasSystem() && !inc.hasFilter() && !inc.hasConcept() && !inc.getSystem().startsWith("http://hl7.org/fhir"))
+          ok = false;
+      }
+    }
+    return ok;
+  }
+  
   private void genResourceContainer() throws IOException {
         write("  <xs:complexType name=\"ResourceContainer\">\r\n");
         if (forCodeGeneration) {
