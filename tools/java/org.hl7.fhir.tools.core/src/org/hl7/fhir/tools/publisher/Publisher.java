@@ -1104,7 +1104,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (base == null)
       throw new Exception("unable to find base profile "+diff.getUrl());
     List<String> errors = new ArrayList<String>();
-    new ProfileUtilities(page.getWorkerContext(), null, page).sortDifferential(base, diff, diff.getName(), errors);
+    new ProfileUtilities(page.getWorkerContext(), null, page).sortDifferential(base, diff, diff.getName(), errors, false);
 //    if (errors.size() > 0)
 //      throw new Exception("Error sorting profile "+diff.getName()+": "+errors.toString());
   }
@@ -2246,7 +2246,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (org.hl7.fhir.r4.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
       if (be.getResource() instanceof org.hl7.fhir.r4.model.StructureDefinition) {
         org.hl7.fhir.r4.model.StructureDefinition sd = (org.hl7.fhir.r4.model.StructureDefinition) be.getResource();
-        map.put(sd.getName(), org.hl7.fhir.convertors.conv40_50.StructureDefinition.convertStructureDefinition(sd));
+        map.put(sd.getName(), org.hl7.fhir.convertors.conv40_50.StructureDefinition40_50.convertStructureDefinition(sd));
       }
     }
   }
@@ -2257,7 +2257,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (be.getResource() instanceof org.hl7.fhir.r4.model.ValueSet) {
         org.hl7.fhir.r4.model.ValueSet sd = (org.hl7.fhir.r4.model.ValueSet) be.getResource();
         sd.setUserData("old", "r4");
-        map.put(sd.getName(), org.hl7.fhir.convertors.conv40_50.ValueSet.convertValueSet(sd));
+        map.put(sd.getName(), org.hl7.fhir.convertors.conv40_50.ValueSet40_50.convertValueSet(sd));
       }
     }    
   }

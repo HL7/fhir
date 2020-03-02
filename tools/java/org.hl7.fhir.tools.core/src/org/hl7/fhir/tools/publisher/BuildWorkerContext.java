@@ -809,7 +809,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       List<String> errors = new ArrayList<String>();
       ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
       pu.setThrowException(false);
-      pu.sortDifferential(sd, p, p.getUrl(), errors);
+      pu.sortDifferential(sd, p, p.getUrl(), errors, true);
       for (String err : errors)
         msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
       pu.generateSnapshot(sd, p, p.getUrl(), Utilities.extractBaseUrl(sd.getUserString("path")), p.getName());
@@ -858,4 +858,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     throw new Error("Not done yet");
   }
 
+  @Override
+  public StructureDefinition fetchRawProfile(String uri) {
+    StructureDefinition r = super.fetchResource(StructureDefinition.class, uri);
+    return r;
+  }
+  
 }
