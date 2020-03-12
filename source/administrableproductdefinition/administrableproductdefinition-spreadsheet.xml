@@ -4,7 +4,7 @@
   <LastAuthor>Rik Smithies</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2019-09-05T13:37:49Z</LastSaved>
+  <LastSaved>2020-03-05T17:37:18Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -16,8 +16,7 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -601,7 +600,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="32.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="24.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="18.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="137.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="194.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="36.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="42.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="35.0"/>
@@ -611,11 +610,13 @@
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="74.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="29.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="544.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="45.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="62.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="18" ss:Width="27.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="59.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="21" ss:Width="56.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="45.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="62.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="27.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="59.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Width="56.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="66.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="53.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="77.0"/>
@@ -779,7 +780,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Characteristics e.g. a products onset of action</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">400;17</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">500;17</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s70"><Data ss:Type="String">AdministrableProductDefinition.characteristic.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -803,7 +804,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Coding|Quantity|string|date|boolean|Attachment</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CodeableConcept|Quantity|date|boolean|Attachment</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -922,7 +923,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">A species specific time during which consumption of animal product is not appropriate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">620;210</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">620;209</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s70"><Data ss:Type="String">AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -956,12 +957,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>15</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -1656,7 +1658,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
