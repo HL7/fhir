@@ -6,4 +6,13 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
   <status value="draft"/>
+  <variableDefinition>
+		<variableRole>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+				<code value="population"/>
+				<display value="population"/>
+			</coding>
+		</variableRole>
+  </variableDefinition>
 </Evidence>

@@ -20,16 +20,25 @@
 	<url value="https://doi.org/10.1016/S0140-6736(14)60584-5"/>
   </relatedArtifact>
   <description value="2.7% incidence of fatal intracranial hemorrhage within 7 days with alteplase in patients with acute ischemic stroke"/>
-  <referentGroup>
-		<evidenceSource>
+  <variableDefinition>
+		<variableRole>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+				<code value="population"/>
+				<display value="population"/>
+			</coding>
+		</variableRole>
+		<observed>
 			<reference value="Group/AcuteIschemicStroke"/>
+			<type value="Group"/>
 			<display value="adults with acute ischemic stroke"/>
-		</evidenceSource>
-		<intendedGroup>
+		</observed>
+		<intended>
 			<reference value="Group/AcuteIschemicStroke"/>
+			<type value="Group"/>
 			<display value="adults with acute ischemic stroke"/>
-		</intendedGroup>
-  </referentGroup>
+		</intended>
+  </variableDefinition>
   <variableDefinition>
 		<variableRole>
 			<coding>
@@ -38,14 +47,16 @@
 				<display value="measured variable"/>
 			</coding>
 		</variableRole>
-		<actualDefinition>
+		<observed>
 			<reference value="EvidenceVariable/example-fatal-ICH-in-7-days"/>
+			<type value="EvidenceVariable"/>
 			<display value="fatal ICH"/>
-		</actualDefinition>
-		<intendedDefinition>
+		</observed>
+		<intended>
 			<reference value="EvidenceVariable/example-fatal-ICH-in-7-days"/>
+			<type value="EvidenceVariable"/>
 			<display value="fatal ICH"/>
-		</intendedDefinition>
+		</intended>
   </variableDefinition>
   <variableDefinition>
 		<variableRole>
@@ -55,14 +66,16 @@
 				<display value="exposure"/>
 			</coding>
 		</variableRole>
-		<actualDefinition>
+		<observed>
 			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+			<type value="EvidenceVariable"/>
 			<display value="Alteplase for Stroke"/>
-		</actualDefinition>
-		<intendedDefinition>
+		</observed>
+		<intended>
 			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+			<type value="EvidenceVariable"/>
 			<display value="Alteplase for Stroke"/>
-		</intendedDefinition>
+		</intended>
   </variableDefinition>
 	<synthesisType>
 		<coding>
