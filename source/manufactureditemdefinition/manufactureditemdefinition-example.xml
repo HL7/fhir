@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ManufacturedItemDefinition xmlns="http://hl7.org/fhir">
+<ManufacturedItemDefinition xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/manufactureditemdefinition.xsd">
   <id value="example"/>
   <manufacturedDoseForm>
     <coding>
@@ -25,7 +27,9 @@
         <code value="shape"/>
       </coding>
     </code>
-    <valueString value="Oval"/>
+    <valueCodeableConcept>
+      <text value="Oval"/>
+    </valueCodeableConcept>
   </characteristic>
   <characteristic>
     <code>
@@ -33,16 +37,18 @@
         <code value="color"/>
       </coding>
     </code>
-    <valueCoding>
-      <code value="pink"/>
-    </valueCoding>
+    <valueCodeableConcept>
+      <text value="pink"/>
+    </valueCodeableConcept>
   </characteristic>
   <characteristic>
     <code>
       <coding>
         <code value="imprint"/>
       </coding>
-    </code> 
-    <valueString value="894"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="894"/>
+    </valueCodeableConcept>
   </characteristic>
 </ManufacturedItemDefinition>
