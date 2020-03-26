@@ -3,10 +3,15 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p>
-			Material used in the preparation of a medicinal/pharmaceutical product 
+			A material used in the preparation of a medicinal/pharmaceutical product, within the context of a particular use. 
 		</p>
 		<p>
-			The ingredient is part of a Medicinal Product, either alone or in combination with other ingredients. The ingredient is also a component of a pharmaceutical product. Ingredient is equal to a substance with the indication of the specific role it is playing in the product.
+			An ingredient is part of a product, either alone or in combination with other ingredients. 
+			It is essentially a substance with the addition of the specific role it is playing in the product, which may include whether it is an active or inactive 
+			substance and what the stength is (the quantity of substance compared to the whole product).
+			The ingredient is represented in the context of a given product, because its role and strength are a function of what it is used in. 
+			It is expected that the same substance used in a different role, or with a different strength, would be a different Ingredient resource instance.
+			Resource instances may however be shared by very similar products (e.g. different pack sizes of the same "product").
 		</p>
 	</div>
 </div>
