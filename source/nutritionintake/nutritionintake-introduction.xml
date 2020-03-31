@@ -25,7 +25,7 @@ Parenteral nutrition is out of scope as this ordering is handled through Medicat
 	<li>Oral intake of food, fluids, oral nutritional supplements (i.e. Ensure), or enteral nutrition should be recorded using the NutritionIntake resource.</li>
 	<li>Supplements, such as vitamins, minerals, herbals, should be recorded using the medication resources</li>
 	<li>Parenteral nutrition should be recorded using the medication resources</li>
-</p>
+</ul>
 </div>
 
 

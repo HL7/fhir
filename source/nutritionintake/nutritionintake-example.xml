@@ -11,7 +11,9 @@
 			<text value="food"/>
 		</type>
 		<nutritionProduct>
-			<text value="Grill Sandwich"/>
+			<concept>
+				<text value="Grill Sandwich"/>
+			</concept>
 		</nutritionProduct>
 		<amount> 
 			<value value="100"/> 
@@ -25,7 +27,9 @@
 			<text value="food"/>
 		</type>
 		<nutritionProduct>
-			<text value="French Fries Spiral Battered"/>
+			<concept>
+				<text value="French Fries Spiral Battered"/>
+			</concept>
 		</nutritionProduct>
 		<amount> 
 			<value value="100"/> 
@@ -39,7 +43,9 @@
 			<text value="food"/>
 		</type>
 		<nutritionProduct>
-			<text value="Tomato Soup Healthy Request"/>
+			<concept>
+				<text value="Tomato Soup Healthy Request"/>
+			</concept>
 		</nutritionProduct>
 		<amount> 
 			<value value="50"/> 
@@ -53,7 +59,9 @@
 			<text value="food"/>
 		</type>
 		<nutritionProduct>
-			<text value="Side Garden Salad"/>
+			<concept>
+				<text value="Side Garden Salad"/>
+			</concept>
 		</nutritionProduct>
 		<amount> 
 			<value value="50"/> 
@@ -67,7 +75,9 @@
 			<text value="fluid"/>
 		</type>
 		<nutritionProduct>
-			<text value="Ice Tea Unsweetened"/>
+			<concept>
+				<text value="Ice Tea Unsweetened"/>
+			</concept>
 		</nutritionProduct>
 		<amount> 
 			<value value="100"/> 
