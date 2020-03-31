@@ -88,7 +88,9 @@
 	</consumedItem>
 	<ingredientLabel>
 		<nutrient>
-			<text value="Total Calories"/>
+			<concept>
+				<text value="Total Calories"/>
+			</concept>
 		</nutrient>
 		<amount> 
 			<value value="313"/> 
@@ -99,7 +101,9 @@
 	</ingredientLabel>
 	<ingredientLabel>
 		<nutrient>
-			<text value="Protein"/>
+			<concept>
+				<text value="Protein"/>
+			</concept>
 		</nutrient>
 		<amount> 
 			<value value="10.4"/> 
@@ -110,7 +114,9 @@
 	</ingredientLabel>
 	<ingredientLabel>
 		<nutrient>
-			<text value="Fat (Total)"/>
+			<concept>
+				<text value="Fat (Total)"/>
+			</concept>
 		</nutrient>
 		<amount> 
 			<value value="18.00"/> 
@@ -121,7 +127,9 @@
 	</ingredientLabel>
 	<ingredientLabel>
 		<nutrient>
-			<text value="Carbohydrate"/>
+			<concept>
+				<text value="Carbohydrate"/>
+			</concept>
 		</nutrient>
 		<amount> 
 			<value value="26.47"/> 
@@ -132,7 +140,9 @@
 	</ingredientLabel>	
 	<ingredientLabel>
 		<nutrient>
-			<text value="Sodium"/>
+			<concept>
+				<text value="Sodium"/>
+			</concept>
 		</nutrient> 
 		<amount> 
 			<value value="770"/> 
