@@ -11,7 +11,9 @@
 			<text value="food"/>
 		</type>
 		<nutritionProduct>
-			<text value="Grill Sandwich"/>
+			<concept>
+				<text value="Grill Sandwich"/>
+			</concept>
 		</nutritionProduct>
 		<amount> 
 			<value value="100"/> 
@@ -25,7 +27,9 @@
 			<text value="food"/>
 		</type>
 		<nutritionProduct>
-			<text value="French Fries Spiral Battered"/>
+			<concept>
+				<text value="French Fries Spiral Battered"/>
+			</concept>
 		</nutritionProduct>
 		<amount> 
 			<value value="100"/> 
@@ -39,7 +43,9 @@
 			<text value="food"/>
 		</type>
 		<nutritionProduct>
-			<text value="Tomato Soup Healthy Request"/>
+			<concept>
+				<text value="Tomato Soup Healthy Request"/>
+			</concept>
 		</nutritionProduct>
 		<amount> 
 			<value value="50"/> 
@@ -53,7 +59,9 @@
 			<text value="food"/>
 		</type>
 		<nutritionProduct>
-			<text value="Side Garden Salad"/>
+			<concept>
+				<text value="Side Garden Salad"/>
+			</concept>
 		</nutritionProduct>
 		<amount> 
 			<value value="50"/> 
@@ -67,7 +75,9 @@
 			<text value="fluid"/>
 		</type>
 		<nutritionProduct>
-			<text value="Ice Tea Unsweetened"/>
+			<concept>
+				<text value="Ice Tea Unsweetened"/>
+			</concept>
 		</nutritionProduct>
 		<amount> 
 			<value value="100"/> 
@@ -78,7 +88,9 @@
 	</consumedItem>
 	<ingredientLabel>
 		<nutrient>
-			<text value="Total Calories"/>
+			<concept>
+				<text value="Total Calories"/>
+			</concept>
 		</nutrient>
 		<amount> 
 			<value value="313"/> 
@@ -89,7 +101,9 @@
 	</ingredientLabel>
 	<ingredientLabel>
 		<nutrient>
-			<text value="Protein"/>
+			<concept>
+				<text value="Protein"/>
+			</concept>
 		</nutrient>
 		<amount> 
 			<value value="10.4"/> 
@@ -100,7 +114,9 @@
 	</ingredientLabel>
 	<ingredientLabel>
 		<nutrient>
-			<text value="Fat (Total)"/>
+			<concept>
+				<text value="Fat (Total)"/>
+			</concept>
 		</nutrient>
 		<amount> 
 			<value value="18.00"/> 
@@ -111,7 +127,9 @@
 	</ingredientLabel>
 	<ingredientLabel>
 		<nutrient>
-			<text value="Carbohydrate"/>
+			<concept>
+				<text value="Carbohydrate"/>
+			</concept>
 		</nutrient>
 		<amount> 
 			<value value="26.47"/> 
@@ -122,7 +140,9 @@
 	</ingredientLabel>	
 	<ingredientLabel>
 		<nutrient>
-			<text value="Sodium"/>
+			<concept>
+				<text value="Sodium"/>
+			</concept>
 		</nutrient> 
 		<amount> 
 			<value value="770"/> 
