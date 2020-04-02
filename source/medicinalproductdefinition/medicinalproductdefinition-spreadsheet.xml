@@ -1250,7 +1250,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Country where the name applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Country / Language</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0;10</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0;12</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:Hidden="1">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.name.countryLanguage.country</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
