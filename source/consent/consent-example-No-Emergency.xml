@@ -22,10 +22,10 @@
       <code value="INFA"/>
     </coding>
   </category>
-  <patient>
+  <subject>
     <reference value="Patient/f002"/>
     <display value="Donald D Duck"/>
-  </patient>
+  </subject>
   <dateTime value="2018-12-28"/>
   <sourceAttachment>
     <title value="The signed document can be attached here."/>

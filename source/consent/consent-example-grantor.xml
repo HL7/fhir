@@ -22,10 +22,10 @@
       <code value="INFAO"/>
     </coding>
   </category>
-  <patient>
+  <subject>
     <reference value="Patient/f002"/>
     <display value="Donald D DUCK"/>
-  </patient>
+  </subject>
   <dateTime value="2018-12-24"/>
   <organization>
     <reference value="Organization/f203"/>
