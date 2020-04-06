@@ -20,15 +20,24 @@
 	<url value="https://doi.org/10.1161/STROKEAHA.116.013644"/>
   </relatedArtifact>
   <description value="mRS 0-2 at 90 days Odds Ratio 1.2 for Alteplase vs. No Alteplase in patients with acute ischemic stroke 3-4.5 hours prior"/>
-  <referentGroup>
-		<evidenceSource>
+  <variableDefinition>
+		<variableRole>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+				<code value="population"/>
+				<display value="population"/>
+			</coding>
+		</variableRole>
+		<observed>
 			<reference value="Group/AcuteIschemicStroke"/>
+			<type value="Group"/>
 			<display value="acute ischemic stroke"/>
-		</evidenceSource>
-		<intendedGroup>
+		</observed>
+		<intended>
 			<reference value="Group/AcuteIschemicStroke3-4halfHours"/>
+			<type value="Group"/>
 			<display value="stroke at 3-4.5 hours"/>
-		</intendedGroup>
+		</intended>
 		<directnessMatch>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/directness"/>
@@ -36,7 +45,7 @@
 				<display value="Moderate quality match"/>
 			</coding>
 		</directnessMatch>
-  </referentGroup>
+  </variableDefinition>
   <variableDefinition>
 		<variableRole>
 			<coding>
@@ -45,14 +54,16 @@
 				<display value="measured variable"/>
 			</coding>
 		</variableRole>
-		<actualDefinition>
+		<observed>
 			<reference value="EvidenceVariable/example-mRS0-2-at-90days"/>
+			<type value="EvidenceVariable"/>
 			<display value="mRS 0-2 at 90 days"/>
-		</actualDefinition>
-		<intendedDefinition>
+		</observed>
+		<intended>
 			<reference value="EvidenceVariable/example-alive-independent-90day"/>
+			<type value="EvidenceVariable"/>
 			<display value="Alive and not functionally dependent at 90 days"/>
-		</intendedDefinition>
+		</intended>
   </variableDefinition>
   <variableDefinition>
 		<variableRole>
@@ -62,14 +73,16 @@
 				<display value="exposure"/>
 			</coding>
 		</variableRole>
-		<actualDefinition>
+		<observed>
 			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+			<type value="EvidenceVariable"/>
 			<display value="Alteplase for Stroke"/>
-		</actualDefinition>
-		<intendedDefinition>
+		</observed>
+		<intended>
 			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+			<type value="EvidenceVariable"/>
 			<display value="Alteplase for Stroke"/>
-		</intendedDefinition>
+		</intended>
   </variableDefinition>
   <variableDefinition>
 		<variableRole>
@@ -79,14 +92,16 @@
 				<display value="reference exposure"/>
 			</coding>
 		</variableRole>
-		<actualDefinition>
+		<observed>
 			<reference value="EvidenceVariable/example-no-alteplase"/>
+			<type value="EvidenceVariable"/>
 			<display value="no alteplase"/>
-		</actualDefinition>
-		<intendedDefinition>
+		</observed>
+		<intended>
 			<reference value="EvidenceVariable/example-no-alteplase"/>
+			<type value="EvidenceVariable"/>
 			<display value="no alteplase"/>
-		</intendedDefinition>
+		</intended>
   </variableDefinition>
 	<synthesisType>
 		<coding>
