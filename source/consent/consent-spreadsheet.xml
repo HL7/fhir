@@ -15,7 +15,7 @@
   
   
   <TabRatio>697</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3532,12 +3532,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>16</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -3682,7 +3683,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s124"><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Patient, Provider</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Patient, Practitioner</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">Consent.subject</Data></Cell>
     <Cell ss:StyleID="s126"/>
    </Row>
@@ -3833,7 +3834,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
