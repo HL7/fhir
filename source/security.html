@@ -24,7 +24,7 @@ in one section. A summary:
 <ol>
  <li>Time Keeping - all clocks should be synchronized using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
  <li><a href="#http">Communications Security</a> - all exchange of production data should be secured using TLS (e.g., https).</li>
- <li><a href="#authentication">Authentication</a> - Users/Clients must be authenticated. For web-centric, OAuth is recommended. When using OAuth, a profile of OAuth will be needed. Consider use of <a href="http://docs.smarthealthit.org/">Smart-On-FHIR</a> where appropriate.</li>
+ <li><a href="#authentication">Authentication</a> - Users/Clients must be authenticated. For web-centric, OAuth is recommended. When using OAuth, a profile of OAuth will be needed. Consider use of <a href="http://www.hl7.org/fhir/smart-app-launch/index.html">HL7 SMART-On-FHIR</a> where appropriate.</li>
  <li><a href="#binding">Authorization/Access Control</a> - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
  <li><a href="#audit">Audit</a> - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status, and access of resources</li>
  <li><a href="signatures.html">Digital Signatures</a> - FHIR includes several specifically reserved locations for digital signatures</li>
