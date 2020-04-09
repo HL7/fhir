@@ -31,9 +31,14 @@
 	</subtype>
 	<action value="C"/>
 	<recorded value="2017-09-07T23:42:24Z"/>
-	<outcome value="8"/>
-	<!-- Serious (500) failure -->
-	<outcomeDesc value="Invalid request to create an Operation resource on the Patient endpoint."/>
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/audit-event-outcome"/>
+			<code value="8"/>
+			<display value="Serious Failure"/>
+		</coding>
+		<text value="Invalid request to create an Operation resource on the Patient endpoint."/>
+	</outcome> 
 
 	<agent>
 		<type>

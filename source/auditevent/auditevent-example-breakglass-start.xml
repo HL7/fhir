@@ -17,8 +17,14 @@
 	<action value="E"/>
 	<!-- when was the break-glass started -->
 	<recorded value="2013-09-22T00:08:00Z"/>
-	<outcome value="0"/>
-	<outcomeDesc value="Successful  Start of Break-Glass"/>
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/audit-event-outcome"/>
+			<code value="0"/>
+			<display value="Success"/>
+		</coding>
+		<text value="Successful  Start of Break-Glass"/>
+	</outcome> 
 	<purposeOfEvent>
 		<!-- why was the break-glass declared -->
 		<coding>

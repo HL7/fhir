@@ -7,7 +7,7 @@ INFORMATION: ImmunizationRecommendation.recommendation: Name of child (recommend
 INFORMATION: Reference.reference: Name of child (reference) overlaps with name of parent (Reference)
 INFORMATION: SampledData.data: Name of child (data) overlaps with name of parent (SampledData)
 WARNING: Attachment.contentType: Unable to resolve value set on 'code' Binding
-WARNING: WARNING: AuditEvent: Resource elements are out of order. The correct order is '[type(=what), subtype(=what), action(=what), outcome(=what), outcomeDesc(=what), entity(=what), period(=when.done), recorded(=when.recorded), source(=who.witness), agent(=who), purposeOfEvent(=why)]' but the actual order is '[type(=what), subtype(=what), action(=what), period(=when.done), recorded(=when.recorded), outcome(=what), outcomeDesc(=what), purposeOfEvent(=why), agent(=who), source(=who.witness), entity(=what)]'
+WARNING: AuditEvent: Resource elements are out of order. The correct order is '[type(=what), subtype(=what), action(=what), outcome(=what), entity(=what), period(=when.done), recorded(=when.recorded), source(=who.witness), agent(=who), purposeOfEvent(=why)]' but the actual order is '[type(=what), subtype(=what), action(=what), period(=when.done), recorded(=when.recorded), outcome(=what), purposeOfEvent(=why), agent(=who), source(=who.witness), entity(=what)]'
 WARNING: CapabilityStatement.format: Unable to resolve value set on 'code' Binding
 WARNING: CapabilityStatement.patchFormat: Unable to resolve value set on 'code' Binding
 WARNING: CapabilityStatement.rest.security.certificate.type: Unable to resolve value set on 'code' Binding
