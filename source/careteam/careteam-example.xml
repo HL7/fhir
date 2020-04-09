@@ -27,7 +27,7 @@
 	   <display value="Encounter-focused care team"/>
      </coding>
   </category>
-  <name value="Peter James Charlmers Care Plan for Inpatient Encounter"/>
+  <name value="Peter James Charlmers Care Team for Inpatient Encounter"/>
   <subject>
     <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>
