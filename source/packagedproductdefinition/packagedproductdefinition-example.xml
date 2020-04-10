@@ -110,10 +110,10 @@
               <code value="ShelfLifeofPackagedMedicinalProduct"/>
             </coding>
           </type>
-          <periodQuantity>
+          <period>
             <value value="3"/>
             <unit value="a"/>
-          </periodQuantity>
+          </period>
           <specialPrecautionsForStorage>
             <coding>
               <system value="http://ema.europa.eu/example/specialprecautionsforstorage"/>
