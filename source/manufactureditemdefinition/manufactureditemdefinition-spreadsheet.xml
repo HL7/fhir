@@ -17,7 +17,6 @@
   
   <TabRatio>837</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -773,7 +772,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">The ingredients that make up this manufactured item</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ManufacturedItemDefinition.characteristic</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ManufacturedItemDefinition.property</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -789,7 +788,7 @@
     <Cell ss:Index="22" ss:StyleID="s64"><Data ss:Type="String">475;50</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">ManufacturedItemDefinition.characteristic.code</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">ManufacturedItemDefinition.property.type</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -806,7 +805,7 @@
     <Cell ss:Index="22" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">ManufacturedItemDefinition.characteristic.value[x]</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">ManufacturedItemDefinition.property.value[x]</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s64"/>
