@@ -3,9 +3,13 @@
 	<!-- id = example  file name = nutritionintake-example.xml  Name=Simple   Description = General NutritionIntake Example edited by Jean Duteau & Becky Gradl-->
 	<id value="example"/>
 	<status value="completed"/>
-	<category>
+	<code>
 		<text value="Inpatient"/>
-	</category>
+	</code>
+	<subject>
+		<display value="Paula Patient Chalmers"/>
+	</subject>
+	<occurrenceDateTime value="2019-08-02T12:45:18+04:00"/>
 	<consumedItem>
 		<type>
 			<text value="food"/>
@@ -151,8 +155,4 @@
 			<code value="mg"/> 
 		</amount> 
 	</ingredientLabel>
-	<subject>
-		<display value="Paula Patient Chalmers"/>
-	</subject>
-	<effectiveDateTime value="2019-08-02T12:45:18+04:00"/>
 </NutritionIntake>
