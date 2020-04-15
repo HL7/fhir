@@ -91,7 +91,7 @@ CPT(R) contained in the Measure specifications is copyright 2004-2015 American M
     <type value="documentation"/>
     <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. _Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship._ Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
   </relatedArtifact>
-  <library value="Library/library-cms146-example"/>
+  <library value="http://hl7.org/fhir/Library/library-cms146-example"/>
   <disclaimer value="These performance Measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. THE MEASURES AND SPECIFICATIONS ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM]."/>
   <scoring>
 	<coding>

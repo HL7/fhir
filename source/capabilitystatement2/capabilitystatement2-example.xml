@@ -167,7 +167,7 @@
 		<documentation value="ADT A08 equivalent for external system notifications"/>
     <supportedMessage>
       <mode value="receiver"/>
-      <definition value="MessageDefinition/example"/>
+      <definition value="http://hl7.org/fhir/MessageDefinition/example"/>
     </supportedMessage>
 	</messaging>
 	<!-.-  a document capability statement  -.->

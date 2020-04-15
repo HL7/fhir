@@ -1849,7 +1849,7 @@
           <path value="Extension.value[x]"/>
           <type>
             <code value="Reference"/>
-            <profile value="StructureDefinition/cda-birthplace"/>
+            <profile value="http://hl7.org/fhir/StructureDefinition/cda-birthplace"/>
           </type>
         </element>
       </differential>

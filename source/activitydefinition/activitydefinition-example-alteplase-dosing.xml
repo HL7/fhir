@@ -9,7 +9,7 @@
       </p>
 	</div>
   </text>
-  <url value="ActivityDefinition/example-alteplase-dosing"/>
+  <url value="http://example.org/fhir/ActivityDefinition/example-alteplase-dosing"/>
   <name value="Alteplase Dosing for Stroke"/>
   <status value="draft"/>
   <kind value="MedicationRequest"/>

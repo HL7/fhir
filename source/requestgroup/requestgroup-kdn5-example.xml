@@ -105,7 +105,7 @@
   <identifier>
     <value value="requestgroup-kdn5"/>
   </identifier>  
-  <instantiatesCanonical value="PlanDefinition/KDN5"/>
+  <instantiatesCanonical value="http://example.org/fhir/PlanDefinition/KDN5"/>
   <status value="draft"/>
   <intent value="plan"/>
   <priority value="routine"/>

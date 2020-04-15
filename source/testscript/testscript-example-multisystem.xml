@@ -62,7 +62,7 @@
       <origin value="1"/>
       <destination value="1"/>
       <link value="http://hl7.org/fhir/http.html#read"/>
-      <capabilities value="CapabilityStatement/example"/>
+      <capabilities value="http://hl7.org/fhir/CapabilityStatement/example"/>
     </capability>
     <capability>
       <required value="true"/>
@@ -71,7 +71,7 @@
       <origin value="1"/>
       <destination value="2"/>
       <link value="http://hl7.org/fhir/http.html#read"/>
-      <capabilities value="CapabilityStatement/example"/>
+      <capabilities value="http://hl7.org/fhir/CapabilityStatement/example"/>
     </capability>
   </metadata>
   <variable>

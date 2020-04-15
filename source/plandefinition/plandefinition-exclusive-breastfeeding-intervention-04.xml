@@ -150,9 +150,9 @@
   </topic>
   <relatedArtifact>
     <type value="derived-from"/>
-    <resource value="Measure/measure-exclusive-breastfeeding"/>
+    <resource value="http://example.org/fhir/Measure/measure-exclusive-breastfeeding"/>
   </relatedArtifact>
-  <library value="Library/library-exclusive-breastfeeding-cds-logic"/>
+  <library value="http://example.org/fhir/Library/library-exclusive-breastfeeding-cds-logic"/>
   <action>
     <title value="Mother should be referred to a lactation specialist for consultation."/>
     <trigger>

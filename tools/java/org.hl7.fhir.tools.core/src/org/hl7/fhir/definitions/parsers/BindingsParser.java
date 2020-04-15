@@ -41,6 +41,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.r5.context.CanonicalResourceManager;
+import org.hl7.fhir.r5.context.IWorkerContext.PackageVersion;
 import org.hl7.fhir.r5.formats.IParser;
 import org.hl7.fhir.r5.formats.JsonParser;
 import org.hl7.fhir.r5.formats.XmlParser;
@@ -72,8 +73,9 @@ public class BindingsParser {
   private CanonicalResourceManager<ConceptMap> maps;
   private Calendar genDate;
   private boolean exceptionIfExcelNotNormalised;
+  private PackageVersion packageInfo;
   
-  public BindingsParser(InputStream file, String filename, String root, OIDRegistry registry, String version, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ConceptMap> maps, Calendar genDate, boolean exceptionIfExcelNotNormalised) {
+  public BindingsParser(InputStream file, String filename, String root, OIDRegistry registry, String version, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ConceptMap> maps, Calendar genDate, boolean exceptionIfExcelNotNormalised, PackageVersion packageInfo) {
     this.file = file;
     this.filename = filename;
     this.root = root;
@@ -83,6 +85,7 @@ public class BindingsParser {
     this.maps = maps;
     this.genDate = genDate;
     this.exceptionIfExcelNotNormalised = exceptionIfExcelNotNormalised;
+    this.packageInfo = packageInfo;
   }
 
   public List<BindingSpecification> parse() throws Exception {
@@ -136,7 +139,7 @@ public class BindingsParser {
         Sheet cs = xls.getSheets().get(ref.substring(1));
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, codeSystems, maps).execute(sheet.getColumn(row, "v2"), sheet.getColumn(row, "v3"), utg);
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, codeSystems, maps, packageInfo).execute(sheet.getColumn(row, "v2"), sheet.getColumn(row, "v3"), utg);
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:")) {
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later
@@ -235,7 +238,7 @@ public class BindingsParser {
         result.setUserData("filename", "valueset-"+ref.substring(9));
         result.setUserData("path", "valueset-"+ref.substring(9)+".html");
         
-        new CodeSystemConvertor(codeSystems).convert(p, result, srcName);
+        new CodeSystemConvertor(codeSystems).convert(p, result, srcName, packageInfo);
       return result;
     } finally {
       IOUtils.closeQuietly(input);

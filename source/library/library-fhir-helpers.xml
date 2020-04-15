@@ -179,12 +179,12 @@
 
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource value="Library/fhir-model-definition"/>
+    <resource value="http://example.org/fhir/Library/fhir-model-definition"/>
   </relatedArtifact>
   
   <relatedArtifact>
     <type value="predecessor"/>
-    <resource value="library-fhir-helpers-predecessor"/>
+    <resource value="http://example.org/fhir/Library/library-fhir-helpers-predecessor"/>
   </relatedArtifact>
 
   <content>

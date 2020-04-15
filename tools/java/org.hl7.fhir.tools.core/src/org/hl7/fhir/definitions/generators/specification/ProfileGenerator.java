@@ -1885,7 +1885,7 @@ public class ProfileGenerator {
         con.setSeverity(ConstraintSeverity.fromCode(inv.getSeverity()));
       con.setHuman(inv.getEnglish());
       con.setXpath(inv.getXpath());
-      con.setSource(source);
+      con.setSource("http://hl7.org/fhir/StructureDefinition/"+source);
       if (!"n/a".equals(inv.getExpression()))
         con.setExpression(inv.getExpression());
       ce.getConstraint().add(con);
@@ -2001,7 +2001,7 @@ public class ProfileGenerator {
     inv.setHuman("All FHIR elements must have a @value or children");
     inv.setExpression("hasValue() or (children().count() > id.count())");
     inv.setXpath("@value|f:*|h:div");
-    inv.setSource("Element");
+    inv.setSource("http://hl7.org/fhir/StructureDefinition/Element");
     return ed;  
   }
   
@@ -2027,7 +2027,7 @@ public class ProfileGenerator {
     inv.setHuman("Must have either extensions or value[x], not both");
     inv.setExpression("extension.exists() != value.exists()");
     inv.setXpath("exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])");
-    inv.setSource("Extension");
+    inv.setSource("http://hl7.org/fhir/StructureDefinition/Extension");
     return ed;  
   }
   
@@ -2061,7 +2061,7 @@ public class ProfileGenerator {
     inv.setHuman("Must have either extensions or value[x], not both");
     inv.setExpression("extension.exists() != value.exists()");
     inv.setXpath("exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])");
-    inv.setSource("Extension");
+    inv.setSource("http://hl7.org/fhir/StructureDefinition/Extension");
     
     return ex;
   }

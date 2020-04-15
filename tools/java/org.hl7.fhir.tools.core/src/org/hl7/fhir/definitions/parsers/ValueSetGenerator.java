@@ -1,9 +1,13 @@
 package org.hl7.fhir.definitions.parsers;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -17,6 +21,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.r5.context.IWorkerContext.PackageVersion;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r5.model.CodeSystem.CodeSystemHierarchyMeaning;
@@ -42,15 +47,17 @@ public class ValueSetGenerator {
   private Definitions definitions;
   private String version;
   private Calendar genDate;
-  private TranslationServices translator; 
+  private TranslationServices translator;
+  private PackageVersion packageInfo; 
   
 
-  public ValueSetGenerator(Definitions definitions, String version, Calendar genDate, TranslationServices translator) throws ParserConfigurationException, SAXException, IOException {
+  public ValueSetGenerator(Definitions definitions, String version, Calendar genDate, TranslationServices translator, PackageVersion packageInfo) throws ParserConfigurationException, SAXException, IOException {
     super();
     this.definitions = definitions;
     this.version = version;
     this.genDate = genDate;
     this.translator = translator;
+    this.packageInfo = packageInfo;
   }
 
   public void check(ValueSet vs) throws Exception {
@@ -91,7 +98,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().see(cs);
+    definitions.getCodeSystems().see(cs, packageInfo);
 
     List<String> codes = new ArrayList<String>();
     for (TypeRef t : definitions.getKnownTypes())
@@ -164,7 +171,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);    
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().see(cs);
+    definitions.getCodeSystems().see(cs, packageInfo);
         
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getKnownResources().keySet());
@@ -216,7 +223,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);    
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().see(cs);
+    definitions.getCodeSystems().see(cs, packageInfo);
 
     cs.addConcept().setCode("Type").setDisplay("Type").setDefinition("A place holder that means any kind of data type");
     cs.addConcept().setCode("Any").setDisplay("Any").setDefinition("A place holder that means any kind of resource");
@@ -264,7 +271,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().see(cs);
+    definitions.getCodeSystems().see(cs, packageInfo);
 
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getEvents().keySet());
@@ -382,7 +389,7 @@ public class ValueSetGenerator {
     cs.setVersion(version);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
-    definitions.getCodeSystems().see(cs);
+    definitions.getCodeSystems().see(cs, packageInfo);
   }
 
   private List<String> sorted(Set<String> keys) {
