@@ -766,7 +766,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Accompanying device</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">AdministrableProductDefinition.characteristic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">AdministrableProductDefinition.property</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -783,7 +783,7 @@
     <Cell ss:Index="22"><Data ss:Type="String">500;17</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">AdministrableProductDefinition.characteristic.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">AdministrableProductDefinition.property.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -800,7 +800,7 @@
     <Cell ss:Index="22" ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">AdministrableProductDefinition.characteristic.value[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">AdministrableProductDefinition.property.value[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -817,7 +817,7 @@
     <Cell ss:Index="22" ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">AdministrableProductDefinition.characteristic.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">AdministrableProductDefinition.property.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>

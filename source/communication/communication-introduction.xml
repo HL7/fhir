@@ -5,11 +5,12 @@
 <h2>Scope and Usage</h2>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
    
+<p> The purpose of a Communication resource is to surface that data was shared to track adherence to guidelines or protocols or to provide business documentation of actions taken.  Communication can also be used as part of an information exchange to provide context about the information sharing occurring.</p>
+
 <p>Communication is one of the <a href="workflow.html#event">event</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
    
 <p>
-This resource is a record of a communication even if it is planned or has failed. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. 
-The sender and receivers may be patients, practitioners, related persons, organizations, or devices. Communication use cases include:
+This resource is a record of a communication even if it is planned or has failed. A communication is a record of the conveyance of information from one entity, a sender, to another entity, a receiver. The sender and receivers may be patients, practitioners, related persons, organizations, or devices. Communication use cases include:
 </p>
 <ul>
 <li>A reminder or alert delivered to a responsible provider</li>
@@ -17,6 +18,7 @@ The sender and receivers may be patients, practitioners, related persons, organi
 <li>A response from a public health agency to a provider caring for a patient presenting with a communicable disease reportable to the public health agency</li>
 <li>Patient educational material sent by a provider to a patient</li>
 <li>Unable to deliver lab results to ordering physician</li>
+<li>Submission of supplementary health information to a payer in support of a claim</li>
 </ul>
 <p>
 Non-patient specific communication use cases may include:

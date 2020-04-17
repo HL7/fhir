@@ -44,8 +44,15 @@
 	<action value="R"/>
 	<severity value="Notice"/>
 	<recorded value="2013-09-22T00:08:00Z"/>
-	<outcome value="0"/>
-	<outcomeDesc value="Successful  Disclosure"/>
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/audit-event-outcome"/>
+			<code value="0"/>
+			<display value="Success"/>
+		</coding>
+		<text value="Successful Disclosure"/>
+	</outcome> 
+
 	<purposeOfEvent>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>

@@ -16,7 +16,7 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -840,11 +840,11 @@
     <Cell ss:Index="9"><Data ss:Type="String">AdverseEventStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">in-progress | completed | entered-in-error | unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The current state of the data entry of the adverse event or potential adverse event.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">This is not the reporting of the event to any regulatory or quality organization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The current state of the adverse event or potential adverse event.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">This is not the reporting of the event to any regulatory or quality organization.  This is not the outcome of the patient's condition.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22"><Data ss:Type="String">Event.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="25"><Data ss:Type="String">GF#22108</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="25"><Data ss:Type="String">GF#22108, J#25926</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="87">
     <Cell><Data ss:Type="String">AdverseEvent.actuality</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1186,13 +1186,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>16</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -3477,7 +3476,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">AdverseEventOutcome</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Codes describing the type of outcome from the adverse event</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">valueset-adverse-event-outcome</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
@@ -3486,7 +3485,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">GF#10642,11151, 11920, 23022</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">GF#10642,11151, 11920, 23022, 25556</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s115">
     <Cell ss:StyleID="s106"><Data ss:Type="String">AdverseEventSeriousness</Data></Cell>
@@ -3739,6 +3738,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4349,7 +4349,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See Confluence for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s136"><Data ss:Type="String">wrong-patient</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s149"/>

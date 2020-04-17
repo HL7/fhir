@@ -25,10 +25,10 @@
       <code value="59284-0"/>
     </coding>
   </category>
-  <patient>
+  <subject>
     <reference value="Patient/Example"/>
     <display value="Peter James Chalmers"/>
-  </patient>
+  </subject>
   <dateTime value="2018-12-28"/>
   <organization>
     <reference value="Organization/f001"/>

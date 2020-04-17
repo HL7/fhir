@@ -20,10 +20,10 @@
       <code value="npp"/>
     </coding>
   </category>
-  <patient>
+  <subject>
     <reference value="Patient/pat2"/>
     <!-- one of the stock examples -->
-  </patient>
+  </subject>
   <dateTime value="2018-12-28T00:41:10-04:00"/>
   <performer>
     <reference value="Patient/pat2"/>

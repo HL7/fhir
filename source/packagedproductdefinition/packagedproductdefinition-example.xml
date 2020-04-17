@@ -45,50 +45,50 @@
       <manufacturer>
         <reference value="Organization/example"/>
       </manufacturer>
-      <characteristic>
-        <code>
+      <property>
+        <type>
           <coding>
             <code value="height"/>
           </coding>
-        </code>
+        </type>
         <valueQuantity>
           <value value="50"/>
           <unit value="mm"/>
         </valueQuantity>
-      </characteristic>
-      <characteristic>
-        <code>
+      </property>
+      <property>
+        <type>
           <coding>
             <code value="width"/>
           </coding>
-        </code>
+        </type>
         <valueQuantity>
           <value value="136"/>
           <unit value="mm"/>
         </valueQuantity>
-      </characteristic>
-      <characteristic>
-        <code>
+      </property>
+      <property>
+        <type>
           <coding>
             <code value="width"/>
           </coding>
-        </code>
+        </type>
         <valueQuantity>
           <value value="45"/>
           <unit value="mm"/>
         </valueQuantity>
-      </characteristic>
-      <characteristic>
-        <code>
+      </property>
+      <property>
+        <type>
           <coding>
             <code value="depth"/>
           </coding>
-        </code>
+        </type>
         <valueQuantity>
           <value value="23.5"/>
           <unit value="mm"/>
         </valueQuantity>
-      </characteristic>
+      </property>
       <package>
         <type>
           <coding>
@@ -124,28 +124,28 @@
         <manufacturer>
           <reference value="Organization/example"/>
         </manufacturer>
-        <characteristic>
-          <code>
+        <property>
+          <type>
             <coding>
               <code value="height"/>
             </coding>
-          </code>
+          </type>
           <valueQuantity>
             <value value="125"/>
             <unit value="mm"/>
           </valueQuantity>
-        </characteristic>
-        <characteristic>
-          <code>
+        </property>
+        <property>
+          <type>
             <coding>
               <code value="width"/>
             </coding>
-          </code>
+          </type>
           <valueQuantity>
             <value value="45"/>
             <unit value="mm"/>
           </valueQuantity>
-        </characteristic>
+        </property>
         <containedItem>
           <item>
             <reference value="ManufacturedItemDefinition/example"/>

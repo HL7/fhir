@@ -21,34 +21,34 @@
   <ingredient>
     <reference value="Ingredient/example"/>
   </ingredient>
-  <characteristic>
-    <code>
+  <property>
+    <type>
       <coding>
         <code value="shape"/>
       </coding>
-    </code>
+    </type>
     <valueCodeableConcept>
       <text value="Oval"/>
     </valueCodeableConcept>
-  </characteristic>
-  <characteristic>
-    <code>
+  </property>
+  <property>
+    <type>
       <coding>
         <code value="color"/>
       </coding>
-    </code>
+    </type>
     <valueCodeableConcept>
       <text value="pink"/>
     </valueCodeableConcept>
-  </characteristic>
-  <characteristic>
-    <code>
+  </property>
+  <property>
+    <type>
       <coding>
         <code value="imprint"/>
       </coding>
-    </code>
+    </type>
     <valueCodeableConcept>
       <text value="894"/>
     </valueCodeableConcept>
-  </characteristic>
+  </property>
 </ManufacturedItemDefinition>

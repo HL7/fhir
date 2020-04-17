@@ -4,26 +4,20 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 
-[%stu-note%]
-<a name="dstu"/>
-<strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
-[%end-note%]
-
 <p>
-This is the nutrition resource...
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+The NutritionProduct resource represents the identification of a food or fluid product consumed by patients. The scope of the NutritionProduct resource includes all the products that are understood to be food and beverage products for human consumption.
 </p>
 </div>
 
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<h3>NutritionProduct vs Medication</h3>
-<h3>NutritionProduct vs Substance</h3>
+<ul>
+	<li>Oral intake of food, fluids, oral nutritional supplements (i.e. Ensure), or enteral nutrition should be recorded using the NutritionIntake resource.</li>
+	<li>Supplements, such as vitamins, minerals, herbals, should be recorded using the medication resources</li>
+	<li>Parenteral nutrition should be recorded using the medication resources</li>
+</ul>
 
-<p>
-
-</p>
 </div>
 
 <!-- (optional):

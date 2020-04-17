@@ -41,9 +41,9 @@
     </coding>
   </category>
   <!-- In this SMART on FHIR login, the user consents for data sharing for their elderly parent's record -->
-  <patient>
+  <subject>
     <reference value="Patient/xcda"/>
-  </patient>
+  </subject>
   <dateTime value="2016-06-23T17:02:33+10:00"/>
   <performer>
     <!-- this is the patient record that matches the person

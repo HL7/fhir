@@ -14,7 +14,13 @@
 	</subtype>
 	<action value="R"/>
 	<recorded value="2015-08-27T23:42:24Z"/>
-	<outcome value="0"/>
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/audit-event-outcome"/>
+			<code value="0"/>
+			<display value="Success"/>
+		</coding>
+	</outcome> 
 
 	<agent>
 		<!-- Source active participant, the software making the PIX query
