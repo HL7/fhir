@@ -964,6 +964,9 @@
 		<translation lang="it">Sottoscrizione</translation>
 		<translation lang="es">Suscripción</translation>
 	</item>
+	<item id="SubscriptionStatus">
+		<translation lang="en">SubscriptionStatus</translation>
+	</item>
 	<item id="SubscriptionTopic">
 		<translation lang="en">SubscriptionTopic</translation>
 		<translation lang="es">Tema de Suscripción</translation>

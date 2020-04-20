@@ -39,7 +39,7 @@
 	<a name="subscription-notification"/>
 	<h2>Subscription Notifications</h2>
 	<p>
-		This specification describes three distinct outbound notification types: <em>Event</em>, <em>Handshake</em> and <em>Heartbeat</em>. For each, the notification body is a <a href="bundle.html#history">history Bundle</a> with  extensions on the <code>Bundle.meta</code> element to convey Subscription and notification details.
+		This specification describes three distinct outbound notification types: <em>Event</em>, <em>Handshake</em> and <em>Heartbeat</em>. For each, the notification body is a <a href="bundle.html">subscription-notification Bundle</a> with a <a href="subscriptionstatus.html">SubscriptionStatus</a> resource used  to convey Subscription and notification details.
 	</p>
 
 		<a name="event-notification"/>
@@ -47,7 +47,7 @@
 		<p>The primary notification is a notification about an event.</p>
 		<ul>
 			<li>
-				<a href="subscription-example-notification-id-only.html">Example event notification</a>
+				<a href="notification-id-only.html">Example event notification</a>
 			</li>
 		</ul>
 		<p>
@@ -57,11 +57,11 @@
 		<a name="handshake-notification"/>
 		<h3>Handshake Notification</h3>
 		<p>
-			When a connection to an Endpoint is established, a server MAY send a Handshake notification to the endpoint.  A Handshake notification is an empty History Bundle sent without incrementing the subscription event count.
+			When a connection to an Endpoint is established, a server MAY send a Handshake notification to the endpoint.  A Handshake notification is a subscription-notification Bundle sent without incrementing the subscription event count.
 		</p>
 		<ul>
 			<li>
-				<a href="subscription-example-handshake.html">Example handshake notification</a>
+				<a href="notification-handshake.html">Example handshake notification</a>
 			</li>
 		</ul>
 		<p>
@@ -71,23 +71,23 @@
 		<a name="heartbeat-notification"/>
 		<h3>Heartbeat Notification</h3>
 		<p>
-			Servers MAY periodically send notifications across a channel to ensure that the connection is still alive and valid (e.g., in accordance with a client's requested heartbeat interval). The Heartbeat notification is an empty History Bundle sent without incrementing the subscription event count.
+			Servers MAY periodically send notifications across a channel to ensure that the connection is still alive and valid (e.g., in accordance with a client's requested heartbeat interval). The Heartbeat notification is an empty subscription-notification Bundle sent without incrementing the subscription event count.
 		</p>
 		<ul>
 			<li>
-				<a href="subscription-example-heartbeat.html">Example heartbeat notification</a>
+				<a href="notification-heartbeat.html">Example heartbeat notification</a>
 			</li>
 		</ul>
 		<p>
 			The client is not expected to take any special action in receipt of a Heartbeat notification beyond the channel-specific requirement for receiving an event notification.
 		</p>
 
-		<a name="bundle-extensions-for-subscriptions"/>
-		<h3>Bundle Extensions for Subscriptions</h3>
+		<a name="subscription-status"/>
+		<h3>Subscription Status</h3>
 		<ul>
 			<li>
 				<p>
-					The <a href="extension-subscription-event-count.html">subscription-event-count</a> extension indicates the number of unique events that have triggered notification attempts on this Subscription PRIOR to the current notification being sent.
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.eventsSinceSubscriptionStart">SubscriptionStatus.eventsSinceSubscriptionStart</a> element indicates the number of unique events that have triggered notification attempts on this Subscription PRIOR to the current notification being sent.
 				</p>
 				<ul>
 					<li>
@@ -117,7 +117,7 @@
 		<ul>
 			<li>
 				<p>
-					The <a href="extension-bundle-event-count.html">bundle-event-count</a> extension represents the number of event notifications conveyed by the Bundle. This helps clients:
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.eventsInNotification">SubscriptionStatus.eventsInNotification</a> element represents the number of event notifications conveyed by the Bundle. This helps clients:
 				</p>
 				<ul>
 					<li>
@@ -137,7 +137,7 @@
 					</li>
 				</ul>
 				<p>
-					For handshake and heartbeat notifications, the <code>bundle-event-count</code> will always be zero.
+					For handshake and heartbeat notifications, <code>eventsInNotification</code> will be zero if present.
 				</p>
 			</li>
 		</ul>
@@ -145,17 +145,17 @@
 		<ul>
 			<li>
 				<p>
-					The <a href="extension-subscription-status.html">subscription-status</a> extension represents the <a href="valueset-subscription-status.html">Subscription status values</a> at the time the notification is sent. Note that the status might change between the time the notification is sent and the time it is received/processed, and therefore this status recorded in the extension is not guaranteed to represent status at the time of receipt. The field is useful as a hint to inform the client if the server has encountered errors in notifications immediately preceding this notification.
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.status">SubscriptionStatus.status</a> element represents the <a href="valueset-subscription-state.html">Subscription status values</a> at the time the notification is sent. Note that the status might change between the time the notification is sent and the time it is received/processed, and therefore this status recorded in the extension is not guaranteed to represent status at the time of receipt. The field is useful as a hint to inform the client if the server has encountered errors in notifications immediately preceding this notification.
 				</p>
 			</li>
 			<li>
 				<p>
-					The <a href="extension-subscription-topic-url.html">subscription-topic-url</a> extension references the SubscriptionTopic resource relevant to this notification, as an absolute URL for the SubscriptionTopic resource on the server that generated the notification (<em>NOT</em> a reference to a canonical SubscriptionTopic URL.)
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.topic">SubscriptionStatus.topic</a> element references the SubscriptionTopic resource relevant to this notification, as an absolute URL for the SubscriptionTopic resource on the server that generated the notification (<em>NOT</em> a reference to a canonical SubscriptionTopic URL.)
 				</p>
 			</li>
 			<li>
 				<p>
-					The <a href="extension-subscription-url.html">subscription-url</a> extension references the Subscription resource that triggered this notification, as an absolute URL for the Subscription resource on the server that generated the notification.
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.subscription">SubscriptionStatus.subscription</a> element references the Subscription resource that triggered this notification, as an absolute URL for the Subscription resource on the server that generated the notification.
 				</p>
 			</li>
 		</ul>
@@ -175,7 +175,7 @@
 			<a name="payloads-empty" />
 			<h4>empty</h4>
 			<p>
-				An example notification with an <code>empty</code> payload can be found <a href="subscription-example-notification-empty.html">here</a>.
+				An example notification with an <code>empty</code> payload can be found <a href="notification-empty.html">here</a>.
 			</p>
 			<p>
 				With the content type of <code>empty</code>, the resources involved in triggering the notification are only available through the REST API, which helps consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>&amp;_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notification is for a topic about patient admission, the subscriber might query for the most recent Encounters for a patient or group of patients.
@@ -184,7 +184,7 @@
 			<a name="payloads-id-only" />
 			<h4>id-only</h4>
 			<p>
-				An example notification with an <code>id-only</code> payload can be found <a href="subscription-example-notification-id-only.html">here</a>.
+				An example notification with an <code>id-only</code> payload can be found <a href="notification-id-only.html">here</a>.
 			</p>
 			<p>
 				With the content type of <code>id-only</code>, the resources involved in triggering the notification are only available through the REST API, which (as in the <code>empty</code> payload example) helps consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may directly fetch all the relevant resources using the supplied resource ids. For example, the if the notification is for a topic about patient admission, the subscriber might fetch the Encounter(s) for a patient or group of patients.
@@ -193,7 +193,7 @@
 			<a name="payloads-full-resource" />
 			<h4>full-resource</h4>
 			<p>
-				An example notification with a <code>full-resource</code> payload can be found <a href="subscription-example-notification-full-resource.html">here</a>.
+				An example notification with a <code>full-resource</code> payload can be found <a href="notification-full-resource.html">here</a>.
 			</p>
 			<p>
 				With the content type of <code>full-resource</code>, the resources involved in triggering the notification are included in the notification bundle.  When the subscriber receives a notification of this type, some resources are already present in the bundle, but it may need to fetch additional resources from the server. For example, the if the notification is for a topic about patient admission, the subscriber might fetch Observations related to the Encounters in the notification.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Subscription xmlns="http://hl7.org/fhir">
+<Subscription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Subscription.xsd">
 	<id value="admission"/>
 	<name value="AdmissionExample"/>
 	<status value="active"/>
@@ -11,7 +11,5 @@
 		<searchParamName vlaue="patient"/>
 		<value value="Patient/123"/>
 	</filterBy>
-	<channel>
-		<type value="rest-hook"/>
-	</channel>
+	<channelType value="rest-hook"/>
 </Subscription>

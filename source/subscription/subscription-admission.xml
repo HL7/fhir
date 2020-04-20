@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Subscription xmlns="http://hl7.org/fhir">
+<Subscription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Subscription.xsd">
 	<id value="admission"/>
 	<name value="AdmissionExample"/>
 	<status value="active"/>
@@ -12,25 +12,11 @@
 		<searchParamName value="patient"/>
 		<value value="Patient/123"/>
 	</filterBy>
-	<channel>
-		<type>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/subscription-channel-type"/>
-				<!-- 0..1 Identity of the terminology system -->
-				<code value="rest-hook"/>
-				<!-- 0..1 Symbol in syntax defined by the system -->
-				<display value="Rest Hook"/>
-				<!-- 0..1 Representation defined by the system -->
-			</coding>
-			<text value="Rest Hook"/>
-			<!-- 0..1 Plain text representation of the concept -->
-		</type>
-		<endpoint value="https://example.org/Endpoints/P123" />
-		<header value="Authorization: Bearer secret-token-abc-123" />
-		<heartbeatPeriod value="60" />
-		<payload>
-			<contentType value="application/fhir+json" />
-			<content value="id-only" />
-	</payload>
-	</channel>
+	<channelType value="rest-hook"/>
+	<endpoint value="https://example.org/Endpoints/P123" />
+	<header value="Authorization: Bearer secret-token-abc-123" />
+	<heartbeatPeriod value="60" />
+	<timeout value="5" />
+	<contentType value="application/fhir+json" />
+	<content value="id-only" />
 </Subscription>

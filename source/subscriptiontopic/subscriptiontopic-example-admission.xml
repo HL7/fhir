@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SubscriptionTopic xmlns="http://hl7.org/fhir">
+<SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="admission"/>
 	<url value="http://argonautproject.org/subscription-ig/SubscriptionTopic/admission"/>
 	<title value="admission"/>
@@ -16,9 +16,9 @@
 	</resourceTrigger>
 	<canFilterBy>
 		<searchParamName value="patient"/>
-		<matchType value="=" />
-		<matchType value="in" />
-		<matchType value="not-in" />
+		<searchModifier value="=" />
+		<searchModifier value="in" />
+		<searchModifier value="not-in" />
 		<documentation value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
 	</canFilterBy>
 </SubscriptionTopic>

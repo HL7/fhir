@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SubscriptionTopic xmlns="http://hl7.org/fhir">
+<SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="example"/>
 	<url value="http://argonautproject.org/subscription-ig/SubscriptionTopic/admission" />
 	<version value="0.3" />
@@ -19,7 +19,7 @@
 	</resourceTrigger>
 	<canFilterBy>
 		<searchParamName value="patient" />
-		<matchType value="=" />
+		<searchModifier value="=" />
 		<documentation value="Exact match to a patient resource (reference)" />
   </canFilterBy>
 	<!-- insert contents here -->
