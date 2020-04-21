@@ -8,8 +8,10 @@
 	</topic>
 	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
 	<filterBy>
-		<searchParamName vlaue="patient"/>
+		<searchParamName value="patient"/>
 		<value value="Patient/123"/>
 	</filterBy>
-	<channelType value="rest-hook"/>
+	<channelType>
+		<code value="rest-hook"/>
+	</channelType>
 </Subscription>

@@ -12,7 +12,9 @@
 		<searchParamName value="patient"/>
 		<value value="Patient/123"/>
 	</filterBy>
-	<channelType value="rest-hook"/>
+	<channelType>
+		<code value="rest-hook"/>
+	</channelType>
 	<endpoint value="https://example.org/Endpoints/P123" />
 	<header value="Authorization: Bearer secret-token-abc-123" />
 	<heartbeatPeriod value="60" />

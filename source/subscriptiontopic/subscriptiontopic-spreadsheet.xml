@@ -19,7 +19,7 @@
   
   
   <TabRatio>735</TabRatio>
-  <ActiveSheet>10</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -833,7 +833,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1930,7 +1929,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -2262,7 +2260,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -2506,7 +2503,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3097,7 +3093,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3460,7 +3455,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3771,7 +3765,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4181,7 +4174,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Zoom>150</Zoom>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -4343,9 +4335,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s91"><Data ss:Type="String">SubscriptionTopicFilterBySearchModifier</Data></Cell>
     <Cell ss:StyleID="s158"><Data ss:Type="String">Operator to apply to filter label</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">#subscriptiontopic-match-op</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">valueset-subscription-search-modifier</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4354,12 +4346,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4957,7 +4949,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5013,136 +5004,5 @@
     <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
    </Condition>
   </ConditionalFormatting>
- </Worksheet>
- <Worksheet ss:Name="subscriptiontopic-match-op">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" ss:StyleID="s63" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="118.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="34.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="155.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="103.0"/>
-   <Column ss:StyleID="s63" ss:Width="327.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s63" ss:Width="84.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s63" ss:Width="242.0"/>
-   <Row ss:AutoFitHeight="0" ss:Height="16" ss:StyleID="s101">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code to be sent over the wire</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">System</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Parent</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code this code is a specialization of (if any).  Content should be "#" + the Id of the parent code</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Display</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v2 codes - See Confluence for syntax</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See Confluence for syntax</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String" x:Ticked="1">=</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String" x:Ticked="1">=</Data></Cell>
-    <Cell><Data ss:Type="String">Used to match a value according to FHIR Search rules (e.g., Patient/123, Encounter/2002).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">eq</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Equal</Data></Cell>
-    <Cell><Data ss:Type="String">The value for the parameter in the resource is equal to the provided value.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">ne</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Not Equal</Data></Cell>
-    <Cell><Data ss:Type="String">The value for the parameter in the resource is not equal to the provided value.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">gt</Data></Cell>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Greater Than</Data></Cell>
-    <Cell><Data ss:Type="String">The value for the parameter in the resource is greater than the provided value.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">lt</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Less Than</Data></Cell>
-    <Cell><Data ss:Type="String">The value for the parameter in the resource is less than the provided value.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">ge</Data></Cell>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Greater Than or Equal</Data></Cell>
-    <Cell><Data ss:Type="String">The value for the parameter in the resource is greater or equal to the provided value.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">le</Data></Cell>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Less Than or Equal</Data></Cell>
-    <Cell><Data ss:Type="String">The value for the parameter in the resource is less or equal to the provided value.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">sa</Data></Cell>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Starts After</Data></Cell>
-    <Cell><Data ss:Type="String">The value for the parameter in the resource starts after the provided value.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">eb</Data></Cell>
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Ends Before</Data></Cell>
-    <Cell><Data ss:Type="String">The value for the parameter in the resource ends before the provided value.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">ap</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Approximately</Data></Cell>
-    <Cell><Data ss:Type="String">The value for the parameter in the resource is approximately the same to the provided value.&#10;Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">above</Data></Cell>
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Above</Data></Cell>
-    <Cell><Data ss:Type="String">The search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource subsumes the specified search code.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">below</Data></Cell>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Below</Data></Cell>
-    <Cell><Data ss:Type="String">The search parameter is a concept with the form [system]|[code], and the search parameter tests whether the coding in a resource is subsumed by the specified search code.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">in</Data></Cell>
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">In</Data></Cell>
-    <Cell><Data ss:Type="String">The search parameter is a member of a Group or List, or the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the value is present in the specified Group, List, or Value Set.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">not-in</Data></Cell>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Not In</Data></Cell>
-    <Cell><Data ss:Type="String">The search parameter is a member of a Group or List, or the search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the value is NOT present in the specified Group, List, or Value Set.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">of-type</Data></Cell>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Of Type</Data></Cell>
-    <Cell><Data ss:Type="String">The search parameter has the format system|code|value, where the system and code refer to a Identifier.type.coding.system and .code, and match if any of the type codes match. All 3 parts must be present</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16" ss:Span="33"/>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   
-   <Print>
-    <ValidPrinterInfo/>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>600</VerticalResolution>
-   </Print>
-   <Selected/>
-   
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
  </Worksheet>
 <!--canonicalized--></Workbook>
