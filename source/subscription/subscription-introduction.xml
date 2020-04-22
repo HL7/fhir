@@ -1,10 +1,10 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
   <div>
-    <a name="scope"></a>
+    <a name="scope"/>
     <h2>Scope and Usage</h2>
     <p>
-      The <code>Subscription</code> resource is used to establish proactive event notifications from a FHIR server to another system.  Subscribers request event notifications within a predefined <a href="subscriptiontopic.html">SubscriptionTopic</a> that the server supports, and can further refine their notifications by supplying filters. Each <code>SubscriptionTopic</code> resource defines a set of allowed filters (<code>SubscriptionTopic.canFilterBy</code>), which a subscriber refer to within a <code>Subscription</code> resource (<code>Subscription.filterBy</code>).  Once a subscription is created, any event matching a specified SubscriptionTopic that meets the filtering criteria will cause a notification to be sent using the provided channel.
+      The <code>Subscription</code> resource is used to establish proactive event notifications from a FHIR server to another system.  Subscribers request event notifications within a predefined <a href="subscriptiontopic.html">SubscriptionTopic</a> that the server supports, and can further refine their notifications by supplying filters. Each <code>SubscriptionTopic</code> resource defines a set of allowed filters (<code>SubscriptionTopic.canFilterBy</code>), which a subscriber refer to within a <code>Subscription</code> resource (<code>Subscription.filterBy</code>).  Once a subscription is created, any event matching a specified SubscriptionTopic that meets the filtering criteria will cause a notification to be sent using the provided channel.  Notifications are <a href="bundle.html#subscription-notification">Bundle</a> resources, of type <code>subscription-notification</code>.
     </p>
     <p>
       Subscriptions are active resources; a server can only accept a subscription
@@ -13,16 +13,16 @@
       the server.
     </p>
     <p>
-      By adjusting <code>Subscription.channel.payload.content</code>, subscribers can request event notifications that include full resource content; or just the ID of the triggering resource; or an empty notification body.
+      By adjusting <code>Subscription.content</code>, subscribers can request event notifications that include full resource content; or just the ID of the triggering resource; or an empty notification body.
     </p>
     <p>
       Several channels are defined in the core specification:
     </p>
     <ul>
-      <li><a href="#rest-hook"><b>rest-hook</b></a>: Notifications are sent via HTTPS POST to the <code>Subscription.channel.endpoint</code> URL (e.g., <code>https://...</code>)</li>
+      <li><a href="#rest-hook"><b>rest-hook</b></a>: Notifications are sent via HTTPS POST to the <code>Subscription.endpoint</code> URL (e.g., <code>https://...</code>)</li>
       <li><a href="#websockets"><b>websocket</b></a>: Notifications are sent via WS/S to a client connected via a WebSocket</li>
-      <li><a href="#email"><b>email</b></a>: Notifications are sent via SMTP/S, S/MIME, or Direct SMTP to the <code>Subscription.channel.endpoint</code> email URI (e.g., <code>mailto:...</code>)</li>
-      <li><a href="#messaging"><b>message</b></a>: Notifications are sent via <a href="messaging.html">FHIR messaging</a> to the application identified in the <code>Subscription.channel.endpoint</code> URI</li>
+      <li><a href="#email"><b>email</b></a>: Notifications are sent via SMTP/S, S/MIME, or Direct SMTP to the <code>Subscription.endpoint</code> email URI (e.g., <code>mailto:...</code>)</li>
+      <li><a href="#messaging"><b>message</b></a>: Notifications are sent via <a href="messaging.html">FHIR messaging</a> to the application identified in the <code>Subscription.endpoint</code> URI</li>
     </ul>
     <p>
       Additional channel types can be <a href="#channel-extending">defined</a> by external implementation guides.
@@ -31,7 +31,7 @@
   </div>
 
   <div>
-    <a name="bnr"></a>
+    <a name="bnr"/>
     <h2>Boundaries and Relationships</h2>
     <p>
       There is a close relationship between <a href="subscriptiontopic.html">SubscriptionTopic</a> and <code>Subscription</code>.
@@ -51,6 +51,9 @@
       The use of Subscriptions requires the use of SubscriptionTopics - without an underlying SubscriptionTopic, a Subscription has no meaning and will not trigger any client notifications.
     </p>
     <p>
+      In use, Subscription relies on both <a href="bundle.html#subscription-notification">Bundle</a> and <a href="subscriptionstatus.html">SubscriptionStatus</a> for communicating notifications.
+    </p>
+    <p>
       As an alternative to subscriptions, the FHIR REST API describes a
       polling-based method for observing events using <a href="bundle.html">bundles</a>
       and the <a href="http.html#history">history operation</a>. This method
@@ -66,7 +69,7 @@
       server implementations.
     </p>
 
-    <a name="relationtofhircast" />
+    <a name="relationtofhircast"/>
     <h3>Relation to FHIRcast</h3>
     <p>
       <a href="http://fhircast.org">FHIRcast</a> is a framework for user-activity synchronization across applications.  FHIRcast and Subscription are both conceptually based <a href="https://www.w3.org/TR/websub/">W3 WebSub</a>, and while the mechanics of two projects look similar, they are fundamentally different projects used to address different use cases.  In particular:
@@ -86,6 +89,11 @@
       </ul>
     </p>
 
+    <a name="relationtomessaging"/>
+    <h3>Relation to Messaging</h3>
+    <p>
+      FHIR <a href="messaging.html">Messaging</a> is a message-based protocol which can be used for communication. While it would be possible to mesh Subscription Notifications into Messaging, the consistency of Subscription notifications would be lost (a driving principle of Subscriptions is that the notification should remain the same regardless of channel). When combining Messaging and Subscriptions, complete notifications are wrapped into Messaging Bundles.  More details are provided <a href="#messaging">below</a>.
+    </p>
   </div>
 
 </div>

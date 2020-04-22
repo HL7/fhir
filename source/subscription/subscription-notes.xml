@@ -30,7 +30,7 @@
   </p>
 
 	<p>
-		<code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.).  Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in <code>Subscription.channel.header</code> to verify that a message is from the desired source).
+		<code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.).  Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in <code>Subscription.header</code> to verify that a message is from the desired source).
 	</p>
 	<p>
 		Each channel type involves the server sending a communication that could reveal information about the client and server relationship, as well as sensitive administrative or clinical information. Servers are responsible for ensuring appropriate security is employed for each channel. The Subscription resource does not address these concerns directly; it is assumed that these are administered by other configuration processes. For instance, a server might maintain a whitelist of acceptable endpoints or trusted certificate authorities for rest-hook channels.
@@ -222,10 +222,10 @@
 			When a Subscription is created for a REST Hook channel type, the server <b>SHALL</b> set initial status to <code>requested</code>, pending verification of the nominated endpoint URL. After a successful handshake notification has been sent and accepted, the server <b>SHALL</b> update the status to <code>active</code>. Any errors in the initial handshake <b>SHALL</b> result in the status being changed to <code>error</code>.
 		</p>
 		<p>
-			To receive notifications via HTTP/S POST, a client should request a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>rest-hook</code> (from the subscription-channel-type Code System) and set the endpoint (<code>Subscription.channel.endpoint</code>) to the appropriate client URL.  Note that this URL must be accessible by the hosting server.
+			To receive notifications via HTTP/S POST, a client should request a subscription with the channel type (<code>Subscription.channelType</code>) of <code>rest-hook</code> (from the subscription-channel-type Code System) and set the endpoint (<code>Subscription.endpoint</code>) to the appropriate client URL.  Note that this URL must be accessible by the hosting server.
 		</p>
 		<p>
-			To convey an event notification, the server POSTs a Bundle to the client's nominated endpoint URL per the format requests in the Subscription. The content-type of the POST <b>SHALL</b> match the contentType (<code>channel.payload.contentType</code>) requested during creation of the Subscription. Each <code>channel.header</code> value <b>SHALL</b> be conveyed as an HTTP request header.
+			To convey an event notification, the server POSTs a Bundle to the client's nominated endpoint URL per the format requests in the Subscription. The content-type of the POST <b>SHALL</b> match the contentType (<code>channel.contentType</code>) requested during creation of the Subscription. Each <code>Subscription.header</code> value <b>SHALL</b> be conveyed as an HTTP request header.
 		</p>
 
 			<a name="rest-hook-security"/>
@@ -241,7 +241,7 @@
 			While the primary interface for FHIR servers is the FHIR REST API, notifications need not occur via REST.  Indeed, some subscribers may be unable to expose an outward-facing HTTP server to receive triggered notifications.  For example, a pure client-side Web app or mobile app may want to subscribe to a data feed without polling using the /history operation. This can be accomplished using a websocket notification channel.
 		</p>
 		<p>
-			A client can declare its intention to receive notifications via Web Sockets by requesting a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>websocket</code> (from the subscription-channel-type Code System).
+			A client can declare its intention to receive notifications via Web Sockets by requesting a subscription with the channel type (<code>Subscription.channelType</code>) of <code>websocket</code> (from the subscription-channel-type Code System).
 		</p>
 		<p>
 			The subscriber then initiates a Web Socket connection to the server, at a URL advertised in the FHIR server's Capability statement (subscriptions/webSocketUrl (todo)). A simple protocol is used to listen for notifications:
@@ -292,10 +292,10 @@
 			While the primary interface for FHIR servers is the FHIR REST API, notifications need not occur via REST.  Indeed, some subscribers may be unable to maintain an outward-facing HTTP server to receive triggered notifications.  For example, a public health organization may want to be notified of outbreaks of various illnesses.  This can be accomplished using an email notification channel.
 		</p>
 		<p>
-			A client can declare its intention to receive notifications via Email by requesting a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>email</code> (from the subscription-channel-type Code System) and setting the endpoint (<code>Subscription.channel.endpoint</code>) to the appropriate email URI (e.g., <code>mailto:public_health_notifications@example.org</code>).
+			A client can declare its intention to receive notifications via Email by requesting a subscription with the channel type (<code>Subscription.channelType</code>) of <code>email</code> (from the subscription-channel-type Code System) and setting the endpoint (<code>Subscription.endpoint</code>) to the appropriate email URI (e.g., <code>mailto:public_health_notifications@example.org</code>).
 		</p>
 		<p>
-			The server will send a new message for each matching resource.  The server will create a message based on the values present in the <code>channel.payload.contentType</code> and <code>channel.payload.content</code> fields.  If a server cannot honor the requested combination, the server should reject the Subscription request rather than send unexpected email messages.
+			The server will send a new message for each matching resource.  The server will create a message based on the values present in the <code>Subscription.contentType</code> and <code>Subscription.content</code> fields.  If a server cannot honor the requested combination, the server should reject the Subscription request rather than send unexpected email messages.
 		</p>
 		<p>The email channel sets two guidelines about content:</p>
 			<ul>
@@ -303,7 +303,7 @@
 				<li>Message Attachments CAN be machine readable</li>
 			</ul>
 		<p>
-			Due to these guidelines, the <code>channel.payload.contentType</code> refers to the content of the body of the message.  Attachment type information can be appended as a MIME parameter, for example:
+			Due to these guidelines, the <code>Subscription.contentType</code> refers to the content of the body of the message.  Attachment type information can be appended as a MIME parameter, for example:
 		</p>
 		<ul>
 			<li><code>text/plain</code>: a plain-text body with no attachment</li>
@@ -312,7 +312,7 @@
 			<li><code>text/html;attach=application/fhir+xml</code>: an HTML body with a FHIR XML bundle attached</li>
 		</ul>
 		<p>
-			The <code>channel.payload.content</code> field must be applied to any attachments, and may be applied to body contents (depending on server implementation).  However, a server must not include a body which exceeds the specified content level.  For example, a server may choose to always include a standard message in the body of the message containing no PHI and vary the attachment, but cannot include PHI in the body of an email when the content is set to <code>empty</code>.
+			The <code>Subscription.content</code> field must be applied to any attachments, and may be applied to body contents (depending on server implementation).  However, a server must not include a body which exceeds the specified content level.  For example, a server may choose to always include a standard message in the body of the message containing no PHI and vary the attachment, but cannot include PHI in the body of an email when the content is set to <code>empty</code>.
 		</p>
 		[%stu-note%]
 		Warning: The Email channel type is still being actively tested and might not be consistently supported by servers. More work is required.
@@ -330,7 +330,7 @@
 			There are times when it is desireable to use Subscriptions as a communication channel between FHIR servers.  This can be accomplished using the message notification channel.
 		</p>
 		<p>
-			To receive notifications via messaging, a client should request a subscription with the channel type (<code>Subscription.channel.type</code>) of <code>message</code> (from the subscription-channel-type Code System) and set the endpoint (<code>Subscription.channel.endpoint</code>) to the FHIR server base URL.  Note that this URL must be accessible by the hosting server.
+			To receive notifications via messaging, a client should request a subscription with the channel type (<code>Subscription.channelType</code>) of <code>message</code> (from the subscription-channel-type Code System) and set the endpoint (<code>Subscription.endpoint</code>) to the FHIR server base URL.  Note that this URL must be accessible by the hosting server.
 		</p>
 		<p>For each matching resource, a server will send a message to the nominated end-point. Most servers will require that the end-point is white-listed prior to allowing these kinds of subscriptions.</p>
 		[%stu-note%]
@@ -352,10 +352,10 @@
 			At a minimum, the following items should be defined:
 		</p>
 		<ul>
-			<li>A generally useful name for <code>channel.type</code> (e.g., 'secure-mq' isntead of 'channel0012')</li>
-			<li>The type of data required in <code>channel.endpoint</code> (e.g., URI, etc.)</li>
-			<li>The meaning of the <code>channel.header</code> field values (e.g., <a href="#rest-hook">REST-hook</a> defines as Auth headers included in a POST)</li>
-			<li>Any variations on MIME types for <code>channel.payload.contentType</code> (e.g., <a href="#email">email</a> defines this as the email body, with allowable attachments.)</li>
+			<li>A generally useful name for <code>Subscription.channelType</code> (e.g., 'secure-mq' isntead of 'channel0012')</li>
+			<li>The type of data required in <code>Subscription.endpoint</code> (e.g., URI, etc.)</li>
+			<li>The meaning of the <code>Subscription.header</code> field values (e.g., <a href="#rest-hook">REST-hook</a> defines as Auth headers included in a POST)</li>
+			<li>Any variations on MIME types for <code>Subscription.contentType</code> (e.g., <a href="#email">email</a> defines this as the email body, with allowable attachments.)</li>
 			<li>Whether heartbeat notifications are used (and guidance on timings if they are)</li>
 		</ul>
 		
