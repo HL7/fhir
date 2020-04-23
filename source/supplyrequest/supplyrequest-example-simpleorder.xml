@@ -12,12 +12,14 @@
     </coding>
   </category>
   <priority value="asap"/>
-  <itemCodeableConcept>
-    <coding>
-      <code value="BlueTubes"/>
-      <display value="Blood collect tubes blue cap"/>
-    </coding>
-  </itemCodeableConcept>
+  <item>
+	<concept>
+      <coding>
+        <code value="BlueTubes"/>
+        <display value="Blood collect tubes blue cap"/>
+      </coding>
+	</concept>
+  </item>
 	<quantity>
 		<value value="10"/>
 	</quantity>
