@@ -76,16 +76,22 @@
 	<a name="resource-value-tests" />
 	<h3>Resource Value Tests</h3>
 	<p>
-		If a topic requires more granularity than operations provide, a topic can provide either FHIRPath or query (<a href="search.html">Search</a>) definitions to test against state changes.
+		If a topic requires more granularity than operations provide, a topic can provide either <a href="fhirpath.html">FHIRPath</a> or query (<a href="search.html">Search</a>) definitions to test against state changes.
 	</p>
 	<p>
-		Computable Definitions serve two purposes when defining topics.  Some server implementers may be able to use computable definitions either directly or with minimal changes.  In this scenario, the benifit of a computable definition is quite large (e.g., user-defined <code>SubscriptionTopics</code>, high portability, etc.).  However, even implementers that do not use the computable definition directly will read the definitions to understand, specifically, what is being defined.
+		Computable Definitions serve two purposes when defining topics. First, some server implementers may be able to use computable definitions directly (or with minimal changes). In this scenario, the benifit of a computable definition is quite large (e.g., user-defined <code>SubscriptionTopics</code>, high portability, etc.). Second, implementers that do not use computable definitions internally will be able to read definitions during their implementation in order to precisley understand what is being defined.
 	</p>
+
+		<a name="query-criteria" />
+		<h4>Query (Search) Definitions</h4>
+		<p>
+			Query definitions are based on Search evaluations performed before and/or after a state change in the server.  Allowed query parameters are based on the <code>SubscriptionTopic.resourceTrigger.resourceType</code> (e.g., if the resource is an <a href="encounter.html">Encounter</a>, the list of available search parameters can be found <a href="encounter.html#search">here</a>).
+		</p>
 
 		<a name="fhirpath-criteria" />
 		<h4>FHIRPath Definitions</h4>
 		<p>
-			A FHIRPath expression can be evaluated against the state change...
+			FHIRPath expressions can be used to define topical state changes in a server.  Each FHIRPath expression is assumed to be provided the inputs listed below.  If multiple FHIRPath expressions are present in <code>SubscriptionTopic.resourceTrigger.fhirPathCriteria</code>, they are joined together by AND clauses.
 		</p>
 		<p>
 			FHIRPath expression input variables:
@@ -99,12 +105,53 @@
 			</li>
 		</ul>
 
-		<a name="query-criteria" />
-		<h4>Query (Search) Definitions</h4>
+	<a name="filters"/>
+	<h3>Defining Filters for Subscriptions</h3>
+	<p>
+		In order to reduce the complexity of evaluating <code>Subscription</code> requests at runtime, topics define what filters clients are allowed to request.  These filters are applied in servers to filter possible events into events that a particular client is interested in (e.g., from a topic defining all all admissions to a subscription for admissions on patients within a care team).
+	</p>
+
+		<a name="filters-param-name"/>
+		<h4>Search Parameter Name</h4>
 		<p>
-			Query definitions are based on Search evaluations...
+			The element <code>SubscriptionTopic.canFilterBy.searchParamName</code> contains the name of the search parameter used to filter events for the focus resource (defined by <code>SubscriptionTopic.resourceTrigger.resourceType</code>). The search parameter must be either from the list of <a href="search.html#Summary">Parameters for all resources</a> (e.g., <code>_id</code>, <code>_tag</code>) or the parameters defined by the specific resource (e.g., <a href="encounter.html#search">Encounter Search Parameters</a>, <a href="patient.html#search">Patient search parameters</a>, etc.).
+		</p>
+		<p>
+			If a search parameter name is not provided, it is defaulted to <code>_id</code>.
 		</p>
 
+		<a name="filters-modifer"/>
+		<h4>Search Modifier</h4>
+		<p>
+			The element <code>SubscriptionTopic.canFilterBy.searchModifier</code> contains the search modifier used when evaluating a change.  Allowed search parameters are pulled from <a href="search.html">Search</a>, with the addition of <code>=</code> to show simple equality (e.g., no modifier). Note that modifiers are only valid for specific types of data (e.g., a modifer of <code>sa</code> (starts after) has no meaning when applied to a string).
+		</p>
+		<p>
+			If a search modifier is not provided, it is defaulted to <code>=</code> (no modifer).
+		</p>
+
+		<a name="filters-timing"/>
+		<h4>Filter Timing</h4>
+		<p>
+			When to evaluate filters depends on the type of change covered by the topic.
+		</p>
+
+			<a name="filters-timing-create"/>
+			<h5>Create</h5>
+			<p>
+				Filters for <code>create</code> operations must be applied after the resource has been created. For example, a topic interested in new patients may allow filters on elements within the patient resource (e.g., new patients in a specified age range).
+			</p>
+
+			<a name="filters-timing-delete"/>
+			<h5>Delete</h5>
+			<p>
+				Filters for <code>delete</code> operations must be applied before the resource has been deleted. For example, a topic interested in practitioners being removed may allow filters on the practitioner resource (e.g., removed practitioners with a specific qualification).
+			</p>
+
+			<a name="filters-timing-update"/>
+			<h5>Update</h5>
+			<p>
+				Filters for <code>update</code> operations can be applied to either the pre-update or post-update state. Servers <b>SHOULD</b> document their method of operation.
+			</p>
 
 	<a name="deriving" />
 	<h2>Deriving from existing Subscription Topics</h2>
