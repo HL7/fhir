@@ -376,7 +376,7 @@
 	<a name="errors"/>
 	<h2>Managing Subscriptions and Errors</h2>
 	<p>
-		The subscription resource is authored by the client with an initial status of "requested". A new subscription is created on the server using the RESTful create or update interaction. After a successful transaction, the client parses the Location header and saves the new Subscription's logical id for use in subsequent operations.
+		The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful transaction, the client parses the Location header and saves the new Subscription's logical id for use in subsequent operations.
 	</p>
 	<p>
 		When the server receives a subscription, it <b>SHOULD</b> check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and process it like a normal <a href="http.html#create">create</a>. If it isn't, it <b>SHOULD</b> return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
@@ -392,6 +392,9 @@
 	</p>
 	<p>
 		The server may retry the notification a fixed number of times and/or refer errors to its own alert logs. If the notification fails, the server <b>SHOULD</b> set the status to <code>error</code> and mark the error in the resource. If the notification succeeds, the server <b>SHOULD</b> update the status to <code>active</code> and may remove any error codes. If a subscription fails consistently a server may choose set the subscription status to <code>off</code> and stop trying to send notifications.
+	</p>
+	<p>
+		Errors a server wishes to make accessible to clients are stored in <code>Subscription.error</code>. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error). Since <code>Subscription.error</code> represents server errors, a server <b>SHOULD NOT</b> allow clients to add errors.
 	</p>
 
 	<a name="tracking"/>
