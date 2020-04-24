@@ -324,7 +324,7 @@
 				Email (SMTP) is not a secure channel.  Implementers must ensure that any messages containing PHI have been secured according to their policy requirements (e.g., use of a system such as <a href="http://directproject.org/">Direct</a>).
 			</p>
 
-		<a name="messaging"/>
+		<a name="messaging" />
 		<h3>Messaging</h3>
 		<p>
 			There are times when it is desireable to use Subscriptions as a communication channel between FHIR servers.  This can be accomplished using the message notification channel.
