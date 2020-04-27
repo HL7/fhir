@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Topic xmlns="http://hl7.org/fhir">
+<SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="admission"/>
-	<url value="http://argonautproject.org/subscription-ig/Topic/admission"/>
+	<url value="http://argonautproject.org/subscription-ig/SubscriptionTopic/admission"/>
 	<title value="admission"/>
 	<status value="active"/>
 	<resourceTrigger>
@@ -15,10 +15,10 @@
 		<fhirPathCriteria value="%previous.status!='in-progress' and %current.status='in-progress'"/>
 	</resourceTrigger>
 	<canFilterBy>
-		<name value="patient"/>
-		<matchType value="=" />
-		<matchType value="in" />
-		<matchType value="not-in" />
+		<searchParamName value="patient"/>
+		<searchModifier value="=" />
+		<searchModifier value="in" />
+		<searchModifier value="not-in" />
 		<documentation value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
 	</canFilterBy>
-</Topic>
+</SubscriptionTopic>

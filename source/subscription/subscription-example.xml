@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Subscription xmlns="http://hl7.org/fhir">
+<Subscription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Subscription.xsd">
 	<id value="admission"/>
 	<name value="AdmissionExample"/>
 	<status value="active"/>
   <topic>
-		<reference value="Topic/admission"/>
+		<reference value="SubscriptionTopic/admission"/>
 	</topic>
 	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
 	<filterBy>
-		<name vlaue="patient"/>
+		<searchParamName value="patient"/>
 		<value value="Patient/123"/>
 	</filterBy>
-	<channel>
-		<type value="rest-hook"/>
-	</channel>
+	<channelType>
+		<code value="rest-hook"/>
+	</channelType>
 </Subscription>

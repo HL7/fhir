@@ -137,7 +137,8 @@ signatures.html
       <page type="resource" resource="OperationOutcome"/>
       <page type="resource" resource="Parameters"/>
       <page type="resource" resource="Subscription"/>
-      <page type="resource" resource="Topic"/>
+      <page type="resource" resource="SubscriptionStatus"/>
+      <page type="resource" resource="SubscriptionTopic"/>
       <page type="resource" resource="MessageHeader"/>
       <page type="resource" resource="MessageDefinition"/>
     </page>

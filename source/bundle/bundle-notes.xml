@@ -121,6 +121,19 @@ Each entry element SHALL contain a resource.
 
 <p><a href="diagnosticreport-examples.html">Example</a></p>
 
+<a name="subscription-notification"></a>
+<h4>Subscription Notification</h4>
+
+<p>
+A subscription notification (type = "subscription-notification") consists of a series of 
+1 or more entries, the first of which is a <a href="subscriptionstatus.html">SubscriptionStatus</a>. There 
+may be additional contents, as specified by the subscription responsible for generating the notification. See 
+<a href="subscription.html">Subscription</a> for further information.
+</p>
+
+<p><a href="subscriptionstatus-examples.html">Examples</a></p>
+
+
 <a name="bundle-unique"></a>
 <h2>Resource URL &amp; Uniqueness rules in a bundle</h2>
 

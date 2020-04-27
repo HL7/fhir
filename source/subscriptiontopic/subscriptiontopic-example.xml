@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Topic xmlns="http://hl7.org/fhir">
+<SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="example"/>
-	<url value="http://argonautproject.org/subscription-ig/Topic/admission" />
+	<url value="http://argonautproject.org/subscription-ig/SubscriptionTopic/admission" />
 	<version value="0.3" />
 	<title value="admission" />
 	<status value="draft"/>
 	<date value="2019-08-01" />
-  <description value="Admission Topic for testing framework and behavior" />
+  <description value="Admission SubscriptionTopic for testing framework and behavior" />
 	<resourceTrigger>
 		<description value="Beginning of a clinical encounter" />
 		<resourceType value="Encounter" />
@@ -18,9 +18,9 @@
 		<fhirPathCriteria value="%previous.status!=&#x27;in-progress&#x27; and %current.status=&#x27;in-progress&#x27;"/>
 	</resourceTrigger>
 	<canFilterBy>
-		<name value="patient" />
-		<matchType value="=" />
+		<searchParamName value="patient" />
+		<searchModifier value="=" />
 		<documentation value="Exact match to a patient resource (reference)" />
   </canFilterBy>
 	<!-- insert contents here -->
-</Topic>
+</SubscriptionTopic>
