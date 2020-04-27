@@ -376,6 +376,7 @@ public class SourceParser {
     Resource res = new XmlParser().parse(new FileInputStream(file));
     if (res instanceof CanonicalResource) {
       res.setUserData("external.url", stated);
+      res.setUserData("path", stated);
       context.cacheResource(res);
       externals.addEntry().setFullUrl("http://hl7.org/fhir/"+res.fhirType()+"/"+res.getId()).setResource(res).addLink().setRelation("via").setUrl(stated);
     } else

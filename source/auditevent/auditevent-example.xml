@@ -18,7 +18,13 @@
     </subtype>
     <action value="E"/>
     <recorded value="2012-10-25T22:04:27+11:00"/>
-    <outcome value="0"/>
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/audit-event-outcome"/>
+			<code value="0"/>
+			<display value="Success"/>
+		</coding>
+	</outcome> 
   <agent>
       <type> <coding> <system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/> <code value="humanuser"/> <display value="human user"/> </coding> </type> 
 

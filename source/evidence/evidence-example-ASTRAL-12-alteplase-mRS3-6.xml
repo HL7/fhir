@@ -20,18 +20,25 @@
 		<url value="https://doi.org/10.1161/STROKEAHA.116.012802"/>
 	</relatedArtifact>
 	<description value="5.3% risk of mRS 3-6 at 90 days"/>
-	<referentGroup>
-		<evidenceSource>
+	<variableDefinition>
+		<variableRole>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+				<code value="population"/>
+				<display value="population"/>
+			</coding>
+		</variableRole>
+		<observed>
 			<reference value="Group/ASTRAL-Cooray-validation-cohort"/>
 			<type value="Group"/>
 			<display value="ASTRAL validation cohort"/>
-		</evidenceSource>
-		<intendedGroup>
+		</observed>
+		<intended>
 			<reference value="Group/ASTRAL-12"/>
 			<type value="Group"/>
 			<display value="Stroke with ASTRAL Score = 12"/>
-		</intendedGroup>
-	</referentGroup>
+		</intended>
+	</variableDefinition>
 	<variableDefinition>
 		<description value="functionally dependent or dead at 3 months"/>
 		<variableRole>
@@ -41,16 +48,16 @@
 				<display value="measured variable"/>
 			</coding>
 		</variableRole>
-		<actualDefinition>
+		<observed>
 			<reference value="EvidenceVariable/example-mRS3-6-at-90days"/>
 			<type value="EvidenceVariable"/>
 			<display value="mRS 3-6 at 90 days"/>
-		</actualDefinition>
-		<intendedDefinition>
+		</observed>
+		<intended>
 			<reference value="EvidenceVariable/example-dead-or-dependent-90day"/>
 			<type value="EvidenceVariable"/>
 			<display value="Dead or functionally dependent at 90 days"/>
-		</intendedDefinition>
+		</intended>
 		<directnessMatch>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/directness"/>
@@ -67,16 +74,16 @@
 				<display value="exposure"/>
 			</coding>
 		</variableRole>
-		<actualDefinition>
+		<observed>
 			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
 			<type value="EvidenceVariable"/>
 			<display value="Alteplase for Stroke"/>
-		</actualDefinition>
-		<intendedDefinition>
+		</observed>
+		<intended>
 			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
 			<type value="EvidenceVariable"/>
 			<display value="Alteplase for Stroke"/>
-		</intendedDefinition>
+		</intended>
 		<directnessMatch>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/directness"/>

@@ -13768,6 +13768,10 @@
     <display value="Clinical finding (finding)"/>
     <display value="Clinical finding"/>
   </concept>
+  <concept id="405533003" display="Adverse incident outcome categories">
+    <display value="Adverse incident outcome categories (finding)"/>
+    <display value="Adverse incident outcome categories"/>
+  </concept>
   <concept id="405607001" display="Ambulatory surgery centre">
     <display value="Ambulatory surgery center (environment)"/>
     <display value="Ambulatory surgery centre"/>

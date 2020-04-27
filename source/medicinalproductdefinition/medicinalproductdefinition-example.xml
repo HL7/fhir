@@ -22,19 +22,25 @@
 		<namePart>
 			<part value="Equilidem"/>
 			<type>
-				<code value="INV"/>
+				<coding>
+					<code value="INV"/>
+				</coding>
 			</type>
 		</namePart>
 		<namePart>
 			<part value="2.5 mg"/>
 			<type>
-				<code value="STR"/>
+				<coding>
+					<code value="STR"/>
+				</coding>
 			</type>
 		</namePart>
 		<namePart>
 			<part value="film-coated tablets"/>
 			<type>
-				<code value="FRM"/>
+				<coding>
+					<code value="FRM"/>
+				</coding>
 			</type>
 		</namePart>
 		<countryLanguage>
@@ -59,10 +65,14 @@
 		</countryLanguage>
 	</name>
 	<manufacturingBusinessOperation>
-		<typeCoding>
-			<system value="http://ema.europa.eu/example/manufacturingOperationType"/>
-			<code value="Batchrelease"/>
-		</typeCoding>
+		<type>
+			<concept>
+				<coding>
+					<system value="http://ema.europa.eu/example/manufacturingOperationType"/>
+					<code value="Batchrelease"/>
+				</coding>
+			</concept>
+		</type>
 		<effectiveDate>
 			<start value="2013-03-15"/>
 		</effectiveDate>

@@ -17,6 +17,7 @@
   
   
   
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3826,20 +3827,20 @@
     <Cell><Data ss:Type="String">NutritionIntake.status</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">intended</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">preparation</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">on-hold</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -3852,7 +3853,7 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="34"><Data ss:Type="String">not-taken</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">not-done</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Topic.status</Data></Cell>
@@ -3899,7 +3900,7 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row>
+   <Row ss:Height="15">
     <Cell><Data ss:Type="String">Permission.status</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
@@ -3922,9 +3923,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>100</TopRowBottomPane>
+   <TopRowBottomPane>85</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>12</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

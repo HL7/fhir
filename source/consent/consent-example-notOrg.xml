@@ -24,10 +24,10 @@
       <code value="59284-0"/>
     </coding>
   </category>
-  <patient>
+  <subject>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
-  </patient>
+  </subject>
   <dateTime value="2018-12-24"/>
   <organization>
     <reference value="Organization/2.16.840.1.113883.19.5"/>

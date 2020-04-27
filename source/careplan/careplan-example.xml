@@ -89,10 +89,10 @@
       </concept>
 		</outcome>
 		<outcome>
-      <reference>
-		   	<reference value="Observation/example" />
-		  	<display value="Weight Measured" />
-      </reference>
+		  <reference>
+				<reference value="Observation/example" />
+				<display value="Weight Measured" />
+		  </reference>
 		</outcome>
 		<detail>
 		<code>
@@ -122,7 +122,13 @@
 			</repeat>
 		</scheduledTiming>
 		<location>
-			<display value="Patient's home" />
+			<concept>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+					<code value="PTRES"/>
+					<display value="Patient's Residence" />
+				</coding>
+			</concept>
 		</location>
 		<reportedBoolean value="false"/> 
 		<performer>
