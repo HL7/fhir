@@ -3,9 +3,9 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-	<name value="SubscriptionChannelType"/>
-	<url value="http://hl7.org/fhir/ValueSet/subscription-channel-type"/>
-	<title value="Subscription Channel Type"/>
+	<name value="SubscriptionSearchModifier"/>
+	<url value="http://hl7.org/fhir/ValueSet/subscription-search-modifier"/>
+	<title value="Subscription Search Modifier"/>
 	<status value="active"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -14,10 +14,10 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-	<description value="Core-defined FHIR channel types allowed for use in Subscriptions."/>
+	<description value="FHIR search modifiers allowed for use in Subscriptions and SubscriptionTopics."/>
 	<compose>
 		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/subscription-channel-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/subscription-search-modifier"/>
     </include>
 	</compose>
 </ValueSet>

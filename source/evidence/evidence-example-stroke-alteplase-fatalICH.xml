@@ -43,6 +43,25 @@
 		<variableRole>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+				<code value="population"/>
+				<display value="population"/>
+			</coding>
+		</variableRole>
+		<observed>
+			<reference value="Group/Emberson-2014-IPD-MA-Alteplase-Cohort"/>
+			<type value="Group"/>
+			<display value="Emberson 2014 IPD-MA Alteplase Cohort"/>
+		</observed>
+		<intended>
+			<reference value="Group/AcuteIschemicStrokeTreatedWithAlteplase"/>
+			<type value="Group"/>
+			<display value="adults with acute ischemic stroke treated with alteplase"/>
+		</intended>
+  </variableDefinition>
+  <variableDefinition>
+		<variableRole>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
 				<code value="measuredVariable"/>
 				<display value="measured variable"/>
 			</coding>
@@ -56,25 +75,6 @@
 			<reference value="EvidenceVariable/example-fatal-ICH-in-7-days"/>
 			<type value="EvidenceVariable"/>
 			<display value="fatal ICH"/>
-		</intended>
-  </variableDefinition>
-  <variableDefinition>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="exposure"/>
-				<display value="exposure"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
-			<type value="EvidenceVariable"/>
-			<display value="Alteplase for Stroke"/>
-		</observed>
-		<intended>
-			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
-			<type value="EvidenceVariable"/>
-			<display value="Alteplase for Stroke"/>
 		</intended>
   </variableDefinition>
 	<synthesisType>

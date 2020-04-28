@@ -36,7 +36,7 @@
 		<intended>
 			<reference value="Group/ASTRAL-12"/>
 			<type value="Group"/>
-			<display value="Stroke with ASTRAL Score = 12"/>
+			<display value="patients 0-4.5 hours after acute ischemic stroke onset with ASTRAL score = 12"/>
 		</intended>
 	</variableDefinition>
 	<variableDefinition>
