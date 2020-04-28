@@ -246,7 +246,7 @@
   </relatedArtifact>
   <relatedArtifact>
     <type value="successor"/>
-    <resource value="ActivityDefinition/referralPrimaryCareMentalHealth"/>
+    <resource value="http://example.org/fhir/ActivityDefinition/referralPrimaryCareMentalHealth"/>
   </relatedArtifact>
   <!-- Kind indicates the type of resource that is defined by this activity, a ServiceRequest in this case -->
   <kind value="ServiceRequest"/>

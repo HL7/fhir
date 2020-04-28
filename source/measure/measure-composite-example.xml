@@ -10,11 +10,11 @@
   <status value="draft"/>
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="Measure/component-a-example"/>
+    <resource value="http://example.org/fhir/Measure/component-a-example"/>
   </relatedArtifact>
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="Measure/component-b-example"/>
+    <resource value="http://example.org/fhir/Measure/component-b-example"/>
   </relatedArtifact>
   <scoring><coding><code value="proportion"/></coding></scoring>
   <compositeScoring><coding><code value="opportunity"/></coding></compositeScoring>

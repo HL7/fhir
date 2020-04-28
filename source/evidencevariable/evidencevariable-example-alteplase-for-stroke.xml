@@ -14,6 +14,6 @@
   <actual value="true"/>
   <characteristic>
     <description value="IV alteplase 0.9 mg/kg (maximum 90 mg) as 10% of dose over 1 minute and 90% over 1 hour"/>
-    <definitionCanonical value="ActivityDefinition/example-alteplase-dosing"/>
+    <definitionCanonical value="http://example.org/fhir/ActivityDefinition/example-alteplase-dosing"/>
   </characteristic>
 </EvidenceVariable>

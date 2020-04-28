@@ -120,9 +120,9 @@
 		  <reference value="RiskAssessment/suicide-risk-assessment"/>
 	  </reasonReference>
 	  <!--definition>
-		<reference value="ActivityDefinition/citalopramPrescription"/>
+		<reference value="http://example.org/fhir/ActivityDefinition/citalopramPrescription"/>
 	  </definition-->
-	  <instantiates value="ActivityDefinition/citalopramPrescription"/>
+	  <instantiates value="http://example.org/fhir/ActivityDefinition/citalopramPrescription"/>
 	  <dosageInstruction>
 		<text value="1 tablet oral 1 time daily"/>
 		<timing>
@@ -156,7 +156,7 @@
 	  </dispenseRequest>
 	</MedicationRequest>
   </contained>
-  <instantiatesCanonical value="PlanDefinition/example"/>
+  <instantiatesCanonical value="http://example.org/fhir/PlanDefinition/example"/>
   <status value="draft"/>
   <intent value="proposal"/>
   <subject>

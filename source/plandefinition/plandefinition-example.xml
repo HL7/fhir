@@ -928,13 +928,13 @@
   </relatedArtifact>
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="ActivityDefinition/referralPrimaryCareMentalHealth"/>
+    <resource value="http://example.org/fhir/ActivityDefinition/referralPrimaryCareMentalHealth"/>
   </relatedArtifact>
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="ActivityDefinition/citalopramPrescription"/>
+    <resource value="http://example.org/fhir/ActivityDefinition/citalopramPrescription"/>
   </relatedArtifact>
-  <library value="Library/suiciderisk-orderset-logic"/>
+  <library value="http://example.org/fhir/Library/suiciderisk-orderset-logic"/>
   <!-- Actions -->
   <action>
     <title value="Suicide Risk Assessment and Outpatient Management"/>

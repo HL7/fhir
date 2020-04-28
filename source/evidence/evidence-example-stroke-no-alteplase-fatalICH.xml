@@ -29,6 +29,25 @@
 			</coding>
 		</variableRole>
 		<observed>
+			<reference value="Group/AcuteIschemicStroke"/>
+			<type value="Group"/>
+			<display value="adults with acute ischemic stroke"/>
+		</observed>
+		<intended>
+			<reference value="Group/AcuteIschemicStroke"/>
+			<type value="Group"/>
+			<display value="adults with acute ischemic stroke"/>
+		</intended>
+  </variableDefinition>
+  <variableDefinition>
+		<variableRole>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+				<code value="population"/>
+				<display value="population"/>
+			</coding>
+		</variableRole>
+		<observed>
 			<reference value="Group/Emberson-2014-IPD-MA-No-Alteplase-Cohort"/>
 			<type value="Group"/>
 			<display value="Emberson 2014 IPD-MA No Alteplase Cohort"/>

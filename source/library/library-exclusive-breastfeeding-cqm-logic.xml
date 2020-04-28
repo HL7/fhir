@@ -205,7 +205,7 @@
 
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource value="Library/library-quick-model-definition"/>
+    <resource value="http://example.org/fhir/Library/library-quick-model-definition"/>
   </relatedArtifact>
 
   <!--valueSet>

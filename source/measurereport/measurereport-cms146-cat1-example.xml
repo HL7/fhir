@@ -1004,7 +1004,7 @@
   </identifier>
   <status value="complete"/>
   <type value="individual"/>
-  <measure value="Measure/CMS146"/>
+  <measure value="http://example.org/fhir/Measure/CMS146"/>
   <subject>
     <reference value="Patient/123"/>
   </subject>

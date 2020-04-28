@@ -20,5 +20,5 @@
   <quantity>
     <value value="10"/>
   </quantity>
-  <transform value="StructureMap/supplyrequest-transform"/>
+  <transform value="http://example.org/fhir/StructureMap/supplyrequest-transform"/>
 </ActivityDefinition>

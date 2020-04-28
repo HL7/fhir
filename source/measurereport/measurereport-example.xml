@@ -7,7 +7,7 @@
   </text>
   <status value="complete"/>
   <type value="individual"/>
-  <measure value="Measure/measure-cms146-example"/>
+  <measure value="http://example.org/fhir/Measure/measure-cms146-example"/>
 
   <!-- insert contents here -->
   

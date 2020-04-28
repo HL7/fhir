@@ -45,7 +45,7 @@
                 </contained>
                 <status value="complete"/>
                 <type value="individual"/>
-                <measure value="Measure/measure-bcs"/>
+                <measure value="http://example.org/fhir/Measure/measure-bcs"/>
                 <subject>
                     <reference value="Patient/Patient-1153"/>
                 </subject>
@@ -97,7 +97,7 @@
             </contained>
             <status value="complete"/>
             <type value="individual"/>
-            <measure value="Measure/measure-ccs"/>
+            <measure value="http://example.org/fhir/Measure/measure-ccs"/>
             <subject>
                 <reference value="Patient/Patient-1153"/>
             </subject>

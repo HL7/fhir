@@ -3,7 +3,7 @@
   <meta>
     <lastUpdated value="2017-10-26T19:59:50.038+02:00" />
   </meta>
-  <url value="StructureDefinition/MyComposition" />
+  <url value="http://hl7.org/fhir/StructureDefinition/MyComposition" />
   <name value="Catalog" />
   <status value="draft" />
   <date value="2017-10-26T19:52:27.62+02:00" />

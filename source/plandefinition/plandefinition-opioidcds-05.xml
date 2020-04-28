@@ -85,7 +85,7 @@
 		<display value="MME Conversion Tables"/>
 		<url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
 	</relatedArtifact>
-	<library value="Library/opioidcds-recommendation-05"/>
+	<library value="http://example.org/fhir/Library/opioidcds-recommendation-05"/>
 	<action>
 		<title value="High risk for opioid overdose."/>
 		<description value="Total morphine milligram equivalent (MME) exceeds recommended amount. Taper to less than 50."/>

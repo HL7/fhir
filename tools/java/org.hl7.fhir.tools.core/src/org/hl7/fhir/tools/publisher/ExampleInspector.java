@@ -8,6 +8,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.xml.namespace.NamespaceContext;
@@ -27,6 +28,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
+import org.hl7.fhir.definitions.validation.XmlValidator;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.r5.context.IWorkerContext;
@@ -50,8 +52,6 @@ import org.hl7.fhir.r5.utils.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.r5.utils.IResourceValidator.IValidatorResourceFetcher;
 import org.hl7.fhir.r5.utils.IResourceValidator.IdStatus;
 import org.hl7.fhir.r5.utils.IResourceValidator.ReferenceValidationPolicy;
-import org.hl7.fhir.r5.validation.InstanceValidator;
-import org.hl7.fhir.r5.validation.XmlValidator;
 import org.hl7.fhir.rdf.ModelComparer;
 import org.hl7.fhir.rdf.ShExValidator;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -64,6 +64,7 @@ import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.xml.NamespaceContextMap;
+import org.hl7.fhir.validation.instance.InstanceValidator;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.w3c.dom.NodeList;
@@ -608,6 +609,12 @@ public class ExampleInspector implements IValidatorResourceFetcher {
         return true; // disable this test. Try again for R4
     } else
       return true;
+  }
+
+
+  @Override
+  public void setLocale(Locale locale) {
+    // don't ned to do anything here 
   }
   
  }

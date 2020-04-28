@@ -970,7 +970,7 @@
   </identifier>
   <status value="complete"/>
   <type value="summary"/>
-  <measure value="Measure/CMS146"/>
+  <measure value="http://example.org/fhir/Measure/CMS146"/>
   <date value="2014-04-01"/>
   <reporter>
     <reference value="#reporter"/>

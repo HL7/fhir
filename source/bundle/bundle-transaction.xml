@@ -223,7 +223,7 @@
     <request>
     <!--  POST to [base]/ValueSet/$lookup - invoking a lookup operation (see Terminology Service)  -->
       <method value="POST"/>
-      <url value="ValueSet/$lookup"/>
+      <url value="http://hl7.org/fhir/ValueSet/$lookup"/>
     </request>
   </entry>
   <entry>
