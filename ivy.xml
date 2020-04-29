@@ -13,7 +13,7 @@
 		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r5" rev="4.2.22-SNAPSHOT"/>
 		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.convertors" rev="4.2.22-SNAPSHOT"/>
 		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.validation" rev="4.2.22-SNAPSHOT"/>
-		<dependency org="org.hl7.fhir.publisher" name="org.hl7.fhir.publisher.core" rev="1.0.84-SNAPSHOT"/>
+		<dependency org="org.hl7.fhir.publisher" name="org.hl7.fhir.publisher.core" rev="1.0.85-SNAPSHOT"/>
     
 		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" />
 		<dependency org="com.google.code.gson" name="gson" rev="2.8.5"/>
