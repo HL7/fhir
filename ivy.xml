@@ -2,7 +2,7 @@
 	<info organisation="org.hl7.fhir" module="tools"/>
 	<dependencies>
 		<!-- HAPI FHIR Deps -->
-		<dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="3.7.0-SNAPSHOT"/>
+		<dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="4.0.0"/>
 		<!-- HAPI FHIR Core -->
 
 		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.utilities" rev="4.2.20-SNAPSHOT"/>
