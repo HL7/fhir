@@ -11411,6 +11411,10 @@
     <display value="Sauces seasonings and soups"/>
     <display value="Sauces seasonings and soups (substance)"/>
   </concept>
+  <concept id="228018009" display="Food temperature">
+    <display value="Food temperature"/>
+    <display value="Food temperature (substance)"/>
+  </concept>
   <concept id="228049004" display="Chopped food">
     <display value="Chopped food"/>
     <display value="Chopped food (substance)"/>
@@ -12326,6 +12330,10 @@
     <display value="Toggenburg goat"/>
     <display value="Toggenburg goat (organism)"/>
   </concept>
+  <concept id="302188001" display="Bad taste in mouth">
+    <display value="Bad taste in mouth"/>
+    <display value="Bad taste in mouth (finding)"/>
+  </concept>
   <concept id="30221007" display="Belgian bearded chicken">
     <display value="Belgian bearded chicken"/>
     <display value="Belgian bearded chicken (organism)"/>
@@ -13192,6 +13200,11 @@
     <display value="Childbirth"/>
     <display value="Pregnancy delivered"/>
     <display value="Delivery"/>
+  </concept>
+  <concept id="386617003" display="Digestive system finding">
+    <display value="Digestive system finding (finding)"/>
+    <display value="Digestive system finding"/>
+    <display value="Digestive system observation"/>
   </concept>
   <concept id="386619000" display="Low sodium diet">
     <display value="Low sodium diet (finding)"/>
