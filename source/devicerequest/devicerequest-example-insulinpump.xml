@@ -27,13 +27,15 @@
 <status value="active"/>
 <intent value="instance-order"/>
 <priority value="routine"/>
-<codeCodeableConcept>
+<code>
+<concept>
   <coding>
     <system value="http://loinc.org"/>
     <code value="43148-6"/>
   </coding>
   <text value="Insulin delivery device panel"/>
-</codeCodeableConcept>
+</concept>
+</code>
 <subject>
   <reference value="Patient/dicom"/>
 </subject>
