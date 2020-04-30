@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1360,7 +1360,7 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">barcode | rfid | manual | electronic-transmission +</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">barcode | rfid | manual | card |&#10;self-reported | electronic-transmission |&#10;unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">A coded entry to indicate how the data was entered.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Supports a way to distinguish hand entered from machine read data.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4513,6 +4513,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6767,7 +6768,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8523,8 +8523,19 @@
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s156"><Data ss:Type="String">electronic-transmission</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s173"/>
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">Electronic Transmission</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The UDI information was received electronically from the device through a communication protocol, such as the IEEE 11073 20601 version 4 exchange protocol over Bluetooth or USB</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s160"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s181"><Data ss:Type="String">unknown</Data></Cell>
-    <Cell ss:StyleID="s182"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s182"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s182"/>
     <Cell ss:StyleID="s182"><Data ss:Type="String">Unknown</Data></Cell>
@@ -8534,22 +8545,11 @@
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s181"/>
+    <Cell ss:StyleID="s182"/>
     <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s160"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s182"/>
+    <Cell ss:StyleID="s182"/>
     <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
@@ -9013,6 +9013,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
