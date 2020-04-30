@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6609</WindowHeight>
-  <WindowWidth>16457</WindowWidth>
+  <WindowHeight>12225</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <RefModeR1C1/>
@@ -47,11 +47,10 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Map">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="156" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="51.428571428571431"
-   ss:DefaultRowHeight="14.464285714285715">
-   <Column ss:Width="151.28571428571428" ss:Span="1"/>
-   <Column ss:Index="3" ss:Width="168.85714285714286"/>
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="154" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="51.75" ss:DefaultRowHeight="14.4375">
+   <Column ss:Width="151.5" ss:Span="1"/>
+   <Column ss:Index="3" ss:Width="168.75"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s62">
     <Cell><Data ss:Type="String">R2</Data></Cell>
     <Cell><Data ss:Type="String">R3</Data></Cell>
@@ -263,9 +262,6 @@
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3"><Data ss:Type="String">EffectEvidenceSynthesis</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Encounter</Data></Cell>
@@ -629,9 +625,6 @@
     <Cell><Data ss:Type="String">RiskAssessment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3"><Data ss:Type="String">RiskEvidenceSynthesis</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Schedule</Data></Cell>
     <Cell><Data ss:Type="String">Schedule</Data></Cell>
     <Cell><Data ss:Type="String">Schedule</Data></Cell>
@@ -745,12 +738,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>103</TopRowVisible>
+   <TopRowVisible>102</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>121</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>119</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
