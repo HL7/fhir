@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Jean Duteau</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-04-14T18:37:06Z</LastSaved>
+  <LastSaved>2020-04-29T22:33:41Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1340,7 +1340,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">FoodType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1366,7 +1366,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableReference(NutritionProduct)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">FoodProduct</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">what</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1492,7 +1492,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">NotConsumedReason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1544,7 +1544,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableReference(Substance)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">NutrientType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1622,7 +1622,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">NutritionPerformerType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1726,7 +1726,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableReference(Condition | Observation |DiagnosticReport | DocumentReference)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">IntakeReason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">why</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3893,7 +3893,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>29</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6399,8 +6399,8 @@
     <Cell ss:StyleID="s161"><Data ss:Type="String">NutritionIntakeCategory</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">A coded concept identifying where the medication included in the NutritionIntake is expected to be consumed or administered</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">valueset-nutrition-intake-category</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/diet-type</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
@@ -6411,26 +6411,11 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s168"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s127"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">NutrientType</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Types of nutrients that can be found in a nutrition product.</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/nutrient-code</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
@@ -6441,26 +6426,11 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s127"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">FoodProduct</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Specific food that can be consumed by a patient.</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/food-type</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
@@ -6471,11 +6441,11 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">FoodType</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Types of food</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">value set </Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">valueset-edible-substance-type</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
@@ -6486,11 +6456,41 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">NutritionPerformerType</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Type of performance</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">value set </Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/performer-role</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s127"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s167"><Data ss:Type="String">NotConsumedReason</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reasons for why something was not consumed</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">valueset-not-consumed-reason</Data></Cell>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s127"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s167"><Data ss:Type="String">IntakeReason</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reason for why something was ingested</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/condition-code</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
