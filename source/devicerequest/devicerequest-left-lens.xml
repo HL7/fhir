@@ -24,7 +24,7 @@
     <code>
       <coding>
         <system value="http://loinc.org"/>
-        <code value="28842-3"/>
+          <code value="28842-3"/>
         <display value="Sphere distance Glasses prescription.lens - left"/>
       </coding>
       <text value="sphere, left lens"/>
