@@ -50,10 +50,12 @@
     <reference value="Location/1"/>
 	<display value="Burgers University Medical Center, South Wing, second floor"/>
   </location>
-  <reasonReference>
-		<reference value="Observation/blood-pressure"/>
-		<display value="Blood Pressure"/>
-  </reasonReference>
+  <reason>
+    <reference>
+	  	<reference value="Observation/blood-pressure"/>
+		  <display value="Blood Pressure"/>
+    </reference>
+  </reason>
 </Procedure>
 <!-- 
 

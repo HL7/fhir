@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Communication" alias Communica
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Communication(source src : CommunicationR3, target tgt : Communication) extends DomainResource <<type+>> {
+group Communication(source src : Communication, target tgt : CommunicationR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesCanonical -> tgt.definition;
   src.basedOn -> tgt.basedOn;

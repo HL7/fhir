@@ -20,7 +20,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Procedure" alias ProcedureR3 a
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Procedure(source src : ProcedureR3, target tgt : Procedure) extends DomainResource <<type+>> {
+group Procedure(source src : Procedure, target tgt : ProcedureR3) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesCanonical -> tgt.instantiatesCanonical;
   src.instantiatesUri -> tgt.instantiatesUri;

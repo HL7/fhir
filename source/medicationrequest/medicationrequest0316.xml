@@ -33,9 +33,11 @@
     </identifier>
     <status value="completed"/>
     <intent value="order"/>
-    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+    <medication> <!-- Linked to a RESOURCE Medication -->
+        <reference>
         <reference value="#med0306"/>
-    </medicationReference> 
+        </reference>
+    </medication> 
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>         

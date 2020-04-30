@@ -1,0 +1,23 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+  <a name="extensions"> </a>
+  <h2>Extensions</h2>
+  <p>
+    Not all resources that follow the 'Product' pattern will necessarily include all of the above elements.
+  </p>
+
+  <a name="kindvsinstance"> </a>
+  <h2>Kind vs Instance</h2>
+  <p>
+    ...
+  </p>
+
+
+  <a name="definitional"> </a>
+  <h2>Product Defintions and specifications</h2>
+  <p>
+
+  </p>
+
+
+</div>

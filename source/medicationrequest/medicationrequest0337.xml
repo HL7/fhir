@@ -15,13 +15,15 @@
                     <text value="Injection Solution (qualifier value)"/>
                 </doseForm>
                 <ingredient>
-                    <itemCodeableConcept>
+                    <item>
+                    <concept>
                         <coding>
                             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                             <code value="1114879"/>
                             <display value="Dopamine"/>
                         </coding>
-                    </itemCodeableConcept>
+                        </concept>
+                    </item>
                     <strengthRatio>
                         <numerator>
                             <value value="400"/>
@@ -36,13 +38,15 @@
                     </strengthRatio>
                 </ingredient>
                 <ingredient>
-                    <itemCodeableConcept>
+                    <item>
+                    <concept>
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
                             <code value="0264-7510-10"/>
                             <display value="Dextrose 5% injection USP"/>
                         </coding>
-                    </itemCodeableConcept>
+                    </concept>
+                    </item>
                     <strengthRatio>
                         <numerator>
                             <value value="5"/>
@@ -66,10 +70,12 @@
     </identifier>
     <status value="completed"/>
     <intent value="order"/>
-    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+    <medication> <!-- Linked to a RESOURCE Medication -->
+    <reference>
         <reference value="#med0337"/>
         <display value="Dopamine 400mg in 500mL D5W"/>
-    </medicationReference> 
+        </reference>
+    </medication> 
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>       

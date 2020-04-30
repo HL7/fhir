@@ -85,7 +85,7 @@
   <software>
     <name value="ACME Knowledge Repository Service"/>
   </software>
-  <fhirVersion value="4.1.0"/>
+  <fhirVersion value="4.2.0"/>
   <format value="json"/>
   <format value="xml"/>
   <rest>
@@ -139,7 +139,7 @@
       <searchParam>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-version"/>
-        <type value="string"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <name value="composed-of"/>
@@ -206,7 +206,7 @@
       <searchParam>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-version"/>
-        <type value="string"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <name value="composed-of"/>
@@ -273,7 +273,7 @@
       <searchParam>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-version"/>
-        <type value="string"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <name value="composed-of"/>
@@ -340,7 +340,7 @@
       <searchParam>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-version"/>
-        <type value="string"/>
+        <type value="token"/>
       </searchParam>
       <searchParam>
         <name value="composed-of"/>
@@ -417,7 +417,7 @@
       <searchParam>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-version"/>
-        <type value="string"/>
+        <type value="token"/>
       </searchParam>
 	</resource>
     <operation>

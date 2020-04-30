@@ -348,7 +348,7 @@ Each [target] contains the following items:
 </pre>
 
 <ul>
- <li><b>context.element</b>: The first part of the target statement consists of two parts: the <b>context</b> and the <b>element</b>. <p>The context is an identifier which is either declared as a target for the map, a taret parameter or any named variable within the group (including the variables from the source content) in which this rule is nested.</p>
+ <li><b>context.element</b>: The first part of the target statement consists of two parts: the <b>context</b> and the <b>element</b>. <p>The context is an identifier which is either declared as a target for the map, a target parameter or any named variable within the group (including the variables from the source content) in which this rule is nested.</p>
 <p>The element is the name of a child element that is valid in the context. The created value will be placed into the named element</p></li>
 <li><b>transform(parameters)</b>: details how the content that is created is transformed from the source data using a specific transformation function. See below for the list of available functions. If no transform is provided, then the element is autocreated. It is an error if auto-created elements are primitive types, or have more than one possible type</li>
  <li><b>as variable</b>: a variable name may be assigned, which allows the created item to be re-used in the dependent rules</li>

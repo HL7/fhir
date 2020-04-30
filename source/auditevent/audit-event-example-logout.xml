@@ -13,7 +13,13 @@
 	</subtype>
 	<action value="E"/>
 	<recorded value="2013-06-20T23:46:41Z"/>
-	<outcome value="0"/>
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/audit-event-outcome"/>
+			<code value="0"/>
+			<display value="Success"/>
+		</coding>
+	</outcome> 
 	<agent>
 		<type>
 			<coding>

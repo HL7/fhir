@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/TerminologyCapabilities" alias
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group TerminologyCapabilities(source src : TerminologyCapabilitiesR3, target tgt : TerminologyCapabilities) extends DomainResource <<type+>> {
+group TerminologyCapabilities(source src : TerminologyCapabilities, target tgt : TerminologyCapabilitiesR3) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.version -> tgt.version;
   src.name -> tgt.name;

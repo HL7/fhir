@@ -25,13 +25,15 @@
       </coding>
     </doseForm>
     <ingredient>
-      <itemCodeableConcept>
+      <item>
+      <concept>
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
           <code value="203134"/>
           <display value="Piperacillin Sodium"/>
         </coding>
-      </itemCodeableConcept>
+      </concept>
+      </item>
       <strengthRatio>
         <numerator>
           <value value="4"/>
@@ -46,13 +48,15 @@
       </strengthRatio>
     </ingredient>
     <ingredient>
-      <itemCodeableConcept>
+      <item>
+      <concept>
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
           <code value="221167"/>
           <display value="Tazobactam Sodium"/>
         </coding>
-      </itemCodeableConcept>
+      </concept>
+      </item>
       <strengthRatio>
         <numerator>
           <value value="0.5"/>

@@ -323,7 +323,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R113C30"/>
   </Names>
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="122" ss:StyleID="s63" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="125" ss:StyleID="s63" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="237.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="70.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="74.0"/>
@@ -3827,20 +3827,20 @@
     <Cell><Data ss:Type="String">NutritionIntake.status</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">intended</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">preparation</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">on-hold</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -3853,10 +3853,10 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="34"><Data ss:Type="String">not-taken</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">not-done</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Topic.status</Data></Cell>
+    <Cell><Data ss:Type="String">SubscriptionTopic.status</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">retired</Data></Cell>
@@ -3868,6 +3868,75 @@
     <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">unknown</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionProduct.status</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">inactive</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell><Data ss:Type="String">Permission.status</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s71"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubscriptionStatus.status</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">off</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -3885,9 +3954,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>25</TopRowBottomPane>
+   <TopRowBottomPane>85</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

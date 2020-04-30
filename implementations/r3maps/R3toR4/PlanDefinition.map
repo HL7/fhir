@@ -78,8 +78,8 @@ group action(source src, target tgt) extends BackboneElement {
   src.requiredBehavior -> tgt.requiredBehavior;
   src.precheckBehavior -> tgt.precheckBehavior;
   src.cardinalityBehavior -> tgt.cardinalityBehavior;
-  src.definition -> src.definition;
-  src.transform -> src.transform;
+  src.definition -> tgt.definition;
+  src.transform -> tgt.transform;
   src.dynamicValue as vs0 -> tgt.dynamicValue as vt0 then dynamicValue(vs0, vt0);
   src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
 }
@@ -92,7 +92,7 @@ group condition(source src, target tgt) extends BackboneElement {
 }
 
 group relatedAction(source src, target tgt) extends BackboneElement {
-  src.actionid -> tgt.actionid;
+  src.actionId -> tgt.actionId;
   src.relationship -> tgt.relationship;
   src.offset : Duration as vs -> tgt.offset = create('Duration') as vt then Duration(vs, vt);
   src.offset : Range as vs -> tgt.offset = create('Range') as vt then Range(vs, vt);

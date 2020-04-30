@@ -15,13 +15,15 @@
           <text value="Injection Solution (qualifier value)"/>
         </doseForm>
         <ingredient>
-          <itemCodeableConcept>
+          <item>
+            <concept>
             <coding>
               <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
               <code value="204520"/>
               <display value="Potassium Chloride"/>
             </coding>
-          </itemCodeableConcept>
+            </concept>
+          </item>
           <strengthRatio>
             <numerator>
               <value value="2"/>
@@ -36,13 +38,15 @@
           </strengthRatio>
         </ingredient>
         <ingredient>
-          <itemCodeableConcept>
+          <item>
+          <concept>
             <coding>
               <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
               <code value="313002"/>
               <display value="Sodium Chloride 0.9% injectable solution"/>
             </coding>
-          </itemCodeableConcept>
+          </concept>
+          </item>
           <strengthRatio>
             <numerator>
               <value value="0.9"/>
@@ -69,9 +73,11 @@
       <display value="Inpatient"/>
     </coding>
   </category>
-  <medicationReference>
+  <medication>
+    <reference>
     <reference value="#med0317"/> 
-  </medicationReference>
+    </reference>
+  </medication>
  <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
@@ -90,13 +96,15 @@
     <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <reasonCode>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/reason-medication-given"/>
-      <code value="b"/>
-      <display value="Given as Ordered"/>
-    </coding>
-  </reasonCode>
+  <reason>
+    <concept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/reason-medication-given"/>
+        <code value="b"/>
+        <display value="Given as Ordered"/>
+      </coding>
+    </concept>
+  </reason>
   <request>
     <reference value="MedicationRequest/medrx0322"/>
   </request>

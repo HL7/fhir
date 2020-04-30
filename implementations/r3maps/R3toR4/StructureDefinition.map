@@ -22,7 +22,7 @@ group StructureDefinition(source src : StructureDefinitionR3, target tgt : Struc
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
   src.keyword -> tgt.keyword;
-  src.fhirVersion -> tgt.fhirVersion;
+  src.fhirVersion where src.fhirVersion = '3.0.1' -> tgt.fhirVersion = '4.0.0';
   src.mapping as vs0 -> tgt.mapping as vt0 then {
     vs0.identity -> vt0.identity;
     vs0.uri -> vt0.uri;

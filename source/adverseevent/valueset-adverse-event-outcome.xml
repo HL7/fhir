@@ -12,28 +12,16 @@
     </telecom>
   </contact>
   <description value="This value set includes codes that describe the type of outcome from the adverse event."/>
+   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
  <compose>
 	<include>
-      <system value="http://ncimeta.nci.nih.gov"/>    
-	  <concept>
-		<code value="C1705232"/>
-	  </concept>
-	  <concept>
-		<code value="C1709277"/>
-	  </concept>
-	  <concept>
-		<code value="C1709863"/>
-	  </concept>
-	  <concept>
-		<code value="C1709862"/>
-	  </concept>
-	  <concept>
-		<code value="C1709864"/>
-	  </concept>
-	  <concept>
-		<code value="C0439673"/>
-	  </concept>
-	</include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="descendent-of"/>
+        <value value="405533003"/>
+      </filter>
+    </include>
   </compose>
 
 </ValueSet>

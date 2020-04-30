@@ -17,13 +17,15 @@
       </coding>
     </doseForm>
     <ingredient>
-      <itemCodeableConcept>
+      <item>
+      <concept>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="386983007"/>
           <display value="Alprazolam (substance)"/>
         </coding>
-      </itemCodeableConcept>
+      </concept>
+      </item>
       <strengthRatio>
         <numerator>
           <value value="0.25"/>

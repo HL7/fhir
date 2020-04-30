@@ -3,8 +3,8 @@ package org.hl7.fhir.tools.converters;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import org.hl7.fhir.convertors.VersionConvertor_30_40;
 import org.hl7.fhir.convertors.VersionConvertor_30_50;
+import org.hl7.fhir.convertors.conv30_50.Bundle30_50;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.r5.formats.XmlParser;
 import org.hl7.fhir.r5.model.Bundle;
@@ -19,7 +19,7 @@ public class DSTU3ValidationConvertor {
     
     try {
       source = (Bundle) new XmlParser().parse(new FileInputStream(bundleSource));
-      org.hl7.fhir.dstu3.model.Bundle target = VersionConvertor_30_50.convertBundle(source);
+      org.hl7.fhir.dstu3.model.Bundle target = Bundle30_50.convertBundle(source);
       new org.hl7.fhir.dstu3.formats.XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(bundleTarget), target);     
     } catch (Exception e) {
       throw new Exception(e);
@@ -31,7 +31,7 @@ public class DSTU3ValidationConvertor {
     
     try {
       source = (Bundle) new XmlParser().parse(new FileInputStream(bundleSource));
-      org.hl7.fhir.dstu3.model.Bundle target = VersionConvertor_30_50.convertBundle(source);
+      org.hl7.fhir.dstu3.model.Bundle target = Bundle30_50.convertBundle(source);
       new org.hl7.fhir.dstu3.formats.JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(bundleTarget), target);     
     } catch (Exception e) {
       throw new Exception(e);

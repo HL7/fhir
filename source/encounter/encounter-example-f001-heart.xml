@@ -42,13 +42,15 @@
         <system value="http://unitsofmeasure.org"/>
         <code value="min"/>
     </length>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="34068001"/>
             <display value="Heart valve replacement"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <hospitalization>
         <preAdmissionIdentifier>
             <use value="official"/>

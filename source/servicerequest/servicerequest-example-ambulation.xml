@@ -29,8 +29,10 @@
 			<display value="Dr. Beverly Crusher"/>
 
 	</requester>
-	<reasonReference>
-		<reference value="Observation/blood-pressure"/>
-		<display value="Blood Pressure"/>
-	</reasonReference>
+	<reason>
+ 		<reference>
+      <reference value="Observation/blood-pressure"/>		
+      <display value="Blood Pressure"/>
+    </reference>
+	</reason>
 </ServiceRequest>

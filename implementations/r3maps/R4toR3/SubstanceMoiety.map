@@ -5,7 +5,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/SubstanceMoiety" alias Substan
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group SubstanceMoiety(source src : SubstanceMoietyR3, target tgt : SubstanceMoiety) extends BackboneElement <<type+>> {
+group SubstanceMoiety(source src : SubstanceMoiety, target tgt : SubstanceMoietyR3) extends BackboneElement <<type+>> {
   src.role -> tgt.role;
   src.identifier -> tgt.identifier;
   src.name -> tgt.name;

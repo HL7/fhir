@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/consentverification"/>
+  <name value="ConsentVerificationCodes"/>
+  <title value="Consent Verification Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes base Consent Verification codes."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="family"/>
+    <display value="FamilyVerified"/>
+    <definition value="Verification by Family/RelatedPerson"/>
+  </concept>
+  <concept>
+    <code value="validation"/>
+    <display value="Validation"/>
+    <definition value="Periodic Re-validation of Grantee decision"/>
+  </concept>
+</CodeSystem>

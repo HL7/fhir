@@ -10,13 +10,15 @@
     </identifier>
     <status value="completed"/>
     <intent value="order"/>
-    <medicationCodeableConcept>
+    <medication>
+    <concept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="285018"/>
             <display value="Lantus 100 unit/ml injectable solution"/>
         </coding>
-    </medicationCodeableConcept>
+        </concept>
+    </medication>
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>         
@@ -26,13 +28,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="473189005"/>
             <display value="On subcutaneous insulin for diabetes mellitus (finding)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="20 Units SC three times daily" />

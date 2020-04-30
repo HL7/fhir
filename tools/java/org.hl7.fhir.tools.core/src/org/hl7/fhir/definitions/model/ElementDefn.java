@@ -35,8 +35,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.r5.model.DataType;
 import org.hl7.fhir.r5.model.ElementDefinition;
-import org.hl7.fhir.r5.model.Type;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
@@ -79,12 +79,12 @@ public class ElementDefn {
 	
 	private String profileName; // only in a profile, for slicing
 	private List<String> discriminator = new ArrayList<String>(); // when slicing
-  private Type example;
-  private Map<Integer, Type> otherExamples = new HashMap<Integer, Type>();
+  private DataType example;
+  private Map<Integer, DataType> otherExamples = new HashMap<Integer, DataType>();
 //  private Type defaultValue;
   private String meaningWhenMissing;
-  private Type fixed; // only in a profile
-  private Type pattern; // only in a profile
+  private DataType fixed; // only in a profile
+  private DataType pattern; // only in a profile
 	private ElementDefinition derivation;
 	private boolean inherited; // in a profile, was this element add from the
 								// base definition (true) or was it specifically
@@ -98,6 +98,7 @@ public class ElementDefn {
 	private String orderMeaning;
 	private StandardsStatus standardsStatus; // defaults to container value
 	private Boolean hierarchy;
+	private boolean abstractType;
 	
 	public ElementDefn() {
 		super();
@@ -340,17 +341,17 @@ public class ElementDefn {
 			}
 		}
 		// ok, didn't find it. do we have a reference or a type to follow?
-		if (followType && !Utilities.noString(typeCode())) {
+		if (followType && !Utilities.noString(typeCodeNoParams())) {
 		  if (typeCode().startsWith("@")) {
         try {
-          ElementDefn ed = definitions.getElementByPath(typeCode().substring(1).split("\\."), "resolution", true);
+          ElementDefn ed = definitions.getElementByPath(typeCodeNoParams().substring(1).split("\\."), "resolution", true);
           return ed.getElementByName(definitions, n, throughChoice, followType, trace);
         } catch (Exception e) {
           return null;
         }
 		  } else {
 		    try {
-		      TypeDefn type = definitions.getElementDefn(typeCode());
+		      TypeDefn type = definitions.getElementDefn(typeCodeNoParams());
 		      return type.getElementByName(definitions, name, throughChoice, followType, trace);
 		    } catch (Exception e) {
 		      return null;
@@ -504,6 +505,18 @@ public class ElementDefn {
 		return tn.toString();
 	}
 
+  public String typeCodeNoParams() {
+    StringBuilder tn = new StringBuilder();
+    boolean first = true;
+    for (TypeRef t : types) {
+      if (!first)
+        tn.append("|");
+      first = false;
+      tn.append(t.getName());
+    }
+    return tn.toString();
+  }
+
   public String typeCodeBase() {
     List<String> ts = new ArrayList<>();
 
@@ -555,11 +568,11 @@ public class ElementDefn {
 		return this.typeCode().startsWith("@");
 	}
 	
-	public Type getExample() {
+	public DataType getExample() {
 		return example;
 	}
 
-	public void setExample(Type example) {
+	public void setExample(DataType example) {
 		this.example = example;
 	}
 
@@ -571,11 +584,11 @@ public class ElementDefn {
 		this.profileName = profileName;
 	}
 
-	public Type getFixed() {
+	public DataType getFixed() {
 		return fixed;
 	}
 
-	public void setFixed(Type value) {
+	public void setFixed(DataType value) {
 		this.fixed = value;
 	}
 
@@ -646,7 +659,7 @@ public class ElementDefn {
 	public ElementDefn getElementForPath(String pathname, Definitions definitions, String purpose, boolean throughChoice, boolean followType) throws Exception {
 		String[] path = pathname.split("\\.");
 
-		if (!path[0].equals(getName()))
+		if (!path[0].equals(getName()) && !path[0].equals("{{name}}"))
 			throw new Exception("Element Path '" + pathname
 					+ "' is not legal in this context ("+purpose+") - expected "+getName()+" found "+path[0]);
 
@@ -664,8 +677,8 @@ public class ElementDefn {
 			  res = this.getElementForPath(res.typeCode().substring(1), definitions, purpose, throughChoice, followType);
 			} else if (definitions.dataTypeIsSharedInfo(res.typeCode())) {
 				res = definitions.getElementDefn(res.typeCode());
-			} else if (definitions.hasType(res.typeCode())) {
-				res = definitions.getElementDefn(res.typeCode());
+			} else if (definitions.hasType(res.typeCodeNoParams()) && !"Base".equals(res.typeCode())) {
+				res = definitions.getElementDefn(res.typeCodeNoParams());
 			}
 			t = res.getElementByName(en, throughChoice, definitions, purpose, followType);
 			if (t == null) {
@@ -879,11 +892,11 @@ public class ElementDefn {
     return false;
   }
 
-  public Type getPattern() {
+  public DataType getPattern() {
     return pattern;
   }
 
-  public void setPattern(Type pattern) {
+  public void setPattern(DataType pattern) {
     this.pattern = pattern;
   }
 
@@ -947,7 +960,7 @@ public class ElementDefn {
     this.path = path;
   }
 
-  public Map<Integer, Type> getOtherExamples() {
+  public Map<Integer, DataType> getOtherExamples() {
     return otherExamples;
   }
 
@@ -1081,6 +1094,14 @@ public class ElementDefn {
   @Override
   public String toString() {
     return path == null ? name : path;
+  }
+
+  public boolean isAbstractType() {
+    return abstractType;
+  }
+
+  public void setAbstractType(boolean abstractType) {
+    this.abstractType = abstractType;
   }
   
 

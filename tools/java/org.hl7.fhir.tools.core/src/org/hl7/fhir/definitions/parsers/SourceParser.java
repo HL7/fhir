@@ -81,7 +81,6 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
-import org.hl7.fhir.r5.model.Constants;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
@@ -94,11 +93,12 @@ import org.hl7.fhir.r5.formats.XmlParser;
 import org.hl7.fhir.r5.model.Bundle;
 import org.hl7.fhir.r5.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r5.model.Bundle.BundleType;
+import org.hl7.fhir.r5.model.CanonicalResource;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeType;
 import org.hl7.fhir.r5.model.Composition;
+import org.hl7.fhir.r5.model.Constants;
 import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
-import org.hl7.fhir.r5.model.MetadataResource;
 import org.hl7.fhir.r5.model.Resource;
 import org.hl7.fhir.r5.model.SearchParameter;
 import org.hl7.fhir.r5.model.StructureDefinition;
@@ -211,47 +211,63 @@ public class SourceParser {
     loadCommonSearchParameters();
     loadPrimitives();
 
-    for (String id : ini.getPropertyNames("search-rules"))
+    for (String id : ini.getPropertyNames("search-rules")) {
       definitions.seachRule(id, ini.getStringProperty("search-rules", id));
+    }
     
-    for (String id : ini.getPropertyNames("valueset-fixup"))
+    for (String id : ini.getPropertyNames("valueset-fixup")) {
       definitions.getVsFixups().add(id);
+    }
 
-    for (String n : ini.getPropertyNames("infrastructure"))
-      loadCompositeType(n, definitions.getInfrastructure(), "5");
+    for (String n : ini.getPropertyNames("infrastructure")) {
+      loadCompositeType(n, definitions.getInfrastructure(), "5", "abstract".equals(ini.getStringProperty("infrastructure", n)));
+    }
 
-    for (String n : ini.getPropertyNames("types"))
-      loadCompositeType(n, definitions.getTypes(), "5");	
-    for (String n : ini.getPropertyNames("structures"))
-      loadCompositeType(n, definitions.getStructures(), "2");
+    for (String n : ini.getPropertyNames("types")) {
+      loadCompositeType(n, definitions.getTypes(), "5", "abstract".equals(ini.getStringProperty("types", n)));
+    }
 
     String[] shared = ini.getPropertyNames("shared"); 
-    if(shared != null)
-      for (String n : shared )
-        definitions.getShared().add(loadCompositeType(n, definitions.getStructures(), "2"));
+    if (shared != null) {
+      for (String n : shared ) {
+        definitions.getShared().add(loadCompositeType(n, definitions.getTypes(), "2", "abstract".equals(ini.getStringProperty("shared", n))));
+      }
+    }
 
     String[] logical = ini.getPropertyNames("logical"); 
-    if(logical != null)
-      for (String n : logical)
+    if(logical != null) {
+      for (String n : logical) {
         definitions.getIgs().get("core").getLogicalModels().add(loadLogicalModel(n));
+      }
+    }
 
 
     // basic infrastructure
     for (String n : ini.getPropertyNames("resource-infrastructure")) {
-      ResourceDefn r = loadResource(n, null, true, false);
       String[] parts = ini.getStringProperty("resource-infrastructure", n).split("\\,");
-      if (parts[0].equals("abstract"))
-        r.setAbstract(true);
+      boolean isAbstract = false;
+      boolean isInterface = false;
+      if (parts[0].equals("abstract")) {
+        isAbstract = true;
+      } else if (parts[0].equals("interface")) {
+        isAbstract = true;
+        isInterface = true;
+      }
+      ResourceDefn r = loadResource(n, null, true, isInterface);
+      r.setAbstract(isAbstract);
+      r.setInterface(isInterface);
       definitions.getBaseResources().put(parts[1], r);
     }
 
-    logger.log("Load Resource Templates", LogMessageType.Process);
-    for (String n : ini.getPropertyNames("resource-templates"))
-      loadResource(n, definitions.getResourceTemplates(), false, true);
+//    logger.log("Load Resource Templates", LogMessageType.Process);
+//    for (String n : ini.getPropertyNames("resource-templates")) {
+//      loadResource(n, definitions.getResourceTemplates(), false, true);
+//    }
     
     logger.log("Load Resources", LogMessageType.Process);
-    for (String n : ini.getPropertyNames("resources"))
+    for (String n : ini.getPropertyNames("resources")) {
       loadResource(n, definitions.getResources(), false, false);
+    }
 
     processSearchExpressions();
     processContainerExamples();
@@ -260,36 +276,42 @@ public class SourceParser {
     loadStatusCodes();
     buildSpecialValues();
 
-    for (String n : ini.getPropertyNames("svg"))
+    for (String n : ini.getPropertyNames("svg")) {
       definitions.getDiagrams().put(n, ini.getStringProperty("svg", n));
+    }
 
-    for (String n : ini.getPropertyNames("special-resources"))
+    for (String n : ini.getPropertyNames("special-resources")) {
       definitions.getAggregationEndpoints().add(n);
+    }
 
     logger.log("Load Code Systems", LogMessageType.Process);
     String[] pn = ini.getPropertyNames("codesystems");
-    if (pn != null)
+    if (pn != null) {
       for (String n : pn) {
         loadCodeSystem(n);
       }
+    }
     logger.log("Load Value Sets", LogMessageType.Process);
     pn = ini.getPropertyNames("valuesets");
-    if (pn != null)
+    if (pn != null) {
       for (String n : pn) {
         loadValueSet(n);
       }
+    }
     logger.log("Load Profiles", LogMessageType.Process);
     for (String n : ini.getPropertyNames("profiles")) { // todo-profile: rename this
       loadConformancePackages(n, issues);
     }
 
     for (ResourceDefn r : definitions.getBaseResources().values()) {
-      for (Profile p : r.getConformancePackages()) 
+      for (Profile p : r.getConformancePackages()) { 
         loadConformancePackage(p, issues, r.getWg());
+      }
     }
     for (ResourceDefn r : definitions.getResources().values()) {
-      for (Profile p : r.getConformancePackages()) 
+      for (Profile p : r.getConformancePackages()) {
         loadConformancePackage(p, issues, r.getWg());
+      }
     }
     definitions.setLoaded(true);
     
@@ -302,16 +324,19 @@ public class SourceParser {
             definitions.getExtraValuesets().put(vs.getId(), vs);
             context.cacheResource(vs);
           }
-          for (Example ex : ig.getExamples())
+          for (Example ex : ig.getExamples()) {
             definitions.getResourceByName(ex.getResourceName()).getExamples().add(ex);
+          }
           for (Profile p : ig.getProfiles()) {
-            if (definitions.getPackMap().containsKey(p.getId()))
+            if (definitions.getPackMap().containsKey(p.getId())) {
               throw new Exception("Duplicate Pack id "+p.getId());
+            }
             definitions.getPackList().add(p);
             definitions.getPackMap().put(p.getId(), p);
           }
-          for (Dictionary d : ig.getDictionaries())
+          for (Dictionary d : ig.getDictionaries()) {
             definitions.getDictionaries().put(d.getId(), d);
+          }
         } catch (Exception e) {
           throw new Exception("Error reading IG "+ig.getSource()+": "+e.getMessage(), e);
         }
@@ -348,7 +373,7 @@ public class SourceParser {
     if (Utilities.noString(stated))
       stated = n;
     Resource res = new XmlParser().parse(new FileInputStream(file));
-    if (res instanceof MetadataResource) {
+    if (res instanceof CanonicalResource) {
       res.setUserData("external.url", stated);
       context.cacheResource(res);
       externals.addEntry().setFullUrl("http://hl7.org/fhir/"+res.fhirType()+"/"+res.getId()).setResource(res).addLink().setRelation("via").setUrl(stated);
@@ -478,15 +503,20 @@ public class SourceParser {
 
   private void processSearchExpressions() throws Exception {
     for (ResourceDefn rd : definitions.getBaseResources().values())
-      processSearchExpressions(rd);      
+      processSearchExpressions(rd, false);      
     for (ResourceDefn rd : definitions.getResources().values())
-      processSearchExpressions(rd);          
+      processSearchExpressions(rd, true);          
   }
 
-  private void processSearchExpressions(ResourceDefn rd) throws Exception {
+  private void processSearchExpressions(ResourceDefn rd, boolean replace) throws Exception {
     for (SearchParameterDefn sp : rd.getSearchParams().values())
-      if (Utilities.noString(sp.getExpression()))
-        sp.setExpression(convertToExpression(rd, sp.getPaths(), sp.getWorkingTargets(), sp));
+      if (Utilities.noString(sp.getExpression())) {
+        String exp = convertToExpression(rd, sp.getPaths(), sp.getWorkingTargets(), sp);
+        if (replace) {
+          exp = exp.replace("{{name}}", rd.getName());
+        }
+        sp.setExpression(exp);
+      }
   }
 
   private String convertToExpression(ResourceDefn rd, List<String> pn, Set<String> targets, SearchParameterDefn sp) throws Exception {
@@ -498,9 +528,11 @@ public class SourceParser {
       
       ElementDefn ed;
       List<ElementDefn> trace = new ArrayList<ElementDefn>();
-      if (p.startsWith(rd.getName()+"."))
+      if (p.startsWith(rd.getName()+".")) {
         ed = rd.getRoot().getElementByName(p, true, definitions, "search parameter generation", true, trace);
-      else
+      } else if (p.startsWith("{{name}}.")) {
+        ed = rd.getRoot().getElementByName(p.replace("{{name}}", rd.getName()), true, definitions, "search parameter generation", true, trace);
+      } else
         throw new Exception("huh?");
       if (ed == null)
         throw new Exception("not found: "+p);
@@ -509,9 +541,16 @@ public class SourceParser {
         if (t.getStandardsStatus() != null && t.getStandardsStatus().isLowerThan(sp.getStandardsStatus()))
           sp.setStandardsStatus(t.getStandardsStatus(), t.getNormativeVersion(rd));
         try {
-        TypeDefn tt = definitions.getElementDefn(t.typeCode());
-        if (tt.getStandardsStatus() != null && tt.getStandardsStatus().isLowerThan(sp.getStandardsStatus()))
-          sp.setStandardsStatus(tt.getStandardsStatus(), t.getNormativeVersion(rd));
+          if (definitions.hasPrimitiveType(t.typeCodeNoParams())) {
+            sp.setStandardsStatus(StandardsStatus.NORMATIVE, t.getNormativeVersion(rd));
+          } else if (Utilities.noString(t.typeCode())) {
+            // nothing, this is part of the resource.
+          } else if (t.getTypes().size() == 1 && !t.getTypes().get(0).getName().startsWith("@")) {
+            TypeDefn tt = definitions.getElementDefn(t.typeCodeNoParams());
+            if (tt.getStandardsStatus() != null && tt.getStandardsStatus().isLowerThan(sp.getStandardsStatus())) {
+              sp.setStandardsStatus(tt.getStandardsStatus(), t.getNormativeVersion(rd));
+            }
+          }
         } catch (Exception e) {
           // nothing
         }
@@ -814,7 +853,7 @@ public class SourceParser {
       cs.setVersion(Constants.VERSION);
     cs.setUserData("path", "codesystem-"+cs.getId()+".html");
     cs.setUserData("filename", "codesystem-"+cs.getId());
-    definitions.getCodeSystems().put(cs.getUrl(), cs);
+    definitions.getCodeSystems().see(cs);
   }
 
 
@@ -1022,11 +1061,11 @@ public class SourceParser {
   private void genTypeProfile(org.hl7.fhir.definitions.model.TypeDefn t) throws Exception {
     StructureDefinition profile;
     try {
-      profile = new ProfileGenerator(definitions, context, page, genDate, version, null, fpUsages, page.getFolders().rootDir).generate(t);
+      profile = new ProfileGenerator(definitions, context, page, genDate, version, null, fpUsages, page.getFolders().rootDir, page.getUml()).generate(t);
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(dstDir, page, t.getName(), true);
       t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-      t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t, null));
+      t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t, null, false));
       if (context.hasResource(StructureDefinition.class, t.getProfile().getUrl()))
         throw new Exception("Duplicate Profile "+t.getProfile().getUrl());
       context.cacheResource(t.getProfile());
@@ -1035,7 +1074,7 @@ public class SourceParser {
     }
   }
 
-  private String loadCompositeType(String n, Map<String, org.hl7.fhir.definitions.model.TypeDefn> map, String fmm) throws Exception {
+  private String loadCompositeType(String n, Map<String, org.hl7.fhir.definitions.model.TypeDefn> map, String fmm, boolean isAbstract) throws Exception {
     TypeParser tp = new TypeParser();
     List<TypeRef> ts = tp.parse(n, false, null, context, true);
     definitions.getKnownTypes().addAll(ts);
@@ -1047,7 +1086,7 @@ public class SourceParser {
       TypeRef t = ts.get(0);
       File csv = new CSFile(dtDir + t.getName().toLowerCase() + ".xml");
       if (csv.exists()) {
-        SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), csv.getAbsolutePath(), definitions, srcDir, logger, registry, version, context, genDate, false, page, true, ini, wg("fhir"), definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised);
+        SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), csv.getAbsolutePath(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, page, true, ini, wg("fhir"), definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised);
         org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
         el.setFmmLevel(fmm);
         el.setStandardsStatus(status);
@@ -1143,7 +1182,7 @@ public class SourceParser {
     String sc = ini.getStringProperty("security-categorization", root.getName().toLowerCase());
     if (sc != null)
       root.setSecurityCategorization(SecurityCategorization.fromCode(sc));
-    else if (!Utilities.existsInList(root.getName(), "Resource", "DomainResource", "MetadataResource"))
+    else if (!Utilities.existsInList(root.getName(), "Resource", "DomainResource", "CanonicalResource", "MetadataResource", "MetadataPattern"))
       throw new Exception("Must have an entry in the security-categorization section of fhir.ini for the resource "+root.getName());
 
     for (EventDefn e : sparser.getEvents())
@@ -1259,8 +1298,6 @@ public class SourceParser {
         TypeRef t = new TypeParser().parse(n, false, null, context, true).get(0);
         checkFile("type definition", dtDir, t.getName().toLowerCase() + ".xml", errors, "all");
       }
-    for (String n : ini.getPropertyNames("structures"))
-      checkFile("structure definition", dtDir, n.toLowerCase() + ".xml",errors,"all");
 
     String[] shared = ini.getPropertyNames("shared");
 

@@ -117,7 +117,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     }
 
     @Override
-    public Base resolveReference(Object appContext, String url) {
+    public Base resolveReference(Object appContext, String url, Base refContext) {
       try {
         String[] s = url.split("/");
         if (s.length != 2 || !definitions.getResources().containsKey(s[0]))
@@ -203,6 +203,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);
     validator.getExtensionDomains().add("http://hl7.org/fhir/us");
     validator.setFetcher(this);
+    validator.setAllowExamples(true);
 
     xml = new XmlValidator(errorsInt, loadSchemas(), loadTransforms());
 
@@ -332,7 +333,9 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     new DefinitionsUsageTracker(definitions).updateUsage(e);
     validator.validate(null, errorsInt, e);
     if (profile != null) {
-      validator.validate(null, errorsInt, e, profile);
+      List<StructureDefinition> list = new ArrayList<StructureDefinition>();
+      list.add(profile);
+      validator.validate(null, errorsInt, e, list);
     }
     return e;
   }
@@ -525,7 +528,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
           if (e.getElement().getProperty().getStructure().getBaseDefinition().contains("MetadataResource")) {
             String urle = e.getElement().getChildValue("url");
             String v = e.getElement().getChildValue("url");
-            if (urle.startsWith("http://hl7.org/fhir") && !Constants.VERSION.equals(v)) {
+            if (urle != null && urle.startsWith("http://hl7.org/fhir") && !Constants.VERSION.equals(v)) {
               e.getElement().setChildValue("version", Constants.VERSION);
               
             }

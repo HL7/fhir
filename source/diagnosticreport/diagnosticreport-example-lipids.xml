@@ -31,11 +31,12 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 						<system value="http://terminology.hl7.org/CodeSystem/v2-0074"/>
 						<code value="HM"/>
 					</coding>
-				</category><!--    first, various administrative/context stuff    --><code>
+				</category><!--    first, various administrative/context stuff    -->
+        <code>
 					<coding>
 						<system value="http://loinc.org"/>
-						<code value="24331-1"/>
-						<display value="Lipid 1996 panel - Serum or Plasma"/>
+						<code value="57698-3"/>
+						<display value="Lipid panel with direct LDL - Serum or Plasma"/>
 					</coding>
 					<text value="Lipid Panel"/>
 				</code>

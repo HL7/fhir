@@ -30,7 +30,7 @@
   <software>
     <name value="ACME Terminology Server"/>
   </software>
-  <fhirVersion value="4.1.0"/>
+  <fhirVersion value="4.2.0"/>
 <!--  json is mandatory, for support of mobile clients  -->
   <format value="json"/>
 <!--  xml is optional, but strongly recommended  -->
@@ -112,7 +112,7 @@
       <searchParam>
         <name value="reference"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-reference"/>
-        <type value="token"/>
+        <type value="uri"/>
       </searchParam>
       <searchParam>
         <name value="status"/>
@@ -183,12 +183,12 @@
       <searchParam>
         <name value="source"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-source"/>
-        <type value="uri"/>
+        <type value="reference"/>
       </searchParam>
       <searchParam>
         <name value="target"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-target"/>
-        <type value="uri"/>
+        <type value="reference"/>
       </searchParam>
       <searchParam>
         <name value="url"/>

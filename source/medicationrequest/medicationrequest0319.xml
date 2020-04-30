@@ -22,10 +22,12 @@
     </identifier>
     <status value="completed"/>
     <intent value="order"/>
-    <medicationReference>
+    <medication>
+    <reference>
         <reference value="#med0302"/>
         <display value="Piperacillin/Tazobactam 4.5gm"/>
-    </medicationReference> 
+    </reference>
+    </medication> 
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>           
@@ -35,13 +37,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="385093006"/>
             <display value="Community acquired pneumonia (disorder)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="4.5 grams in D5W 250 ml. IV every 6 hours.Infuse over 30 min at 8L/min " />

@@ -26,13 +26,15 @@
       </coding>
     </doseForm>
     <ingredient>
-      <itemCodeableConcept>
+      <item>
+        <concept>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="387138002"/>
           <display value="Busulfan (substance)"/>
         </coding>
-      </itemCodeableConcept>
+        </concept>
+      </item>
       <strengthRatio>
         <numerator>
           <value value="2"/>

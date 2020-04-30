@@ -622,3 +622,143 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "_ActEncounterCode"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ActEncounterCode",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "_ActPharmacySupplyType"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ActPharmacySupplyType",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "_ObservationType"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ObservationType",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "_ActIncidentCode"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ActIncidentCode",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "_ActInvoiceGroupCode"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ActInvoiceGroupCode",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "_ActTaskCode"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ActTaskCode",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "_ActCoverageTypeCode"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ActCoverageTypeCode",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "_ActConsentType"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ActConsentType",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "_ActConsentDirective"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "ActConsentDirective",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "_InformationSensitivityPolicy"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "InformationSensitivityPolicy",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "SecurityPolicy"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "security policy",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "ObligationPolicy"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "obligation policy",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "RefrainPolicy"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "refrain policy",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+  "code" : "COMPT"
+}, "valueSet" :null, "lang":"null"}####
+v: {
+  "display" : "compartment",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

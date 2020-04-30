@@ -37,9 +37,11 @@
       <display value="Dokter Bronsig"/>
     </actor>
   </performer>
-  <reasonCode>
-    <text value="DiagnosticReport/f201"/>
-  </reasonCode> 
+  <reason>
+       <concept>
+       <text value="DiagnosticReport/f201"/>
+       </concept>
+  </reason>
   <!--TODO Why can't this be Resource (any) AND String?-->
   <bodySite>
       <coding>

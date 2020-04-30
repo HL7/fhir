@@ -267,21 +267,27 @@
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
   </subject>
-  <addressesReference>
-    <reference value="#p1"/>
-    <!-- Local reference -->
-    <display value="GERDS"/>
-  </addressesReference>
-  <addressesReference>
-    <reference value="#p2"/>
-    <!-- Local reference -->
-    <display value="Obesity"/>
-  </addressesReference>
-  <addressesReference>
-    <reference value="#p3"/>
-    <!-- Local reference -->
-    <display value="Psoriasis"/>
-  </addressesReference>
+  <addresses>
+    <reference>
+      <reference value="#p1"/>    
+      <!-- Local reference -->
+      <display value="GERDS"/>
+    </reference>
+  </addresses>
+  <addresses>
+    <reference>
+      <reference value="#p2"/>
+      <!-- Local reference -->
+      <display value="Obesity"/>
+    </reference>
+  </addresses>
+  <addresses>
+    <reference>
+      <reference value="#p3"/>
+      <!-- Local reference -->
+      <display value="Psoriasis"/>
+    </reference>
+  </addresses>
   <goal>
     <reference value="#g1"/>
   </goal>

@@ -16,9 +16,11 @@
     </Medication>
   </contained>
   <status value="completed"/>
-  <medicationReference>
+  <medication>
+  <reference>
     <reference value="#med0304"/>
-  </medicationReference>
+  </reference>
+  </medication>
  <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
@@ -33,13 +35,15 @@
       <display value="Patrick Pump"/>
     </actor>
  </performer>
-  <reasonCode>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="266599000"/>
-      <display value="Dysmenorrhea"/>
-    </coding>
-  </reasonCode>
+  <reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="266599000"/>
+        <display value="Dysmenorrhea"/>
+      </coding>
+    </concept>
+  </reason>
   <request>
     <reference value="MedicationRequest/medrx0305"/>
   </request>

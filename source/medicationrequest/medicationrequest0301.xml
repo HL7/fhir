@@ -67,14 +67,16 @@
     <intent value="order"/>
     <category>
         <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location"/>
             <code value="inpatient"/>
             <display value="Inpatient"/>
         </coding>
     </category>
-    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+    <medication> <!-- Linked to a RESOURCE Medication -->
+        <reference>
            <reference value="#med0310"/>
-    </medicationReference> 
+        </reference>
+    </medication> 
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>           
@@ -102,13 +104,15 @@
             <display value="Public Health Nurse"/>
         </coding>
     </performerType>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="297217002"/>
             <display value="Rib Pain (finding)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <insurance>
         <reference value="Coverage/9876B1"/>
     </insurance>
@@ -198,9 +202,9 @@
             <system value="http://unitsofmeasure.org"/>
             <code value="d"/> 
         </expectedSupplyDuration>
-        <performer>
-            <reference value="Organization/example"></reference>
-        </performer>
+        <dispenser>
+            <reference value="Organization/2.16.840.1.113883.19.5"></reference>
+        </dispenser>
     </dispenseRequest>   
     <substitution>
         <allowedBoolean value="true"></allowedBoolean>

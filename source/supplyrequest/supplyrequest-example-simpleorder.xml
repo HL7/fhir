@@ -29,12 +29,14 @@
   <supplier>
     <display value="Vendor1"/>
   </supplier>
-  <reasonCode>
-    <coding>
-      <code value="stock_low"/>
-      <display value="Refill due to low stock"/>
-    </coding>
-  </reasonCode>
+  <reason>
+    <concept>
+        <coding>
+          <code value="stock_low"/>
+          <display value="Refill due to low stock"/>
+        </coding>
+    </concept>
+  </reason>
   <deliverFrom>
     <display value="Location 1"/>
   </deliverFrom>

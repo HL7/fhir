@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
@@ -14,7 +14,6 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -68,7 +67,7 @@
   <Names>
    <NamedRange ss:Name="boolean" ss:RefersTo="=Imports!R2C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="11" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="12" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="67.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="177.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="362.0"/>
@@ -101,6 +100,16 @@
     <Cell><Data ss:Type="String">32 bit number; for values larger than this, use decimal</Data></Cell>
     <Cell><Data ss:Type="String">int</Data></Cell>
     <Cell><Data ss:Type="String">number</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">-?([0]|([1-9][0-9]*))</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">INT</Data></Cell>
+    <Cell><Data ss:Type="String">~NM/~SI</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">integer64</Data></Cell>
+    <Cell><Data ss:Type="String">A very large whole number</Data></Cell>
+    <Cell><Data ss:Type="String">Typically this is used for record counters (e.g. database keys)</Data></Cell>
+    <Cell><Data ss:Type="String">long</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">-?([0]|([1-9][0-9]*))</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">INT</Data></Cell>
     <Cell><Data ss:Type="String">~NM/~SI</Data></Cell>
@@ -197,6 +206,7 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -205,8 +215,8 @@
  <Worksheet ss:Name="Patterns">
   <Names>
    <NamedRange ss:Name="code" ss:RefersTo="=Patterns!R2C1"/>
-   <NamedRange ss:Name="date" ss:RefersTo="=Imports!R9C1"/>
-   <NamedRange ss:Name="dateTime" ss:RefersTo="=Imports!R10C1"/>
+   <NamedRange ss:Name="date" ss:RefersTo="=Imports!R10C1"/>
+   <NamedRange ss:Name="dateTime" ss:RefersTo="=Imports!R11C1"/>
    <NamedRange ss:Name="id" ss:RefersTo="=Patterns!R7C1"/>
    <NamedRange ss:Name="oid" ss:RefersTo="=Patterns!R3C1"/>
    <NamedRange ss:Name="uuid" ss:RefersTo="=Patterns!R4C1"/>
@@ -317,7 +327,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>

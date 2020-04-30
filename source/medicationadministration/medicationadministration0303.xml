@@ -16,9 +16,10 @@
       </Medication>
   </contained>
   <status value="entered-in-error"/>
-  <medicationReference>
-    <reference value="#med0303"/> 
-  </medicationReference>
+  <medication>
+  <reference>
+    <reference value="#med0303"/> </reference>
+  </medication>
  <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 

@@ -642,6 +642,57 @@ References for which the hierarchical behavior is not specified:
  [%circular-references null%]
 </ul>
 
+<div class="draft-content">
+<a name="CodeableReference"></a>
+<a name="codeablereference"></a>
+<h2>CodeableReference - Reference by Instance or By Class</h2>
+
+<p>
+A common pattern in healthcare records is that a single element may refer to either a concept in principle,
+or a specific instance of the concept as seen in practice. For instance, a medication may be prescribed 
+because the patient has a headache - e.g. to refer to a headache by a SNOMED CT code for a kind of headache. 
+Alternatively, the record may refer to a specific observation or problem in the problem list as evidence
+for the patient's headache, which conveys details specific to the patient. This is a particular example 
+of a more general pattern; e.g. it also applies to locations (something happened 'in a hospital', vs
+something happened in a particular identified hospital).
+</p>
+<p>
+The <code>CodeableReference</code> data type represents this pattern, and may be bound to a value set to 
+allow for a conceptual representation. In such cases, <a href="terminologies.html#binding">the value set 
+binding</a> actually applies to the <code>concept</code> element as it usually would for a
+<a href="datatypes.html#CodeableConcept">CodeableConcept</a>. Alternatively, the <code>CodeableReference</code> 
+data type can refer to another resource, and the list of valid target types for the CodeableReference resource
+applies to the <code>Reference</code> as described above.
+</p>
+<p>
+In principle, this data type allows for either a reference or a concept, or both. If both are present, 
+they are expected to be consistent with each other - e.g. the concept is to a code for headache, and 
+the resource reference describes a headache. Note that it is not generally computable proveable whether
+this is true or not.
+</p>
+<p>
+This data type can be constrained in profiles so that only concept or reference are allowed, and 
+profiles can restrict the bound value sets and allowed target resource types.
+</p>
+<p>
+This data type is mostly used for reason for an action.
+</p>
+[%dt CodeableReference 1%]
+
+<p>&nbsp;</p>
+
+
+<div class="use">
+<p><b>Constraints</b></p>
+
+<p>
+[%dt.constraints CodeableReference%]
+</p>
+</div>
+
+
+</div>
+
 </div>
 
 [%file newfooter%]
@@ -657,6 +708,7 @@ References for which the hierarchical behavior is not specified:
    currentTabIndex = '0';
 
 $( '#tabs-Reference' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-CodeableReference' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 
 
 function store(currentTab) {
@@ -666,6 +718,7 @@ function store(currentTab) {
   } catch(exception){
   }
   $( '#tabs-Reference' ).tabs('option', 'active', currentTab);
+  $( '#tabs-CodeableReference' ).tabs('option', 'active', currentTab);
 }
 </script>
 

@@ -25623,3 +25623,14 @@ v: {
   "error" : "The code system \"http://ihe.net/connectathon/classCodes\" is not known; The code provided (http://ihe.net/connectathon/classCodes#History and Physical) is not  valid in the value set DocumentTypeValueSet"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ihe.net/connectathon/classCodes",
+  "code" : "History and Physical",
+  "display" : "History and Physical"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://ihe.net/connectathon/classCodes\" is not known (encountered paired with code = \"History and Physical\"); The code provided (http://ihe.net/connectathon/classCodes#History and Physical) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

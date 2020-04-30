@@ -31,7 +31,9 @@
 	<performer>
 		<display value="Pamela Educator, RN"/>
 	</performer>
-	<reasonCode>
-		<text value="early detection of breast mass"/>
-	</reasonCode>
+	<reason>
+    <concept>
+  		<text value="early detection of breast mass"/>
+    </concept>
+	</reason>
 </ServiceRequest>

@@ -31,13 +31,15 @@
 			<display value="A previously unscheduled walk-in visit" />
 		</coding>
 	</appointmentType>
-	<reasonCode>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="413095006"/>
-		</coding>
-		<text value="Clinical Review" />
-	</reasonCode>
+	<reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="413095006"/>
+      </coding>
+      <text value="Clinical Review" />
+    </concept>
+	</reason>
 	<priority value="5" />
 	<description value="Discussion on the results of your recent MRI" />
 	<minutesDuration value="15" />

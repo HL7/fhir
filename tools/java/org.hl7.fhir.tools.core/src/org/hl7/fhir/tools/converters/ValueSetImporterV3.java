@@ -22,6 +22,7 @@ import org.hl7.fhir.r5.model.CodeSystem.PropertyType;
 import org.hl7.fhir.r5.model.CodeType;
 import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r5.model.DateTimeType;
+import org.hl7.fhir.r5.model.Enumerations.FilterOperator;
 import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r5.model.Factory;
 import org.hl7.fhir.r5.model.InstantType;
@@ -31,7 +32,6 @@ import org.hl7.fhir.r5.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetFilterComponent;
-import org.hl7.fhir.r5.model.ValueSet.FilterOperator;
 import org.hl7.fhir.r5.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities.ConceptStatus;
@@ -330,13 +330,13 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     cs.getText().setStatus(NarrativeStatus.GENERATED);
     cs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
     page.getVsValidator().validate(page.getValidationErrors(), "v3 code system "+id, cs, false, true);
-    page.getCodeSystems().put(vp.cs.getUrl(), vp.cs);
+    page.getCodeSystems().see(vp.cs);
 
     vs.setText(new Narrative());
     vs.getText().setStatus(NarrativeStatus.GENERATED);
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
     page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
-    page.getValueSets().put(vp.vs.getUrl(), vp.vs);
+    page.getValueSets().see(vp.vs);
 
   }
 
@@ -446,8 +446,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
             vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
           else
             vs.getMeta().setLastUpdated(page.getGenDate().getTime());
-          page.getValueSets().put(vs.getUrl(), vs);
-          page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
+          page.getValueSets().see(vs);
+          page.getDefinitions().getValuesets().see(vs);
         }
       }
       e = XMLUtil.getNextSibling(e);
@@ -673,7 +673,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
             ValueSet vs = page.getValueSets().get("http://terminology.hl7.org/ValueSet/v3-"+mid);
             if (vs == null) {
               boolean match = false;
-              for (String s : page.getValueSets().keySet()) {
+              for (String s : page.getValueSets().keys()) {
                 if (s.contains(mid)) {
                   match = true;
                   System.out.println("found: " +s);

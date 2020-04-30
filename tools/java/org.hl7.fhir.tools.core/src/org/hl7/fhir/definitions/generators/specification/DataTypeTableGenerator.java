@@ -13,11 +13,11 @@ public class DataTypeTableGenerator extends TableGenerator {
     super(dest, page, page.getDefinitions().getSrcFile(pageName)+"-definitions.html", inlineGraphics);
   }
 
-  public XhtmlNode generate(ElementDefn e, Set<String> outputTracker) throws Exception {
+  public XhtmlNode generate(ElementDefn e, Set<String> outputTracker, boolean isActive) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics, false);
-    TableModel model = gen.initNormalTable("", false, true);
+    TableModel model = gen.initNormalTable("", false, true, e.getName(), isActive);
     
-    model.getRows().add(genElement(e, gen, false, e.getName(), false, "", RenderMode.DATATYPE, true, e.getStandardsStatus()));
+    model.getRows().add(genElement(e, gen, false, e.getName(), false, "", RenderMode.DATATYPE, true, e.getStandardsStatus(), e.isAbstractType(), false));
     
     return gen.generate(model, "", 0, outputTracker);
   }

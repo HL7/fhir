@@ -44,19 +44,25 @@
         <text value="TPF"/>
       </code>
         <ingredient>
-          <itemReference>
+          <item>
+            <reference>
             <reference value="#doce"/>
-          </itemReference>
+            </reference>
+          </item>
         </ingredient>
         <ingredient>
-          <itemReference>
+          <item>
+          <reference>
             <reference value="#cisp"/>
-          </itemReference>
+          </reference>
+          </item>
         </ingredient>
         <ingredient>
-          <itemReference>
+          <item>
+          <reference>
             <reference value="#fluo"/>
-          </itemReference>
+          </reference>
+          </item>
         </ingredient>
       
     </Medication>
@@ -102,18 +108,22 @@
   <careTeam>
     <reference value="#careteam"/>
   </careTeam>
-  <addressesReference>
-    <reference value="Condition/f202"/>
-    <display value="Roel's head-neck tumor"/>
-  </addressesReference>
+  <addresses>
+    <reference>
+      <reference value="Condition/f202"/>
+      <display value="Roel's head-neck tumor"/>
+    </reference>
+  </addresses>
   <goal>
     <reference value="#goal"/>
   </goal>
   <activity>
-    <outcomeReference>
+    <outcome>
+      <reference>
         <reference value="Procedure/f201"/>
         <display value="Roel's Chemotherapy"/>
-    </outcomeReference>
+      </reference>
+    </outcome>
     <detail>
       <kind value="ServiceRequest"/>
       <code>

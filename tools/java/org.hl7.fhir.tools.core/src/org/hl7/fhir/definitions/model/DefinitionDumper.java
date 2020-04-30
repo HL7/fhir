@@ -12,7 +12,6 @@ public class DefinitionDumper {
     StringBuilder b = new StringBuilder();
     dumpPrimitives(b, definitions.getPrimitives());
     dumpTypes("types", b, definitions.getTypes());
-    dumpTypes("structures", b, definitions.getStructures());
     dumpTypes("infrastructure", b, definitions.getInfrastructure());
     dumpResources("base", b, definitions.getBaseResources());
     dumpResources("actual", b, definitions.getResources());

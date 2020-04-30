@@ -37,6 +37,4 @@
 		</coding>
 	</doseStatusReason>
 	<series value="Vaccination Series 1"/>
-	<doseNumberPositiveInt value="2"/>
-	<seriesDosesPositiveInt value="3"/>
 </ImmunizationEvaluation >

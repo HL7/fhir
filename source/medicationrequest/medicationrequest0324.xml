@@ -10,13 +10,15 @@
     </identifier>
     <status value="completed"/>
     <intent value="order"/>
-    <medicationCodeableConcept>
+    <medication>
+    <concept>
         <coding>
         <system value="http://snomed.info/sct"/>
         <code value="322254008"/>
         <display value="Paracetamol 240mg suppository (product)"/>
         </coding>
-    </medicationCodeableConcept>
+    </concept>
+    </medication>
     <subject>
         <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
@@ -27,13 +29,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="30242009"/>
             <display value="Scarlet Fever (disorder)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>

@@ -48,7 +48,7 @@ that make any difference to Implementation Guides.
 <p>
 Note that it is possible to have an Implementation Guide that declares support for one version 
 and imports an Implementation Guide that declares support for a different version.  
-It is up to the importing IG ad/or the tooling that supports Implenentation Guides to determine 
+It is up to the importing IG ad/or the tooling that supports Implementation Guides to determine 
 whether it's safe and/or appropriate to reference the different resources from the new IG, and
 what to make of this.
 </p>
@@ -66,6 +66,9 @@ reference to a particular resource type.
 <p>
 Note that a resource can conform to the default profile by conforming to any profile derived from it. 
 </p>
+<!--
+
+commented out 31/12/2019 - I don't even know what this is. (GG)
 
 <a name="compatibility"></a>
 <h3>Compatibility list</h3>
@@ -76,6 +79,6 @@ by the Implementation Guide comparison tool:
 <p>
 <i>Yet to be done</i>
 </p>
-
+-->
 
 </div>

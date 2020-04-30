@@ -43,13 +43,15 @@
 		<system value="http://unitsofmeasure.org" />
 		<code value="min" />
 	</length>
-	<reasonCode>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="18099001"/>
-			<display value="Retropharyngeal abscess"/>
-		</coding>
-	</reasonCode>
+	<reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="18099001"/>
+        <display value="Retropharyngeal abscess"/>
+      </coding>
+    </concept>
+	</reason>
 	<hospitalization>
 		<preAdmissionIdentifier>
 			<use value="official"/>

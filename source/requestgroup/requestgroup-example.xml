@@ -10,9 +10,11 @@
       <id value="medicationrequest-1"/>
       <status value="unknown"/>
       <intent value="proposal"/>
-      <medicationCodeableConcept>
+      <medication>
+        <concept>
         <text value="Medication 1"/>
-      </medicationCodeableConcept>
+        </concept>
+      </medication>
       <subject>
         <reference value="Patient/example"/>
       </subject>
@@ -23,9 +25,11 @@
       <id value="medicationrequest-2"/>
       <status value="unknown"/>
       <intent value="proposal"/>
-      <medicationCodeableConcept>
+      <medication>
+      <concept>
         <text value="Medication 2"/>
-      </medicationCodeableConcept>
+        </concept>
+      </medication>
       <subject>
         <reference value="Patient/example"/>
       </subject>
@@ -51,9 +55,11 @@
   <author>
     <reference value="Practitioner/1"/>
   </author>
-  <reasonCode>
-    <text value="Treatment"/>
-  </reasonCode>
+  <reason>
+    <concept>
+      <text value="Treatment"/>
+    </concept>
+  </reason>
   <note>
     <text value="Additional notes about the request group"/>
   </note>

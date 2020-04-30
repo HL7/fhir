@@ -1,13 +1,14 @@
 [diagram]
-classes=Identifier,HumanName,Address,ContactPoint,Timing,Signature,SampledData,BackboneElement
+classes=DataType,Identifier,HumanName,Address,ContactPoint,Timing,Signature,SampledData,BackboneType
 element-attributes=true
 
 [directions]
+DataType=0;0
 HumanName=-230;-170
 Address=-30;-200
 ContactPoint=180;-170
 Identifier=-250;-20
-BackboneElement=210;-50
+BackboneType=210;-50
 Timing=210;60
 Timing.repeat=220;170
 Signature=-250;110

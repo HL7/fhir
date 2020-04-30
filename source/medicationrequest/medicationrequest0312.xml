@@ -10,13 +10,15 @@
     </identifier>
     <status value="active"/>
     <intent value="order"/>
-    <medicationCodeableConcept>
+    <medication>
+    <concept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="1313112"/>
             <display value="Phenytoin 25mg/ml oral suspension"/>
         </coding>
-    </medicationCodeableConcept>
+    </concept>
+    </medication>
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>            
@@ -26,13 +28,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="230456007"/>
             <display value="Status epilepticus (disorder)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <note>
         <text value="Patient should be counselled to ensure good dental hygiene"/>
     </note>

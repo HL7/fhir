@@ -7,6 +7,7 @@ The Consent resource has a reference to a single <code>policyRule</code>. Many o
 In these cases, the single policy rule reference refers to a policy document that resolves and reconciles the various policies and presents a single policy for patient
 consent. If it is still necessary to track which of the underlying policies an exception is make in regard to, the <code>policy</code> may be used.
 </p>
+<p>Policies attached to Consent.policyRule language should be written using positive language. For an example, a patient wanting to opt-out will be recorded with an opt-in policy where the Consent.provision[0].type indicates "deny".</p>
 <a name="model"></a>
   <h2>General Model</h2>
   <p>
@@ -40,6 +41,14 @@ consent has been rejected, and consent approved.
   <p>For each of these patterns (positive or negative pattern), there can be exceptions. 
 	  These exceptions are explicitly recorded in the <b>except</b> element. 
     </p>
+    <a name="tracking-changes"></a>
+  <h2>Tracking Changes in Consent</h2>
+<p>Tracking changes in consent can be managed in two possible ways:</p>
+<ol>
+    <li>Submitting changes to the Consent resource and tracking the changes via a versioning server</li>
+    <li>Submitting a new Consent resource and marking the old resource as inactive</li>
+</ol>
+<p>HL7 does not recommend a specific method.</p>
 <a name="optsearch"></a>
   <h2>Optimal Searching</h2>
   <p>The following steps represent the optimal path for searching for a Consent resource.</p>

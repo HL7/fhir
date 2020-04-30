@@ -52,7 +52,9 @@ import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r5.utils.TypesUtilities;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
@@ -124,8 +126,7 @@ public class XSDBaseGenerator {
       genInfrastructure(e);
     for (ElementDefn e : definitions.getTypes().values())
       genType(e);
-    for (ElementDefn e : definitions.getStructures().values())
-      genStructure(e);
+
     for (String n : definitions.getBaseResources().keySet()) {
       ResourceDefn r = definitions.getBaseResources().get(n);
       if (r.isAbstract()) {
@@ -134,7 +135,7 @@ public class XSDBaseGenerator {
     }
     // todo: what to do about this? 
     for (BindingSpecification b : definitions.getCommonBindings().values())
-      if ((b.getUseContexts().size() > 1 && b.getBinding() == BindingMethod.CodeList))
+      if (((b.getUseContexts().size() > 1  || b.isShared()) && isEnum(b)))
         generateEnum(b);
     if (outer) { 
       write("</xs:schema>\r\n");
@@ -142,6 +143,18 @@ public class XSDBaseGenerator {
     }
   }
 
+  protected boolean isEnum(BindingSpecification cd) {
+    boolean ok = cd.getBinding() == (BindingSpecification.BindingMethod.CodeList) || (cd.getStrength() == BindingStrength.REQUIRED && cd.getBinding() == BindingMethod.ValueSet);
+    if (ok) {
+      if (cd.getValueSet() != null && cd.getValueSet().hasCompose() && cd.getValueSet().getCompose().getInclude().size() == 1) {
+        ConceptSetComponent inc = cd.getValueSet().getCompose().getIncludeFirstRep();
+        if (inc.hasSystem() && !inc.hasFilter() && !inc.hasConcept() && !inc.getSystem().startsWith("http://hl7.org/fhir"))
+          ok = false;
+      }
+    }
+    return ok;
+  }
+  
   private void genResourceContainer() throws IOException {
         write("  <xs:complexType name=\"ResourceContainer\">\r\n");
         if (forCodeGeneration) {
@@ -333,7 +346,7 @@ public class XSDBaseGenerator {
     write("      <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(elem.getDefinition())+"</xs:documentation>\r\n");
     write("      <xs:documentation xml:lang=\"en\">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>\r\n");
     write("    </xs:annotation>\r\n");
-    if (!elem.getName().equals("Element")) {
+    if (!elem.getName().equals("Base")) {
       write("    <xs:complexContent>\r\n");
       write("      <xs:extension base=\""+getParentType(elem)+"\">\r\n");
     }
@@ -354,7 +367,7 @@ public class XSDBaseGenerator {
       }
     }
     
-    if (!elem.getName().equals("Element")) {
+    if (!elem.getName().equals("Base")) {
       write("      </xs:extension>\r\n");
       write("    </xs:complexContent>\r\n");
     }
@@ -401,7 +414,7 @@ public class XSDBaseGenerator {
     write("        <xs:sequence>\r\n");
 
     for (ElementDefn e : elem.getElements()) {
-      if (e.typeCode().equals("x ml:lang")) {
+      if (e.typeCode().equals("xml:lang")) {
         // do nothing here
       } else if (e.getName().equals("[type]"))
         generateAny(elem, e, null, null);
@@ -473,12 +486,14 @@ public class XSDBaseGenerator {
       write("    <xs:complexContent>\r\n");
       write("      <xs:extension base=\""+res.getRoot().typeCode()+"\">\r\n");
     }
-    write("        <xs:sequence>\r\n");
+    if (!res.isInterface()) {
+      write("        <xs:sequence>\r\n");
 
-    for (ElementDefn e : res.getRoot().getElements()) {
+      for (ElementDefn e : res.getRoot().getElements()) {
         generateElement(res.getRoot(), e, null, null);
+      }
+      write("        </xs:sequence>\r\n");
     }
-    write("        </xs:sequence>\r\n");
     if (!isBase) {
       write("      </xs:extension>\r\n");
       write("    </xs:complexContent>\r\n");
@@ -500,43 +515,6 @@ public class XSDBaseGenerator {
     
   }
   
-  private void genStructure(ElementDefn elem) throws Exception {
-    enums.clear();
-    enumDefs.clear();
-    String name = elem.getName();
-    write("  <xs:complexType name=\"" + name + "\">\r\n");
-    write("    <xs:annotation>\r\n");
-    write("      <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(elem.getDefinition())+"</xs:documentation>\r\n");
-    write("      <xs:documentation xml:lang=\"en\">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>\r\n");
-    write("    </xs:annotation>\r\n");
-    write("    <xs:complexContent>\r\n");
-    write("      <xs:extension base=\""+getParentType(elem)+"\">\r\n");
-    write("        <xs:sequence>\r\n");
-
-    for (ElementDefn e : elem.getElements()) {
-      if (e.getName().equals("[type]"))
-        generateAny(elem, e, null, null);
-      else 
-        generateElement(elem, e, null, null);
-    }
-    write("        </xs:sequence>\r\n");
-    write("      </xs:extension>\r\n");
-    write("    </xs:complexContent>\r\n");
-    write("  </xs:complexType>\r\n");
-    genRegex();
-
-    while (!structures.isEmpty()) {
-      String s = structures.keySet().iterator().next();
-      generateType(elem, s, structures.get(s));
-      structures.remove(s);
-    }
-
-    for (BindingSpecification en : enums) {
-      generateEnum(en);
-    }
-
-    genRegex();
-  }
 
   private void generateEnum(BindingSpecification bs) throws IOException {
     String en = bs.getValueSet().getName();

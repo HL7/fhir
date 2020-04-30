@@ -34,6 +34,7 @@ signatures.html
         <page title="ANSI FHIR Observation Standard" filename="ansi-observation.html"/>
       
       </page>
+      <page title="CI Build Search" filename="search-build.html"/>
 <!--      <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
     </page>
 
@@ -55,11 +56,12 @@ signatures.html
         <page title="Examples" filename="extensibility-examples.html"/>
         <page title="Detailed Description" filename="extensibility-definitions.html"/>
       </page>
-      <page title="Formats" filename="formats.html">
-        <page title="XML" filename="xml.html"/>
-        <page title="JSON" filename="json.html"/>
-        <page title="ND-JSON" filename="nd-json.html"/>
-        <page title="RDF" filename="rdf.html"/>
+      <page title="Resource Definitions" filename="formats.html">
+        <page title="XML format" filename="xml.html"/>
+        <page title="JSON format" filename="json.html"/>
+        <page title="ND-JSON format" filename="nd-json.html"/>
+        <page title="RDF Definition" filename="rdf.html"/>
+        <page title="UML Definition" filename="uml.html"/>
       </page>
       <page title="Change Management and Versioning" filename="versions.html">
         <page title="Timelines" filename="timelines.html"/>
@@ -82,12 +84,18 @@ signatures.html
       <page title="Outstanding Issues" filename="todo.html"/>
       <page title="Coming Challenges" filename="change.html"/>
 
+      <page title="Type Framework" filename="types.html">
+        <page title="Detailed Descriptions" filename="types-definitions.html"/>
+        <page title="Profiles and Extensions" filename="types-extras.html"/>
+        <page title="Mappings" filename="types-mappings.html"/>
+        <page title="R3 Conversions" filename="types-version-maps.html"/>
+      </page>
       <page title="Data Types" filename="datatypes.html">
         <page title="Examples" filename="datatypes-examples.html"/>
         <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
         <page title="Mappings" filename="datatypes-mappings.html"/>
         <page title="Profiles and Extensions" filename="datatypes-extras.html"/>
-        <page title="R2 Conversions" filename="datatypes-version-maps.html"/>
+        <page title="R3 Conversions" filename="datatypes-version-maps.html"/>
       </page>
       <page title="MetaData Types" filename="metadatatypes.html">
         <page title="Examples" filename="metadatatypes-examples.html"/>
@@ -98,13 +106,8 @@ signatures.html
         <page title="Definitions" filename="resource-definitions.html"/>
       </page>
       <page type="resource" resource="DomainResource"/>
-      <page title="Element" filename="element.html">
-        <page title="Element - Detailed Descriptions" filename="element-definitions.html"/>
-        <page title="Extensions - Element" filename="element-extras.html"/>
-      </page>
-      <page title="BackboneElement" filename="backboneelement.html">
-        <page title="BackboneElement Detailed Descriptions" filename="backboneelement-definitions.html"/>
-      </page>
+      <page type="resource" resource="CanonicalResource"/>
+      <page type="resource" resource="MetadataResource"/>
       <page title="ElementDefinition" filename="elementdefinition.html">
         <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
         <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
@@ -134,7 +137,8 @@ signatures.html
       <page type="resource" resource="OperationOutcome"/>
       <page type="resource" resource="Parameters"/>
       <page type="resource" resource="Subscription"/>
-      <page type="resource" resource="Topic"/>
+      <page type="resource" resource="SubscriptionStatus"/>
+      <page type="resource" resource="SubscriptionTopic"/>
       <page type="resource" resource="MessageHeader"/>
       <page type="resource" resource="MessageDefinition"/>
     </page>
@@ -219,6 +223,7 @@ signatures.html
       <page type="resource" resource="Consent"/>
       <page type="resource" resource="Provenance"/>
       <page type="resource" resource="AuditEvent"/>
+      <page type="resource" resource="Permission"/>
     </page>
 
     <page title="Implementation Support" filename="implsupport-module.html" icon="implsupport.png">
@@ -286,6 +291,7 @@ signatures.html
   	  <page type="resource" resource="SpecimenDefinition"/>
   	  <page type="resource" resource="CatalogEntry"/>
       <page title="Product Pattern" filename="product.html"/>
+      <page type="resource" resource="NutritionProduct"/>
       <!-- Think these 3 need to be left off as are REALLy drafty -->
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>

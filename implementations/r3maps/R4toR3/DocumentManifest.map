@@ -5,23 +5,19 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/DocumentManifest" alias Docume
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group DocumentManifest(source src : DocumentManifestR3, target tgt : DocumentManifest) extends DomainResource <<type+>> {
+group DocumentManifest(source src : DocumentManifest, target tgt : DocumentManifestR3) extends DomainResource <<type+>> {
   src.masterIdentifier -> tgt.masterIdentifier;
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.type -> tgt.type;
   src.subject -> tgt.subject;
   src.created -> tgt.created;
-  src.agent as s where type.coding.where((system = 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType') and (code = 'AUT')).exists() -> tgt.author as t then DocumentManifestAgent(s, t);
+  src.author -> tgt.author;
   src.recipient -> tgt.recipient;
   src.source -> tgt.source;
   src.description -> tgt.description;
   src.content as s -> tgt.content as t then content(s, t);
   src.related as s -> tgt.related as t then DocumentManifestRelated(s, t);
-}
-
-group DocumentManifestAgent(source src, target tgt) extends BackboneElement {
-  src.who as vs0 then Reference(vs0, tgt);
 }
 
 group content(source src, target tgt) extends Element {

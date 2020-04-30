@@ -1,7 +1,7 @@
-map "http://hl7.org/fhir/StructureMap/Sequence4to3" = "R4 to R3 Conversion for Sequence"
+map "http://hl7.org/fhir/StructureMap/MolecularSequence4to3" = "R4 to R3 Conversions forSequence"
 
-uses "http://hl7.org/fhir/StructureDefinition/MolecularSequence" alias Sequence as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Sequence" alias SequenceR3 as target
+uses "http://hl7.org/fhir/StructureDefinition/MolecularSequence" alias MolecularSequence as source
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
@@ -30,7 +30,7 @@ group referenceSeq(source src, target tgt) extends BackboneElement {
   src.referenceSeqPointer -> tgt.referenceSeqPointer;
   src.referenceSeqString -> tgt.referenceSeqString;
   src.strand where value = 'watson' -> tgt.strand = 1;
-  src.strand as vvv where value = 'crick' -> tgt.strand = create('') as vvv "1";
+  src.strand where value = 'crick' -> tgt.strand = -1;
   src.windowStart -> tgt.windowStart;
   src.windowEnd -> tgt.windowEnd;
 }

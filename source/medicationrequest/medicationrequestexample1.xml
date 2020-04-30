@@ -27,10 +27,12 @@
   </identifier>
 <status value="active"/>
   <intent value="order"/>
-  <medicationReference>
+  <medication>
     <!-- Linked to a RESOURCE Medication -->
+    <reference>
     <reference value="#med0316"/>
-  </medicationReference>
+    </reference>
+  </medication>
   <subject>
     <!-- Linked to the resource patient who needs the medication -->
     <reference value="Patient/pat1"/>
@@ -46,10 +48,12 @@
     <reference value="Practitioner/f007"/>
     <display value="Patrick Pump"/>
   </requester>
-  <reasonReference>
-    <reference value="Condition/f201"/>
-    <display value="condition for prescribing this medication"/>
-  </reasonReference>
+  <reason>
+    <reference>
+      <reference value="Condition/f201"/>
+      <display value="condition for prescribing this medication"/>
+    </reference>
+  </reason>
   <note>
     <text value="Chlorthalidone increases urniation so take it in the morning"/>
   </note>

@@ -34,9 +34,11 @@
             <display value="E.M.J.M. van den broek"/>
         </actor>
     </performer>
-    <reasonCode>
-      <text value="abcess in retropharyngeal area"/>
-    </reasonCode>
+    <reason>
+       <concept>
+         <text value="abcess in retropharyngeal area"/>
+       </concept>
+    </reason>
     <bodySite>
        
             <coding>

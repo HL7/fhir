@@ -29,10 +29,10 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.fhir.ucum.Utilities;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
+import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
@@ -364,7 +364,7 @@ public class BindingSpecification {
       ValueSetUtilities.setOID(valueSet, vsOid);
   }
 
-  public List<DefinedCode> getAllCodes(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, boolean wantComplete) throws Exception {
+  public List<DefinedCode> getAllCodes(CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ValueSet> valueSets, boolean wantComplete) throws Exception {
     if (allCodes == null || allCodes.size() == 0 || wantComplete) {
       allCodes = new ArrayList<DefinedCode>();
       if (valueSet != null) {
@@ -375,7 +375,7 @@ public class BindingSpecification {
     return allCodes;
   }
 
-  private void getAllCodesForValueSet(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, boolean wantComplete, ValueSet vs) throws Exception {
+  private void getAllCodesForValueSet(CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ValueSet> valueSets, boolean wantComplete, ValueSet vs) throws Exception {
     if (vs.hasCompose()) {
       for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
         if (cc.hasFilter() && wantComplete)

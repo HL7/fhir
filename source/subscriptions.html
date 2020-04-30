@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Subscriptions%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<h1>Subscriptions</h1>
+<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Draft</a></td></tr></table>
+
+<p>
+  Subscriptions are used to establish proactive event notifications from a FHIR application to another system. Applications which have implemented support for Subscriptions will advertise their use via the resources <a href="subscription.html">Subscription</a> and <a href="subscriptiontopic.html">SubscriptionTopic</a>. Operations allowed on these resources may be discovered via the FHIR Application's <a href="capabilitystatement.html">CapabilityStatement</a>.
+</p>
+
+<p>
+  The Subscription mechanism is composed of three parts:
+  <ul>
+    <li>Definitions of events via <a href="subscriptiontopic.html">SubscriptionTopic</a></li>
+    <li>A <a href="subscription.html">Subscription</a> to provide filters, format, and channel details</li>
+    <li>Notifications via <a href="bundle.html#subscription-notification">subscription-notification Bundles</a></li>
+  </ul>
+</p>
+
+
+</div>
+
+[%file newfooter%]
+
+
+</body>
+</html>
+
+

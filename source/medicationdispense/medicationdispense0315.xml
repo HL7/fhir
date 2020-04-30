@@ -16,11 +16,13 @@
         </Medication>
     </contained>
     <status value="in-progress"/>
-    <medicationReference>
+    <medication>
         <!-- Linked to a RESOURCE Medication -->
+        <reference>
         <reference value="#med0314"/>
         <display value="Alprazolam 0.25mg (Xanax)"/>
-    </medicationReference>
+        </reference>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck "/> 

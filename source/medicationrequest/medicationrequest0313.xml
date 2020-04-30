@@ -10,13 +10,15 @@
     </identifier>
     <status value="completed"/>
     <intent value="order"/>
-    <medicationCodeableConcept>
+    <medication>
+    <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="324252006"/>
             <display value="Azithromycin 250mg capsule (product)"/>
         </coding>
-    </medicationCodeableConcept>
+    </concept>
+    </medication>
     <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>           
@@ -26,13 +28,15 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <reasonCode>
+    <reason>
+      <concept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="11840006"/>
             <display value="Traveller's Diarrhea (disorder)"/>
         </coding>
-    </reasonCode>
+      </concept>
+    </reason>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="500mg daily for 5 days" />

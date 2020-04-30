@@ -5,10 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -34,6 +32,7 @@ import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
 import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r5.context.BaseWorkerContext;
+import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.context.HTMLClientLogger;
 import org.hl7.fhir.r5.context.IWorkerContext;
 import org.hl7.fhir.r5.formats.IParser;
@@ -69,13 +68,13 @@ import org.hl7.fhir.r5.utils.client.EFhirClientException;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.OIDUtils;
-import org.hl7.fhir.utilities.TerminologyServiceOptions;
 import org.hl7.fhir.utilities.TranslatorXml;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.validation.ValidationOptions;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.w3c.dom.Document;
@@ -119,7 +118,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   
 
 
-  public BuildWorkerContext(Definitions definitions, TerminologyClient client, Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles, Map<String, ImplementationGuide> guides, String folder) throws UcumException, ParserConfigurationException, SAXException, IOException, FHIRException {
+  public BuildWorkerContext(Definitions definitions, TerminologyClient client, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ValueSet> valueSets, CanonicalResourceManager<ConceptMap> maps, CanonicalResourceManager<StructureDefinition> profiles, CanonicalResourceManager<ImplementationGuide> guides, String folder) throws UcumException, ParserConfigurationException, SAXException, IOException, FHIRException {
     super(codeSystems, valueSets, maps, profiles, guides);
     this.definitions = definitions;
     this.txClient = client;
@@ -449,7 +448,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   
-  public ValidationResult validateCode(TerminologyServiceOptions options, String system, String code, String display) {
+  public ValidationResult validateCode(ValidationOptions options, String system, String code, String display) {
     try {
       if (system.equals("http://snomed.info/sct"))
         return verifySnomed(code, display);
@@ -721,13 +720,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     this.definitions = definitions;    
   }
 
-
-
-  @Override
-  public Set<String> typeTails() {
-    return new HashSet<String>(Arrays.asList("Integer","UnsignedInt","PositiveInt","Decimal","DateTime","Date","Time","Instant","String","Uri","Url","Canonical","Oid","Uuid","Id","Boolean","Code","Markdown","Base64Binary","Coding","CodeableConcept","Attachment","Identifier","Quantity","SampledData","Range","Period","Ratio","HumanName","Address","ContactPoint","Timing","Reference","Annotation","Signature","Meta"));
-  }
-
   @Override
   public List<StructureDefinition> allStructures() {
     List<StructureDefinition> result = new ArrayList<StructureDefinition>();
@@ -804,7 +796,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   public void generateSnapshot(StructureDefinition p) throws DefinitionException, FHIRException {
-    if (!p.hasSnapshot() && p.getKind() != StructureDefinitionKind.LOGICAL) {
+    generateSnapshot(p, false);
+  }
+  public void generateSnapshot(StructureDefinition p, boolean ifLogical) throws DefinitionException, FHIRException {
+    if (!p.hasSnapshot() && (ifLogical || p.getKind() != StructureDefinitionKind.LOGICAL)) {
       if (!p.hasBaseDefinition())
         throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
       StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBaseDefinition());
@@ -814,7 +809,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       List<String> errors = new ArrayList<String>();
       ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
       pu.setThrowException(false);
-      pu.sortDifferential(sd, p, p.getUrl(), errors);
+      pu.sortDifferential(sd, p, p.getUrl(), errors, true);
       for (String err : errors)
         msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
       pu.generateSnapshot(sd, p, p.getUrl(), Utilities.extractBaseUrl(sd.getUserString("path")), p.getName());
@@ -863,4 +858,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     throw new Error("Not done yet");
   }
 
+  @Override
+  public StructureDefinition fetchRawProfile(String uri) {
+    StructureDefinition r = super.fetchResource(StructureDefinition.class, uri);
+    return r;
+  }
+  
 }

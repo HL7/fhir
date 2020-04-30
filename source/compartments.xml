@@ -120,7 +120,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="148" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="152" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
@@ -199,7 +199,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CareTeam</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">patient | participant </Data></Cell>
-    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String"/></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
    </Row>
@@ -265,7 +265,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Consent</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
@@ -316,7 +316,6 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceUseStatement</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticReport</Data></Cell>
@@ -777,10 +776,16 @@
     <Cell><Data ss:Type="String">Evidence</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">Topic</Data></Cell>
+    <Cell><Data ss:Type="String">SubscriptionTopic</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionProduct</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">Topic</Data></Cell>
+    <Cell><Data ss:Type="String">Permission</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">SubscriptionStatus</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -799,7 +804,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>136</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

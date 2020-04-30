@@ -44,9 +44,11 @@
 		<system value="http://unitsofmeasure.org"/>
 		<code value="min"/>
 	</length>
-	<reasonCode>
-		<text value="The patient is treated for a tumor."/>
-	</reasonCode>
+	<reason>
+      <concept>
+    		<text value="The patient is treated for a tumor."/>
+      </concept>
+	</reason>
 	<diagnosis>
 		<condition>
 			<display value="Complications from Roel's TPF chemotherapy on January 28th, 2013"/>

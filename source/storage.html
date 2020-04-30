@@ -46,12 +46,14 @@ To illustrate this, consider using an RxNorm code as a medication code. In a pre
 </p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;medicationCodeableConcept&gt;
+  &lt;medication&gt;
+  &lt;concept&gt;
    &lt;coding&gt;
      &lt;system value=&quot;http://www.nlm.nih.gov/research/umls/rxnorm&quot;/&gt;
      &lt;code value=&quot;&quot;/&gt;
    &lt;/coding&gt;
-  &lt;/medicationCodeableConcept&gt;
+   &lt;/concept&gt;
+  &lt;/medication&gt;
 &lt;/MedicationRequest&gt;
 </pre>
 <p>
