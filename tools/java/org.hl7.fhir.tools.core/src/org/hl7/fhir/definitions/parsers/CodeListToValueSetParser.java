@@ -214,9 +214,9 @@ public class CodeListToValueSetParser {
       else if (rel.equals("~"))
         tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals(">"))
-        tgt.setRelationship(ConceptMapRelationship.BROADER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCEBROADERTARGET);
       else if (rel.equals("<")) {
-        tgt.setRelationship(ConceptMapRelationship.NARROWER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCENARROWERTARGET);
         if (!tgt.hasComment())
           throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else
@@ -312,9 +312,9 @@ public class CodeListToValueSetParser {
       else if (rel.equals("~"))
         tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals("<"))
-        tgt.setRelationship(ConceptMapRelationship.BROADER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCENARROWERTARGET);
       else if (rel.equals(">")) {
-        tgt.setRelationship(ConceptMapRelationship.NARROWER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCEBROADERTARGET);
         if (!tgt.hasComment())
           throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else
