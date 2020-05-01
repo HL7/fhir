@@ -1026,9 +1026,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R40C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R41C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="96" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="97" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="480.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="77.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="43.0"/>
@@ -1127,7 +1127,7 @@
     <Cell><Data ss:Type="String">EvidenceFocus.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s96"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Additional identifier for the summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Unique to the EvidenceFocus Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A formal identifier that is used to identify this summary when it is represented in other formats, or referenced in a specification, model, design or an instance.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Allows externally provided and/or usable business identifiers to be easily associated with the module.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this summary outside of FHIR, where it is not possible to use the logical URI.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1251,6 +1251,21 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="17">
+    <Cell><Data ss:Type="String">EvidenceFocus.citeAs</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Citation)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Citation for this EvidenceFocus resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Citation for this EvidenceFocus resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="17" ss:StyleID="s104">
     <Cell ss:StyleID="s102"><Data ss:Type="String">EvidenceFocus.characteristic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2964,7 +2979,7 @@
     <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14" ss:Span="5"/>
-   <Row ss:AutoFitHeight="0" ss:Height="15" ss:Index="93" ss:Span="3"/>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:Index="94" ss:Span="3"/>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -2982,7 +2997,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -2990,7 +3005,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R40C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R41C24">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
@@ -5539,56 +5554,56 @@
     <Cell ss:StyleID="s165"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s163"/>
-    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">population</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s176"/>
-    <Cell ss:StyleID="s176"/>
-    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"><Data ss:Type="String">Population</Data></Cell>
+    <Cell ss:StyleID="s176"><Data ss:Type="String">The population of interest</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s165"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s163"/>
-    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">exposure</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s176"/>
-    <Cell ss:StyleID="s176"/>
-    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"><Data ss:Type="String">Exposure</Data></Cell>
+    <Cell ss:StyleID="s176"><Data ss:Type="String">The exposure of interest, such as an intervention</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s165"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s163"/>
-    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">comparator</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s176"/>
-    <Cell ss:StyleID="s176"/>
-    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"><Data ss:Type="String">Comparator</Data></Cell>
+    <Cell ss:StyleID="s176"><Data ss:Type="String">The comparator (intervention or control state) of interest</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s165"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s163"/>
-    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">outcome</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s176"/>
-    <Cell ss:StyleID="s176"/>
-    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"><Data ss:Type="String">Outcome</Data></Cell>
+    <Cell ss:StyleID="s176"><Data ss:Type="String">the outcome of interest</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s165"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s163"/>
-    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">medication-exposures</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s176"/>
-    <Cell ss:StyleID="s176"/>
-    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"><Data ss:Type="String">Medication exposures</Data></Cell>
+    <Cell ss:StyleID="s176"><Data ss:Type="String">Any medication exposures. A subset of exposures or interventions that are medications.</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s165"/>
@@ -6063,6 +6078,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>-3</HorizontalResolution>
+    <VerticalResolution>-3</VerticalResolution>
+   </Print>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
