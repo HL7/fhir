@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1075,11 +1075,6 @@
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
    </Borders>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s183" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
    <Interior/>
   </Style>
   <Style ss:ID="s184">
@@ -3802,7 +3797,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5774,7 +5768,7 @@
     <Cell ss:StyleID="s162"><Data ss:Type="String">The relative quality of the statistic</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s183"><Data ss:Type="String">#certainty-rating</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">#certainty-rating</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -6097,6 +6091,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
