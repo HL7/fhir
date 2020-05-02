@@ -198,7 +198,7 @@ public class CodeListToValueSetParser {
       String comm = (n.length > 1) ? n[1].substring(0, n[1].length() - 1) : null;
       n = n[0].split("\\.");
       if (n.length != 2)
-        throw new Exception("Error processing v3 map value for "+cm.getName()+"."+code+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
+        throw new Exception("Error processing v2 map value for "+cm.getName()+"."+code+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
       String rel = n[0].substring(0, 1);
       String tbl = n[0].substring(1);
       String cd = n[1];
@@ -214,9 +214,9 @@ public class CodeListToValueSetParser {
       else if (rel.equals("~"))
         tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals(">"))
-        tgt.setRelationship(ConceptMapRelationship.BROADER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCEBROADERTARGET);
       else if (rel.equals("<")) {
-        tgt.setRelationship(ConceptMapRelationship.NARROWER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCENARROWERTARGET);
         if (!tgt.hasComment())
           throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else
@@ -312,9 +312,9 @@ public class CodeListToValueSetParser {
       else if (rel.equals("~"))
         tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals("<"))
-        tgt.setRelationship(ConceptMapRelationship.BROADER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCENARROWERTARGET);
       else if (rel.equals(">")) {
-        tgt.setRelationship(ConceptMapRelationship.NARROWER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCEBROADERTARGET);
         if (!tgt.hasComment())
           throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else

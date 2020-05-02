@@ -58,11 +58,11 @@ public class ResourceNameConceptMapGenerator {
         else if (t.startsWith("("))
           map.addTarget().setCode(t.substring(1, t.length()-1)).setRelationship(ConceptMapRelationship.RELATEDTO);
         else if (t.startsWith("->"))
-          map.addTarget().setCode(t.substring(2).trim()).setRelationship(ConceptMapRelationship.BROADER);
+          map.addTarget().setCode(t.substring(2).trim()).setRelationship(ConceptMapRelationship.SOURCEBROADERTARGET);
         else if (t.startsWith(":"))
           map.addTarget().setComment(t.substring(1).trim()).setRelationship(ConceptMapRelationship.NOTRELATEDTO);
-        else if (s.startsWith("->"))
-          map.addTarget().setCode(t).setRelationship(ConceptMapRelationship.NARROWER);
+        else if (s.startsWith("-<"))
+          map.addTarget().setCode(t).setRelationship(ConceptMapRelationship.SOURCENARROWERTARGET);
         else if (s.startsWith("("))
           map.addTarget().setCode(t).setRelationship(ConceptMapRelationship.RELATEDTO);
         else
