@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Lloyd</LastAuthor>
@@ -14,7 +14,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3701,7 +3702,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6535,7 +6535,7 @@
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Old</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">This name is no longer in use (or was never correct, but retained for records)</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="String">&gt;0200.NOUSE,&gt;0200.BAD</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">&gt;0200.NOUSE(No Use Addresses are considered to be old records),&gt;0200.BAD(bad addresses are old records)</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">~EntityNameUseR2.OLD</Data></Cell>
     <Cell ss:StyleID="s141"/>
    </Row>
@@ -7026,6 +7026,7 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

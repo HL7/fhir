@@ -26,8 +26,7 @@
   
   
   <TabRatio>780</TabRatio>
-  <ActiveSheet>11</ActiveSheet>
-  <FirstVisibleSheet>5</FirstVisibleSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -485,7 +484,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">#abstract-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.2.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.4.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">AdjudicationError</Data></Cell>
@@ -661,7 +660,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">#data-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">4.2.0</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">4.4.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">DefinitionResourceType</Data></Cell>
@@ -817,7 +816,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">4.2.0</Data></Cell>
+    <Cell><Data ss:Type="String">4.4.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">Jurisdiction</Data></Cell>
@@ -1047,7 +1046,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">4.2.0</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">4.4.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SecurityRoleType</Data></Cell>
@@ -1073,6 +1072,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -1084,7 +1084,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FHIR-version">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="26" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="27" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
    <Column ss:Width="39.0"/>
    <Column ss:Width="223.0"/>
@@ -1247,6 +1247,12 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.2.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Preview #1</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.4.0</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.4.0</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Preview #2</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1254,6 +1260,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1316,6 +1324,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -1471,6 +1480,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -1524,7 +1534,7 @@
     <Cell><Data ss:Type="String">Other</Data></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">The administrative gender is a value other than male/female/unknown. Where this value is selected, systems may often choose to include an extension with the localized more specific value.</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&lt;AdministrativeGender.UN</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">&gt;0001.A,&gt;0001.O</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">&gt;0001.A(Maps to other; poorly diffferentiated from other),&gt;0001.O(Narrower because split to Ambiguous)</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">☿</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
@@ -1544,13 +1554,16 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <LeftColumnVisible>2</LeftColumnVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1628,6 +1641,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <LeftColumnVisible>6</LeftColumnVisible>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -2197,6 +2211,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -2762,6 +2777,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3330,6 +3346,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -3395,6 +3412,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4032,6 +4050,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -4070,7 +4089,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">System</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Parent</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code this code is a specialization of (if any).  Content should be "#" + the Id of the parent code</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Display</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">        </Font><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Display</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v2 codes - See Confluence for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See Confluence for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4625,13 +4644,13 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5216,6 +5235,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5801,6 +5821,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5872,6 +5893,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -5997,6 +6019,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -6232,6 +6255,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -6318,6 +6342,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>

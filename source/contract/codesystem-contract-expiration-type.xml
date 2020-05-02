@@ -14,7 +14,7 @@
             http://build.fhir.org/sc.html.</div>
     </text>
     <url value="http://hl7.org/fhir/contract-expiration-type"/>
-    <version value="4.2.0"/>
+    <version value="4.4.0"/>
     <name value="ContractExpirationType"/>
     <status value="draft"/>
     <experimental value="true"/>

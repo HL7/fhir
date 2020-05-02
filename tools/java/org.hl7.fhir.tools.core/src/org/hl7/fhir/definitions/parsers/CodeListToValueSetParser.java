@@ -198,7 +198,7 @@ public class CodeListToValueSetParser {
       String comm = (n.length > 1) ? n[1].substring(0, n[1].length() - 1) : null;
       n = n[0].split("\\.");
       if (n.length != 2)
-        throw new Exception("Error processing v3 map value for "+cm.getName()+"."+code+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
+        throw new Exception("Error processing v2 map value for "+cm.getName()+"."+code+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
       String rel = n[0].substring(0, 1);
       String tbl = n[0].substring(1);
       String cd = n[1];

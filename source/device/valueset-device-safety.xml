@@ -6,7 +6,7 @@
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
 	</meta>
 	<url value="http://hl7.org/fhir/ValueSet/device-safety"/>
-	<version value="4.2.0"/>
+	<version value="4.4.0"/>
 	<name value="DeviceSafety"/>
 	<status value="draft"/>
 	<experimental value="false"/>
