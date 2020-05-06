@@ -5,12 +5,12 @@
 		<system value="http://ema.europa.eu/example/MPID"/>
 		<value value="{mpid}"/>
 	</identifier>
-	<productClassification>
+	<classification>
 		<coding>
 			<system value="http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem"/>
 			<code value="WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02"/>
 		</coding>
-	</productClassification>
+	</classification>
 	<attachedDocument>
 		<reference value="DocumentReference/example"/>
 	</attachedDocument>
