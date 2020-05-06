@@ -18,7 +18,6 @@
   <TabRatio>837</TabRatio>
   <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -693,7 +692,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="29" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MarketingStatus.country</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -741,7 +740,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="72" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MarketingStatus.dateRange</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Period</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
