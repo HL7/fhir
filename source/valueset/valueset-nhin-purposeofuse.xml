@@ -72,7 +72,7 @@
           <code value="MARKETING"/>
           <target>
             <code value="HMARKT"/>
-            <relationship value="narrower"/>
+            <relationship value="source-is-broader-than-target"/>
             <comment value="Not clear how much difference there is between &#39;marketing&#39; and &#39;healthcare marketing&#39;"/>
           </target>
         </element>
@@ -101,14 +101,14 @@
           <code value="JUDICIAL"/>
           <target>
             <code value="HLEGAL"/>
-            <relationship value="broader"/>
+            <relationship value="source-is-narrower-than-target"/>
           </target>
         </element>
         <element>
           <code value="LAW"/>
           <target>
             <code value="HLEGAL"/>
-            <relationship value="broader"/>
+            <relationship value="source-is-narrower-than-target"/>
           </target>
         </element>
         <element>
@@ -122,7 +122,7 @@
           <code value="RESEARCH"/>
           <target>
             <code value="HRESCH"/>
-            <relationship value="narrower"/>
+            <relationship value="source-is-broader-than-target"/>
             <comment value="Not clear how much difference there is between &#39;research&#39; and &#39;healthcare research&#39;"/>
           </target>
         </element>
