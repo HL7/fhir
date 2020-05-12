@@ -2668,9 +2668,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       s.close();
 
       ImplementationGuide expIg = new ImplementationGuide();
-      expIg.addFhirVersion(FHIRVersion._4_2_0);
+      expIg.addFhirVersion(FHIRVersion._4_4_0);
       expIg.setPackageId("hl7.fhir.r5.expansions");
-      expIg.setVersion(FHIRVersion._4_2_0.toCode());
+      expIg.setVersion(FHIRVersion._4_4_0.toCode());
       expIg.setLicense(ImplementationGuide.SPDXLicense.CC01_0);
       expIg.setTitle("FHIR R5 package : Expansions");
       expIg.setDescription("Expansions for the R5 version of the FHIR standard");
