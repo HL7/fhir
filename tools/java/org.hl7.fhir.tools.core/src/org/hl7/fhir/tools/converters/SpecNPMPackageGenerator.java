@@ -96,7 +96,7 @@ public class SpecNPMPackageGenerator {
     ig.setDescription("FHIR Core package - the NPM package that contains all the definitions for the base FHIR specification");
     ig.setPublisher("HL7 Inc");
     ig.getContactFirstRep().getTelecomFirstRep().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
-    ig.setPackageId("hl7.fhir.core");
+    ig.setPackageId("hl7.fhir.r5.core");
     ig.getManifest().setRendering(url);
     for (ResourceEntry e : reslist) {
       ManifestResourceComponent r = ig.getManifest().addResource();
