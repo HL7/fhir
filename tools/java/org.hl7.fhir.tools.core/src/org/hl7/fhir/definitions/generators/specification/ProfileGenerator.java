@@ -458,7 +458,7 @@ public class ProfileGenerator {
       ElementDefn element = definitions.getElementDefn(name);
       if (!Utilities.noString(element.typeCode()))
         addElementConstraints(element.typeCode(), ed);
-      convertConstraints(element, ed, name);
+      convertConstraints(element, ed, "http://hl7.org/fhir/StructureDefinition/"+name);
     }
   }
   
@@ -1858,7 +1858,7 @@ public class ProfileGenerator {
     ToolingExtensions.addDisplayHint(ce, e.getDisplayHint());
 
     if (!isInterface) {
-      convertConstraints(e, ce, inheritedType);
+      convertConstraints(e, ce, inheritedType == null ? p.getUrl() : "http://hl7.org/fhir/StructureDefinition/"+inheritedType);
     }
     // we don't have anything to say about constraints on resources
   }
@@ -1885,7 +1885,10 @@ public class ProfileGenerator {
         con.setSeverity(ConstraintSeverity.fromCode(inv.getSeverity()));
       con.setHuman(inv.getEnglish());
       con.setXpath(inv.getXpath());
-      con.setSource("http://hl7.org/fhir/StructureDefinition/"+source);
+      if (!Utilities.isAbsoluteUrl(source)) {
+        throw new Error("source : "+source);
+      }
+      con.setSource(source);
       if (!"n/a".equals(inv.getExpression()))
         con.setExpression(inv.getExpression());
       ce.getConstraint().add(con);

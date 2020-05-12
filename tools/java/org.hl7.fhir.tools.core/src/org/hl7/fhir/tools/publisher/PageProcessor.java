@@ -448,7 +448,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   public final static String WEB_PUB_NOTICE =
       "<p style=\"background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
-       " This is the Current officially released version of FHIR, which is <a href=\"history.html\">R4</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
+       " This is Preview #2 for FHIR <a href=\"history.html\">R5</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
       "</p>\r\n"; 
 
   public final static String CI_PUB_NOTICE =
