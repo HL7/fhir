@@ -72,47 +72,6 @@
 		</li>
 	</ul>
 
-	<h3>Genomics</h3>
-	<p>The following Observations show examples of genomics observations:
-    </p>
-	<ul>
-		<li>
-			<a href="observation-example-genetics-1.html">Genetics example 1</a>
-		</li>
-		<li>
-			<a href="observation-example-genetics-2.html">Genetics example 2</a>
-		</li>
-		<li>
-			<a href="observation-example-genetics-3.html">Genetics example 3</a>
-		</li>
-		<li>
-			<a href="observation-example-genetics-4.html">Genetics example 4</a>
-		</li>
-		<li>
-			<a href="observation-example-genetics-5.html">Genetics example 5</a>
-		</li>
-		<li>
-			<a href="observation-example-diplotype1.html">Example of diplotype data (with haplotypes observation as reference)</a>
-		</li>
-		<li>
-			<a href="observation-example-haplotype1.html">Example of haplotype data that is basis of a diplotype data</a>
-		</li>
-		<li>
-			<a href="observation-example-haplotype2.html">Example of another haplotype data that is basis of a diplotype data</a>
-		</li>
-		<li>
-			<a href="observation-example-phenotype.html">Example of phenotype data</a>
-		</li>
-		<li>
-			<a href="observation-example-TPMT-diplotype.html">Example of a TPMT diplotype that link to two TPMT haplotype observations</a>
-		</li>
-		<li>
-			<a href="observation-example-TPMT-haplotype-one.html">Example of a TPMT haplotype observation </a>
-		</li>
-		<li>
-			<a href="observation-example-TPMT-haplotype-two.html">Example of another TPMT haplotype observation </a>
-		</li>
-	</ul>
 	<h3>Observations where subject is a Location</h3>
 	<p>The following Observations show examples of observations about a location:
     </p>
@@ -233,7 +192,7 @@
 		<li>
 			<a href="observation-example-body-height.html">Simple Body Height Example</a>
 		</li>
-		
+
 		<li>
 			<a href="observation-example-body-length.html">Simple Body Length Example</a> This example demonstrates the use of a code translation to allow the observation to be interpreted as Body Length  ( typically used for infants).
 		</li>

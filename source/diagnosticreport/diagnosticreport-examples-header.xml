@@ -55,23 +55,6 @@ An collection Bundle showing an example of a complex Micro Isolate and Sensitivi
 			<a href="diagnosticreport-example-ultrasound.xml">Abdominal Ultrasound example</a>
 		</li>
 	</ul>
-	<h3>Genomics</h3>
-	<p>The following examples of DiagnosticReport resources show examples of genomics studies:
-    </p>
-	<ul>
-		<li>
-			<a href="diagnosticreport-genetics-example-2-familyhistory.html">An example of a genetics test report with Family member history</a>
-		</li>
-		<li>
-			<a href="diagnosticreport-hla-genetics-results-example.html">An example of a HLA genotyping results report </a>
-		</li>
-		<li>
-			<a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.html">An example of a comprehensive bone marrow report</a>
-		</li>
-		<li>
-			<a href="diagnosticreport-example-pgx.html">An example of a PGx haplotype report</a>
-		</li>
-	</ul>
 	<h3>Anatomic Pathology</h3>
 	<p>The following examples of DiagnosticReport resources show examples of anatomic pathology reports:
     </p>
