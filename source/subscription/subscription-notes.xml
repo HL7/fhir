@@ -87,7 +87,7 @@
 		<ul>
 			<li>
 				<p>
-					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.eventsSinceSubscriptionStart">SubscriptionStatus.eventsSinceSubscriptionStart</a> element indicates the number of unique events that have triggered notification attempts on this Subscription PRIOR to the current notification being sent.
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.eventsSinceSubscriptionStart">SubscriptionStatus.eventsSinceSubscriptionStart</a> element indicates the number of unique events that have triggered notification attempts on this Subscription inclusive of the current notification being sent.
 				</p>
 				<ul>
 					<li>
