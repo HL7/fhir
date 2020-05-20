@@ -31,17 +31,24 @@
     
     <xd:doc>
         <xd:desc>
+            <xd:p>Default language for retrieval of language dependant strings such as labels, e.g. 'en-US'. This is the fallback language in case the string is not available in the actual language.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="util:textlangDefault" select="'en-US'"/>
+    
+    <xd:doc>
+        <xd:desc>
             <xd:p>Retrieves a language dependant string from our <xd:ref name="vocFile" type="parameter">language file</xd:ref> such as a label based on a key. Returns string based on <xd:ref name="textLang" type="parameter">textLang</xd:ref>, <xd:ref name="textLangDefault" type="parameter">textLangDefault</xd:ref>, the first two characters of the textLangDefault, e.g. 'en' in 'en-US' and finally if all else fails just the key text.</xd:p>
         </xd:desc>
         <xd:param name="pre">Some text or space to prefix our string with</xd:param>
         <xd:param name="key">The key to find our text with</xd:param>
         <xd:param name="post">Some text like a colon or space to postfix our text with</xd:param>
+        <xd:param name="textLang">Actual language for retrieval of language dependant strings such as labels, e.g. 'en-US'. Unless supplied, this is taken from the ClinicalDocument/language/@code attribute or first FHIR language element, or in case that is not present from <xd:ref name="textlangDefault" type="parameter">textlangDefault</xd:ref>.</xd:param>
     </xd:doc>
     <xsl:template name="util:getLocalizedString">
         <xsl:param name="pre" select="''"/>
         <xsl:param name="key"/>
         <xsl:param name="post" select="''"/>
-        <xsl:param name="textlangDefault" select="'en-US'"/>
         <xsl:param name="textLang">
             <xsl:choose>
                 <xsl:when test="/hl7:ClinicalDocument/hl7:languageCode/@code">
@@ -51,7 +58,7 @@
                     <xsl:value-of select="(//fhir:*/fhir:language/@value)[1]"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="$textlangDefault"/>
+                    <xsl:value-of select="$util:textlangDefault"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:param>
@@ -59,7 +66,7 @@
         <!-- Do lowercase compare of default language+region-->
         <xsl:variable name="textLangDefaultLowerCase">
             <xsl:call-template name="util:caseDown">
-                <xsl:with-param name="data" select="$textlangDefault"/>
+                <xsl:with-param name="data" select="$util:textlangDefault"/>
             </xsl:call-template>
         </xsl:variable>
         <!-- Do lowercase compare of default language (assume alpha2 not alpha3) -->
@@ -75,20 +82,20 @@
         
         <xsl:choose>
             <!-- compare 'de-CH' -->
-            <xsl:when test="$util:vocMessages/*/*/key[@value=$key]/value[@lang=$textLangLowerCase]">
-                <xsl:value-of select="concat($pre,$util:vocMessages//key[@value=$key]/value[@lang=$textLangLowerCase]/text(),$post)"/>
+            <xsl:when test="$util:vocMessages/*/translation[@key = $key]/value[@lang = $textLangLowerCase]">
+                <xsl:value-of select="concat($pre,$util:vocMessages/*/translation[@key = $key]/value[@lang=$textLangLowerCase]/text(),$post)"/>
             </xsl:when>
             <!-- compare 'de' in 'de-CH' -->
-            <xsl:when test="$util:vocMessages/*/*/key[@value=$key]/value[substring(@lang, 1, 2)=$textLangPartLowerCase]">
-                <xsl:value-of select="concat($pre,$util:vocMessages//key[@value=$key]/value[substring(@lang, 1, 2)=$textLangPartLowerCase]/text(),$post)"/>
+            <xsl:when test="$util:vocMessages/*/translation[@key = $key]/value[substring(@lang, 1, 2)=$textLangPartLowerCase]">
+                <xsl:value-of select="concat($pre,$util:vocMessages/*/translation[@key = $key]/value[substring(@lang, 1, 2)=$textLangPartLowerCase]/text(),$post)"/>
             </xsl:when>
             <!-- compare 'en-US' -->
-            <xsl:when test="$util:vocMessages/*/*/key[@value=$key]/value[@lang=$textLangDefaultLowerCase]">
-                <xsl:value-of select="concat($pre,$util:vocMessages//key[@value=$key]/value[@lang=$textLangDefaultLowerCase]/text(),$post)"/>
+            <xsl:when test="$util:vocMessages/*/translation[@key = $key]/value[@lang=$textLangDefaultLowerCase]">
+                <xsl:value-of select="concat($pre,$util:vocMessages/*/translation[@key = $key]/value[@lang=$textLangDefaultLowerCase]/text(),$post)"/>
             </xsl:when>
             <!-- compare 'en' in 'en-US' -->
-            <xsl:when test="$util:vocMessages/*/*/key[@value=$key]/value[substring(@lang, 1, 2)=$textLangDefaultPartLowerCase]">
-                <xsl:value-of select="concat($pre,$util:vocMessages//key[@value=$key]/value[substring(@lang, 1, 2)=$textLangDefaultPartLowerCase]/text(),$post)"/>
+            <xsl:when test="$util:vocMessages/*/translation[@key = $key]/value[substring(@lang, 1, 2)=$textLangDefaultPartLowerCase]">
+                <xsl:value-of select="concat($pre,$util:vocMessages/*/translation[@key = $key]/value[substring(@lang, 1, 2)=$textLangDefaultPartLowerCase]/text(),$post)"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="concat($pre,$key,$post)"/>

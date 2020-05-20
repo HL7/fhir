@@ -128,6 +128,7 @@ import org.hl7.fhir.r5.conformance.ProfileUtilities;
 import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r5.context.IWorkerContext.PackageVersion;
 import org.hl7.fhir.r5.formats.FormatUtilities;
 import org.hl7.fhir.r5.formats.IParser;
 import org.hl7.fhir.r5.formats.IParser.OutputStyle;
@@ -447,7 +448,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   public final static String WEB_PUB_NOTICE =
       "<p style=\"background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
-       " This is the Current officially released version of FHIR, which is <a href=\"history.html\">R4</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
+       " This is Preview #2 for FHIR <a href=\"history.html\">R5</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
       "</p>\r\n"; 
 
   public final static String CI_PUB_NOTICE =
@@ -4874,14 +4875,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     CanonicalResourceManager<ValueSet> vslist = new CanonicalResourceManager<ValueSet>(false);
     for (String sn : definitions.getValuesets().keys()) {
       ValueSet vs = definitions.getValuesets().get(sn);
-      vslist.see(vs);
+      vslist.see(vs, packageInfo());
       String n = getNamespace(sn);
       if (!n.equals("http://hl7.org/fhir/ValueSet") && !namespaces.contains(n) && !sn.startsWith("http://terminology.hl7.org/ValueSet/v2-") && !sn.startsWith("http://terminology.hl7.org/ValueSet/v3-"))
         namespaces.add(n);
     }
     for (String sn : definitions.getExtraValuesets().keySet()) {
       ValueSet vs = definitions.getExtraValuesets().get(sn);
-      vslist.see(vs);
+      vslist.see(vs, packageInfo());
     }
     Collections.sort(namespaces);
     generateVSforNS(s, "http://hl7.org/fhir/ValueSet", vslist, true, ig);
@@ -11263,6 +11264,10 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
 
   public UMLModel getUml() {
     return uml;
+  }
+
+  public PackageVersion packageInfo() {
+    return new PackageVersion("hl7.fhir.r5.core", version.toCode());
   }
   
 }

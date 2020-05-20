@@ -458,7 +458,7 @@ public class ProfileGenerator {
       ElementDefn element = definitions.getElementDefn(name);
       if (!Utilities.noString(element.typeCode()))
         addElementConstraints(element.typeCode(), ed);
-      convertConstraints(element, ed, name);
+      convertConstraints(element, ed, "http://hl7.org/fhir/StructureDefinition/"+name);
     }
   }
   
@@ -1858,7 +1858,7 @@ public class ProfileGenerator {
     ToolingExtensions.addDisplayHint(ce, e.getDisplayHint());
 
     if (!isInterface) {
-      convertConstraints(e, ce, inheritedType);
+      convertConstraints(e, ce, inheritedType == null ? p.getUrl() : "http://hl7.org/fhir/StructureDefinition/"+inheritedType);
     }
     // we don't have anything to say about constraints on resources
   }
@@ -1885,6 +1885,9 @@ public class ProfileGenerator {
         con.setSeverity(ConstraintSeverity.fromCode(inv.getSeverity()));
       con.setHuman(inv.getEnglish());
       con.setXpath(inv.getXpath());
+      if (!Utilities.isAbsoluteUrl(source)) {
+        throw new Error("source : "+source);
+      }
       con.setSource(source);
       if (!"n/a".equals(inv.getExpression()))
         con.setExpression(inv.getExpression());
@@ -2001,7 +2004,7 @@ public class ProfileGenerator {
     inv.setHuman("All FHIR elements must have a @value or children");
     inv.setExpression("hasValue() or (children().count() > id.count())");
     inv.setXpath("@value|f:*|h:div");
-    inv.setSource("Element");
+    inv.setSource("http://hl7.org/fhir/StructureDefinition/Element");
     return ed;  
   }
   
@@ -2027,7 +2030,7 @@ public class ProfileGenerator {
     inv.setHuman("Must have either extensions or value[x], not both");
     inv.setExpression("extension.exists() != value.exists()");
     inv.setXpath("exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])");
-    inv.setSource("Extension");
+    inv.setSource("http://hl7.org/fhir/StructureDefinition/Extension");
     return ed;  
   }
   
@@ -2061,7 +2064,7 @@ public class ProfileGenerator {
     inv.setHuman("Must have either extensions or value[x], not both");
     inv.setExpression("extension.exists() != value.exists()");
     inv.setXpath("exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])");
-    inv.setSource("Extension");
+    inv.setSource("http://hl7.org/fhir/StructureDefinition/Extension");
     
     return ex;
   }

@@ -30,7 +30,7 @@
   <software>
     <name value="ACME Terminology Server"/>
   </software>
-  <fhirVersion value="4.2.0"/>
+  <fhirVersion value="4.4.0"/>
 <!--  json is mandatory, for support of mobile clients  -->
   <format value="json"/>
 <!--  xml is optional, but strongly recommended  -->
@@ -38,7 +38,7 @@
 <!--  profile - terminology servers may consider 
     supporting the shareable value set directly, but
     are not required. HL7 servers will
-  <profile value="StructureDefinition/valueset-shareable-definition"/>  
+  <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>  
    -->
   <rest>
     <mode value="server"/>
@@ -66,7 +66,7 @@
   <!--  value set. Must provide read and search  -->
     <resource>
       <type value="ValueSet"/>
-      <profile value="StructureDefinition/ValueSet"/>
+      <profile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement2-expectation">
           <valueCode value="SHALL"/>
@@ -132,7 +132,7 @@
     </resource>
     <resource>
       <type value="ConceptMap"/>
-      <profile value="StructureDefinition/ConceptMap"/>
+      <profile value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement2-expectation">
           <valueCode value="SHALL"/>
@@ -208,35 +208,35 @@
         <valueCode value="SHALL"/>
       </extension>
       <name value="expand"/>
-      <definition value="OperationDefinition/ValueSet-expand"/>
+      <definition value="http://hl7.org/fhir/OperationDefinition/ValueSet-expand"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement2-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="lookup"/>
-      <definition value="OperationDefinition/CodeSystem-lookup"/>
+      <definition value="http://hl7.org/fhir/OperationDefinition/CodeSystem-lookup"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement2-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="validate-code"/>
-      <definition value="OperationDefinition/ValueSet-validate-code"/>
+      <definition value="http://hl7.org/fhir/OperationDefinition/ValueSet-validate-code"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement2-expectation">
         <valueCode value="SHALL"/>
       </extension>
       <name value="translate"/>
-      <definition value="OperationDefinition/ConceptMap-translate"/>
+      <definition value="http://hl7.org/fhir/OperationDefinition/ConceptMap-translate"/>
     </operation>
     <operation>
       <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement2-expectation">
         <valueCode value="SHOULD"/>
       </extension>
       <name value="closure"/>
-      <definition value="OperationDefinition/ConceptMap-closure"/>
+      <definition value="http://hl7.org/fhir/OperationDefinition/ConceptMap-closure"/>
     </operation>
   </rest>
 </CapabilityStatement2>

@@ -163,6 +163,9 @@
 	<item id="ChargeItemDefinition">
 		<translation lang="en">ChargeItemDefinition</translation>
 	</item>
+	<item id="Citation">
+		<translation lang="en">Citation</translation>
+	</item>
 	<item id="Claim">
 		<translation lang="en">Claim</translation>
 		<translation lang="es">Reclamación / Factura</translation>
@@ -380,6 +383,9 @@
 	</item>
 	<item id="Evidence">
 		<translation lang="en">Evidence</translation>
+	</item>
+	<item id="EvidenceFocus">
+		<translation lang="en">EvidenceFocus</translation>
 	</item>
 	<item id="EvidenceVariable">
 		<translation lang="en">EvidenceVariable</translation>

@@ -8,7 +8,7 @@
     <use value="official"/>
     <value value="exclusive-breastfeeding-measure"/>
   </identifier>
-  <version value="4.2.0"/>
+  <version value="4.4.0"/>
   <title value="Exclusive Breastfeeding Measure"/>
   <status value="active"/>
   <date value="2014-03-08"/>
@@ -67,9 +67,9 @@
   </relatedArtifact>
   <relatedArtifact>
     <type value="successor"/>
-    <resource value="Measure/measure-exclusive-breastfeeding"/>
+    <resource value="http://example.org/fhir/Measure/measure-exclusive-breastfeeding"/>
   </relatedArtifact>
-  <library value="Library/library-exclusive-breastfeeding-cqm-logic"/>
+  <library value="http://example.org/fhir/Library/library-exclusive-breastfeeding-cqm-logic"/>
   <disclaimer value="These performance measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. The measures and specifications are provided without warranty."/>
   <scoring>
 	<coding>

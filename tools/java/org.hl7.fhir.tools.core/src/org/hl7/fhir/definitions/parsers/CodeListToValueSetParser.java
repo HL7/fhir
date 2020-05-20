@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.r5.context.CanonicalResourceManager;
+import org.hl7.fhir.r5.context.IWorkerContext.PackageVersion;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
@@ -35,8 +36,9 @@ public class CodeListToValueSetParser {
   private String sheetName;
   private CanonicalResourceManager<CodeSystem> codeSystems;
   private CanonicalResourceManager<ConceptMap> maps;
+  private PackageVersion packageInfo;
 
-  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ConceptMap> maps) throws Exception {
+  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ConceptMap> maps, PackageVersion packageInfo) throws Exception {
     super();
     this.sheet = sheet;
     this.sheetName = sheetName;
@@ -44,7 +46,7 @@ public class CodeListToValueSetParser {
     this.version = version;
     this.codeSystems = codeSystems;
     this.maps = maps;
-
+    this.packageInfo = packageInfo;
   }
 
   public void execute(String v2map, String v3map, boolean utg) throws Exception {
@@ -73,7 +75,7 @@ public class CodeListToValueSetParser {
       cs.setVersion(version);
       cs.setCaseSensitive(true);
       cs.setContent(CodeSystemContentMode.COMPLETE);
-      codeSystems.see(cs);
+      codeSystems.see(cs, packageInfo);
 
       for (int row = 0; row < sheet.rows.size(); row++) {
         if (Utilities.noString(sheet.getColumn(row, "System"))) {
@@ -177,7 +179,7 @@ public class CodeListToValueSetParser {
       for (ConceptReferenceComponent c : cc.getConcept()) {
         processV2Map(cm, cc.getSystem(), c.getCode(), c.getUserString("v2"));
       }
-    maps.see(cm);
+    maps.see(cm, packageInfo);
   }
 
   private void processV2ConceptDefs(ConceptMap cm, String url, List<ConceptDefinitionComponent> list) throws Exception {
@@ -196,7 +198,7 @@ public class CodeListToValueSetParser {
       String comm = (n.length > 1) ? n[1].substring(0, n[1].length() - 1) : null;
       n = n[0].split("\\.");
       if (n.length != 2)
-        throw new Exception("Error processing v3 map value for "+cm.getName()+"."+code+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
+        throw new Exception("Error processing v2 map value for "+cm.getName()+"."+code+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
       String rel = n[0].substring(0, 1);
       String tbl = n[0].substring(1);
       String cd = n[1];
@@ -212,9 +214,9 @@ public class CodeListToValueSetParser {
       else if (rel.equals("~"))
         tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals(">"))
-        tgt.setRelationship(ConceptMapRelationship.BROADER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCEISBROADERTHANTARGET);
       else if (rel.equals("<")) {
-        tgt.setRelationship(ConceptMapRelationship.NARROWER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCEISNARROWERTHANTARGET);
         if (!tgt.hasComment())
           throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else
@@ -271,7 +273,7 @@ public class CodeListToValueSetParser {
       for (ConceptReferenceComponent c : cc.getConcept()) {
         processV3Map(cm, cc.getSystem(), c.getCode(), c.getUserString("v2"));
       }
-    maps.see(cm);
+    maps.see(cm, packageInfo);
   }
 
   private void processV3ConceptDefs(ConceptMap cm, String url, List<ConceptDefinitionComponent> list) throws Exception {
@@ -310,9 +312,9 @@ public class CodeListToValueSetParser {
       else if (rel.equals("~"))
         tgt.setRelationship(ConceptMapRelationship.EQUIVALENT);
       else if (rel.equals("<"))
-        tgt.setRelationship(ConceptMapRelationship.BROADER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCEISNARROWERTHANTARGET);
       else if (rel.equals(">")) {
-        tgt.setRelationship(ConceptMapRelationship.NARROWER);
+        tgt.setRelationship(ConceptMapRelationship.SOURCEISBROADERTHANTARGET);
         if (!tgt.hasComment())
           throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else

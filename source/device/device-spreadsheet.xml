@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Jose Costa Teixeira</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-02-15T18:41:41Z</LastSaved>
+  <LastSaved>2020-04-30T15:59:55Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -16,6 +16,7 @@
   
   <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1359,7 +1360,7 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">barcode | rfid | manual +</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">barcode | rfid | manual | card | self-reported | electronic-transmission | unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">A coded entry to indicate how the data was entered.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Supports a way to distinguish hand entered from machine read data.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1593,7 +1594,7 @@
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s85"><Data ss:Type="String">BackboneElement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The name of the device as given by the manufacturer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">The name or names of the device as known to the manufacturer and/or patient</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This represents the manufacturer's name of the device as provided by the device, from a UDI label, or by a person describing the Device.  This typically would be used when a person provides the name(s) or when the device represents one of the names available from DeviceDefinition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21" ss:StyleID="s88"><Data ss:Type="String">Participant.name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="23"><Data ss:Type="String">400;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1897,8 +1898,8 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Code that specifies the property DeviceDefinitionPropetyCode (Extensible)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Code that specifies the property DeviceDefinitionPropetyCode (Extensible)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Code that specifies the property being represented</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Code that specifies the property being represented. No codes are specified but the MDC codes are an example: https://build.fhir.org/mdc.html</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4516,9 +4517,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>31</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -5166,11 +5167,11 @@
     <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">The serial number of the device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">version</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:Index="6" ss:StyleID="s132"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Device.version.value</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s132"><Data ss:Type="String">The specific version of the device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"/>
@@ -6394,7 +6395,7 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="40" ss:StyleID="s151" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s151" ss:Width="89.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s151" ss:Width="199.0"/>
    <Column ss:StyleID="s151" ss:Width="28.0"/>
    <Column ss:StyleID="s151" ss:Width="328.0"/>
    <Column ss:StyleID="s151" ss:Width="97.0"/>
@@ -6789,7 +6790,7 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"/>
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="33" ss:StyleID="s125" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s125" ss:Width="115.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="133.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="377.0"/>
    <Column ss:StyleID="s125" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="66.0"/>
@@ -8522,8 +8523,19 @@
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s156"><Data ss:Type="String">electronic-transmission</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s173"/>
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">Electronic Transmission</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The UDI information was received electronically from the device through a communication protocol, such as the IEEE 11073 20601 version 4 exchange protocol over Bluetooth or USB</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s160"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s181"><Data ss:Type="String">unknown</Data></Cell>
-    <Cell ss:StyleID="s182"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s182"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s182"/>
     <Cell ss:StyleID="s182"><Data ss:Type="String">Unknown</Data></Cell>
@@ -8533,22 +8545,11 @@
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s181"/>
+    <Cell ss:StyleID="s182"/>
     <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s160"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s182"/>
+    <Cell ss:StyleID="s182"/>
     <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>

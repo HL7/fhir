@@ -446,4 +446,22 @@
 		<sort>41</sort>
 		<publish>true</publish>
 	</space>
+	<space>
+		<url>urn:iso:std:iso:11073:10201</url>
+		<link>https://standards.ieee.org/standard/11073-10201-2018.html</link>
+		<columnName>ISO/IEEE 11073-10201</columnName>
+		<title>ISO/IEEE 11073-10201</title>
+		<id>DIM</id>
+		<sort>42</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+		<url>urn:iso:std:iso:11073:10207</url>
+		<link>https://standards.ieee.org/standard/11073-10207-2019.html</link>
+		<columnName>ISO/IEEE 11073-10207</columnName>
+		<title>ISO/IEEE 11073-10207</title>
+		<id>BICEPS</id>
+		<sort>43</sort>
+		<publish>true</publish>
+	</space>
 </mappingSpaces>

@@ -330,13 +330,13 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     cs.getText().setStatus(NarrativeStatus.GENERATED);
     cs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
     page.getVsValidator().validate(page.getValidationErrors(), "v3 code system "+id, cs, false, true);
-    page.getCodeSystems().see(vp.cs);
+    page.getCodeSystems().see(vp.cs, page.packageInfo());
 
     vs.setText(new Narrative());
     vs.getText().setStatus(NarrativeStatus.GENERATED);
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
     page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
-    page.getValueSets().see(vp.vs);
+    page.getValueSets().see(vp.vs, page.packageInfo());
 
   }
 
@@ -446,8 +446,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
             vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
           else
             vs.getMeta().setLastUpdated(page.getGenDate().getTime());
-          page.getValueSets().see(vs);
-          page.getDefinitions().getValuesets().see(vs);
+          page.getValueSets().see(vs, page.packageInfo());
+          page.getDefinitions().getValuesets().see(vs, page.packageInfo());
         }
       }
       e = XMLUtil.getNextSibling(e);

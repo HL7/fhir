@@ -41,7 +41,7 @@
       <validated value="false"/>
       <description value="Patient Read Operation"/>
       <link value="http://hl7.org/fhir/http.html#read"/>
-      <capabilities value="CapabilityStatement/example"/>
+      <capabilities value="http://hl7.org/fhir/CapabilityStatement/example"/>
     </capability>
   </metadata>
   <profile id="patient-profile">

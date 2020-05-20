@@ -17,7 +17,7 @@ HTTP/1.1 200 OK
 				"target": [
 					{
 						"code": "128599005",
-						"relationship": "broader"
+						"relationship": "source-is-narrower-than-target"
 					}
 				]
 			}

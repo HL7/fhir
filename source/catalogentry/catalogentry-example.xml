@@ -19,7 +19,7 @@
   </effectivePeriod>
   <orderable value="true"/>
   <referencedItem>
-    <reference value="ActivityDefinition/789"/>
+    <reference value="http://example.org/fhir/ActivityDefinition/789"/>
   </referencedItem>
   <updatedBy>
     <reference value="Person/2"/>

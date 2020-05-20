@@ -65,7 +65,7 @@ import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r5.utils.Translations;
-import org.hl7.fhir.r5.validation.BaseValidator;
+import org.hl7.fhir.validation.BaseValidator;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -115,7 +115,7 @@ public class ResourceValidator extends BaseValidator {
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
 	public ResourceValidator(Definitions definitions, Translations translations, CanonicalResourceManager<CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages, List<String> suppressedMessages, IWorkerContext context) throws IOException {
-		super();
+		super(context);
 		source = Source.ResourceValidator;
 		this.definitions = definitions;
 		this.translations = translations;

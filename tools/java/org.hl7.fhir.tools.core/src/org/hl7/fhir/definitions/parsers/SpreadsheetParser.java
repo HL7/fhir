@@ -81,6 +81,7 @@ import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
 import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r5.context.CanonicalResourceManager;
+import org.hl7.fhir.r5.context.IWorkerContext.PackageVersion;
 import org.hl7.fhir.r5.formats.FormatUtilities;
 import org.hl7.fhir.r5.formats.IParser;
 import org.hl7.fhir.r5.formats.IParser.OutputStyle;
@@ -182,8 +183,10 @@ public class SpreadsheetParser {
   private ResourceDefn template;
   private String templateTitle;
   private List<String> errors = new ArrayList<String>();
+  private PackageVersion packageInfo;
   
-	public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, Definitions definitions, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, CanonicalResourceManager<ConceptMap> maps, boolean exceptionIfExcelNotNormalised) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, Definitions definitions, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, 
+	     ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, CanonicalResourceManager<ConceptMap> maps, boolean exceptionIfExcelNotNormalised, PackageVersion packageInfo) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, filename);
@@ -213,6 +216,7 @@ public class SpreadsheetParser {
 		this.profileIds = profileIds;
 		this.codeSystems = definitions.getCodeSystems();
 		this.maps = maps;
+		this.packageInfo = packageInfo;
 	}
 
   public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ConceptMap> maps, Map<String, WorkGroup> workgroups, boolean exceptionIfExcelNotNormalised) throws Exception {
@@ -1130,7 +1134,7 @@ public class SpreadsheetParser {
       String bindingName = sheet.getColumn(row, "Binding Name");
     }
 
-		ValueSetGenerator vsGen = new ValueSetGenerator(definitions, version.toCode(), genDate, context.translator());
+		ValueSetGenerator vsGen = new ValueSetGenerator(definitions, version.toCode(), genDate, context.translator(), packageInfo);
 
 		for (int row = 0; row < sheet.rows.size(); row++) {
 		  String bindingName = sheet.getColumn(row, "Binding Name");
@@ -1180,7 +1184,7 @@ public class SpreadsheetParser {
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
         vsGen.updateHeader(cd, cd.getValueSet());
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version.toCode(), codeSystems, maps).execute(sheet.getColumn(row, "v2"), checkV3Mapping(sheet.getColumn(row, "v3")), getIsUtg(bindingName));
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version.toCode(), codeSystems, maps, packageInfo).execute(sheet.getColumn(row, "v2"), checkV3Mapping(sheet.getColumn(row, "v3")), getIsUtg(bindingName));
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:"))
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later
@@ -1188,7 +1192,7 @@ public class SpreadsheetParser {
           cd.setValueSet(loadValueSet(ref));
       } else if (cd.getBinding() == BindingMethod.Special) {
         if ("#operation-outcome".equals(sheet.getColumn(row, "Reference")))
-          new ValueSetGenerator(definitions, version.toCode(), genDate, context.translator()).loadOperationOutcomeValueSet(cd);
+          new ValueSetGenerator(definitions, version.toCode(), genDate, context.translator(), packageInfo).loadOperationOutcomeValueSet(cd);
         else
           throw new Exception("Special bindings are only allowed in bindings.xml");
       }
@@ -1331,7 +1335,7 @@ public class SpreadsheetParser {
           System.out.println("ValueSet "+result.getUrl()+" WG mismatch 5: is "+ec+", want to set to "+committee.getCode());
       } 
 
-      new CodeSystemConvertor(codeSystems).convert(p, result, filename);
+      new CodeSystemConvertor(codeSystems).convert(p, result, filename, packageInfo);
       valuesets.add(result);
 	    return result;
 	}

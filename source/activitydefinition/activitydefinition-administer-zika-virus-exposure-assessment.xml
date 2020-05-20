@@ -105,9 +105,9 @@
   </relatedArtifact>
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource value="Questionnaire/zika-virus-exposure-assessment"/>
+    <resource value="http://hl7.org/fhir/Questionnaire/zika-virus-exposure-assessment"/>
   </relatedArtifact>
-  <library value="Library/zika-virus-intervention-logic"/>
+  <library value="http://example.org/fhir/Library/zika-virus-intervention-logic"/>
   <kind value="ServiceRequest"/>
   <code>
     <coding>

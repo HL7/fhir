@@ -12,12 +12,14 @@
   </groupIdentifier>
   <status value="completed"/>
   <intent value="original-order"/>
-  <codeCodeableConcept>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct"/>
-      <code value="lens"/>
-    </coding>
-  </codeCodeableConcept>
+  <code>
+    <concept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct"/>
+        <code value="lens"/>
+      </coding>
+    </concept>
+  </code>
   <parameter>
     <code>
       <coding>

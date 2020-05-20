@@ -6359,7 +6359,7 @@
     <Cell><Data ss:Type="String">individual</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Individual Sensitive Resource</Data></Cell>
-    <Cell><Data ss:Type="String">These Resources do NOT contain Patient data, but do contain individual information about other participants. These other individuals are Practitioners, PractionerRole, CareTeam, or other users. These identities are needed to enable the practice of healthcare. These identities are identities under general privacy regulations, and thus must consider Privacy risk. Often access to these other identities are covered by business relationships. For this purpose access to these Resources will tend to be Role specific using methods such as RBAC or ABAC.</Data></Cell>
+    <Cell><Data ss:Type="String">These Resources do NOT contain Patient data, but do contain individual information about other participants. These other individuals are Practitioners, PractitionerRole, CareTeam, or other users. These identities are needed to enable the practice of healthcare. These identities are identities under general privacy regulations, and thus must consider Privacy risk. Often access to these other identities are covered by business relationships. For this purpose access to these Resources will tend to be Role specific using methods such as RBAC or ABAC.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">patient</Data></Cell>

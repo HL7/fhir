@@ -29,9 +29,9 @@
 			</coding>
 		</variableRole>
 		<observed>
-			<reference value="Group/AcuteIschemicStroke"/>
-			<type value="Group"/>
-			<display value="acute ischemic stroke"/>
+			<reference value="EvidenceVariable/Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
+			<type value="EvidenceVariable"/>
+			<display value="Stroke Thrombolysis Trialists’ 2014-2016 IPD-MA Cohort"/>
 		</observed>
 		<intended>
 			<reference value="Group/AcuteIschemicStroke3-4halfHours"/>

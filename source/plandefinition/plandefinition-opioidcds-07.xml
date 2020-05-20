@@ -85,7 +85,7 @@
         <display value="MME Conversion Tables"/>
         <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
     </relatedArtifact>
-    <library value="Library/opioidcds-recommendation-07"/>
+    <library value="http://example.org/fhir/Library/opioidcds-recommendation-07"/>
     <action>
         <!-- non-dynamic card summary -->
         <title value="Existing patient should be evaluated for risk of continued opioid therapy."/>

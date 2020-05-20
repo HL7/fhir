@@ -88,6 +88,7 @@ import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
+import org.hl7.fhir.r5.context.IWorkerContext.PackageVersion;
 import org.hl7.fhir.r5.formats.FormatUtilities;
 import org.hl7.fhir.r5.formats.XmlParser;
 import org.hl7.fhir.r5.model.Bundle;
@@ -184,7 +185,7 @@ public class SourceParser {
     dtDir = srcDir + "datatypes" + sl;
     imgDir = root + sl + "images" + sl;
     rootDir = root + sl;
-    vsGen = new ValueSetGenerator(definitions, version.toCode(), genDate, context.translator());
+    vsGen = new ValueSetGenerator(definitions, version.toCode(), genDate, context.translator(), page.packageInfo());
     this.exceptionIfExcelNotNormalised = exceptionIfExcelNotNormalised;
   }
 
@@ -318,7 +319,7 @@ public class SourceParser {
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (!Utilities.noString(ig.getSource())) {
         try {
-          new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), wg(ig.getCommittee()), definitions.getMapTypes(), definitions.getProfileIds(), definitions.getCodeSystems(), registry, page.getConceptMaps(), definitions.getWorkgroups(), exceptionIfExcelNotNormalised).load(rootDir, ig, issues, igNames);
+          new IgParser(page, page.getWorkerContext(), page.getGenDate(), page, definitions.getCommonBindings(), wg(ig.getCommittee()), definitions.getMapTypes(), definitions.getProfileIds(), definitions.getCodeSystems(), registry, page.getConceptMaps(), definitions.getWorkgroups(), exceptionIfExcelNotNormalised, page.packageInfo()).load(rootDir, ig, issues, igNames);
           // register what needs registering
           for (ValueSet vs : ig.getValueSets()) {
             definitions.getExtraValuesets().put(vs.getId(), vs);
@@ -375,6 +376,7 @@ public class SourceParser {
     Resource res = new XmlParser().parse(new FileInputStream(file));
     if (res instanceof CanonicalResource) {
       res.setUserData("external.url", stated);
+      res.setUserData("path", stated);
       context.cacheResource(res);
       externals.addEntry().setFullUrl("http://hl7.org/fhir/"+res.fhirType()+"/"+res.getId()).setResource(res).addLink().setRelation("via").setUrl(stated);
     } else
@@ -481,7 +483,8 @@ public class SourceParser {
 
   private LogicalModel loadLogicalModel(String n) throws Exception {
     File spreadsheet = new CSFile(Utilities.path(srcDir, n, n+"-spreadsheet.xml"));    
-    SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), spreadsheet.getAbsolutePath(), definitions, srcDir, logger, registry, version, context, genDate, false, page, false, ini, wg("fhir"), definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised);
+    SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), spreadsheet.getAbsolutePath(), definitions, srcDir, logger, registry, version, context, genDate, false, page, 
+        false, ini, wg("fhir"), definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised, page.packageInfo());
     sparser.setFolder(Utilities.getDirectoryForFile(spreadsheet.getAbsolutePath()));
     LogicalModel lm = sparser.parseLogicalModel();
     lm.setId(n);
@@ -853,14 +856,14 @@ public class SourceParser {
       cs.setVersion(Constants.VERSION);
     cs.setUserData("path", "codesystem-"+cs.getId()+".html");
     cs.setUserData("filename", "codesystem-"+cs.getId());
-    definitions.getCodeSystems().see(cs);
+    definitions.getCodeSystems().see(cs, page.packageInfo());
   }
 
 
   private void loadValueSet(String n) throws FileNotFoundException, Exception {
     XmlParser xml = new XmlParser();
     ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar)));
-    new CodeSystemConvertor(definitions.getCodeSystems()).convert(xml, vs, srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar));
+    new CodeSystemConvertor(definitions.getCodeSystems()).convert(xml, vs, srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar), page.packageInfo());
     vs.setId(FormatUtilities.makeId(n));
     vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
     if (!vs.hasVersion() || vs.getUrl().startsWith("http://hl7.org/fhir"))
@@ -877,7 +880,7 @@ public class SourceParser {
     String[] v = ini.getStringProperty("profiles", n).split("\\:");
     File spreadsheet = new CSFile(Utilities.path(rootDir, v[1]));
     if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
-      SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), spreadsheet.getAbsolutePath(), definitions, srcDir, logger, registry, version, context, genDate, false, page, false, ini, wg(v[0]), definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised);
+      SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), spreadsheet.getAbsolutePath(), definitions, srcDir, logger, registry, version, context, genDate, false, page, false, ini, wg(v[0]), definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised, page.packageInfo());
       try {
         Profile pack = new Profile(usage);
         pack.setTitle(n);
@@ -957,7 +960,7 @@ public class SourceParser {
 
   private void loadConformancePackage(Profile ap, List<ValidationMessage> issues, WorkGroup wg) throws FileNotFoundException, IOException, Exception {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
-      SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), ap.getSource(), definitions, srcDir, logger, registry, version, context, genDate, false, page, false, ini, wg, definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised);
+      SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), ap.getSource(), definitions, srcDir, logger, registry, version, context, genDate, false, page, false, ini, wg, definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised, page.packageInfo());
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()), ap.getCategory(), issues, wg);
       errors.addAll(sparser.getErrors());
@@ -992,7 +995,7 @@ public class SourceParser {
     logger.log("Load Common Bindings", LogMessageType.Process);
 
     BindingsParser parser = new BindingsParser(new CSFileInputStream(new CSFile(termDir + "bindings.xml")), termDir + "bindings.xml", srcDir, registry, version.toCode(), 
-        definitions.getCodeSystems(), page.getConceptMaps(), genDate, exceptionIfExcelNotNormalised);
+        definitions.getCodeSystems(), page.getConceptMaps(), genDate, exceptionIfExcelNotNormalised, page.packageInfo());
     List<BindingSpecification> cds = parser.parse();
 
     for (BindingSpecification cd : cds) {
@@ -1086,7 +1089,7 @@ public class SourceParser {
       TypeRef t = ts.get(0);
       File csv = new CSFile(dtDir + t.getName().toLowerCase() + ".xml");
       if (csv.exists()) {
-        SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), csv.getAbsolutePath(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, page, true, ini, wg("fhir"), definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised);
+        SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), csv.getAbsolutePath(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, page, true, ini, wg("fhir"), definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised, page.packageInfo());
         org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
         el.setFmmLevel(fmm);
         el.setStandardsStatus(status);
@@ -1166,7 +1169,7 @@ public class SourceParser {
       throw new Exception("No Workgroup found for resource "+n+": '"+ini.getStringProperty("workgroups", n)+"'");
     
     SpreadsheetParser sparser = new SpreadsheetParser("core", new CSFileInputStream(
-        spreadsheet), spreadsheet.getName(), spreadsheet.getAbsolutePath(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, page, false, ini, wg, definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised);
+        spreadsheet), spreadsheet.getName(), spreadsheet.getAbsolutePath(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, page, false, ini, wg, definitions.getProfileIds(), fpUsages, page.getConceptMaps(), exceptionIfExcelNotNormalised, page.packageInfo());
     ResourceDefn root;
     try {
       root = sparser.parseResource(isTemplate);

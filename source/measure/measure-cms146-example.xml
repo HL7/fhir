@@ -32,6 +32,7 @@
   <description value="Percentage of children 3-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."/>
   <useContext>
     <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="program"/>
     </code>
     <valueCodeableConcept>
@@ -55,11 +56,11 @@
     </coding>
   </jurisdiction>
   <purpose value="Measure of children with a group A streptococcus test in the 7-day period from 3 days prior through 3 days after the diagnosis of pharyngitis"/>
-  <copyright value="Physician Performance Measure (Measures) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). 
+  <copyright value="Physician Performance Measure (Measures) and related data specifications were developed by the National Committee for Quality Assurance (NCQA).
 
-The Measures are copyrighted but can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices). Commercial use is defined as the sale, licensing, or distribution of the Measures for commercial gain, or incorporation of the Measures into a product or service that is sold, licensed or distributed for commercial gain. Commercial use of the Measures requires a license agreement between the user and NCQA. NCQA is not responsible for any use of the Measures. 
+The Measures are copyrighted but can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices). Commercial use is defined as the sale, licensing, or distribution of the Measures for commercial gain, or incorporation of the Measures into a product or service that is sold, licensed or distributed for commercial gain. Commercial use of the Measures requires a license agreement between the user and NCQA. NCQA is not responsible for any use of the Measures.
 
-(c) 2008-2016 National Committee for Quality Assurance. All Rights Reserved. 
+(c) 2008-2016 National Committee for Quality Assurance. All Rights Reserved.
 
 Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any CPT or other codes contained in the specifications.
 
@@ -91,17 +92,19 @@ CPT(R) contained in the Measure specifications is copyright 2004-2015 American M
     <type value="documentation"/>
     <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. _Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship._ Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
   </relatedArtifact>
-  <library value="Library/library-cms146-example"/>
+  <library value="http://hl7.org/fhir/Library/library-cms146-example"/>
   <disclaimer value="These performance Measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. THE MEASURES AND SPECIFICATIONS ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM]."/>
   <scoring>
-	<coding>
-	  <code value="proportion"/>
-	</coding>
+  	<coding>
+      <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+  	  <code value="proportion"/>
+  	</coding>
   </scoring>
   <type>
     <coding>
-	  <code value="process"/>
-	</coding>
+      <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
+  	  <code value="process"/>
+  	</coding>
   </type>
   <rationale value="Group A streptococcal bacterial infections and other infections that cause pharyngitis (which are most often viral) often produce the same signs and symptoms (IDSA 2002). The American Academy of Pediatrics, the Centers for Disease Control and Prevention, and the Infectious Diseases Society of America all recommend a diagnostic test for Strep A to improve diagnostic accuracy and avoid unnecessary antibiotic treatment (Linder et al. 2005). Estimated economic costs of pediatric streptococcal pharyngitis in the United States range from $224 million to $539 million per year, including indirect costs related to parental work losses. At a higher level, the economic cost of antibiotic resistance vary but have extended as high as $20 billion in excess direct healthcare costs, with additional costs to society for lost productivity as high as $35 billion a year (2008 dollars) (Roberts et al. 2009)."/>
   <clinicalRecommendationStatement value="The Infectious Diseases Society of America (IDSA) &quot;recommends swabbing the throat and testing for GAS pharyngitis by rapid antigen detection test (RADT) and/or culture because the clinical features alone do not reliably discriminate between GAS and viral pharyngitis except when overt viral features like rhinorrhea, cough, oral ulcers, and/or hoarseness are present&quot;"/>
@@ -114,20 +117,20 @@ CPT(R) contained in the Measure specifications is copyright 2004-2015 American M
   <guidance value="This is an episode of care measure that examines all eligible episodes for the patient during the measurement period. If the patient has more than one episode, include all episodes in the measure"/>
   <group id="CMS146-group-1">
     <population>
-      <code><coding><code value="initial-population"/></coding></code>
-      <criteria><language value="text/cql"/><expression value="CMS146.InInitialPopulation"/></criteria>
+      <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="initial-population"/></coding></code>
+      <criteria><language value="text/cql"/><expression value="CMS146.InitialPopulation"/></criteria>
     </population>
     <population>
-      <code><coding><code value="numerator"/></coding></code>
-      <criteria><language value="text/cql"/><expression value="CMS146.InNumerator"/></criteria>
+      <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="numerator"/></coding></code>
+      <criteria><language value="text/cql"/><expression value="CMS146.Numerator"/></criteria>
     </population>
     <population>
-      <code><coding><code value="denominator"/></coding></code>
-      <criteria><language value="text/cql"/><expression value="CMS146.InDenominator"/></criteria>
+      <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="denominator"/></coding></code>
+      <criteria><language value="text/cql"/><expression value="CMS146.Denominator"/></criteria>
     </population>
     <population>
-      <code><coding><code value="denominator-exclusion"/></coding></code>
-      <criteria><language value="text/cql"/><expression value="CMS146.InDenominatorExclusions"/></criteria>
+      <code><coding><system value="http://terminology.hl7.org/CodeSystem/measure-population"/><code value="denominator-exclusion"/></coding></code>
+      <criteria><language value="text/cql"/><expression value="CMS146.DenominatorExclusion"/></criteria>
     </population>
     <stratifier>
       <code><text value="stratifier-ages-up-to-9"/></code>

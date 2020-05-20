@@ -45,7 +45,7 @@
   </jurisdiction>
   <purpose value="Notifies recipient systems that two patients have been 'linked' - meaning they represent the same individual"/>
   <copyright value="� HL7.org 2011+"/>
-  <base value="MessageDefinition/example" />
+  <base value="http://hl7.org/fhir/MessageDefinition/example" />
   <eventCoding>
     <system value="http://example.org/fhir/message-events"/>
     <code value="admin-notify"/>
@@ -53,13 +53,13 @@
   <category value="notification"/>
   <focus>
     <code value="Patient"/>
-    <profile value="StructureDefinition/example" />
+    <profile value="http://hl7.org/fhir/StructureDefinition/example" />
     <min value="2"/>
     <max value="2"/>
   </focus>
 
   <allowedResponse>
-    <message value="MessageDefinition/patient-link-response" />
+    <message value="http://hl7.org/fhir/MessageDefinition/patient-link-response" />
     <situation value="Optional response message that may provide additional information"/>
   </allowedResponse>
 </MessageDefinition>

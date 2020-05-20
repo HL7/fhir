@@ -1,8 +1,8 @@
 ## HL7 FHIR Pull Request
 
-_Note: No pull requests will be accepted against `./source` unless logged in the_ [HL7 FHIR gForge tracker](https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse&tracker_id=677).
+_Note: No pull requests will be accepted against `./source` unless logged in the_ [HL7 Jira issue tracker](https://jira.hl7.org/projects/FHIR/issues/).
 
-If you made changes to any files within `./source` please indicate the gForge tracker number this pull request is associated with: `   `
+If you made changes to any files within `./source` please indicate the Jira tracker number this pull request is associated with: `   `
 
 ## Description
 

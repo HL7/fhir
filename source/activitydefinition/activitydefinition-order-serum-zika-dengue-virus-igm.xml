@@ -112,9 +112,9 @@
   </relatedArtifact>
   <relatedArtifact>
     <type value="derived-from"/>
-    <resource value="ActivityDefinition/serum-dengue-virus-igm"/>
+    <resource value="http://example.org/fhir/ActivityDefinition/serum-dengue-virus-igm"/>
   </relatedArtifact>
-  <library value="Library/zika-virus-intervention-logic"/>
+  <library value="http://example.org/fhir/Library/zika-virus-intervention-logic"/>
   <kind value="ServiceRequest"/>
   <code>
     <text value="Serum Zika and Dengue Virus IgM"/>

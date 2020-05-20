@@ -305,7 +305,7 @@ The resource selector has two arguments:
 </li>
 </ul>
 <p class="example">
-Example: <a href="http://test.fhir.org/r4/Observation/example/$graphql?query={id,subject{reference,resource{...on%20Patient{birthDate}...on%20Practioner{practitionerRole{speciality}}}}code{coding{system,code}}}">http://test.fhir.org/r4/Observation/example/$graphql?query={id,subject{reference,resource{...on%20Patient{birthDate}...on%20Practioner{practitionerRole{speciality}}}}code{coding{system,code}}}</a> (note: examples are only informative).
+Example: <a href="http://test.fhir.org/r4/Observation/example/$graphql?query={id,subject{reference,resource{...on%20Patient{birthDate}...on%20Practitioner{practitionerRole{speciality}}}}code{coding{system,code}}}">http://test.fhir.org/r4/Observation/example/$graphql?query={id,subject{reference,resource{...on%20Patient{birthDate}...on%20Practitioner{practitionerRole{speciality}}}}code{coding{system,code}}}</a> (note: examples are only informative).
 </p>
 <p>
 but slightly denser:
@@ -316,13 +316,13 @@ but slightly denser:
   subject { 
    reference
     resource(type : Patient) { birthDate }
-    resource(type : Practioner) { practitionerRole {  speciality } }
+    resource(type : Practitioner) { practitionerRole {  speciality } }
   }  
   code {coding {system code} }
  }
  </pre>
 <p class="example">
-Example: <a href="http://test.fhir.org/r4/Observation/example/$graphql?query={id,subject{reference,resource(type:Patient){birthDate}resource(type:Practioner){practitionerRole{speciality}}}code{coding{system,code}}}">http://test.fhir.org/r4/Observation/example/$graphql?query={id,subject{reference,resource(type:Patient){birthDate}resource(type:Practioner){practitionerRole{speciality}}}code{coding{system,code}}}</a> (note: examples are only informative).
+Example: <a href="http://test.fhir.org/r4/Observation/example/$graphql?query={id,subject{reference,resource(type:Patient){birthDate}resource(type:Practitioner){practitionerRole{speciality}}}code{coding{system,code}}}">http://test.fhir.org/r4/Observation/example/$graphql?query={id,subject{reference,resource(type:Patient){birthDate}resource(type:Practitioner){practitionerRole{speciality}}}code{coding{system,code}}}</a> (note: examples are only informative).
 </p>
 <p>
 Clients can use either approach - type selection as a parameter, of using a fragment type condition - the first is shorter while the second aligns with the GraphQL schema more explicitly.

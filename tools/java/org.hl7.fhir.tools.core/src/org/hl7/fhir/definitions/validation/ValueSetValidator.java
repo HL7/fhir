@@ -19,7 +19,7 @@ import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
-import org.hl7.fhir.r5.validation.BaseValidator;
+import org.hl7.fhir.validation.BaseValidator;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -70,6 +70,7 @@ public class ValueSetValidator extends BaseValidator {
   private Set<String> codeSystems = new HashSet<String>();
 
   public ValueSetValidator(BuildWorkerContext context, List<String> fixups, Set<String> styleExemptions) {
+    super(context);
     this.context = context;
     this.fixups = fixups;
     this.styleExemptions = styleExemptions;

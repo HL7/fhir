@@ -3708,7 +3708,7 @@ The direction to use for assertions."/>
         <expansion>
           <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expansionSource">
             <valueReference>
-              <reference value="ValueSet/units-of-time"/>
+              <reference value="http://hl7.org/fhir/ValueSet/units-of-time"/>
             </valueReference>
           </extension>
           <identifier value="urn:uuid:bee17a45-622c-4390-b69c-8913c1ddb06d"/>
@@ -10196,7 +10196,7 @@ Information for which the patient seeks heightened confidentiality. Sensitive in
         <expansion>
           <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expansionSource">
             <valueReference>
-              <reference value="ValueSet/age-units"/>
+              <reference value="http://hl7.org/fhir/ValueSet/age-units"/>
             </valueReference>
           </extension>
           <identifier value="urn:uuid:f13d73d6-7b8e-484d-af02-ab80c191f523"/>
