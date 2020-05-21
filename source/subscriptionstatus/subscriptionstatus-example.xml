@@ -6,7 +6,7 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml"></div>
   </text>
-  <notificationType value="event-notification"/>
+  <type value="event-notification"/>
   <eventsSinceSubscriptionStart value="1000"/>
   <eventsInNotification value="1"/>
   <subscription>

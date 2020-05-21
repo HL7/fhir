@@ -9,7 +9,7 @@
     <resource>
       <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
         <id value="d195d9b8-6f78-4d71-9d22-3c1a923bfea5"/>
-        <notificationType value="event-notification"/>
+        <type value="event-notification"/>
         <eventsSinceSubscriptionStart value="310"/>
         <eventsInNotification value="1"/>
         <subscription>
