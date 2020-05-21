@@ -459,7 +459,7 @@ signatures.html
       <page title="Evidence and Statistics" filename="clinicalreasoning-evidence-and-statistics.html"/>
       <page type="resource" resource="ConditionDefinition"/>
       <page type="resource" resource="EventDefinition"/>
-	  <page type="resource" resource="EvidenceFocus"/>
+	  <page type="resource" resource="EvidenceReport"/>
 	  <page type="resource" resource="Citation"/>
       <page type="resource" resource="Evidence"/>
       <page title="Statistic" filename="statistic.html">

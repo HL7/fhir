@@ -384,8 +384,8 @@
 	<item id="Evidence">
 		<translation lang="en">Evidence</translation>
 	</item>
-	<item id="EvidenceFocus">
-		<translation lang="en">EvidenceFocus</translation>
+	<item id="EvidenceReport">
+		<translation lang="en">EvidenceReport</translation>
 	</item>
 	<item id="EvidenceVariable">
 		<translation lang="en">EvidenceVariable</translation>
