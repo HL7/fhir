@@ -15,7 +15,5 @@
       <code value="no-response"/>
     </coding>
   </error>
-  <topic>
-    <reference value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
-  </topic>
+  <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
 </SubscriptionStatus>
