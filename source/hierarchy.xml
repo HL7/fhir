@@ -392,11 +392,6 @@ signatures.html
         <page title="Detailed Descriptions" filename="productshelflife-definitions.html"/>
         <page title="Mappings" filename="productshelflife-mappings.html"/>
       </page>
-      <page title="SubstanceAmount" filename="substanceamount.html">
-        <page title="Examples" filename="substanceamount-examples.html"/>
-        <page title="Detailed Descriptions" filename="substanceamount-definitions.html"/>
-        <page title="Mappings" filename="substanceamount-mappings.html"/>
-      </page>
     </page>
 
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
