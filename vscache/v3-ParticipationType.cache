@@ -169,3 +169,240 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+    "code" : "DEV"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+      "concept" : [{
+        "code" : "AMENDER"
+      },
+      {
+        "code" : "COAUTH"
+      },
+      {
+        "code" : "CONT"
+      },
+      {
+        "code" : "EVTWIT"
+      },
+      {
+        "code" : "PRIMAUTH"
+      },
+      {
+        "code" : "REVIEWER"
+      },
+      {
+        "code" : "SOURCE"
+      },
+      {
+        "code" : "TRANS"
+      },
+      {
+        "code" : "VALID"
+      },
+      {
+        "code" : "VERF"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
+      "concept" : [{
+        "code" : "AFFL"
+      },
+      {
+        "code" : "AGNT"
+      },
+      {
+        "code" : "ASSIGNED"
+      },
+      {
+        "code" : "CLAIM"
+      },
+      {
+        "code" : "COVPTY"
+      },
+      {
+        "code" : "DEPEN"
+      },
+      {
+        "code" : "ECON"
+      },
+      {
+        "code" : "EMP"
+      },
+      {
+        "code" : "GUARD"
+      },
+      {
+        "code" : "INVSBJ"
+      },
+      {
+        "code" : "NAMED"
+      },
+      {
+        "code" : "NOK"
+      },
+      {
+        "code" : "PAT"
+      },
+      {
+        "code" : "PROV"
+      },
+      {
+        "code" : "NOT"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "concept" : [{
+        "code" : "CLASSIFIER"
+      },
+      {
+        "code" : "CONSENTER"
+      },
+      {
+        "code" : "CONSWIT"
+      },
+      {
+        "code" : "COPART"
+      },
+      {
+        "code" : "DECLASSIFIER"
+      },
+      {
+        "code" : "DELEGATEE"
+      },
+      {
+        "code" : "DELEGATOR"
+      },
+      {
+        "code" : "DOWNGRDER"
+      },
+      {
+        "code" : "DPOWATT"
+      },
+      {
+        "code" : "EXCEST"
+      },
+      {
+        "code" : "GRANTEE"
+      },
+      {
+        "code" : "GRANTOR"
+      },
+      {
+        "code" : "GT"
+      },
+      {
+        "code" : "GUADLTM"
+      },
+      {
+        "code" : "HPOWATT"
+      },
+      {
+        "code" : "INTPRTER"
+      },
+      {
+        "code" : "POWATT"
+      },
+      {
+        "code" : "RESPRSN"
+      },
+      {
+        "code" : "SPOWATT"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "_CitizenRoleType"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationFunction",
+      "concept" : [{
+        "code" : "AUCG"
+      },
+      {
+        "code" : "AULR"
+      },
+      {
+        "code" : "AUTM"
+      },
+      {
+        "code" : "AUWA"
+      },
+      {
+        "code" : "PROMSK"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+      "concept" : [{
+        "code" : "AUT"
+      },
+      {
+        "code" : "CST"
+      },
+      {
+        "code" : "INF"
+      },
+      {
+        "code" : "IRCP"
+      },
+      {
+        "code" : "LA"
+      },
+      {
+        "code" : "IRCP"
+      },
+      {
+        "code" : "TRC"
+      },
+      {
+        "code" : "WIT"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/extra-security-role-type"
+    },
+    {
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "110150"
+      },
+      {
+        "code" : "110151"
+      },
+      {
+        "code" : "110152"
+      },
+      {
+        "code" : "110153"
+      },
+      {
+        "code" : "110154"
+      },
+      {
+        "code" : "110155"
+      }]
+    },
+    {
+      "valueSet" : ["http://hl7.org/fhir/ValueSet/provenance-participant-type"]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to find value set http://hl7.org/fhir/ValueSet/provenance-participant-type"
+}
+-------------------------------------------------------------------------------------
