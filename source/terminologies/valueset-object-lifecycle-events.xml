@@ -25,11 +25,11 @@
     </telecom>
   </contact>
   <description
-        value="This example FHIR value set is comprised of lifecycle event codes. The FHIR Actor value set is based on 
+        value="This FHIR value set is comprised of lifecycle event codes. The FHIR Actor value set is based on 
 		DICOM Audit Message, ParticipantObjectDataLifeCycle;
 		ISO Standard, TS 21089-2017;  "/>
   <copyright
-        value="This is an example FHIR value set based on ASTM Standard, E1762-95 (2013) HL7 RoleClass OID 2.16.840.1.113883.5.110, 
+        value="This is an FHIR value set based on ASTM Standard, E1762-95 (2013) HL7 RoleClass OID 2.16.840.1.113883.5.110, 
         HL7 Role Code 2.16.840.1.113883.5.111, HL7 ParticipationType OID: 2.16.840.1.113883.5.90, HL7 ParticipationFunction codes at OID: 2.16.840.1.113883.5.88, 
         and HL7 Security and Privacy Domain Analysis Model roles classes.
 		These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>

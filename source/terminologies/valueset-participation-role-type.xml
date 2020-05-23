@@ -291,7 +291,9 @@
         <code value="110155"/>
       </concept>
     </include>
-
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/provenance-participant-type"/>
+	</include>
 	</compose>
 
 </ValueSet>

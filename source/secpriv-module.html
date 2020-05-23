@@ -358,6 +358,16 @@ to the Requesting Client would be de-identified.
 <em>Consideration:</em> This assumes the system knows the type and intensity of the de-identification algorithm, where 
 de-identification is best viewed as a process, not an algorithm - a process that reduces Privacy risk while enabling a targeted and authorized use-case.
 </p><p>
+<ul>
+<li>
+<b>Direct-Identifier</b> - ISO/IEC 20889:2018 - attribute that alone enables unique identification of a data principal within a specific operational context. The operational context includes the information that the entity processing (e.g. de-identifying) the data processes, together with information that third parties and potential attackers can possess or that is in the public domain.
+</li><li>
+<b>Indirect-Identifier</b> - ISO/IEC 20889:2018 - attribute that, together with other attributes that can be in the dataset or external to it, enables unique identification of a data principal within a specific operational context.
+</li><li>
+<b>Quasi-Identifier</b> - ISO/IEC 20889:2018 - attribute in a dataset that, when considered in conjunction with other attributes in the dataset, singles out a data principal.
+</li></ul>
+Note that often Quasi-Identifier and Indirect-Identifier are often considered the same way.
+</p><p>
 <em>Modifying an element:</em> The de-identification process may determine that specific elements need to be modified to lower privacy 
 risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g. "removed"), fuzzing (e.g. adjusting by 
 some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc. <a href="narrative.html">Narrative</a> and <a href="datatypes.html#Attachment">Attachment</a> elements present particularly difficult challenges.
@@ -383,8 +393,8 @@ need to be consistent with each other.
 </p><p>
 Some identifiers in Observation Resource:
 <ul>
-<li>Direct Identifiers: .identifier, .subject, .performer, .encounter, .focus, .note, .specimen, .basedOn</li>
-<li>Indirect Identifiers: .category, .code, .issued, .effective[x], .method, .bodySite, .interpretation, .value[x], .component</li>
+<li><b>Direct-Identifiers</b>: .identifier, .subject, .performer, .encounter, .focus, .note, .specimen, .basedOn</li>
+<li><b>Indirect-Identifiers</b>: .category, .code, .issued, .effective[x], .method, .bodySite, .interpretation, .value[x], .component</li>
 </ul>
 </p>
 <p>
@@ -402,7 +412,9 @@ different risk than internal sharing of data within a tightly managed organizati
 <em>Security-label:</em> The resulting Resource should be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
 </p><p>
 Further Standards: 
-<a href="http://www.iso.org/iso/catalogue_detail?csnumber=42807">Health: ISO Pseudonymization</a>, 
+<a href="https://www.iso.org/standard/45123.html">ISO/IEC 29100 Information technology - Security techniques - Privacy framework</a>, 
+<a href="https://www.iso.org/standard/69373.html">ISO/IEC 20889 Privacy enhancing data de-identification terminology and classification of techniques</a>, 
+<a href="https://www.iso.org/standard/63553.html">ISO/TS 25237 Health informatics - Pseudonymization</a>, 
 <a href="http://nvlpubs.nist.gov/nistpubs/ir/2015/NIST.IR.8053.pdf">NIST IR 8053 - De-Identification of Personal Information</a>, 
 <a href="http://wiki.ihe.net/index.php/Healthcare_De-Identification_Handbook">IHE De-Identification Handbook</a>, 
 <a href="http://dicom.nema.org/medical/dicom/current/output/html/part15.html#chapter_E">DICOM (Part 15, Chapter E)</a>

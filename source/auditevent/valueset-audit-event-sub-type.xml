@@ -85,39 +85,9 @@
     </include>
     <include>
       <system value="http://hl7.org/fhir/restful-interaction"/>
-<!--      <concept>
-        <code value="read"/>
-      </concept>
-      <concept>
-        <code value="vread"/>
-      </concept>
-      <concept>
-        <code value="update"/>
-      </concept>
-      <concept>
-        <code value="delete"/>
-      </concept>
-      <concept>
-        <code value="create"/>
-      </concept>
-      <concept>
-        <code value="history-instance"/>
-      </concept>
-      <concept>
-        <code value="history-type"/>
-      </concept>
-      <concept>
-        <code value="history-system"/>
-      </concept>
-      <concept>
-        <code value="search-type"/>
-      </concept>
-      <concept>
-        <code value="search-system"/>
-      </concept>
-      <concept>
-        <code value="transaction"/>
-      </concept> -->
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/bundle-type"/>
     </include>
   </compose>
 </ValueSet>
