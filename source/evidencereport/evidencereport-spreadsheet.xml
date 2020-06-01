@@ -19,7 +19,7 @@
   
   <TabRatio>895</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -397,26 +397,6 @@
    <Interior ss:Color="#F4B084" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s105">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
-   </Borders>
-   <Interior ss:Color="#5B9BD5" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s106">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
-   </Borders>
-   <Interior ss:Color="#F4B084" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s107">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
@@ -427,7 +407,7 @@
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior ss:Color="#5B9BD5" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s108">
+  <Style ss:ID="s106">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
@@ -437,7 +417,7 @@
    </Borders>
    <Interior ss:Color="#5B9BD5" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s109">
+  <Style ss:ID="s107">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
@@ -446,6 +426,26 @@
     <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
    </Borders>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s108">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#5B9BD5" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s109">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#F4B084" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s110">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
@@ -1078,12 +1078,6 @@
     <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
    </Borders>
   </Style>
-  <Style ss:ID="s193">
-   <Borders>
-    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
-    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
-   </Borders>
-  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -1115,7 +1109,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R33C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="150" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="149" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="322.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="76.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="43.0"/>
@@ -1306,11 +1300,11 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="17" ss:StyleID="s100">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">EvidenceReport.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">EvidenceReport.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">EvidenceReportType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1319,10 +1313,10 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Kind of report</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Specifies the kind of report, such as grouping of classifiers, search results, or human-compiled expression.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Kind of report</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Specifies the kind of report, such as grouping of classifiers, search results, or human-compiled expression.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">May be used in searching and filtering</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1333,29 +1327,29 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33" ss:StyleID="s111">
     <Cell ss:StyleID="s110"><Data ss:Type="String">EvidenceReport.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Annotation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">Used for footnotes and annotations</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Used for footnotes and annotations</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Used for footnotes and annotations</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="17" ss:StyleID="s100">
     <Cell ss:StyleID="s98"><Data ss:Type="String">EvidenceReport.relatedArtifact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1400,7 +1394,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Focus of the report</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Specifies the subject or focus of the report. Answers "What is this report about?"</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Expression to match search queries and search results</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1504,7 +1498,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Is used to express not the characteristic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1530,7 +1524,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">Timeframe for the characteristic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3024,7 +3018,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7712,12 +7706,13 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="evidence-report-section">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s165" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="46" ss:StyleID="s165" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="123.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="34.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="154.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s165" ss:Width="79.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s165" ss:Width="244.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="79.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="343.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="244.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s165" ss:Width="84.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s165" ss:Width="241.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -7842,63 +7837,8 @@
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s187"><Data ss:Type="String">RiskOfBias</Data></Cell>
-    <Cell ss:StyleID="s183"><Data ss:Type="Number">11</Data></Cell>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s186"/>
-    <Cell><Data ss:Type="String">Risk of bias assessment</Data></Cell>
-    <Cell><Data ss:Type="String">Risk of bias assessment</Data></Cell>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s169"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s187"><Data ss:Type="String">NoBlinding</Data></Cell>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s186"/>
-    <Cell><Data ss:Type="String">No blinding</Data></Cell>
-    <Cell><Data ss:Type="String">No blinding</Data></Cell>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s169"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s187"><Data ss:Type="String">AllocConcealNotStated</Data></Cell>
-    <Cell ss:StyleID="s183"><Data ss:Type="Number">13</Data></Cell>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s186"/>
-    <Cell><Data ss:Type="String">Allocation concealment not stated</Data></Cell>
-    <Cell><Data ss:Type="String">Allocation concealment not stated</Data></Cell>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s169"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s187"><Data ss:Type="String">EarlyTrialTermination</Data></Cell>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s186"/>
-    <Cell><Data ss:Type="String">Early trial termination</Data></Cell>
-    <Cell><Data ss:Type="String">Early trial termination</Data></Cell>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s169"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s187"><Data ss:Type="String">NoITT</Data></Cell>
-    <Cell ss:StyleID="s183"><Data ss:Type="Number">15</Data></Cell>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s186"/>
-    <Cell><Data ss:Type="String">No intention-to-treat analysis</Data></Cell>
-    <Cell><Data ss:Type="String">No intention-to-treat analysis</Data></Cell>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s169"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s189"><Data ss:Type="String">Evidence-Classifier</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="Number">11</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s180"/>
     <Cell ss:StyleID="s190"><Data ss:Type="String">Evidence Classifier section</Data></Cell>
@@ -8278,6 +8218,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -8532,46 +8473,56 @@
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s189"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">RiskOfBias</Data></Cell>
+    <Cell><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s186"/>
+    <Cell><Data ss:Type="String">Risk of bias assessment</Data></Cell>
+    <Cell><Data ss:Type="String">Risk of bias assessment</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s189"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">NoBlinding</Data></Cell>
+    <Cell><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s186"/>
+    <Cell><Data ss:Type="String">No blinding</Data></Cell>
+    <Cell><Data ss:Type="String">No blinding</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s189"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">AllocConcealNotStated</Data></Cell>
+    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s186"/>
+    <Cell><Data ss:Type="String">Allocation concealment not stated</Data></Cell>
+    <Cell><Data ss:Type="String">Allocation concealment not stated</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s189"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">EarlyTrialTermination</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s186"/>
+    <Cell><Data ss:Type="String">Early trial termination</Data></Cell>
+    <Cell><Data ss:Type="String">Early trial termination</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s193"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">NoITT</Data></Cell>
+    <Cell><Data ss:Type="Number">26</Data></Cell>
+    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s186"/>
+    <Cell><Data ss:Type="String">No intention-to-treat analysis</Data></Cell>
+    <Cell><Data ss:Type="String">No intention-to-treat analysis</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
@@ -8831,6 +8782,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

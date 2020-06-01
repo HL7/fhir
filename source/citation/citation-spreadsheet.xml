@@ -18,7 +18,7 @@
   
   
   <TabRatio>809</TabRatio>
-  <ActiveSheet>13</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -9635,23 +9635,23 @@
     <Cell ss:StyleID="s206"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s204"/>
-    <Cell ss:StyleID="s196"/>
+    <Cell ss:StyleID="s204"><Data ss:Type="String">base-for-article-set</Data></Cell>
+    <Cell ss:StyleID="s196"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s183"/>
     <Cell ss:StyleID="s215"/>
-    <Cell ss:StyleID="s215"/>
-    <Cell ss:StyleID="s215"/>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Base citation for an article set</Data></Cell>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Used to define the base citation or an article set with individual articles as variant citations</Data></Cell>
     <Cell ss:StyleID="s196"/>
     <Cell ss:StyleID="s196"/>
     <Cell ss:StyleID="s206"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s204"/>
-    <Cell ss:StyleID="s196"/>
+    <Cell ss:StyleID="s204"><Data ss:Type="String">article-set</Data></Cell>
+    <Cell ss:StyleID="s196"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s183"/>
     <Cell ss:StyleID="s215"/>
-    <Cell ss:StyleID="s215"/>
-    <Cell ss:StyleID="s215"/>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Part of an article set</Data></Cell>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Used to distinguish an individual article within an article set where the article set is a base citation</Data></Cell>
     <Cell ss:StyleID="s196"/>
     <Cell ss:StyleID="s196"/>
     <Cell ss:StyleID="s206"/>
@@ -10137,6 +10137,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -11861,8 +11863,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
