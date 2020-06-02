@@ -4250,7 +4250,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">id</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Ids to include</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">One or more parameters containing one or more comma-delimited FHIR ids of Subscriptions to get status information for.  In the absense of any specified ids, the server returns the status for all Subscriptions available to the caller.</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">At the Resource level, one or more parameters containing one or more comma-delimited FHIR ids of Subscriptions to get status information for.  In the absense of any specified ids, the server returns the status for all Subscriptions available to the caller.  At the Instance level, this parameter is ignored.</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Note: This parameter is only valid at the Resource level.  At the Instance level, the id is implicit in the operation URL.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4262,7 +4262,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Returned SubscriptionStatus resources for Subscriptions</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">The bundle type is "searchset"</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">The bundle type is "searchset".  The operation returns the bundle containing one or more SubscriptionStatus resources, one per Subscription being queried.</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
