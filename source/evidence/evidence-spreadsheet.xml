@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Andrew Massoud</LastAuthor>
+  <LastAuthor>Khalid</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2019-06-26T15:25:33Z</LastSaved>
+  <LastSaved>2020-06-03T19:30:44Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,7 +17,8 @@
   
   
   
-  <ActiveSheet>7</ActiveSheet>
+  <TabRatio>688</TabRatio>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1804,7 +1805,7 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">StatisticSynthesisType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">SynthesisType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1830,7 +1831,7 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">StatisticStudyType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">StudyType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3797,10 +3798,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>18</TopRowBottomPane>
+   <TopRowBottomPane>21</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5689,7 +5691,7 @@
     <Cell ss:StyleID="s145"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unpublished notes</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s182"><Data ss:Type="String">StatisticSynthesisType</Data></Cell>
+    <Cell ss:StyleID="s182"><Data ss:Type="String">SynthesisType</Data></Cell>
     <Cell ss:StyleID="s162"><Data ss:Type="String">Types of combining results from a body of evidence (eg. summary data meta-analysis)</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">extensible</Data></Cell>
@@ -5704,8 +5706,8 @@
     <Cell ss:StyleID="s164"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s162"><Data ss:Type="String">StatisticStudyType</Data></Cell>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">The type of study a statistic was derived from</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">StudyType</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">The type of study the evidence was derived from</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">#study-type</Data></Cell>
@@ -6091,7 +6093,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6495,6 +6496,100 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C7">
   </AutoFilter>
  </Worksheet>
+ <Worksheet ss:Name="variable-role">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:Width="91.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="17.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="5" ss:Width="90.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="186.0"/>
+   <Row ss:AutoFitHeight="0" ss:Height="33">
+    <Cell ss:StyleID="s198"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Parent</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Display</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">v2</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">v3</Data></Cell>
+    <Cell ss:StyleID="s200"><Data ss:Type="String">Committee Notes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="19">
+    <Cell ss:StyleID="s201"><Data ss:Type="String">population</Data></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s203"/>
+    <Cell ss:StyleID="s203"/>
+    <Cell ss:StyleID="s203"><Data ss:Type="String">population</Data></Cell>
+    <Cell ss:StyleID="s203"><Data ss:Type="String">variable represents a population</Data></Cell>
+    <Cell ss:StyleID="s203"/>
+    <Cell ss:StyleID="s203"/>
+    <Cell ss:StyleID="s204"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="19">
+    <Cell ss:StyleID="s205"><Data ss:Type="String">subpopulation</Data></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s207"/>
+    <Cell ss:StyleID="s202"/>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">subpopulation</Data></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">variable represents a subpopulation</Data></Cell>
+    <Cell ss:StyleID="s208"/>
+    <Cell ss:StyleID="s208"/>
+    <Cell ss:StyleID="s209"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="19">
+    <Cell ss:StyleID="s205"><Data ss:Type="String">exposure</Data></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s207"/>
+    <Cell ss:StyleID="s202"/>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">exposure</Data></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">variable represents an exposure</Data></Cell>
+    <Cell ss:StyleID="s208"/>
+    <Cell ss:StyleID="s208"/>
+    <Cell ss:StyleID="s209"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="23">
+    <Cell ss:StyleID="s201"><Data ss:Type="String">referenceExposure</Data></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s203"/>
+    <Cell ss:StyleID="s203"/>
+    <Cell ss:StyleID="s203"><Data ss:Type="String">reference exposure</Data></Cell>
+    <Cell ss:StyleID="s203"><Data ss:Type="String">variable represents a reference exposure</Data></Cell>
+    <Cell ss:StyleID="s208"/>
+    <Cell ss:StyleID="s208"/>
+    <Cell ss:StyleID="s209"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="32">
+    <Cell ss:StyleID="s205"><Data ss:Type="String">measuredVariable</Data></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s207"/>
+    <Cell ss:StyleID="s202"/>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">measured variable</Data></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">variable represents a measured variable</Data></Cell>
+    <Cell ss:StyleID="s203"/>
+    <Cell ss:StyleID="s203"/>
+    <Cell ss:StyleID="s204"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s210"><Data ss:Type="String">confounder</Data></Cell>
+    <Cell ss:StyleID="s211"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s212"/>
+    <Cell ss:StyleID="s212"/>
+    <Cell ss:StyleID="s212"><Data ss:Type="String">confounder</Data></Cell>
+    <Cell ss:StyleID="s212"><Data ss:Type="String">variable represents a confounder</Data></Cell>
+    <Cell ss:StyleID="s212"/>
+    <Cell ss:StyleID="s212"/>
+    <Cell ss:StyleID="s213"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
  <Worksheet ss:Name="synthesis-type">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s185" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s185" ss:Width="80.0"/>
@@ -6582,12 +6677,12 @@
     <Cell ss:StyleID="s189"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">NotApplicable</Data></Cell>
+    <Cell ss:StyleID="s176"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s196"/>
-    <Cell ss:StyleID="s196"/>
-    <Cell ss:StyleID="s196"/>
+    <Cell ss:StyleID="s196"><Data ss:Type="String">not applicable</Data></Cell>
+    <Cell ss:StyleID="s196"><Data ss:Type="String">Not applicable because the evidence is not from a synthesis but from a single study. Used fo explicitly state that it's not a synthesis.</Data></Cell>
     <Cell ss:StyleID="s176"/>
     <Cell ss:StyleID="s176"/>
     <Cell ss:StyleID="s189"/>
@@ -7062,100 +7157,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="variable-role">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Width="91.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="17.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="5" ss:Width="90.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="186.0"/>
-   <Row ss:AutoFitHeight="0" ss:Height="33">
-    <Cell ss:StyleID="s198"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">System</Data></Cell>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">Parent</Data></Cell>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">Display</Data></Cell>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">v2</Data></Cell>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">v3</Data></Cell>
-    <Cell ss:StyleID="s200"><Data ss:Type="String">Committee Notes</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="19">
-    <Cell ss:StyleID="s201"><Data ss:Type="String">population</Data></Cell>
-    <Cell ss:StyleID="s202"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s203"><Data ss:Type="String">population</Data></Cell>
-    <Cell ss:StyleID="s203"><Data ss:Type="String">variable represents a population</Data></Cell>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s204"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="19">
-    <Cell ss:StyleID="s205"><Data ss:Type="String">subpopulation</Data></Cell>
-    <Cell ss:StyleID="s206"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s207"/>
-    <Cell ss:StyleID="s202"/>
-    <Cell ss:StyleID="s202"><Data ss:Type="String">subpopulation</Data></Cell>
-    <Cell ss:StyleID="s202"><Data ss:Type="String">variable represents a subpopulation</Data></Cell>
-    <Cell ss:StyleID="s208"/>
-    <Cell ss:StyleID="s208"/>
-    <Cell ss:StyleID="s209"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="19">
-    <Cell ss:StyleID="s205"><Data ss:Type="String">exposure</Data></Cell>
-    <Cell ss:StyleID="s202"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s207"/>
-    <Cell ss:StyleID="s202"/>
-    <Cell ss:StyleID="s202"><Data ss:Type="String">exposure</Data></Cell>
-    <Cell ss:StyleID="s202"><Data ss:Type="String">variable represents an exposure</Data></Cell>
-    <Cell ss:StyleID="s208"/>
-    <Cell ss:StyleID="s208"/>
-    <Cell ss:StyleID="s209"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="23">
-    <Cell ss:StyleID="s201"><Data ss:Type="String">referenceExposure</Data></Cell>
-    <Cell ss:StyleID="s206"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s203"><Data ss:Type="String">reference exposure</Data></Cell>
-    <Cell ss:StyleID="s203"><Data ss:Type="String">variable represents a reference exposure</Data></Cell>
-    <Cell ss:StyleID="s208"/>
-    <Cell ss:StyleID="s208"/>
-    <Cell ss:StyleID="s209"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s205"><Data ss:Type="String">measuredVariable</Data></Cell>
-    <Cell ss:StyleID="s202"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s207"/>
-    <Cell ss:StyleID="s202"/>
-    <Cell ss:StyleID="s202"><Data ss:Type="String">measured variable</Data></Cell>
-    <Cell ss:StyleID="s202"><Data ss:Type="String">variable represents a measured variable</Data></Cell>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s204"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s210"><Data ss:Type="String">confounder</Data></Cell>
-    <Cell ss:StyleID="s211"><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s212"/>
-    <Cell ss:StyleID="s212"/>
-    <Cell ss:StyleID="s212"><Data ss:Type="String">confounder</Data></Cell>
-    <Cell ss:StyleID="s212"><Data ss:Type="String">variable represents a confounder</Data></Cell>
-    <Cell ss:StyleID="s212"/>
-    <Cell ss:StyleID="s212"/>
-    <Cell ss:StyleID="s213"/>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
