@@ -58,7 +58,7 @@
             <repeat>
                 <boundsPeriod>
                     <start value="2015-01-16"/>
-                    <end value="2015-01-20"/>
+                    <end value="2015-01-22"/>
                 </boundsPeriod>
                 <frequency value="1"/>
                 <period value="1"/>
@@ -103,7 +103,7 @@
             <repeat>
                 <boundsPeriod>
                     <start value="2015-01-23"/>
-                    <end value="2015-01-30"/>
+                    <end value="2015-01-29"/>
                 </boundsPeriod>
                 <frequency value="1"/>
                 <period value="1"/>
@@ -143,12 +143,12 @@
     </dosageInstruction>
     <dosageInstruction>
         <sequence value="3"/>
-        <text value="Take 1 tablets daily for 7 days starting January 31, 2015" />
+        <text value="Take 1 tablets daily for 7 days starting January 30, 2015" />
         <timing>
             <repeat>
                 <boundsPeriod>
-                    <start value="2015-01-31"/>
-                    <end value="2015-02-06"/>
+                    <start value="2015-01-30"/>
+                    <end value="2015-02-05"/>
                 </boundsPeriod>
                 <frequency value="1"/>
                 <period value="1"/>

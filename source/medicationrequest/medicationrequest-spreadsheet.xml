@@ -18,6 +18,7 @@
   <TabRatio>732</TabRatio>
   <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4605,11 +4606,11 @@
     <Cell ss:StyleID="s126"><Data ss:Type="String">Returns prescriptions for a specific patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">combo-date</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">MedicationRequest.dosageInstruction.timing.event</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">Returns medication request to be administered on a specific date</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">MedicationRequest.dosageInstruction.timing.event | MedicationRequest.dosageInstruction.timing.repeat.boundsPeriod</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">Returns medication request to be administered on a specific date or within a date range</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s124"><Data ss:Type="String">intended-performer</Data></Cell>
