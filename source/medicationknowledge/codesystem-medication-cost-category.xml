@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/medication-cost-category"/>
+  <name value="Medication Cost Category Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value=""/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medication-cost-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="banda"/>
+    <display value="Band A"/>
+    <definition value="Tier A cost for this medication"/>
+  </concept>
+  <concept>
+    <code value="bandb"/>
+    <display value="Band B"/>
+    <definition value="Tier B cost for this medication"/>
+  </concept>
+</CodeSystem>
