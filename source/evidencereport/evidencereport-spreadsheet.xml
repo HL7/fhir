@@ -1078,6 +1078,38 @@
     <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
    </Borders>
   </Style>
+  <Style ss:ID="s193">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s194">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s195">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s197">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -1101,6 +1133,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3007,6 +3040,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <SpaceBelow/>
    <Print>
     <ValidPrinterInfo/>
@@ -3498,6 +3532,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3745,6 +3780,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4329,6 +4365,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4584,6 +4621,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4860,6 +4898,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5199,6 +5238,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5415,6 +5455,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -6002,13 +6043,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="focus-characteristic-code">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s165" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s165" ss:Width="79.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="161.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="34.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="154.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s165" ss:Width="79.0"/>
@@ -6104,12 +6146,12 @@
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">study-type</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
+    <Cell ss:StyleID="s180"><Data ss:Type="String">Study type</Data></Cell>
+    <Cell ss:StyleID="s180"><Data ss:Type="String">Type of research study, such as randomized trial or case-control study</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
@@ -6573,6 +6615,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -7145,6 +7189,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>-3</HorizontalResolution>
@@ -7700,6 +7745,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <LeftColumnVisible>3</LeftColumnVisible>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -7707,12 +7753,12 @@
  </Worksheet>
  <Worksheet ss:Name="evidence-report-section">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="46" ss:StyleID="s165" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="123.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="248.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="34.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="154.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="79.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="343.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="244.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="298.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s165" ss:Width="84.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s165" ss:Width="241.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -7837,34 +7883,34 @@
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">Evidence-Classifier</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="Number">11</Data></Cell>
-    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">Evidence-Classifier</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="s195"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s190"><Data ss:Type="String">Evidence Classifier section</Data></Cell>
+    <Cell ss:StyleID="s197"><Data ss:Type="String">Evidence Classifier section</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">This section is used for classifiers of the evidence</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">Row-Headers</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="Number">12</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
+    <Cell ss:StyleID="s180"><Data ss:Type="String">Row Headers</Data></Cell>
+    <Cell ss:StyleID="s180"><Data ss:Type="String">Denotes a section specifying row headers for a tabular report</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">Column-Header</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="Number">13</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
+    <Cell ss:StyleID="s180"><Data ss:Type="String">Column Header</Data></Cell>
+    <Cell ss:StyleID="s180"><Data ss:Type="String">Denotes the header to use for the column for a tabular report</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
@@ -8218,6 +8264,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>-3</HorizontalResolution>
+    <VerticalResolution>-3</VerticalResolution>
+   </Print>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -8777,12 +8829,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
