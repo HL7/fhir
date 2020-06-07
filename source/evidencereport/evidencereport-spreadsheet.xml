@@ -18,8 +18,8 @@
   
   
   <TabRatio>895</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>14</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1050,12 +1050,7 @@
   </Style>
   <Style ss:ID="s189">
    <Alignment ss:Horizontal="Left" ss:Vertical="Center" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
-    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
-    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
-    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
-   </Borders>
+   <Borders/>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
   <Style ss:ID="s190">
@@ -1072,6 +1067,11 @@
   </Style>
   <Style ss:ID="s192">
    <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+   <Borders/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s193">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center" ss:WrapText="1"/>
    <Borders>
     <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
     <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
@@ -1080,57 +1080,57 @@
    </Borders>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
-  <Style ss:ID="s197">
+  <Style ss:ID="s194">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s195">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
-  <Style ss:ID="s200">
+  <Style ss:ID="s196">
    <Borders>
     <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
     <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
    </Borders>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
-  <Style ss:ID="s202">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s203">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s204" ss:Parent="s63">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s205">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s206">
+  <Style ss:ID="s197">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
    <Borders>
     <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
    </Borders>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
-  <Style ss:ID="s207">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Center" ss:WrapText="1"/>
-   <Borders/>
+  <Style ss:ID="s198">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
+   </Borders>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
-  <Style ss:ID="s208">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
-   <Borders/>
+  <Style ss:ID="s199">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s200" ss:Parent="s63">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s201">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
   </Style>
  </Styles>
  <Names>
@@ -3094,7 +3094,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7917,33 +7916,33 @@
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s207"><Data ss:Type="String">Efficacy-outcomes</Data></Cell>
+    <Cell ss:StyleID="s189"><Data ss:Type="String">Efficacy-outcomes</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="Number">11</Data></Cell>
     <Cell ss:StyleID="s191"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s208"><Data ss:Type="String">Efficacy-outcomes</Data></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">Efficacy-outcomes</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">Outcomes related to efficacy or potential benefits of interventions</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s207"><Data ss:Type="String">Harms-outcomes</Data></Cell>
+    <Cell ss:StyleID="s189"><Data ss:Type="String">Harms-outcomes</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="Number">12</Data></Cell>
     <Cell ss:StyleID="s191"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s208"><Data ss:Type="String">Harms outcomes</Data></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">Harms outcomes</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">Outcomes related to adverse effects or potential harms of interventions</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">Evidence-Classifier</Data></Cell>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">Evidence-Classifier</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="Number">13</Data></Cell>
     <Cell ss:StyleID="s191"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Evidence Classifier section</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Evidence Classifier section</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">This section is used for classifiers of the evidence</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
@@ -8314,13 +8313,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="evidence-classifier-code">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" ss:StyleID="s165" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s165" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="123.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="34.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s165" ss:Width="154.0"/>
@@ -8341,294 +8339,305 @@
     <Cell ss:StyleID="s128"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">COVID19Specific</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">COVID19Specific</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s191"/>
-    <Cell ss:StyleID="s197"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">COVID-19 specific article</Data></Cell>
+    <Cell ss:StyleID="s195"/>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">COVID-19 specific article</Data></Cell>
     <Cell ss:StyleID="s178"><Data ss:Type="String">About COVID-19</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">COVID19Relevant</Data></Cell>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">COVID19Relevant</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s191"/>
-    <Cell ss:StyleID="s197"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">COVID-19 relevant (but not specific) article</Data></Cell>
+    <Cell ss:StyleID="s195"/>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">COVID-19 relevant (but not specific) article</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">Not about COVID-19 but relevant to COVID-19 management or understanding</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s192"><Data ss:Type="String">COVID19HumanResearch</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">COVID19HumanResearch</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s191"/>
-    <Cell ss:StyleID="s197"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">COVID-19 human data in population, exposure, or outcome</Data></Cell>
+    <Cell ss:StyleID="s195"/>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">COVID-19 human data in population, exposure, or outcome</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">contains human COVID-19 disease in the research data as any variable (population, exposure or outcome)</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">OriginalResearch</Data></Cell>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">OriginalResearch</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s200"/>
+    <Cell ss:StyleID="s196"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Article includes original research</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Article includes original research</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">such as randomized trial, observational study</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">ResearchSynthesis</Data></Cell>
-    <Cell ss:StyleID="s206"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">ResearchSynthesis</Data></Cell>
+    <Cell ss:StyleID="s197"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Article includes synthesis of research</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Article includes synthesis of research</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">such as systematic review, meta-analysis, rapid review</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">Guideline</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">Guideline</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Article includes guideline</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">for clinical practice guidelines</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Article includes guideline</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">for clinical practice guidelines</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">ResearchProtocol</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">ResearchProtocol</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Article provides protocol without results</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Article provides protocol without results</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">for research protocols</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s192"><Data ss:Type="String">NotResearchNotGuideline</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">8</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">NotResearchNotGuideline</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Article is neither research nor guideline</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Article is neither research nor guideline</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">for things that are not research reports, research protocols or guidelines</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">Treatment</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">9</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">Treatment</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Article about treatment</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Article about treatment</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">about therapeutic interventions</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">PreventionAndControl</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">10</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">PreventionAndControl</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Article about prevention and control</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Article about prevention and control</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">about preventive care and interventions</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">Diagnosis</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">11</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">Diagnosis</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Article about diagnosis</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Article about diagnosis</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">about methods to distinguish having or not having a condition</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">PrognosisPrediction</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">12</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">PrognosisPrediction</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Article about prognosis or prediction</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Article about prognosis or prediction</Data></Cell>
     <Cell ss:StyleID="s180"><Data ss:Type="String">about predicting risk for something or risk factors for it</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">RatedAsYes</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">13</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">RatedAsYes</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Rated as yes, affirmative, positive, present, or include</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Rated as yes, affirmative, positive, present, or include</Data></Cell>
     <Cell ss:StyleID="s180"/>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">RatedAsNo</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">14</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">RatedAsNo</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Rated as no, negative, absent, or exclude</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Rated as no, negative, absent, or exclude</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Rated as no, negative, absent, or exclude</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Rated as no, negative, absent, or exclude</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">RatedAsRCT</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">15</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">NotAssessed</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as randomized controlled trial</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as randomized controlled trial</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Not rated, not assessed</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">Neither rated as yes nor rated as no</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">RatedAsControlledTrial</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">16</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">RatedAsRCT</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as nonrandomized controlled trial (experimental)</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as nonrandomized controlled trial (experimental)</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as randomized controlled trial</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as randomized controlled trial</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s192"><Data ss:Type="String">RatedAsComparativeCohort</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">17</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">RatedAsControlledTrial</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">17</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as comparative cohort study (observational)</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as comparative cohort study (observational)</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as nonrandomized controlled trial (experimental)</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as nonrandomized controlled trial (experimental)</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">RatedAsCaseControl</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">18</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">RatedAsComparativeCohort</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as case-control study</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as case-control study</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as comparative cohort study (observational)</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as comparative cohort study (observational)</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s192"><Data ss:Type="String">RatedAsUncontrolledSeries</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">19</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">RatedAsCaseControl</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as uncontrolled cohort (case series)</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as uncontrolled cohort (case series)</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as case-control study</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as case-control study</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">RatedAsMixedMethods</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">20</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">RatedAsUncontrolledSeries</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as mixed-methods study</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as mixed-methods study</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as uncontrolled cohort (case series)</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as uncontrolled cohort (case series)</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s189"><Data ss:Type="String">RatedAsOther</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">21</Data></Cell>
-    <Cell ss:StyleID="s189"/>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">RatedAsMixedMethods</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="s193"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as other concept (not elsewhere classified)</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">classified as other concept (not elsewhere classified)</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as mixed-methods study</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as mixed-methods study</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s202"><Data ss:Type="String">RiskOfBias</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">22</Data></Cell>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s204"/>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Risk of bias assessment</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Risk of bias assessment</Data></Cell>
+    <Cell ss:StyleID="s193"><Data ss:Type="String">RatedAsOther</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="s193"/>
+    <Cell ss:StyleID="s180"/>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as other concept (not elsewhere classified)</Data></Cell>
+    <Cell ss:StyleID="s194"><Data ss:Type="String">classified as other concept (not elsewhere classified)</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s202"><Data ss:Type="String">NoBlinding</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">23</Data></Cell>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s204"/>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">No blinding</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">No blinding</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">RiskOfBias</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s200"/>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">Risk of bias assessment</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">Risk of bias assessment</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s202"><Data ss:Type="String">AllocConcealNotStated</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">24</Data></Cell>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s204"/>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Allocation concealment not stated</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Allocation concealment not stated</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">NoBlinding</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s200"/>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">No blinding</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">No blinding</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s202"><Data ss:Type="String">EarlyTrialTermination</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">25</Data></Cell>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s204"/>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Early trial termination</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">Early trial termination</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">AllocConcealNotStated</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s200"/>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">Allocation concealment not stated</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">Allocation concealment not stated</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s202"><Data ss:Type="String">NoITT</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="Number">26</Data></Cell>
-    <Cell ss:StyleID="s203"/>
-    <Cell ss:StyleID="s204"/>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">No intention-to-treat analysis</Data></Cell>
-    <Cell ss:StyleID="s197"><Data ss:Type="String">No intention-to-treat analysis</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">EarlyTrialTermination</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="Number">26</Data></Cell>
+    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s200"/>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">Early trial termination</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">Early trial termination</Data></Cell>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s205"><Data ss:Type="String">Preprint</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">NoITT</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="Number">27</Data></Cell>
+    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s200"/>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">No intention-to-treat analysis</Data></Cell>
+    <Cell ss:StyleID="s195"><Data ss:Type="String">No intention-to-treat analysis</Data></Cell>
+    <Cell ss:StyleID="s190"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s169"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s201"><Data ss:Type="String">Preprint</Data></Cell>
+    <Cell ss:StyleID="s190"><Data ss:Type="Number">28</Data></Cell>
     <Cell ss:StyleID="s191"/>
     <Cell ss:StyleID="s180"/>
     <Cell ss:StyleID="s180"><Data ss:Type="String">Preprint (not final publication)</Data></Cell>
@@ -8638,8 +8647,8 @@
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s205"><Data ss:Type="String">PreliminaryAnalysis</Data></Cell>
-    <Cell ss:StyleID="s190"><Data ss:Type="Number">28</Data></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">PreliminaryAnalysis</Data></Cell>
+    <Cell><Data ss:Type="Number">29</Data></Cell>
     <Cell ss:StyleID="s191"/>
     <Cell ss:StyleID="s180"/>
     <Cell ss:StyleID="s180"><Data ss:Type="String">Preliminary analysis</Data></Cell>
@@ -8649,7 +8658,7 @@
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s205"/>
+    <Cell ss:StyleID="s201"/>
     <Cell ss:StyleID="s190"/>
     <Cell ss:StyleID="s191"/>
     <Cell ss:StyleID="s180"/>
@@ -8881,7 +8890,8 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <TopRowVisible>3</TopRowVisible>
+   <Selected/>
+   <TopRowVisible>6</TopRowVisible>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
