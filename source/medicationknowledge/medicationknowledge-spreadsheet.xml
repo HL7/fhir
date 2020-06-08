@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Microsoft Office User</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-06-03T22:02:11Z</LastSaved>
+  <LastSaved>2020-06-06T12:20:54Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4022,7 +4022,10 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>108</Zoom>
-   <TopRowVisible>40</TopRowVisible>
+   <Selected/>
+   <TopRowVisible>39</TopRowVisible>
+   <LeftColumnVisible>4</LeftColumnVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -4523,7 +4526,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="17" ss:StyleID="s130" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="18" ss:StyleID="s130" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s130" ss:Width="98.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s130" ss:Width="57.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s130" ss:Width="110.0"/>
@@ -4636,7 +4639,16 @@
     <Cell ss:Index="4"><Data ss:Type="String">MedicationKnowledge.productType</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:Index="4" ss:StyleID="s140"/>
+    <Cell><Data ss:Type="String">packaging-cost</Data></Cell>
+    <Cell><Data ss:Type="String">quantity</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s140"><Data ss:Type="String">MedicationKnowledge.packaging.cost[x]</Data></Cell>
+    <Cell><Data ss:Type="String">The cost of the packaged medication, if the cost is Money</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="32">
+    <Cell><Data ss:Type="String">packaging-cost-concept</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s140"><Data ss:Type="String">MedicationKnowledge.packaging.cost[x]</Data></Cell>
+    <Cell><Data ss:Type="String">The cost of the packaged medication, if the cost is a CodeableConcept</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4650,7 +4662,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
