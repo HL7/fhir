@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Khalid</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-05-22T20:44:35Z</LastSaved>
+  <LastSaved>2020-06-08T21:11:32Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,8 +18,7 @@
   
   
   <TabRatio>809</TabRatio>
-  <ActiveSheet>12</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6234,10 +6233,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>30</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -11279,7 +11279,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -13027,8 +13026,8 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s202" ss:Width="35.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s202" ss:Width="155.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s202" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s202" ss:Width="241.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s202" ss:Width="506.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s202" ss:Width="262.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s202" ss:Width="674.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s202" ss:Width="84.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s202" ss:Width="242.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -13065,23 +13064,23 @@
     <Cell ss:StyleID="s214"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s204"/>
-    <Cell ss:StyleID="s196"/>
+    <Cell ss:StyleID="s204"><Data ss:Type="String">duplicatePmid</Data></Cell>
+    <Cell ss:StyleID="s193"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s183"/>
     <Cell ss:StyleID="s215"/>
-    <Cell ss:StyleID="s215"/>
-    <Cell ss:StyleID="s215"/>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Different text in additional Medline entry</Data></Cell>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Alternative form of title or abstract  in two or more Medline entries</Data></Cell>
     <Cell ss:StyleID="s196"/>
     <Cell ss:StyleID="s196"/>
     <Cell ss:StyleID="s206"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s204"/>
-    <Cell ss:StyleID="s196"/>
+    <Cell ss:StyleID="s204"><Data ss:Type="String">earlierTitle</Data></Cell>
+    <Cell ss:StyleID="s193"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s183"/>
     <Cell ss:StyleID="s215"/>
-    <Cell ss:StyleID="s215"/>
-    <Cell ss:StyleID="s215"/>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Different text in an earlier version</Data></Cell>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Alternative form of title or abstract in an earlier version such as epub ahead of print</Data></Cell>
     <Cell ss:StyleID="s196"/>
     <Cell ss:StyleID="s196"/>
     <Cell ss:StyleID="s206"/>
@@ -13567,6 +13566,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
