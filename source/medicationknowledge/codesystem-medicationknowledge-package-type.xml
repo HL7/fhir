@@ -7,7 +7,6 @@
   <experimental value="false"/>
   <description value=""/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-package-type"/>
   <content value="complete"/>
   <concept>
     <code value="amp"/>
