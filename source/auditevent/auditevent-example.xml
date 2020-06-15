@@ -20,7 +20,7 @@
     <recorded value="2012-10-25T22:04:27+11:00"/>
 	<outcome>
 		<coding>
-			<system value="http://hl7.org/fhir/audit-event-outcome"/>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
 			<code value="0"/>
 			<display value="Success"/>
 		</coding>

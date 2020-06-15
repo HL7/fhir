@@ -67,7 +67,7 @@
                 <value value="75"/>
                 <unit value="mcg"/>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="mcg"/>
+                <code value="ug"/>
             </doseQuantity>
         </doseAndRate>
 
@@ -81,7 +81,7 @@
             <value value="100"/>
             <unit value="Tab"/>
             <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-            <code value="Tab"/> 
+            <code value="TAB"/> 
         </quantity>
         <expectedSupplyDuration>
             <value value="30"/>

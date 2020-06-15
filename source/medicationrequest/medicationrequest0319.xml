@@ -80,7 +80,7 @@
             <rateQuantity>
                 <value value="50"></value>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="ml/hr"></code>
+                <code value="ml/h"></code>
             </rateQuantity>
         </doseAndRate>
 
