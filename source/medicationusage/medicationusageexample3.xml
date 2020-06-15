@@ -51,7 +51,7 @@
         <value value="1"/>
         <unit value="tab"/>
         <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-        <code value="tab"/>
+        <code value="TAB"/>
       </doseQuantity>
     </doseAndRate>
     
