@@ -733,7 +733,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Reference(MedicinalProductDefinition|PackagedProductDefinition|DeviceDefinition|ResearchStudy|ActivityDefinition|PlanDefinition|ObservationDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Reference(MedicinalProductDefinition|PackagedProductDefinition|DeviceDefinition|ResearchStudy|ActivityDefinition|PlanDefinition|ObservationDefinition|Practitioner|Organization|Location)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -742,7 +742,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The type of product or service that is being authorized</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Reference to the actual product, service or entity that is being authorized</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">RegulatedAuthorization.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -983,7 +983,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Medicines Regulatory Agency</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The regulatory agency or organization that is granting the authorization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s76"><Data ss:Type="String">RegulatedAuthorization.case</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -999,7 +999,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">The case or regulatory procedure for granting or amending a marketing authorization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The case or regulatory procedure for granting or amending a marketing authorization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22"><Data ss:Type="String">650;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="Default">
@@ -1100,7 +1100,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
