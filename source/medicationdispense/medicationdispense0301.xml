@@ -52,8 +52,8 @@
     <quantity>
         <value value="12"/>
         <unit value="Vial"/>
-        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-        <code value="IVSOL"/>  <!-- Melva: VIAL is not a valid code in v3-orderableDrugForm -->
+        <system value="http://snomed.info.sct"/>
+        <code value="733026001"/> 
     </quantity>
     <daysSupply>
         <value value="3"/>
