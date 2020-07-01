@@ -2230,3 +2230,83 @@ v: {
   "error" : "The display \"Vagistat-3\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0067-2091-03 - should be one of [\"1 KIT in 1 CARTON (0067-2091-03)  *  3 SUPPOSITORY in 1 BLISTER PACK *  1 TUBE in 1 CARTON > 9 g in 1 TUBE\"]"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0409-6531-02"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0206-8862-02"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "12 BAG in 1 BOX (0206-8862-02)  > 100 mL in 1 BAG (0206-8862-01)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "51144-050-01"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "76388-713-25"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "25 TABLET, FILM COATED in 1 BOTTLE (76388-713-25)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "0169-7501-11"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "1 VIAL, GLASS in 1 CARTON (0169-7501-11)  > 10 mL in 1 VIAL, GLASS",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "50580-608-02"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "1 BOTTLE in 1 CARTON (50580-608-02)  > 100 TABLET, FILM COATED in 1 BOTTLE",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "24208-813-10"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10)  > 10 mL in 1 BOTTLE, DISPENSING",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "code" : "63481-623-70"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "100 TABLET in 1 BOTTLE (63481-623-70)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

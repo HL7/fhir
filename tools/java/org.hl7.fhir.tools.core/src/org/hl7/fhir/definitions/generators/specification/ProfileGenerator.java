@@ -125,13 +125,17 @@ import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.r5.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.r5.renderers.OperationDefinitionRenderer;
+import org.hl7.fhir.r5.renderers.utils.RenderingContext;
+import org.hl7.fhir.r5.renderers.utils.RenderingContext.ResourceRendererMode;
 import org.hl7.fhir.r5.model.UriType;
-import org.hl7.fhir.r5.utils.NarrativeGenerator;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.r5.utils.TypesUtilities;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.MarkDownProcessor;
+import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -169,7 +173,7 @@ public class ProfileGenerator {
     private Map<String, ElementDefinition> paths = new HashMap<String, ElementDefinition>();
   }
 
-  public ProfileGenerator(Definitions definitions, BuildWorkerContext context, ProfileKnowledgeProvider pkp, Calendar genDate, FHIRVersion version, Bundle dataElements, List<FHIRPathUsage> fpUsages, String rootFolder, UMLModel uml) throws FHIRException {
+  public ProfileGenerator(Definitions definitions, BuildWorkerContext context, ProfileKnowledgeProvider pkp, Calendar genDate, FHIRVersion version, Bundle dataElements, List<FHIRPathUsage> fpUsages, String rootFolder, UMLModel uml, RenderingContext rc) throws FHIRException {
     super();
     this.definitions = definitions;
     this.context = context;
@@ -179,6 +183,7 @@ public class ProfileGenerator {
     this.dataElements = dataElements;
     this.fpUsages = fpUsages;
     this.rootFolder = rootFolder;
+    this.rc = rc;
     if (dataElements != null) {
       for (BundleEntryComponent be : dataElements.getEntry()) {
         if (be.getResource() instanceof StructureDefinition)
@@ -196,6 +201,7 @@ public class ProfileGenerator {
   }
 
   private Map<String, StructureDefinition> des = new HashMap<String, StructureDefinition>();
+  private RenderingContext rc;
   private static int extensionCounter;
   private static int profileCounter = 0;
   
@@ -2363,8 +2369,8 @@ public class ProfileGenerator {
     for (OperationParameter p : op.getParameters()) {
       produceOpParam(op.getName(), opd.getParameter(), p, null);
     }
-    NarrativeGenerator gen = new NarrativeGenerator("", "", context);
-    gen.generate(opd, null);
+    OperationDefinitionRenderer opr = new OperationDefinitionRenderer(rc);
+    opr.render(opd);
     return opd;
   }
 

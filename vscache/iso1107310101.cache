@@ -753,3 +753,23 @@ v: {
   "error" : "Unknown code system uri 'urn:iso:std:iso:11073:10101'"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "68219"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Error sending HTTP Post/Put Payload: Connection to http://tx.fhir.org refused"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "68220"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Error sending HTTP Post/Put Payload: Connection to http://tx.fhir.org refused"
+}
+-------------------------------------------------------------------------------------

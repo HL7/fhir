@@ -200,6 +200,11 @@ import org.hl7.fhir.r5.model.StringType;
 import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.r5.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r5.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.r5.renderers.RendererFactory;
+import org.hl7.fhir.r5.renderers.ResourceRenderer;
+import org.hl7.fhir.r5.renderers.utils.BaseWrappers.ResourceWrapper;
+import org.hl7.fhir.r5.renderers.utils.DOMWrappers;
+import org.hl7.fhir.r5.renderers.utils.RenderingContext;
 import org.hl7.fhir.r5.model.UriType;
 import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
@@ -212,7 +217,6 @@ import org.hl7.fhir.r5.utils.GraphQLSchemaGenerator;
 import org.hl7.fhir.r5.utils.GraphQLSchemaGenerator.FHIROperationType;
 import org.hl7.fhir.r5.utils.NPMPackageGenerator;
 import org.hl7.fhir.r5.utils.NPMPackageGenerator.Category;
-import org.hl7.fhir.r5.utils.NarrativeGenerator;
 import org.hl7.fhir.r5.utils.QuestionnaireBuilder;
 import org.hl7.fhir.r5.utils.ResourceUtilities;
 import org.hl7.fhir.r5.utils.StructureMapUtilities;
@@ -235,7 +239,7 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XsltUtilities;
 import org.hl7.fhir.utilities.ZipGenerator;
-import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.FilesystemPackageCacheManager;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.hl7.fhir.utilities.json.JSONUtil;
@@ -613,6 +617,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (buildFlags.get("all")) {
         copyStaticContent();
       }
+      page.makeRenderingContext();
       loadValueSets1();
       prsr.getRegistry().commit();
 
@@ -873,7 +878,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (ResourceDefn r : page.getDefinitions().getBaseResources().values()) {
         r.setConformancePack(makeConformancePack(r));
-        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).generate(r.getConformancePack(), r, "core", false));
+        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).generate(r.getConformancePack(), r, "core", false));
         if (page.getProfiles().has(r.getProfile().getUrl()))
           throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
         page.getProfiles().see(r.getProfile(), page.packageInfo());
@@ -885,7 +890,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
       r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).generate(r.getConformancePack(), r, "core", false));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).generate(r.getConformancePack(), r, "core", false));
       if (page.getProfiles().has(r.getProfile().getUrl()))
         throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
       page.getProfiles().see(r.getProfile(), page.packageInfo());
@@ -896,7 +901,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (ResourceDefn r : page.getDefinitions().getResourceTemplates().values()) {
       r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).generate(r.getConformancePack(), r, "core", true));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).generate(r.getConformancePack(), r, "core", true));
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
       r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, "", true));
@@ -937,7 +942,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       for (LogicalModel lm : ig.getLogicalModels()) {
         page.log(" ...process logical model " + lm.getId(), LogMessageType.Process);
         if (lm.getDefinition() == null)
-          lm.setDefinition(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).generateLogicalModel(ig, lm.getResource()));
+          lm.setDefinition(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).generateLogicalModel(ig, lm.getResource()));
       }
     }
 
@@ -992,7 +997,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).generate(pt, page.getValidationErrors());
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).generate(pt, page.getValidationErrors());
     if (page.getProfiles().has(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().see(profile, page.packageInfo());
@@ -1001,7 +1006,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void genXhtmlProfile() throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).generateXhtml();
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).generateXhtml();
     if (page.getProfiles().has(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().see(profile, page.packageInfo());
@@ -1013,7 +1018,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).generate(t);
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).generate(t);
     if (page.getProfiles().has(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().see(profile, page.packageInfo());
@@ -1027,7 +1032,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
   private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).generate(t);
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).generate(t);
     if (page.getProfiles().has(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().see(profile, page.packageInfo());
@@ -1042,7 +1047,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void genTypeProfile(TypeDefn t) throws Exception {
     StructureDefinition profile;
     try {
-      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).generate(t);
+      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).generate(t);
       page.getProfiles().see(profile, page.packageInfo());
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
@@ -1060,7 +1065,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     // what we're going to do:
     //  create StructureDefinition structures if needed (create differential definitions from spreadsheets)
     if (profile.getResource() == null) {
-      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml())
+      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc())
           .generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors(), baseResource);
       p.setUserData("pack", ap);
       profile.setResource(p);
@@ -1222,7 +1227,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void loadValueSets1() throws Exception {
 
     page.log(" ...vocab #1", LogMessageType.Process);
-    new ValueSetImporterV3(page, page.getValidationErrors()).execute();
+    new ValueSetImporterV3(page, page.getValidationErrors(), page.getRc()).execute();
     new ValueSetImporterV2(page, page.getValidationErrors()).execute();
     generateCodeSystemsPart1();
     generateValueSetsPart1();
@@ -1508,8 +1513,8 @@ public class Publisher implements URIResolver, SectionNumberer {
           cc.addParam(p.trim());
       }
     }
-    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-    gen.generate(cpd, null);
+    RenderingContext lrc = page.getRc().copy().setLocalPrefix("").setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
+    RendererFactory.factory(cpd, lrc).render(cpd);
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "compartmentdefinition-" + c.getName().toLowerCase() + ".xml");
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cpd);
     s.close();
@@ -1535,7 +1540,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
   
   private void generateConformanceStatement(boolean full, String name, boolean register) throws Exception {
-    pgen = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml());
+    pgen = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc());
     CapabilityStatement cpbs = new CapabilityStatement();
     cpbs.setId(FormatUtilities.makeId(name));
     cpbs.setUrl("http://hl7.org/fhir/CapabilityStatement/" + name);
@@ -1640,8 +1645,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
 
     if (register) {
-      NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-      gen.generate(cpbs, null);
+      RenderingContext lrc = page.getRc().copy().setLocalPrefix("").setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
+      RendererFactory.factory(cpbs, lrc).render(cpbs);
       FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "capabilitystatement-" + name + ".xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cpbs);
       s.close();
@@ -1665,7 +1670,8 @@ public class Publisher implements URIResolver, SectionNumberer {
           + "capabilitystatement-" + name + ".xml"));
     }
     if (buildFlags.get("all")) {
-      new NarrativeGenerator("",  "", page.getWorkerContext()).generate(null, cpbs);
+      RenderingContext lrc = page.getRc().copy().setLocalPrefix("");
+      RendererFactory.factory(cpbs, lrc).render(cpbs);
       deletefromFeed(ResourceType.CapabilityStatement, name, page.getResourceBundle());
       addToResourceFeed(cpbs, page.getResourceBundle());
     }
@@ -2710,7 +2716,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       npm.finish();
       if (!isCIBuild) {
-        new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION).addPackageToCache("hl7.fhir.r5.expansions", "current", new FileInputStream(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz")), Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz"));
+        new FilesystemPackageCacheManager(true, ToolsVersion.TOOLS_VERSION).addPackageToCache("hl7.fhir.r5.expansions", "current", new FileInputStream(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz")), Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz"));
       }
       
       s = new FileOutputStream(page.getFolders().dstDir + "expansions.xml");
@@ -2914,7 +2920,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
       self.generate(page.getFolders().dstDir, page.getBaseURL(), false, page.getGenDate().getTime());
       if (!isCIBuild) {
-        new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION).addPackageToCache("hl7.fhir.r5.core", "current", new FileInputStream(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.core.tgz")), Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.core.tgz"));
+        new FilesystemPackageCacheManager(true, ToolsVersion.TOOLS_VERSION).addPackageToCache("hl7.fhir.r5.core", "current", new FileInputStream(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.core.tgz")), Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.core.tgz"));
       }
 
       page.log(" ...zips", LogMessageType.Process);
@@ -2973,7 +2979,8 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceConceptMap(ConceptMap cm, ResourceDefn rd, SectionTracker st) throws Exception {
-    new NarrativeGenerator("", "", page.getWorkerContext()).generate(cm, null);
+    RenderingContext lrc = page.getRc().copy().setLocalPrefix("");
+    RendererFactory.factory(cm, lrc).render(cm);
     String n = cm.getUserString("path");
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(n, ".xml"));
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cm);
@@ -3614,7 +3621,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     p.setVersion(Constants.VERSION);
     p.setType(rd.getName());
     p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
-    SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd, rd);
+    SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd, rd);
     spd.setResource(sp);
   }
 
@@ -3817,7 +3824,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getFolders().dstDir + "terminologies-v3.html");
     src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template.html");
     cachePage("terminologies-v3.html", page.processPageIncludesForBook("terminologies-v3.html", src, "page", null, null, wg("vocab")), "V3 Terminologes", false);
-    new ValueSetImporterV3(page, page.getValidationErrors()).produce(this);
+    new ValueSetImporterV3(page, page.getValidationErrors(), page.getRc()).produce(this);
   }
   
   private void produceV2() throws Exception {
@@ -4264,7 +4271,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceOperation(ImplementationGuideDefn ig, String name, String id, ResourceDefn resource, Operation op, SectionTracker st) throws Exception {
-    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml()).generate(name, id, resource.getName(), op, resource);
+    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).generate(name, id, resource.getName(), op, resource);
     
     String dir = ig == null ? "" : ig.getCode()+File.separator;
 
@@ -4494,7 +4501,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     // n
     String rt = null;
     try {
-      NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext(), page).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
+      RenderingContext lrc = page.getRc().copy().setLocalPrefix("").setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
       xdoc = loadDom(new FileInputStream(file), true);
       rt = xdoc.getDocumentElement().getNodeName();
       String id = XMLUtil.getNamedChildValue(xdoc.getDocumentElement(), "id");
@@ -4513,7 +4520,7 @@ public class Publisher implements URIResolver, SectionNumberer {
             wantSave = updateVersion(((CapabilityStatement) res).getText().getDiv());
         }
         if (!res.hasText() || !res.getText().hasDiv()) {
-          gen.generate(res, null);
+          RendererFactory.factory(res, lrc).render(res);
           wantSave = true;
         }
         if (wantSave)
@@ -4533,12 +4540,14 @@ public class Publisher implements URIResolver, SectionNumberer {
               String ert = ers.getLocalName();
               String s = null;
               if (!page.getDefinitions().getBaseResources().containsKey(ert) && !ert.equals("Binary") && !ert.equals("Parameters") && !ert.equals("Bundle")) {
-                Element div = gen.getNarrative(ers);
-                if (div == null || !div.hasChildNodes()) {
+                ResourceRenderer r = RendererFactory.factory(ers.getLocalName(), lrc);
+                ResourceWrapper rw = new DOMWrappers.ResourceWrapperElement(lrc, ers, page.getDefinitions().getResourceByName(ers.getLocalName()).getProfile());
+                XhtmlNode div = rw.getNarrative();
+                if (div == null || div.isEmpty()) {
                   wantSave = true;
-                  s = gen.generate(ers);
+                  r.render(rw);
                 } else
-                  s = new XmlGenerator().generate(div);
+                  s = new XhtmlComposer(true).compose(div);
                 if (s != null)
                   narrative = narrative == null ? s : narrative +"<hr/>\r\n"+s;
               }
@@ -4559,12 +4568,14 @@ public class Publisher implements URIResolver, SectionNumberer {
             new XmlGenerator().generate(xdoc.getDocumentElement(), file, "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
         } else {
           if (!page.getDefinitions().getBaseResources().containsKey(rt) && !rt.equals("Binary") && !rt.equals("Parameters")) {
-            Element div = gen.getNarrative(xdoc.getDocumentElement());
-            if (div == null || !div.hasChildNodes()) {
-              narrative = gen.generate(xdoc.getDocumentElement());
+            ResourceRenderer r = RendererFactory.factory(xdoc.getDocumentElement().getLocalName(), lrc);
+            ResourceWrapper rw = new DOMWrappers.ResourceWrapperElement(lrc, xdoc.getDocumentElement(), page.getDefinitions().getResourceByName(xdoc.getDocumentElement().getLocalName()).getProfile());
+            XhtmlNode div = rw.getNarrative();
+            if (div == null || div.isEmpty()) {
+              narrative = new XhtmlComposer(true).compose(r.render(rw));
               new XmlGenerator().generate(xdoc.getDocumentElement(), file, "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
             } else {
-              narrative = new XmlGenerator().generate(div);
+              narrative = new XhtmlComposer(true).compose(div);
             }
           }
         }
@@ -6088,9 +6099,10 @@ public class Publisher implements URIResolver, SectionNumberer {
         String title = vs.getName();
 
         if (vs.getText() == null || vs.getText().getDiv() == null || vs.getText().getDiv().allChildrenAreText()
-            && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-          new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs, null);
-
+            && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*"))) {
+          RenderingContext lrc = page.getRc().copy().setLocalPrefix("").setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
+          RendererFactory.factory(vs, lrc).render(vs);
+        }
         page.getVsValidator().validate(page.getValidationErrors(), name, vs, true, false);
 
         addToResourceFeed(vs, valueSetsFeed, null); // todo - what should the Oids be
@@ -6165,10 +6177,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     if (!vs.hasText() || (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))) {
-      if (ig != null)
-        new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs, null);
-      else
-        new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs, null);
+      RenderingContext lrc = page.getRc().copy().setLocalPrefix(ig != null ? "../" : "").setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
+      RendererFactory.factory(vs, lrc).render(vs);
     }
     page.getVsValidator().validate(page.getValidationErrors(), n, vs, true, false);
 
@@ -6247,10 +6257,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     if (cs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(cs.getText().getDiv().allText()) || !cs.getText().getDiv().allText().matches(".*\\w.*"))) {
-      if (ig != null && !ig.isCore())
-        new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).generate(cs, null);
-      else
-        new NarrativeGenerator("", "", page.getWorkerContext()).generate(cs, null);
+      RenderingContext lrc = page.getRc().copy().setLocalPrefix(ig != null ? "../" : "").setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
+      RendererFactory.factory(cs, lrc).render(cs);
     }
     page.getVsValidator().validate(page.getValidationErrors(), n, cs, true, false);
 
@@ -6370,8 +6378,8 @@ private String csCounter() {
   }
   private void generateConceptMap(ConceptMap cm) throws Exception {
     String filename = cm.getUserString("path");
-    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-    gen.generate(cm, null);
+    RenderingContext lrc = page.getRc().copy().setLocalPrefix("").setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
+    RendererFactory.factory(cm, lrc).render(cm);
 
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".json"));

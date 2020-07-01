@@ -39,3 +39,13 @@ v: {
   "error" : "The code system \"http://acme.org/lab/codes/flags\" is not known (encountered paired with code = \"POS\"); The code provided (http://acme.org/lab/codes/flags#POS) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/flags",
+  "code" : "POS"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Error sending HTTP Post/Put Payload: Connection to http://tx.fhir.org refused"
+}
+-------------------------------------------------------------------------------------

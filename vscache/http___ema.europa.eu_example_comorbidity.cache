@@ -49,3 +49,13 @@ v: {
   "error" : "The code system \"http://ema.europa.eu/example/comorbidity\" is not known (encountered paired with code = \"Hepaticdisease\"); The code provided (http://ema.europa.eu/example/comorbidity#Hepaticdisease) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/comorbidity",
+  "code" : "Hepaticdisease"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Error sending HTTP Post/Put Payload: Connection to http://tx.fhir.org refused"
+}
+-------------------------------------------------------------------------------------

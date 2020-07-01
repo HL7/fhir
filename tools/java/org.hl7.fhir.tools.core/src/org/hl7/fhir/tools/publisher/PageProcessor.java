@@ -69,7 +69,9 @@ import javax.xml.transform.stream.StreamResult;
 import org.apache.commons.lang3.NotImplementedException;
 import org.fhir.ucum.UcumException;
 import org.hl7.fhir.convertors.SpecDifferenceEvaluator;
+import org.hl7.fhir.convertors.VersionConvertor_40_50;
 import org.hl7.fhir.convertors.SpecDifferenceEvaluator.TypeLinkProvider;
+import org.hl7.fhir.convertors.txClient.TerminologyClientR5;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.BaseGenerator;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
@@ -118,6 +120,7 @@ import org.hl7.fhir.definitions.validation.PatternFinder;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
@@ -192,17 +195,21 @@ import org.hl7.fhir.r5.model.ValueSet.ConceptReferenceDesignationComponent;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r5.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.r5.renderers.DataRenderer;
+import org.hl7.fhir.r5.renderers.RendererFactory;
+import org.hl7.fhir.r5.renderers.utils.DOMWrappers;
+import org.hl7.fhir.r5.renderers.utils.RenderingContext;
+import org.hl7.fhir.r5.renderers.utils.RenderingContext.ITypeParser;
+import org.hl7.fhir.r5.renderers.utils.RenderingContext.ResourceRendererMode;
+import org.hl7.fhir.r5.renderers.utils.Resolver.IReferenceResolver;
+import org.hl7.fhir.r5.renderers.utils.Resolver.ResourceWithReference;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r5.terminologies.TerminologyClient;
-import org.hl7.fhir.r5.terminologies.TerminologyClientR5;
 import org.hl7.fhir.r5.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r5.utils.EOperationOutcome;
 import org.hl7.fhir.r5.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r5.utils.IResourceValidator;
-import org.hl7.fhir.r5.utils.NarrativeGenerator;
-import org.hl7.fhir.r5.utils.NarrativeGenerator.IReferenceResolver;
-import org.hl7.fhir.r5.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.r5.utils.StructureMapUtilities;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.r5.utils.Translations;
@@ -222,6 +229,7 @@ import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationOptions;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
@@ -236,13 +244,14 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
-public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver, ILoggingService, TypeLinkProvider  {
+public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver, ILoggingService, TypeLinkProvider, ITypeParser  {
 
   public enum PageInfoType { PAGE, RESOURCE, OPERATION, VALUESET, CODESYSTEM;
     
@@ -434,6 +443,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private UMLModel uml = new UMLModel("fhir", "All definitions associated with the base FHIR Specification");
   private PatternFinder patternFinder;
   private Map<String, String> macros = new HashMap<String, String>();
+  private RenderingContext rc;
   
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
     super();
@@ -2161,8 +2171,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (!(res instanceof DomainResource))
       return "";
     DomainResource dr = (DomainResource) res;
-    if (!dr.hasText() || !dr.getText().hasDiv())
-      new NarrativeGenerator("", "", workerContext, this).setHeaderLevelContext(headerLevelContext).generate(dr, null);
+    if (!dr.hasText() || !dr.getText().hasDiv()) {
+      RenderingContext lrc = rc.copy().setHeaderLevelContext(headerLevelContext);
+      RendererFactory.factory(dr, lrc).render(dr);
+    }
     return new XhtmlComposer(XhtmlComposer.HTML).compose(dr.getText().getDiv());
   }
 
@@ -3354,13 +3366,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     b.append("<div id=\"tabs-all\">\r\n");
     cs.setText(null);
-    new NarrativeGenerator(prefix, null, workerContext).generate(null, cs, false, "*");
+    RenderingContext lrc = rc.copy().setLang("*");
+    RendererFactory.factory(cs, lrc).render(cs);
     b.append(new XhtmlComposer(XhtmlComposer.HTML).compose(cs.getText().getDiv()));
     b.append("</div>\r\n");
     
     b.append("<div id=\"tabs-en\">\r\n");
     cs.setText(null);
-    new NarrativeGenerator(prefix, null, workerContext).generate(null, cs, false, "en");
+    lrc = rc.copy().setLang("en");
+    RendererFactory.factory(cs, lrc).render(cs);
     b.append(new XhtmlComposer(XhtmlComposer.HTML).compose(cs.getText().getDiv()));
     b.append("</div>\r\n");
     
@@ -3370,7 +3384,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (!Utilities.noString(desc))
         b.append(processMarkdown("RenderingCodeSystem", workerContext.translator().translate("render-cs", "Definition", l)+": "+desc, prefix));
       cs.setText(null);
-      new NarrativeGenerator(prefix, null, workerContext).generate(null, cs, false, l);
+      lrc = rc.copy().setLang(l);
+      RendererFactory.factory(cs, lrc).render(cs);
       b.append(new XhtmlComposer(XhtmlComposer.HTML).compose(cs.getText().getDiv()));
       b.append("</div>\r\n");
     }
@@ -5502,7 +5517,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       exp.setCompose(null);
       exp.setText(null);
       exp.setDescription("Value Set Contents (Expansion) for "+vs.present()+" at "+Config.DATE_FORMAT().format(new Date()));
-      new NarrativeGenerator("", "", workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(exp, null);
+      RenderingContext lrc = rc.copy().setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY);
+      RendererFactory.factory(exp, lrc).render(exp);
       return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer(XhtmlComposer.HTML).compose(exp.getText().getDiv())+VS_INC_END;
     } catch (Exception e) {
       return "<hr/>\r\n"+VS_INC_START+"<!--2-->"+processExpansionError(e.getMessage())+VS_INC_END;
@@ -5561,7 +5577,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     vs1.setExpansion(null);
     vs1.setText(null);
     ImplementationGuideDefn ig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
-    new NarrativeGenerator(prefix, "", workerContext, this).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(null, vs1, null, false);
+    RenderingContext lrc = rc.copy().setLocalPrefix(prefix).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY);
+    RendererFactory.factory(vs1, lrc).render(vs1);
     return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer(XhtmlComposer.HTML).compose(vs1.getText().getDiv())+VS_INC_END;
   }
 
@@ -8754,12 +8771,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String getProfileContext(CanonicalResource mr, String prefix) throws DefinitionException {
-    NarrativeGenerator gen = new NarrativeGenerator(prefix, "", workerContext, this);
+    DataRenderer gen = new DataRenderer(workerContext);
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (UsageContext uc :  mr.getUseContext()) {
-      String vs = gen.genType(uc.getValue());
+      String vs = gen.display(uc.getValue());
       if (vs != null)
-        b.append(gen.gen(uc.getCode())+": "+vs);
+        b.append(gen.display(uc.getCode())+": "+vs);
     }
     for (CodeableConcept cc : mr.getJurisdiction()) {
       b.append("Country: "+gen.displayCodeableConcept(cc));
@@ -10409,7 +10426,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       IniFile sini = new IniFile(Utilities.path(folders.rootDir, "temp", "stats.ini"));
       sini.setIntegerProperty("valuesets", vs.getId(), i, null);
       sini.save();
-      new NarrativeGenerator(prefix, base, workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(null, exp, vs, false);
+      RenderingContext lrc = rc.copy().setLocalPrefix(prefix).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY);
+      RendererFactory.factory(exp, lrc).render(exp);
       return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer(XhtmlComposer.HTML).compose(exp.getText().getDiv())+VS_INC_END;
     } catch (Exception e) {
       e.printStackTrace();
@@ -10921,7 +10939,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   }
 
   @Override
-  public ResourceWithReference resolve(String url) {
+  public ResourceWithReference resolve(RenderingContext context, String url) {
     String[] parts = url.split("\\/");
 
     if (parts.length == 2 && definitions.hasResource(parts[0]) && parts[1].matches(FormatUtilities.ID_REGEX)) {
@@ -10931,7 +10949,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
       } catch (Exception e) {
       }
       if (ex != null)
-        return new ResourceWithReference(parts[0].toLowerCase()+"-"+parts[1].toLowerCase()+".html", null);
+        return new ResourceWithReference(parts[0].toLowerCase()+"-"+parts[1].toLowerCase()+".html", new DOMWrappers.ResourceWrapperElement(context, ex.getXml().getDocumentElement(), definitions.getResourceByName(ex.getResourceName()).getProfile()));
     }
 //    System.out.println("Reference to undefined resource: \""+url+"\"");
     return new ResourceWithReference("todo.html", null);
@@ -11269,5 +11287,27 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   public PackageVersion packageInfo() {
     return new PackageVersion("hl7.fhir.r5.core", version.toCode());
   }
+
+  public RenderingContext getRc() {
+    return rc;
+  }
+
+  public void makeRenderingContext() {
+    rc = new RenderingContext(workerContext, processor, ValidationOptions.defaults(), "", "", null, ResourceRendererMode.IG);    
+    rc.setParser(this);
+    rc.setResolver(this);
+  }
+
+  @Override
+  public Base parseType(String xml, String type) throws FHIRFormatError, IOException, FHIRException {
+    DataType t = new XmlParser().parseType(xml, type); 
+    return t;
+  }
   
 }
+
+//     RenderingContext rc = new RenderingContext(context, new MarkDownProcessor(Dialect.COMMON_MARK), null, "", null, ResourceRendererMode.IG);
+// v3 importer:     NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
+// v3 importer NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
+
+// pub.1     NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
