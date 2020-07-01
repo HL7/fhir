@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="expression-language"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/expression-language"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.105"/>
+  </identifier>
+  <version value="4.0.0"/>
+  <name value="ExpressionLanguage"/>
+  <title value="Expression Language"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The media type of the expression language."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="urn:ietf:bcp:13"/>
+      <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="Clinical Quality Language"/>
+        </extension>
+        <code value="text/cql"/>
+        <display value="CQL"/>
+      </concept>
+      <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="FHIRPath"/>
+        </extension>
+        <code value="text/fhirpath"/>
+        <display value="FHIRPath"/>
+      </concept>
+      <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="FHIR's RESTful query syntax - typically independedent of base URL"/>
+        </extension>
+        <code value="text/x-fhir-query"/>
+        <display value="FHIR Query"/>
+      </concept>
+      <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="A Clinical Quality Language identifier, typically the name of a top-level definition within a library"/>
+        </extension>
+        <code value="text/cql.identifier"/>
+        <display value="CQL Identifier"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
