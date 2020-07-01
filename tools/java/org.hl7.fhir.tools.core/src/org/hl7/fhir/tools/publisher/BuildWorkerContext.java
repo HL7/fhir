@@ -25,6 +25,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.fhir.ucum.UcumEssenceService;
 import org.fhir.ucum.UcumException;
 import org.fhir.ucum.UcumService;
+import org.hl7.fhir.convertors.txClient.TerminologyClientR5;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -61,10 +62,7 @@ import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r5.terminologies.TerminologyClient;
-import org.hl7.fhir.r5.terminologies.TerminologyClientR5;
-import org.hl7.fhir.r5.utils.INarrativeGenerator;
 import org.hl7.fhir.r5.utils.IResourceValidator;
-import org.hl7.fhir.r5.utils.NarrativeGenerator;
 import org.hl7.fhir.r5.utils.client.EFhirClientException;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -127,6 +125,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     this.txLog = new HTMLClientLogger(null);
     setExpansionProfile(buildExpansionProfile());
     this.setTranslator(new TranslatorXml(Utilities.path(folder, "implementations", "translations.xml")));
+    setWarnAboutMissingMessages(false);
   }
 
   private Parameters buildExpansionProfile() {
@@ -216,11 +215,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   @Override
   public IParser newXmlParser() {
     return new XmlParser();
-  }
-
-  @Override
-  public INarrativeGenerator getNarrativeGenerator(String prefix, String basePath) {
-    return new NarrativeGenerator(prefix, basePath, this);
   }
 
   @Override
@@ -477,15 +471,15 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   
   private ValidationResult verifyUcum(String code, String display) {
     String s = ucum.validate(code);
-    if (s != null)
+    if (s != null) {
       System.out.println("UCUM eror: "+s);
-//      return new ValidationResult(IssueSeverity.ERROR, s);
-//    else {
+      return new ValidationResult(IssueSeverity.ERROR, s);
+    } else {
       ConceptDefinitionComponent def = new ConceptDefinitionComponent();
       def.setCode(code);
       def.setDisplay(ucum.getCommonDisplay(code));
       return new ValidationResult(def);
-//    }
+    }
   }
 
   public void loadSnomed(String filename) throws Exception {

@@ -33,10 +33,11 @@ import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r5.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r5.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.r5.renderers.ValueSetRenderer;
+import org.hl7.fhir.r5.renderers.utils.RenderingContext;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities.ConceptStatus;
 import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
-import org.hl7.fhir.r5.utils.NarrativeGenerator;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.tools.publisher.SectionNumberer;
@@ -57,6 +58,8 @@ import org.w3c.dom.Node;
 public class ValueSetImporterV3 extends ValueSetImporterBase {
   private List<ValidationMessage> errors; 
   private PageProcessor page;
+  private RenderingContext rc;
+ 
   public class VSPack {
 
     public ValueSet vs;
@@ -64,10 +67,11 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 
   }
 
-  public ValueSetImporterV3(PageProcessor page, List<ValidationMessage> errors) {
+  public ValueSetImporterV3(PageProcessor page, List<ValidationMessage> errors, RenderingContext rc) {
     super();
     this.page = page;
     this.errors = errors;
+    this.rc = rc;
   }
 
   private static String nodeToString(Element node) throws Exception {
@@ -531,8 +535,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
       }
     }
 
-    NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-    gen.generate(vs, null);
+    ValueSetRenderer vsr = new ValueSetRenderer(rc);
+    vsr.render(vs);
     page.getVsValidator().validate(page.getValidationErrors(), "v3 value set as code system "+id, vs, false, true);
     return vs;
   }
@@ -642,8 +646,9 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
           }
       }
     }
-    NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-    gen.generate(vs, null);
+
+    ValueSetRenderer vsr = new ValueSetRenderer(rc);
+    vsr.render(vs);
     page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
     return vs;
   }

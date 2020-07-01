@@ -5,6 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -615,6 +618,14 @@ public class ExampleInspector implements IValidatorResourceFetcher {
   @Override
   public void setLocale(Locale locale) {
     // don't ned to do anything here 
+  }
+
+
+  @Override
+  public byte[] fetchRaw(String source) throws MalformedURLException, IOException {
+    URL url = new URL(source);
+    URLConnection c = url.openConnection();
+    return TextFile.streamToBytes(c.getInputStream());
   }
   
  }

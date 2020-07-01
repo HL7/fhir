@@ -879,3 +879,23 @@ v: {
   "error" : "The code system \"http://acme.org/lab/codes/tests\" is not known (encountered paired with code = \"60036\"); The code provided (http://acme.org/lab/codes/tests#60036) is not  valid in the value set All codes known to the system"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "ORGANISM"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Error sending HTTP Post/Put Payload: Connection to http://tx.fhir.org refused"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "CULTPOSNEG"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Error sending HTTP Post/Put Payload: Connection to http://tx.fhir.org refused"
+}
+-------------------------------------------------------------------------------------

@@ -107,3 +107,13 @@ v: {
   "error" : "The code system \"http://mdhhs.org/fhir/consent-signer-type\" is not known (encountered paired with code = \"SELF\"); The code provided (http://mdhhs.org/fhir/consent-signer-type#SELF) is not  valid in the value set ContractSignerTypeCodes"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://mdhhs.org/fhir/consent-signer-type",
+  "code" : "SELF"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Error sending HTTP Post/Put Payload: Connection to http://tx.fhir.org refused"
+}
+-------------------------------------------------------------------------------------

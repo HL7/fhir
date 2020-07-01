@@ -128,6 +128,7 @@ import org.hl7.fhir.r5.model.UriType;
 import org.hl7.fhir.r5.model.UrlType;
 import org.hl7.fhir.r5.model.UuidType;
 import org.hl7.fhir.r5.model.ValueSet;
+import org.hl7.fhir.r5.renderers.utils.RenderingContext;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
@@ -184,9 +185,10 @@ public class SpreadsheetParser {
   private String templateTitle;
   private List<String> errors = new ArrayList<String>();
   private PackageVersion packageInfo;
+  private RenderingContext rc;
   
 	public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, Definitions definitions, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, 
-	     ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, CanonicalResourceManager<ConceptMap> maps, boolean exceptionIfExcelNotNormalised, PackageVersion packageInfo) throws Exception {
+	     ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, CanonicalResourceManager<ConceptMap> maps, boolean exceptionIfExcelNotNormalised, PackageVersion packageInfo, RenderingContext rc) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, filename);
@@ -217,6 +219,7 @@ public class SpreadsheetParser {
 		this.codeSystems = definitions.getCodeSystems();
 		this.maps = maps;
 		this.packageInfo = packageInfo;
+		this.rc = rc;
 	}
 
   public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ConceptMap> maps, Map<String, WorkGroup> workgroups, boolean exceptionIfExcelNotNormalised) throws Exception {
@@ -2257,7 +2260,7 @@ public class SpreadsheetParser {
       }
       row++;
     }
-    ProfileGenerator gen = new ProfileGenerator(definitions, null, pkp, null, version, null, fpUsages, null, null);
+    ProfileGenerator gen = new ProfileGenerator(definitions, null, pkp, null, version, null, fpUsages, null, null, rc);
     ProfileUtilities utils = new ProfileUtilities(this.context, issues, pkp);
     gen.convertElements(exe, ex, null);
     ex.getDifferential().getElementFirstRep().getType().clear();
