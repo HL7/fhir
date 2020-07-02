@@ -18,8 +18,7 @@
   
   
   <TabRatio>895</TabRatio>
-  <ActiveSheet>13</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3094,6 +3093,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>85</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8444,9 +8444,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>3</TopRowVisible>
-   
+   <TopRowVisible>9</TopRowVisible>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -8803,12 +8801,12 @@
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">SubgroupAnalysis</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="Number">31</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
-    <Cell ss:StyleID="s180"/>
+    <Cell ss:StyleID="s180"><Data ss:Type="String">Subgroup analysis</Data></Cell>
+    <Cell ss:StyleID="s180"><Data ss:Type="String">Subgroup analysis</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s169"/>
@@ -9025,6 +9023,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TopRowVisible>6</TopRowVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
