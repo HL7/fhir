@@ -316,3 +316,127 @@ v: {
   "error" : "Unknown code system uri 'http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem'"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:ietf:bcp:13",
+  "code" : "text/cql"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "text/cql",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:ietf:bcp:13",
+  "code" : "text/fhirpath"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "text/fhirpath",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:ietf:bcp:13",
+  "code" : "text/x-fhir-query"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "text/x-fhir-query",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:ietf:bcp:13",
+  "code" : "text/cql.identifier"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "text/cql.identifier",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:13",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-concept-definition",
+          "valueString" : "Clinical Quality Language"
+        }],
+        "code" : "text/cql",
+        "display" : "CQL"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-concept-definition",
+          "valueString" : "FHIRPath"
+        }],
+        "code" : "text/fhirpath",
+        "display" : "FHIRPath"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-concept-definition",
+          "valueString" : "FHIR's RESTful query syntax - typically independedent of base URL"
+        }],
+        "code" : "text/x-fhir-query",
+        "display" : "FHIR Query"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-concept-definition",
+          "valueString" : "A Clinical Quality Language identifier, typically the name of a top-level definition within a library"
+        }],
+        "code" : "text/cql.identifier",
+        "display" : "CQL Identifier"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:74fc38f6-0dec-46e3-acea-539ad4b2ca21",
+    "timestamp" : "2020-07-02T12:09:31.693Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "includeDesignations",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    }],
+    "contains" : [{
+      "system" : "urn:ietf:bcp:13",
+      "code" : "text/cql",
+      "display" : "CQL"
+    },
+    {
+      "system" : "urn:ietf:bcp:13",
+      "code" : "text/fhirpath",
+      "display" : "FHIRPath"
+    },
+    {
+      "system" : "urn:ietf:bcp:13",
+      "code" : "text/x-fhir-query",
+      "display" : "FHIR Query"
+    },
+    {
+      "system" : "urn:ietf:bcp:13",
+      "code" : "text/cql.identifier",
+      "display" : "CQL Identifier"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
