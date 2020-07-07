@@ -29,9 +29,9 @@
     <display value="P. van de Heuvel"/>
   </subject>
   <dateTime value="2018-12-24"/>
-  <organization>
+  <controller>
     <reference value="Organization/2.16.840.1.113883.19.5"/>
-  </organization>
+  </controller>
   <!-- the text terms of the consent in lawyer speak -->
   <sourceAttachment>
     <title value="The terms of the consent in lawyer speak."/>

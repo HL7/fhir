@@ -28,9 +28,9 @@
     <display value="P. van de Heuvel"/>
   </subject>
   <dateTime value="2018-12-28"/>
-  <organization>
+  <controller>
     <reference value="Organization/f001"/>
-  </organization>
+  </controller>
   <sourceAttachment>
     <title value="The terms of the consent in lawyer speak."/>
     <!-- likely use url pointer to common text -->
