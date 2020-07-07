@@ -30,9 +30,9 @@
     <display value="Peter James Chalmers"/>
   </subject>
   <dateTime value="2018-12-28"/>
-  <organization>
+  <controller>
     <reference value="Organization/f001"/>
-  </organization>
+  </controller>
   <!-- nothing is approved unless the patient says it is -->
   <policyRule>
     <coding>

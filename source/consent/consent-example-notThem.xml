@@ -31,9 +31,9 @@
     <display value="Eve Everywoman"/>
   </subject>
   <dateTime value="2018-12-24"/>
-  <organization>
+  <controller>
     <reference value="Organization/f001"/>
-  </organization>
+  </controller>
   <!-- the text terms of the consent in lawyer speak -->
   <sourceAttachment>
     <title value="The terms of the consent in lawyer speak."/>

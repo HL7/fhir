@@ -50,10 +50,10 @@
       making the decision. note: it's not always a related person -->
     <reference value="RelatedPerson/peter"/>
   </performer>
-  <organization>
+  <controller>
     <!-- The organization running the Authentication server -->
     <reference value="Organization/f001"/>
-  </organization>
+  </controller>
   <!-- there's no source record for a Smart on FHIR consent 
     smart on fhir requires a base opt-in policy -->
   <policyRule>
