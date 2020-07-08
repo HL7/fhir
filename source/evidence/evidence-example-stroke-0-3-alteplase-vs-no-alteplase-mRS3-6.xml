@@ -121,10 +121,10 @@
 		<quantity>
 			<value value="0.65"/>
 		</quantity>
+		<numberOfEvents value="1137"/>
 		<sampleSize>
 			<numberOfStudies value="6"/>
 			<numberOfParticipants value="1779"/>
-			<numeratorCount value="1137"/>
 		</sampleSize>
 		<attributeEstimate>
 			<description value="95% CI 0.54 to 0.80"/>
