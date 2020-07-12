@@ -28,9 +28,9 @@
   </subject>
   <dateTime value="2018-12-24"/>
   <!-- The example given is Organization wide -->
-  <organization>
+  <controller>
     <reference value="Organization/f201"/>
-  </organization>
+  </controller>
   <!-- the text terms of the consent in lawyer speak -->
   <sourceAttachment>
     <title value="The patient [grantor] declines to agree to the provider's [grantee's] consent directive form, which lists permissible collection, access, use, or disclosure activities, purposes of use, handling caveats, revocation policies, and consequences of not assenting."/>
