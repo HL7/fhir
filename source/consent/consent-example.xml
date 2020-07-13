@@ -30,9 +30,9 @@
     <display value="Peter James Chalmers"/>
   </subject>
   <dateTime value="2018-12-28"/>
-  <organization>
+  <controller>
     <reference value="Organization/f001"/>
-  </organization>
+  </controller>
   <!-- the terms of the consent as signed by the patient in ink -->
   <sourceAttachment>
     <title value="The terms of the consent in lawyer speak."/>

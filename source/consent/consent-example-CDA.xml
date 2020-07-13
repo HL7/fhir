@@ -30,9 +30,9 @@
     <!-- author is patient themselves, and they sign -->
   </performer>
   <!-- this consent relates to sharing data with a specific recipient -->
-  <organization>
+  <controller>
     <reference value="Organization/f001"/>
-  </organization>
+  </controller>
   <sourceReference>
     <!-- This Consent would be the machine usable version of a Contract resource where the original language and signatures are located -->
     <reference value="Contract/pcd-example-notAuthor"/>

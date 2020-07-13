@@ -102,10 +102,10 @@
 		<quantity>
 			<value value="0.026835741669"/>
 		</quantity>
+		<numberOfEvents value="91"/>
 		<sampleSize>
 			<numberOfStudies value="9"/>
 			<numberOfParticipants value="3391"/>
-			<numeratorCount value="91"/>
 		</sampleSize>
 	</statistic>
 </Evidence>
