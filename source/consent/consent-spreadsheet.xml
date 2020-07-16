@@ -1047,7 +1047,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Who is agreeing to the policy and rules</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Either the Grantor, which is the entity responsible for granting the rights listed in a Consent Directive or the Grantee, which is the entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s91"><Data ss:Type="String">who.actor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Commonly, the patient the consent pertains to is the consentor, but particularly for young and old people, it may be some other person - e.g. a legal guardian.  Where HealthCareService is listed, some services might not be appropriate based on the type of service and if they can be segmented as an independent or dependent individual entity that might not be eligible to be a grantee.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Commonly, the patient the consent pertains to is the consentor, but particularly for young and old people, it may be some other person - e.g. a legal guardian.  Where HealthCareService is listed, some services might not be appropriate based on the type of service and if they can be segmented as an independent or dependent individual entity that might not be eligible to be a grantee.&#10;&#10;A Consent without a listed performer may be used as a statement of preference by the subject and is not in force.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">CON-24 (Consenter ID) and CON-25 (Relationship to Subject)&#10;Note, CON-25 is depending on the type of resource being referenced (a reference to a Patient equates to a relationship of 1 (self), a RelatedPerson equates to 2 or 3 depending on RelatedPerson.relationship, etc)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Event.performer.actor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3591,9 +3591,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
