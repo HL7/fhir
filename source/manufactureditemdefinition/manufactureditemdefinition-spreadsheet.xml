@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>rik</LastAuthor>
+  <LastAuthor>Rik Smithies</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-11-23T22:07:44Z</LastSaved>
+  <LastSaved>2020-07-15T11:33:40Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -644,7 +644,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="62.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="18" ss:Width="27.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="59.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="21" ss:Width="56.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="21" ss:Width="215.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="69.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="53.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="77.0"/>
@@ -669,7 +669,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">To Do</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">RIM Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">v2 Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">??? Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">IDMP Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">UML</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Display Hint</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Committee Notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -689,7 +689,8 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s71"><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Manufactured Item</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="39">
     <Cell ss:StyleID="s72"><Data ss:Type="String">ManufacturedItemDefinition.identifier</Data></Cell>
@@ -706,6 +707,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Unique identifier</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="66">
     <Cell ss:StyleID="s64"><Data ss:Type="String">ManufacturedItemDefinition.manufacturedDoseForm</Data></Cell>
@@ -722,6 +724,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Dose form as manufactured and before any transformation into the pharmaceutical product</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Manufactured Item.Manufactured Dose Form</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s64"><Data ss:Type="String">ManufacturedItemDefinition.unitOfPresentation</Data></Cell>
@@ -738,6 +741,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The “real world” units in which the quantity of the manufactured item is described</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Manufactured Item.Unit of Presentation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s64"><Data ss:Type="String">ManufacturedItemDefinition.manufacturer</Data></Cell>
@@ -754,6 +758,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Manufacturer of the item (Note that this should be named "manufacturer" but it currently causes technical issues)</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Manufactured Item.Manufacturer / Establishment (Organisation)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57">
     <Cell ss:StyleID="s69"><Data ss:Type="String">ManufacturedItemDefinition.ingredient</Data></Cell>
@@ -770,6 +775,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The ingredients that make up this manufactured item</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Manufactured Item.Ingredient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s69"><Data ss:Type="String">ManufacturedItemDefinition.property</Data></Cell>
@@ -785,7 +791,8 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">General characteristics of this item</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s64"><Data ss:Type="String">475;50</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Manufactured Item.Physical Characteristics</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">475;50</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">ManufacturedItemDefinition.property.type</Data></Cell>
@@ -802,7 +809,8 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A code expressing the type of characteristic</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
+    <Cell ss:Index="21" ss:StyleID="s72"><Data ss:Type="String">Physical Characteristics, all attributes</Data></Cell>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33">
     <Cell ss:StyleID="s72"><Data ss:Type="String">ManufacturedItemDefinition.property.value[x]</Data></Cell>
@@ -819,7 +827,8 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A value for the characteristic</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
+    <Cell ss:Index="21" ss:StyleID="s72"><Data ss:Type="String">Physical Characteristics, attribute's value</Data></Cell>
+    <Cell ss:StyleID="s73"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -841,7 +850,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
