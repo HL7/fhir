@@ -4,7 +4,7 @@
   <LastAuthor>Rik Smithies</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-03-24T23:01:38Z</LastSaved>
+  <LastSaved>2020-07-15T21:35:03Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -615,7 +615,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -634,12 +633,11 @@
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Span="7" ss:StyleID="s68" ss:Width="125.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="14" ss:StyleID="s68" ss:Width="377.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="47.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="66.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="30.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="63.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="55.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="59.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="66.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="18" ss:StyleID="s68" ss:Width="30.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="63.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="55.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="236.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="46.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="56.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="81.0"/>
@@ -664,7 +662,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">To Do</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">RIM Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">v2 Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">??? Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">IDMP Mapping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">UML</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Display Hint</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Committee Notes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -690,7 +688,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance (and derived classes: Chemical, Polymer, Protein, Nucleic_Acid, Structurally_Diverse)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0;550</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -710,6 +708,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Identifier by which this substance is known</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Substance.Substance_Id</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="40" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.version</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -726,7 +725,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A business level identifier of the substance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="21" ss:StyleID="s64"><Data ss:Type="String">Medicinal Product.Header.Version Number</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s64"><Data ss:Type="String">Version.Version_Number</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -743,6 +742,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Status of substance within the catalogue e.g. approved</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.category</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -759,6 +759,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">High level categorization, e.g. polymer or nucleic acid, or food, chemical, biological</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">(The derived class type: Chemical, Polymer, Protein, Nucleic_Acid, Structurally_Diverse)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.domain</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -775,6 +776,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">If the substance applies to only human or veterinary use</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -791,6 +793,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Textual description of the substance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">Substance.Comment</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -813,7 +816,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance.Reference_Source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -833,6 +836,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Textual comment about this record of a substance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.manufacturer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -855,7 +859,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -881,7 +885,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -907,7 +911,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance.Moiety</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0;850</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -927,6 +931,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Role that the moiety is playing</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Moiety.Moiety_Role</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.moiety.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -943,6 +948,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Identifier by which this moiety substance is known</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Moiety.Moiety_Id</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.moiety.name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -959,6 +965,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Textual name for this moiety substance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Moiety.Moiety_Name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.moiety.stereochemistry</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -975,6 +982,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Stereochemistry type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Moiety.Stereochemistry</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.moiety.opticalActivity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -991,6 +999,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Optical activity type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Moiety.Optical_Activity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.moiety.molecularFormula</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1007,6 +1016,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Molecular formula for this moiety of this substance, typically using the Hill system</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Moiety.Molecular_Formula</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.moiety.amount[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1023,6 +1033,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Quantitative value for this moiety</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Moiety.Amount</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.moiety.amountType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1039,6 +1050,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The measurement type of the quantitative value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Amount.Amount_Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceDefinition.property</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1061,7 +1073,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance.Property</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">442;850</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1081,6 +1093,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A category for this property, e.g. Physical, Chemical, Enzymatic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Property.Property_Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.property.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1097,6 +1110,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Property type e.g. viscosity, pH, isoelectric point</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Property.Property_Name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="34">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.property.parameters</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1113,6 +1127,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Parameters that were used in the measurement of a property (e.g. for viscosity: measured at 20C with a pH of 7.1)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Property.Property_Parameters</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.property.definingSubstance[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1129,6 +1144,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A substance upon which a defining property depends (e.g. for solubility: in water, in alcohol)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Property.Substance_Id, Property.Substance_Name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.property.amount[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1145,6 +1161,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Quantitative value for this property</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Property.Amount</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.property.referenceRange</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1161,6 +1178,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Range of typical values</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Amount.Reference_Range</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.property.source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1183,7 +1201,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Specified_Substance_Group_1.Characteristic_Attribute.Reference_Source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1209,7 +1227,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference_Information</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1235,7 +1253,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance.Structure</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">350;540</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1255,6 +1273,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Stereochemistry type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Structure.Stereochemistry</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.opticalActivity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1271,6 +1290,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Optical activity type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Structure.Optical_Activity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.molecularFormula</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1287,6 +1307,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Molecular formula of this substance, typically using the Hill system</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Structure.Molecular_Formula</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="26">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.molecularFormulaByMoiety</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1303,6 +1324,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Specified per moiety according to the Hill system, i.e. first C, then H, then alphabetical, each moiety separated by a dot</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Structure.Molecular_Formula_By_Moiety</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceDefinition.structure.isotope</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1325,7 +1347,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Structure.Isotope</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">645;688</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1345,6 +1367,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Substance identifier for each non-natural or radioisotope</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Isotope.Nuclide_Id</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.isotope.name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1361,6 +1384,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Substance name for each non-natural or radioisotope</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Isotope.Nuclide_Name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.isotope.substitution</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1377,6 +1401,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The type of isotopic substitution present in a single substance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Isotope.Substitution_Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.isotope.halfLife</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1393,6 +1418,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Half life - for a non-natural nuclide</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Isotope.Nuclide_Half_Life</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceDefinition.structure.isotope.molecularWeight</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1415,7 +1441,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Isotope.Molecular_Weight</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">389;695</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1435,6 +1461,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The method by which the molecular weight was determined</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Molecular_Weight.Molecular_Weight_Method</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.isotope.molecularWeight.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1451,6 +1478,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Type of molecular weight such as exact, average (also known as. number average), weight average</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Molecular_Weight.Molecular_Weight_Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.isotope.molecularWeight.amount</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1467,6 +1495,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Molecular_Weight.Amount</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceDefinition.structure.molecularWeight</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1489,7 +1518,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Structure.Molecular_Weight</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1515,7 +1544,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1541,7 +1570,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Structure.Reference_Source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1567,7 +1596,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Structure.Structural_Representation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">690;580</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1587,6 +1616,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The type of structure (e.g. Full, Partial, Representative)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Structural_Representation.Structural_Representation_Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.representation.representation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1603,6 +1633,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The structural representation as text string in a standard format e.g. InChI, SMILES, MOLFILE, CDX, SDF, PDB, mmCIF</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Structural_Representation.Structural_Representation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.representation.format</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1619,6 +1650,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The format of the representation e.g. InChI, SMILES, MOLFILE, CDX, SDF, PDB, mmCIF</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.structure.representation.attachment</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1635,6 +1667,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">An attached file with the structural representation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Structural_Representation.Structural_Representation_Attachment</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceDefinition.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1657,7 +1690,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance.Substance_Code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">212;850</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1677,6 +1710,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The specific code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Code.Code, Substance_Code.Code_System, Substance_Code.Code_System_Id</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.code.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1693,6 +1727,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Status of the code assignment, for example 'provisional', 'approved'</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Code.Code_System_Status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.code.statusDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1709,6 +1744,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The date at which the code status is changed as part of the terminology maintenance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Code.Code_Change_Date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.code.note</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1725,6 +1761,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Any comment can be provided in this field, if necessary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Code.Comment</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.code.source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1747,7 +1784,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance_Code.Reference_Source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1773,7 +1810,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance.Substance_Name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">350;350</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1793,6 +1830,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The actual name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Name.Substance_Name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.name.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1809,6 +1847,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Name type, for example 'systematic',  'scientific, 'brand'</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Name.Substance_Name_Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.name.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1825,6 +1864,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The status of the name, for example 'current', 'proposed'</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.name.preferred</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1841,6 +1881,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">If this is the preferred name for this substance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.name.language</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1857,6 +1898,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Human language that the name is written in</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Name.Language</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.name.domain</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1873,6 +1915,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The use context of this name for example if there is a different name a drug active ingredient as opposed to a food colour additive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Name.Substance_Name_Domain</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.name.jurisdiction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1889,6 +1932,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The jurisdiction where this name applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Name.Jurisdiction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.name.synonym</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1905,6 +1949,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A synonym of this particular name, by which the substance is also known</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.name.translation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1921,6 +1966,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A translation for this name into another human language</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="18">
     <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceDefinition.name.official</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1943,7 +1989,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance_Name.Official_Name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">650;470</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1963,6 +2009,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Which authority uses this official name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Official_Name.Official_Name_Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.name.official.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1979,6 +2026,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The status of the official name, for example 'provisional', 'approved'</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Official_Name.Official_Name_Status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.name.official.date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1995,6 +2043,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Date of official name change</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Official_Name.Official_Name_Status_Change_Date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
     <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceDefinition.name.source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2017,7 +2066,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance_Name.Reference_Source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2043,7 +2092,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance.Structure.Molecular_Weight</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2069,7 +2118,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance.Reference_Information.Relationship</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0;350</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2089,6 +2138,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A pointer to another substance, as a resource or just a representational code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Relationship.Related_Substance_Id</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.relationship.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2105,6 +2155,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">For example "salt to parent", "active moiety", "starting material", "polymorph"</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Relationship.Relationship_Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.relationship.isDefining</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2121,6 +2172,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">For example where an enzyme strongly bonds with a particular substance, this is a defining relationship for that enzyme, out of several possible substance relationships</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance_Relationship.Is_Defining</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="32" ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.relationship.amount[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2143,7 +2195,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance_Relationship.Amount.Quantity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2169,7 +2221,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance_Relationship.Amount.Quantity.High_Limit</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2195,7 +2247,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance_Relationship.Amount_Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2221,7 +2273,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Substance_Relationship.Reference_Source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2231,24 +2283,28 @@
     <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">Reference(SubstanceNucleicAcid)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Data items specific to nucleic acids</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">(used to add specifics of Nucleic Acids to Substances)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.polymer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">Reference(SubstancePolymer)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Data items specific to polymers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">(used to  add specifics of Polymers to Substances)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.protein</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">Reference(SubstanceProtein)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Data items specific to proteins</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">(used to  add specifics of Proteins to Substances)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceDefinition.sourceMaterial</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">Reference(SubstanceSourceMaterial)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Material or taxonomic/anatomical source for the substance </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s71"><Data ss:Type="String">Substance.Source_Material</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -2263,14 +2319,14 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Zoom>90</Zoom>
+   <Zoom>80</Zoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>77</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

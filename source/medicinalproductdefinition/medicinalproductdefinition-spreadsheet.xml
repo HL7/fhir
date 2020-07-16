@@ -803,6 +803,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The date at which the given status became applicable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1026,6 +1027,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The ingredients of this medicinal product - when not specified elsewhere. This is only needed if the ingredients are not specified by the pharmaceuticalProduct or packagedMedicinalProduct references above. In cases where those levels of detail are not used, the ingredients may be specified directly here</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a (a direct link from Medicinal Product to Ingredient, for cases where less detail is warranted)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.attachedDocument</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1076,7 +1078,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A product specific contact, person (in a role), or an organization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">n/a (requirement to cover a product specific contact)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">800;250</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
@@ -1487,7 +1489,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
