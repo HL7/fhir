@@ -179,7 +179,7 @@
 		<description value="Moderate certainty due to risk of bias"/>
 		<rating>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+				<system value="http://hl7.org/fhir/ValueSet/evidence-quality"/>
 				<code value="moderate"/>
 				<display value="Moderate"/>
 			</coding>
