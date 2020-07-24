@@ -122,7 +122,7 @@
 	<certainty>
 		<rating>
 			<coding>
-				<system value="http://hl7.org/fhir/ValueSet/evidence-quality"/>
+				<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
 				<code value="high"/>
 				<display value="High quality"/>
 			</coding>
