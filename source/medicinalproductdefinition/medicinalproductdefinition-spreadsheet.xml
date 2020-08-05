@@ -16,7 +16,7 @@
   
   
   <TabRatio>709</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1502,7 +1502,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2011,7 +2010,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="26" ss:StyleID="s90" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="28" ss:StyleID="s90" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s90" ss:Width="113.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s90" ss:Width="61.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s90" ss:Width="70.0"/>
@@ -2082,6 +2081,13 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.characteristic</Data></Cell>
     <Cell ss:StyleID="s100"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s101"><Data ss:Type="String">ingredient</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">MedicinalProductDefinition.ingredient</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s101"><Data ss:Type="String">contact</Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">reference</Data></Cell>
@@ -2094,6 +2100,13 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">MedicinalProductDefinition.masterFile</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s100"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2197,6 +2210,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
