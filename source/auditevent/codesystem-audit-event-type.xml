@@ -2,19 +2,38 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
-  <version value="20150326"/>
+  <version value="20200804"/>
   <name value="AuditEventID"/>
   <title value="Audit Event ID"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2015-03-26T00:00:00+11:00"/>
-  <description value="Event Types for Audit Events - defined by DICOM with some FHIR specific additions."/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
+  <date value="2020-08-04T00:00:00+11:00"/>
+  <description value="Event Types for Audit Events - with HL7 and FHIR specific additions."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="rest"/>
     <display value="RESTful Operation"/>
     <definition value="Audit Event: Execution of a RESTful operation as defined by FHIR."/>
+  </concept>
+  <concept>
+    <code value="hl7-v2"/>
+    <display value="HL7 v2 Operation"/>
+    <definition value="Audit Event: Execution of an HL7 v2 operation."/>
+  </concept>
+  <concept>
+    <code value="hl7-v3"/>
+    <display value="HL7 v3 Operation"/>
+    <definition value="Audit Event: Execution of an HL7 v3 operation as defined by FHIR."/>
+  </concept>
+  <concept>
+    <code value="document"/>
+    <display value="A Document Operation"/>
+    <definition value="Audit Event: Execution of an operation on a Document (e.g. XDS, CDA, etc)."/>
+  </concept>
+  <concept>
+    <code value="object"/>
+    <display value="An Operation on other Objects"/>
+    <definition value="Audit Event: Execution of an operation on an Object. For use when a more specific event type is not available."/>
   </concept>
 </CodeSystem>

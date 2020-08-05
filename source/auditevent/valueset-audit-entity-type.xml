@@ -15,9 +15,15 @@
     </telecom> 
   </contact> 
   <description value="Code for the entity type involved in the audit event."/> 
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/> 
   <immutable value="true"/> 
 
   <compose> 
+    <include>
+	<!-- DICOM codes for AuditEvent entity type -->
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_404.html" />
+    </include>
     <include> 
       <system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/> 
     </include> 

@@ -7,7 +7,8 @@
   <status value="draft"/>
   <date value="2013-06-13"/>
   <publisher value="HL7"/>
-  <description value="The sensitivity of an object in a secuity event resource. May also encompass confidentiality and rudimentary access control"/>
+  <description value="The sensitivity of an object in a security event resource. May also encompass confidentiality and rudimentary access control"/>
+    <copyright value="© 2020 NEMA"/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>

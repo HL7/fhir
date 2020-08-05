@@ -26,27 +26,27 @@
   <content value="complete"/>
   <concept>
     <code value="authserver"/>
-    <display value="authorization server"/>
+    <display value="Authorization Server"/>
     <definition value="An entity providing authorization services to enable the electronic sharing of health-related information based on resource owner's preapproved permissions. For example, an UMA Authorization Server[UMA]"/>
   </concept>
   <concept>
     <code value="datacollector"/>
-    <display value="data collector"/>
+    <display value="Data Collector"/>
     <definition value="An entity that collects information over which the data subject may have certain rights under policy or law to control that information's management and distribution by data collectors, including the right to access, retrieve, distribute, or delete that information. "/>
   </concept>
   <concept>
     <code value="dataprocessor"/>
-    <display value="data processor"/>
+    <display value="Data Processor"/>
     <definition value="An entity that processes collected information over which the data subject may have certain rights under policy or law to control that information's management and distribution by data processors, including the right to access, retrieve, distribute, or delete that information."/>
   </concept>
   <concept>
     <code value="datasubject"/>
-    <display value="data subject"/>
+    <display value="Data Subject"/>
     <definition value="A person whose personal information is collected or processed, and who may have certain rights under policy or law to control that information's management and distribution by data collectors or processors, including the right to access, retrieve, distribute, or delete that information."/>
   </concept>
   <concept>
     <code value="humanuser"/>
-    <display value="human user"/>
+    <display value="Human User"/>
     <definition value="The human user that has participated."/>
   </concept>
 </CodeSystem>
