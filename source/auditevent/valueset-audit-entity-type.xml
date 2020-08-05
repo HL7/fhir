@@ -1,8 +1,11 @@
 ﻿<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
   <name value="AuditEventEntityType"/> 
-  <status value="draft"/> 
+  <status value="active"/> 
   <experimental value="false"/> 
-  <date value="2017-03-10T09:44:54+11:00"/> 
+  <date value="2020-08-04"/> 
   <publisher value="HL7 (FHIR Project)"/> 
   <contact> 
     <telecom> 

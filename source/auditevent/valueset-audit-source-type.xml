@@ -10,7 +10,7 @@
   <title value="Audit Event Source Type"/>
   <status value="active"/>
   <date value="2010-08-26"/>
-  <publisher value="NEMA/DICOM"/>
+  <publisher value="HL7 (FHIR Project)"/> 
   <description value="The type of process where the audit event originated from."/>
   <compose>
     <include>
