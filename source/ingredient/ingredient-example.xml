@@ -10,20 +10,6 @@
 	<manufacturer>
 		<reference value="Organization/example"/>
 	</manufacturer>
-	<specifiedSubstance>
-		<codeCodeableConcept>
-			<coding>
-				<system value="http://ema.europa.eu/example/specifiedSubstance"/>
-				<code value="equixabanCompanyequixaban1"/>
-			</coding>
-		</codeCodeableConcept>
-		<group>
-			<coding>
-				<system value="http://ema.europa.eu/example/specifiedSubstanceGroup"/>
-				<code value="2"/>
-			</coding>
-		</group>
-	</specifiedSubstance>
 	<substance>
 		<codeCodeableConcept>
 			<coding>
@@ -44,4 +30,18 @@
 			</presentation>
 		</strength>
 	</substance>
+	<specifiedSubstance>
+		<codeCodeableConcept>
+			<coding>
+				<system value="http://ema.europa.eu/example/specifiedSubstance"/>
+				<code value="equixabanCompanyequixaban1"/>
+			</coding>
+		</codeCodeableConcept>
+		<group>
+			<coding>
+				<system value="http://ema.europa.eu/example/specifiedSubstanceGroup"/>
+				<code value="2"/>
+			</coding>
+		</group>
+	</specifiedSubstance>
 </Ingredient>
