@@ -7,8 +7,6 @@
 			These can include packaged medications, devices and other items such as food, biologicals, raw materials, medical fluids, gases etc.
 			This resource represents the whole package of items, and all the packaging within, rather than the individual items themselves. 
 			In some cases a "product" exists at a logically higher level, which has a variety of available packages associated with it, typically of different sizes.
-			This is a definitional resource, and repesents a type of packaged item, rather than any particular one.
-			An actual package as dispensed, for instance, could be related to this by using MedicationDispense.medication, with a value that matches the identifier of a PackagedProductDefinition.
 		</p>
 	</div>
 </div>
