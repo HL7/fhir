@@ -16,7 +16,8 @@
   
   
   <TabRatio>709</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -2210,7 +2211,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3388,7 +3388,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="136.0"/>
    <Column ss:StyleID="s124" ss:Width="29.0"/>
    <Column ss:StyleID="s124" ss:Width="347.0"/>
-   <Column ss:StyleID="s124" ss:Width="61.0"/>
+   <Column ss:StyleID="s124" ss:Width="167.0"/>
    <Column ss:Span="1" ss:StyleID="s124" ss:Width="219.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="7" ss:StyleID="s124" ss:Width="167.0"/>
    <Row ss:AutoFitHeight="0">
@@ -3401,29 +3401,29 @@
     <Cell ss:StyleID="s81"><Data ss:Type="String">In Book</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Include this example in the book form?</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">General Example</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">General example</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">example</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">medicinalproductdefinition-example.xml</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">Basic Example Equilidem25</Data></Cell>
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">Basic details of a product, only using MedicinalProductDefinition and no other resources</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">equilidem-basics</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">medicinalproductdefinition-example-equilidem-basics.xml</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s131"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">Drug with co-packaged device</Data></Cell>
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">A liquid that comes with a syringe in the pack, basic details only</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">drug-and-device</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">medicinalproductdefinition-example-co-packaged-liquid-and-syringe.xml</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s131"/>
    </Row>
@@ -3750,6 +3750,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
