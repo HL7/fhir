@@ -11242,7 +11242,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
 
   private boolean hasInactiveCodes(CodeSystem cs) {
     for (ConceptDefinitionComponent cc : cs.getConcept()) {
-      if (CodeSystemUtilities.isDeprecated(cs, cc))
+      if (CodeSystemUtilities.isDeprecated(cs, cc, false))
         return true;
     }
     return false;

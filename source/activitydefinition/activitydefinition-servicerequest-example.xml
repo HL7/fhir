@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id value="heart-valve-replacement"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-    </div>
-  </text>
   <status value="draft"/>
   <description value="Heart valve replacement"/>
   <useContext>
