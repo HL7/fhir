@@ -51,13 +51,15 @@
 
 <a name="expression-language"> </a>
 <h5>Expression Language</h5>
-<p>The <i>language</i> element identifies the expression language used to represent the logic. The <a href="codesystem-expression-language.html">ExpressionLanguage</a> code system defines support for FHIRPath, Clinical Quality Language, and FHIR Query (FHIR's RESTful query syntax), but support for other languages can also be provided.</p>
+<p>The <i>language</i> element identifies the expression language used to represent the logic. The <a href="valueset-expression-language.html">ExpressionLanguage</a> value set defines support for FHIRPath, Clinical Quality Language, and FHIR Query (FHIR's RESTful query syntax), but support for other languages can also be provided.</p>
 
 <p>The language element is specified using the Media Type of the language. For inline expressions using FHIRPath and Clinical Quality Language, the media type SHALL be specified as follows:</p>
 
 <ul>
 	<li>FHIRPath - <code>text/fhirpath</code></li>
+	<li>FHIR Query - <code>text/x-fhir-query</code></li>
 	<li>Clinical Quality Language - <code>text/cql</code></li>
+	<li>Clinical Quality Language Identifier - <code>text/cql.identifier</code></li>
 </ul>
 
 <p>For example, the following fragment illustrates the use of CQL to define a dynamicValue as part of an activity definition:</p>
@@ -92,7 +94,7 @@
 <pre><code>&lt;dynamicValue&gt;
   &lt;path value=&quot;reasonCode&quot;/&gt;
   &lt;expression&gt;
-    &lt;language value=&quot;text/cql&quot;/&gt;
+    &lt;language value=&quot;text/cql.identifier&quot;/&gt;
     &lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
   &lt;/expression&gt;
 &lt;/dynamicValue&gt;
@@ -180,7 +182,7 @@
 <h4>Clinical Quality Language</h4>
 <p><a href="http://cql.hl7.org/">Clinical Quality Language (CQL)</a> defines a high-level clinically-oriented syntax to enable formal representation of clinical logic. It is defined as a general purpose specification available here:</p>
 
-<p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1.3</a>.</p>
+<p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1.4</a>.</p>
 
 <p>CQL is used to describe the logic used by knowledge artifacts such as clinical decision support rules, quality measure logic, and conditions and actions within order sets and protocols. CQL expressions generally provide a means of computing new information from existing data.</p>
 

@@ -746,6 +746,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+tdHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("narrheader"))
         src = s1+narrHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("statheader"))
+        src = s1+statHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("ordistheader"))
+        src = s1+ordistHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("profilesheader"))
         src = s1+profilesHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("refheader"))
@@ -4450,6 +4454,28 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
+  private String statHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Statistic", "statistic.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "statistic-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "statistic-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "statistic-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+  
+  private String ordistHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("OrderedDistribution", "ordereddistribution.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "ordereddistribution-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "ordereddistribution-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "ordereddistribution-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+  
   private String profilesHeader(String mode) {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
@@ -5270,7 +5296,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+dictForDt(com[1])+s3;
       else if (Utilities.existsInList(com[0], "pageheader", "dtheader", "atheader", "mdtheader", "edheader", "mmheader", "drheader","elheader", "belheader", "extheader", "resourcesheader", 
           "formatsheader", "narrheader", "refheader",  "extrasheader", "profilesheader", "txheader", "txheader0", "fmtheader", "igheader", "cmpheader", 
-          "atomheader", "dictheader", "ctheader", "adheader", "pdheader", "tdheader", "cdheader", "diheader", "ucheader", "rrheader"))
+          "atomheader", "dictheader", "ctheader", "adheader", "pdheader", "tdheader", "cdheader", "diheader", "statheader", "ordistheader", "ucheader", "rrheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+resHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
@@ -5678,7 +5704,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+dictForDt(com[1])+s3;
       else if (Utilities.existsInList(com[0], "pageheader", "dtheader", "atheader", "mdtheader", "edheader", "mmheader", "drheader","elheader", "belheader", "extheader", "resourcesheader", 
           "formatsheader", "narrheader", "refheader",  "extrasheader", "profilesheader", "txheader", "txheader0", "fmtheader", "igheader", "cmpheader", 
-          "atomheader", "dictheader", "ctheader", "adheader", "pdheader", "tdheader", "cdheader", "diheader", "ucheader", "rrheader"))
+          "atomheader", "dictheader", "ctheader", "adheader", "pdheader", "tdheader", "cdheader", "diheader",  "statheader", "ordistheader", "ucheader", "rrheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+s3;

@@ -44,9 +44,9 @@
 		<!-- author is patient themselves, and they sign -->
 	</performer>
 	<!-- this consent relates to sharing data with a specific recipient -->
-	<organization>
+	<controller>
 		<reference value="Organization/f001"/>
-	</organization>
+	</controller>
 	<!-- no source for this one - it is the signed master -->
 	<policyRule>
 		<coding>

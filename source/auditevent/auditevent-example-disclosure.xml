@@ -42,7 +42,7 @@
 		<display value="HIPAA disclosure"/>
 	</subtype>
 	<action value="R"/>
-	<severity value="Notice"/>
+	<severity value="notice"/>
 	<recorded value="2013-09-22T00:08:00Z"/>
 	<outcome>
 		<coding>

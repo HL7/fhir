@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir /home/loftwyr/FHIR/fhir/schema/fhir-single.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="consent-example-CDA"/>
   <!-- The patient opts in to sharing CDA documents from a specific author to a specific recipient for a limited period -->
   <identifier>
@@ -30,9 +30,9 @@
     <!-- author is patient themselves, and they sign -->
   </performer>
   <!-- this consent relates to sharing data with a specific recipient -->
-  <organization>
+  <controller>
     <reference value="Organization/f001"/>
-  </organization>
+  </controller>
   <sourceReference>
     <!-- This Consent would be the machine usable version of a Contract resource where the original language and signatures are located -->
     <reference value="Contract/pcd-example-notAuthor"/>
