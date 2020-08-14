@@ -9565,7 +9565,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     TerminologyClient client;
     try {
       client = new TerminologyClientR5(tsServer);
-      client.setTimeout(30000);
+      client.setTimeout(60000);
     } catch(Exception e) {
       System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());
       client = null;
@@ -11268,7 +11268,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
 
   private boolean hasInactiveCodes(CodeSystem cs) {
     for (ConceptDefinitionComponent cc : cs.getConcept()) {
-      if (CodeSystemUtilities.isDeprecated(cs, cc))
+      if (CodeSystemUtilities.isDeprecated(cs, cc, false))
         return true;
     }
     return false;
