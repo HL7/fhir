@@ -9565,7 +9565,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     TerminologyClient client;
     try {
       client = new TerminologyClientR5(tsServer);
-      client.setTimeout(30000);
+      client.setTimeout(60000);
     } catch(Exception e) {
       System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());
       client = null;
