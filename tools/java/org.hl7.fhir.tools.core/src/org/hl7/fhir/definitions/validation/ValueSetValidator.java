@@ -166,7 +166,7 @@ public class ValueSetValidator extends BaseValidator {
       
     if (rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", cs.hasUrl(), "A cod esystem must have a url")) {
       if (!cs.getId().startsWith("v2-")) 
-        rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", cs.hasCaseSensitiveElement() && cs.getCaseSensitive(), 
+        ruleHtml(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", cs.hasCaseSensitiveElement() && cs.getCaseSensitive(), 
           "Value set "+nameForErrors+" ("+cs.getName()+"): All value sets that define codes must mark them as case sensitive",
           "<a href=\""+cs.getUserString("path")+"\">Value set "+nameForErrors+" ("+cs.getName()+")</a>: All value sets that define codes must mark them as case sensitive");
       checkCodeCaseDuplicates(errors, nameForErrors, cs, codes, cs.getConcept());
@@ -207,7 +207,7 @@ public class ValueSetValidator extends BaseValidator {
     if (Utilities.noString(vs.getCopyright()) && !exemptFromCopyrightRule) {
       Set<String> sources = getListOfSources(vs);
       for (String s : sources) {
-        rule(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].copyright", !s.equals("http://snomed.info/sct") && !s.equals("http://loinc.org"), 
+        ruleHtml(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].copyright", !s.equals("http://snomed.info/sct") && !s.equals("http://loinc.org"), 
            "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement is required for any value set that includes Snomed or Loinc codes",
            "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: A copyright statement is required for any value set that includes Snomed or Loinc codes");
         warning(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].copyright", s.startsWith("http://hl7.org") || s.startsWith("http://terminology.hl7.org") || s.startsWith("urn:iso") || s.startsWith("urn:ietf") || s.startsWith("http://need.a.uri.org")

@@ -155,7 +155,7 @@
 		<description value="Very low certainty due to risk of bias, inconsistency, imprecision, and indirectness"/>
 		<rating>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+				<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
 				<code value="very-low"/>
 				<display value="Very low quality"/>
 			</coding>

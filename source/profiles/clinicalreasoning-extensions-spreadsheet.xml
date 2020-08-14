@@ -4077,7 +4077,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R1C23"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="32" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="35" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:StyleID="s84" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="120.0"/>
@@ -4596,6 +4596,33 @@
     <Cell ss:Index="14"><Data ss:Type="String">Surface this ECA Rule here</Data></Cell>
     <Cell><Data ss:Type="String">Specifies the URI of a CDS Hooks service that uses this PlanDefinition as its implementation</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">contactReference</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Reference(Person | Group | Device | Organization)</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Who or what the contact is</Data></Cell>
+    <Cell><Data ss:Type="String">A reference to a Person, Group, Device, or Organization that is the contact</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">contributionTime</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">When the contribution was made</Data></Cell>
+    <Cell><Data ss:Type="String">When the contribution was made by this contributor</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">contactAddress</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Address</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Contributor address</Data></Cell>
+    <Cell><Data ss:Type="String">The address of the contributor</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4612,7 +4639,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>28</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>

@@ -4,7 +4,7 @@
   <LastAuthor>Rik Smithies</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-03-31T22:06:18Z</LastSaved>
+  <LastSaved>2020-07-30T16:39:21Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -16,7 +16,8 @@
   
   
   <TabRatio>709</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -631,9 +632,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R46C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R47C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="46" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="47" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="317.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="32.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="24.0"/>
@@ -803,6 +804,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The date at which the given status became applicable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1026,6 +1028,24 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The ingredients of this medicinal product - when not specified elsewhere. This is only needed if the ingredients are not specified by the pharmaceuticalProduct or packagedMedicinalProduct references above. In cases where those levels of detail are not used, the ingredients may be specified directly here</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a (a direct link from Medicinal Product to Ingredient, for cases where less detail is warranted)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="37" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.impurity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Reference(SubstanceDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Any component of the drug product which is not the chemical entity defined as the drug substance or an excipient in the drug product. This includes process-related impurities and contaminants, product-related impurities including degradation products</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.attachedDocument</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1076,7 +1096,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">A product specific contact, person (in a role), or an organization</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">n/a (requirement to cover a product specific contact)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">800;250</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
@@ -1323,7 +1343,7 @@
     <Cell ss:Index="24"><Data ss:Type="String">Wanted to make this a choice of identifier or reference to MedicinalProductDefinition but that cannot be 0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.crossReference.product[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.crossReference.product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1483,7 +1503,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1496,7 +1515,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R46C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R47C24">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
@@ -1992,7 +2011,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="26" ss:StyleID="s90" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="28" ss:StyleID="s90" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s90" ss:Width="113.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s90" ss:Width="61.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s90" ss:Width="70.0"/>
@@ -2063,6 +2082,13 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProductDefinition.characteristic</Data></Cell>
     <Cell ss:StyleID="s100"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s101"><Data ss:Type="String">ingredient</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">MedicinalProductDefinition.ingredient</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s101"><Data ss:Type="String">contact</Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">reference</Data></Cell>
@@ -2075,6 +2101,13 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">MedicinalProductDefinition.masterFile</Data></Cell>
+    <Cell ss:StyleID="s100"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s100"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3355,7 +3388,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="136.0"/>
    <Column ss:StyleID="s124" ss:Width="29.0"/>
    <Column ss:StyleID="s124" ss:Width="347.0"/>
-   <Column ss:StyleID="s124" ss:Width="61.0"/>
+   <Column ss:StyleID="s124" ss:Width="167.0"/>
    <Column ss:Span="1" ss:StyleID="s124" ss:Width="219.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="7" ss:StyleID="s124" ss:Width="167.0"/>
    <Row ss:AutoFitHeight="0">
@@ -3368,29 +3401,29 @@
     <Cell ss:StyleID="s81"><Data ss:Type="String">In Book</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Include this example in the book form?</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">General Example</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">General example</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">example</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">medicinalproductdefinition-example.xml</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">Basic Example Equilidem25</Data></Cell>
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">Basic details of a product, only using MedicinalProductDefinition and no other resources</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">equilidem-basics</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">medicinalproductdefinition-example-equilidem-basics.xml</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s131"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">Drug with co-packaged device</Data></Cell>
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">A liquid that comes with a syringe in the pack, basic details only</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">drug-and-device</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">medicinalproductdefinition-example-co-packaged-liquid-and-syringe.xml</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s131"/>
    </Row>
@@ -3717,6 +3750,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

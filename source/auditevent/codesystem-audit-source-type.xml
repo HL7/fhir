@@ -9,6 +9,7 @@
   <experimental value="false"/>
   <date value="2010-08-26T00:00:00+10:00"/>
   <description value="The type of process where the audit event originated from."/>
+    <copyright value="© 2020 NEMA"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

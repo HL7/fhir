@@ -14,6 +14,11 @@
 		</coding>
 		<text value="Twinrix (HepA/HepB)"/>
 	</vaccineCode>
+	<manufacturer>
+		<reference value="Organization/hl7"/>
+	</manufacturer>
+	<lotNumber value="PT123F"/>
+	<expirationDate value="2018-12-15"/>
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
@@ -25,11 +30,6 @@
 	<location>
 		<reference value="Location/1"/>
 	</location>
-	<manufacturer>
-		<reference value="Organization/hl7"/>
-	</manufacturer>
-	<lotNumber value="PT123F"/>
-	<expirationDate value="2018-12-15"/>
 	<site>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActSite"/>

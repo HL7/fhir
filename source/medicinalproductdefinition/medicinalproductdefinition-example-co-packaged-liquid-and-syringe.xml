@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+	<id value="drug-and-device"/>
+	<contained>
+		<PackagedProductDefinition>
+			<id value="package"/>
+			<package>
+				<!-- can be more details of the package here, but not necessary for this use case -->
+				<containedItem>
+					<item>
+						<reference value="#liquidItem"/>
+					</item>
+					<amountQuantity>
+						<value value="20"/>
+						<unit value="ml"/>
+					</amountQuantity>
+				</containedItem>
+				<containedItem>
+					<item>
+						<reference value="#syringeDevice"/>
+					</item>
+				</containedItem>
+			</package>
+		</PackagedProductDefinition>
+	</contained>
+	<contained>
+		<DeviceDefinition>
+			<id value="syringeDevice"/>
+			<type>
+				<text value="syringe"/>
+			</type>
+			<!-- Schema appears to be broken, deviceName is not present in XSD -->
+			<!--deviceName>
+				<name value="WonderSyringe"/>
+				<type value="manufacturer-name"/>
+			</deviceName-->
+		</DeviceDefinition>
+	</contained>
+	<contained>
+		<ManufacturedItemDefinition>
+			<id value="liquidItem"/>
+			<manufacturedDoseForm>
+				<coding>
+					<system value="http://example.org.uk/fhir/doseform"/>
+					<code value="solution for injection"/>
+				</coding>
+			</manufacturedDoseForm>
+			<ingredient>
+				<reference value="#ingredient"/>
+			</ingredient>
+		</ManufacturedItemDefinition>
+	</contained>
+	<contained>
+		<Ingredient>
+			<id value="ingredient"/>
+			<role>
+				<coding>
+					<system value="http://example.org.uk/fhir/ingredientRole"/>
+					<code value="active"/>
+				</coding>
+			</role>
+			<substance>
+				<codeCodeableConcept>
+					<coding>
+						<system value="http://example.org.uk/fhir/ingredients"/> <!-- SNOMED perhaps -->
+						<code value="12345"/>
+						<display value="Wondersubstance BP"/>
+					</coding>
+				</codeCodeableConcept>
+				<!-- can be strength here but not necessary for this use case -->
+			</substance>
+		</Ingredient>
+	</contained>
+	<identifier>
+		<system value="http://example.org.uk/fhir/product"/>
+		<value value="Wonderdrug+"/>
+	</identifier>
+	<combinedPharmaceuticalDoseForm>
+		<coding>
+			<system value="http://example.org.uk/fhir/doseform"/>
+			<code value="solution for injection"/>
+		</coding>
+	</combinedPharmaceuticalDoseForm>
+	<packagedMedicinalProduct>
+		<reference value="#package"/>
+	</packagedMedicinalProduct>
+	<name>
+		<productName value="Wonderdrug+ liquid 20ml"/>
+	</name>
+</MedicinalProductDefinition>
