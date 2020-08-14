@@ -46,6 +46,17 @@
 			The client is not expected to take any special action in receipt of a Heartbeat notification beyond the channel-specific requirement for receiving an event notification.
 		</p>
 
+    <a name="query-status"/>
+    <h3>Query Status</h3>
+    <p>
+      Clients can ask a server at any time for the current status of a Subscription via the <a href="subscription-operation-status.html">$status operation</a>.
+    </p>
+		<ul>
+			<li>
+				<a href="notification-query-status.html">Example query-status notification</a>
+			</li>
+		</ul>
+
 		<a name="subscription-status"/>
 		<h3>Subscription Status</h3>
 		<ul>
@@ -56,22 +67,22 @@
 				<ul>
 					<li>
 						<p>
-							In the case of a handshake, this count will always be zero (0).
+							In the case of a <code>handshake</code> notification, this count will be zero (0) if present.
 						</p>
 					</li>
 					<li>
 						<p>
-							In the case of a heartbeat notification, this count will be the same as the last notification and will not be incremented due to the heartbeat notification.
+							In the case of a <code>heartbeat</code> or <code>query-status</code> notifications, this count will be the same as the last notification and will not be incremented due to the current notification.
 						</p>
 					</li>
 					<li>
 						<p>
-							In the case of event notifications, the event count will be incremented by the number of notifications contained within this bundle (often a single notification, though servers may choose to batch notifications within a short time interval).
+							In the case of an <code>event</code> notifications, the event count will be incremented by the number of notifications contained within this bundle (often a single notification, though servers may choose to batch notifications within a short time interval).
 						</p>
 					</li>
 					<li>
 						<p>
-							In the case of an event notification that cannot be delivered (e.g., because a client endpoint is offline), the server MAY retry delivery but does not increment the event count; the count represents unique events, not unique delivery attempts.
+							In the case of an event notification that cannot be delivered (e.g., because a client endpoint is offline), the server MAY retry delivery but does not increment the event count for each retry; the count represents unique events, not unique delivery attempts.
 						</p>
 					</li>
 				</ul>
@@ -101,7 +112,7 @@
 					</li>
 				</ul>
 				<p>
-					For handshake and heartbeat notifications, <code>eventsInNotification</code> will be zero if present.
+					For notifications of types other than <code>event</code>, <code>eventsInNotification</code> will be zero (0) if present.
 				</p>
 			</li>
 		</ul>
@@ -109,12 +120,12 @@
 		<ul>
 			<li>
 				<p>
-					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.status">SubscriptionStatus.status</a> element represents the <a href="valueset-subscription-state.html">Subscription status values</a> at the time the notification is sent. Note that the status might change between the time the notification is sent and the time it is received/processed, and therefore this status recorded in the extension is not guaranteed to represent status at the time of receipt. The field is useful as a hint to inform the client if the server has encountered errors in notifications immediately preceding this notification.
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.status">SubscriptionStatus.status</a> element represents the <a href="valueset-subscription-state.html">Subscription status values</a> at the time the notification is <b>generated</b>. Note that the <code>status</code> MAY change between the time the notification is sent and the time it is received/processed, and therefore this status recorded in the notification is not guaranteed to represent status at the time of receipt. The field is useful as a hint to inform the client if the server has encountered errors in notifications immediately preceding this notification.
 				</p>
 			</li>
 			<li>
 				<p>
-					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.topic">SubscriptionStatus.topic</a> element references the SubscriptionTopic resource relevant to this notification, as an absolute URL for the SubscriptionTopic resource on the server that generated the notification (<em>NOT</em> a reference to a canonical SubscriptionTopic URL.)
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.topic">SubscriptionStatus.topic</a> element provides a canonical reference to the <code>SubscriptionTopic</code> resource relevant to this notification.  Depending on how the <code>SubscriptionTopic</code> was defined, this MAY point to the the server that generated the notification or to an external canonical URL.
 				</p>
 			</li>
 			<li>

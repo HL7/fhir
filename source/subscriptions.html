@@ -19,7 +19,51 @@
 </p>
 
 <p>
-  The FHIR Subscription mechanism is composed of three parts:
+  This document contains general information about the Subscriptions framework in FHIR.  Documentation about specific values (e.g., the <code>rest-hook</code> channel type) can be found in the appropriate resource documentation.  For convenience, below is a list of common topics and links to their documentation.
+</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Resource</th><th>Topic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>SubscriptionTopic</td><td><a href="subscriptiontopic.html">Resource</a></td></tr>
+    <tr><td/><td><a href="subscriptiontopic.html#defining">Defining Topics</a></td></tr>
+    <tr><td/><td><a href="subscriptiontopic.html#deriving">Deriving from existing Topics</a></td></tr>
+    <tr/>
+
+    <tr><td>Subscription</td><td><a href="subscription.html">Resource</a></td></tr>
+    <tr><td/><td><a href="subscription.html#payloads">Payload Options</a></td></tr>
+    <tr><td/><td><a href="subscription.html#channels">Standard Channels</a></td></tr>
+    <tr><td/><td><a href="subscription.html#channel-extending">Creating Channels</a></td></tr>
+    <tr><td/><td><a href="subscription-operation-status.html">$status Operation</a></td></tr>
+    <tr/>
+
+    <tr><td>SubscriptionStatus</td><td><a href="subscriptionstatus.html">Resource</a></td></tr>
+    <tr><td/><td><a href="subscriptionstatus.html#notification-types">Notification Types</a></td></tr>
+  </tbody>
+</table>
+
+<a name="actors-and-roles"/>
+<h2>Actors and Roles</h2>
+<p>
+  Any FHIR application may support the use of Subscriptions.  In this documentation:
+  <ul>
+    <li><b>Server</b> refers to the FHIR application or applications acting as the subscription provider.  This includes the responsibilities of implmenting one or more <code>SubscriptionTopics</code>, managing <code>Subscriptions</code>, and sending notifications.</li>
+    <li><b>Client</b> refers to the application or applications acting as subscriber.  This includes the responsibilites of acting as a FHIR client (to request a <code>Subscription</code>) and receiving notifications on a supported channel.</li>
+  </ul>
+  Note: either role may be implemented by one or more applications across one or more systems.
+</p>
+
+<a name="overview"/>
+<h2>General Overview</h2>
+<p>
+  The Subscriptions Framework in FHIR is a mechanism used to send notifications from a server to a client based on activity occuring in the server.
+</p>
+<p>
+  The Subscription mechanism is composed of three parts:
   <ul>
     <li><a href="subscriptiontopic.html">SubscriptionTopic</a> resources
       <ul>
@@ -44,63 +88,14 @@
   </ul>
 </p>
 
-<p>
-  This document contains general information about the Subscriptions framework in FHIR.  Documentation about specific values (e.g., the <code>rest-hook</code> channel type) can be found in the appropriate resource documentation.  For convenience, below is a list of common topics and links to their documentation.
-</p>
+<a name="overview-topic"/>
+<h3>Subscription Topics</h3>
 
-<table class="grid">
-  <thead>
-    <tr>
-      <th>Resource</th><th>Topic</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>SubscriptionTopic</td><td><a href="subscriptiontopic.html">Resource</a></td></tr>
-    <tr><td/><td><a href="subscriptiontopic.html#defining">Defining Topics</a></td></tr>
-    <tr><td/><td><a href="subscriptiontopic.html#deriving">Deriving from existing Topics</a></td></tr>
-    <tr/>
+<a name="overview-subscription"/>
+<h3>Subscriptions</h3>
 
-    <tr><td>Subscription</td><td><a href="subscription.html">Resource</a></td></tr>
-    <tr><td/><td><a href="subscription.html#payloads">Payload Options</a></td></tr>
-    <tr><td/><td><a href="subscription.html#channels">Defined Channels</a></td></tr>
-    <tr/>
-
-    <tr><td>SubscriptionStatus</td><td><a href="subscriptionstatus.html">Resource</a></td></tr>
-    <tr><td/><td><a href="subscriptionstatus.html#notification-types">Notification Types</a></td></tr>
-  </tbody>
-</table>
-
-<p>
-  Payload content levels are defined to allow different amounts of information to be communicated in notifications:
-  <ul>
-    <li><a href="#payloads-empty"><b>empty</b></a>: Notifications include NO information about any resource involved triggering the notificaiton</li>
-    <li><a href="#payloads-id-only"><b>id-only</b></a>: Notifications include the ID of the resource which triggered the notificaiton</li>
-    <li><a href="#payloads-full-resource"><b>full-resource</b></a>: Notifications include the entirety of the resource which triggered the notificaiton</li>
-  </ul>
-</p>
-
-<p>
-  Several channels are defined in the core specification:
-  <ul>
-    <li><a href="#rest-hook"><b>rest-hook</b></a>: Notifications are sent via HTTPS POST to the <code>Subscription.endpoint</code> URL (e.g., <code>https://...</code>)</li>
-    <li><a href="#websockets"><b>websocket</b></a>: Notifications are sent via WS/S to a client connected via a WebSocket</li>
-    <li><a href="#email"><b>email</b></a>: Notifications are sent via SMTP/S, S/MIME, or Direct SMTP to the <code>Subscription.endpoint</code> email URI (e.g., <code>mailto:...</code>)</li>
-    <li><a href="#messaging"><b>message</b></a>: Notifications are sent via <a href="messaging.html">FHIR messaging</a> to the application identified in the <code>Subscription.endpoint</code> URI</li>
-  </ul>
-
-  Additional channel types can be <a href="#channel-extending">defined</a> by external implementation guides.
-  See below for further discussion of the various channels.
-</p>
-
-
-<a name="basic-assumptions"/>
-<h2>Basic Assumptions</h2>
-
-
-
-
-
-
+<a name="overview-notification"/>
+<h3>Subscription Notifications</h3>
 
 <a name="safety"/>
 <h2>Safety and Security</h2>
