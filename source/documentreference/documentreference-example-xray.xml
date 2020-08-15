@@ -12,19 +12,6 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-
-
-  <content id="a1">
-    <attachment>
-    <contentType value="image/jpeg"/>
-    <url value="http://someimagingcenter.org/fhir/Binary/A12345"/>
-    <!-- the date this image was created -->
-    <creation value="2016-03-15"/>
-  <height value="432"/>
-  <width value="640"/>
-    </attachment>
-  </content>
-  <context>
     <encounter>
     <reference value="Encounter/example"/>
   </encounter>
@@ -53,5 +40,16 @@
     </coding>
   </event>
 
-  </context>
+
+  <content id="a1">
+    <attachment>
+    <contentType value="image/jpeg"/>
+    <url value="http://someimagingcenter.org/fhir/Binary/A12345"/>
+    <!-- the date this image was created -->
+    <creation value="2016-03-15"/>
+  <height value="432"/>
+  <width value="640"/>
+    </attachment>
+  </content>
+
 </DocumentReference>
