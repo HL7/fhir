@@ -208,6 +208,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     validator.getExtensionDomains().add("http://hl7.org/fhir/us");
     validator.setFetcher(this);
     validator.setAllowExamples(true);
+    validator.setDebug(true);
 
     xml = new XmlValidator(errorsInt, loadSchemas(), loadTransforms());
 
