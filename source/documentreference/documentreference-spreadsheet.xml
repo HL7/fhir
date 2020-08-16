@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>John Moehrke</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-08-15T17:46:42Z</LastSaved>
+  <LastSaved>2020-08-15T19:18:00Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>684</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -249,39 +249,39 @@
    <Interior/>
   </Style>
   <Style ss:ID="s92">
+   <Font ss:Color="#333333" ss:FontName="Consolas" ss:Size="9" x:Family="Modern"/>
+  </Style>
+  <Style ss:ID="s93">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
    </Borders>
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
-  <Style ss:ID="s93">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
   <Style ss:ID="s94">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
   <Style ss:ID="s95">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
   <Style ss:ID="s96">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s97">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
    </Borders>
   </Style>
-  <Style ss:ID="s97">
+  <Style ss:ID="s98">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
    </Borders>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
-  </Style>
-  <Style ss:ID="s98">
-   <Font ss:Color="#333333" ss:FontName="Consolas" ss:Size="9" x:Family="Modern"/>
   </Style>
   <Style ss:ID="s99">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
@@ -842,6 +842,9 @@
     <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
    </Borders>
   </Style>
+  <Style ss:ID="s173">
+   <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R49C1"/>
@@ -1015,7 +1018,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">.outboundRelationship[typeCode=FLFS].target</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">.outboundRelationship[typeCode=FLFS].target</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="23" ss:StyleID="s90"><Data ss:Type="String">DocumentEntry.referenceIdList</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1481,81 +1484,81 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s92"><Data ss:Type="String">DocumentReference.attester</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">DocumentReference.attester</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Attests to accuracy of composition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">A participant who has attested to the accuracy of the composition/document</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Identifies responsibility for the accuracy of the composition content.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Only list each attester once</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">.participation[typeCode="AUTHEN"].role[classCode="ASSIGNED"]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">A participant who has attested to the accuracy of the composition/document</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Identifies responsibility for the accuracy of the composition content.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Only list each attester once</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Composition.attester</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">.authenticator/.legalAuthenticator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">.participation[typeCode="AUTHEN"].role[classCode="ASSIGNED"]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Composition.attester</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">.authenticator/.legalAuthenticator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">DocumentEntry.legalAuthenticator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Event.performer.actor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">down</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">down</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s92"><Data ss:Type="String">DocumentReference.attester.mode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">DocumentReference.attester.mode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">DocumentAttestationMode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">personal | professional | legal | official</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">The type of attestation the authenticator offers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Indicates the level of authority of the attestation.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">The type of attestation the authenticator offers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Indicates the level of authority of the attestation.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">unique(./modeCode)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Composition.attester.mode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">implied by .authenticator/.legalAuthenticator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">unique(./modeCode)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Composition.attester.mode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">implied by .authenticator/.legalAuthenticator</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s92"><Data ss:Type="String">DocumentReference.attester.time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">DocumentReference.attester.time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">When the composition was attested</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">When the composition was attested by the party</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Identifies when the information in the composition was deemed accurate.  (Things may have changed since then.)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">When the composition was attested by the party</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Identifies when the information in the composition was deemed accurate.  (Things may have changed since then.)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">./time[type="TS" and isNormalDatatype()]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Composition.attester.time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">.authenticator.time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">./time[type="TS" and isNormalDatatype()]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Composition.attester.time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">.authenticator.time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
-    <Cell ss:StyleID="s92"><Data ss:Type="String">DocumentReference.attester.party</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">DocumentReference.attester.party</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Reference(Patient|RelatedPerson|Practitioner|PractitionerRole|Organization)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">who.witness</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Who attested the composition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Who attested the composition in the specified way</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Identifies who has taken on the responsibility for accuracy of the composition content.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Who attested the composition in the specified way</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Identifies who has taken on the responsibility for accuracy of the composition content.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">./role[classCode="ASSIGNED" and isNormalRole]/player[determinerCode="INST" and classCode=("DEV", "PSN") and isNormalEntity()] or ./role[classCode="ASSIGNED" and isNormalRole and not(player)]/scoper[determinerCode="INST" and classCode="ORG" and isNormalEntity()]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">./role[classCode="ASSIGNED" and isNormalRole]/player[determinerCode="INST" and classCode=("DEV", "PSN") and isNormalEntity()] or ./role[classCode="ASSIGNED" and isNormalRole and not(player)]/scoper[determinerCode="INST" and classCode="ORG" and isNormalEntity()]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TXA-10</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Composition.attester.party</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">.authenticator.assignedEnttty</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Composition.attester.party</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">.authenticator.assignedEnttty</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell ss:StyleID="s86"><Data ss:Type="String">DocumentReference.custodian</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1790,7 +1793,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Coding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">DocumentFormat</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">DocumentFormat</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3563,7 +3566,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4061,13 +4063,13 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="29" ss:StyleID="s95" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="82.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="57.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="109.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="256.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="382.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="378.0"/>
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="29" ss:StyleID="s96" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="82.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="57.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="109.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="256.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="382.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="378.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16" ss:StyleID="s114">
     <Cell ss:StyleID="s106"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">Unique name for search parameter - required, lower-case, dash-delimited string    </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type for parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4294,14 +4296,14 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s95" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="130.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="124.0"/>
-   <Column ss:StyleID="s95" ss:Width="24.0"/>
-   <Column ss:StyleID="s95" ss:Width="25.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s95" ss:Width="106.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="7" ss:StyleID="s95" ss:Width="223.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s95" ss:Width="253.0"/>
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s96" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="130.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="124.0"/>
+   <Column ss:StyleID="s96" ss:Width="24.0"/>
+   <Column ss:StyleID="s96" ss:Width="25.0"/>
+   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s96" ss:Width="106.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="7" ss:StyleID="s96" ss:Width="223.0"/>
+   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s96" ss:Width="253.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s127"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The name of the operation or parameter (parameters prefixed by operation name + ".") </Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Use</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">"System | Resource | Instance" (operation) "In" or "Out" (parameter)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4314,47 +4316,47 @@
     <Cell ss:StyleID="s130"><Data ss:Type="String">Footer</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional usage notes for an operation</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">generate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">operation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s133"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Generate a DocumentReference from a document</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">A client can ask a server to generate a document reference from a document.&#10;The server reads the existing document and generates a matching DocumentReference&#10;resource, or returns one it has previously generated. Servers may be able to &#10;return or generate document references for the following types of content:</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">The server either returns a search result containing a single document reference, &#10;or it returns an error. &#10;If the URI refers to another server, it is at the discretion of the &#10;server whether to retrieve it or return an error. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">generate.url</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s173"><Data ss:Type="String">The uri refers to an existing Binary end-point that returns either a Document (FHIR or CDA), or some kind of package that the server knows how to process (e.g. an IHE XDM .zip)</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">generate.persist</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Binary</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell><Data ss:Type="String">to persist</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Whether to store the document at the document end-point (/Document) or not, once it is generated (default is for the server to decide).</Data></Cell>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">generate.docRef</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell><Data ss:Type="String">generated DocumentReference</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">The server either returns a single document reference, or it returns an error. If the input url refers to another server, it is at the discretion of the server whether to retrieve it or return an error.</Data></Cell>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4860,12 +4862,18 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4878,15 +4886,15 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Events!R1C1:R1C9"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" ss:StyleID="s95" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s95" ss:Width="82.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s95" ss:Width="199.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="157.0"/>
-   <Column ss:StyleID="s95" ss:Width="106.0"/>
-   <Column ss:StyleID="s95" ss:Width="113.0"/>
-   <Column ss:StyleID="s95" ss:Width="120.0"/>
-   <Column ss:StyleID="s95" ss:Width="127.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="74.0"/>
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" ss:StyleID="s96" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s96" ss:Width="82.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s96" ss:Width="199.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="157.0"/>
+   <Column ss:StyleID="s96" ss:Width="106.0"/>
+   <Column ss:StyleID="s96" ss:Width="113.0"/>
+   <Column ss:StyleID="s96" ss:Width="120.0"/>
+   <Column ss:StyleID="s96" ss:Width="127.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="74.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s106"><Data ss:Type="String">Event Code</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique code for the event; e.g. patient-link  </Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Category</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Impact of message and time-sensitiveness for processing (see Confluence/spec)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5138,11 +5146,11 @@
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="41" ss:StyleID="s95" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="114.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="281.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="252.0"/>
-   <Column ss:StyleID="s95" ss:Width="63.0"/>
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="41" ss:StyleID="s96" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="114.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="281.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="252.0"/>
+   <Column ss:StyleID="s96" ss:Width="63.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s106"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Label for profile Comment the row by starting with '!'</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Filename</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Name of the resulting profile resource-something-profile.xml or …profile.spreadsheet.xml</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5804,20 +5812,20 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C14"/>
   </Names>
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="29" ss:StyleID="s95" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="152.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="274.0"/>
-   <Column ss:Index="4" ss:StyleID="s95" ss:Width="45.0"/>
-   <Column ss:StyleID="s95" ss:Width="79.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="217.0"/>
-   <Column ss:StyleID="s95" ss:Width="172.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="97.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="88.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="114.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="172.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="166.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="175.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s95" ss:Width="106.0"/>
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="29" ss:StyleID="s96" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="152.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="274.0"/>
+   <Column ss:Index="4" ss:StyleID="s96" ss:Width="45.0"/>
+   <Column ss:StyleID="s96" ss:Width="79.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="217.0"/>
+   <Column ss:StyleID="s96" ss:Width="172.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="97.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="88.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="114.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="172.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="166.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="175.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s96" ss:Width="106.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s106"><Data ss:Type="String">Binding Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique name across all resources</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Formal description of the types of codes allowed for elements with this binding</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5967,7 +5975,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">AgentType</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">AgentType</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The Participation type of the agent to the event</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s151"/>
@@ -6913,7 +6921,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s165"><Data ss:Type="String">professional</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"><Data ss:Type="String">Professional</Data></Cell>
     <Cell ss:StyleID="s166"><Data ss:Type="String">The person authenticated the content in their professional capacity.</Data></Cell>
@@ -6922,7 +6930,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s165"><Data ss:Type="String">legal</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"><Data ss:Type="String">Legal</Data></Cell>
     <Cell ss:StyleID="s166"><Data ss:Type="String">The person authenticated the content and accepted legal responsibility for its content.</Data></Cell>
@@ -6931,7 +6939,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s165"><Data ss:Type="String">official</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"><Data ss:Type="String">Official</Data></Cell>
     <Cell ss:StyleID="s166"><Data ss:Type="String">The organization authenticated the content as consistent with their policies and procedures.</Data></Cell>
@@ -6939,7 +6947,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -6947,7 +6955,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -6955,7 +6963,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -6963,7 +6971,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -6971,7 +6979,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -6979,7 +6987,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -6987,7 +6995,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -6995,7 +7003,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7003,7 +7011,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7011,7 +7019,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7019,7 +7027,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7027,7 +7035,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7035,7 +7043,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7043,7 +7051,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7051,7 +7059,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7059,7 +7067,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7067,7 +7075,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7075,7 +7083,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7083,7 +7091,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7091,7 +7099,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7099,7 +7107,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7107,7 +7115,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7115,7 +7123,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7123,7 +7131,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7131,7 +7139,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7139,7 +7147,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7147,7 +7155,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7155,7 +7163,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7163,7 +7171,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7171,7 +7179,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7179,7 +7187,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7187,7 +7195,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7195,7 +7203,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7203,7 +7211,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7211,7 +7219,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7219,7 +7227,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7227,7 +7235,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7235,7 +7243,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7243,7 +7251,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7251,7 +7259,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7259,7 +7267,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7267,7 +7275,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7275,7 +7283,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
@@ -7283,7 +7291,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s165"/>
-    <Cell ss:Index="3" ss:StyleID="s95"/>
+    <Cell ss:Index="3" ss:StyleID="s96"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"/>
