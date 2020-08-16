@@ -9,11 +9,10 @@
       </p>
 	</div>
   </text>
-	<title value="Modified Rankin Scale score 3-6 at 90 days after treatment"/>
-	<status value="draft"/>
-	<type value="dichotomous"/>
-	<actual value="true"/>
-	<characteristic>
+  <title value="Modified Rankin Scale score 3-6 at 90 days after treatment"/>
+  <status value="draft"/>
+  <actual value="true"/>
+  <characteristic>
 		<description value="mRS 3-6 at 90 days"/>
 		<definitionExpression>
 			<description value="mRS 3-6"/>
@@ -28,5 +27,6 @@
 				<code value="d"/>
 			</quantity>
 		</timeFromStart>
-	</characteristic>
+  </characteristic>
+  <type value="dichotomous"/>
 </EvidenceVariable>

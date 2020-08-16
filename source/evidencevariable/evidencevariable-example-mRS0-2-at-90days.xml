@@ -9,24 +9,24 @@
       </p>
 	</div>
   </text>
-	<title value="Modified Rankin Scale score 0-2 at 90 days after treatment"/>
-	<status value="draft"/>
-	<type value="dichotomous"/>
-	<actual value="true"/>
-	<characteristic>
-		<description value="mRS 0-2 at 90 days"/>
-		<definitionExpression>
-			<description value="mRS 0-2"/>
-			<language value="text/cql"/>
-			<expression value="[&quot;Observation&quot;: code in &quot;75859-9|LOINC&quot;] mRS where mRS.value between 0 and 2"/>
-		</definitionExpression>
-		<timeFromStart>
-			<quantity>
-				<value value="90"/>
-				<unit value="day"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="d"/>
-			</quantity>
-		</timeFromStart>
-	</characteristic>
+  <title value="Modified Rankin Scale score 0-2 at 90 days after treatment"/>
+  <status value="draft"/>
+  <actual value="true"/>
+  <characteristic>
+    <description value="mRS 0-2 at 90 days"/>
+    <definitionExpression>
+      <description value="mRS 0-2"/>
+      <language value="text/cql"/>
+      <expression value="[&quot;Observation&quot;: code in &quot;75859-9|LOINC&quot;] mRS where mRS.value between 0 and 2"/>
+    </definitionExpression>
+    <timeFromStart>
+      <quantity>
+        <value value="90"/>
+        <unit value="day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+      </quantity>
+    </timeFromStart>
+  </characteristic>
+  <type value="dichotomous"/>
 </EvidenceVariable>

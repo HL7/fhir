@@ -11,10 +11,9 @@
   </text>
   <title value="Dead or functionally dependent at 90 days"/>
   <status value="draft"/>
-	<type value="dichotomous"/>
-	<actual value="false"/>
-	<characteristicCombination value="union"/>
-	<characteristic>
+  <actual value="false"/>
+  <characteristicCombination value="union"/>
+  <characteristic>
 		<description value="functionally dependent at 90 days"/>
 		<definitionCodeableConcept>
 			<coding>
@@ -31,8 +30,8 @@
 				<code value="d"/>
 			</quantity>
 		</timeFromStart>
-	</characteristic>
-	<characteristic>
+  </characteristic>
+  <characteristic>
 		<description value="dead at 90 days"/>
 		<definitionCodeableConcept>
 			<coding>
@@ -49,5 +48,6 @@
 				<code value="d"/>
 			</quantity>
 		</timeFromStart>
-	</characteristic>
+  </characteristic>
+  <type value="dichotomous"/>
 </EvidenceVariable>

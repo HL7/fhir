@@ -22,7 +22,6 @@
 		<citation value="Wardlaw JM, Murray V, Berge E, del Zoppo GJ. Thrombolysis for acute ischaemic stroke. Cochrane Database Syst Rev. 2014 Jul 29(7):CD000213. PMID 25072528"/>
 		<url value="https://doi.org/10.1002/14651858.CD000213.pub3"/>
 	</relatedArtifact>
-	<type value="dichotomous"/>
 	<actual value="true"/>
 	<characteristicCombination value="union"/>
 	<characteristic>
@@ -61,4 +60,5 @@
 			<display value="IST3 2012"/>
 		</definitionReference>
 	</characteristic>
+	<type value="dichotomous"/>
 </EvidenceVariable>

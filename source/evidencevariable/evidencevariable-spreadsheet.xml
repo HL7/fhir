@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Khalid Shahin</LastAuthor>
+  <LastAuthor>Khalid</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-02-04T05:00:21Z</LastSaved>
+  <LastSaved>2020-08-14T17:54:19Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -825,6 +825,9 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s167">
+   <Interior/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -871,8 +874,8 @@
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s68" ss:Width="106.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="10" ss:StyleID="s68" ss:Width="81.0"/>
    <Column ss:Span="1" ss:StyleID="s68" ss:Width="52.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="13" ss:StyleID="s68" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="121.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="13" ss:StyleID="s68" ss:Width="57.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="133.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="161.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="114.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="135.0"/>
@@ -1408,32 +1411,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"><Data ss:Type="String">EvidenceVariable.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">EvidenceVariableType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">dichotomous | continuous | descriptive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Used for an outcome to classify</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">EvidenceVariable.actual</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1471,7 +1448,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">BackboneElement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1523,7 +1500,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Group | EvidenceVariable) | canonical(Any) | CodeableConcept | Expression |</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Group | EvidenceVariable) | canonical(Any) | CodeableConcept | Expression</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1627,7 +1604,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">BackboneElement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1760,46 +1737,21 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">EvidenceVariable.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">EvidenceVariableType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">continuous | dichotomous | ordinal | polychotomous</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Used for an outcome to classify</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1811,7 +1763,11 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">EvidenceVariable.category</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">BackboneElement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1820,12 +1776,60 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A grouping for ordinal or polychotomous variables</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">A grouping (or set of values) described along with other groupings to specify the set of groupings allowed for the variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s93"><Data ss:Type="String">EvidenceVariable.category.name</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Description of the grouping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A human-readable title or representation of the grouping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s93"><Data ss:Type="String">EvidenceVariable.category.value[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept | Quantity | Range</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Definition of the grouping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Value or set of values that define the grouping</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3967,9 +3971,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -7312,11 +7316,11 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='variable-type'!R1C1:R1C9"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s151" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s151" ss:Width="80.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s151" ss:Width="263.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s151" ss:Width="34.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s151" ss:Width="155.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s151" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s151" ss:Width="244.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="4" ss:StyleID="s151" ss:Width="44.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s151" ss:Width="119.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s151" ss:Width="1010.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s151" ss:Width="84.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s151" ss:Width="242.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -7331,45 +7335,45 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s161"><Data ss:Type="String">dichotomous</Data></Cell>
-    <Cell ss:StyleID="s141"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">continuous</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">continuous variable</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">A continuous variable is one for which, within the limits the variable ranges, any value is possible (from STATO http://purl.obolibrary.org/obo/STATO_0000251)</Data></Cell>
+    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s154"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s167"><Data ss:Type="String">dichotomous</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s163"/>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">Dichotomous</Data></Cell>
-    <Cell ss:StyleID="s163"><Data ss:Type="String">The variable is dichotomous, such as present or absent</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">dichotomous variable</Data></Cell>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">A dichotomous variable is a categorical variable which is defined to have only 2 categories or possible values (from STATO http://purl.obolibrary.org/obo/STATO_0000090)</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s164"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s153"><Data ss:Type="String">continuous</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">Continuous</Data></Cell>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">The variable is a continuous result such as a quantity</Data></Cell>
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s154"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s153"><Data ss:Type="String">descriptive</Data></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">ordinal</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">Descriptive</Data></Cell>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">The variable is described narratively rather than quantitatively</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">ordinal variable</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">An ordinal variable is a categorical variable where the discrete possible values are ordered or correspond to an implicit ranking (from STATO http://purl.obolibrary.org/obo/STATO_0000228)</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s154"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">polychotomous</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">polychotomous variable</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">A polychotomous variable is a categorical variable which is defined to have minimally 2 categories or possible values. (from STATO  http://purl.obolibrary.org/obo/STATO_0000087).  Suggestion to limit code use to situations when neither dichotomous nor ordinal variables apply.</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s154"/>
