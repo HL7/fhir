@@ -18,7 +18,7 @@
   
   
   <TabRatio>775</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1391,7 +1391,7 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">StatisticStatisticType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">StatisticType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1827,7 +1827,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">Statistic.modelCharacteristic.variable.handling</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">EvidenceVariableType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">EvidenceVariableHandling</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13" ss:StyleID="s124"><Data ss:Type="String">continuous | dichotomous | ordinal | polychotomous</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">How the variable is classified for use in adjusted analysis</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3196,11 +3196,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>30</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5497,7 +5496,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s141" ss:Width="175.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s141" ss:Width="340.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="4" ss:StyleID="s141" ss:Width="110.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s141" ss:Width="208.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s141" ss:Width="254.0"/>
    <Column ss:StyleID="s141" ss:Width="172.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s141" ss:Width="97.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s141" ss:Width="88.0"/>
@@ -5521,7 +5520,7 @@
     <Cell ss:StyleID="s134"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unpublished notes</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">StatisticStatisticType</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">StatisticType</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">The type of a specific statistic</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">extensible</Data></Cell>
@@ -5581,11 +5580,11 @@
     <Cell ss:StyleID="s150"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s181"><Data ss:Type="String">EvidenceVariableType</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">EvidenceVariableHandling</Data></Cell>
     <Cell ss:StyleID="s182"><Data ss:Type="String">The possible types of variables for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/variable-type" ss:StyleID="s183"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/variable-type</Data></Cell>
+    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/variable-handling" ss:StyleID="s183"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/variable-handling</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s184"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5841,6 +5840,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

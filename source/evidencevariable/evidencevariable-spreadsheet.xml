@@ -18,7 +18,7 @@
   
   
   <TabRatio>709</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -871,8 +871,9 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="119.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="28.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="27.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s68" ss:Width="106.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="10" ss:StyleID="s68" ss:Width="81.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="142.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="106.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="81.0"/>
    <Column ss:Span="1" ss:StyleID="s68" ss:Width="52.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="13" ss:StyleID="s68" ss:Width="57.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="133.0"/>
@@ -1744,7 +1745,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">EvidenceVariableType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">EvidenceVariableHandling</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3967,7 +3968,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6374,7 +6374,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="22" ss:StyleID="s125" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="139.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="274.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s125" ss:Width="343.0"/>
    <Column ss:StyleID="s125" ss:Width="51.0"/>
    <Column ss:StyleID="s125" ss:Width="45.0"/>
    <Column ss:StyleID="s125" ss:Width="146.0"/>
@@ -6416,11 +6416,11 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"><Data ss:Type="String">EvidenceVariableType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The possible types of variables for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">EvidenceVariableHandling</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">#variable-type</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">#variable-handling</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
@@ -6713,6 +6713,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7311,9 +7312,9 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="variable-type">
+ <Worksheet ss:Name="variable-handling">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='variable-type'!R1C1:R1C9"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='variable-handling'!R1C1:R1C9"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s151" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s151" ss:Width="263.0"/>
