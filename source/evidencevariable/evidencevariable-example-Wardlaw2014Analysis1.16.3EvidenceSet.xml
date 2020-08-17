@@ -60,5 +60,5 @@
 			<display value="IST3 2012"/>
 		</definitionReference>
 	</characteristic>
-	<type value="dichotomous"/>
+	<handling value="dichotomous"/>
 </EvidenceVariable>

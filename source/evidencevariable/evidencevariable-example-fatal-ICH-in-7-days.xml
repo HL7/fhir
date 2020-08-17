@@ -70,5 +70,5 @@
 			</range>
 		</timeFromStart>
   </characteristic>
-  <type value="dichotomous"/>
+  <handling value="dichotomous"/>
 </EvidenceVariable>
