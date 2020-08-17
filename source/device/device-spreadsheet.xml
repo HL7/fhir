@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4512,7 +4512,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7330,89 +7329,89 @@
     <Cell ss:StyleID="s155"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"><Data ss:Type="String">online</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">discarded</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s175"><Data ss:Type="String">Online</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">The device is off.</Data></Cell>
+    <Cell ss:StyleID="s173"><Data ss:Type="String">The device has been discarded</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"><Data ss:Type="String">paused</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">obsolete</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s175"><Data ss:Type="String">Paused</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">The device is paused.</Data></Cell>
+    <Cell ss:StyleID="s173"><Data ss:Type="String">The device is obsolete</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"><Data ss:Type="String">standby</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">removed</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Standby</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">The device is ready but not actively operating.</Data></Cell>
+    <Cell ss:StyleID="s173"><Data ss:Type="String">The device has been removed</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"><Data ss:Type="String">offline</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"><Data ss:Type="String">Offline</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">The device is offline.</Data></Cell>
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"><Data ss:Type="String">not-ready</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Not Ready</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">The device is not ready.</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"><Data ss:Type="String">transduc-discon</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Transducer Disconnected</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">The device transducer is disconnected.</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"><Data ss:Type="String">hw-discon</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Hardware Disconnected</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">The device hardware is disconnected.</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="21">
-    <Cell ss:StyleID="s156"><Data ss:Type="String">off</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Off</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">The device is off.</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s160"/>
@@ -7853,6 +7852,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
