@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Bundle.xsd">
-  <id value="3d20ea4b-90dc-4d0d-b15a-c7a893389401"/>
+  <id value="40464b74-fad0-4f45-ab60-e67f949c5e92"/>
   <type value="subscription-notification" />
   <timestamp value="2020-04-17T10:24:13.1882432-05:00" />
   <entry>
-    <fullUrl value="urn:uuid:a5b053d4-2603-446f-ae86-f5853ac09334"/>
+    <fullUrl value="urn:uuid:c2d70315-c34c-4f44-981b-6f16775477f3"/>
     <resource>
       <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
-        <id value="a5b053d4-2603-446f-ae86-f5853ac09334"/>
-        <type value="heartbeat"/>
+        <id value="c2d70315-c34c-4f44-981b-6f16775477f3"/>
+        <type value="query-status"/>
         <eventsSinceSubscriptionStart value="310"/>
         <eventsInNotification value="0"/>
         <subscription>

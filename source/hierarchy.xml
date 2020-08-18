@@ -160,6 +160,7 @@ signatures.html
       <page title="Services" filename="services.html"/>
       <page title="Persistent Storage" filename="storage.html"/>
       <page title="Status Code Map" filename="sc.html"/>
+      <page title="Subscriptions" filename="subscriptions.html"/>
       <page title="W5 Map" filename="w5.html"/>
     </page>
 

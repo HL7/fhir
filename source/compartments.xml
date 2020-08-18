@@ -340,7 +340,7 @@
     <Cell><Data ss:Type="String">subject | author </Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">author </Data></Cell>
-    <Cell><Data ss:Type="String">subject | author | authenticator</Data></Cell>
+    <Cell><Data ss:Type="String">subject | author | attester</Data></Cell>
     <Cell><Data ss:Type="String">subject | author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

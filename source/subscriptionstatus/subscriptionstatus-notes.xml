@@ -1,5 +1,138 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- insert xhtml content here -->
+	<a name="notification-types"/>
+	<h2>Notification Types</h2>
+	<p>
+		This specification describes four distinct outbound notification types: <em>Event</em>, <em>Handshake</em>, <em>Heartbeat</em>, and <em>Query Status</em>. For each, the notification body is a <a href="bundle.html">subscription-notification Bundle</a> with a <a href="subscriptionstatus.html">SubscriptionStatus</a> resource used  to convey Subscription and notification details.
+	</p>
+
+		<a name="event-notification"/>
+		<h3>Event Notification</h3>
+		<p>The primary notification is a notification about an event.</p>
+		<ul>
+			<li>
+				<a href="notification-id-only.html">Example event notification</a>
+			</li>
+		</ul>
+		<p>
+			The client expectations upon receipt of a Handshake notification are defined separately for each channel type (e.g., for the <code>rest-hook</code> channel type, a client endpoint responds to event notifications with standard HTTP response codes).
+		</p>
+
+		<a name="handshake-notification"/>
+		<h3>Handshake Notification</h3>
+		<p>
+			When a connection to an Endpoint is established, a server MAY send a Handshake notification to the endpoint.  A Handshake notification is a subscription-notification Bundle sent without incrementing the subscription event count.
+		</p>
+		<ul>
+			<li>
+				<a href="notification-handshake.html">Example handshake notification</a>
+			</li>
+		</ul>
+		<p>
+			The client is not expected to take any special action in receipt of a Handshake notification beyond the channel-specific requirement for receiving an event notification.
+		</p>
+
+		<a name="heartbeat-notification"/>
+		<h3>Heartbeat Notification</h3>
+		<p>
+			Servers MAY periodically send notifications across a channel to ensure that the connection is still alive and valid (e.g., in accordance with a client's requested heartbeat interval). The Heartbeat notification is an empty subscription-notification Bundle sent without incrementing the subscription event count.
+		</p>
+		<ul>
+			<li>
+				<a href="notification-heartbeat.html">Example heartbeat notification</a>
+			</li>
+		</ul>
+		<p>
+			The client is not expected to take any special action in receipt of a Heartbeat notification beyond the channel-specific requirement for receiving an event notification.
+		</p>
+
+    <a name="query-status"/>
+    <h3>Query Status</h3>
+    <p>
+      Clients can ask a server at any time for the current status of a Subscription via the <a href="subscription-operation-status.html">$status operation</a>.
+    </p>
+		<ul>
+			<li>
+				<a href="notification-query-status.html">Example query-status notification</a>
+			</li>
+		</ul>
+
+		<a name="subscription-status"/>
+		<h3>Subscription Status</h3>
+		<ul>
+			<li>
+				<p>
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.eventsSinceSubscriptionStart">SubscriptionStatus.eventsSinceSubscriptionStart</a> element indicates the number of unique events that have triggered notification attempts on this Subscription inclusive of the current notification being sent.
+				</p>
+				<ul>
+					<li>
+						<p>
+							In the case of a <code>handshake</code> notification, this count will be zero (0) if present.
+						</p>
+					</li>
+					<li>
+						<p>
+							In the case of a <code>heartbeat</code> or <code>query-status</code> notifications, this count will be the same as the last notification and will not be incremented due to the current notification.
+						</p>
+					</li>
+					<li>
+						<p>
+							In the case of an <code>event</code> notifications, the event count will be incremented by the number of notifications contained within this bundle (often a single notification, though servers may choose to batch notifications within a short time interval).
+						</p>
+					</li>
+					<li>
+						<p>
+							In the case of an event notification that cannot be delivered (e.g., because a client endpoint is offline), the server MAY retry delivery but does not increment the event count for each retry; the count represents unique events, not unique delivery attempts.
+						</p>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<!-- end list -->
+		<ul>
+			<li>
+				<p>
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.eventsInNotification">SubscriptionStatus.eventsInNotification</a> element represents the number of event notifications conveyed by the Bundle. This helps clients:
+				</p>
+				<ul>
+					<li>
+						<p>
+							Determine if a notification requires further processing (e.g., a client might discard handshake and heartbeat notifications)
+						</p>
+					</li>
+					<li>
+						<p>
+							Determine the number of events it should expeect to find in follow-on queries when the in <code>empty</code> payload type is used
+						</p>
+					</li>
+					<li>
+						<p>
+							Handle batched results (e.g., a server sending at max one notification per second)
+						</p>
+					</li>
+				</ul>
+				<p>
+					For notifications of types other than <code>event</code>, <code>eventsInNotification</code> will be zero (0) if present.
+				</p>
+			</li>
+		</ul>
+		<!-- end list -->
+		<ul>
+			<li>
+				<p>
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.status">SubscriptionStatus.status</a> element represents the <a href="valueset-subscription-state.html">Subscription status values</a> at the time the notification is <b>generated</b>. Note that the <code>status</code> MAY change between the time the notification is sent and the time it is received/processed, and therefore this status recorded in the notification is not guaranteed to represent status at the time of receipt. The field is useful as a hint to inform the client if the server has encountered errors in notifications immediately preceding this notification.
+				</p>
+			</li>
+			<li>
+				<p>
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.topic">SubscriptionStatus.topic</a> element provides a canonical reference to the <code>SubscriptionTopic</code> resource relevant to this notification.  Depending on how the <code>SubscriptionTopic</code> was defined, this MAY point to the the server that generated the notification or to an external canonical URL.
+				</p>
+			</li>
+			<li>
+				<p>
+					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.subscription">SubscriptionStatus.subscription</a> element references the Subscription resource that triggered this notification, as an absolute URL for the Subscription resource on the server that generated the notification.
+				</p>
+			</li>
+		</ul>
 
 </div>

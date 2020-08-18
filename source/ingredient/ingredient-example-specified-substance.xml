@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Ingredient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/ingredient.xsd">
+	<id value="example"/>
+	<role>
+		<coding>
+			<system value="http://ema.europa.eu/example/ingredientRole"/>
+			<code value="ActiveBase"/>
+		</coding>
+	</role>
+	<manufacturer>
+		<reference value="Organization/example"/>
+	</manufacturer>
+	<!-- specifiedSubstance, only used if a "specified substance" is needed, which is a substance that has some extra features, such as a specific manufacturer, grade, or preparation -->
+	<!-- can be multiple, these are alternatives to each other -->
+	<specifiedSubstance>
+		<codeCodeableConcept>
+			<coding>
+				<system value="http://ema.europa.eu/example/specifiedSubstance"/>
+				<code value="equixabanCompany1"/>
+			</coding>
+		</codeCodeableConcept>
+		<!-- group states the type of extra information, according to ISO 11238 -->
+		<group>
+			<coding>
+				<system value="http://ema.europa.eu/example/specifiedSubstanceGroup"/>
+				<code value="2"/>
+			</coding>
+		</group>
+	</specifiedSubstance>
+	<specifiedSubstance>
+		<codeCodeableConcept>
+			<coding>
+				<system value="http://ema.europa.eu/example/specifiedSubstance"/>
+				<code value="equixabanCompany2"/>
+			</coding>
+		</codeCodeableConcept>
+		<group>
+			<coding>
+				<system value="http://ema.europa.eu/example/specifiedSubstanceGroup"/>
+				<code value="2"/>
+			</coding>
+		</group>
+	</specifiedSubstance>
+</Ingredient>

@@ -23,10 +23,6 @@
 						<a href="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32">Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005
 					</div>
 				</text>
-				<masterIdentifier>
-					<system value="urn:ietf:rfc:3986"/>
-					<value value="urn:oid:129.6.58.92.88336"/>
-				</masterIdentifier>
 				<status value="current"/>
 				<type>
 					<coding>
@@ -45,6 +41,17 @@
 				<subject>
 					<reference value="Patient/a2"/>
 				</subject>
+				<practiceSetting>
+					<coding>
+						<system value="http://ihe.net/connectathon/practiceSettingCodes"/>
+						<code value="General Medicine"/>
+						<display value="General Medicine"/>
+					</coding>
+				</practiceSetting>
+				<period>
+					<start value="2004-12-23T08:00:00+10:00"/>
+					<end value="2004-12-23T08:01:00+10:00"/>
+				</period>
 				<date value="2013-07-01T23:11:33+10:00"/>
 				<author>
 					<reference value="Practitioner/a3"/>
@@ -73,20 +80,11 @@
 						<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
 						<code value="urn:ihe:pcc:handp:2008"/>
 					</format> 
+					<identifier>
+						<system value="urn:ietf:rfc:3986"/>
+						<value value="urn:oid:129.6.58.92.88336"/>
+					</identifier>
 				</content>
-				<context>
-					<period>
-						<start value="2004-12-23T08:00:00+10:00"/>
-						<end value="2004-12-23T08:01:00+10:00"/>
-					</period>
-					<practiceSetting>
-						<coding>
-							<system value="http://ihe.net/connectathon/practiceSettingCodes"/>
-							<code value="General Medicine"/>
-							<display value="General Medicine"/>
-						</coding>
-					</practiceSetting>
-				</context>
 			</DocumentReference>
 		</resource>
 		<request>
