@@ -125,8 +125,6 @@ import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.definitions.validation.XmlValidator;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
-import org.hl7.fhir.r5.conformance.ProfileComparer;
-import org.hl7.fhir.r5.conformance.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
 import org.hl7.fhir.r5.conformance.ShExGenerator;
 import org.hl7.fhir.r5.conformance.ShExGenerator.HTMLLinkPolicy;
@@ -225,8 +223,6 @@ import org.hl7.fhir.rdf.RDFValidator;
 import org.hl7.fhir.tools.converters.CDAGenerator;
 import org.hl7.fhir.tools.converters.DSTU3ValidationConvertor;
 import org.hl7.fhir.tools.converters.SpecNPMPackageGenerator;
-import org.hl7.fhir.tools.converters.ValueSetImporterV2;
-import org.hl7.fhir.tools.converters.ValueSetImporterV3;
 import org.hl7.fhir.tools.publisher.ExampleInspector.EValidationFailed;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -1227,8 +1223,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void loadValueSets1() throws Exception {
 
     page.log(" ...vocab #1", LogMessageType.Process);
-    new ValueSetImporterV3(page, page.getValidationErrors(), page.getRc()).execute();
-    new ValueSetImporterV2(page, page.getValidationErrors()).execute();
     generateCodeSystemsPart1();
     generateValueSetsPart1();
     for (BindingSpecification cd : page.getDefinitions().getUnresolvedBindings()) {
@@ -1305,31 +1299,6 @@ public class Publisher implements URIResolver, SectionNumberer {
 //    copyTerminologyToVocabPoC();
   }
   
-//  private void copyTerminologyToVocabPoC() throws FileNotFoundException, IOException {
-//    Map<String, ValueSet> hardBoundVS = new HashMap<String, ValueSet>();
-//    for (ResourceDefn rd : page.getDefinitions().getResources().values()) {
-//      listBoundValueSets(rd.getRoot(), hardBoundVS);
-//    }
-//    Map<String, CodeSystem> hardBoundCS = new HashMap<String, CodeSystem>();
-//    for (ValueSet vs : hardBoundVS.values()) {
-//      for (ConceptSetComponent cset : vs.getCompose().getInclude()) {
-//        if (cset.hasSystem()) {
-//          CodeSystem cs = page.getCodeSystems().get(cset.getSystem());
-//          if (cs != null)
-//            hardBoundCS.put(cs.getUrl(), cs);
-//        }
-//      }
-//    }
-//    for (ValueSet vs : page.getValueSets().values()) {
-//      if (!hardBoundVS.containsValue(vs) && !vs.getId().startsWith("v2-")&& !vs.getId().startsWith("v3-"))
-//        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("C:\\work\\org.hl7.fhir.intl\\vocab-poc\\fhir", "valueSets", vs.getId()+".xml")), vs);      
-//    }
-//    for (CodeSystem cs : page.getCodeSystems().values()) {
-//      if (!hardBoundCS.containsValue(cs) && !cs.getId().startsWith("v2-")&& !cs.getId().startsWith("v3-"))
-//        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("C:\\work\\org.hl7.fhir.intl\\vocab-poc\\fhir", "codeSystems", cs.getId()+".xml")), cs);      
-//    }
-//  }
-//
   private void listBoundValueSets(ElementDefn element, Map<String, ValueSet> list) {
     if (element.hasBinding() && element.typeCode().equals("code") && element.getBinding().getStrength() == BindingStrength.REQUIRED && element.getBinding().getValueSet() != null) 
       list.put(element.getBinding().getValueSet().getUrl(), element.getBinding().getValueSet());
@@ -1361,7 +1330,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     Collections.sort(names);
     for (String n : names) {
       CodeSystem cs = page.getCodeSystems().get(n);
-      if (cs != null && !urls.contains(cs.getUrl())) {
+      if (cs != null && !urls.contains(cs.getUrl()) && cs.hasUrl() && !cs.getUrl().startsWith("http://terminology.hl7.org")) {
         urls.add(cs.getUrl());
         if (cs.hasName()) {
           NamingSystem ns = new NamingSystem();
@@ -2171,7 +2140,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     shgen.withComments = false;
     TextFile.stringToFile(shgen.generate(HTMLLinkPolicy.NONE, list), page.getFolders().dstDir+"fhir.shex", false);
 
-    new XVerPathsGenerator(page.getDefinitions(), Utilities.path(page.getFolders().dstDir, "xver-paths-"+Constants.VERSION_MM+".json"), Utilities.path(page.getFolders().srcDir, "release4", "xver-paths-4.0.json")).execute();
+    new XVerPathsGenerator(page.getDefinitions(), Utilities.path(page.getFolders().dstDir, "xver-paths-"+Constants.VERSION_MM+".json"), Utilities.path(page.getFolders().rootDir, "tools", "history", "release4", "xver-paths-4.0.json")).execute();
     GraphQLSchemaGenerator gql = new GraphQLSchemaGenerator(page.getWorkerContext());
     gql.generateTypes(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "types.graphql")));
     Set<String> names = new HashSet<String>();
@@ -2239,12 +2208,12 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
   private void loadR4Definitions() throws FileNotFoundException, FHIRException, IOException {
-    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getTypes(), Utilities.path(page.getFolders().srcDir, "release4", "profiles-types.xml"));
-    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getResources(), Utilities.path(page.getFolders().srcDir, "release4", "profiles-resources.xml"));
-    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getExtensions(), Utilities.path(page.getFolders().srcDir, "release4", "extension-definitions.xml"));
-    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getProfiles(), Utilities.path(page.getFolders().srcDir, "release4", "profiles-others.xml"));
-    loadValueSetBundle(page.getDiffEngine().getOriginal().getExpansions(), Utilities.path(page.getFolders().srcDir, "release4", "expansions.xml"));
-    loadValueSetBundle(page.getDiffEngine().getOriginal().getValuesets(), Utilities.path(page.getFolders().srcDir, "release4", "valuesets.xml"));
+    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getTypes(), Utilities.path(page.getFolders().rootDir, "tools", "history", "release4", "profiles-types.xml"));
+    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getResources(), Utilities.path(page.getFolders().rootDir, "tools", "history", "release4", "profiles-resources.xml"));
+    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getExtensions(), Utilities.path(page.getFolders().rootDir, "tools", "history", "release4", "extension-definitions.xml"));
+    loadR4DefinitionBundle(page.getDiffEngine().getOriginal().getProfiles(), Utilities.path(page.getFolders().rootDir, "tools", "history", "release4", "profiles-others.xml"));
+    loadValueSetBundle(page.getDiffEngine().getOriginal().getExpansions(), Utilities.path(page.getFolders().rootDir, "tools", "history", "release4", "expansions.xml"));
+    loadValueSetBundle(page.getDiffEngine().getOriginal().getValuesets(), Utilities.path(page.getFolders().rootDir, "tools", "history", "release4", "valuesets.xml"));
   }
 
   private void loadR4DefinitionBundle(Map<String, StructureDefinition> map, String fn) throws FHIRException, FileNotFoundException, IOException {
@@ -2276,7 +2245,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void processRDF() throws Exception, FileNotFoundException {
     // first, process the RIM file
-    String rim = TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "v3", "rim.ttl"));
+    String rim = TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "tools", "tx", "v3", "rim.ttl"));
     ByteArrayOutputStream tmp = new ByteArrayOutputStream();
     FhirTurtleGenerator ttl = new FhirTurtleGenerator(tmp, page.getDefinitions(), page.getWorkerContext(), page.getValidationErrors());
     ttl.executeV3(page.getValueSets(), page.getCodeSystems());
@@ -2491,8 +2460,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
 
       produceUml();
-      produceV2();
-      produceV3();
       page.getVsValidator().checkDuplicates(page.getValidationErrors());
 
       if (buildFlags.get("all")) {
@@ -2632,47 +2599,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, externals);
       s.close();
 
-      Bundle v2Valuesets = new Bundle();
-      v2Valuesets.setType(BundleType.COLLECTION);
-      v2Valuesets.setId("v2-valuesets");
-      v2Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-      for (ValueSet vs : page.getValueSets().getList())
-        if (vs.getUrl().contains("/v2"))
-          v2Valuesets.addEntry().setFullUrl("http://hl7.org/fhir/"+vs.fhirType()+"/"+vs.getId()).setResource(vs);
-      for (CodeSystem cs : page.getCodeSystems().getList())
-        if (cs!= null && cs.getUrl().contains("/v2"))
-          v2Valuesets.addEntry().setFullUrl("http://hl7.org/fhir/"+cs.fhirType()+"/"+cs.getId()).setResource(cs);
-
-
-      checkBundleURLs(v2Valuesets);
-      s = new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml");
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v2Valuesets);
-      s.close();
-      Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples" + File.separator + "v2-tables.xml");
-      s = new FileOutputStream(page.getFolders().dstDir + "v2-tables.json");
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v2Valuesets);
-      s.close();
-      v2Valuesets = null;
-      Bundle v3Valuesets = new Bundle();
-      v3Valuesets.setType(BundleType.COLLECTION);
-      v3Valuesets.setId("v3-valuesets");
-      v3Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-      for (ValueSet vs : page.getValueSets().getList())
-        if (vs.getUrl().contains("/v3"))
-          v3Valuesets.addEntry().setFullUrl("http://hl7.org/fhir/"+vs.fhirType()+"/"+vs.getId()).setResource(vs);
-      for (CodeSystem cs : page.getCodeSystems().getList())
-        if (cs != null && cs.getUrl().contains("/v3"))
-          v3Valuesets.addEntry().setFullUrl("http://hl7.org/fhir/"+cs.fhirType()+"/"+cs.getId()).setResource(cs);
-      
-      checkBundleURLs(v3Valuesets);
-      s = new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml");
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
-      s.close();
-      Utilities.copyFile(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().dstDir + "examples" + File.separator + "v3-codesystems.xml");
-      s = new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json");
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
-      s.close();
-
       ImplementationGuide expIg = new ImplementationGuide();
       expIg.addFhirVersion(FHIRVersion._4_4_0);
       expIg.setPackageId("hl7.fhir.r5.expansions");
@@ -2746,8 +2672,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("extension-definitions.xml", page.getFolders().dstDir + "extension-definitions.xml", false);
       zip.addFileName("search-parameters.xml", page.getFolders().dstDir + "search-parameters.xml", false);
       zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
-      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
-      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
       zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
       zip.addFileName("dataelements.xml", page.getFolders().dstDir + "dataelements.xml", false);
       zip.addFileName("fhir-all-xsd.zip", page.getFolders().dstDir + "fhir-all-xsd.zip", false);
@@ -2761,8 +2685,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("extension-definitions.json", page.getFolders().dstDir + "extension-definitions.json", false);
       zip.addFileName("search-parameters.json", page.getFolders().dstDir + "search-parameters.json", false);
       zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
-      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
-      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
       zip.addFileName("dataelements.json", page.getFolders().dstDir + "dataelements.json", false);
       zip.addFileName("fhir.schema.json.zip", page.getFolders().dstDir + "fhir.schema.json.zip", false);
@@ -2782,40 +2704,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);
       zip.addFileName("extension-definitions.json", page.getFolders().dstDir + "extension-definitions.json", false);
       zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
-      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
-      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
       // native schema
       zip.addFileName("fhir-all-xsd.zip", page.getFolders().dstDir + "fhir-all-xsd.zip", false);
       zip.addFileName("fhir.schema.json.zip", page.getFolders().dstDir + "fhir.schema.json.zip", false);
       zip.addFileName("fhir.shex", page.getFolders().dstDir + "fhir.shex", false);
       zip.close();
-
-//      page.log("....dstu2 format", LogMessageType.Process);
-//      DSTU2ValidationConvertor dstu2 = new DSTU2ValidationConvertor();
-//      dstu2.convert(page.getFolders().dstDir + "profiles-types.xml", page.getFolders().tmpDir + "profiles-types-r2.xml");
-//      dstu2.convert(page.getFolders().dstDir + "profiles-resources.xml", page.getFolders().tmpDir + "profiles-resources-r2.xml");
-//      dstu2.convert(page.getFolders().dstDir + "profiles-others.xml", page.getFolders().tmpDir + "profiles-others-r2.xml");
-//      dstu2.convert(page.getFolders().dstDir + "extension-definitions.xml", page.getFolders().tmpDir + "extension-definitions-r2.xml");
-//      dstu2.convert(page.getFolders().dstDir + "search-parameters.xml", page.getFolders().tmpDir + "search-parameters-r2.xml");
-//      dstu2.convert(page.getFolders().dstDir + "valuesets.xml", page.getFolders().tmpDir + "valuesets-r2.xml");
-//      dstu2.convert(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().tmpDir + "v2-tables-r2.xml");
-//      dstu2.convert(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().tmpDir + "v3-codesystems-r2.xml");
-//      dstu2.convert(page.getFolders().dstDir + "conceptmaps.xml", page.getFolders().tmpDir + "conceptmaps-r2.xml");
-//      dstu2.convert(page.getFolders().dstDir + "dataelements.xml", page.getFolders().tmpDir + "dataelements-r2.xml");
-//      
-//      zip = new ZipGenerator(page.getFolders().dstDir + "definitions-r2.xml.zip");
-//      zip.addFileName("profiles-types.xml", page.getFolders().tmpDir + "profiles-types-r2.xml", false);
-//      zip.addFileName("profiles-resources.xml", page.getFolders().tmpDir + "profiles-resources-r2.xml", false);
-//      zip.addFileName("profiles-others.xml", page.getFolders().tmpDir + "profiles-others-r2.xml", false);
-//      zip.addFileName("extension-definitions.xml", page.getFolders().tmpDir + "extension-definitions-r2.xml", false);
-//      zip.addFileName("search-parameters.xml", page.getFolders().tmpDir + "search-parameters-r2.xml", false);
-//      zip.addFileName("valuesets.xml", page.getFolders().tmpDir + "valuesets-r2.xml", false);
-//      zip.addFileName("v2-tables.xml", page.getFolders().tmpDir + "v2-tables-r2.xml", false);
-//      zip.addFileName("v3-codesystems.xml", page.getFolders().tmpDir + "v3-codesystems-r2.xml", false);
-//      zip.addFileName("conceptmaps.xml", page.getFolders().tmpDir + "conceptmaps-r2.xml", false);
-//      zip.addFileName("dataelements.xml", page.getFolders().tmpDir + "dataelements-r2.xml", false);
-//      zip.close();
 
       page.log("....dstu3 format (xml)", LogMessageType.Process);
       DSTU3ValidationConvertor dstu3 = new DSTU3ValidationConvertor();
@@ -2825,8 +2719,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       dstu3.convert(page.getFolders().dstDir + "extension-definitions.xml", page.getFolders().tmpDir + "extension-definitions-r3.xml");
       dstu3.convert(page.getFolders().dstDir + "search-parameters.xml", page.getFolders().tmpDir + "search-parameters-r3.xml");
       dstu3.convert(page.getFolders().dstDir + "valuesets.xml", page.getFolders().tmpDir + "valuesets-r3.xml");
-      dstu3.convert(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().tmpDir + "v2-tables-r3.xml");
-      dstu3.convert(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().tmpDir + "v3-codesystems-r3.xml");
       dstu3.convert(page.getFolders().dstDir + "conceptmaps.xml", page.getFolders().tmpDir + "conceptmaps-r3.xml");
       dstu3.convert(page.getFolders().dstDir + "dataelements.xml", page.getFolders().tmpDir + "dataelements-r3.xml");
       
@@ -2837,8 +2729,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("extension-definitions.xml", page.getFolders().tmpDir + "extension-definitions-r3.xml", false);
       zip.addFileName("search-parameters.xml", page.getFolders().tmpDir + "search-parameters-r3.xml", false);
       zip.addFileName("valuesets.xml", page.getFolders().tmpDir + "valuesets-r3.xml", false);
-      zip.addFileName("v2-tables.xml", page.getFolders().tmpDir + "v2-tables-r3.xml", false);
-      zip.addFileName("v3-codesystems.xml", page.getFolders().tmpDir + "v3-codesystems-r3.xml", false);
       zip.addFileName("conceptmaps.xml", page.getFolders().tmpDir + "conceptmaps-r3.xml", false);
       zip.addFileName("dataelements.xml", page.getFolders().tmpDir + "dataelements-r3.xml", false);
       zip.close();
@@ -2850,8 +2740,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       dstu3.convertJ(page.getFolders().dstDir + "extension-definitions.xml", page.getFolders().tmpDir + "extension-definitions-r3.json");
       dstu3.convertJ(page.getFolders().dstDir + "search-parameters.xml", page.getFolders().tmpDir + "search-parameters-r3.json");
       dstu3.convertJ(page.getFolders().dstDir + "valuesets.xml", page.getFolders().tmpDir + "valuesets-r3.json");
-      dstu3.convertJ(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().tmpDir + "v2-tables-r3.json");
-      dstu3.convertJ(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().tmpDir + "v3-codesystems-r3.json");
       dstu3.convertJ(page.getFolders().dstDir + "conceptmaps.xml", page.getFolders().tmpDir + "conceptmaps-r3.json");
       dstu3.convertJ(page.getFolders().dstDir + "dataelements.xml", page.getFolders().tmpDir + "dataelements-r3.json");
       
@@ -2862,8 +2750,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("extension-definitions.json", page.getFolders().tmpDir + "extension-definitions-r3.json", false);
       zip.addFileName("search-parameters.json", page.getFolders().tmpDir + "search-parameters-r3.json", false);
       zip.addFileName("valuesets.json", page.getFolders().tmpDir + "valuesets-r3.json", false);
-      zip.addFileName("v2-tables.json", page.getFolders().tmpDir + "v2-tables-r3.json", false);
-      zip.addFileName("v3-codesystems.json", page.getFolders().tmpDir + "v3-codesystems-r3.json", false);
       zip.addFileName("conceptmaps.json", page.getFolders().tmpDir + "conceptmaps-r3.json", false);
       zip.addFileName("dataelements.json", page.getFolders().tmpDir + "dataelements-r3.json", false);
       zip.close();
@@ -2882,10 +2768,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
       zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
       zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
-      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
-      zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
-      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
-      zip.addFileName("v3-codesystems.json", page.getFolders().dstDir + "v3-codesystems.json", false);
       zip.close();
     
       page.log("....IG Builder Resources", LogMessageType.Process);
@@ -2902,8 +2784,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("extension-definitions.xml", page.getFolders().dstDir + "extension-definitions.xml", false);
       zip.addFileName("search-parameters.xml", page.getFolders().dstDir + "search-parameters.xml", false);
       zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
-      zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
-      zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
       zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
       zip.addFileName("dataelements.xml", page.getFolders().dstDir + "dataelements.xml", false);
       zip.addFileName("version.info", page.getFolders().dstDir + "version.info", false);
@@ -3354,7 +3234,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (e.getResource() instanceof CanonicalResource) {
           CanonicalResource m = (CanonicalResource) e.getResource();
           String url = m.getUrl();
-          if (url != null && url.startsWith("http://hl7.org/fhir")) {
+          if (url != null && url.startsWith("http://hl7.org/fhir") && !url.startsWith("http://hl7.org/fhir/sid")) {
             if (!Constants.VERSION.equals(m.getVersion())) 
               page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "definitions in FHIR space should have the correct version (url = "+url+", version = "+m.getVersion()+")", IssueSeverity.ERROR));              
           }
@@ -3367,63 +3247,6 @@ public class Publisher implements URIResolver, SectionNumberer {
 //    for (String n : page.getIni().getPropertyNames("comparisons")) {
 //      produceComparison(n);
 //    }
-  }
-
-  private void produceComparison(String n) throws Exception {
-    int t = page.getIni().getIntegerProperty(n, "pairs");
-    ProfileComparer pc = new ProfileComparer(page.getWorkerContext(), page.getFolders().dstDir);
-    pc.setId(n);
-    pc.setTitle(page.getIni().getStringProperty("comparisons", n));
-    page.log("...Comparison: "+pc.getTitle(), LogMessageType.Process);
-    pc.setLeftLink(page.getIni().getStringProperty(n, "left-link"));
-    pc.setLeftName(page.getIni().getStringProperty(n, "left-name"));
-    pc.setRightLink(page.getIni().getStringProperty(n, "right-link"));
-    pc.setRightName(page.getIni().getStringProperty(n, "right-name"));
-    for (int i = 1; i <= t; i++) {
-      String[] pair = page.getIni().getStringProperty(n, "pair"+Integer.toString(i)).split(",");
-      if (pair.length != 2)
-        throw new Exception("Didn't find a pair for "+n+".pair"+Integer.toString(i));
-      StructureDefinition sdl = page.getWorkerContext().fetchTypeDefinition(pair[0]);
-      if (sdl == null)
-        throw new Exception("Unable to find structure "+pair[0]);
-      StructureDefinition sdr = page.getWorkerContext().fetchTypeDefinition(pair[1]);
-      if (sdr == null)
-        throw new Exception("Unable to find structure "+pair[1]);
-      pc.compareProfiles(sdl, sdr);
-    }
-
-    // assign file namea and paths to all the structures
-    int i = 0;
-    for (ProfileComparison cmp : pc.getComparisons()) {
-      i++;
-      if (cmp.getSubset() != null) {
-        cmp.getSubset().setUserData("filename", n+".intersection."+Integer.toString(i)+".xml");
-        cmp.getSubset().setUserData("filename", n+".intersection."+Integer.toString(i)+".html");
-      }
-      if (cmp.getSuperset() != null) {
-        cmp.getSuperset().setUserData("filename", n+".intersection."+Integer.toString(i)+".xml");
-        cmp.getSuperset().setUserData("filename", n+".intersection."+Integer.toString(i)+".html");
-      }
-    }
-
-    // ok, all compared; now produce the output
-    // first page we produce is simply the index
-    page.log("   ... generate", LogMessageType.Process);
-    String src = TextFile.fileToString(page.getFolders().srcDir + "template-comparison-set.html");
-    src = page.processPageIncludes(n+".html", src, "?type", null, "??path", null, null, "Comparison", pc, null, null, page.getDefinitions().getWorkgroups().get("fhir"));
-    TextFile.stringToFile(src, Utilities.path(page.getFolders().dstDir, n+".html"));
-    cachePage(n + ".html", src, "Comparison "+pc.getTitle(), false);
-
-    // then we produce a comparison page for each pair
-    for (ProfileComparison cmp : pc.getComparisons()) {
-      src = TextFile.fileToString(page.getFolders().srcDir + "template-comparison.html");
-      src = page.processPageIncludes(n+"."+cmp.getId()+".html", src, "?type", null, "??path", null, null, "Comparison", cmp, null, null, page.getDefinitions().getWorkgroups().get("fhir"));
-      TextFile.stringToFile(src, Utilities.path(page.getFolders().dstDir, n+"."+cmp.getId()+".html"));
-      cachePage(n +"."+cmp.getId()+".html", src, "Comparison "+pc.getTitle(), false);
-    }
-      //   and also individual pages for each pair outcome
-    // then we produce value set pages for each value set
-
   }
 
   private void minify(String srcFile, String dstFile) throws Exception {
@@ -3814,31 +3637,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
-  private void produceV3() throws Exception {
-    page.log(" ...v3 Code Systems", LogMessageType.Process);
-    Utilities.createDirectory(page.getFolders().dstDir + "v3");
-    Utilities.clearDirectory(page.getFolders().dstDir + "v3");
-    String src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template.html");
-    TextFile.stringToFile(
-        addSectionNumbers("terminologies-v3.html", "terminologies-v3", page.processPageIncludes("terminologies-v3.html", src, "page", null, null, null, "V3 Terminologies", null, null, wg("vocab")), null, 0, null, null),
-        page.getFolders().dstDir + "terminologies-v3.html");
-    src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template.html");
-    cachePage("terminologies-v3.html", page.processPageIncludesForBook("terminologies-v3.html", src, "page", null, null, wg("vocab")), "V3 Terminologes", false);
-    new ValueSetImporterV3(page, page.getValidationErrors(), page.getRc()).produce(this);
-  }
-  
-  private void produceV2() throws Exception {
-    page.log(" ...v2 Tables", LogMessageType.Process);
-    Utilities.createDirectory(page.getFolders().dstDir + "v2");
-    Utilities.clearDirectory(page.getFolders().dstDir + "v2");
-    String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template.html");
-    TextFile.stringToFile(
-        addSectionNumbers("terminologies-v2.html", "terminologies-v2", page.processPageIncludes("terminologies-v2.html", src, "v2Vocab", null, null, null, "V2 Tables", null, null, page.getDefinitions().getWorkgroups().get("vocab")), null, 0, null, null),
-        page.getFolders().dstDir + "terminologies-v2.html");
-    src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template.html");
-    cachePage("terminologies-v2.html", page.processPageIncludesForBook("v2/template.html", src, "v2Vocab", null, null, wg("vocab")), "V2 Terminologies", false);
-    new ValueSetImporterV2(page, page.getValidationErrors()).produce(this);
-  }
 
   private void produceBaseProfile() throws Exception {
 
@@ -5893,10 +5691,6 @@ public class Publisher implements URIResolver, SectionNumberer {
         }
       }
       if (buildFlags.get("all")) {
-        if (validateId == null || validateId.equals("v2-tables"))
-          ei.validate("v2-tables", "Bundle");
-        if (validateId == null || validateId.equals("v3-codesystems"))
-          ei.validate("v3-codesystems", "Bundle");
         if (validateId == null || validateId.equals("valuesets"))
           ei.validate("valuesets", "Bundle");
         if (validateId == null || validateId.equals("conceptmaps"))

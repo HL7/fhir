@@ -5906,7 +5906,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-Confidentiality</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
