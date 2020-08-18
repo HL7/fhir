@@ -36,168 +36,44 @@
 		Each channel type involves the server sending a communication that could reveal information about the client and server relationship, as well as sensitive administrative or clinical information. Servers are responsible for ensuring appropriate security is employed for each channel. The Subscription resource does not address these concerns directly; it is assumed that these are administered by other configuration processes. For instance, a server might maintain a whitelist of acceptable endpoints or trusted certificate authorities for rest-hook channels.
 	</p>
 
-	<a name="subscription-notification"/>
-	<h2>Subscription Notifications</h2>
+	<a name="payloads"/>
+	<h2>Payload Types</h2>
 	<p>
-		This specification describes three distinct outbound notification types: <em>Event</em>, <em>Handshake</em> and <em>Heartbeat</em>. For each, the notification body is a <a href="bundle.html">subscription-notification Bundle</a> with a <a href="subscriptionstatus.html">SubscriptionStatus</a> resource used  to convey Subscription and notification details.
+		There are three options available when specifying the contents of a Notification: <code>empty</code>, <code>id-only</code>, and <code>full-resource</code>. These options change the level of detail conveyed in the notification Bundle entries.
+	</p>
+	<p>
+		When deciding which payload type to request, systems <b>SHOULD</b> consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems SHOULD use the minimum level of detail consistent with the use case. In practice, <code>id-only</code> provides a good balance for many real-world scenarios.
+	</p>
+	<p>
+		If a server will not honor a payload type (e.g., will not send <code>full-resource</code> over HTTP), the server should reject the Subscription request, but may accept it and report back to the subscriber that it was modified.
 	</p>
 
-		<a name="event-notification"/>
-		<h3>Event Notification</h3>
-		<p>The primary notification is a notification about an event.</p>
-		<ul>
-			<li>
-				<a href="notification-id-only.html">Example event notification</a>
-			</li>
-		</ul>
+		<a name="payloads-empty" />
+		<h3>empty</h3>
 		<p>
-			The client expectations upon receipt of a Handshake notification are defined separately for each channel type (e.g., for the <code>rest-hook</code> channel type, a client endpoint responds to event notifications with standard HTTP response codes).
+			An example notification with an <code>empty</code> payload can be found <a href="notification-empty.html">here</a>.
+		</p>
+		<p>
+			With the content type of <code>empty</code>, the resources involved in triggering the notification are only available through the REST API, which helps consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>&amp;_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notification is for a topic about patient admission, the subscriber might query for the most recent Encounters for a patient or group of patients.
 		</p>
 
-		<a name="handshake-notification"/>
-		<h3>Handshake Notification</h3>
+		<a name="payloads-id-only" />
+		<h3>id-only</h3>
 		<p>
-			When a connection to an Endpoint is established, a server MAY send a Handshake notification to the endpoint.  A Handshake notification is a subscription-notification Bundle sent without incrementing the subscription event count.
+			An example notification with an <code>id-only</code> payload can be found <a href="notification-id-only.html">here</a>.
 		</p>
-		<ul>
-			<li>
-				<a href="notification-handshake.html">Example handshake notification</a>
-			</li>
-		</ul>
 		<p>
-			The client is not expected to take any special action in receipt of a Handshake notification beyond the channel-specific requirement for receiving an event notification.
+			With the content type of <code>id-only</code>, the resources involved in triggering the notification are only available through the REST API, which (as in the <code>empty</code> payload example) helps consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may directly fetch all the relevant resources using the supplied resource ids. For example, the if the notification is for a topic about patient admission, the subscriber might fetch the Encounter(s) for a patient or group of patients.
 		</p>
 
-		<a name="heartbeat-notification"/>
-		<h3>Heartbeat Notification</h3>
+		<a name="payloads-full-resource" />
+		<h3>full-resource</h3>
 		<p>
-			Servers MAY periodically send notifications across a channel to ensure that the connection is still alive and valid (e.g., in accordance with a client's requested heartbeat interval). The Heartbeat notification is an empty subscription-notification Bundle sent without incrementing the subscription event count.
-		</p>
-		<ul>
-			<li>
-				<a href="notification-heartbeat.html">Example heartbeat notification</a>
-			</li>
-		</ul>
-		<p>
-			The client is not expected to take any special action in receipt of a Heartbeat notification beyond the channel-specific requirement for receiving an event notification.
-		</p>
-
-		<a name="subscription-status"/>
-		<h3>Subscription Status</h3>
-		<ul>
-			<li>
-				<p>
-					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.eventsSinceSubscriptionStart">SubscriptionStatus.eventsSinceSubscriptionStart</a> element indicates the number of unique events that have triggered notification attempts on this Subscription inclusive of the current notification being sent.
-				</p>
-				<ul>
-					<li>
-						<p>
-							In the case of a handshake, this count will always be zero (0).
-						</p>
-					</li>
-					<li>
-						<p>
-							In the case of a heartbeat notification, this count will be the same as the last notification and will not be incremented due to the heartbeat notification.
-						</p>
-					</li>
-					<li>
-						<p>
-							In the case of event notifications, the event count will be incremented by the number of notifications contained within this bundle (often a single notification, though servers may choose to batch notifications within a short time interval).
-						</p>
-					</li>
-					<li>
-						<p>
-							In the case of an event notification that cannot be delivered (e.g., because a client endpoint is offline), the server MAY retry delivery but does not increment the event count; the count represents unique events, not unique delivery attempts.
-						</p>
-					</li>
-				</ul>
-			</li>
-		</ul>
-		<!-- end list -->
-		<ul>
-			<li>
-				<p>
-					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.eventsInNotification">SubscriptionStatus.eventsInNotification</a> element represents the number of event notifications conveyed by the Bundle. This helps clients:
-				</p>
-				<ul>
-					<li>
-						<p>
-							Determine if a notification requires further processing (e.g., a client might discard handshake and heartbeat notifications)
-						</p>
-					</li>
-					<li>
-						<p>
-							Determine the number of events it should expeect to find in follow-on queries when the in <code>empty</code> payload type is used
-						</p>
-					</li>
-					<li>
-						<p>
-							Handle batched results (e.g., a server sending at max one notification per second)
-						</p>
-					</li>
-				</ul>
-				<p>
-					For handshake and heartbeat notifications, <code>eventsInNotification</code> will be zero if present.
-				</p>
-			</li>
-		</ul>
-		<!-- end list -->
-		<ul>
-			<li>
-				<p>
-					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.status">SubscriptionStatus.status</a> element represents the <a href="valueset-subscription-state.html">Subscription status values</a> at the time the notification is sent. Note that the status might change between the time the notification is sent and the time it is received/processed, and therefore this status recorded in the extension is not guaranteed to represent status at the time of receipt. The field is useful as a hint to inform the client if the server has encountered errors in notifications immediately preceding this notification.
-				</p>
-			</li>
-			<li>
-				<p>
-					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.topic">SubscriptionStatus.topic</a> element references the SubscriptionTopic resource relevant to this notification, as an absolute URL for the SubscriptionTopic resource on the server that generated the notification (<em>NOT</em> a reference to a canonical SubscriptionTopic URL.)
-				</p>
-			</li>
-			<li>
-				<p>
-					The <a href="subscriptionstatus-definitions.html#SubscriptionStatus.subscription">SubscriptionStatus.subscription</a> element references the Subscription resource that triggered this notification, as an absolute URL for the Subscription resource on the server that generated the notification.
-				</p>
-			</li>
-		</ul>
-
-		<a name="payloads"/>
-		<h3>Payload Types</h3>
-		<p>
-			There are three options available when specifying the contents of a Notification: <code>empty</code>, <code>id-only</code>, and <code>full-resource</code>. These options change the level of detail conveyed in the notification Bundle entries.
+			An example notification with a <code>full-resource</code> payload can be found <a href="notification-full-resource.html">here</a>.
 		</p>
 		<p>
-			When deciding which payload type to request, systems <b>SHOULD</b> consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems SHOULD use the minimum level of detail consistent with the use case. In practice, <code>id-only</code> provides a good balance for many real-world scenarios.
+			With the content type of <code>full-resource</code>, the resources involved in triggering the notification are included in the notification bundle.  When the subscriber receives a notification of this type, some resources are already present in the bundle, but it may need to fetch additional resources from the server. For example, the if the notification is for a topic about patient admission, the subscriber might fetch Observations related to the Encounters in the notification.
 		</p>
-		<p>
-			If a server will not honor a payload type (e.g., will not send <code>full-resource</code> over HTTP), the server should reject the Subscription request, but may accept it and report back to the subscriber that it was modified.
-		</p>
-
-			<a name="payloads-empty" />
-			<h4>empty</h4>
-			<p>
-				An example notification with an <code>empty</code> payload can be found <a href="notification-empty.html">here</a>.
-			</p>
-			<p>
-				With the content type of <code>empty</code>, the resources involved in triggering the notification are only available through the REST API, which helps consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>&amp;_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notification is for a topic about patient admission, the subscriber might query for the most recent Encounters for a patient or group of patients.
-			</p>
-
-			<a name="payloads-id-only" />
-			<h4>id-only</h4>
-			<p>
-				An example notification with an <code>id-only</code> payload can be found <a href="notification-id-only.html">here</a>.
-			</p>
-			<p>
-				With the content type of <code>id-only</code>, the resources involved in triggering the notification are only available through the REST API, which (as in the <code>empty</code> payload example) helps consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may directly fetch all the relevant resources using the supplied resource ids. For example, the if the notification is for a topic about patient admission, the subscriber might fetch the Encounter(s) for a patient or group of patients.
-			</p>
-
-			<a name="payloads-full-resource" />
-			<h4>full-resource</h4>
-			<p>
-				An example notification with a <code>full-resource</code> payload can be found <a href="notification-full-resource.html">here</a>.
-			</p>
-			<p>
-				With the content type of <code>full-resource</code>, the resources involved in triggering the notification are included in the notification bundle.  When the subscriber receives a notification of this type, some resources are already present in the bundle, but it may need to fetch additional resources from the server. For example, the if the notification is for a topic about patient admission, the subscriber might fetch Observations related to the Encounters in the notification.
-			</p>
 
 		<a name="payload-entries" />
 		<h3>Payload Entries</h3>
