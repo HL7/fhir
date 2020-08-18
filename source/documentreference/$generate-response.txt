@@ -1,0 +1,22 @@
+// Results from $generate
+
+HTTP/1.1 200 OK
+[other headers]
+
+{
+  "resourceType": "Bundle",
+  "id": "26419249-18b3-45de-b10e-dca0b2e72a",
+  "meta": {
+    "lastUpdated": "2016-03-18T03:28:49Z"
+  },
+  "type": "searchset",
+  "total": 1,
+  "entry": [{
+    "fullUrl": "http://server/path/DocumentReference/example",
+    "resource": {
+      "resourceType": "DocumentReference",
+      "id": "example",
+      .. snip ...
+    }
+  }]
+}
