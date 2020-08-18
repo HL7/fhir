@@ -8,7 +8,7 @@
 	<classification>
 		<coding>
 			<system value="http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem"/>
-			<code value="WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02"/>
+			<code value="B01AF02"/>
 		</coding>
 	</classification>
 	<attachedDocument>
