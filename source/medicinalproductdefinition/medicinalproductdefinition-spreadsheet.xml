@@ -4,7 +4,7 @@
   <LastAuthor>Rik Smithies</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-07-30T16:39:21Z</LastSaved>
+  <LastSaved>2020-08-14T10:41:07Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -16,8 +16,7 @@
   
   
   <TabRatio>709</TabRatio>
-  <ActiveSheet>7</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -855,7 +854,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">General combined description of indication(s) for this product. See also MedicinalProductDefinitionIndication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">General combined description of indication(s) for this product, for use when a structured set is not available. See also the ClinicalUseIssue resource, which can be used for more structured indications, and can be made to reference to this resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">(roll up of all text in Therapeutic Indication.Indication Text, for common case where information is not granular)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180" ss:StyleID="Default">
@@ -1503,10 +1502,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3418,21 +3418,21 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s131"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">Simple Example Equilidem25</Data></Cell>
+    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">Simple version of a product (more than basic),  only using MedicinalProductDefinition, Ingredient and RegulatedAuthorization</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">equilidem-with-ing-and-auth</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">medicinalproductdefinition-example-equilidem-using-ingredient-and-auth.xml</Data></Cell>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s131"/>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s129"><Data ss:Type="String">Drug with co-packaged device</Data></Cell>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s130"><Data ss:Type="String">A liquid that comes with a syringe in the pack, basic details only</Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">drug-and-device</Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">medicinalproductdefinition-example-co-packaged-liquid-and-syringe.xml</Data></Cell>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s131"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s131"/>
    </Row>
@@ -3750,7 +3750,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
