@@ -1,0 +1,817 @@
+# O-RIM (Ontological RIM_) definitions
+# This is work in progress, and may change rapidly 
+# GDG 13/04/2015 base ontological rim down. Patterns may change, additional content may be added
+
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rim: <http://hl7.org/orim/class/> .
+@prefix dt: <http://hl7.org/orim/datatype/> .
+@prefix vs: <http://hl7.org/orim/valueset/> .
+@prefix cs: <http://hl7.org/orim/codesystem/> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema/> .
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix os: <http://open-services.net/ns/core#> .
+
+# - ANY --------------------------------------------------------------------
+
+dt:ANY a rdfs:Class;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:ANY.nullFlavor;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dc:terms "An abstract type that defines the basic properties common to all data values defined in this specification. Data Value is an abstract type, meaning that no proper value can be just a data value without belonging to any concrete type. Every concrete type is a specialization of this general abstract DataValue type";
+   rdfs:comment "An abstract type that defines the basic properties common to all data values defined in this specification. Data Value is an abstract type, meaning that no proper value can be just a data value without belonging to any concrete type. Every concrete type is a specialization of this general abstract DataValue type";
+   dc:title "Base Data type";
+   rdfs:label "Base Data type".
+
+dt:ANY.nullFlavor a rdf:Property;
+   dc:terms "An indicator of a data value's exceptional status, sometimes also denoting the manner and rationale for that status.";
+   rdfs:comment "An indicator of a data value's exceptional status, sometimes also denoting the manner and rationale for that status.";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:ANY;
+   rdfs:range cs:NullFlavor;
+   fhir:binding vs:NullFlavor;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+
+# - CS ------------------------------------------------------------------
+
+dt:CS rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:CS.code;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "Coded data in its simplest form, where only the code is not predetermined. The code system and code system version are fixed by the context in which CS value occurs. CS is used for coded attributes that have a single HL7-defined value set";
+   rdfs:comment "Coded data in its simplest form, where only the code is not predetermined. The code system and code system version are fixed by the context in which CS value occurs. CS is used for coded attributes that have a single HL7-defined value set";
+   dc:title "CodedSimpleValue";
+   rdfs:label "CodedSimpleValue".
+
+dt:CS.code a rdf:Property;
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:CS;
+   rdfs:range xs:string.
+
+# - BL ------------------------------------------------------------------
+
+dt:BL rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:BL.value;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "A binary value for use in boolean logic. A BL value can be either true or false, or, as any other value, MAY be NULL";
+   rdfs:comment "A binary value for use in boolean logic. A BL value can be either true or false, or, as any other value, MAY be NULL";
+   dc:title "Boolean";
+   rdfs:label "Boolean".
+
+dt:BL.value a rdf:Property;
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:BL;
+   rdfs:range xs:boolean.
+   
+# - INT ------------------------------------------------------------------
+
+dt:INT rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:INT.value;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "Integer numbers (-1,0,1,2, 100, 3398129, etc.) are precise numbers that are results of counting and enumerating. Integer numbers are discrete, the set of integers is infinite but countable. No arbitrary limit is imposed on the range of integer numbers. Two NULL flavors are defined for the positive and negative infinity";
+   rdfs:comment "Integer numbers (-1,0,1,2, 100, 3398129, etc.) are precise numbers that are results of counting and enumerating. Integer numbers are discrete, the set of integers is infinite but countable. No arbitrary limit is imposed on the range of integer numbers. Two NULL flavors are defined for the positive and negative infinity";
+   dc:title "IntegerNumber";
+   rdfs:label "IntegerNumber".
+
+dt:INT.value a rdf:Property;
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:INT;
+   rdfs:range xs:integer.
+
+# - REAL ------------------------------------------------------------------
+
+dt:REAL rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:REAL.value;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "A scalar magnitude. Typically used whenever quantities are measured, estimated, or computed from other real numbers. The typical representation is decimal, where the number of significant decimal digits is known as the precision.";
+   rdfs:comment "A scalar magnitude. Typically used whenever quantities are measured, estimated, or computed from other real numbers. The typical representation is decimal, where the number of significant decimal digits is known as the precision.";
+   dc:title "RealNumber";
+   rdfs:label "RealNumber".
+
+dt:REAL.value a rdf:Property;
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:REAL;
+   rdfs:range xs:decimal.
+      
+   
+# - CD ------------------------------------------------------------------
+
+#CD has been restructured in the oRIM to make reasoning easy, and to align with FHIR better - principally, codeSystem is a URI instead of a OID/UUID.
+
+dt:CD rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.originalText;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dc:title "ConceptDescriptor";
+   dcterms:description "A concept defined by text and/or references to concepts defined in a code system";
+   rdfs:comment "A concept defined by text and/or references to concepts defined in a code system";
+   rdfs:label "ConceptDescriptor".
+
+dt:CD.coding a rdf:Property;
+   dcterms:description "A reference to a concept defined in a code system";
+   rdfs:comment "A reference to a concept defined in a code system";
+   os:occurs os:Zero-to-many;
+   rdfs:domain dt:CD;
+   rdfs:range xs:string.
+
+dt:CD.originalText a rdf:Property;
+   dcterms:description "The text as seen and/or selected by the user who entered the data which represents the intended meaning of the user";
+   rdfs:comment "The text as seen and/or selected by the user who entered the data which represents the intended meaning of the user";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:CD;
+   rdfs:range xs:string. 
+ 
+dt:CDCoding rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.code;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.codeSystem;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.codeSystemName;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.codeSystemVersion;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.valueSet;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.valueSetVersion;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.displayName;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.originalText;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.source;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dc:title "ConceptDescriptorCoding";
+   dcterms:description "A reference to a concept defined in a code system";
+   rdfs:comment "A reference to a concept defined in a code system";
+   rdfs:label "ConceptDescriptorCoding".
+
+dt:CDCoding.code a rdf:Property;
+   dcterms:description "The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept";
+   rdfs:comment "The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:CDCoding;
+   rdfs:range xs:string.
+
+dt:CDCoding.codeSystem a rdf:Property;
+   dcterms:description "The code system that defines the code";
+   rdfs:comment "The code system that defines the code";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:CDCoding;
+   rdfs:range xs:anyURI. # in the RIM proper this must be an OID or a UUID. But for the o-RIM, we are primarily interested in statements or meaning, so we allow URL as well
+   
+dt:CDCoding.codeSystemName a rdf:Property;
+   dcterms:description "The common name of the coding system";
+   rdfs:comment "The common name of the coding system";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:CDCoding;
+   rdfs:range xs:string.
+ 
+dt:CDCoding.codeSystemVersion a rdf:Property;
+   dcterms:description "If applicable, a version descriptor defined specifically for the given code system";
+   rdfs:comment "If applicable, a version descriptor defined specifically for the given code system";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:CDCoding;
+   rdfs:range xs:string.
+ 
+dt:CDCoding.valueSet a rdf:Property;
+   dcterms:description "The value set that applied when this CD was created";
+   rdfs:comment "The value set that applied when this CD was created";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:CDCoding;
+   rdfs:range xs:string.
+ 
+dt:CDCoding.valueSetVersion a rdf:Property;
+   dcterms:description "The version of the value set that applied when this CD was created";
+   rdfs:comment "The version of the value set that applied when this CD was created";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:CDCoding;
+   rdfs:range xs:string.
+ 
+dt:CDCoding.displayName a rdf:Property;
+   dcterms:description "A name, title, or representation for the code or expression as it exists in the code system identified by the value of codeSystem";
+   rdfs:comment "A name, title, or representation for the code or expression as it exists in the code system identified by the value of codeSystem.";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:CDCoding;
+   rdfs:range xs:string.
+ 
+dt:CDCoding.codingRationale a rdf:Property;
+   dcterms:description "The reason a particular CD has been provided";
+   rdfs:comment "The reason a particular CD has been provided";
+   os:occurs os:Zero-or-one;
+   rim:collectionType rim:CollectionType\#DSET;
+   rdfs:domain dt:CDCoding;
+   rdfs:range cs:CodingRationale;
+   fhir:binding vs:CodingRationale;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+      
+dt:CDCoding.source a rdf:Property;
+   dcterms:description "The CD from which this CD was translated, if it was translated from another CD";
+   rdfs:comment "The CD from which this CD was translated, if it was translated from another CD";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:CDCoding;
+   rdfs:range dt:CDCoding.
+   
+   
+# - II ------------------------------------------------------------------
+
+dt:II rdfs:subClassOf dt:ANY;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.root;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.extension;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.identifierName;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.scope;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.reliability;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty dt:II.display;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dc:title "InstanceIdentifier";
+   dcterms:description "An identifier that uniquely identifies a thing or object. Examples are object identifier for HL7 RIM objects, medical record number, order id, service catalog item id, Vehicle Identification Number (VIN), etc.";
+   rdfs:comment "An identifier that uniquely identifies a thing or object. Examples are object identifier for HL7 RIM objects, medical record number, order id, service catalog item id, Vehicle Identification Number (VIN), etc.";
+   rdfs:label "InstanceIdentifier".
+
+dt:II.root a rdf:Property;
+   dcterms:description "A unique identifier that guarantees the global uniqueness of the instance identifier. The root alone may be the entire instance identifier";
+   rdfs:comment "A unique identifier that guarantees the global uniqueness of the instance identifier. The root alone may be the entire instance identifier";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:II;
+   rdfs:range xs:anyURI. # in the RIM proper this must be an OID or a UUID. But for the o-RIM, we are primarily interested in statements or meaning, so we make it URI instead
+   
+dt:II.extension a rdf:Property;
+   dcterms:description "A character string as a unique identifier within the scope of the identifier root.";
+   rdfs:comment "A character string as a unique identifier within the scope of the identifier root.";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:II;
+   rdfs:range xs:string.
+
+dt:II.identifierName a rdf:Property;
+   dcterms:description "This is a human-readable name for the namespace represented in the root. It is a descriptive name for the actual namespace; e.g. 'California, U.S. Driver's License Number, 1970-'.";
+   rdfs:comment "This is a human-readable name for the namespace represented in the root. It is a descriptive name for the actual namespace; e.g. 'California, U.S. Driver's License Number, 1970-'.";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:II;
+   rdfs:range xs:string.
+ 
+dt:II.scope a rdf:Property;
+   dcterms:description "Specifies the scope in which the identifier applies to the object with which it is associated";
+   rdfs:comment "Specifies the scope in which the identifier applies to the object with which it is associated";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:II;
+   rdfs:range cs:IdentifierScope;
+   fhir:binding vs:IdentifierScope;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+
+dt:II.reliability a rdf:Property;
+   dcterms:description "Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms";
+   rdfs:comment "Specifies the reliability with which the identifier is known. This attribute MAY be used to assist with identifier matching algorithms";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:II;
+   rdfs:range cs:IdentifierReliability;
+   fhir:binding vs:IdentifierReliability;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+dt:II.display a rdf:Property;
+   dcterms:description "Specifies if the identifier is intended for human display and data entry (displayable = true) as opposed to pure machine interoperation (displayable = false)";
+   rdfs:comment "Specifies if the identifier is intended for human display and data entry (displayable = true) as opposed to pure machine interoperation (displayable = false)";
+   os:occurs os:Zero-or-one;
+   rdfs:domain dt:II;
+   rdfs:range xs:boolean.
+   
+      
+# - InfrastructureRoot --------------------------------------------------------------------
+
+rim:InfrastructureRoot a rdfs:Class;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:InfrastructureRoot.nullFlavor;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "An abstract super-type for all RIM classes, either directly or through inheritance";
+   rdfs:comment "An abstract super-type for all RIM classes, either directly or through inheritance";
+   dc:title "Base RIM Class";
+   rdfs:label "Base RIM Class".
+
+rim:InfrastructureRoot.nullFlavor a rdf:Property;
+   dcterms:description "An indicator that the class instance is null, including the flavor of null that is intended";
+   rdfs:comment "An indicator that the class instance is null, including the flavor of null that is intended";
+   os:occurs os:Zero-or-one;
+   rdfs:domain rim:InfrastructureRoot;
+   rdfs:range dt:CS;
+   fhir:binding vs:NullFlavor;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+# - Entity --------------------------------------------------------------------
+# Entity: classCode, determinerCode, id, code, statusCode
+
+rim:Entity rdfs:subClassOf rim:InfrastructureRoot;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Entity.classCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Entity.id;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Entity.determinerCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Entity.determinerCode;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Entity.statusCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Entity.code;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "A physical thing, group of physical things or an organization capable of participating in Acts while in a role";
+   rdfs:comment "A physical thing, group of physical things or an organization capable of participating in Acts while in a role";
+   dc:title "Entity";
+   rdfs:label "Entity".
+ 
+rim:Entity.classCode a rdf:Property;
+   dcterms:description "The major class of Entities to which an Entity-instance belongs";
+   rdfs:comment "The major class of Entities to which an Entity-instance belongs";
+   os:occurs os:Exactly-one;
+   rdfs:domain rim:Entity;
+   rdfs:range cs:EntityClass;
+   fhir:binding vs:EntityClass;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+rim:Entity.determinerCode a rdf:Property;
+   dcterms:description "A code specifying whether the Entity object represents a universal (KIND) vs. a particular (INSTANCE)";
+   rdfs:comment "A code specifying whether the Entity object represents a universal (KIND) vs. a particular (INSTANCE)";
+   os:occurs os:Exactly-one;
+   rdfs:domain rim:Entity;
+   rdfs:range cs:EntityDeterminer;
+   fhir:binding vs:EntityDeterminer;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+rim:Entity.statusCode a rdf:Property;
+   dcterms:description "A value representing whether the information associated with an Entity is currently active or inactive for the purpose of participation in acts";
+   rdfs:comment "A value representing whether the information associated with an Entity is currently active or inactive for the purpose of participation in acts";
+   os:occurs os:Zero-or-one;
+   rdfs:domain rim:Entity;
+   rdfs:range cs:EntityStatus;
+   fhir:binding vs:EntityStatus;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+
+rim:Entity.id a rdf:Property;
+   dcterms:description "A unique identifier for the Entity";
+   rdfs:comment "A unique identifier for the Entity";
+   os:occurs os:Zero-to-many;
+   rim:collectionType rim:CollectionType\#DSET;
+   rdfs:domain rim:Entity;
+   rdfs:range dt:II.
+   
+rim:Entity.code a rdf:Property;
+   dcterms:description "The specific kind of Entity to which an Entity-instance belongs";
+   rdfs:comment "The specific kind of Entity to which an Entity-instance belongs";
+   os:occurs os:Zero-or-one;
+   rdfs:domain rim:Entity;
+   rdfs:range dt:CD;
+   fhir:binding vs:EntityCode;
+   fhir:bindingStrength fhir:BindingStrength\#extensible.
+   
+# - Role --------------------------------------------------------------------
+# Role: classCode, code, id, negationInd, statusCode, priorityNumber
+
+rim:Role rdfs:subClassOf rim:InfrastructureRoot;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Role.classCode;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Role.classCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Role.code;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Role.negationInd;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Role.negationInd;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Role.statusCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Role.priorityNumber;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "A competency of the Entity that plays the Role as identified, defined, guaranteed, or acknowledged by the Entity that scopes the Role";
+   rdfs:comment "A competency of the Entity that plays the Role as identified, defined, guaranteed, or acknowledged by the Entity that scopes the Role";
+   dc:title "Role";
+   rdfs:label "Role".
+ 
+rim:Role.classCode a rdf:Property;
+   dcterms:description "The major class of Role to which a Role-instance belongs";
+   rdfs:comment "The major class of Role to which a Role-instance belongs";
+   os:occurs os:Exactly-one;
+   rdfs:domain rim:Role;
+   rdfs:range cs:RoleClass;
+   fhir:binding vs:RoleClass;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+rim:Role.code a rdf:Property;
+   dcterms:description "The specific kind of Role to which an Role-instance belongs";
+   rdfs:comment "The specific kind of Role to which an Role-instance belongs";
+   os:occurs os:Zero-or-one;
+   rdfs:domain rim:Role;
+   rdfs:range dt:CD;
+   fhir:binding vs:RoleCode;
+   fhir:bindingStrength fhir:BindingStrength\#extensible.
+   
+rim:Role.id a rdf:Property;
+   dcterms:description "A unique identifier for the player Entity in this Role";
+   rdfs:comment "A unique identifier for the player Entity in this Role";
+   os:occurs os:Zero-to-many;
+   rim:collectionType rim:CollectionType\#DSET;
+   rdfs:domain rim:Role;
+   rdfs:range dt:II.
+   
+rim:Role.negationInd a rdf:Property;
+   dcterms:description "An indicator specifying that the Role is a competency that is specifically not attributed to the Entity playing the Role.";
+   rdfs:comment "An indicator specifying that the Role is a competency that is specifically not attributed to the Entity playing the Role.";
+   os:occurs os:Exactly-one; # it has a default value, so instead of introducing this complexity, we simply make it mandatory
+   rdfs:domain rim:Role;
+   rdfs:range xs:boolean. # no nullFlavor
+   
+rim:Role.statusCode a rdf:Property;
+   dcterms:description "The state of this Role as defined in the state-transition mode";
+   rdfs:comment "The state of this Role as defined in the state-transition mode";
+   os:occurs os:Zero-or-one;
+   rdfs:domain rim:Role;
+   rdfs:range cs:RoleStatus;
+   fhir:binding vs:RoleStatus;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+
+rim:Role.priorityNumber a rdf:Property;
+   dcterms:description "An integer specifying the relative preference for considering this role instance before other like-typed Roles (same classCode and code) having the same scoper. Roles with lower priorityNumber values are considered before and above those with higher values.";
+   rdfs:comment "An integer specifying the relative preference for considering this role instance before other like-typed Roles (same classCode and code) having the same scoper. Roles with lower priorityNumber values are considered before and above those with higher values.";
+   os:occurs os:Zero-or-one;
+   rdfs:domain rim:Role;
+   rdfs:range dt:INT.
+   
+ 
+# - Participation --------------------------------------------------------------------
+# Participation: typeCode, functionCode, sequenceNumber, negationInd
+
+rim:Participation rdfs:subClassOf rim:InfrastructureRoot;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Participation.typeCode;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Participation.typeCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Participation.functionCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Participation.negationInd;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Participation.negationInd;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Participation.sequenceNumber;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "An association between an Act and a Role. The Entity playing the Role is the actor";
+   rdfs:comment "An association between an Act and a Role. The Entity playing the Role is the actor";
+   dc:title "Participation";
+   rdfs:label "Participation".
+ 
+rim:Participation.typeCode a rdf:Property;
+   dcterms:description "The kind of Participation or involvement the Entity playing the Role associated with the Participation has with regard to the associated Act";
+   rdfs:comment "The kind of Participation or involvement the Entity playing the Role associated with the Participation has with regard to the associated Act";
+   os:occurs os:Exactly-one;
+   rdfs:domain rim:Participation;
+   rdfs:range cs:ParticipationType;
+   fhir:binding vs:ParticipationType;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+rim:Participation.functionCode a rdf:Property;
+   dcterms:description "Additional detail about the function that the Participation has in the Act, if such detail is not implied by the Participation.typeCode";
+   rdfs:comment "Additional detail about the function that the Participation has in the Act, if such detail is not implied by the Participation.typeCode";
+   os:occurs os:Exactly-one;
+   rdfs:domain rim:Participation;
+   rdfs:range dt:CD;
+   fhir:binding vs:ParticipationFunction;
+   fhir:bindingStrength fhir:BindingStrength\#extensible.
+   
+rim:Participation.negationInd a rdf:Property;
+   dcterms:description "An indicator stipulating that the specified participation did not, does not, or should not occur, depending on mood.";
+   rdfs:comment "An indicator stipulating that the specified participation did not, does not, or should not occur, depending on mood.";
+   os:occurs os:Exactly-one; # it has a default value, so instead of introducing this complexity, we simply make it mandatory
+   rdfs:domain rim:Participation;
+   rdfs:range xs:boolean. # no nullFlavor
+   
+rim:Participation.sequenceNumber a rdf:Property;
+   dcterms:description "An integer specifying the relative order of occurrence of the Participation in relation to other Participations of the same Act of the same type (same typeCode)";
+   rdfs:comment "An integer specifying the relative order of occurrence of the Participation in relation to other Participations of the same Act of the same type (same typeCode)";
+   os:occurs os:Zero-or-one;
+   rdfs:domain rim:Participation;
+   rdfs:range dt:INT.
+   
+# - Act --------------------------------------------------------------------
+# Act: classCode, moodCode, id, code, actionNegationInd, statusCode, priorityCode
+
+rim:Act rdfs:subClassOf rim:InfrastructureRoot;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Act.classCode;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Act.classCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Act.moodCode;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Act.moodCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Act.code;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Act.actionNegationInd;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Act.actionNegationInd;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Act.statusCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "A record of something that is being done, has been done, can be done, or is intended or requested to be done";
+   rdfs:comment "A record of something that is being done, has been done, can be done, or is intended or requested to be done";
+   dc:title "Act";
+   rdfs:label "Act".
+ 
+rim:Act.classCode a rdf:Property;
+   dcterms:description "The major class of Acts to which an Act-instance belongs.";
+   rdfs:comment "The major class of Acts to which an Act-instance belongs.";
+   os:occurs os:Exactly-one;
+   rdfs:domain rim:Act;
+   rdfs:range cs:ActClass;
+   fhir:binding vs:ActClass;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+rim:Act.moodCode a rdf:Property;
+   dcterms:description "The intended use of the Act statement: as a report of fact, a command, a possibility, a goal, etc";
+   rdfs:comment "The intended use of the Act statement: as a report of fact, a command, a possibility, a goal, etc";
+   os:occurs os:Exactly-one;
+   rdfs:domain rim:Act;
+   rdfs:range cs:ActMood;
+   fhir:binding vs:ActMood;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+rim:Act.code a rdf:Property;
+   dcterms:description "The particular kind of Act that the Act-instance represents within its class";
+   rdfs:comment "The particular kind of Act that the Act-instance represents within its class";
+   os:occurs os:Exactly-one;
+   rdfs:domain rim:Act;
+   rdfs:range dt:CD;
+   fhir:binding vs:ActCode;
+   fhir:bindingStrength fhir:BindingStrength\#preferred.
+   
+rim:Act.actionNegationInd a rdf:Property;
+   dcterms:description "An indicator specifying that the Act statement is a negation of the Act in Event mood as described by the descriptive attributes";
+   rdfs:comment "An indicator specifying that the Act statement is a negation of the Act in Event mood as described by the descriptive attributes";
+   os:occurs os:Exactly-one; # it has a default value, so instead of introducing this complexity, we simply make it mandatory
+   rdfs:domain rim:Act;
+   rdfs:range xs:boolean. # no nullFlavor
+   
+rim:Act.statusCode a rdf:Property;
+   dcterms:description "The state of the Act";
+   rdfs:comment "The state of the Act";
+   os:occurs os:Zero-or-one;
+   rdfs:domain rim:Act;
+   rdfs:range cs:ActStatus;
+   fhir:binding vs:ActStatus;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+
+rim:Act.priorityCode a rdf:Property;
+   dcterms:description "The urgency under which the Act happened, can happen, is happening, is intended to happen, or is requested/demanded to happen.";
+   rdfs:comment "The urgency under which the Act happened, can happen, is happening, is intended to happen, or is requested/demanded to happen.";
+   os:occurs os:Zero-to-many;
+   rdfs:domain rim:Act;
+   rdfs:range dt:CD;
+   fhir:binding vs:ActPriority;
+   fhir:bindingStrength fhir:BindingStrength\#preferred.
+
+# - Observation --------------------------------------------------------------------
+# Observation is special because of valueNegationInd
+# Observation: valueNegationInd
+
+rim:Observation rdfs:subClassOf rim:Act;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Act.valueNegationInd;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:Act.valueNegationInd;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "An act that is intended to result in new information about a subject";
+   rdfs:comment "An act that is intended to result in new information about a subject";
+   dc:title "Observation";
+   rdfs:label "Observation".
+ 
+rim:Act.valueNegationInd a rdf:Property;
+   dcterms:description "Indicates that when the observation event occurred, the finding communicated by the value attribute was NOT found. This attribute should only be used when the terminology used for Observation.value is not itself capable of expressing negated findings. (E.g. ICD9).";
+   rdfs:comment "Indicates that when the observation event occurred, the finding communicated by the value attribute was NOT found. This attribute should only be used when the terminology used for Observation.value is not itself capable of expressing negated findings. (E.g. ICD9).";
+   os:occurs os:Exactly-one; # it has a default value, so instead of introducing this complexity, we simply make it mandatory
+   rdfs:domain rim:Act;
+   rdfs:range xs:boolean. # no nullFlavor
+   
+# - ActRelationship --------------------------------------------------------------------
+# ActRelationship: typeCode, inversionInd, priorityNumber, negationInd
+
+rim:ActRelationship rdfs:subClassOf rim:InfrastructureRoot;
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:ActRelationship.typeCode;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:ActRelationship.typeCode;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:ActRelationship.inversionInd;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:ActRelationship.inversionInd;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:ActRelationship.negationInd;
+     owl:minCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:ActRelationship.negationInd;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   rdfs:subClassOf [
+     a owl:Restriction;
+     owl:onProperty rim:ActRelationship.priorityNumber;
+     owl:maxCardinality "1^^xs:nonNegativeInteger"
+   ];
+   dcterms:description "A directed association between a source Act and a target Act";
+   rdfs:comment "A directed association between a source Act and a target Act";
+   dc:title "ActRelationship";
+   rdfs:label "ActRelationship".
+ 
+rim:ActRelationship.typeCode a rdf:Property;
+   dcterms:description "The meaning and purpose of the ActRelationship instance";
+   rdfs:comment "The meaning and purpose of the ActRelationship instance";
+   os:occurs os:Exactly-one;
+   rdfs:domain rim:ActRelationship;
+   rdfs:range cs:ActRelationshipType;
+   fhir:binding vs:ActRelationshipType;
+   fhir:bindingStrength fhir:BindingStrength\#required.
+   
+rim:ActRelationship.inversionInd a rdf:Property;
+   dcterms:description "An indicator specifying that the ActRelationship.typeCode should be interpreted as if the roles of the source and target Acts were reversed";
+   rdfs:comment "An indicator specifying that the ActRelationship.typeCode should be interpreted as if the roles of the source and target Acts were reversed";
+   os:occurs os:Exactly-one; # it has a default value, so instead of introducing this complexity, we simply make it mandatory
+   rdfs:domain rim:ActRelationship;
+   rdfs:range xs:boolean. # no nullFlavor
+   
+rim:ActRelationship.negationInd a rdf:Property;
+   dcterms:description "An indicator that asserts that the meaning of the link is negated";
+   rdfs:comment "An indicator that asserts that the meaning of the link is negated";
+   os:occurs os:Exactly-one; # it has a default value, so instead of introducing this complexity, we simply make it mandatory
+   rdfs:domain rim:ActRelationship;
+   rdfs:range xs:boolean. # no nullFlavor
+   
+rim:ActRelationship.priorityNumber a rdf:Property;
+   dcterms:description "An integer specifying the relative preference for considering this relationship before other like-typed relationships having the same source Act. Relationships with lower priorityNumber values are considered before and above those with higher values";
+   rdfs:comment "An integer specifying the relative preference for considering this relationship before other like-typed relationships having the same source Act. Relationships with lower priorityNumber values are considered before and above those with higher values";
+   os:occurs os:Zero-or-one;
+   rdfs:domain rim:ActRelationship;
+   rdfs:range dt:REAL.
+
+# vocab... pasted here at the end by the build tool
