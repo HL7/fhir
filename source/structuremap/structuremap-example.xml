@@ -28,7 +28,6 @@
   </jurisdiction>
   <group>
     <name value="Examples"/>
-    <typeMode value="none"/>
     <documentation value="test -&gt; testValue"/>
     <input>
       <name value="test"/>
