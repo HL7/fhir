@@ -190,7 +190,7 @@ The url in the import statement may contain a "*" as a wildcard character (as sh
 <a name="groups"></a>
 <h3>Groups</h3>
 <p>
-Each Mapping source contains one or more groups, each containing one or more mapping rules. Each group declares a set of input and output variables that are shared by the rules. The in- and output variables define exactly which instances are passed to the mapping, and provides names by which they may be passed when invoking the map:
+Each map contains one or more groups, each optionally containing one or more mapping rules. Each group declares a set of input and output variables that are shared by the rules. The in- and output variables define exactly which instances are passed to the mapping, and provides names by which they may be passed when invoking the map:
 </p>
 <pre>
 group [group-name] (inputs) (extends [other-group]) (&lt;&lt;stereotype&gt;&gt;) { // documentation
