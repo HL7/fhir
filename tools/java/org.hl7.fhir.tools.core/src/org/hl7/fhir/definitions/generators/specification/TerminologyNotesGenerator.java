@@ -274,7 +274,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     ValueSet vs = page.getValueSets().get(ref);
     if (vs != null) {
       String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");
-      return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+vs.present()+"</a>"+confTail(def);
+      return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+(Utilities.isAbsoluteUrl(pp) ? "" : prefix)+pp.replace(File.separatorChar, '/')+"\">"+vs.present()+"</a>"+confTail(def);
     }
     if (ref.startsWith("http:") || ref.startsWith("https:"))
       return def.getDescription()+"<br/>"+conf(def)+" <a href=\""+ref+"\">"+ref+"</a>"+confTail(def);

@@ -378,7 +378,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				  if (elem.eliminated()) 
 				    write("<span style=\"text-decoration: line-through\">");
 	        String ref = getBindingLink(elem);
-          write("<span style=\"color: navy\"><a href=\""+prefix+ref+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
+          write("<span style=\"color: navy\"><a href=\""+(Utilities.isAbsoluteUrl(ref) ? "" : prefix)+ref+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
           if (elem.eliminated()) 
             write("</span>");
 				}
@@ -557,7 +557,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           if (elem.hasBinding() && elem.getBinding().hasValueSet()) {
             ValueSet vs = resolveValueSet(elem.getBinding().getValueSet());
             if (vs != null)
-              write("<span style=\"color: navy\"><a href=\""+prefix+vs.getUserData("path")+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--A--></span>");
+              write("<span style=\"color: navy\"><a href=\""+(Utilities.isAbsoluteUrl(vs.getUserString("path")) ? "" : prefix)+vs.getUserData("path")+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--A--></span>");
             else 
               write("<span style=\"color: navy\"><a href=\""+elem.getBinding().getValueSet()+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--B--></span>");          
           } else

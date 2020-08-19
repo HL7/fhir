@@ -16,7 +16,7 @@
   <description value="A single value set for all security labels defined by FHIR."/>
   <compose>
     <include>
-      <valueSet value="http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-Confidentiality"/>
     </include>
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/v3-InformationSensitivityPolicy"/>
