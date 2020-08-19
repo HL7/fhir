@@ -812,9 +812,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
         src = s1+new SvgGenerator(this, genlevel(level), null, false, file.contains("datatypes")).generate(folders.srcDir+ com[1], com[2])+s3;
-      else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("v2xref"))
+      else if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else if (com[0].equals("v2xref"))
         src = s1 + xreferencesForV2(name, com[1]) + s3;
       else if (com[0].equals("vs-warning"))
         src = s1 + vsWarning((ValueSet) resource) + s3;
@@ -4948,9 +4952,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + vsWarning((ValueSet) resource) + s3;
       else if (com[0].equals("res-status-special"))
         src = s1 + vsSpecialStatus((DomainResource) resource) + s3;
-      else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else  if (com[0].equals("conceptmaplistvs")) {
+      else if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else  if (com[0].equals("conceptmaplistvs")) {
         throw new Error("Fix this");
 //        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
 //        String ref;
@@ -6022,9 +6030,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+abstractResHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("lmheader"))
         src = s1+lmHeader(name, resource.getName(), com.length > 1 ? com[1] : null, false)+s3;
-      else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("settitle")) {
+      else if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       }
@@ -8185,9 +8197,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String[] com = s2.split(" ");
       if (com[0].equals("profileheader"))
         src = s1+profileHeader(fileid, com.length > 1 ? com[1] : "", hasExamples(pack))+s3;
-      else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("settitle")) {
+      else if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       }      else if (com.length != 1)
@@ -8690,9 +8706,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String s3 = src.substring(i2+2);
 
       String[] com = s2.split(" ");
-      if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("extDefnHeader"))
+      if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else if (com[0].equals("extDefnHeader"))
         src = s1+extDefnHeader(filename, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("extension-table"))
         src = s1+generateExtensionTable(ed, filename, com[1], genlevel(level))+s3;
@@ -9564,9 +9584,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String s3 = src.substring(i2+2);
 
       String[] com = s2.split(" ");
-      if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("settitle")) {
+      if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       } else if (com[0].equals("setlevel")) {
