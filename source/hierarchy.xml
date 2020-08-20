@@ -173,6 +173,7 @@ signatures.html
         </page>
         <page title="RxNorm" filename="rxnorm.html"/>
         <page title="LOINC" filename="loinc.html"/>
+        <page title="pCLOCD" filename="pclocd.html"/>
         <page title="UCUM" filename="ucum.html"/>
         <page title="NCI Metothesuaras" filename="ncimeta.html"/>
         <page title="MED-RT" filename="medrt.html"/>
