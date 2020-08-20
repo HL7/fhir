@@ -54,7 +54,6 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <contextType value="variable"/>
         <element value="status"/>
         <transform value="evaluate"/>
         <parameter>
@@ -71,7 +70,6 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <contextType value="variable"/>
         <element value="category"/>
         <transform value="evaluate"/>
         <parameter>
@@ -88,7 +86,6 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <contextType value="variable"/>
         <element value="priority"/>
         <transform value="evaluate"/>
         <parameter>
@@ -105,7 +102,6 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <contextType value="variable"/>
         <element value="category"/>
         <transform value="copy"/>
       </target>
@@ -119,7 +115,6 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <contextType value="variable"/>
         <element value="orderedItem.itemCodeableConcept"/>
         <transform value="copy"/>
       </target>
@@ -133,7 +128,6 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <contextType value="variable"/>
         <element value="occurrenceDateTime"/>
         <transform value="evaluate"/>
         <parameter>
@@ -150,7 +144,6 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <contextType value="variable"/>
         <element value="authoredOn"/>
         <transform value="evaluate"/>
         <parameter>
