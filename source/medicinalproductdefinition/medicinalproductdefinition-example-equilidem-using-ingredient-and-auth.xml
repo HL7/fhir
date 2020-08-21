@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+	<id value="equilidem-with-ing-and-auth"/>
+	<!-- an authorisation can also be contained if required (commented out temporarily due to build issues) -->
+	<!--contained>
+		<RegulatedAuthorization>
+			<id value="authorization"/>
+			<subject>
+				<reference value="#"/>
+			</subject>
+			<type>
+				<text value="Regulatory Drug Marketing Approval"/>
+			</type>
+			<status>
+				<coding>
+					<code value="active"/>
+				</coding>
+			</status>
+			<statusDate value="2016-01-01"/>
+			<holder>
+				<display value="EquiliDrugCo Holdings Inc."/>
+			</holder>
+			<regulator>
+				<display value="FDA"/>
+			</regulator>
+		</RegulatedAuthorization>
+	</contained-->
+	<contained>
+		<Ingredient>
+			<id value="EquilidoniumPhosphate"/>
+			<role>
+				<coding>
+					<system value="http://example.org.uk/fhir/ingredientType"/>
+					<code value="active"/>
+				</coding>
+			</role>
+			<substance>
+				<codeCodeableConcept>
+					<coding>
+						<system value="http://example.org.uk/fhir/substances"/>
+						<code value="123456"/>
+						<display value="Equilidonium Phosphate"/>
+					</coding>
+				</codeCodeableConcept>
+				<strength>
+					<presentation>
+						<numerator>
+							<value value="22"/>
+							<unit value="ml"/>
+						</numerator>
+						<denominator>
+							<value value="1"/>
+							<unit value="tablet"/>
+						</denominator>
+					</presentation>
+				</strength>
+			</substance>
+		</Ingredient>
+	</contained>
+	<contained>
+		<Ingredient>
+			<id value="CalciumCarbonate"/>
+			<role>
+				<coding>
+					<system value="http://example.org.uk/fhir/ingredientType"/>
+					<code value="excipient"/>
+				</coding>
+			</role>
+			<substance>
+				<codeCodeableConcept>
+					<coding>
+						<system value="http://example.org.uk/fhir/substances"/>
+						<code value="456789"/>
+						<display value="Calcium Carbonate"/>
+					</coding>
+				</codeCodeableConcept>
+				<strength>
+					<presentation>
+						<numerator>
+							<value value="3"/>
+							<unit value="ml"/>
+						</numerator>
+						<denominator>
+							<value value="1"/>
+							<unit value="tablet"/>
+						</denominator>
+					</presentation>
+				</strength>
+			</substance>
+		</Ingredient>
+	</contained>
+	<identifier>
+		<system value="http://example.org.uk/fhir/product"/>
+		<value value="Equilidem25"/>
+	</identifier>
+	<combinedPharmaceuticalDoseForm>
+		<coding>
+			<system value="http://example.org.uk/fhir/dosefom"/>
+			<code value="tablet"/>
+		</coding>
+	</combinedPharmaceuticalDoseForm>
+	<indication
+		value="Prevention of venous thromboembolic events (VTE) in adult patients who have undergone elective hip or knee replacement surgery. Prevention of stroke and systemic embolism in adult patients with non-valvular atrial fibrillation (NVAF), with one or more risk factors, such as prior stroke or transient ischaemic attack (TIA); age ≥ 75 years; hypertension; diabetes mellitus; symptomatic heart failure (NYHA Class >= II). Treatment of deep vein thrombosis (DVT) and pulmonary embolism (PE), and prevention of recurrent DVT and PE in adults."/>
+	<legalStatusOfSupply>
+		<coding>
+			<system value="http://example.org.uk/fhir/legalstatusofsupply"/>
+			<code value="POM"/>
+			<display value="Prescription only medicine"/>
+		</coding>
+	</legalStatusOfSupply>
+	<classification>
+		<coding>
+			<system value="http://www.whocc.no/atc/example"/>
+			<code value="B01A"/>
+		</coding>
+	</classification>
+	<ingredient>
+		<reference value="#EquilidoniumPhosphate"/>
+	</ingredient>
+	<ingredient>
+		<reference value="#CalciumCarbonate"/>
+	</ingredient>
+	<name>
+		<productName value="Equilidem 2.5 mg film-coated tablets"/>
+	</name>
+	<crossReference>
+		<product>
+			<reference>
+				<reference value="MedicinalProductDefinition/genericEquilidonium"/>
+			</reference>
+		</product>
+	</crossReference>
+	<manufacturingBusinessOperation>
+		<manufacturer>
+			<display value="EquiliDrugCo Processing Inc."/>
+			<!-- licence holder uses RegulatedAuthorization -->
+		</manufacturer>
+	</manufacturingBusinessOperation>
+</MedicinalProductDefinition>

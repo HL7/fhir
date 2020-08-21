@@ -10,23 +10,22 @@
 	</div>
   </text>
   <title value="Fatal Intracranial Hemorrhage Within Seven Days"/>
-	<status value="draft"/>
-	<note>
-		<text value="Death must be due to intracranial hemorrhage"/>
-	</note>
-	<type value="dichotomous"/>
-	<actual value="true"/>
-	<characteristicCombination value="intersection"/>
-	<characteristic>
-		<description value="intracranial hemorrhage within 7 days"/>
-		<definitionCodeableConcept>
+  <status value="draft"/>
+  <note>
+    <text value="Death must be due to intracranial hemorrhage"/>
+  </note>
+  <actual value="true"/>
+  <characteristicCombination value="intersection"/>
+  <characteristic>
+    <description value="intracranial hemorrhage within 7 days"/>
+    <definitionCodeableConcept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="1386000"/>
 				<display value="Intracranial hemorrhage (disorder)"/>
 			</coding>
-		</definitionCodeableConcept>
-		<timeFromStart>
+    </definitionCodeableConcept>
+    <timeFromStart>
 			<description value="within 7 days"/>
 			<range>
 				<low>
@@ -42,9 +41,9 @@
 					<code value="d"/>
 				</high>
 			</range>
-		</timeFromStart>
-	</characteristic>
-	<characteristic>
+    </timeFromStart>
+  </characteristic>
+  <characteristic>
 		<description value="death within 7 days"/>
 		<definitionCodeableConcept>
 			<coding>
@@ -70,5 +69,6 @@
 				</high>
 			</range>
 		</timeFromStart>
-	</characteristic>
+  </characteristic>
+  <handling value="dichotomous"/>
 </EvidenceVariable>

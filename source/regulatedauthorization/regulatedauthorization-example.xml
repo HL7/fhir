@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RegulatedAuthorization xmlns="http://hl7.org/fhir"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/regulatedauthorization.xsd">
   <id value="example"/>
   <identifier>
     <system value="http://ema.europa.eu/example/marketingAuthorisationNumber"/>
@@ -21,7 +21,7 @@
   </status>
   <statusDate value="2015-01-14"/>
   <validityPeriod>
-    <start value="2015-08-16"/>
+    <start value="2014-09-03"/>
     <end value="2020-05-20"/>
   </validityPeriod>
   <!--dataExclusivityPeriod>
@@ -51,7 +51,7 @@
       </coding>
     </type>
     <datePeriod>
-      <start value="2015-08-02"/>
+      <start value="2014-09-02"/>
       <end value="2015-08-21"/>
     </datePeriod>
     <application>
@@ -66,6 +66,19 @@
         </coding>
       </type>
       <dateDateTime value="2015-08-01"/>
+    </application>
+    <application>
+      <identifier>
+        <system value="http://ema.europa.eu/example/applicationidentifier-number"/>
+        <value value="IA38F"/>
+      </identifier>
+      <type>
+        <coding>
+          <system value="http://ema.europa.eu/example/marketingAuthorisationApplicationType"/>
+          <code value="GroupTypeIAVariationNotification"/>
+        </coding>
+      </type>
+      <dateDateTime value="2014-09-01"/>
     </application>
   </case>
 </RegulatedAuthorization>

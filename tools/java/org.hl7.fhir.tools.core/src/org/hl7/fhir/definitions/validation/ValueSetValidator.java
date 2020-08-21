@@ -67,52 +67,53 @@ public class ValueSetValidator extends BaseValidator {
   private Map<String, CanonicalResource> oids = new HashMap<String, CanonicalResource>();
   private Set<String> styleExemptions;
   private Set<String> valueSets = new HashSet<String>();
-  private Set<String> codeSystems = new HashSet<String>();
+  private Map<String, CodeSystem> codeSystems = new HashMap<String, CodeSystem>();
 
   public ValueSetValidator(BuildWorkerContext context, List<String> fixups, Set<String> styleExemptions) {
     super(context);
     this.context = context;
     this.fixups = fixups;
     this.styleExemptions = styleExemptions;
-    codeSystems.add("http://snomed.info/sct");
-    codeSystems.add("http://www.nlm.nih.gov/research/umls/rxnorm");
-    codeSystems.add("http://loinc.org");
-    codeSystems.add("http://unitsofmeasure.org");
-    codeSystems.add("http://ncimeta.nci.nih.gov");
-    codeSystems.add("http://www.ama-assn.org/go/cpt");
-    codeSystems.add("http://hl7.org/fhir/ndfrt");
-    codeSystems.add("http://fdasis.nlm.nih.gov");
-    codeSystems.add("http://hl7.org/fhir/sid/ndc");
-    codeSystems.add("http://www2a.cdc.gov/vaccines/");
-    codeSystems.add("iis/iisstandards/vaccines.asp?rpt=cvx");
-    codeSystems.add("urn:iso:std:iso:3166");
-    codeSystems.add("http://www.nubc.org/patient-discharge");
-    codeSystems.add("http://www.radlex.org");
-    codeSystems.add("http://hl7.org/fhir/sid/icd-10");
-    codeSystems.add("http://hl7.org/fhir/sid/icpc2");
-    codeSystems.add("http://www.icd10data.com/icd10pcs");
-    codeSystems.add("http://hl7.org/fhir/sid/icd-9");
-    codeSystems.add("http://terminology.hl7.org/CodeSystem/v2-[X](/v)");
-    codeSystems.add("http://terminology.hl7.org/CodeSystem/v3-[X]");
-    codeSystems.add("http://www.whocc.no/atc");
-    codeSystems.add("urn:ietf:bcp:47");
-    codeSystems.add("urn:ietf:bcp:13");
-    codeSystems.add("urn:ietf:rfc:3986");
-    codeSystems.add("urn:iso:std:iso:11073:10101");
-    codeSystems.add("http://www.genenames.org");
-    codeSystems.add("http://www.ensembl.org");
-    codeSystems.add("http://www.ncbi.nlm.nih.gov/nuccore");
-    codeSystems.add("http://www.ncbi.nlm.nih.gov/clinvar");
-    codeSystems.add("http://sequenceontology.org");
-    codeSystems.add("http://varnomen.hgvs.org/");
-    codeSystems.add("http://www.ncbi.nlm.nih.gov/projects/SNP");
-    codeSystems.add("http://cancer.sanger.ac.uk/");
-    codeSystems.add("cancergenome/projects/cosmic");
-    codeSystems.add("http://www.lrg-sequence.org");
-    codeSystems.add("http://www.omim.org");
-    codeSystems.add("http://www.ncbi.nlm.nih.gov/pubmed");
-    codeSystems.add("http://www.pharmgkb.org");
-    codeSystems.add("http://clinicaltrials.gov");  }
+    codeSystems.put("http://snomed.info/sct", null);
+    codeSystems.put("http://www.nlm.nih.gov/research/umls/rxnorm", null);
+    codeSystems.put("http://loinc.org", null);
+    codeSystems.put("http://unitsofmeasure.org", null);
+    codeSystems.put("http://ncimeta.nci.nih.gov", null);
+    codeSystems.put("http://www.ama-assn.org/go/cpt", null);
+    codeSystems.put("http://hl7.org/fhir/ndfrt", null);
+    codeSystems.put("http://fdasis.nlm.nih.gov", null);
+    codeSystems.put("http://hl7.org/fhir/sid/ndc", null);
+    codeSystems.put("http://www2a.cdc.gov/vaccines/", null);
+    codeSystems.put("iis/iisstandards/vaccines.asp?rpt=cvx", null);
+    codeSystems.put("urn:iso:std:iso:3166", null);
+    codeSystems.put("http://www.nubc.org/patient-discharge", null);
+    codeSystems.put("http://www.radlex.org", null);
+    codeSystems.put("http://hl7.org/fhir/sid/icd-10", null);
+    codeSystems.put("http://hl7.org/fhir/sid/icpc2", null);
+    codeSystems.put("http://www.icd10data.com/icd10pcs", null);
+    codeSystems.put("http://hl7.org/fhir/sid/icd-9", null);
+    codeSystems.put("http://terminology.hl7.org/CodeSystem/v2-[X](/v)", null);
+    codeSystems.put("http://terminology.hl7.org/CodeSystem/v3-[X]", null);
+    codeSystems.put("http://www.whocc.no/atc", null);
+    codeSystems.put("urn:ietf:bcp:47", null);
+    codeSystems.put("urn:ietf:bcp:13", null);
+    codeSystems.put("urn:ietf:rfc:3986", null);
+    codeSystems.put("urn:iso:std:iso:11073:10101", null);
+    codeSystems.put("http://www.genenames.org", null);
+    codeSystems.put("http://www.ensembl.org", null);
+    codeSystems.put("http://www.ncbi.nlm.nih.gov/nuccore", null);
+    codeSystems.put("http://www.ncbi.nlm.nih.gov/clinvar", null);
+    codeSystems.put("http://sequenceontology.org", null);
+    codeSystems.put("http://varnomen.hgvs.org/", null);
+    codeSystems.put("http://www.ncbi.nlm.nih.gov/projects/SNP", null);
+    codeSystems.put("http://cancer.sanger.ac.uk/", null);
+    codeSystems.put("cancergenome/projects/cosmic", null);
+    codeSystems.put("http://www.lrg-sequence.org", null);
+    codeSystems.put("http://www.omim.org", null);
+    codeSystems.put("http://www.ncbi.nlm.nih.gov/pubmed", null);
+    codeSystems.put("http://www.pharmgkb.org", null);
+    codeSystems.put("http://clinicaltrials.gov", null);  
+    }
 
   public boolean nullVSWord(String wp) {
     return 
@@ -144,31 +145,38 @@ public class ValueSetValidator extends BaseValidator {
     if (fixups.contains(cs.getId()))
       fixup(cs);
     
-    boolean isOld = codeSystems.contains(cs.getUrl());
-    if (isOld)
-      System.out.println("duplicate: " +cs.getUrl());
-    if (rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", !isOld, "Duplicate Code System definition for "+cs.getUrl()))
-      codeSystems.add(cs.getUrl());
+    boolean isOld = codeSystems.containsKey(cs.getUrl()) && codeSystems.get(cs.getUrl()) != null;
+    if (isOld) {
+      System.out.println("duplicate: " +cs.getUrl()+". First encountered in "+codeSystems.get(cs.getUrl()).getId()+", now seen in "+cs.getId());
+    }
+    if (rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", !isOld, "Duplicate Code System definition for "+cs.getUrl())) {
+      codeSystems.put(cs.getUrl(), cs);
+    }
     
     String oid = getOid(cs);
     if (oid != null) {
       if (!oids.containsKey(oid)) {
         oids.put(oid, cs);
       } else 
-        rule(errors, IssueType.DUPLICATE, getWg(cs)+":CodeSystem["+cs.getId()+"]", oid.endsWith(".0")|| oids.get(oid).getUrl().equals(cs.getUrl()), "Duplicate OID for "+oid+" on "+oids.get(oid).getUrl()+" and "+cs.getUrl());  
+        rule(errors, IssueType.DUPLICATE, getWg(cs)+":CodeSystem["+cs.getId()+"]", oid.endsWith(".0")|| oids.get(oid).getUrl().equals(cs.getUrl()) || oid.equals("1.2.840.10008.2.16.4"), "Duplicate OID for "+oid+" on "+oids.get(oid).getUrl()+" and "+cs.getUrl()); // 1.2.840.10008.2.16.4 referred to UTG  
     } 
     rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", cs.getUrl().startsWith("http://") || 
-        cs.getUrl().startsWith("urn:") , "Unacceptable code system url "+cs.getUrl());
+        cs.getUrl().startsWith("urn:") || Utilities.startsWithInList(cs.getUrl(), "https://www.gs1.org", 
+            "https://fhir.infoway-inforoute.ca/CodeSystem", "https://nursing.uiowa.edu/cncce/"), "Unacceptable code system url "+cs.getUrl());
+    
+  
     
     Set<String> codes = new HashSet<String>();
     if (!cs.hasId())
       throw new Error("Code system without id: "+cs.getUrl());
       
-    if (rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", cs.hasUrl(), "A cod esystem must have a url")) {
-      if (!cs.getId().startsWith("v2-")) 
-        rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", cs.hasCaseSensitiveElement() && cs.getCaseSensitive(), 
-          "Value set "+nameForErrors+" ("+cs.getName()+"): All value sets that define codes must mark them as case sensitive",
+    if (rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", cs.hasUrl(), "A code system must have a url")) {
+      if (!cs.getId().startsWith("v2-") && cs.hasConcept()) {
+        ruleHtml(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", (cs.hasCaseSensitiveElement() && cs.getCaseSensitive()) || 
+            Utilities.existsInList(cs.getUrl(), "http://terminology.hl7.org/CodeSystem/HCPCS", "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra", "http://terminology.hl7.org/CodeSystem/triggerEventID", "http://www.ada.org/snodent"), // this list is known exceptions already dealt with            
+          "Value set "+nameForErrors+" ("+cs.getName()+"): All Code Systems that define codes must mark them as case sensitive ("+cs.getUrl()+")",
           "<a href=\""+cs.getUserString("path")+"\">Value set "+nameForErrors+" ("+cs.getName()+")</a>: All value sets that define codes must mark them as case sensitive");
+      }
       checkCodeCaseDuplicates(errors, nameForErrors, cs, codes, cs.getConcept());
       if (!cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v2-") && 
           !cs.getUrl().startsWith("urn:uuid:") && 
@@ -207,7 +215,7 @@ public class ValueSetValidator extends BaseValidator {
     if (Utilities.noString(vs.getCopyright()) && !exemptFromCopyrightRule) {
       Set<String> sources = getListOfSources(vs);
       for (String s : sources) {
-        rule(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].copyright", !s.equals("http://snomed.info/sct") && !s.equals("http://loinc.org"), 
+        ruleHtml(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].copyright", !s.equals("http://snomed.info/sct") && !s.equals("http://loinc.org"), 
            "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement is required for any value set that includes Snomed or Loinc codes",
            "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: A copyright statement is required for any value set that includes Snomed or Loinc codes");
         warning(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].copyright", s.startsWith("http://hl7.org") || s.startsWith("http://terminology.hl7.org") || s.startsWith("urn:iso") || s.startsWith("urn:ietf") || s.startsWith("http://need.a.uri.org")
@@ -413,7 +421,7 @@ public class ValueSetValidator extends BaseValidator {
 
   private void checkCodesForSpaces(List<ValidationMessage> errors, String nameForErrors, CodeSystem cs, List<ConceptDefinitionComponent> concept) {
     for (ConceptDefinitionComponent cc : concept) {
-      if (!rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].define", !cc.hasCode() || !cc.getCode().contains(" "), 
+      if (!rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].define", !cc.hasCode() || !cc.getCode().contains(" ") || cc.getCode().equals("Masterfile Action Code"), // special case referred to UTG 
          "Value set "+nameForErrors+" ("+cs.getName()+"/"+cs.getUrl()+"): Defined codes cannot include spaces ("+cc.getCode()+")"))
         return;
       checkCodesForSpaces(errors, nameForErrors, cs, cc.getConcept());  

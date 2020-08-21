@@ -29,6 +29,8 @@
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
 
+
+
 <h3>Copyright Issues</h3>
 
 <p>
@@ -36,13 +38,20 @@ The terms of use for LOINC require that a <a href="license.html#loinc">notice</a
 This notice must appear in the <i>copyright</i> element of any value set that includes LOINC codes (either in the code or filter elements, or in an expansion):
 </p>
 <pre>
-&lt;copyright value=&quot;This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot;/&gt;
+&lt;copyright value=&quot;This material contains content from LOINC (<a href="http://loinc.org">http://loinc.org</a>). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. 
+and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license 
+at <a href="http://loinc.org/license">http://loinc.org/license</a>. LOINC® is a registered United States trademark of Regenstrief Institute, Inc.&quot;/&gt;
 </pre>
 <p>
 Additional copyright statements may also be found in the <i>copyright</i> element. Some LOINC codes have
 3rd party copyright statements. When these codes are included in a value set, they must carry their own
 copyright statement as well.
 </p>
+
+<h3>LOINC FHIR Terminology Server</h3>
+
+Regenstrief Institute provides access to LOINC's terminology content through the HL7® FHIR® API.  
+See the LOINC FHIR Terminology Server <a href="https://loinc.org/fhir/">page</a> for details.
 
 <h3>Case Sensitivity</h3>
 <p>
@@ -172,7 +181,7 @@ defines one set of implicit value sets: By Multi-Axial Hierarchy Entry.
 <p>
 If any value set resources exist with an identifier that conforms to the URL patterns specified below,
 the content of the resource must conform to the template provided. Profiles and other value set
-references are allowed to reference these value sets directly. <i>todo: can LOINC actually host a service that returns these?</i>
+references are allowed to reference these value sets directly.
 </p>
 
 <p>

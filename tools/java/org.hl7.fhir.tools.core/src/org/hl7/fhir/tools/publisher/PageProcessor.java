@@ -70,6 +70,7 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.fhir.ucum.UcumException;
 import org.hl7.fhir.convertors.SpecDifferenceEvaluator;
 import org.hl7.fhir.convertors.VersionConvertor_40_50;
+import org.hl7.fhir.convertors.loaders.R4ToR5Loader;
 import org.hl7.fhir.convertors.SpecDifferenceEvaluator.TypeLinkProvider;
 import org.hl7.fhir.convertors.txClient.TerminologyClientR5;
 import org.hl7.fhir.definitions.Config;
@@ -125,8 +126,6 @@ import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.r5.conformance.ProfileComparer;
-import org.hl7.fhir.r5.conformance.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
 import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r5.context.CanonicalResourceManager;
@@ -217,7 +216,6 @@ import org.hl7.fhir.r5.utils.TypesUtilities;
 import org.hl7.fhir.r5.utils.TypesUtilities.TypeClassification;
 import org.hl7.fhir.r5.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
-import org.hl7.fhir.tools.converters.ValueSetImporterV2;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -228,6 +226,9 @@ import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.cache.FilesystemPackageCacheManager;
+import org.hl7.fhir.utilities.cache.NpmPackage;
+import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationOptions;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
@@ -408,8 +409,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private final List<String> orderedResources = new ArrayList<String>();
   private final Map<String, SectionTracker> sectionTrackerCache = new HashMap<String, SectionTracker>();
   private final Map<String, TocEntry> toc = new HashMap<String, TocEntry>();
-  private Document v2src;
-  private Document v3src;
   private final QaTracker qa = new QaTracker();
   private CanonicalResourceManager<ConceptMap> conceptMaps = new CanonicalResourceManager<ConceptMap>(false);
   private CanonicalResourceManager<StructureDefinition> profiles = new CanonicalResourceManager<StructureDefinition>(false);
@@ -813,9 +812,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
         src = s1+new SvgGenerator(this, genlevel(level), null, false, file.contains("datatypes")).generate(folders.srcDir+ com[1], com[2])+s3;
-      else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("v2xref"))
+      else if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else if (com[0].equals("v2xref"))
         src = s1 + xreferencesForV2(name, com[1]) + s3;
       else if (com[0].equals("vs-warning"))
         src = s1 + vsWarning((ValueSet) resource) + s3;
@@ -1048,30 +1051,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+"<div class=\"content\">"+s3;
       else if (com[0].equals("/maindiv"))
         src = s1+"</div>"+s3;
-      else if (com[0].equals("v2Index"))
-        src = s1+genV2Index()+s3;
-      else if (com[0].equals("v2VSIndex"))
-        src = s1+genV2VSIndex()+s3;
-      else if (com[0].equals("v3Index-cs"))
-        src = s1+genV3CSIndex()+s3;
-      else if (com[0].equals("v3Index-vs"))
-        src = s1+genV3VSIndex()+s3;
       else if (com[0].equals("mappings-table"))
         src = s1+genMappingsTable()+s3;
       else if (com[0].equals("id"))
         src = s1+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name)+s3;
       else if (com[0].equals("ver"))
         src = s1+(name.contains("|") ? name.substring(name.indexOf("|")+1) : "??")+s3;
-      else if (com[0].equals("v2Table"))
-        src = s1+genV2Table(name)+s3;
-      else if (com[0].equals("v2Expansion"))
-        src = s1+genV2Expansion(name, genlevel(level))+s3;
-      else if (com[0].equals("v2TableVer"))
-        src = s1+genV2TableVer(name)+s3;
-      else if (com[0].equals("v3CodeSystem"))
-        src = s1+genV3CodeSystem(name)+s3;
-      else if (com[0].equals("v3ValueSet"))
-        src = s1+genV3ValueSet(name)+s3;
       else if (com[0].equals("events"))
         src = s1 + getEventsTable(pagePath)+ s3;
       else if (com[0].equals("resourcecodes"))
@@ -1153,9 +1138,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1 + ((ValueSet) resource).getVersion() + s3;
       else if (com[0].equals("vsref")) {
         src = s1 + Utilities.fileTitle((String) resource.getUserData("filename")) + s3;
-      } else if (com[0].equals("txdesc"))
-        src = s1 + generateDesc((ValueSet) resource) + s3;
-      else if (com[0].equals("vsdesc"))
+      } else if (com[0].equals("vsdesc"))
         src = s1 + (resource != null ? new XhtmlComposer(XhtmlComposer.HTML).compose(((ValueSet) resource).getText().getDiv()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
         src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level), true) + s3;
@@ -1215,8 +1198,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + csContent(Utilities.fileTitle(file), ((CodeSystem) resource), genlevel(level)) + s3;
       else if (com[0].equals("vsexpansionig"))
         src = s1 + expandValueSetIG((ValueSet) resource, true) + s3;
-      else if (com[0].equals("v3expansion"))
-        src = s1 + expandV3ValueSet(name) + s3;
       else if (com[0].equals("level"))
         src = s1 + genlevel(level) + s3;
       else if (com[0].equals("archive"))
@@ -1277,26 +1258,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1 + txsummary((CodeSystem) resource, genlevel(level)) + s3;
         else
           src = s1 + txsummary((ValueSet) resource, genlevel(level)) + s3;
-      else if (com[0].equals("pc.title"))
-        src = s1 +Utilities.escapeXml(((ProfileComparer) object).getTitle()) + s3;
-      else if (com[0].equals("pc.left"))
-        src = s1 + genPCLink(((ProfileComparer) object).getLeftName(), ((ProfileComparer) object).getLeftLink()) + s3;
-      else if (com[0].equals("pc.right"))
-        src = s1 + genPCLink(((ProfileComparer) object).getRightName(), ((ProfileComparer) object).getRightLink()) + s3;
-      else if (com[0].equals("pc.table"))
-        src = s1 + genPCTable((ProfileComparer) object) + s3;
-      else if (com[0].equals("pc.valuesets"))
-        src = s1 + "<p>todo</p>"+s3;
-      else if (com[0].equals("cmp.left"))
-        src = s1 + genPCLink(((ProfileComparison) object).getLeft().getName(), ((ProfileComparison) object).getLeft().getUserString("path")) + s3;
-      else if (com[0].equals("cmp.right"))
-        src = s1 + genPCLink(((ProfileComparison) object).getRight().getName(), ((ProfileComparison) object).getRight().getUserString("path")) + s3;
-      else if (com[0].equals("cmp.messages"))
-        src = s1 + "<p>"+genCmpMessages(((ProfileComparison) object))+"</p>"+s3;
-      else if (com[0].equals("cmp.subset"))
-        src = s1 + genCompModel(((ProfileComparison) object).getSubset(), "intersection", file.substring(0, file.indexOf(".")), genlevel(level))+s3;
-      else if (com[0].equals("cmp.superset"))
-        src = s1 + genCompModel(((ProfileComparison) object).getSuperset(), "union", file.substring(0, file.indexOf(".")), genlevel(level))+s3;
       else if (com[0].equals("identifierlist"))
         src = s1 + genIdentifierList()+s3;
       else if (com[0].equals("allsearchparams"))
@@ -2443,70 +2404,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, prefix, false, false, null, true));
   }
 
-  private String genCmpMessages(ProfileComparison cmp) {
-    StringBuilder b = new StringBuilder();
-    b.append("<table class=\"grid\">\r\n");
-    b.append("<tr><td><b>Path</b></td><td><b>Message</b></td></tr>\r\n");
-    b.append("<tr><td colspan=\"2\" style=\"background: #eeeeee\">Errors Detected</td></tr>\r\n");
-    boolean found = false;
-    for (ValidationMessage vm : cmp.getMessages())
-      if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL) {
-        found = true;
-        b.append("<tr><td>"+vm.getLocation()+"</td><td>"+vm.getHtml()+(vm.getLevel() == IssueSeverity.FATAL ? "(<span style=\"color: maroon\">This error terminated the comparison process</span>)" : "")+"</td></tr>\r\n");
-      }
-    if (!found)
-    b.append("<tr><td colspan=\"2\">(None)</td></tr>\r\n");
-
-    boolean first = true;
-    for (ValidationMessage vm : cmp.getMessages())
-      if (vm.getLevel() == IssueSeverity.WARNING) {
-        if (first) {
-          first = false;
-          b.append("<tr><td colspan=\"2\" style=\"background: #eeeeee\">Warnings about the comparison</td></tr>\r\n");
-        }
-        b.append("<tr><td>"+vm.getLocation()+"</td><td>"+vm.getHtml()+"</td></tr>\r\n");
-      }
-    first = true;
-    for (ValidationMessage vm : cmp.getMessages())
-      if (vm.getLevel() == IssueSeverity.INFORMATION) {
-        if (first) {
-          b.append("<tr><td colspan=\"2\" style=\"background: #eeeeee\">Notes about differences (e.g. definitions)</td></tr>\r\n");
-          first = false;
-        }
-        b.append("<tr><td>"+vm.getLocation()+"</td><td>"+vm.getHtml()+"</td></tr>\r\n");
-      }
-    b.append("</table>\r\n");
-    return b.toString();
-  }
-
-  private String genPCTable(ProfileComparer pc) {
-    StringBuilder b = new StringBuilder();
-
-    b.append("<table class=\"grid\">\r\n");
-    b.append("<tr>");
-    b.append(" <td><b>Left</b></td>");
-    b.append(" <td><b>Right</b></td>");
-    b.append(" <td><b>Comparison</b></td>");
-    b.append(" <td><b>Error #</b></td>");
-    b.append(" <td><b>Warning #</b></td>");
-    b.append(" <td><b>Hint #</b></td>");
-    b.append("</tr>");
-
-    for (ProfileComparison cmp : pc.getComparisons()) {
-      b.append("<tr>");
-      b.append(" <td><a href=\""+cmp.getLeft().getUserString("path")+"\">"+Utilities.escapeXml(cmp.getLeft().getName())+"</a></td>");
-      b.append(" <td><a href=\""+cmp.getRight().getUserString("path")+"\">"+Utilities.escapeXml(cmp.getRight().getName())+"</a></td>");
-      b.append(" <td><a href=\""+pc.getId()+"."+cmp.getId()+".html\">Click Here</a></td>");
-      b.append(" <td>"+cmp.getErrorCount()+"</td>");
-      b.append(" <td>"+cmp.getWarningCount()+"</td>");
-      b.append(" <td>"+cmp.getHintCount()+"</td>");
-      b.append("</tr>");
-    }
-    b.append("</table>\r\n");
-
-    return b.toString();
-  }
-
   private String genPCLink(String leftName, String leftLink) {
     return "<a href=\""+leftLink+"\">"+Utilities.escapeXml(leftName)+"</a>";
   }
@@ -3275,86 +3172,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
-  private String genV3CodeSystem(String name) throws Exception {
-    CodeSystem vs = definitions.getCodeSystems().get("http://terminology.hl7.org/CodeSystem/v3-"+name);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.xml"), vs);
-    new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.canonical.xml"), vs);
-    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.xml.html", vs.getName(), vs.getDescription(), 2, false, "v3:cs:"+name, "CodeSystem", null, null, definitions.getWorkgroups().get("vocab"));
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.json"), vs);
-    new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.canonical.json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".cs.json"), Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".cs.json.html"), vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:cs:"+name, "CodeSystem", null, null, definitions.getWorkgroups().get("vocab"));
-    Set<String> langs = findCodeSystemTranslations(vs);
-    if (langs.size() > 0) {
-      return renderCodeSystemWithLangs(langs, vs, "../../");  
-    }
-
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(vs.getText().getDiv());
-  }
-
-  private String genV3ValueSet(String name) throws Exception {
-    ValueSet vs = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v3-"+FormatUtilities.makeId(name));
-    if (vs == null)
-      throw new Exception("unable to find v3 value set "+name);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs);
-    new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".canonical.xml"), vs);
-    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.present(), vs.getDescription(), 2, false, "v3:vs:"+name, "ValueSet", null, null, definitions.getWorkgroups().get("vocab"));
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
-    new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".canonical.json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json.html"), vs.present(), vs.getDescription(), 2, r2Json(vs), "v3:vs:"+name, "ValueSet", null, null, definitions.getWorkgroups().get("vocab"));
-
-    return ""; // use generic value set mechanism instead... new XhtmlComposer(XhtmlComposer.HTML).compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
-  }
-
-  private String genV2TableVer(String name) throws Exception {
-    String[] n = name.split("\\|");
-    ValueSet vs = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v2-"+n[1]+"-"+n[0]);
-    CodeSystem cs = (CodeSystem) vs.getUserData("cs");
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".vs.xml"), vs);
-    new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".vs.canonical.xml"), vs);
-    cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".vs.xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".vs.xml.html", vs.present(), vs.getDescription(), 3, false, "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".vs.json"), vs);
-    new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".vs.canonical.json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".vs.json"), Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".vs.json.html"), vs.present(), vs.getDescription(), 3, r2Json(vs), "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
-
-    if (cs != null) {
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".cs.xml"), cs);
-      new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".cs.canonical.xml"), cs);
-      cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".cs.xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".cs.xml.html", cs.present(), cs.getDescription(), 3, false, "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".cs.json"), cs);
-      new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".cs.canonical.json"), cs);
-      jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".cs.json"), Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".cs.json.html"), cs.present(), cs.getDescription(), 3, r2Json(cs), "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
-      Set<String> langs = findCodeSystemTranslations(cs);
-      if (langs.size() > 0) {
-        return renderCodeSystemWithLangs(langs, cs, "../../../");  
-      }
-    }
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(vs.getText().getDiv());
-  }
-
-  private String genV2Table(String name) throws Exception {
-    ValueSet vs = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v2-"+name);
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.xml"), vs);
-    new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.canonical.xml"), vs);
-    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.json"), vs);
-    new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.canonical.json"), vs);
-    cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.xml.html", vs.present(), vs.getDescription(), 2, false, "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
-    jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".vs.json"), Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".vs.json.html"), vs.present(), vs.getDescription(), 2, r2Json(vs), "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
-    CodeSystem cs = definitions.getCodeSystems().get("http://terminology.hl7.org/CodeSystem/v2-"+name);
-    if (cs != null) {
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.xml"), cs);
-      new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.canonical.xml"), cs);
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.json"), cs);
-      new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.canonical.json"), cs);
-      cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.xml.html", cs.present(), cs.getDescription(), 2, false, "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
-      jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".cs.json"), Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".cs.json.html"), cs.present(), cs.getDescription(), 2, r2Json(cs), "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
-      Set<String> langs = findCodeSystemTranslations(cs);
-      if (langs.size() > 0) {
-        return renderCodeSystemWithLangs(langs, cs, "../../");  
-      }
-    }
-
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(vs.getText().getDiv());
-  }
 
   private String renderCodeSystemWithLangs(Set<String> langs, CodeSystem cs, String prefix) throws Exception {
     Narrative n = cs.getText();
@@ -3483,80 +3300,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     html = processPageIncludes(n+".json.html", html, pageType, null, null, null, crumbTitle, ig, rd, wg);
     TextFile.stringToFile(html, dst);
     htmlchecker.registerExternal(dst);
-  }
-
-
-  private String genV2Index() throws IOException {
-    return new ValueSetImporterV2(this, validationErrors).getIndex(v2src, true);
-  }
-
-  private String genV2VSIndex() throws IOException {
-    return new ValueSetImporterV2(this, validationErrors).getIndex(v2src, false);
-  }
-
-  private String genV3CSIndex() {
-    StringBuilder s = new StringBuilder();
-    s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Name (URI = http://terminology.hl7.org/CodeSystem/v3-...)</b></td><td><b>Description</b></td><td><b>OID</b></td></tr>\r\n");
-
-    List<String> names = new ArrayList<String>();
-    Map<String, CodeSystem> map = new HashMap<String, CodeSystem>();
-
-    for (CodeSystem cs : definitions.getCodeSystems().getList()) {
-      if (cs != null) {
-        String n = cs.getUrl();
-        if (n.contains("/v3-")) {
-          names.add(n);
-          map.put(n, cs);
-        }
-      }
-    }
-    Collections.sort(names);
-
-    for (String n : names) {
-      CodeSystem cs = map.get(n);
-      String id = tail(cs.getUrl()).substring(3);
-      String oid = CodeSystemUtilities.getOID(cs);
-      s.append(" <tr><td><a href=\"v3/").append(id).append("/cs.html\">").append(Utilities.escapeXml(id))
-              .append("</a></td><td>").append(Utilities.escapeXml(cs.getDescription())).append("</td><td>").append(oid == null ? "--" : oid).append("</td></tr>\r\n");
-    }
-
-    s.append("</table>\r\n");
-    return s.toString();
-  }
-
-  private String genV3VSIndex() {
-    StringBuilder s = new StringBuilder();
-    s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Name (URI = http://terminology.hl7.org/ValueSet/v3-...) </b></td><td><b>Name</b></td><td><b>OID</b></td></tr>\r\n");
-
-    List<String> names = new ArrayList<String>();
-    Map<String, ValueSet> map = new HashMap<String, ValueSet>();
-
-    for (ValueSet vs : definitions.getValuesets().getList()) {
-      String n = vs.getUrl();
-      if (n.contains("/v3")) {
-        names.add(n);
-        map.put(n, vs);
-      }
-    }
-    Collections.sort(names);
-
-    for (String n : names) {
-      ValueSet vs = map.get(n);
-      String id = tail(vs.getUrl()).substring(3);
-      String oid = ValueSetUtilities.getOID(vs);
-      if (oid != null && oid.startsWith("urn:oid:"))
-        oid = oid.substring(8);
-      String[] desc = vs.getDescription().split("\\(OID \\= ");
-      s.append(" <tr><td><a href=\"v3/").append(id).append("/vs.html\">").append(Utilities.escapeXml(id))
-            .append("</a></td><td>").append(Utilities.escapeXml(vs.getDescription())).append("</td><td>").append(oid == null ? "--" : oid).append("</td></tr>\r\n");
-//      s.append(" <tr><td><a href=\"ValueSet/vs-").append(id).append("/index.html\">")
-//              .append(id).append("</a></td><td>").append(desc[0]).append("</td><td>").append(oid == null ? "==" : oid).append("</td></tr>\r\n");
-    }
-
-    s.append("</table>\r\n");
-    return s.toString();
   }
 
   private String tail(String id) {
@@ -3854,24 +3597,27 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       for (CodeSystem cs : getCodeSystems().getList()) {
         if (cs != null) {
           if (vs.getUrl().equals(cs.getValueSet())) {
-            addItem(items, "<li>CodeSystem: This value set is the designated 'entire code system' value set for <a href=\""+ prefix+cs.getUserString("path") + "\">"+cs.getName()+"</a> "+"</li>\r\n");
+            String p = cs.getUserString("path");
+            addItem(items, "<li>CodeSystem: This value set is the designated 'entire code system' value set for <a href=\""+ (Utilities.isAbsoluteUrl(p) ? "" : prefix)+p + "\">"+cs.getName()+"</a> "+"</li>\r\n");
           }
         }
       }
     }
 
     for (ConceptMap cm : getConceptMaps().getList()) {
+      String p = cm.getUserString("path");
       if (cm.hasSourceUriType() && cm.getSourceUriType().equals(vs.getUrl())) {
-        addItem(items, "<li>ConceptMap: Translation source in <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.present()+"</a> "+"</li>\r\n");
+        addItem(items, "<li>ConceptMap: Translation source in <a href=\""+(Utilities.isAbsoluteUrl(p) ? "" : prefix)+p+"\">"+cm.present()+"</a> "+"</li>\r\n");
       } else if (cm.hasSourceCanonicalType() && (cm.getSourceCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getSourceCanonicalType().getValue()))) {
-        addItem(items, "<li>ConceptMap: Translation source in <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.getName()+"</a> "+"</li>\r\n");
+        addItem(items, "<li>ConceptMap: Translation source in <a href=\""+(Utilities.isAbsoluteUrl(p) ? "" : prefix)+p+"\">"+cm.getName()+"</a> "+"</li>\r\n");
       }
     }
     for (ConceptMap cm : getConceptMaps().getList()) {
+      String p = cm.getUserString("path");
       if (cm.hasTargetUriType() && cm.getTargetUriType().equals(vs.getUrl())) {
-        addItem(items, "<li>ConceptMap: Translation target in <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.present()+"</a> "+"</li>\r\n");
+        addItem(items, "<li>ConceptMap: Translation target in <a href=\""+(Utilities.isAbsoluteUrl(p) ? "" : prefix)+p+"\">"+cm.present()+"</a> "+"</li>\r\n");
       } else if (cm.hasTargetCanonicalType() && (cm.getTargetCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getTargetCanonicalType().getValue()))) {
-        addItem(items, "<li>ConceptMap: Translation target ConceptMap <a href=\""+prefix+cm.getUserString("path")+"\">"+cm.getName()+"</a> "+"</li>\r\n");
+        addItem(items, "<li>ConceptMap: Translation target ConceptMap <a href=\""+(Utilities.isAbsoluteUrl(p) ? "" : prefix)+p+"\">"+cm.getName()+"</a> "+"</li>\r\n");
       }
     }
 
@@ -4916,10 +4662,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     CanonicalResourceManager<ValueSet> vslist = new CanonicalResourceManager<ValueSet>(false);
     for (String sn : definitions.getValuesets().keys()) {
       ValueSet vs = definitions.getValuesets().get(sn);
-      vslist.see(vs, packageInfo());
-      String n = getNamespace(sn);
-      if (!n.equals("http://hl7.org/fhir/ValueSet") && !namespaces.contains(n) && !sn.startsWith("http://terminology.hl7.org/ValueSet/v2-") && !sn.startsWith("http://terminology.hl7.org/ValueSet/v3-"))
-        namespaces.add(n);
+      if (vs.hasUrl() && !vs.getUrl().startsWith("http://terminology.hl7.org")) {
+        vslist.see(vs, packageInfo());
+        String n = getNamespace(sn);
+        if (!n.equals("http://hl7.org/fhir/ValueSet") && !namespaces.contains(n) && !sn.startsWith("http://terminology.hl7.org/ValueSet/v2-") && !sn.startsWith("http://terminology.hl7.org/ValueSet/v3-"))
+          namespaces.add(n);
+      }
     }
     for (String sn : definitions.getExtraValuesets().keySet()) {
       ValueSet vs = definitions.getExtraValuesets().get(sn);
@@ -5045,132 +4793,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
     return b.length() == 0 ? "" : b.substring(2);
   }
-
-
-//  private String genBindingsTable() {
-//    assert(false);
-//    StringBuilder s = new StringBuilder();
-//    s.append("<table class=\"codes\">\r\n");
-//    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Type</b></td><td><b>Reference</b></td></tr>\r\n");
-//    List<String> names = new ArrayList<String>();
-//    for (String n : definitions.getBindings().keySet()) {
-//      names.add(n);
-//    }
-//    Collections.sort(names);
-//    for (String n : names) {
-//      if (!n.startsWith("*")) {
-//        BindingSpecification cd = definitions.getBindingByName(n);
-//        if (cd.getElementType() != ElementType.Unknown) {
-//          s.append(" <tr><td>"+Utilities.escapeXml(cd.getName())+"</td><td>"+Utilities.escapeXml(cd.getDefinition())+"</td><td>");
-//          if (cd.getBinding() == Binding.Reference)
-//            s.append("Reference");
-//          else if (cd.getElementType() == ElementType.Simple)
-//            s.append("Code List");
-//          else if (cd.getBinding() == Binding.Unbound)
-//            s.append("??");
-//          else
-//            s.append("Value Set");
-//
-//          if (cd.getBinding() == Binding.Special) {
-//
-//            if (cd.getName().equals("MessageEvent"))
-//              s.append("</td><td><a href=\"message-events.html\">http://hl7.org/fhir/valueset/message-events.html</a></td></tr>\r\n");
-//            else if (cd.getName().equals("ResourceType"))
-//              s.append("</td><td><a href=\"resource-types.html\">http://hl7.org/fhir/valueset/resource-types.html</a></td></tr>\r\n");
-//            else if (cd.getName().equals("DataType"))
-//              s.append("</td><td><a href=\"data-types.html\">http://hl7.org/fhir/valueset/data-types.html</a></td></tr>\r\n");
-//            else if (cd.getName().equals("FHIRDefinedType"))
-//              s.append("</td><td><a href=\"defined-types.html\">http://hl7.org/fhir/valueset/defined-types.html</a></td></tr>\r\n");
-//            else
-//              s.append("</td><td>???</td></tr>\r\n");
-//
-//          } else if (cd.getBinding() == Binding.CodeList)
-//            s.append("</td><td><a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td></tr>\r\n");
-//          else if (cd.getBinding() == Binding.ValueSet) {
-//            if (cd.getReferredValueSet() != null) {
-//              if (cd.getReference().startsWith("http://terminology.hl7.org/CodeSystem/v3-vs"))
-//                s.append("</td><td><a href=\"v3/"+cd.getReference().substring(26)+"/index.html\">"+cd.getReference()+"</a></td></tr>\r\n");
-//              else if (cd.getReference().startsWith("http://hl7.org/fhir"))
-//                s.append("</td><td><a href=\""+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a></td></tr>\r\n");
-//              else
-//                s.append("</td><td><a href=\""+cd.getReference()+".html\">"+cd.getReferredValueSet().getUrl()+"</a></td></tr>\r\n");
-//            } else
-//              s.append("</td><td><a href=\""+cd.getReference()+".html\">??</a></td></tr>\r\n");
-//          } else if (cd.hasReference())
-//            s.append("</td><td><a href=\""+cd.getReference()+"\">"+Utilities.escapeXml(cd.getDescription())+"</a></td></tr>\r\n");
-//          else if (Utilities.noString(cd.getDescription()))
-//            s.append("</td><td style=\"color: grey\">??</td></tr>\r\n");
-//          else
-//            s.append("</td><td>? "+Utilities.escapeXml(cd.getBinding().toString())+": "+Utilities.escapeXml(cd.getDescription())+"</td></tr>\r\n");
-//        }
-//      }
-//    }
-//    s.append("</table>\r\n");
-//    return s.toString();
-//  }
-//
-//  private String genBindingTable(boolean codelists) {
-//    StringBuilder s = new StringBuilder();
-//    s.append("<table class=\"codes\">\r\n");
-//    List<String> names = new ArrayList<String>();
-//    for (String n : definitions.getBindings().keySet()) {
-//      if ((codelists && definitions.getBindingByName(n).getBinding() == Binding.CodeList) || (!codelists && definitions.getBindingByName(n).getBinding() != Binding.CodeList))
-//       names.add(n);
-//    }
-//    Collections.sort(names);
-//    for (String n : names) {
-//      if (!n.startsWith("*")) {
-//        BindingSpecification cd = definitions.getBindingByName(n);
-//        if (cd.getBinding() == Binding.CodeList || cd.getBinding() == Binding.Special)
-//          s.append("  <tr><td title=\""+Utilities.escapeXml(cd.getDefinition())+"\">"+cd.getName()+"<br/><font color=\"grey\">http://hl7.org/fhir/sid/"+cd.getReference().substring(1)+"</font></td><td>");
-//        else
-//          s.append("  <tr><td title=\""+Utilities.escapeXml(cd.getDefinition())+"\">"+cd.getName()+"</td><td>");
-//        if (cd.getBinding() == Binding.Unbound) {
-//          s.append("Definition: "+Utilities.escapeXml(cd.getDefinition()));
-//        } else if (cd.getBinding() == Binding.CodeList) {
-//          assert(cd.getStrength() == BindingStrength.REQUIRED);
-//          s.append("Required codes: ");
-//          s.append("    <table class=\"codes\">\r\n");
-//          boolean hasComment = false;
-//          boolean hasDefinition = false;
-//          for (DefinedCode c : cd.getCodes()) {
-//            hasComment = hasComment || c.hasComment();
-//            hasDefinition = hasDefinition || c.hasDefinition();
-//          }
-//          for (DefinedCode c : cd.getCodes()) {
-//            if (hasComment)
-//              s.append("    <tr><td>"+Utilities.escapeXml(c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(c.getComment())+"</td></tr>");
-//            else if (hasDefinition)
-//              s.append("    <tr><td>"+Utilities.escapeXml(c.getCode())+"</td><td colspan=\"2\">"+Utilities.escapeXml(c.getDefinition())+"</td></tr>");
-//            else
-//              s.append("    <tr><td colspan=\"3\">"+Utilities.escapeXml(c.getCode())+"</td></tr>");
-//          }
-//          s.append("    </table>\r\n");
-//        } else if (cd.getBinding() == Binding.ValueSet) {
-//          if (cd.hasReference())
-//            s.append("<a href=\""+cd.getReference()+"\">Value Set "+cd.getDescription()+"</a>");
-//          else
-//            s.append("Value Set "+cd.getDescription());
-//          s.append(" (<a href=\"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>)");
-//        } else if (cd.getBinding() == Binding.Reference) {
-//            s.append("See <a href=\""+cd.getReference()+"\">"+cd.getReference()+"</a>");
-//        } else if (cd.getBinding() == Binding.Special) {
-//          if (cd.getName().equals("MessageEvent"))
-//            s.append("See the <a href=\"message.html#Events\"> Event List </a>in the messaging framework");
-//          else if (cd.getName().equals("ResourceType"))
-//            s.append("See the <a href=\"terminologies.html#ResourceType\"> list of defined Resource Types</a>");
-//          else if (cd.getName().equals("FHIRContentType"))
-//            s.append("See the <a href=\"terminologies.html#fhircontenttypes\"> list of defined Resource and Data Types</a>");
-//          else
-//            s.append("<a href=\"datatypes.html\">Any defined data Type name</a> (including <a href=\"resource.html#Resource\">Resource</a>)");
-//        }
-//        s.append("</td></tr>\r\n");
-//      }
-//
-//    }
-//    s.append("</table>\r\n");
-//    return s.toString();
-//  }
 
   private String getEventsTable(String resource) throws Exception {
     List<String> codes = new ArrayList<String>();
@@ -5330,9 +4952,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + vsWarning((ValueSet) resource) + s3;
       else if (com[0].equals("res-status-special"))
         src = s1 + vsSpecialStatus((DomainResource) resource) + s3;
-      else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else  if (com[0].equals("conceptmaplistvs")) {
+      else if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else  if (com[0].equals("conceptmaplistvs")) {
         throw new Error("Fix this");
 //        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
 //        String ref;
@@ -5493,35 +5119,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return oid;
   }
 
-  private String generateDesc(ValueSet vs) {
-    throw new Error("Fix this");
-//    BindingSpecification cd = definitions.getBindingByReference("#"+fileTitle);
-//    List<String> vslist = cd.getVSSources();
-//    StringBuilder b = new StringBuilder();
-//    if (vslist.contains("")) {
-//      b.append("This value set defines its own codes");
-//      vslist.remove(0);
-//      if (vslist.size() > 0)
-//        b.append(" and includes codes taken from");
-//    } else
-//      b.append("This is a value set with codes taken from ");
-//    int i = 0;
-//    for (String n : cd.getVSSources()) {
-//      i++;
-//      if (Utilities.noString(n)) {
-//        //b.append("Codes defined internally");
-//      } else {
-//        String an = fixUrlReference(n);
-//        b.append("<a href=\""+an+"\">"+n+"</a>");
-//      }
-//      if (i == vslist.size() - 1)
-//        b.append(" and ");
-//      else if (vslist.size() > 1 && i != vslist.size() )
-//        b.append(", ");
-//    }
-//    return b.toString()+":";
-  }
-
   private String fixUrlReference(String n) {
     if (n.startsWith("urn:ietf:rfc:"))
       return "http://tools.ietf.org/html/rfc"+n.split("\\:")[3];
@@ -5606,11 +5203,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     RenderingContext lrc = rc.copy().setLocalPrefix(prefix).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY);
     RendererFactory.factory(vs1, lrc).render(vs1);
     return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer(XhtmlComposer.HTML).compose(vs1.getText().getDiv())+VS_INC_END;
-  }
-
-  private String expandV3ValueSet(String name) throws Exception {
-    ValueSet vs = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v3-"+name);
-    return expandVS(vs, "../../", "v3/"+name);
   }
 
   public ValueSet expandValueSet(ValueSet vs, boolean heirarchy) throws Exception {
@@ -5971,9 +5563,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1 + ((ValueSet) resource).getVersion() + s3;
       else if (com[0].equals("vsref")) {
         src = s1 + Utilities.fileTitle((String) resource.getUserData("filename")) + s3;
-      } else if (com[0].equals("txdesc"))
-        src = s1 + generateDesc((ValueSet) resource) + s3;
-      else if (com[0].equals("vsdesc"))
+      } else if (com[0].equals("vsdesc"))
         src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescription()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
         src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level), true) + s3;
@@ -5981,14 +5571,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level), true) + s3;
       else if (com[0].equals("csusage"))
         src = s1 + generateCSUsage((CodeSystem) resource, genlevel(level)) + s3;
-      else if (com[0].equals("v2Index"))
-        src = s1+genV2Index()+s3;
-      else if (com[0].equals("v2VSIndex"))
-        src = s1+genV2VSIndex()+s3;
-      else if (com[0].equals("v3Index-cs"))
-        src = s1+genV3CSIndex()+s3;
-      else if (com[0].equals("v3Index-vs"))
-        src = s1+genV3VSIndex()+s3;
       else if (com[0].equals("mappings-table"))
         src = s1+genMappingsTable()+s3;
       else if (com[0].equals("vssummary"))
@@ -6162,29 +5744,31 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String getSnomedCTConceptList() throws Exception {
     Map<String, SnomedConceptUsage> concepts = new HashMap<String, SnomedConceptUsage>();
     for (ValueSet vs : definitions.getValuesets().getList()) {
-      for (ConceptSetComponent cc : vs.getCompose().getInclude())
-        if (cc.hasSystem() && cc.getSystem().equals("http://snomed.info/sct")) {
-          for (ConceptReferenceComponent c : cc.getConcept()) {
-            String d = c.hasDisplay() ? c.getDisplay() : workerContext.getCodeDefinition("http://snomed.info/sct", c.getCode()).getDisplay();
-            if (concepts.containsKey(c.getCode()))
-              concepts.get(c.getCode()).update(d, vs);
-            else
-              concepts.put(c.getCode(), new SnomedConceptUsage(c.getCode(), d, vs));
-          }
-          for (ConceptSetFilterComponent c : cc.getFilter()) {
-            if ("concept".equals(c.getProperty())) {
-              ConceptDefinitionComponent def = workerContext.getCodeDefinition("http://snomed.info/sct", c.getValue());
-              if (def==null) {
-                throw new Exception("Unable to retrieve definition for SNOMED code: " + c.getValue());
-              }
-              String d = def.getDisplay();
-              if (concepts.containsKey(c.getValue()))
-                concepts.get(c.getValue()).update(d, vs);
+      if (!vs.hasUrl() || !vs.getUrl().startsWith("http://terminology.hl7.org")) {
+        for (ConceptSetComponent cc : vs.getCompose().getInclude())
+          if (cc.hasSystem() && cc.getSystem().equals("http://snomed.info/sct")) {
+            for (ConceptReferenceComponent c : cc.getConcept()) {
+              String d = c.hasDisplay() ? c.getDisplay() : workerContext.getCodeDefinition("http://snomed.info/sct", c.getCode()).getDisplay();
+              if (concepts.containsKey(c.getCode()))
+                concepts.get(c.getCode()).update(d, vs);
               else
-                concepts.put(c.getValue(), new SnomedConceptUsage(c.getValue(), d, vs));
+                concepts.put(c.getCode(), new SnomedConceptUsage(c.getCode(), d, vs));
+            }
+            for (ConceptSetFilterComponent c : cc.getFilter()) {
+              if ("concept".equals(c.getProperty())) {
+                ConceptDefinitionComponent def = workerContext.getCodeDefinition("http://snomed.info/sct", c.getValue());
+                if (def==null) {
+                  throw new Exception("Unable to retrieve definition for SNOMED code: " + c.getValue());
+                }
+                String d = def.getDisplay();
+                if (concepts.containsKey(c.getValue()))
+                  concepts.get(c.getValue()).update(d, vs);
+                else
+                  concepts.put(c.getValue(), new SnomedConceptUsage(c.getValue(), d, vs));
+              }
             }
           }
-        }
+      }
     }
     List<String> sorts = new ArrayList<String>();
     for (String s : concepts.keySet())
@@ -6219,8 +5803,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     List<String> sorts = new ArrayList<String>();
     for (ValueSet vs : definitions.getValuesets().getList()) {
-      if (referencesSnomed(vs))
+      if (referencesSnomed(vs) && !(vs.hasUrl() && vs.getUrl().startsWith("http://terminology.hl7.org"))) {
         sorts.add(vs.getUrl());
+      }
     }
     Collections.sort(sorts);
 
@@ -6445,9 +6030,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+abstractResHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("lmheader"))
         src = s1+lmHeader(name, resource.getName(), com.length > 1 ? com[1] : null, false)+s3;
-      else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("settitle")) {
+      else if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       }
@@ -8608,9 +8197,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String[] com = s2.split(" ");
       if (com[0].equals("profileheader"))
         src = s1+profileHeader(fileid, com.length > 1 ? com[1] : "", hasExamples(pack))+s3;
-      else if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("settitle")) {
+      else if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       }      else if (com.length != 1)
@@ -9113,9 +8706,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String s3 = src.substring(i2+2);
 
       String[] com = s2.split(" ");
-      if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("extDefnHeader"))
+      if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else if (com[0].equals("extDefnHeader"))
         src = s1+extDefnHeader(filename, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("extension-table"))
         src = s1+generateExtensionTable(ed, filename, com[1], genlevel(level))+s3;
@@ -9318,7 +8915,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             vss = "<a href=\""+genlevel(level)+uri+"\">"+Utilities.escapeXml(uri)+"</a><!-- c -->";
           }
         } else {
-          vss = "<a href=\""+genlevel(level)+vs.getUserData("path")+"\">"+Utilities.escapeXml(vs.present())+"</a><!-- d -->";
+          vss = "<a href=\""+(Utilities.isAbsoluteUrl(vs.getUserString("path")) ? "" : genlevel(level))+vs.getUserData("path")+"\">"+Utilities.escapeXml(vs.present())+"</a><!-- d -->";
           vsn = vs.present();
         }
       }
@@ -9565,7 +9162,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     TerminologyClient client;
     try {
       client = new TerminologyClientR5(tsServer);
-      client.setTimeout(30000);
+      client.setTimeout(60000);
     } catch(Exception e) {
       System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());
       client = null;
@@ -9574,12 +9171,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     workerContext = new BuildWorkerContext(definitions, client, definitions.getCodeSystems(), definitions.getValuesets(), conceptMaps, profiles, guides, folders.rootDir);
     workerContext.setDefinitions(definitions);
     workerContext.setLogger(this);
+    workerContext.setAllowLoadingDuplicates(true);
+    log("Load UTG Terminology", LogMessageType.Process);
+    NpmPackage utg = new FilesystemPackageCacheManager(true, ToolsVersion.TOOLS_VERSION).loadPackage("hl7.terminology");
+    workerContext.loadFromPackage(utg, new R4ToR5Loader(BuildWorkerContext.defaultTypesToLoad(), new UTGLoader(utg.version())));
     log("Load Terminology Cache from "+Utilities.path(folders.rootDir, "vscache"), LogMessageType.Process);
     workerContext.initTS(Utilities.path(folders.rootDir, "vscache"));
     log("  .. loaded", LogMessageType.Process);
     vsValidator = new ValueSetValidator(workerContext, definitions.getVsFixups(), definitions.getStyleExemptions());
     breadCrumbManager.setContext(workerContext);
-
   }
 
   public void setVersion(FHIRVersion version) {
@@ -9665,22 +9265,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.buildId = buildId;
   }
 
-  public Document getV2src() {
-    return v2src;
-  }
-
-  public void setV2src(Document v2src) {
-    this.v2src = v2src;
-  }
-
-  public Document getV3src() {
-    return v3src;
-  }
-
-  public void setV3src(Document v3src) {
-    this.v3src = v3src;
-  }
-
   public QaTracker getQa() {
     return qa;
   }
@@ -9743,17 +9327,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   public void loadSnomed() throws Exception {
-    workerContext.loadSnomed(Utilities.path(folders.srcDir, "snomed", "snomed.xml"));
+    workerContext.loadSnomed(Utilities.path(folders.rootDir, "tools", "tx", "snomed", "snomed.xml"));
   }
 
   public void saveSnomed() throws Exception {
-    workerContext.saveSnomed(Utilities.path(folders.srcDir, "snomed", "snomed.xml"));
-    workerContext.saveLoinc(Utilities.path(folders.srcDir, "loinc", "loinc.xml"));
+    workerContext.saveSnomed(Utilities.path(folders.rootDir, "tools", "tx", "snomed", "snomed.xml"));
+    workerContext.saveLoinc(Utilities.path(folders.rootDir, "tools", "tx", "loinc", "loinc.xml"));
   }
 
   public void loadLoinc() throws Exception {
     log("Load Loinc", LogMessageType.Process);
-    workerContext.loadLoinc(Utilities.path(folders.srcDir, "loinc", "loinc.xml"));
+    workerContext.loadLoinc(Utilities.path(folders.rootDir, "tools", "tx", "loinc", "loinc.xml"));
   }
 
   public CanonicalResourceManager<StructureDefinition> getProfiles() {
@@ -9884,9 +9468,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     BindingResolution br = new BindingResolution();
     if (ref.contains("|"))
       ref = ref.substring(0 , ref.indexOf("|"));
-    if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
-      br.url = "v3/"+ref.substring(39)+"/vs.html";
-      br.display = ref.substring(39);
+    if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-") || ref.startsWith("http://terminology.hl7.org/ValueSet/v2-") ) {
+      ValueSet vs = workerContext.fetchResource(ValueSet.class, ref);
+      if (vs == null) {
+        br.url = "v3/"+ref.substring(39)+"/vs.html";
+        br.display = ref.substring(39);
+      } else {
+        br.url = vs.getUserString("path");
+        br.display = vs.present();        
+      }
     } else if (definitions.getValuesets().has(ref)) {
       ValueSet vs = definitions.getValuesets().get(ref);
       br.url = vs.getUserString("path");
@@ -9994,9 +9584,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String s3 = src.substring(i2+2);
 
       String[] com = s2.split(" ");
-      if (com[0].equals("file"))
-        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("settitle")) {
+      if (com[0].equals("file")) {
+        if (new File(folders.templateDir + com[1]+".html").exists()) {
+          src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
+        } else {
+          src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+        }
+      } else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       } else if (com[0].equals("setlevel")) {
@@ -10042,14 +9636,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+"<div class=\"content\">"+s3;
       else if (com[0].equals("/maindiv"))
         src = s1+"</div>"+s3;
-      else if (com[0].equals("v2Index"))
-        src = s1+genV2Index()+s3;
-      else if (com[0].equals("v2VSIndex"))
-        src = s1+genV2VSIndex()+s3;
-      else if (com[0].equals("v3Index-cs"))
-        src = s1+genV3CSIndex()+s3;
-      else if (com[0].equals("v3Index-vs"))
-        src = s1+genV3VSIndex()+s3;
       else if (com[0].equals("mappings-table"))
         src = s1+genMappingsTable()+s3;
       else if (com[0].equals("id"))
@@ -10650,9 +10236,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     prevSidebars.clear();
     orderedResources.clear();
     sectionTrackerCache.clear();
-    toc.clear();;
-    v2src = null;
-    v3src = null;
+    toc.clear();
     igResources.clear();
     svgs.clear();
     translations = null;
@@ -11255,20 +10839,9 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     return b.toString();
   }
 
-  private String genV2Expansion(String name, String prefix) throws Exception {
-    ValueSet vs = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v2-"+name);
-    CodeSystem cs = definitions.getCodeSystems().get("http://terminology.hl7.org/CodeSystem/v2-"+name);
-    if (cs != null && !hasInactiveCodes(cs)) 
-      return "";
-    StringBuilder b = new StringBuilder();
-    b.append("<p>A current expansion is provided for this table because it is not simply 'all codes in the table', or because some codes have been deprecated</p>\r\n");
-    b.append(expandValueSet(name, vs, prefix));
-    return b.toString();
-  }
-
   private boolean hasInactiveCodes(CodeSystem cs) {
     for (ConceptDefinitionComponent cc : cs.getConcept()) {
-      if (CodeSystemUtilities.isDeprecated(cs, cc))
+      if (CodeSystemUtilities.isDeprecated(cs, cc, false))
         return true;
     }
     return false;
@@ -11331,9 +10904,3 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   }
   
 }
-
-//     RenderingContext rc = new RenderingContext(context, new MarkDownProcessor(Dialect.COMMON_MARK), null, "", null, ResourceRendererMode.IG);
-// v3 importer:     NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-// v3 importer NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-
-// pub.1     NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);

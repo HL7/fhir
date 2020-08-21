@@ -7775,7 +7775,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Defines roles played by participants for the action</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/action-participant-role" ss:StyleID="s152"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/action-participant-role</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/action-participant-role" ss:StyleID="s152"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/action-participant-role</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
