@@ -43,7 +43,6 @@
       </source>
       <target>
         <context value="Destination"/>
-        <contextType value="variable"/>
         <element value="testValue"/>
         <transform value="copy"/>
       </target>
