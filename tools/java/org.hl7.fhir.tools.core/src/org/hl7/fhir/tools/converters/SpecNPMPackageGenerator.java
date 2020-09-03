@@ -103,7 +103,7 @@ public class SpecNPMPackageGenerator {
       r.setReference(new Reference(e.type+"/"+e.id));
       if (e.conf)
         r.setExample(new BooleanType(true));
-      r.setRelativePath(spm.getPath(e.canonical));  
+      r.setRelativePath(spm.getPath(e.canonical, null));  
     }
     for (String k : files.keySet()) {
       if (k.endsWith(".png") || k.endsWith(".gif"))
