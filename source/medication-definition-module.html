@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+
+<!--
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code.
+-->
+
+[%settitle Medication Definition Module%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg brr%]">[%wgt brr%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<a name="root"></a>
+<h2>Medication Definition Module</h2>
+
+<a name="intro"></a>
+<h3>Introduction</h3>
+<p>
+This module is concerned with resources and functionality in areas such as:
+</p>
+
+<ul>
+	<li>The regulation and manufacturing of drugs, medicinal products and other medically-related substances.</li>
+	<li>Detailed description of these same items, typically for regulators but also for any context where this level of detail is necessary, such as pharmacopoeias, or prescribing support.</li>
+	<li>Indications and contra-indications for medications.</li>
+	<li>The details of the chemical substances that are ingredients for medications.</li>
+</ul>
+
+<p>
+	These resources are not typically used in direct patient care or day-to-day prescribing functionality 
+	(for which see the <a href="medications-module.html">Medications Module</a>) but play a supporting role.
+	They have the "full" version of the product type, with all its information, including the licensed packages available, with their physical details and containers, 
+	through to individual tablet level and on to ingredients and component substances.
+</p>
+	
+
+    <a name="index"></a>
+    <h3>Index</h3>
+    <table width="100%" style="table-layout: fixed">
+        <tr>
+            <td>
+                <ul>
+                	<li><a href="medicinalproductdefinition.html">MedicinalProductDefinition</a></li>
+                	<li><a href="ingredient.html">Ingredient</a></li>
+                	<li><a href="clinicaluseissue.html">ClinicalUseIssue</a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                	<li><a href="packagedproductdefinition.html">PackagedProductDefinition</a></li>
+                	<li><a href="administrableproductdefinition.html">AdministrableProductDefinition</a></li>
+                	<li><a href="substancedefinition.html">SubstanceDefinition</a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                	<li><a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a></li>
+                	<li><a href="regulatedauthorization.html">RegulatedAuthorization</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+
+<a name="prods"></a>
+<h4>Products and Packaging</h4>
+<table class="bare">
+    <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
+	<tr bgcolor="#EFEFEF">
+		<td valign="top"><a href="medicinalproductdefinition.html">MedicinalProductDefinition</a></td>
+		<td>
+			<p>
+				The MedicinalProductDefinition resource covers the detailed defining data of medicinal products, 
+				to a level beyond what is typically needed for day-to-day prescribing, but that is commonly required by manufacturers and regulators, 
+				and also for use in drug catalogs and pharmacopoeias.
+				
+				(For direct patient care when prescribing, dispensing etc. the correct resource is <a href="medication.html">Medication</a>).
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td><a href="packagedproductdefinition.html">PackagedProductDefinition</a></td>
+		<td>
+			<p>The PackagedProductDefinition resource represents one pack type of a product, that has been made available, and can also capture all aspects of the 
+				physical packaging of a product. These pack types can be associated with an "owning" MedicinalProductDefinition, to represent the range of different pack 
+				sizes in which that product can be obtained. These may have different legal statuses and availability, or be packaged in different ways. 
+				The resource allows describing which drug items and associated co-packaged devices are within them. The actual contained items are handled by
+				specific resources (e.g. <a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a> and <a href="devicedefinition.html">DeviceDefinition</a>).
+			</p>
+		</td>
+	</tr>
+	<tr bgcolor="#EFEFEF">
+		<td valign="top"><a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a></td>
+		<td>
+			<p>
+				ManufacturedItemDefinition is to be used when you need to describe a physical medication item type 
+				such as a tablet or capsule, or some continuous substance such as liquid or powder.  
+				This is typically for regulatory or manufacturing use cases, rather than day-to-day prescribing or dispensing.
+				It can carry the definition and characteristics of a medicinal (or medically-related) manufactured item, 
+				usually to be contained in a <a href="packagedproductdefinition.html">packaged medicinal product</a>, 
+				and not found on its own. 
+				The package definition carries the quantity of each contained item, allowing re-use for different amounts</p>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><a href="administrableproductdefinition.html">AdministrableProductDefinition</a></td>
+		<td>
+			<p>A medicinal product may consist of several items, which need to be combined before administration to the patient. 
+				The administrable (or "pharmaceutical") product - which differs in that it is now "mixed" from its components (if necessary) 
+				and is ready for use - is covered by the AdministrableProductDefinition resource. 
+				The components are ManufacturedItemDefinitions.
+			</p>
+		</td>
+	</tr>
+</table>
+
+	<a name="ings"></a>
+	<h4>Ingredients and Substances</h4>
+	<table class="bare">
+		<tr><td><b>Name</b></td><td><b>Description</b></td></tr>
+		<tr bgcolor="#EFEFEF">
+			<td><a href="ingredient.html">Ingredient</a></td>
+			<td>
+				<p>The Ingredient resource describes a material used in the preparation of a medicinal/pharmaceutical product,
+					within the context of a particular use. An ingredient is part of a product, either alone or in combination with other ingredients. 
+					It is essentially a substance with the addition of the specific role it is playing in the product, which may include whether it is an active or 
+					inactive substance and what the strength is (the quantity of substance compared to the whole product).
+					</p>				
+			</td>
+		</tr>
+		<tr>
+			<td><a href="substancedefinition.html">SubstanceDefinition</a></td>
+			<td>
+				<p>The detailed description of a substance, typically at a level beyond what is used for prescribing.</p>
+			</td>
+		</tr>
+	</table>
+
+	<a name="reg"></a>
+    <h4>Authorizations and Usage/Warnings</h4>
+    <table class="bare">
+        <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
+    	<tr bgcolor="#EFEFEF">
+    		<td><a href="regulatedauthorization.html">RegulatedAuthorization</a></td>
+    		<td>
+    			<p>RegulatedAuthorization is a resource covering the authorization of a type of product, 
+    				item, device, process, treatment, facility or service, from a regulatory point of view. 
+    			</p>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td valign="top"><a href="clinicaluseissue.html">ClinicalUseIssue</a></td>
+    		<td>
+    			<p>ClinicalUseIssue is a resource to capture a usage issue - either an indication, contraindication, interaction or an 
+    				undesirable effect for a medicinal product, medication, device or procedure.
+    				The resource represents one single issue, in one of several types.</p>
+    		</td>
+    	</tr>
+    </table>
+
+
+<a name="uses"></a>
+<h3>Common Use Cases</h3>
+<ul>
+	<li>Submitting a drug to a regulator for approval</li>
+	<li>Creating a national level drug catalogue, including with virtual and actual medicinal products and packs</li>
+	<li>Capturing information about the manufacturing of a drug</li>
+</ul>
+
+<h3>Other resources</h3>
+	There are other resources that are of particular interest in the medication definition domain.
+	<ul>
+		<li> <a href="medication.html">Medication</a> This is the resource to use for prescribing use cases, and anywhere that an actual medication instance is needed.</li>
+		<li> <a href="substance.html">Substance</a> The substance resource has a limited subset of data, and is aimed at prescribing use cases. Unlike SubstanceDefinition it can be an actual instance of a substance (e.g. an amount of an ingredient or raw material).</li>
+		<li> <a href="devicedefinition.html">DeviceDefinition</a> A DeviceDefinition can be used to represent a device that is inside the package of a medicinal product, within the PackagedProductDefinition resource.</li>
+		<li> <a href="organization.html">Organization</a> Many regulatory processes are centred around organizations (pharma companies, drug manufacturers, regulatory agencies). These are all represented by Organizations, and are referenced by many of the module's resources.</li>
+	</ul>
+
+<a name="defn"></a>
+<h3>Definitions and Instances</h3>
+<p>
+	[text needed here]
+</p>
+	
+	
+	<a name="secpriv"></a>
+<h3>Security and Privacy</h3>
+<p>
+	The medication definition resources don't cover any aspect of direct patient care, and in some cases the information is even in the public domain.
+	However drug development often involves confidential data of a commercially sensitive nature, and as such the resources are susceptible to data breaching. 
+	Necessary privacy and security provisions must be in place when transmitting, searching and fetching this information. 
+	For more general considerations, see the <a href="secpriv-module.html">Security and Privacy module</a>.
+</p>
+
+
+<a name="roadmap"></a>
+<h3>Developmental Roadmap</h3>
+<p>
+	[text needed here]
+</p>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>
