@@ -9,17 +9,17 @@
 		</p>
 	</div>
   </text>
-	<title value="placebo"/>
-	<status value="draft" />
-	<actual value="true"/>
-	<characteristic>
-		<description value="placebo"/>
-		<definitionCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="182886004"/>
-				<display value="Placebo given (situation)"/>
-			</coding>
-		</definitionCodeableConcept>
-	</characteristic>
+  <title value="placebo"/>
+  <status value="draft" />
+  <actual value="true"/>
+  <characteristic>
+	<description value="placebo"/>
+	<definitionCodeableConcept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="182886004"/>
+			<display value="Placebo given (situation)"/>
+		</coding>
+	</definitionCodeableConcept>
+  </characteristic>
 </EvidenceVariable>

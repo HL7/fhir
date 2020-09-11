@@ -1,0 +1,19 @@
+// example of $generate on a Document
+
+POST /open/DocumentReference/$generate
+[some headers]
+
+{
+  "resourceType": "Parameters",
+  "id": "example",
+  "parameter": [
+    {
+      "name": "url",
+	  "valueUrl": "Binary/example"
+    },
+    {
+      "name": "persist",
+      "valueBoolean": "true"
+    }
+  ]
+}

@@ -405,6 +405,9 @@ public class XSDGenerator  {
 			if (e.hasBinding()) {
 				BindingSpecification cd = e.getBinding();
 				if (cd != null && isEnum(cd)) {
+				  if (cd.getValueSet() == null) {
+				    throw new Error("no value for "+cd.getUri());
+				  }
 					en = namify(cd.getValueSet().getName());
 					if (!cd.isShared()) {
 					  enums.put(en, cd.getValueSet());

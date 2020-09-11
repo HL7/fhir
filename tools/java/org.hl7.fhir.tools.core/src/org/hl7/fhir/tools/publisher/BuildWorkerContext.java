@@ -37,11 +37,15 @@ import org.hl7.fhir.r5.context.BaseWorkerContext;
 import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.context.HTMLClientLogger;
 import org.hl7.fhir.r5.context.IWorkerContext;
+import org.hl7.fhir.r5.context.IWorkerContext.IContextResourceLoader;
+import org.hl7.fhir.r5.context.IWorkerContext.PackageVersion;
+import org.hl7.fhir.r5.context.SimpleWorkerContext.PackageResourceLoader;
 import org.hl7.fhir.r5.formats.IParser;
 import org.hl7.fhir.r5.formats.JsonParser;
 import org.hl7.fhir.r5.formats.ParserType;
 import org.hl7.fhir.r5.formats.XmlParser;
 import org.hl7.fhir.r5.model.CodeSystem;
+import org.hl7.fhir.r5.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r5.model.ConceptMap;
@@ -67,9 +71,14 @@ import org.hl7.fhir.r5.utils.client.EFhirClientException;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.OIDUtils;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.TranslatorXml;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.VersionUtilities;
+import org.hl7.fhir.utilities.cache.BasePackageCacheManager;
 import org.hl7.fhir.utilities.cache.NpmPackage;
+import org.hl7.fhir.utilities.cache.NpmPackage.PackageResourceInformation;
+import org.hl7.fhir.utilities.i18n.I18nConstants;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
@@ -115,6 +124,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   private Map<String, Concept> loincCodes = new HashMap<String, Concept>();
   private boolean triedServer = false;
   private boolean serverOk = false;
+  private List<String> loadedPackages = new ArrayList<>();
   
 
 
@@ -457,11 +467,14 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       if (system.equals("http://unitsofmeasure.org"))
         return verifyUcum(code, display);
       CodeSystem cs = fetchCodeSystem(system);
-      if (cs != null) {
+      if (cs != null && cs.getContent() == CodeSystemContentMode.COMPLETE) {
         return verifyCode(cs, code, display);
       }
       if (system.startsWith("http://example.org"))
         return new ValidationResult(new ConceptDefinitionComponent());
+      if (system.equals("urn:iso:std:iso:11073:10101") && Utilities.isInteger(code)) {
+        return new ValidationResult(new ConceptDefinitionComponent());
+      }
     } catch (Exception e) {
       return new ValidationResult(IssueSeverity.ERROR, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
     }
@@ -861,7 +874,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   @Override
-  public void loadFromPackage(NpmPackage pi, IContextResourceLoader loader, String[] types) throws FileNotFoundException, IOException, FHIRException {
+  public int loadFromPackage(NpmPackage pi, IContextResourceLoader loader, String[] types) throws FileNotFoundException, IOException, FHIRException {
     throw new Error("Not implemented yet");    
   }
 
@@ -869,5 +882,50 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   public boolean hasPackage(String id, String ver) {
     throw new Error("Not implemented yet");
   }
-  
+
+  @Override
+  public int loadFromPackage(NpmPackage pi, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
+    return loadFromPackageInt(pi, loader, loader == null ? defaultTypesToLoad() : loader.getTypes());
+  }
+
+
+  public static String[] defaultTypesToLoad() {
+    // there's no penalty for listing resources that don't exist, so we just all the relevant possibilities for all versions 
+    return new String[] {"CodeSystem", "ValueSet", "ConceptMap", "NamingSystem"};
+  }
+
+  @Override
+  public int loadFromPackageAndDependencies(NpmPackage pi, IContextResourceLoader loader, BasePackageCacheManager pcm) throws FileNotFoundException, IOException, FHIRException {
+    throw new Error("Not implemented yet");
+  }
+
+  public int loadFromPackageInt(NpmPackage pi, IContextResourceLoader loader, String... types) throws FileNotFoundException, IOException, FHIRException {
+    int t = 0;
+    System.out.println("Load Package "+pi.name()+"#"+pi.version());
+    if (loadedPackages .contains(pi.id()+"#"+pi.version())) {
+      return 0;
+    }
+    loadedPackages.add(pi.id()+"#"+pi.version());
+
+    
+    if ((types == null || types.length == 0) &&  loader != null) {
+      types = loader.getTypes();
+    }
+    for (PackageResourceInformation pri : pi.listIndexedResources(types)) {
+      try {
+        registerResourceFromPackage(new PackageResourceLoader(pri, loader), new PackageVersion(pi.id(), pi.version()));
+        t++;
+      } catch (FHIRException e) {
+        throw new FHIRException(formatMessage(I18nConstants.ERROR_READING__FROM_PACKAGE__, pri.getFilename(), pi.name(), pi.version(), e.getMessage()), e);
+      }
+    }
+    for (String s : pi.list("other")) {
+      binaries.put(s, TextFile.streamToBytes(pi.load("other", s)));
+    }
+    if (version == null) {
+      version = pi.version();
+    }
+    return t;
+  }
+
 }

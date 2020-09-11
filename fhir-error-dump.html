@@ -2,15 +2,16 @@
 
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-  <title>Downloads - FHIR v4.2.0</title>
+  <title>Pclocd - FHIR v4.4.0</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="author" content="http://hl7.org/fhir"/>
 
   <link href="fhir.css" rel="stylesheet"/>
-  <link rel="Prev" href="http://hl7.org/fhir/downloads.html"/>
+  <link rel="Prev" href="http://hl7.org/fhir/pclocd.html"/>
 
   <!-- Bootstrap core CSS -->
   <link href="./dist/css/bootstrap.css" rel="stylesheet"/>
@@ -30,13 +31,15 @@
   <link rel="apple-touch-icon-precomposed" href="./assets/ico/apple-touch-icon-57-precomposed.png"/>
   <link rel="shortcut icon" href="./assets/ico/favicon.png"/>
 
+
 </head>
+
 <body>
 	<div id="segment-header" class="segment"><!-- segment-header -->	
 		<div class="container">  <!-- container -->
 			<a no-external="true" id="logo" href="http://hl7.org/fhir"><img src="./assets/images/fhir-logo-www.png" alt="logo fhir" width="249" height="60"/> </a>
 			<div id="hl7-status">
-				<b>Release 4</b>
+				<b>Release 5 Preview #2</b>
 			</div>       	
 			
 			<div id="hl7-nav">
@@ -87,8 +90,9 @@
 	<div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
 		<div class="container"><!-- container -->	
 			<ul class="breadcrumb">
-        <li><a href="implsupport-module.html"><img src="implsupport.png"/> Implementation Support</a></li>
-        <li><b>Downloads</b></li>        <!-- downloads.html / page / -->
+        <li><a href="terminology-module.html"><img src="terminology.png"/> Terminology</a></li>
+        <li><a href="terminologies-systems.html">Code Systems</a></li>
+        <li><b>pCLOCD</b></li>        <!-- pclocd.html / page / -->
 
 			</ul>	
 		</div><!-- /container -->
@@ -104,222 +108,296 @@
 
 <div class="col-12">
 
+<ul class="nav nav-tabs"><li class="active"><a href="#">Using Codes</a></li><li><a href="terminologies-systems.html">Code Systems</a></li><li><a href="terminologies-valuesets.html">Value Sets</a></li><li><a href="terminologies-conceptmaps.html">Concept Maps</a></li><li><a href="identifier-registry.html">Identifier Systems</a></li></ul>
 
-<h1>Downloads</h1>
 
-<table class="colis"><tr><td id="wg"><a _target="blank" href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<h2>Using pCLOCD with FHIR</h2>
+<table class="colstu"><tr><td id="wg"><a _target="blank" href="http://www.hl7.org/Special/committees/Vocab/index.cfm">Vocabulary</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 1</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
-<table class="lines">
+<h3>Summary</h3>
 
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Specification Downloads</b></td>
-  </tr>
+<table class="grid">
+ <tr>
+  <td>Source</td>
+  <td>pCLOCD is made available by <a href="https://www.infoway-inforoute.ca/">Canada Health
+  Infoway</a> at <a
+  href="https://tgateway.infoway-inforoute.ca/pclocd.html">https://tgateway.infoway-inforoute.ca/pclocd.html</a></td>
+ </tr>
+ <tr>
+  <td>System</td>
+  <td>The URI <a href="https://fhir.infoway-inforoute.ca/CodeSystem/pCLOCD">https://fhir.infoway-inforoute.ca/CodeSystem/pCLOCD</a> identifies pCLOCD codes.</td>
+ </tr>
+ <tr>
+  <td>Version</td>
+  <td>Where a version is used, it should include the appropriate version number of pCLOCD e.g. R05.11.00_2.67</td>
+ </tr>
+ <tr>
+  <td>Code</td>
+  <td>The LOINC Code Identifier e.g. 21176-3.  LOINC codes are not case sensitive. In addition, LOINC part codes and LOINC answer string ids can
+  be used where appropriate</td>
+ </tr>
+ <tr>
+  <td>Display</td>
+  <td>Use either the Pan-Canadian Name EN or Pan-Canadian Name FR field
+  for the display.</td>
+ </tr>
+ <tr>
+  <td>Inactive</td>
+  <td>Codes with Property pCLOCD Status = Inactive are considered inactive for use in ValueSet.compose.inactive</td>
+ </tr>
+ <tr>
+  <td>Filter Properties</td>
+  <td>Several properties are defined as described below</td>
+ </tr>
+</table>
 
-  <tr>
-    <td>FHIR Definitions</td>
-    <td>All the value sets, profiles, etc. defined as part of the FHIR specification, and the included implementation guides:
-      <ul>
-       <li><a href="definitions.xml.zip">XML</a></li>
-       <li><a href="definitions.json.zip">JSON</a></li>
-       <li><a href="definitions-r2.xml.zip">Forge</a>: Special version of definitions for <a href="https://simplifier.net/Forge">Forge</a> (temporary)</li>
-      </ul>
-      This is the master set of definitions that should be the first choice whenever generating any implementation artifacts. All
-      the other forms below include only subsets of the information available in these definition files, and do not contain all of the rules about what makes resources valid. Implementers
-      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
+<h3>Copyright Issues</h3>
 
-  <tr>
-    <td>XML</td>
-    <td>
-      <ul>
-       <li><a href="examples.zip">Examples</a> - all the example resources in XML format</li>
-       <li><a href="fhir-all-xsd.zip">Validation Schemas</a> (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons)</li>
-       <li><a href="fhir-codegen-xsd.zip">Code Generation Schemas</a> (see <a href="xml.html#schema-gen">notes about code-generation schemas</a>)<br/>
-       <i>Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</i></li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
+<p>User may incorporate portions of pCLOCD into another document
+(e.g., an implementation guide or other technical specification) for
+distribution outside of the User's corporation or organization, subject to
+these terms in addition to the terms and conditions specified in the LOINC and
+RELMA Terms of Use</p>
 
-  <tr>
-    <td>JSON</td>
-    <td>
-      <ul>
-       <li><a href="examples-json.zip">Examples</a> - all the example resources in JSON format</li>
-       <li><a href="fhir.schema.json.zip">JSON Schema</a> (Needs <a href="https://json-schema.org/draft-06/json-schema-release-notes.html">JSON Schema draft-06</a> or more recent)</li>
-       <li><a href="examples-ndjson.zip">Examples</a> - all the example resources in <a href="nd-json.html">ND-JSON format</a> (bulk data format)</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
+<p>Every copy of the document that contains portions of the pCLOCD
+table must include the following notice:</p>
 
-  <tr>
-    <td>RDF</td>
-    <td>
-      <ul>
-       <li><a href="examples-ttl.zip">Turtle Examples</a> - all the example resources in Turtle format</li>
-       <li><a href="fhir.schema.shex.zip">ShEx Schemas</a> - <a href="https://www.w3.org/2001/sw/wiki/ShEx">ShEx</a> definitions for validating RDF resources</li>
-       <li><a href="fhir.rdf.ttl.zip">Definitions</a> - the formal definitions that define the predicates and classes used in the RDF format (not up to date)</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>GraphQL</td>
-    <td>
-      <ul>
-       <li><a href="fhir.schema.graphql.zip">GraphQL Schemas</a> </li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
+<p>&quot;This material contains content from the pan-Canadian
+LOINC® Observation Code Database (pCLOCD).   Canada Health Infoway Inc.
+(Infoway) has created pCLOCD from LOINC® to address local requirements in
+Canada.  Infoway maintains the copyright on these localized additions.  pCLOCD
+is available at no cost to users with Standards Access. Access to pan-Canadian
+standards and supporting information is available to anyone who accepts the
+applicable license agreements annually. Link to pCLOCD Terms of Use is 
+https://infocentral.infoway-inforoute.ca/8_UserReferencesAndSupports/Terms_And_License_Agreements/pCLOCD_Terms_of_Use.
+This material also includes a portion of the LOINC table and is subject to a
+license from Regenstrief Institute, Inc. which is available at <a href="http://loinc.org/terms-of-use">http://loinc.org/terms-of-use</a>.&quot;</p>
 
-  <tr>
-    <td>FHIR Specification</td>
-    <td><!--<a href="fhir-spec.zip"> -->The whole specification<!--</a>--> so that you can host your own local copy (does not include the downloads) (not downloadable from build.fhir.org)</td>
-  </tr>
+<p>User is required to indicate the appropriate version number of
+pCLOCD used.</p>
 
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Implementation Tools</b></td>
-  </tr>
+<p>Any information in the document that is extracted from the
+pCLOCD Nomenclature table must always be associated with the corresponding
+LOINC/pCLOCD code.</p>
 
-  <tr>
-    <td>Validator</td>
-    <td>The <a href="https://fhir.github.io/latest-ig-publisher/org.hl7.fhir.validator.jar">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information, or <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">Using the FHIR Validator</a> for parameter documentation</td>
-  </tr>
+<h3>Case
+Sensitivity</h3>
 
-  <tr>
-    <td>IG Publisher</td>
-    <td>The <a href="https://fhir.github.io/latest-ig-publisher/org.hl7.fhir.publisher.jar">Implementation Guide Publishing Tool</a> (see <a href="https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation">IG Publishing documentation</a>)</td>
-  </tr>
+<p>For comparison purposes, LOINC/pCLOCD codes, displays, and
+property values are not case sensitive, though implementers SHOULD maintain the
+correct case when using LOINC/pCLOCD codes and property values.</p>
 
-  <tr>
-    <td>NPM Packages</td>
-    <td>
-      There are several packages that support the FHIR specification:
-      <ul>
-        <li><b><code><a href="hl7.fhir.r5.core.tgz">hl7.fhir.r5.core</a></code></b>: Contains all the resources needed to test conformance to the FHIR specification, and/or generate code</li>
-        <li><b><code><a href="hl7.fhir.r5.expansions.tgz">hl7.fhir.r5.expansions</a></code></b>: Contains the expansions of the subset of the value sets the have a required binding (other than those that can't be expanded at all)</li>
-        <li><b><code><a href="hl7.fhir.r5.examples.tgz">hl7.fhir.r5.examples</a></code></b>: All the resources that are defined as part of the FHIR specification</li>
-        <li><b><code><a href="hl7.fhir.r5.elements.tgz">hl7.fhir.r5.elements</a></code></b>: A set of <a href="structuredefinition.html">StructureDefinition</a> resources that represent the resources and data types as a series of independently defined data elements</li>
-        <li><b><code><a href="hl7.fhir.r5.corexml.tgz">hl7.fhir.r5.corexml</a></code></b>: The same content as hl7.fhir.r5.core, but with the resources in XML, not JSON</li>
-      </ul>    
-    These packages are used by many of the FHIR tools</a> (e.g. the IG publisher and the validator). Note that the tools usually find this package directly through the NPM-based distribution framework, and there's no need to download them</td>
-  </tr>
+<h3>pCLCOD
+Properties</p>
 
-  <tr>
-    <td>Spreadsheets</td>
-    <td>All the resource structures in a <a href="definitions.xlsx.zip">Spreadsheet Format</a> - mostly provided to assist with mapping</td>
-  </tr>
+<p>In addition to the <a href="http://build.fhir.org/terminology-service.html#standard-props">standard
+properties</a>, the following pCLOCD table fields are
+defined as code system properties when using pCLOCD in FHIR:</p>
 
-  <tr>
-    <td>Translation File</td>
-    <td><a href="translations.xml">Translations of common FHIR names and messages</a> into multiple languages (see <a href="https://chat.fhir.org/#narrow/stream/10-translations">chat.fhir.org translations stream</a> for guidance on how to add to more)</td>
-  </tr>
+<table class="grid">
+ <tr><td nowrap><strong>Property Name</strong></td><td nowrap><strong>Data Type</strong></td><td><strong>Comments</strong></td></tr>
+ <tr>
+  <td>Pan-Canadian Component Name – EN</td>
+  <td>string</td>
+  <td>This attribute contains the pan-Canadian &quot;English&quot;
+  Component Name. The name either directly reflects the LOINC Component Name or
+  is based on that name but is translated to terms commonly used in Canada.
+  This name may be blank in situations where the Component Name should not form
+  part of the pan-Canadian Display Name.</td>
+ </tr>
+ <tr>
+  <td>Pan-Canadian Component Name-FR</td>
+  <td>string</td>
+  <td>This attribute contains the pan-Canadian &quot;French&quot;
+  Component Name.  The name either directly reflects the FR LOINC Component
+  Name or is based on that name but is translated to terms commonly used in
+  Canada. This name may be blank in situations where the Component Name should
+  not form part of the pan-Canadian FR Display Name.</td>
+ </tr>
+ <tr>
+  <td>pan-Canadian Name - EN</td>
+  <td>string</td>
+  <td>This attribute contains the suggested fully extended English
+  name that is based on the English pan-Canadian Component Name and any
+  augmented attributes that have been indicated as &quot;yes&quot;.  It can be
+  used by systems to display or search for a test description (name). It is
+  used in pan-Canadian conformant messages.</td>
+ </tr>
+ <tr>
+  <td>Pan-Canadian Name -FR</td>
+  <td>string</td>
+  <td>This attribute contains the suggested fully extended French name
+  that is based on the Component and any augmented attributes that have been
+  indicated as &quot;yes&quot;.  It can be used by systems to display or search
+  for a test description (name).   It is used in pan-Canadian conformant
+  messages.</td>
+ </tr>
+ <tr>
+  <td>Example Viewer Name – EN</td>
+  <td>string</td>
+  <td>This attribute contains an example French viewer name that is
+  based on the Laboratory_Viewer_Name_Guiding_Principles_and_Rules_V3.0-20130513.pdf
+  document. It can be used to provide nomenclature for any jurisdictional
+  viewer, but must not be used for pan Canadian Messaging or mapping of LIS
+  test catalogues. It is published as an example for implementers.</td>
+ </tr>
+ <tr>
+  <td>Example Viewer Name - FR</td>
+  <td>string</td>
+  <td>This attribute contains an example French viewer name that is
+  based on theLaboratory_Viewer_Name_Guiding_Principles_and_Rules_V3.0-20130513.pdf
+  document. It can be used to provide nomenclature for any jurisdictional
+  viewer, but must not be used for pan Canadian Messaging or mapping of LIS
+  test catalogues. It is published as an example for implementers.</td>
+ </tr>
+ <tr>
+  <td>B/R/O</td>
+  <td>string</td>
+  <td>Provides users with an idea of the intended use of the term by
+  categorizing it as an order only (O), result only (R ) , or both (B)</td>
+ </tr>
+ <tr>
+  <td>LN COMPONENT</td>
+  <td>code</td>
+  <td>LOINC first major axis-component or analyte: Analyte Name,
+  Analyte sub-class, Challenge</td>
+ </tr>
+ <tr>
+  <td>LN PROPERTY</td>
+  <td>code</td>
+  <td>LOINC second major axis-property observed: Kind of Property
+  (also called kind of quantity)</td>
+ </tr>
+ <tr>
+  <td>LN TIME_ASPCT</td>
+  <td>code</td>
+  <td>LOINC third major axis-timing of the measurement: Time Aspect
+  (Point or moment in time vs. time interval)</td>
+ </tr>
+ <tr>
+  <td>LN SYSTEM</td>
+  <td>code</td>
+  <td>LOINC fourth major axis-type of specimen or system: System
+  (Sample) Type</td>
+ </tr>
+ <tr>
+  <td>LN SCALE_TYP</td>
+  <td>code</td>
+  <td>LOINC fifth major axis-scale of measurement: Type of Scale</td>
+ </tr>
+ <tr>
+  <td>LN METHOD_TYP</td>
+  <td>code</td>
+  <td>LOINC sixth major axis-method of measurement: Type of Method</td>
+ </tr>
+ <tr>
+  <td>LN SHORTNAME</td>
+  <td>string</td>
+  <td>LOINC fully specified name</td>
+ </tr>
+ <tr>
+  <td>LN CLASS</td>
+  <td>string</td>
+  <td>An arbitrary classification of the terms for grouping related
+  observations together</td>
+ </tr>
+ <tr>
+  <td>Sub-Class</td>
+  <td>String</td>
+  <td>This attribute is used to
+  further categorize the LOINC Class attribute.  Currently, Microbiology is the
+  only class that has been subdivided.  This attribute will facilitate review
+  in large classes.</td>
+ </tr>
+ <tr>
+  <td>LN STATUS</td>
+  <td>string</td>
+  <td>LOINC Status of the term</td>
+ </tr>
+ <tr>
+  <td>LN LONG COMMON NAME</td>
+  <td>string</td>
+  <td>These names have been created by an algorithmic process and
+  are checked for uniqueness. Most abbreviations and acronyms that are used in
+  the LOINC database have been fully spelled out in English. For allergens, the
+  common English names are used instead of the more formal Latin species names.
+  For coagulation, the more commonly used phrases such as “Prothrombin time”
+  have been used.</td>
+ </tr>
+ <tr>
+  <td>LN ÉLÉMENT (Component)</td>
+  <td>code</td>
+  <td>Canadian French translation of LOINC first major
+  axis-component or analyte: Analyte Name, Analyte sub-class, Challenge</td>
+ </tr>
+ <tr>
+  <td>LN PROPRIÉTÉ (Property)</td>
+  <td>code</td>
+  <td>Canadian French translation of LOINC second major
+  axis-property observed: Kind of Property (also called kind of quantity)</td>
+ </tr>
+ <tr>
+  <td>LN DURÉE (Time)</td>
+  <td>code</td>
+  <td>Canadian French translation of LOINC third major axis-timing
+  of the measurement: Time Aspect (Point or moment in time vs. time interval)</td>
+ </tr>
+ <tr>
+  <td>LN SYSTÈME (System)</td>
+  <td>code</td>
+  <td>Canadian French translation of  LOINC fourth major axis-type
+  of specimen or system: System (Sample) Type</td>
+ </tr>
+ <tr>
+  <td>LN ÉCHELLE (Scale)</td>
+  <td>code</td>
+  <td>Canadian French translation of  LOINC fifth major axis-scale
+  of measurement: Type of Scale</td>
+ </tr>
+ <tr>
+  <td>LN MÉTHODE (Method)</td>
+  <td>code</td>
+  <td>Canadian French translation of  LOINC sixth major axis-method
+  of measurement: Type of Method</td>
+ </tr>
+ <tr>
+  <td>LN CATÉGORIE (Class)</td>
+  <td>code</td>
+  <td>Canadian French translation of LOINC arbitrary classification
+  of the terms for grouping related observations together</td>
+ </tr>
+ <tr>
+  <td>SOUS-CATÉGORIE (Sub-Class)</td>
+  <td>string</td>
+  <td>Canadian French translation
+  of attribute used to further categorize the LOINC Class attribute. 
+  Currently, Microbiology is the only class that has been subdivided.  This
+  attribute will facilitate review in large classes.</td>
+ </tr>
+ <tr>
+  <td>pCLOCD Status</td>
+  <td>string</td>
+  <td>pCLOCD Status of term</td>
+ </tr>
+ <tr>
+  <td>MIS Service Activity Reporting (Y/N)</td>
+  <td>string</td>
+  <td><p>This field is used to
+  identify pCLOCD codes that are counted as a service activity statistic as
+  defined in the MIS Standards (Standards for Management Information Systems)
+  published by the Canadian Institute for Health Information (CIHI). The field
+  is managed by CIHI.</p>
+  <p>Further information about
+  service activity and the principles and process used to define this attribute
+  may be obtained by reviewing the MIS Standards or emailing fsi@cihi.ca. ‘ Y’
+  indicates it should be counted, ‘N’ indicates it should not be counted and
+  ‘X’ indicates the pCLOCD code has not been evaluated.</p></td>
+ </tr>
+</table>
 
-  <tr>
-    <td>Icon Pack</td>
-    <td>The <a href="icon-pack.zip">FHIR Icon at various resolutions</a>. Any FHIR Implementation created by an organization that has attended a connectathon is allowed to use the FHIR icon in association with the application (this policy will be reviewed in the future).</td>
-  </tr>
-
-  <tr>
-    <td>Test Cases</td>
-    <td>Test cases can mainly be found in the <a href="https://github.com/hapifhir/org.hl7.fhir.core/tree/master/org.hl7.fhir.r4/src/main/resources">org.hl7.fhir.core</a> repository</td>
-  </tr>
-
-  <tr>
-    <td>Code Generation Support</td>
-    <td>ValueSet expansions for the value sets used in schema generation (<a href="expansions.xml">XML</a> or <a href="expansions.json">JSON</a>) + a list of all <a href="choice-elements.json">choice elements</a> &amp; <a href="backbone-elements.json">backbone elements</a>.
-    Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</td>
-  </tr>
-
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Reference Implementations</b><a name="refimpl"></a></td>
-  </tr>
-
-  <tr>
-    <td colspan="2">
-    There are many open source reference implementations available to help implementers.
-    Here are a list of the more common implementations used by implementers:
-    </td>
-  </tr>
-
-  <tr>
-   <td>Java</td>
-   <td>
-     <a href="http://jamesagnew.github.io/hapi-fhir/">HAPI-FHIR</a>:
-     Object Models, Parsers, Client + Server Framework, FHIR Validator, &amp; Utilities. The specification is built with this Java code
-   </td>
-  </tr>
-  <tr>
-   <td>C#</td>
-   <td>
-    <a href="https://www.nuget.org/packages/Hl7.Fhir.R4/">Hl7.Fhir.R4</a> / <a href="https://www.nuget.org/packages/Hl7.Fhir.STU3/">Hl7.Fhir.STU3</a>:
-    Object models, Parsers/Serializers, Utilities, and a Client. Source code on GitHub at <a href="https://github.com/FirelyTeam/fhir-net-api">https://github.com/FirelyTeam/fhir-net-api</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Pascal</td>
-   <td>
-    <a href="http://github.com/grahamegrieve/fhirserver">FhirServer</a>:
-    Object models, Parsers/Serializers, Validator, Utilities, Client, and the FHIR Reference server. Requires <a href="https://www.embarcadero.com/products/delphi">Delphi</a> (Unicode versions)
-   </td>
-  </tr>
-  <tr>
-   <td>XML</td>
-   <td>
-    <a href="fhir-4.2.0-XMLTools-0.01.zip">XML Tools</a>:
-    Document Rendering Stylesheet, supplementary implementation schemas and transforms
-   </td>
-  </tr>
-  <tr>
-   <td>Javascript</td>
-   <td>See the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=35718838#OpenSourceImplementations-Javascript">HL7 wiki for Javascript libraries</a> (Clients and Utilities for both servers and clients)
-   </td>
-  </tr> 
-  <tr>
-   <td>Python</td>
-   <td>
-    <a href="https://github.com/smart-on-fhir/client-py">Python SMART on FHIR client</a>:
-    Object Model, Client and Utilities
-   </td>
-  </tr>
-  <tr>
-   <td>Swift</td>
-   <td>
-    <a href="https://github.com/smart-on-fhir/Swift-FHIR">Swift-FHIR</a>:
-    Object Model, Client and Utilities
-   </td>
-  </tr> 
-  
- </table>
-
-<blockquote><p> <b>Implementation Note:</b> 
-These reference implementations are provided for implementer interest and assistance.
-While they may be used (and are) in production systems, HL7 and their various contributors accept no
-liability for their use. <span style="color: Maroon">Note that these reference implementations are
-provided to assist to implementers to adopt the specification, and some are maintained by the FHIR
-project team, but are not part of the specification, and implementations are not required to
-conform to these, nor are they subject to the formal standards process.</span>
-</p></blockquote>
-<hr/>
-<p>
-Full blown open source implementations for FHIR, some of which use these reference implementations, are
-listed on <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7 Confluence</a>.
-</p>
-<p>
-It is not necessary to use these particular implementations in order to be conformant. Any other approach
-may be used, including code generated from the schemas.
-</p>
+<p>Note that when a <a href="http://build.fhir.org/codesystem-operation-lookup.html">$lookup</a> operation
+is performed on a pCLOCD code, servers SHALL return the version being used (see
+above) in the 'version' property.  Other properties are at the discretion of the server and the client.</p>
 
 </div>
 
@@ -335,7 +413,7 @@ may be used, including code generated from the schemas.
 		<div class="container"><!-- container -->
 			<div class="inner-wrapper">
 				<p>
-        FHIR &reg;© HL7.org 2011+. FHIR CI Build hl7.fhir.core#4.2.0 (GitHub 7c0dbc2821) generated on Sun, Jan 12, 2020 07:53+1100. 
+        FHIR &reg;© HL7.org 2011+. FHIR CI Build hl7.fhir.core#4.4.0 generated on Wed, Aug 19, 2020 16:25-0500. 
         <br/>
         <span style="color: #FFFF77">
         Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search</a> | 
@@ -343,7 +421,7 @@ may be used, including code generated from the schemas.
                <a style="color: #b8dcf9" href="toc.html">Table of Contents</a> | 
                <a style="color: #ffffff" href="qa.html">QA Page</a> |
 <!--                <a style="color: #b8dcf9" href="credits.html">Credits</a> | -->
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Fdownloads.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fdownloads.html">Compare to R4</a> |                
+               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Fpclocd.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fpclocd.html">Compare to R4</a> |                
                <a style="color: #b8dcf9" rel="license" href="license.html"><img src="cc0.png" style="border-style: none;" alt="CC0"/></a> | 
                <a style="color: #b8dcf9" target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a>   
         </span>
@@ -373,5 +451,7 @@ may be used, including code generated from the schemas.
 <!-- Analytics Below
 ================================================== -->
 
+
 </body>
+
 </html>

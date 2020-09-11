@@ -14,7 +14,7 @@
             http://build.fhir.org/sc.html.</div>
     </text>
     <url value="http://hl7.org/fhir/contract-asset-type"/>
-    <version value="4.4.0"/>
+    <version value="4.5.0"/>
     <name value="ContractAssetType"/>
     <status value="draft"/>
     <experimental value="true"/>

@@ -6,6 +6,7 @@
  <li>The use of the .docStatus codes is discussed in the <a href="composition.html#status">Composition description</a></li>
  <li>The resources maintain one way relationships that point backwards - e.g., the document that replaces one document points towards the document that it replaced. The reverse relationships can be followed by using 
   indexes built from the resources. Typically, this is done using the search parameters described below. Given that documents may have other documents that replace or append them, clients should always check these relationships when accessing documents</li>
+  <li>The _content search parameter shall search across the DocumentReference.content.attachment.data, and DocumentReference.content.url.</li>
   
 </ul>
 <!--   No longer needed now that we have format code vocabulary
@@ -45,6 +46,7 @@ Note that IHE specifies that their URNs and OIDs are codes in the code system <c
 HL7 and ASTM URIs are in the general URI code system <code>urn:ietf:rfc:3986</code>.
 </p>
 -->
+<!-- moved to a formal operation 
 <h3>Generating a Document Reference</h3>
 <p>
 A client can ask a server to generate a document reference from a document.
@@ -82,5 +84,5 @@ document types described above. Other parameters may be supplied:
   <tr> <td><b>Name</b></td> <td><b>Meaning</b></td> </tr>
   <tr> <td>persist</td> <td>Whether to store the document at the document end-point (/Document) or not, once it is generated. Value = true or false (default is for the server to decide).</td> </tr>
 </table>
-
+-->
 </div>
