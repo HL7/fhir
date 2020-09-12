@@ -15,7 +15,7 @@
         <subscription>
           <reference value="http://example.org/FHIR/R5/Subscription/123"/>
         </subscription>
-        <status value="requested"/>
+        <status value="active"/>
         <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
       </SubscriptionStatus>
     </resource>

@@ -1,93 +1,40 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <url value="http://dicom.nema.org/resources/ontology/DCM/401"/>
-  <version value="20100826"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <id value="audit-event-sub-type" />
+  <version value="20200804"/>
   <name value="AuditEventSub-Type"/>
   <title value="Audit Event Sub-Type"/>
   <status value="active"/>
-  <date value="2010-08-26"/>
-  <publisher value="NEMA/DICOM"/>
-  <description value="More detailed code concerning the type of the audit event - defined by DICOM with some FHIR specific additions."/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
+  <date value="2020-08-04"/>
+  <publisher value="HL7 (FHIR Project)"/> 
+  <description value="More detailed code concerning the type of the audit event - defined by DICOM with some additional FHIR, HL7, and other additions."/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/> 
   <compose>
     <include>
+	<!-- DICOM General Message Sub-Type codes -->
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-      <concept>
-        <code value="110120"/>
-      </concept>
-      <concept>
-        <code value="110121"/>
-      </concept>
-      <concept>
-        <code value="110122"/>
-      </concept>
-      <concept>
-        <code value="110123"/>
-      </concept>
-      <concept>
-        <code value="110124"/>
-      </concept>
-      <concept>
-        <code value="110125"/>
-      </concept>
-      <concept>
-        <code value="110126"/>
-      </concept>
-      <concept>
-        <code value="110127"/>
-      </concept>
-      <concept>
-        <code value="110128"/>
-      </concept>
-      <concept>
-        <code value="110129"/>
-      </concept>
-      <concept>
-        <code value="110130"/>
-      </concept>
-      <concept>
-        <code value="110131"/>
-      </concept>
-      <concept>
-        <code value="110132"/>
-      </concept>
-      <concept>
-        <code value="110133"/>
-      </concept>
-      <concept>
-        <code value="110134"/>
-      </concept>
-      <concept>
-        <code value="110135"/>
-      </concept>
-      <concept>
-        <code value="110136"/>
-      </concept>
-      <concept>
-        <code value="110137"/>
-      </concept>
-      <concept>
-        <code value="110138"/>
-      </concept>
-      <concept>
-        <code value="110139"/>
-      </concept>
-      <concept>
-        <code value="110140"/>
-      </concept>
-      <concept>
-        <code value="110141"/>
-      </concept>
-      <concept>
-        <code value="110142"/>
-      </concept>
+	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_401.html" />
     </include>
     <include>
+	<!-- DICOM Security Alert Sub-Type codes -->
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_403.html" />
+    </include>
+    <include>
+	<!-- FHIR REST interactions -->
       <system value="http://hl7.org/fhir/restful-interaction"/>
     </include>
     <include>
+	<!-- FHIR Bundle types -->
       <system value="http://hl7.org/fhir/bundle-type"/>
+    </include>
+    <include>
+	<!-- lifecycle events -->
+      <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
     </include>
   </compose>
 </ValueSet>

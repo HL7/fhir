@@ -65,8 +65,6 @@ often, when the code system is registered, it will use a different system.
     <li><a href="#tabs-ext">External</a></li>
     <li><a href="#tabs-fhir">Internal (FHIR)</a></li>
     <li><a href="#tabs-fhirx">External (FHIR)</a></li>
-    <li><a href="#tabs-v3">HL7 v3</a></li>
-    <li><a href="#tabs-v2">HL7 v2</a></li>
   </ul>
   <div id="tabs-ext">
 
@@ -98,6 +96,12 @@ often, when the code system is registered, it will use a different system.
    <td>LOINC (<a href="http://loinc.org">LOINC.org</a>)</td>
    <td>See <a href="loinc.html">Using LOINC with FHIR</a></td>
    <td style="color : DarkGrey">2.16.840.1.113883.6.1</td>
+ </tr>
+ <tr>
+   <td>https://fhir.infoway-inforoute.ca/CodeSystem/pCLOCD <a name="https://fhir.infoway-inforoute.ca/CodeSystem/pCLOCD"></a></td>
+   <td>pCLOCD (<a href="https://fhir.infoway-inforoute.ca/CodeSystem/pCLOCD">pCLOCD</a>)</td>
+   <td>See <a href="pclocd.html">Using pCLOCD with FHIR</a></td>
+   <td style="color : DarkGrey">2.16.840.1.113883.2.20.5.1</td>
  </tr>
  <tr>
    <td>http://unitsofmeasure.org <a name="http://unitsofmeasure.org"></a></td>
@@ -206,19 +210,19 @@ often, when the code system is registered, it will use a different system.
  </tr>
  <tr>
    <td>http://terminology.hl7.org/CodeSystem/v2-[X](/v) <a name="http://terminology.hl7.org/CodeSystem/v2-[X](/v"></a></td>
-   <td><a href="terminologies-v2.html">Version 2 tables</a></td>
+   <td><a href="https://terminology.hl7.org/codesystems-v2.html">Version 2 tables</a></td>
    <td>[X] is the 4 digit identifier for a table; e.g. http://terminology.hl7.org/CodeSystem/v2-0203<br/>
-     Note: only <a href="terminologies-v2.html">some tables</a> may be treated in this fashion.
+     Note: only <a href="https://terminology.hl7.org/codesystems-v2.html">some tables</a> may be treated in this fashion.
      For some tables, the meaning of the code is version dependent, and so additional information
-     must be included in the namespace, e.g. http://terminology.hl7.org/CodeSystem/v2-0123/2.3+, as defined in the <a href="terminologies-v2.html">v2 table namespace list</a>.
+     must be included in the namespace, e.g. http://terminology.hl7.org/CodeSystem/v2-0123/2.3+, as defined in the <a href="https://terminology.hl7.org/codesystems-v2.html">v2 table namespace list</a>.
      Version 2 codes are case sensitive.</td>
    <td style="color : DarkGrey">2.16.840.1.113883.12.[X]</td>
  </tr>
  <tr>
    <td>http://terminology.hl7.org/CodeSystem/v3-[X] <a name="http://terminology.hl7.org/CodeSystem/v3-[X"></a></td>
-   <td><a href="terminologies-v3.html">A <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> code system</a></td>
+   <td><a href="http://terminology.hl7.org/codesystems-v3.html">A <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> code system</a></td>
    <td>[X] is the code system name; e.g. http://terminology.hl7.org/CodeSystem/v3-GenderStatus. HL7 v3 code systems are case sensitive.</td>
-   <td>see <a href="terminologies-v3.html">v3 list</a></td>
+   <td>see <a href="http://terminology.hl7.org/codesystems-v3.html">v3 list</a></td>
  </tr>
  <tr>
    <td>https://www.gs1.org/gtin <a name="https://www.gs1.org/gtin"></a></td>
@@ -419,19 +423,6 @@ often, when the code system is registered, it will use a different system.
 
 </table>
 
-
-  </div>
-  <div id="tabs-v3">
-
-<%v3Index-cs%>
-
-  </div>
-  <div id="tabs-v2">
-
-  <p>
-  Note: v2 code systems may or may not be case sensitive. v2 Code systems will have the <code>CodeSystem.caseSensitive</code> correctly populated in a future version of this specification.
-  </p>
- <%v2Index%>
 
   </div>
 </div>

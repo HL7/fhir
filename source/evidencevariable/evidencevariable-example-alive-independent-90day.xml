@@ -11,45 +11,45 @@
   </text>
   <title value="Alive and not functionally dependent at 90 days"/>
   <status value="draft"/>
-	<type value="dichotomous"/>
-	<actual value="false"/>
-	<characteristicCombination value="intersection"/>
-	<characteristic>
-		<description value="not functionally dependent at 90 days"/>
-		<definitionCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="718705001"/>
-				<display value="Functionally dependent (finding)"/>
-			</coding>
-		</definitionCodeableConcept>
-		<exclude value="true"/>
-		<timeFromStart>
-		  <quantity>
-		    <value value="90"/>
-		    <unit value="day"/>
-		    <system value="http://unitsofmeasure.org"/>
-		    <code value="d"/>
-		  </quantity>
-		</timeFromStart>
-	</characteristic>
-	<characteristic>
-		<description value="alive at 90 days"/>
-		<definitionCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="419099009"/>
-				<display value="Dead (finding)"/>
-			</coding>
-		</definitionCodeableConcept>
-		<exclude value="true"/>
-		<timeFromStart>
-		  <quantity>
-		    <value value="90"/>
-		    <unit value="day"/>
-		    <system value="http://unitsofmeasure.org"/>
-		    <code value="d"/>
-		  </quantity>
-		</timeFromStart>
-	</characteristic>
+  <actual value="false"/>
+  <characteristicCombination value="intersection"/>
+  <characteristic>
+    <description value="not functionally dependent at 90 days"/>
+    <definitionCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="718705001"/>
+        <display value="Functionally dependent (finding)"/>
+      </coding>
+    </definitionCodeableConcept>
+    <exclude value="true"/>
+    <timeFromStart>
+      <quantity>
+        <value value="90"/>
+        <unit value="day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+      </quantity>
+    </timeFromStart>
+  </characteristic>
+  <characteristic>
+    <description value="alive at 90 days"/>
+    <definitionCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="419099009"/>
+        <display value="Dead (finding)"/>
+      </coding>
+    </definitionCodeableConcept>
+    <exclude value="true"/>
+    <timeFromStart>
+      <quantity>
+        <value value="90"/>
+        <unit value="day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+      </quantity>
+    </timeFromStart>
+  </characteristic>
+  <handling value="dichotomous"/>
 </EvidenceVariable>

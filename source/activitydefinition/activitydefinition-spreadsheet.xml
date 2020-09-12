@@ -7236,7 +7236,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Defines roles played by participants for the action</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">valueset-action-participant-role</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/action-participant-role</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>

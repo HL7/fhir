@@ -5,15 +5,15 @@
 		<dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="4.0.0"/>
 		<!-- HAPI FHIR Core -->
 
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.utilities" rev="5.0.10"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2" rev="5.0.10"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2016may" rev="5.0.10"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu3" rev="5.0.10"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r4" rev="5.0.10"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r5" rev="5.0.10"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.convertors" rev="5.0.10"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.validation" rev="5.0.10"/>
-		<dependency org="org.hl7.fhir.publisher" name="org.hl7.fhir.publisher.core" rev="1.1.0"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.utilities" rev="5.1.7"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2" rev="5.1.7"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2016may" rev="5.1.7"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu3" rev="5.1.7"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r4" rev="5.1.7"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r5" rev="5.1.7"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.convertors" rev="5.1.7"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.validation" rev="5.1.7"/>
+		<dependency org="org.hl7.fhir.publisher" name="org.hl7.fhir.publisher.core" rev="1.1.17"/>
     
 		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" />
 		<dependency org="com.google.code.gson" name="gson" rev="2.8.5"/>
@@ -110,7 +110,7 @@
 		<dependency org="io.circe" name="circe-core_2.11" rev="0.7.0-M2" />
     <dependency org="com.atlassian.commonmark" name="commonmark" rev="0.12.1"/>
     <dependency org="com.atlassian.commonmark" name="commonmark-ext-gfm-tables" rev="0.12.1"/>
-    <dependency org="org.fhir" name="ucum" rev="1.0.2"/>
+    <dependency org="org.fhir" name="ucum" rev="1.0.3"/>
     
     <!-- IG web server dependencies -->
     <dependency org="commons-cli" name="commons-cli" rev="1.4"/>

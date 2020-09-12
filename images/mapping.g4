@@ -41,7 +41,7 @@ group
 	;
 
 rules
-    : '{' rule+ '}'
+    : '{' rule* '}'
     ;
 
 typeMode

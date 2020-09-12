@@ -14,7 +14,7 @@
             http://build.fhir.org/sc.html.</div>
     </text>
     <url value="http://hl7.org/fhir/contract-decision-mode"/>
-    <version value="4.4.0"/>
+    <version value="4.5.0"/>
     <name value="ContractDecisionMode"/>
     <status value="draft"/>
     <experimental value="true"/>

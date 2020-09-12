@@ -61,6 +61,7 @@ public class FolderManager {
     xsdDir = root+sl+"schema"+sl;
     tmpResDir = xsdDir+"datatypes"+sl;
     tmpDir = root+sl+"temp"+sl;
+    templateDir = root+sl+"tools"+sl+"templates"+sl;
     if (!new File(root+sl+"temp").exists()) {
       Utilities.createDirectory(root+sl+"temp");
     }
@@ -74,6 +75,7 @@ public class FolderManager {
   }
   
   public String srcDir;
+  public String templateDir;
   public String sndBoxDir;
   public String imgDir;
   public String xsdDir;

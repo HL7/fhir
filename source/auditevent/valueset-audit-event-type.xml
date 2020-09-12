@@ -4,69 +4,22 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <url value="http://dicom.nema.org/resources/ontology/DCM/400"/>
-  <version value="20150326"/>
+  <id value="audit-event-type" />
+  <version value="20200804"/>
   <name value="AuditEventID"/>
   <title value="Audit Event ID"/>
   <status value="active"/>
-  <date value="2015-03-26"/>
-  <publisher value="NEMA/DICOM"/>
+  <date value="2020-08-04"/>
+  <publisher value="HL7 (FHIR Project)"/> 
   <description value="Event Types for Audit Events - defined by DICOM with some FHIR specific additions."/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/> 
   <compose>
     <include>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-      <concept>
-        <code value="110100"/>
-      </concept>
-      <concept>
-        <code value="110101"/>
-      </concept>
-      <concept>
-        <code value="110102"/>
-      </concept>
-      <concept>
-        <code value="110103"/>
-      </concept>
-      <concept>
-        <code value="110104"/>
-      </concept>
-      <concept>
-        <code value="110105"/>
-      </concept>
-      <concept>
-        <code value="110106"/>
-      </concept>
-      <concept>
-        <code value="110107"/>
-      </concept>
-      <concept>
-        <code value="110108"/>
-      </concept>
-      <concept>
-        <code value="110109"/>
-      </concept>
-      <concept>
-        <code value="110110"/>
-      </concept>
-      <concept>
-        <code value="110111"/>
-      </concept>
-      <concept>
-        <code value="110112"/>
-      </concept>
-      <concept>
-        <code value="110113"/>
-      </concept>
-      <concept>
-        <code value="110114"/>
-      </concept>
+	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_400.html" />
     </include>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
-    </include>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
     </include>
   </compose>
 </ValueSet>

@@ -272,24 +272,7 @@
     <include>
 	<!-- DICOM codes for AuditEvent agent role -->
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-      <concept>
-        <code value="110150"/>
-      </concept>
-      <concept>
-        <code value="110151"/>
-      </concept>
-      <concept>
-        <code value="110152"/>
-      </concept>
-      <concept>
-        <code value="110153"/>
-      </concept>
-      <concept>
-        <code value="110154"/>
-      </concept>
-      <concept>
-        <code value="110155"/>
-      </concept>
+	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html" />
     </include>
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/provenance-participant-type"/>

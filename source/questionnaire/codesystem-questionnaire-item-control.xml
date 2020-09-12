@@ -57,6 +57,14 @@
 			<display value="Footer"/>
 			<definition value="The group is to be continuously visible at the bottom of the questionnaire"/>
 		</concept>
+    <concept>
+      <code value="page"/>
+      <display value="Page"/>
+      <definition value="Indicates that the content within the group should appear as a logical &quot;page&quot; when rendering the form, such that all enabled items 
+      within the page are displayed at once, but items in subsequent groups are not displayed until the user indicates a desire to move to the 'next' group. 
+      (Header and footer items may still be displayed.) This designation may also influence pagination when printing questionnaires. If there are items at the same 
+      level as a 'page' group that are listed before the 'page' group, they will be treated as a separate page.  Header and footer groups for a questionnaire will be rendered on all pages."/>
+    </concept>
 	</concept>
 	<concept>
 		<code value="text"/>
