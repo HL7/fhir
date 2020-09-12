@@ -400,7 +400,7 @@ signatures.html
       <page type="resource" resource="Contract"/>
     </page>
     
-    <page title="MedicationDefinition" filename="medication-definition-module.html" icon="medication.png">
+    <page title="Medication Definition" filename="medication-definition-module.html" icon="medication.png">
       <page type="resource" resource="MedicinalProductDefinition"/>
       <page type="resource" resource="PackagedProductDefinition"/>
       <page type="resource" resource="RegulatedAdministrableProduct"/>
