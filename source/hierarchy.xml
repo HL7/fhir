@@ -400,6 +400,41 @@ signatures.html
       <page type="resource" resource="Contract"/>
     </page>
     
+
+
+    <page title="Clinical Reasoning" filename="clinicalreasoning-module.html" icon="reasoning.png">
+      <page title="Using Expressions" filename="clinicalreasoning-topics-using-expressions.html"/>
+      <page title="Definitional Resources" filename="clinicalreasoning-topics-definitional-resources.html"/>
+      <page title="Representing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-representation.html">
+        <page title="Supporting Documentation" filename="clinicalreasoning-topics-supporting-documentation.html"/>
+      </page>
+      <page title="Sharing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-distribution.html"/>
+      <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
+      <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
+      <page title="Evidence and Statistics" filename="clinicalreasoning-evidence-and-statistics.html"/>
+      <page type="resource" resource="ConditionDefinition"/>
+      <page type="resource" resource="EventDefinition"/>
+	  <page type="resource" resource="EvidenceReport"/>
+	  <page type="resource" resource="Citation"/>
+      <page type="resource" resource="Evidence"/>
+      <page title="Statistic" filename="statistic.html">
+        <page title="Examples" filename="statistic-examples.html"/>
+        <page title="Detailed Descriptions" filename="statistic-definitions.html"/>
+        <page title="Statistic Mappings" filename="statistic-mappings.html"/>
+      </page>
+      <page title="OrderedDistribution" filename="ordereddistribution.html">
+        <page title="Examples" filename="ordereddistribution-examples.html"/>
+        <page title="Detailed Descriptions" filename="ordereddistribution-definitions.html"/>
+        <page title="OrderedDistribution Mappings" filename="ordereddistribution-mappings.html"/>
+      </page>
+      <page type="resource" resource="EvidenceVariable"/>
+      <page type="resource" resource="Library"/>
+      <page type="resource" resource="GuidanceResponse"/>
+      <page type="resource" resource="RequestGroup"/>
+      <page type="resource" resource="Measure"/>
+      <page type="resource" resource="MeasureReport"/>
+    </page>
+
     <page title="Medication Definition" filename="medication-definition-module.html" icon="medication.png">
       <page type="resource" resource="MedicinalProductDefinition"/>
       <page type="resource" resource="PackagedProductDefinition"/>
@@ -437,40 +472,6 @@ signatures.html
       </page>
     </page>
     
-    
-    <page title="Clinical Reasoning" filename="clinicalreasoning-module.html" icon="reasoning.png">
-      <page title="Using Expressions" filename="clinicalreasoning-topics-using-expressions.html"/>
-      <page title="Definitional Resources" filename="clinicalreasoning-topics-definitional-resources.html"/>
-      <page title="Representing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-representation.html">
-        <page title="Supporting Documentation" filename="clinicalreasoning-topics-supporting-documentation.html"/>
-      </page>
-      <page title="Sharing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-distribution.html"/>
-      <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
-      <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
-      <page title="Evidence and Statistics" filename="clinicalreasoning-evidence-and-statistics.html"/>
-      <page type="resource" resource="ConditionDefinition"/>
-      <page type="resource" resource="EventDefinition"/>
-	  <page type="resource" resource="EvidenceReport"/>
-	  <page type="resource" resource="Citation"/>
-      <page type="resource" resource="Evidence"/>
-      <page title="Statistic" filename="statistic.html">
-        <page title="Examples" filename="statistic-examples.html"/>
-        <page title="Detailed Descriptions" filename="statistic-definitions.html"/>
-        <page title="Statistic Mappings" filename="statistic-mappings.html"/>
-      </page>
-      <page title="OrderedDistribution" filename="ordereddistribution.html">
-        <page title="Examples" filename="ordereddistribution-examples.html"/>
-        <page title="Detailed Descriptions" filename="ordereddistribution-definitions.html"/>
-        <page title="OrderedDistribution Mappings" filename="ordereddistribution-mappings.html"/>
-      </page>
-      <page type="resource" resource="EvidenceVariable"/>
-      <page type="resource" resource="Library"/>
-      <page type="resource" resource="GuidanceResponse"/>
-      <page type="resource" resource="RequestGroup"/>
-      <page type="resource" resource="Measure"/>
-      <page type="resource" resource="MeasureReport"/>
-    </page>
   </page>
     
-  
 </fhir>
