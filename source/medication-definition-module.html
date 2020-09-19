@@ -187,10 +187,14 @@ This module is concerned with resources and functionality in areas such as:
 <a name="defn"></a>
 <h3>Definitions and Instances</h3>
 <p>
-	[text needed here]
+	The main Medication Definition resources for products and substances are purely about kinds of things - definitions - and not physical instances.
+	Instances of products, such as things that are actually dispensed, administered or tested, are <a href="medication.html">Medications</a>. 
+	"Kinds" can be prescribed, either as a code (which represents a definition) or as a reference to a FHIR product. 
+	A concept in a code system, such as SNOMED CT, NDC or UK dm+d, and a concept as a FHIR MedicinalProdctDefinition, are equivalent. 
+	Both represent a type of drug. In use these must always go via a Medication resource.
+	Instances of substances and ingredients (a substance in a role) are <a href="substance.html">Substances</a>.
+	Data such as batch numbers, and actual manufacturing dates belong on instances of products or substances rather than definitions.
 </p>
-	
-	
 	<a name="secpriv"></a>
 <h3>Security and Privacy</h3>
 <p>
@@ -204,8 +208,65 @@ This module is concerned with resources and functionality in areas such as:
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
 <p>
-	[text needed here]
+	BR&amp;R workgroup recognises that there are different ways a medicinal product could have been modelled, 
+	when we created these resources in collaboration with Pharmacy and other workgroups. 
 </p>
+<p>
+	We now seek interested parties to implement the resources for their own requirements, and to provide feedback with evidence of what works and what may be missing. 
+	This will help us to cover the appropriate scope of medicinal products.
+</p>
+	<p><b>Development Rationale:</b></p>
+	<p>Some different modes of design for these resources were considered.</p>
+	
+	<p>
+		One large model, with a profile for Medication:
+	</p>
+	<p>
+		A decision was made by the joint committees to retain Medication as a core resource, without it needing to be a profile. 
+		The profile approach was rejected because it would mean that Medication, a very key resource in FHIR, would be appear much more complicated, 
+		with a lot of concepts that are unfamiliar to pharmacists. 
+		No other core resources mandate the use of profiles.
+	</p>
+	
+	<p>
+		One generic "product" entity resource, profiled for use as product, packages, internal structure, tablets and ingredients:<br/>
+	</p>
+	<p>
+		Although these things have some features in common, this was seen as too confusing in use. All these items would look the same in the data instances 
+		and at searchable end points. There would be a jumble of products containing products with products inside those, consisting of products that are made of products.
+		It was felt it was necessary to distinguish as clearly as possible between the main entities that are common concepts. 
+	</p>
+	<p>
+		This compares with resource concepts of Observation, Condition and Procedure, or Patient and Practitioner. 
+		While those closely related clinical entities have many data items in common, it is considered helpful to distinguish which are which as clearly 
+		and simply as possible, and not rely on context or relationships to show what are they are (or the use of optional profiles). 
+	</p>
+	
+	<p><b>Boundaries:</b></p>
+	<p>
+		While we seek to be clear which parts of the model to use for which item, this does occasionally lead to difficult choices in boundaries, 
+		given the wide range of products and items that exist.
+		This is similar to issues sometimes faced when deciding if something is, for instance, actually a procedure or an observation - or both - or 
+		is an observation or condition (or a diagnosis). Having these categories as resources, while not fool proof, does help to guide the initial choices. 
+	</p>
+	<p>
+		A related example is deciding on the split between a medicated device and a medication, or a device. 
+		The workgroup doesn't attempt to define clinical opinion and recognises that different practice may 
+		occasionally lead to different implementations even with the same resources.
+	</p>
+	
+	<p><b>Terminology:</b></p>
+	<p>
+		It is also acknowledged that, as with clinical data representation, there is overlap in what can be achieved with the resources and 
+		what can be modelled with rich terminology.
+		Some of what can be represented by these resources can also be covered with structured code systems. The FHIR representation is intended to also cover 
+		transactional use (updates and submissions), rather than read-only, and recognises that implementers may prefer a consistent FHIR representation 
+		interface for both modes.
+	</p>
+	
+	<p>
+		<i>BR&amp;R welcomes feedback with evidence to show if these design decisions have made a solution that works, and is implementatable, for users across a range of domains.</i>
+	</p>
 
 </div>
 
