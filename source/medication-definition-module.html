@@ -68,11 +68,20 @@ This module is concerned with resources and functionality in areas such as:
     </table>
 
 	<p>The main medication definition resources and their relationships are shown below.</p>
+	<p>It is a three level model: product, package, item.</p>
 	<img src="basic-product-structure.png" alt="Image showing the medication definition resources"/>
+
+	<p>You can vary the levels used, according to the application needs:</p>
+	<img src="basic-product-structure-simpler.png" alt="Image showing the medication definition resources simpler"/>
+	
+	<p>Even just using one resource, for a basic representation:</p>
+	<img src="basic-product-structure-simplest.png" alt="Image showing the medication definition resources simplest"/>
+	
 	
 <a name="prods"></a>
 <h4>Products and Packaging</h4>
-<table class="bare">
+	<p>The core resources of Medication Definition deal with products and their packaging:</p>
+	<table class="bare">
     <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
 	<tr bgcolor="#EFEFEF">
 		<td valign="top"><a href="medicinalproductdefinition.html">MedicinalProductDefinition</a></td>
@@ -122,6 +131,24 @@ This module is concerned with resources and functionality in areas such as:
 	</tr>
 </table>
 
+	<p>The product and packaging resources listed above can combine to represent a product with different packs available on the market:</p>
+	<img src="packages-for-products-1.png" alt="Image showing the packaged product model"/>
+	
+	<p>National level drug dictionaries typically have a split between products and the packs that exist for them.
+		The product level has the common data such as name, strength, form, indications etc. 
+		Medications are usually prescribed at product level, rather than specifying a particular pack. 
+		But eventually it is an actual pack that gets dispensed, with a specific size or item count and packaging configuration (carton, bottle, blister pack etc).</p>
+	
+	<p>Packaging information can be complex, and the PackagedProductDefinition resource allows any combination of items and packaging to be represented.</p>
+	
+	<p>Here is a representation of a widely available combination product pack of a tablet and cream:</p>
+	
+	<img src="complex-pack-3(tablet-and-cream).png" alt="Image showing the tablet and cream product model"/>
+	
+	<p>Co-packaged devices can be represented, as well as items that need to be combined before administration:</p>
+	
+	<img src="complex-pack-2(mix-and-device).png" alt="Image showing the device and powder and solution product model"/>
+	
 	<a name="ings"></a>
 	<h4>Ingredients and Substances</h4>
 	<table class="bare">
@@ -143,7 +170,7 @@ This module is concerned with resources and functionality in areas such as:
 			</td>
 		</tr>
 	</table>
-
+	
 	<a name="reg"></a>
     <h4>Authorizations and Usage/Warnings</h4>
     <table class="bare">
