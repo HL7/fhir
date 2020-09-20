@@ -349,53 +349,6 @@ signatures.html
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
       </page>
-      <!--page type="resource" resource="RegulatedMedicinalProduct"/-->
-      <page type="resource" resource="MedicinalProductDefinition"/>
-      <!--page type="resource" resource="RegulatedPackagedProduct"/-->
-      <page type="resource" resource="PackagedProductDefinition"/>
-      <!--page type="resource" resource="RegulatedManufacturedItem"/-->
-      <page type="resource" resource="RegulatedAdministrableProduct"/>
-      <page type="resource" resource="ManufacturedItemDefinition"/>
-      <page type="resource" resource="AdministrableProductDefinition"/>
-      <!--page type="resource" resource="MedicinalProductAuthorization"/-->
-      <page type="resource" resource="RegulatedAuthorization"/>
-      <!--page type="resource" resource="MedicinalProductContraindication"/-->
-      <!--page type="resource" resource="ClinicalParticulars"/-->
-      <page type="resource" resource="ClinicalUseIssue"/>
-      <!--page type="resource" resource="MedicinalProductIndication"/-->
-      <!--page type="resource" resource="MedicinalProductInteraction"/>
-      <page type="resource" resource="MedicinalProductUndesirableEffect"/-->
-      <!--page type="resource" resource="MedicinalProductIngredient"/-->
-      <page type="resource" resource="Ingredient"/>
-    	<!--page type="resource" resource="MedicinalProductManufactured"/-->
-    	<!--page type="resource" resource="MedicinalProductPackaged"/-->
-    	<!--page type="resource" resource="MedicinalProductPharmaceutical"/-->
-      <page type="resource" resource="SubstanceDefinition"/>
-      <page type="resource" resource="SubstancePolymer"/>
-      <page type="resource" resource="SubstanceProtein"/>
-      <page type="resource" resource="SubstanceNucleicAcid"/>
-      <page type="resource" resource="SubstanceReferenceInformation"/>
-      <page type="resource" resource="SubstanceSourceMaterial"/>
-      <page title="MarketingStatus" filename="marketingstatus.html">
-        <page title="Examples" filename="marketingstatus-examples.html"/>
-        <page title="Detailed Descriptions" filename="marketingstatus-definitions.html"/>
-        <page title="Mappings" filename="marketingstatus-mappings.html"/>
-      </page>
-      <page title="Population" filename="population.html">
-        <page title="Examples" filename="population-examples.html"/>
-        <page title="Detailed Descriptions" filename="population-definitions.html"/>
-        <page title="Mappings" filename="population-mappings.html"/>
-      </page>
-      <page title="ProdCharacteristic" filename="prodcharacteristic.html">
-        <page title="Examples" filename="prodcharacteristic-examples.html"/>
-        <page title="Detailed Descriptions" filename="prodcharacteristic-definitions.html"/>
-        <page title="Mappings" filename="prodcharacteristic-mappings.html"/>
-      </page>
-      <page title="ProductShelfLife" filename="productshelflife.html">
-        <page title="Examples" filename="productshelflife-examples.html"/>
-        <page title="Detailed Descriptions" filename="productshelflife-definitions.html"/>
-        <page title="Mappings" filename="productshelflife-mappings.html"/>
-      </page>
     </page>
 
     
