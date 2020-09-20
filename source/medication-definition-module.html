@@ -148,6 +148,7 @@ This module is concerned with resources and functionality in areas such as:
 	
 	<img src="complex-pack-3(tablet-and-cream).png" alt="Image showing the tablet and cream product model"/>
 	
+	<p></p>
 	<p>Co-packaged devices can be represented, as well as items that need to be combined before administration:</p>
 	
 	<img src="complex-pack-2(mix-and-device).png" alt="Image showing the device and powder and solution product model"/>
@@ -222,7 +223,7 @@ This module is concerned with resources and functionality in areas such as:
 	The main Medication Definition resources for products and substances are purely about kinds of things - definitions - and not physical instances.
 	Instances of products, such as things that are actually dispensed, administered or tested, are <a href="medication.html">Medications</a>. 
 	"Kinds" can be prescribed, either as a code (which represents a definition) or as a reference to a FHIR product. 
-	A concept in a code system, such as SNOMED CT, NDC or UK dm+d, and a concept as a FHIR MedicinalProdctDefinition, are equivalent. 
+	A concept in a code system, such as SNOMED CT, NDC or UK dm+d, and a concept as a FHIR MedicinalProductDefinition, are equivalent. 
 	Both represent a type of drug. In use these must always go via a Medication resource.
 	Instances of substances and ingredients (a substance in a role) are <a href="substance.html">Substances</a>.
 	Data such as batch numbers, and actual manufacturing dates belong on instances of products or substances rather than definitions.
@@ -267,6 +268,7 @@ This module is concerned with resources and functionality in areas such as:
 		Although these things have some features in common, this was seen as too confusing in use. All these items would look the same in the data instances 
 		and at searchable end points. There would be a jumble of products containing products with products inside those, consisting of products that are made of products.
 		It was felt it was necessary to distinguish as clearly as possible between the main entities that are common concepts. 
+		For example, a distinction between products and packs exists in many drug dictionaries. 
 	</p>
 	<p>
 		This compares with resource concepts of Observation, Condition and Procedure, or Patient and Practitioner. 
@@ -297,7 +299,7 @@ This module is concerned with resources and functionality in areas such as:
 	</p>
 	
 	<p>
-		<i>BR&amp;R welcomes feedback with evidence to show if these design decisions have made a solution that works, and is implementatable, for users across a range of domains.</i>
+		<i>BR&amp;R welcomes feedback with evidence to show if these design decisions have made a solution that works, and is implementable, for users across a range of domains.</i>
 	</p>
 
 </div>
