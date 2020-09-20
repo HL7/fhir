@@ -34,7 +34,7 @@ This module is concerned with resources and functionality in areas such as:
 
 <p>
 	These resources are not typically used in direct patient care or day-to-day prescribing functionality 
-	(for which see the <a href="medications-module.html">Medications Module</a>) but play a supporting role.
+	(for which see the <a href="medications-module.html">Medications Module</a>), but play a supporting role.
 	They have the "full" version of the product type, with all its information, including the licensed packages available, with their physical details and containers, 
 	through to individual tablet level and on to ingredients and component substances.
 </p>
@@ -67,8 +67,8 @@ This module is concerned with resources and functionality in areas such as:
         </tr>
     </table>
 
-	<p>The main medication definition resources and their relationships are shown below.</p>
-	<p>It is a three level model: product, package, item.</p>
+	<p>The main medication definition resources and their relationships are shown below (any can be used when required, but there is no need to use all of them).</p>
+	<p>The core is a three level model: product, package, item (an item being a tablet, capsule, vial etc.):</p>
 	<img src="basic-product-structure.png" alt="Image showing the medication definition resources"/>
 
 	<p>You can vary the levels used, according to the application needs:</p>
@@ -152,6 +152,7 @@ This module is concerned with resources and functionality in areas such as:
 	<a name="ings"></a>
 	<h4>Ingredients and Substances</h4>
 	<table class="bare">
+		<p>Medication Definition also has resources for the detailed chemical composition of medications:</p>
 		<tr><td><b>Name</b></td><td><b>Description</b></td></tr>
 		<tr bgcolor="#EFEFEF">
 			<td><a href="ingredient.html">Ingredient</a></td>
@@ -173,7 +174,8 @@ This module is concerned with resources and functionality in areas such as:
 	
 	<a name="reg"></a>
     <h4>Authorizations and Usage/Warnings</h4>
-    <table class="bare">
+	<p>Medication Definition covers the surrounding context of medications, their use and legal status:</p>
+	<table class="bare">
         <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
     	<tr bgcolor="#EFEFEF">
     		<td><a href="regulatedauthorization.html">RegulatedAuthorization</a></td>
@@ -203,10 +205,10 @@ This module is concerned with resources and functionality in areas such as:
 </ul>
 
 <h3>Other resources</h3>
-	<p>There are other resources that are of particular interest in the medication definition domain.</p>
+	<p>There are other resources that are of particular interest to the medication definition domain.</p>
 	<ul>
 		<li> <a href="medication.html">Medication</a> This is the resource to use for prescribing use cases, and anywhere that an actual medication instance is needed.</li>
-		<li> <a href="substance.html">Substance</a> The substance resource has a limited subset of data, and is aimed at prescribing use cases. Unlike SubstanceDefinition it can be an actual instance of a substance (e.g. an amount of an ingredient or raw material).</li>
+		<li> <a href="substance.html">Substance</a> The substance resource has a limited subset of data, and is aimed at prescribing use cases. Unlike SubstanceDefinition, it can be an actual instance of a substance (e.g. an amount of an ingredient or raw material).</li>
 		<li> <a href="devicedefinition.html">DeviceDefinition</a> A DeviceDefinition can be used to represent a device that is inside the package of a medicinal product, within the PackagedProductDefinition resource.</li>
 		<li> <a href="organization.html">Organization</a> Many regulatory processes are centred around organizations (pharma companies, drug manufacturers, regulatory agencies). These are all represented by Organizations, and are referenced by many of the module's resources.</li>
 	</ul>
