@@ -2606,7 +2606,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       expIg.setLicense(ImplementationGuide.SPDXLicense.CC01_0);
       expIg.setTitle("FHIR R5 package : Expansions");
       expIg.setDescription("Expansions for the R5 version of the FHIR standard");
-      NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz"), "http://hl7.org/fhir", "http://hl7.org/fhir", PackageType.CORE, expIg, page.getGenDate().getTime());
+      NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz"), "http://hl7.org/fhir", "http://hl7.org/fhir", PackageType.CORE, expIg, page.getGenDate().getTime(), true);
       Bundle expansionFeed = new Bundle();
       Set<String> urlset = new HashSet<>();
       expansionFeed.setId("valueset-expansions");
@@ -4527,7 +4527,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (node.getNodeType() == NodeType.Element) {
       if (node.getName().equals("a") && node.hasAttribute("href")) {
         String link = node.getAttribute("href");
-        if (!link.startsWith("http:") && !link.startsWith("https:") && !link.startsWith("mailto:") && !link.contains(".html") &&!link.startsWith("#")) {
+        if (!link.startsWith("http:") && !link.startsWith("https:") && !link.startsWith("mailto:") && !link.startsWith("tel:") && !link.contains(".html") &&!link.startsWith("#")) {
           String[] parts = link.split("\\/");
           if ((parts.length == 2) || (parts.length == 4 && parts[2].equals("_history")) && page.getDefinitions().hasResource(parts[0])) {
 
