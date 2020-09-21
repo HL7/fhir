@@ -9,7 +9,7 @@
 		<p>
 			An ingredient is part of a product, either alone or in combination with other ingredients. 
 			It is essentially a substance with the addition of the specific role it is playing in the product, which may include whether it is an active or inactive 
-			substance and what the stength is (the quantity of substance compared to the whole product).
+			substance and what the strength is (the quantity of substance compared to the whole product).
 			The ingredient is represented in the context of a given product, because its role and strength are a function of what it is used in. 
 			It is expected that the same substance used in a different role, or with a different strength, would be a different Ingredient resource instance.
 			Resource instances may however be shared by very similar products (e.g. different pack sizes of the same "product").
