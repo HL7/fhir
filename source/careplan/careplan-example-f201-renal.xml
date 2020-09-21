@@ -79,7 +79,7 @@
   </goal>
   <activity>
     <!--Potassium supplement-->
-    <detail>
+    <plannedActivityDetail>
       <kind value="NutritionOrder"/>
       <code>
         <coding>
@@ -102,11 +102,11 @@
         <system value="http://snomed.info/sct"/>
         <code value="258718000"/>
       </dailyAmount>
-    </detail>
+    </plannedActivityDetail>
   </activity>
   <activity>
     <!--Echo of the kidney-->
-    <detail>
+    <plannedActivityDetail>
       <kind value="ServiceRequest"/>
       <code>
         <coding>
@@ -117,6 +117,6 @@
       </code>
       <status value="completed"/>
       <doNotPerform value="false"/>
-    </detail>
+    </plannedActivityDetail>
   </activity>
 </CarePlan>
