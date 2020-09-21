@@ -137,15 +137,15 @@
     <reference value="#goal"/>
   </goal>
   <activity>
-    <outcome>
+    <performedActivity>
       <reference>
         <!-- This is a link to the nurse encounter. The assumption is that all contacts with practitioners
         are modelled as separate encounters. Ideally, there will be  a 'master/parent' encounter that ties them together.
         If there is a single encounter, then all participants will be linked to that encounter.-->
         <reference value="Encounter/example"/>
       </reference>
-    </outcome>
-    <detail>
+    </performedActivity>
+    <plannedActivityDetail>
       <!-- This activity is for the initial nurse encounter where vitals are taken. It has been completed.-->
       <kind value="Appointment"/>
       <code>
@@ -167,10 +167,10 @@
         <reference value="Practitioner/13"/>
         <display value="Nurse Nancy"/>
       </performer>
-    </detail>
+    </plannedActivityDetail>
   </activity>
   <activity>
-    <detail>
+    <plannedActivityDetail>
       <!-- This activity is for the encounter with the doctor. It is scheduled, but not yet started,
               so there is no timing[x]  or actionTaken element yet -->
       <kind value="Appointment"/>
@@ -189,6 +189,6 @@
         <reference value="Practitioner/14"/>
         <display value="Doctor Dave"/>
       </performer>
-    </detail>
+    </plannedActivityDetail>
   </activity>
 </CarePlan>
