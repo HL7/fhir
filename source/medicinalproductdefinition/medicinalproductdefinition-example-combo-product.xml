@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+	<id value="drug-combo-product"/>
+	<contained>
+		<PackagedProductDefinition>
+			<id value="packageCombo"/>
+			<package>
+				<type>
+					<coding>
+						<code value="Box"/>
+					</coding>
+				</type>
+				<package>
+					<type>
+						<coding>
+							<code value="blister pack"/>
+						</coding>
+					</type>
+					<containedItem>
+						<item>
+							<reference value="#tabletItem"/>
+						</item>
+						<amountQuantity>
+							<value value="1"/>
+						</amountQuantity>
+					</containedItem>
+				</package>
+				<package>
+					<type>
+						<coding>
+							<code value="tube"/>
+						</coding>
+					</type>
+					<containedItem>
+						<item>
+							<reference value="#creamItem"/>
+						</item>
+						<amountQuantity>
+							<value value="1"/>
+						</amountQuantity>
+					</containedItem>
+				</package>
+			</package>
+		</PackagedProductDefinition>
+	</contained>
+	<contained>
+		<ManufacturedItemDefinition>
+			<id value="tabletItem"/>
+			<manufacturedDoseForm>
+				<coding>
+					<system value="http://example.org.uk/fhir/doseform"/>
+					<code value="tablet"/>
+				</coding>
+			</manufacturedDoseForm>
+			<!-- would normally go on to have ingredients here (see other examples) -->
+		</ManufacturedItemDefinition>
+	</contained>
+	<contained>
+		<ManufacturedItemDefinition>
+			<id value="creamItem"/>
+			<manufacturedDoseForm>
+				<coding>
+					<system value="http://example.org.uk/fhir/doseform"/>
+					<code value="Cream for topical applcation"/>
+				</coding>
+			</manufacturedDoseForm>
+			<!-- would normally go on to have ingredients here (see other examples) -->
+		</ManufacturedItemDefinition>
+	</contained>
+	<identifier>
+		<system value="http://example.org.uk/fhir/product"/>
+		<value value="ThrushTreatCombo"/>
+	</identifier>
+	<combinedPharmaceuticalDoseForm>
+		<coding>
+			<system value="http://example.org.uk/fhir/doseform"/>
+			<code value="Tablet and Cream for topical application"/>
+		</coding>
+	</combinedPharmaceuticalDoseForm>
+	<packagedMedicinalProduct>
+		<reference value="#packageCombo"/>
+	</packagedMedicinalProduct>
+	<name>
+		<productName value="ThrushTreat Combo"/>
+	</name>
+</MedicinalProductDefinition>
