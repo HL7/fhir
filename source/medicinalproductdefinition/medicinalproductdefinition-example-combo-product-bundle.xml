@@ -7,6 +7,52 @@
 		<resource>
 			<MedicinalProductDefinition>
 				<id value="drug-combo-product-bundle-mp"/>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p><b>Generated Narrative</b></p>
+						<p><b>id</b>: drug-combo-product</p>
+						<p><b>identifier</b>: id: ThrushTreatCombo</p>
+						<p><b>combinedPharmaceuticalDoseForm</b>: <span title="Codes: {http://example.org.uk/fhir/doseform Tablet and Cream for topical application}">Tablet and Cream for topical application</span></p>
+						<p><b>packagedMedicinalProduct</b>: <a name="packageCombo"> </a></p>
+						<blockquote>
+							<p><b>id</b>:packageCombo</p>
+							<blockquote><p><b>package (outer)</b></p>
+								<p><b>type</b>:<span title="Codes: ">Box</span></p>
+								<blockquote>
+									<p><b>Package (inner 1)</b></p>
+									<p><b>Type</b>: Blister pack</p>
+									<p><b>Items quantity</b>: 1</p>
+									<blockquote>
+										<p><b>Form</b>: Tablet</p>
+										<blockquote><p><b>Ingredient</b>: 150mg fluconazole</p></blockquote>
+									</blockquote>
+								</blockquote>
+								<blockquote>
+									<p><b>Package (inner 2)</b></p>
+									<p><b>Type</b>: Tube</p>
+									<p><b>Items quantity</b>: 20g</p>
+									<blockquote><p><b>Package Item</b>: Cap</p></blockquote>
+									<blockquote>
+										<p><b>Form</b>: Cream for topical application</p>
+										<blockquote><p><b>Ingredient</b>: 2% w/w clotrimazole</p></blockquote>
+									</blockquote>
+								</blockquote>
+							</blockquote>
+						</blockquote>
+						<h3>Names</h3>
+						<table class="grid">
+							<tr>
+								<td>-</td>
+								<td><b>ProductName</b></td>
+							</tr>
+							<tr>
+								<td>*</td>
+								<td>ThrushTreat Combo</td>
+							</tr>
+						</table>
+					</div>
+				</text>
 				<identifier>
 					<system value="http://example.org.uk/fhir/product"/>
 					<value value="ThrushTreatCombo"/>
