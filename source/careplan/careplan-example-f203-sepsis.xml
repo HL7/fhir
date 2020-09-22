@@ -68,7 +68,7 @@
     <reference value="#goal"/>
   </goal>
   <activity>
-    <detail>
+    <plannedActivityDetail>
       <kind value="ServiceRequest"/>
       <code>
         <coding>
@@ -79,6 +79,6 @@
       </code>
       <status value="not-started"/>
       <doNotPerform value="false"/>
-    </detail>
+    </plannedActivityDetail>
   </activity>
 </CarePlan>

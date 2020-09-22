@@ -4,7 +4,7 @@
   <LastAuthor>Rik Smithies</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-08-14T10:41:07Z</LastSaved>
+  <LastSaved>2020-09-20T22:42:54Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -16,7 +16,7 @@
   
   
   <TabRatio>709</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -697,7 +697,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Medicinal Product and Investigational Medicinal Product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">290;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1502,11 +1502,10 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3384,13 +3383,14 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="40" ss:StyleID="s124" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="41" ss:StyleID="s124" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="136.0"/>
    <Column ss:StyleID="s124" ss:Width="29.0"/>
-   <Column ss:StyleID="s124" ss:Width="347.0"/>
-   <Column ss:StyleID="s124" ss:Width="167.0"/>
-   <Column ss:Span="1" ss:StyleID="s124" ss:Width="219.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="7" ss:StyleID="s124" ss:Width="167.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="321.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="153.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="354.0"/>
+   <Column ss:StyleID="s124" ss:Width="219.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="167.0"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s79"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Descriptive Name</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Default = XML.  Leave at default unless told otherwise</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3436,30 +3436,39 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s131"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">Drug with co-packaged device (complete)</Data></Cell>
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">A powder and solution for injection that comes with a syringe in the pack (complete example)</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">drug-and-device-complete</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">medicinalproductdefinition-example-co-packaged-liquid-and-syringe-complete.xml</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s131"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">Acetaminopen 500mg box of 20 tablets</Data></Cell>
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">Acetaminophin product, pack and tablet (using contained resources)</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Acetamin-500-20-generic</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">medicinalproductdefinition-acetaminophen-500mg-tablets-box-of-20.xml</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s131"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">Combination Product</Data></Cell>
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">Combination product - tablet and cream co-packaged and showing layers (as one resource, with others contained)</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">drug-combo-product</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">medicinalproductdefinition-example-combo-product.xml</Data></Cell>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s131"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">Combination Product Bundle</Data></Cell>
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">Combination product - tablet and cream co-packaged and showing layers (same but as a bundle)</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">drug-combo-product-bundle</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">medicinalproductdefinition-example-combo-product-bundle.xml</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s131"/>
    </Row>
@@ -3750,6 +3759,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

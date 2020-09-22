@@ -118,13 +118,13 @@
     <reference value="#goal"/>
   </goal>
   <activity>
-    <outcome>
+    <performedActivity>
       <reference>
         <reference value="Procedure/f201"/>
         <display value="Roel's Chemotherapy"/>
       </reference>
-    </outcome>
-    <detail>
+    </performedActivity>
+    <plannedActivityDetail>
       <kind value="ServiceRequest"/>
       <code>
         <coding>
@@ -138,6 +138,6 @@
       <productReference>
         <reference value="#tpf"/>
       </productReference>
-    </detail>
+    </plannedActivityDetail>
   </activity>
 </CarePlan>

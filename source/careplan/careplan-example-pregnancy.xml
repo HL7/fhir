@@ -129,9 +129,9 @@
     <reference value="#goal"/>
   </goal>
   <activity>
-	<reference>
+	<plannedActivityReference>
 		<display value = "Prenatal vitamin MedicationRequest"/>
-	</reference>
+	</plannedActivityReference>
   </activity>
   <activity>
     <!-- This will be the first antenatal encounter -->
@@ -139,7 +139,7 @@
     <extension url="http://example.org/fhir/StructureDefinition/careplan#andetails">
       <valueUri value="http://orionhealth.com/fhir/careplan/1andetails"/>
     </extension>
-    <detail>
+    <plannedActivityDetail>
      <kind value="Appointment"/>
       <code>
         <coding>
@@ -171,10 +171,10 @@
             <url value="xxx"/>
             <display value="Appointment with Mavis midwife @12.30pm, 112 St albans Ave"/>
         </actionTaken>-->
-    </detail>
+    </plannedActivityDetail>
   </activity>
   <activity>
-    <detail>
+    <plannedActivityDetail>
       <!-- This will be the second antenatal encounter - 3 months after LMP. It is not yet scheduled. -->
       <kind value="Appointment"/>
       <code>
@@ -202,7 +202,7 @@
         <display value="Mavis Midwife"/>
       </performer>
       <description value="The second antenatal encounter. Discuss any issues that arose from the first antenatal encounter"/>
-    </detail>
+    </plannedActivityDetail>
   </activity>
   <!-- 
         There would be a number of other encounters to be scheduled here... 
@@ -211,7 +211,7 @@
     
     -->
   <activity>
-    <detail>
+    <plannedActivityDetail>
       <!-- This will be the delivery. It is not yet scheduled. -->
       <kind value="Appointment"/>
       <code>
@@ -244,6 +244,6 @@
         <display value="Mavis Midwife"/>
       </performer>
       <description value="The delivery."/>
-    </detail>
+    </plannedActivityDetail>
   </activity>
 </CarePlan>

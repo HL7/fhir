@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+	<id value="drug-and-device-complete"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p><b>Generated Narrative</b></p>
+			<p><b>id</b>: drug-and-device</p>
+			<p><b>identifier</b>: id: Wonderdrug+</p>
+			<p><b>Combined Pharmaceutical Dose Form</b>: <span
+				title="Codes: {http://example.org.uk/fhir/doseform solution for injection}">solution for injection</span></p>
+			<p><b>Packaged Product</b>: <a name="package"> </a></p>
+			<blockquote>
+				<p><b>package</b></p>
+				<blockquote>
+					<p><b>Box</b></p>
+					<blockquote>
+						<p><b>Inner box for Powder and Solution</b></p>
+						<blockquote>
+							<p><b>Sachet</b></p>
+							<blockquote>
+								<p><b>Item</b>:<a href="#liquidItem">Powder for Solution for Injection</a></p>
+								<p><b>Amount</b>: 5 mg</p>
+								<p><b>Ingredient</b>: Wondersubstance</p>
+							</blockquote>
+						</blockquote>
+						<blockquote>
+							<p><b>Bottle</b></p>
+							<blockquote>
+								<p><b>Item</b>:<a href="#liquidItem">Solvent</a></p>
+								<p><b>Amount</b>: 20 ml</p>
+								<p><b>Ingredient</b>: Distilled Water</p>
+							</blockquote>
+						</blockquote>
+					</blockquote>
+					<blockquote>
+						<p><b>Foil bag</b></p>
+						<blockquote>
+							<p><b>Device</b>:<a href="#syringeDevice">Syringe</a></p>
+							<p><b>amount</b>: 1</p>
+						</blockquote>
+					</blockquote>
+				</blockquote>
+			</blockquote>
+			<p><b>Administrable Product</b>:</p>
+			<blockquote>
+				<p>Wonderdrug, dose form: Solution For Injection</p>
+			</blockquote>
+			<h3>Names</h3>
+			<table class="grid">
+				<tr>
+					<td>-</td>
+					<td><b>ProductName</b></td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>Wonderdrug+ liquid 20ml</td>
+				</tr>
+			</table>
+		</div>
+	</text>
+	<contained>
+		<PackagedProductDefinition>
+			<id value="package"/>
+			<package>
+				<package>
+					<type>
+						<coding>
+							<code value="cardboard box (outer)"/>
+						</coding>
+					</type>
+					<package>
+						<type>
+							<coding>
+								<code value="cardboard box (inner)"/>
+							</coding>
+						</type>
+						<package>
+							<type>
+								<coding>
+									<code value="sachet"/>
+								</coding>
+							</type>
+							<containedItem>
+								<item>
+									<reference value="#powderItem"/>
+								</item>
+								<amountQuantity>
+									<value value="5"/>
+									<unit value="g"/>
+								</amountQuantity>
+							</containedItem>
+						</package>
+						<package>
+							<type>
+								<coding>
+									<code value="bottle"/>
+								</coding>
+							</type>
+							<containedItem>
+								<item>
+									<reference value="#solventItem"/>
+								</item>
+								<amountQuantity>
+									<value value="20"/>
+									<unit value="ml"/>
+								</amountQuantity>
+							</containedItem>
+						</package>
+					</package>
+					<package>
+						<type>
+							<coding>
+								<code value="foil bag"/>
+							</coding>
+						</type>
+						<containedItem>
+							<item>
+								<reference value="#syringeDevice"/>
+							</item>
+							<amountQuantity>
+								<value value="1"/>
+							</amountQuantity>
+						</containedItem>
+					</package>
+				</package>
+			</package>
+		</PackagedProductDefinition>
+	</contained>
+	<contained>
+		<ManufacturedItemDefinition>
+			<id value="solventItem"/>
+			<manufacturedDoseForm>
+				<coding>
+					<system value="http://example.org.uk/fhir/doseform"/>
+					<code value="solvent for powder for injection"/>
+				</coding>
+			</manufacturedDoseForm>
+			<ingredient>
+				<reference value="#ingredientSolvent"/>
+			</ingredient>
+		</ManufacturedItemDefinition>
+	</contained>
+	<contained>
+		<ManufacturedItemDefinition>
+			<id value="powderItem"/>
+			<manufacturedDoseForm>
+				<coding>
+					<system value="http://example.org.uk/fhir/doseform"/>
+					<code value="powder for solution for injection"/>
+				</coding>
+			</manufacturedDoseForm>
+			<ingredient>
+				<reference value="#ingredientPowder"/>
+			</ingredient>
+		</ManufacturedItemDefinition>
+	</contained>
+	<contained>
+		<DeviceDefinition>
+			<id value="syringeDevice"/>
+			<type>
+				<text value="syringe"/>
+			</type>
+			<!-- Schema appears to be broken, deviceName is not present in XSD -->
+			<!--deviceName>
+				<name value="WonderSyringe"/>
+				<type value="manufacturer-name"/>
+			</deviceName-->
+		</DeviceDefinition>
+	</contained>
+	<contained>
+		<Ingredient>
+			<id value="ingredientPowder"/>
+			<role>
+				<coding>
+					<system value="http://example.org.uk/fhir/ingredientRole"/>
+					<code value="active"/>
+				</coding>
+			</role>
+			<substance>
+				<codeCodeableConcept>
+					<coding>
+						<system value="http://example.org.uk/fhir/ingredients"/> <!-- SNOMED perhaps -->
+						<code value="12345"/>
+						<display value="Wonderdrug BP"/>
+					</coding>
+				</codeCodeableConcept>
+				<!-- can be strength here but not necessary for this example -->
+			</substance>
+		</Ingredient>
+	</contained>
+	<contained>
+		<Ingredient>
+			<id value="ingredientSolvent"/>
+			<role>
+				<coding>
+					<system value="http://example.org.uk/fhir/ingredientRole"/>
+					<code value="active"/>
+				</coding>
+			</role>
+			<substance>
+				<codeCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="444883009"/>
+						<display value="Distilled water"/>
+					</coding>
+				</codeCodeableConcept>
+			</substance>
+		</Ingredient>
+	</contained>
+	<contained>
+		<AdministrableProductDefinition>
+			<id value="adminsitrable-form"/>
+			<administrableDoseForm>
+				<coding>
+					<code value="solution for injection"/>
+				</coding>
+			</administrableDoseForm>
+			<producedFrom>
+				<reference value="#powderItem"/>
+			</producedFrom>
+			<producedFrom>
+				<reference value="#solventItem"/>
+			</producedFrom>
+			<routeOfAdministration>
+				<code>
+					<coding>
+						<system value="http://example.org.uk/fhir/route"/>
+						<code value="intramuscular"/>
+					</coding>
+				</code>
+			</routeOfAdministration>
+		</AdministrableProductDefinition>
+	</contained>
+	<identifier>
+		<system value="http://example.org.uk/fhir/product"/>
+		<value value="Wonderdrug+"/>
+	</identifier>
+	<combinedPharmaceuticalDoseForm>
+		<coding>
+			<system value="http://example.org.uk/fhir/doseform"/>
+			<code value="Powder and solution for injection with itegral syringe"/>
+		</coding>
+	</combinedPharmaceuticalDoseForm>
+	<pharmaceuticalProduct>
+		<reference value="#adminsitrable-form"/>
+	</pharmaceuticalProduct>
+	<packagedMedicinalProduct>
+		<reference value="#package"/>
+	</packagedMedicinalProduct>
+	<name>
+		<productName value="Wonderdrug liquid 20ml (integral syringe)"/>
+	</name>
+</MedicinalProductDefinition>

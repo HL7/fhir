@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+	<id value="drug-combo-product"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p><b>Generated Narrative</b></p>
+			<p><b>id</b>: drug-combo-product</p>
+			<p><b>identifier</b>: id: ThrushTreatCombo</p>
+			<p><b>combinedPharmaceuticalDoseForm</b>: <span title="Codes: {http://example.org.uk/fhir/doseform Tablet and Cream for topical application}">Tablet and Cream for topical application</span></p>
+			<p><b>packagedMedicinalProduct</b>: <a name="packageCombo"> </a></p>
+			<blockquote>
+				<p><b>id</b>:packageCombo</p>
+				<blockquote><p><b>package (outer)</b></p>
+					<p><b>type</b>:<span title="Codes: ">Box</span></p>
+					<blockquote>
+						<p><b>Package (inner 1)</b></p>
+						<p><b>Type</b>: Blister pack</p>
+						<p><b>Items quantity</b>: 1</p>
+						<blockquote>
+							<p><b>Form</b>: Tablet</p>
+							<blockquote><p><b>Ingredient</b>: 150mg fluconazole</p></blockquote>
+						</blockquote>
+					</blockquote>
+					<blockquote>
+						<p><b>Package (inner 2)</b></p>
+						<p><b>Type</b>: Tube</p>
+						<p><b>Items quantity</b>: 20g</p>
+						<blockquote><p><b>Package Item</b>: Cap</p></blockquote>
+						<blockquote>
+							<p><b>Form</b>: Cream for topical application</p>
+							<blockquote><p><b>Ingredient</b>: 2% w/w clotrimazole</p></blockquote>
+						</blockquote>
+					</blockquote>
+				</blockquote>
+			</blockquote>
+			<h3>Names</h3>
+			<table class="grid">
+				<tr>
+					<td>-</td>
+					<td><b>ProductName</b></td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>ThrushTreat Combo</td>
+				</tr>
+			</table>
+		</div>
+	</text>
+	<contained>
+		<PackagedProductDefinition>
+			<id value="packageCombo"/>
+			<package>
+				<type>
+					<coding>
+						<code value="Box"/>
+					</coding>
+				</type>
+				<package>
+					<type>
+						<coding>
+							<code value="blister pack"/>
+						</coding>
+					</type>
+					<containedItem>
+						<item>
+							<reference value="#tabletItem"/>
+						</item>
+						<amountQuantity>
+							<value value="1"/>
+						</amountQuantity>
+					</containedItem>
+				</package>
+				<package>
+					<type>
+						<coding>
+							<code value="tube"/>
+						</coding>
+					</type>
+					<containedItem>
+						<item>
+							<reference value="#creamItem"/>
+						</item>
+						<amountQuantity>
+							<value value="20"/>
+							<unit value="g"/>
+						</amountQuantity>
+					</containedItem>
+					<package>
+						<type>
+							<coding>
+								<code value="cap"/>
+							</coding>
+						</type>
+					</package>
+				</package>
+			</package>
+		</PackagedProductDefinition>
+	</contained>
+	<contained>
+		<ManufacturedItemDefinition>
+			<id value="tabletItem"/>
+			<manufacturedDoseForm>
+				<coding>
+					<system value="http://example.org.uk/fhir/doseform"/>
+					<code value="tablet"/>
+				</coding>
+			</manufacturedDoseForm>
+			<!-- would normally go on to have ingredients here (see other examples) -->
+		</ManufacturedItemDefinition>
+	</contained>
+	<contained>
+		<ManufacturedItemDefinition>
+			<id value="creamItem"/>
+			<manufacturedDoseForm>
+				<coding>
+					<system value="http://example.org.uk/fhir/doseform"/>
+					<code value="Cream for topical application"/>
+				</coding>
+			</manufacturedDoseForm>
+			<!-- would normally go on to have ingredients here (see other examples) -->
+		</ManufacturedItemDefinition>
+	</contained>
+	<identifier>
+		<system value="http://example.org.uk/fhir/product"/>
+		<value value="ThrushTreatCombo"/>
+	</identifier>
+	<combinedPharmaceuticalDoseForm>
+		<coding>
+			<system value="http://example.org.uk/fhir/doseform"/>
+			<code value="Tablet and Cream for topical application"/>
+		</coding>
+	</combinedPharmaceuticalDoseForm>
+	<packagedMedicinalProduct>
+		<reference value="#packageCombo"/>
+	</packagedMedicinalProduct>
+	<name>
+		<productName value="ThrushTreat Combo"/>
+	</name>
+</MedicinalProductDefinition>

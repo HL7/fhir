@@ -16,7 +16,7 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -671,7 +671,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">A pharmaceutical product described in terms of its composition and dose form</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">A pharmaceutical product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Pharmaceutical Product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
@@ -993,12 +993,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -1712,7 +1713,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
