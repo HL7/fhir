@@ -2,11 +2,23 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
+		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
 		<p>
-			Qualitative and quantitative composition of a Medicinal Product in the dose form approved for administration in line with the regulated product information 
+			A medicinal product may consist of several items, which need to be combined before administration to the patient. 
+			The administrable (or "pharmaceutical") product - which differs in that it is now "mixed" from its components (if necessary) and is ready for use - 
+			is covered by this resource. The components themselves are <a href="manufactureditemdefinition.html">ManufacturedItemDefinitions</a>.
 		</p>
 		<p>
-			Note that in many instances, the pharmaceutical product is equal to the manufactured item. However, there are instances where the manufactured item must undergo a transformation before being administered to the patient (as the pharmaceutical product) and the two are not equal.
+			Note that, in many cases, the administrable product is equal to the sole manufactured item. 
+			However, there are common instances where the manufactured item(s) must undergo a transformation before being administered 
+			to the patient (as the pharmaceutical product) and the two are not equivalent.
+		</p>
+		<p>
+			This resource is used to represent the final form of the product as administered (even if the form is no different from the manufactured form),
+			and hence it is the location for key properties such as the route - which only make sense in the context of the final physical form. 
+			It is however a definitional resource, representing the properties of such a product, but not an actual instance of one physically given to someone.
+			There is rarely a need to record that specific entity but it would be a <a href="medication.html">Medication</a> instance 
+			in a <a href="medicationadministration.html">MedicationAdministration</a> if so.
 		</p>
 	</div>
 </div>

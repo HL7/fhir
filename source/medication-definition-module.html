@@ -34,7 +34,7 @@ This module is concerned with resources and functionality in areas such as:
 
 <p>
 	These resources are not typically used in direct patient care or day-to-day prescribing functionality 
-	(for which see the <a href="medications-module.html">Medications Module</a>) but play a supporting role.
+	(for which see the <a href="medications-module.html">Medications Module</a>), but play a supporting role.
 	They have the "full" version of the product type, with all its information, including the licensed packages available, with their physical details and containers, 
 	through to individual tablet level and on to ingredients and component substances.
 </p>
@@ -67,10 +67,25 @@ This module is concerned with resources and functionality in areas such as:
         </tr>
     </table>
 
+	<p>The main medication definition resources and their relationships are shown below (any can be used when required, but there is no need to use all of them).</p>
+	<p></p>
+	<p>The core is a three level model: product, package, item:</p>
+	<img src="basic-product-structure.png" alt="Image showing the medication definition resources"/>
 
+	<p></p>
+	<p>You can vary the levels used, according to the application needs:</p>
+	<img src="basic-product-structure-simpler.png" alt="Image showing the medication definition resources simpler"/>
+	
+	<p></p>
+	<p>Even just using one resource, for a basic representation:</p>
+	<img src="basic-product-structure-simplest.png" alt="Image showing the medication definition resources simplest"/>
+	<p>A worked example of a single resource version is <a href="medicinalproductdefinition-example-equilidem-basics.html">here</a></p>
+	
+	
 <a name="prods"></a>
 <h4>Products and Packaging</h4>
-<table class="bare">
+	<p>The core resources of Medication Definition deal with products and their packaging:</p>
+	<table class="bare">
     <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
 	<tr bgcolor="#EFEFEF">
 		<td valign="top"><a href="medicinalproductdefinition.html">MedicinalProductDefinition</a></td>
@@ -120,9 +135,35 @@ This module is concerned with resources and functionality in areas such as:
 	</tr>
 </table>
 
+	<p>The product and packaging resources listed above can combine to represent a product with different packs available on the market:</p>
+	<img src="packages-for-products-1.png" alt="Image showing the packaged product model"/>
+	
+	<p>National level drug dictionaries typically have a split between products and the packs that exist for them.
+		The product level has the common data such as name, strength, form, indications etc. 
+		Medications are usually prescribed at product level, rather than specifying a particular pack. 
+		But eventually it is an actual pack that gets dispensed, with a specific size or item count and packaging configuration (carton, bottle, blister pack etc).</p>
+	
+	<p>Packaging information can be complex, and the PackagedProductDefinition resource allows any combination of items and packaging to be represented.</p>
+	
+	<p>Here is a representation of a widely available combination product pack of a tablet and cream:</p>
+	
+	<img src="complex-pack-3(tablet-and-cream).png" alt="Image showing the tablet and cream product model"/>
+	<p>A worked example of a combination product is <a href="medicinalproductdefinition-example-combo-product-bundle.html">here</a>, shown as a bundle
+		and <a href="medicinalproductdefinition-example-combo-product.html">here</a>, shown instead using contained resources (either can be selected according to preference)	
+	</p>
+	
+	<p></p>
+	<p>Co-packaged devices can be represented, as well as items that need to be combined before administration:</p>
+	
+	<img src="complex-pack-2(mix-and-device).png" alt="Image showing the device and powder and solution product model"/>
+	<p>A full worked example of a co-packaged device with a powder and solvent is <a href="medicinalproductdefinition-example-co-packaged-liquid-and-syringe-complete.html">here</a>.<br/>
+	   A simpler example of a co-packaged device and liquid is <a href="medicinalproductdefinition-example-co-packaged-liquid-and-syringe.html">here</a>.
+	</p>
+	
 	<a name="ings"></a>
 	<h4>Ingredients and Substances</h4>
 	<table class="bare">
+		<p>Medication Definition also has resources for the detailed chemical composition of medications:</p>
 		<tr><td><b>Name</b></td><td><b>Description</b></td></tr>
 		<tr bgcolor="#EFEFEF">
 			<td><a href="ingredient.html">Ingredient</a></td>
@@ -141,10 +182,11 @@ This module is concerned with resources and functionality in areas such as:
 			</td>
 		</tr>
 	</table>
-
+	
 	<a name="reg"></a>
     <h4>Authorizations and Usage/Warnings</h4>
-    <table class="bare">
+	<p>Medication Definition covers the surrounding context of medications, their use and legal status:</p>
+	<table class="bare">
         <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
     	<tr bgcolor="#EFEFEF">
     		<td><a href="regulatedauthorization.html">RegulatedAuthorization</a></td>
@@ -174,10 +216,10 @@ This module is concerned with resources and functionality in areas such as:
 </ul>
 
 <h3>Other resources</h3>
-	There are other resources that are of particular interest in the medication definition domain.
+	<p>There are other resources that are of particular interest to the medication definition domain.</p>
 	<ul>
 		<li> <a href="medication.html">Medication</a> This is the resource to use for prescribing use cases, and anywhere that an actual medication instance is needed.</li>
-		<li> <a href="substance.html">Substance</a> The substance resource has a limited subset of data, and is aimed at prescribing use cases. Unlike SubstanceDefinition it can be an actual instance of a substance (e.g. an amount of an ingredient or raw material).</li>
+		<li> <a href="substance.html">Substance</a> The substance resource has a limited subset of data, and is aimed at prescribing use cases. Unlike SubstanceDefinition, it can be an actual instance of a substance (e.g. an amount of an ingredient or raw material).</li>
 		<li> <a href="devicedefinition.html">DeviceDefinition</a> A DeviceDefinition can be used to represent a device that is inside the package of a medicinal product, within the PackagedProductDefinition resource.</li>
 		<li> <a href="organization.html">Organization</a> Many regulatory processes are centred around organizations (pharma companies, drug manufacturers, regulatory agencies). These are all represented by Organizations, and are referenced by many of the module's resources.</li>
 	</ul>
@@ -185,10 +227,14 @@ This module is concerned with resources and functionality in areas such as:
 <a name="defn"></a>
 <h3>Definitions and Instances</h3>
 <p>
-	[text needed here]
+	The main Medication Definition resources for products and substances are purely about kinds of things - definitions - and not physical instances.
+	Instances of products, such as things that are actually dispensed, administered or tested, are <a href="medication.html">Medications</a>. 
+	"Kinds" can be prescribed, either as a code (which represents a definition) or as a reference to a FHIR product. 
+	A concept in a code system, such as SNOMED CT, NDC or UK dm+d, and a concept as a FHIR MedicinalProductDefinition, are equivalent. 
+	Both represent a type of drug. In use these must always go via a Medication resource.
+	Instances of substances and ingredients (a substance in a role) are <a href="substance.html">Substances</a>.
+	Data such as batch numbers, and actual manufacturing dates belong on instances of products or substances rather than definitions.
 </p>
-	
-	
 	<a name="secpriv"></a>
 <h3>Security and Privacy</h3>
 <p>
@@ -202,8 +248,66 @@ This module is concerned with resources and functionality in areas such as:
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
 <p>
-	[text needed here]
+	BR&amp;R workgroup recognises that there are different ways a medicinal product could have been modelled, 
+	when we created these resources in collaboration with Pharmacy and other workgroups. 
 </p>
+<p>
+	We now seek interested parties to implement the resources for their own requirements, and to provide feedback with evidence of what works and what may be missing. 
+	This will help us to cover the appropriate scope of medicinal products.
+</p>
+	<p><b>Development Rationale:</b></p>
+	<p>Some different modes of design for these resources were considered.</p>
+	
+	<p>
+		One large model, with a profile for Medication:
+	</p>
+	<p>
+		A decision was made by the joint committees to retain Medication as a core resource, without it needing to be a profile. 
+		The profile approach was rejected because it would mean that Medication, a very key resource in FHIR, would be appear much more complicated, 
+		with a lot of concepts that are unfamiliar to pharmacists. 
+		No other core resources mandate the use of profiles.
+	</p>
+	
+	<p>
+		One generic "product" entity resource, profiled for use as product, packages, internal structure, tablets and ingredients:<br/>
+	</p>
+	<p>
+		Although these things have some features in common, this was seen as too confusing in use. All these items would look the same in the data instances 
+		and at searchable end points. There would be a jumble of products containing products with products inside those, consisting of products that are made of products.
+		It was felt it was necessary to distinguish as clearly as possible between the main entities that are common concepts. 
+		For example, a distinction between products and packs exists in many drug dictionaries. 
+	</p>
+	<p>
+		This compares with resource concepts of Observation, Condition and Procedure, or Patient and Practitioner. 
+		While those closely related clinical entities have many data items in common, it is considered helpful to distinguish which are which as clearly 
+		and simply as possible, and not rely on context or relationships to show what are they are (or the use of optional profiles). 
+	</p>
+	
+	<p><b>Boundaries:</b></p>
+	<p>
+		While we seek to be clear which parts of the model to use for which item, this does occasionally lead to difficult choices in boundaries, 
+		given the wide range of products and items that exist.
+		This is similar to issues sometimes faced when deciding if something is, for instance, actually a procedure or an observation - or both - or 
+		is an observation or condition (or a diagnosis). Having these categories as resources, while not fool proof, does help to guide the initial choices. 
+	</p>
+	<p>
+		A related example is deciding on the split between a medicated device and a medication, or a device. 
+		The workgroup doesn't attempt to define clinical opinion and recognises that different practice may 
+		occasionally lead to different implementations even with the same resources.
+	</p>
+	
+	<p><b>Terminology:</b></p>
+	<p>
+		It is also acknowledged that, as with clinical data representation, there is overlap in what can be achieved with the resources and 
+		what can be modelled with rich terminology.
+		Some of what can be represented by these resources can also be covered with structured code systems. The FHIR representation is intended to also cover 
+		transactional use (updates and submissions), rather than read-only, and recognises that implementers may prefer a consistent FHIR representation 
+		interface for both modes.
+	</p>
+	
+	<p>
+		<i>BR&amp;R welcomes feedback with evidence to show if these design decisions have made a solution that works, and is implementable, for users across a range of domains.</i>
+	</p>
 
 </div>
 

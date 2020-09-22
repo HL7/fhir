@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+   <id value="Acetamin-500-20-generic"/>
+   <contained>
+      <PackagedProductDefinition>
+         <id value="Acetamin-pack-20"/>
+         <package>
+            <type>
+               <coding>
+                  <code value="cardboard box"/>
+               </coding>
+            </type>
+            <!-- the item contained in the pack (note this is a different concept to a "contained" resource, above) -->
+            <containedItem> 
+               <item>
+                  <reference value="#Acetamin-tab-500"/>
+               </item>
+               <amountInteger value="20"/>
+            </containedItem>
+         </package>
+      </PackagedProductDefinition>
+   </contained>
+   <contained>
+      <ManufacturedItemDefinition>
+         <id value="Acetamin-tab-500"/>
+         <manufacturedDoseForm>
+            <coding>
+               <code value="tablet"/>
+            </coding>
+         </manufacturedDoseForm>
+         <ingredient>
+            <reference value="#Acetamin-ing-500"/>
+         </ingredient>
+      </ManufacturedItemDefinition>
+   </contained>
+   <contained>
+      <Ingredient>
+         <id value="Acetamin-ing-500"/>
+         <role>
+            <coding>
+               <code value="active"/>
+            </coding>
+         </role>
+         <substance>
+            <codeCodeableConcept>
+               <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="387517004"/>
+                  <display value="Acetaminophen"/>
+               </coding>
+            </codeCodeableConcept>
+            <strength>
+               <presentation>
+                  <numerator>
+                     <value value="500"/>
+                     <unit value="mg"/>
+                  </numerator>
+                  <denominator>
+                     <value value="1"/>
+                     <unit value="tablet"/>
+                  </denominator>
+               </presentation>
+            </strength>
+         </substance>
+      </Ingredient>
+   </contained>
+   <identifier>
+      <system value="http://example.nation.org/drugs"/>
+      <value value="12345"/>
+   </identifier>
+   <packagedMedicinalProduct>
+      <reference value="#Acetamin-pack-20"/>
+   </packagedMedicinalProduct>
+   <name>
+      <productName value="Acetaminophen 500 mg tablets [generic]"/>
+   </name>
+</MedicinalProductDefinition>

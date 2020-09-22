@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicinalProductDefinition xmlns="http://hl7.org/fhir">
 	<id value="drug-and-device"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p><b>Generated Narrative</b></p>
+			<p><b>id</b>: drug-and-device</p>
+			<p><b>identifier</b>: Wonderdrug+</p>
+			<p><b>combinedPharmaceuticalDoseForm</b>: <span
+				title="Codes: {http://example.org.uk/fhir/doseform solution for injection}"
+				>solution for injection</span></p>
+			<p><b>packagedMedicinalProduct</b>: <a name="package"> </a></p>
+			<blockquote>
+				<p><b>package</b></p>
+				<blockquote>
+					<p><b>containedItem</b></p>
+					<p><b>Item</b>:<a href="#liquidItem">Solution for Injection</a></p>
+					<p><b>Amount</b>: 20 ml</p>
+					<p><b>Ingredient</b>: Wondersubstance BP</p>
+				</blockquote>
+				<blockquote>
+					<p><b>containedItem</b></p>
+					<p><b>Device</b>:<a href="#syringeDevice">Syringe</a></p>
+					<p><b>amount</b>: 1</p>
+				</blockquote>
+			</blockquote>
+			<h3>Names</h3>
+			<table class="grid">
+				<tr>
+					<td>-</td>
+					<td><b>ProductName</b></td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>Wonderdrug+ liquid 20ml</td>
+				</tr>
+			</table>
+		</div>
+	</text>
 	<contained>
 		<PackagedProductDefinition>
 			<id value="package"/>

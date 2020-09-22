@@ -79,7 +79,7 @@
 		<reference value="Goal/example" />
 	</goal>
 	<activity>
-		<outcome>
+		<performedActivity>
       <concept>
         <coding>
           <system value="http://snomed.info/sct" />
@@ -87,14 +87,14 @@
           <display value="Progressive weight loss" />
         </coding>
       </concept>
-		</outcome>
-		<outcome>
+		</performedActivity>
+		<performedActivity>
 		  <reference>
 				<reference value="Observation/example" />
 				<display value="Weight Measured" />
 		  </reference>
-		</outcome>
-		<detail>
+		</performedActivity>
+		<plannedActivityDetail>
 		<code>
 			<!--     LOINC code     -->
 			<coding>
@@ -135,6 +135,6 @@
 			<reference value="Patient/example"/>
 			<display value="Peter James Chalmers"/>
 		</performer>
-    </detail>
+    </plannedActivityDetail>
   </activity>
 </CarePlan>
