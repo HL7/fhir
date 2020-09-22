@@ -157,11 +157,11 @@ it returns a 200 OK. If it's not, it returns a <code>501 Not implemented</code>.
 
 <h4>HTTP Header</h4>
 <p>
-Alternatively, a client can inlude a feature assertion on an HTTP header:
+Alternatively, a client can include a feature assertion on an HTTP header:
 </p>
 <pre>
 GET [base]/AdverseEvent/23/_history/45
-X-Mandatory-Feature: rest:server.resource:AdverseEvent.readHistory;true
+Required-Feature: rest:server.resource:AdverseEvent.readHistory;true
 </pre>
 <p>
 The server checks the header, and return a <code>501 Not implemented</code>

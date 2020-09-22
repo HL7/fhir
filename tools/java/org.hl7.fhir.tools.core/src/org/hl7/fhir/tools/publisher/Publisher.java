@@ -458,6 +458,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     pub.diffProgram = getNamedParam(args, "-diff");
     pub.noSound =  (args.length > 1 && hasParam(args, "-nosound"));
     pub.noPartialBuild = (args.length > 1 && hasParam(args, "-nopartial"));
+    pub.validateBundles = hasParam(args, "-validate-bundles");
     pub.isPostPR = (args.length > 1 && hasParam(args, "-post-pr"));
     if (hasParam(args, "-resource"))
       pub.singleResource = getNamedParam(args, "-resource");
@@ -4256,6 +4257,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private Set<String> examplesProcessed = new HashSet<String>();
 
+  private boolean validateBundles;
+
   
   private void processExample(Example e, ResourceDefn resn, StructureDefinition profile, Profile pack, ImplementationGuideDefn ig) throws Exception {
     if (e.getType() == ExampleType.Tool)
@@ -5664,7 +5667,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           }
         }
       }
-      if (buildFlags.get("all")) {
+      if (buildFlags.get("all") && validateBundles) {
         if (validateId == null || validateId.equals("valuesets"))
           ei.validate("valuesets", "Bundle");
         if (validateId == null || validateId.equals("conceptmaps"))

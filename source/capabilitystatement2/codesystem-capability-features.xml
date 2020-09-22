@@ -73,6 +73,23 @@
     </property>
     
     <concept>
+      <code value="feature-header"/>
+      <display value="Whether the server supports the Required-Feature header by which a client makes a feature as mandatory for processing a requrest properly"/>
+      <property>
+        <code value="kind"/>
+        <valueCode value="feature"/>
+      </property>
+      <property>
+        <code value="context"/>
+        <valueCode value="rest"/>
+      </property>
+      <property>
+        <code value="values"/>
+        <valueCode value="#booleans"/>
+      </property>
+    </concept>      
+
+    <concept>
       <code value="security-cors"/>
       <display value=""/>
       <property>
