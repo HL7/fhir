@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicinalProductDefinition xmlns="http://hl7.org/fhir">
 	<id value="equilidem-basics"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p><b>Generated Narrative</b></p>
+			<p><b>Id</b>: equilidem-basics</p>
+			<p><b>Identifier</b>: Equilidem25</p>
+			<p><b>Combined Pharmaceutical Dose Form</b>: <span
+				title="Codes: {http://example.org.uk/fhir/dosefom tablet}"
+				>tablet</span></p>
+			<p><b>Indication</b>: Prevention of venous thromboembolic events
+				(VTE) in adult patients who have undergone elective hip or knee
+				replacement surgery. Prevention of stroke and systemic embolism
+				in adult patients with non-valvular atrial fibrillation (NVAF),
+				with one or more risk factors, such as prior stroke or transient
+				ischaemic attack (TIA); age ≥ 75 years; hypertension; diabetes
+				mellitus; symptomatic heart failure (NYHA Class &gt;= II).
+				Treatment of deep vein thrombosis (DVT) and pulmonary embolism
+				(PE), and prevention of recurrent DVT and PE in adults.</p>
+			<p><b>Legal Status Of Supply</b>: <span
+				title="Codes: {http://example.org.uk/fhir/legalstatusofsupply POM}"
+				>Prescription only medicine</span></p>
+			<p><b>Classification</b>: <span title="Codes: {http://www.whocc.no/atc/example B01A}">ATC: B01A</span></p>
+			<p><b>Ingredient</b>: </p>
+			<ul>
+				<li><span>Equilidonium Phosphate</span></li>
+				<li><span>Calcium Carbonate</span></li>
+			</ul>
+			<h3>Names</h3>
+			<table class="grid">
+				<tr>
+					<td>-</td>
+					<td><b>Product Name</b></td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>Equilidem 2.5 mg film-coated tablets</td>
+				</tr>
+			</table>
+			<h3>Cross References</h3>
+			<table class="grid">
+				<tr>
+					<td>-</td>
+					<td><b>Product</b></td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>Link to generic equivalent</td>
+				</tr>
+			</table>
+			<h3>Manufacturing/Business Operations</h3>
+			<table class="grid">
+				<tr>
+					<td>-</td>
+					<td><b>Manufacturer</b></td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td><span>EquiliDrugCo Inc.</span></td>
+				</tr>
+			</table>
+		</div>
+		
+	</text>
 	<identifier>
 		<system value="http://example.org.uk/fhir/product"/>
 		<value value="Equilidem25"/>

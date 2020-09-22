@@ -5,31 +5,31 @@
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<p><b>Generated Narrative</b></p>
-			<p><b>id</b>: drug-and-device</p>
-			<p><b>identifier</b>: Wonderdrug+</p>
-			<p><b>combinedPharmaceuticalDoseForm</b>: <span
+			<p><b>Id</b>: drug-and-device</p>
+			<p><b>Identifier</b>: Wonderdrug+</p>
+			<p><b>Combined Pharmaceutical Dose Form</b>: <span
 				title="Codes: {http://example.org.uk/fhir/doseform solution for injection}"
 				>solution for injection</span></p>
-			<p><b>packagedMedicinalProduct</b>: <a name="package"> </a></p>
+			<p><b>Packaged Product</b>: <a name="package"> </a></p>
 			<blockquote>
-				<p><b>package</b></p>
+				<p><b>Package</b></p>
 				<blockquote>
-					<p><b>containedItem</b></p>
+					<p><b>Contained Item</b></p>
 					<p><b>Item</b>:<a href="#liquidItem">Solution for Injection</a></p>
 					<p><b>Amount</b>: 20 ml</p>
 					<p><b>Ingredient</b>: Wondersubstance BP</p>
 				</blockquote>
 				<blockquote>
-					<p><b>containedItem</b></p>
+					<p><b>Contained tem</b></p>
 					<p><b>Device</b>:<a href="#syringeDevice">Syringe</a></p>
-					<p><b>amount</b>: 1</p>
+					<p><b>Amount</b>: 1</p>
 				</blockquote>
 			</blockquote>
 			<h3>Names</h3>
 			<table class="grid">
 				<tr>
 					<td>-</td>
-					<td><b>ProductName</b></td>
+					<td><b>Product Name</b></td>
 				</tr>
 				<tr>
 					<td>*</td>

@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicinalProductDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproductdefinition.xsd">
 	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p><b>Generated Narrative</b></p>
+			<p><b>Id</b>: example</p>
+			<p><b>Identifier</b>: {mpid}</p>
+			<p><b>Classification</b>: <span
+				title="Codes: {http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem B01AF02}"
+				>ATC: B01AF02</span></p>
+			<p><b>Attached Document</b>: (SmPC)</p>
+			<p><b>Master File</b>: (Pharmacovigilence Master File)</p>
+			<p><b>Product Name</b>: Equilidem 2.5 mg film-coated tablets</p>
+			<blockquote>
+				<p><b>Name Part</b></p><p><b>part</b>:Equilidem</p>
+				<p><b>type</b>: <span title="Codes: ">Invented</span></p>
+			</blockquote>
+			<blockquote>
+				<p><b>Name Part</b></p><p><b>part</b>:2.5 mg</p>
+				<p><b>type</b>: <span title="Codes: ">Strength</span></p>
+			</blockquote>
+			<blockquote>
+				<p><b>Name Part</b></p>
+				<p><b>part</b>:film-coated tablets</p>
+				<p><b>type</b>: <span title="Codes: ">Form</span></p>
+				<p><b>Country &amp; Languages</b></p>
+				<table class="grid">
+					<tr>
+						<td>-</td>
+						<td><b>Country</b></td>
+						<td><b>Jurisdiction</b></td>
+						<td><b>Language</b></td>
+					</tr>
+					<tr>
+						<td>*</td>
+						<td><span
+							title="Codes: {http://ema.europa.eu/example/countryCode EU}"
+							>EU</span></td>
+						<td><span
+							title="Codes: {http://ema.europa.eu/example/jurisdictionCode EU}"
+							>EU</span></td>
+						<td><span
+							title="Codes: {http://ema.europa.eu/example/languageCode EN}"
+							>EN</span></td>
+					</tr>
+				</table>
+			</blockquote>
+			<p><b>Manufacturing &amp; Business Operations</b></p>
+			<table class="grid">
+				<tr>
+					<td>-</td>
+					<td><b>Type</b></td>
+					<td><b>EffectiveDate</b></td>
+					<td><b>Authorization</b></td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>Batch Release</td>
+					<td>2013-03-15 --&gt; (ongoing)</td>
+					<td><span>1324TZ</span></td>
+				</tr>
+			</table>
+		</div>
+	</text>
 	<identifier>
 		<system value="http://ema.europa.eu/example/MPID"/>
 		<value value="{mpid}"/>
