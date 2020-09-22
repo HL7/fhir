@@ -2000,7 +2000,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4435,7 +4435,7 @@
     <Cell ss:Index="2" ss:StyleID="s91"><Data ss:Type="String">CriteriaNotExistsBehavior</Data></Cell>
     <Cell><Data ss:Type="String">Behavior a server can exhibit when a criteria state does not exist (e.g., state prior to a create or after a delete)</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell><Data ss:Type="String">extensible</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
     <Cell><Data ss:Type="String">#subscriptiontopic-cr-behavior</Data></Cell>
    </Row>
   </Table>
