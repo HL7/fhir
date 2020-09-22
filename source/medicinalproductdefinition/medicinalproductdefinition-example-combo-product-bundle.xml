@@ -77,6 +77,11 @@
 		<resource>
 			<PackagedProductDefinition>
 				<id value="packageCombo"/>
+				<!-- text not needed here -->
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">(left blank to stop example creating something automatically)</div>
+				</text>
 				<package>
 					<type>
 						<coding>
@@ -122,6 +127,11 @@
 		<resource>
 			<ManufacturedItemDefinition>
 				<id value="tabletItem"/>
+				<!-- text not needed here -->
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">(left blank to stop example creating something automatically)</div>
+				</text>
 				<manufacturedDoseForm>
 					<coding>
 						<system value="http://example.org.uk/fhir/doseform"/>
@@ -137,6 +147,11 @@
 		<resource>
 			<ManufacturedItemDefinition>
 				<id value="creamItem"/>
+				<!-- text not needed here -->
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">(left blank to stop example creating something automatically)</div>
+				</text>
 				<manufacturedDoseForm>
 					<coding>
 						<system value="http://example.org.uk/fhir/doseform"/>
