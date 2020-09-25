@@ -10,45 +10,162 @@
 				<text>
 					<status value="generated"/>
 					<div xmlns="http://www.w3.org/1999/xhtml">
-						<p><b>Generated Narrative</b></p>
-						<p><b>id</b>: drug-combo-product</p>
-						<p><b>identifier</b>: id: ThrushTreatCombo</p>
-						<p><b>combinedPharmaceuticalDoseForm</b>: <span title="Codes: {http://example.org.uk/fhir/doseform Tablet and Cream for topical application}">Tablet and Cream for topical application</span></p>
-						<p><b>packagedMedicinalProduct</b>: <a name="packageCombo"> </a></p>
+						<p>
+							<b>
+								Generated Narrative
+							</b>
+						</p>
+						<p>
+							<b>
+								id
+							</b>
+							: drug-combo-product
+						</p>
+						<p>
+							<b>
+								identifier
+							</b>
+							: id: ThrushTreatCombo
+						</p>
+						<p>
+							<b>
+								combinedPharmaceuticalDoseForm
+							</b>
+							:
+							<span title="Codes: {http://example.org.uk/fhir/doseform Tablet and Cream for topical application}">
+								Tablet and Cream for topical application
+							</span>
+						</p>
+						<p>
+							<b>
+								packagedMedicinalProduct
+							</b>
+							:
+							<a name="packageCombo"/>
+						</p>
 						<blockquote>
-							<p><b>id</b>:packageCombo</p>
-							<blockquote><p><b>package (outer)</b></p>
-								<p><b>type</b>:<span title="Codes: ">Box</span></p>
+							<p>
+								<b>
+									id
+								</b>
+								:packageCombo
+							</p>
+							<blockquote>
+								<p>
+									<b>
+										package (outer)
+									</b>
+								</p>
+								<p>
+									<b>
+										type
+									</b>
+									:
+									<span title="Codes: ">
+										Box
+									</span>
+								</p>
 								<blockquote>
-									<p><b>Package (inner 1)</b></p>
-									<p><b>Type</b>: Blister pack</p>
-									<p><b>Items quantity</b>: 1</p>
+									<p>
+										<b>
+											Package (inner 1)
+										</b>
+									</p>
+									<p>
+										<b>
+											Type
+										</b>
+										: Blister pack
+									</p>
+									<p>
+										<b>
+											Items quantity
+										</b>
+										: 1
+									</p>
 									<blockquote>
-										<p><b>Form</b>: Tablet</p>
-										<blockquote><p><b>Ingredient</b>: 150mg fluconazole</p></blockquote>
+										<p>
+											<b>
+												Form
+											</b>
+											: Tablet
+										</p>
+										<blockquote>
+											<p>
+												<b>
+													Ingredient
+												</b>
+												: 150mg fluconazole
+											</p>
+										</blockquote>
 									</blockquote>
 								</blockquote>
 								<blockquote>
-									<p><b>Package (inner 2)</b></p>
-									<p><b>Type</b>: Tube</p>
-									<p><b>Items quantity</b>: 20g</p>
-									<blockquote><p><b>Package Item</b>: Cap</p></blockquote>
+									<p>
+										<b>
+											Package (inner 2)
+										</b>
+									</p>
+									<p>
+										<b>
+											Type
+										</b>
+										: Tube
+									</p>
+									<p>
+										<b>
+											Items quantity
+										</b>
+										: 20g
+									</p>
 									<blockquote>
-										<p><b>Form</b>: Cream for topical application</p>
-										<blockquote><p><b>Ingredient</b>: 2% w/w clotrimazole</p></blockquote>
+										<p>
+											<b>
+												Package Item
+											</b>
+											: Cap
+										</p>
+									</blockquote>
+									<blockquote>
+										<p>
+											<b>
+												Form
+											</b>
+											: Cream for topical application
+										</p>
+										<blockquote>
+											<p>
+												<b>
+													Ingredient
+												</b>
+												: 2% w/w clotrimazole
+											</p>
+										</blockquote>
 									</blockquote>
 								</blockquote>
 							</blockquote>
 						</blockquote>
-						<h3>Names</h3>
+						<h3>
+							Names
+						</h3>
 						<table class="grid">
 							<tr>
-								<td>-</td>
-								<td><b>ProductName</b></td>
+								<td>
+									-
+								</td>
+								<td>
+									<b>
+										ProductName
+									</b>
+								</td>
 							</tr>
 							<tr>
-								<td>*</td>
-								<td>ThrushTreat Combo</td>
+								<td>
+									*
+								</td>
+								<td>
+									ThrushTreat Combo
+								</td>
 							</tr>
 						</table>
 					</div>
@@ -64,7 +181,9 @@
 					</coding>
 				</combinedPharmaceuticalDoseForm>
 				<packagedMedicinalProduct>
+					<reference>
 					<reference value="PackagedProductDefinition/packageCombo"/>
+					</reference>
 				</packagedMedicinalProduct>
 				<name>
 					<productName value="ThrushTreat Combo"/>
@@ -80,7 +199,9 @@
 				<!-- text not needed here -->
 				<text>
 					<status value="generated"/>
-					<div xmlns="http://www.w3.org/1999/xhtml">(left blank to stop example creating something automatically)</div>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						(left blank to stop example creating something automatically)
+					</div>
 				</text>
 				<package>
 					<type>
@@ -96,7 +217,9 @@
 						</type>
 						<containedItem>
 							<item>
+								<reference>
 								<reference value="ManufacturedItemDefinition/tabletItem"/>
+								</reference>
 							</item>
 							<amountQuantity>
 								<value value="1"/>
@@ -111,7 +234,9 @@
 						</type>
 						<containedItem>
 							<item>
+								<reference>
 								<reference value="ManufacturedItemDefinition/creamItem"/>
+								</reference>
 							</item>
 							<amountQuantity>
 								<value value="1"/>
@@ -130,7 +255,9 @@
 				<!-- text not needed here -->
 				<text>
 					<status value="generated"/>
-					<div xmlns="http://www.w3.org/1999/xhtml">(left blank to stop example creating something automatically)</div>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						(left blank to stop example creating something automatically)
+					</div>
 				</text>
 				<manufacturedDoseForm>
 					<coding>
@@ -150,7 +277,9 @@
 				<!-- text not needed here -->
 				<text>
 					<status value="generated"/>
-					<div xmlns="http://www.w3.org/1999/xhtml">(left blank to stop example creating something automatically)</div>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						(left blank to stop example creating something automatically)
+					</div>
 				</text>
 				<manufacturedDoseForm>
 					<coding>

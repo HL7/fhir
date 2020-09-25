@@ -4,57 +4,176 @@
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p><b>Generated Narrative</b></p>
-			<p><b>id</b>: drug-and-device</p>
-			<p><b>identifier</b>: id: Wonderdrug+</p>
-			<p><b>Combined Pharmaceutical Dose Form</b>: <span
-				title="Codes: {http://example.org.uk/fhir/doseform solution for injection}">solution for injection</span></p>
-			<p><b>Packaged Product</b>: <a name="package"> </a></p>
+			<p>
+				<b>
+					Generated Narrative
+				</b>
+			</p>
+			<p>
+				<b>
+					id
+				</b>
+				: drug-and-device
+			</p>
+			<p>
+				<b>
+					identifier
+				</b>
+				: id: Wonderdrug+
+			</p>
+			<p>
+				<b>
+					Combined Pharmaceutical Dose Form
+				</b>
+				:
+				<span title="Codes: {http://example.org.uk/fhir/doseform solution for injection}">
+					solution for injection
+				</span>
+			</p>
+			<p>
+				<b>
+					Packaged Product
+				</b>
+				:
+				<a name="package"/>
+			</p>
 			<blockquote>
-				<p><b>package</b></p>
+				<p>
+					<b>
+						package
+					</b>
+				</p>
 				<blockquote>
-					<p><b>Box</b></p>
+					<p>
+						<b>
+							Box
+						</b>
+					</p>
 					<blockquote>
-						<p><b>Inner box for Powder and Solution</b></p>
+						<p>
+							<b>
+								Inner box for Powder and Solution
+							</b>
+						</p>
 						<blockquote>
-							<p><b>Sachet</b></p>
+							<p>
+								<b>
+									Sachet
+								</b>
+							</p>
 							<blockquote>
-								<p><b>Item</b>:<a href="#liquidItem">Powder for Solution for Injection</a></p>
-								<p><b>Amount</b>: 5 mg</p>
-								<p><b>Ingredient</b>: Wondersubstance</p>
+								<p>
+									<b>
+										Item
+									</b>
+									:
+									<a href="#liquidItem">
+										Powder for Solution for Injection
+									</a>
+								</p>
+								<p>
+									<b>
+										Amount
+									</b>
+									: 5 mg
+								</p>
+								<p>
+									<b>
+										Ingredient
+									</b>
+									: Wondersubstance
+								</p>
 							</blockquote>
 						</blockquote>
 						<blockquote>
-							<p><b>Bottle</b></p>
+							<p>
+								<b>
+									Bottle
+								</b>
+							</p>
 							<blockquote>
-								<p><b>Item</b>:<a href="#liquidItem">Solvent</a></p>
-								<p><b>Amount</b>: 20 ml</p>
-								<p><b>Ingredient</b>: Distilled Water</p>
+								<p>
+									<b>
+										Item
+									</b>
+									:
+									<a href="#liquidItem">
+										Solvent
+									</a>
+								</p>
+								<p>
+									<b>
+										Amount
+									</b>
+									: 20 ml
+								</p>
+								<p>
+									<b>
+										Ingredient
+									</b>
+									: Distilled Water
+								</p>
 							</blockquote>
 						</blockquote>
 					</blockquote>
 					<blockquote>
-						<p><b>Foil bag</b></p>
+						<p>
+							<b>
+								Foil bag
+							</b>
+						</p>
 						<blockquote>
-							<p><b>Device</b>:<a href="#syringeDevice">Syringe</a></p>
-							<p><b>amount</b>: 1</p>
+							<p>
+								<b>
+									Device
+								</b>
+								:
+								<a href="#syringeDevice">
+									Syringe
+								</a>
+							</p>
+							<p>
+								<b>
+									amount
+								</b>
+								: 1
+							</p>
 						</blockquote>
 					</blockquote>
 				</blockquote>
 			</blockquote>
-			<p><b>Administrable Product</b>:</p>
+			<p>
+				<b>
+					Administrable Product
+				</b>
+				:
+			</p>
 			<blockquote>
-				<p>Wonderdrug, dose form: Solution For Injection</p>
+				<p>
+					Wonderdrug, dose form: Solution For Injection
+				</p>
 			</blockquote>
-			<h3>Names</h3>
+			<h3>
+				Names
+			</h3>
 			<table class="grid">
 				<tr>
-					<td>-</td>
-					<td><b>ProductName</b></td>
+					<td>
+						-
+					</td>
+					<td>
+						<b>
+							ProductName
+						</b>
+					</td>
 				</tr>
 				<tr>
-					<td>*</td>
-					<td>Wonderdrug+ liquid 20ml</td>
+					<td>
+						*
+					</td>
+					<td>
+						Wonderdrug+ liquid 20ml
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -83,7 +202,9 @@
 							</type>
 							<containedItem>
 								<item>
+									<reference>
 									<reference value="#powderItem"/>
+									</reference>
 								</item>
 								<amountQuantity>
 									<value value="5"/>
@@ -99,7 +220,9 @@
 							</type>
 							<containedItem>
 								<item>
+									<reference>
 									<reference value="#solventItem"/>
+									</reference>
 								</item>
 								<amountQuantity>
 									<value value="20"/>
@@ -116,7 +239,9 @@
 						</type>
 						<containedItem>
 							<item>
+								<reference>
 								<reference value="#syringeDevice"/>
+								</reference>
 							</item>
 							<amountQuantity>
 								<value value="1"/>
@@ -138,7 +263,7 @@
 			</manufacturedDoseForm>
 			<ingredient>
 				<reference>
-				<reference value="#ingredientSolvent"/>
+					<reference value="#ingredientSolvent"/>
 				</reference>
 			</ingredient>
 		</ManufacturedItemDefinition>
@@ -154,7 +279,7 @@
 			</manufacturedDoseForm>
 			<ingredient>
 				<reference>
-				<reference value="#ingredientPowder"/>
+					<reference value="#ingredientPowder"/>
 				</reference>
 			</ingredient>
 		</ManufacturedItemDefinition>
@@ -182,13 +307,16 @@
 				</coding>
 			</role>
 			<substance>
-				<codeCodeableConcept>
+				<code>
+					<concept>
 					<coding>
-						<system value="http://example.org.uk/fhir/ingredients"/> <!-- SNOMED perhaps -->
+						<system value="http://example.org.uk/fhir/ingredients"/>
+						<!-- SNOMED perhaps -->
 						<code value="12345"/>
 						<display value="Wonderdrug BP"/>
 					</coding>
-				</codeCodeableConcept>
+					</concept>
+				</code>
 				<!-- can be strength here but not necessary for this example -->
 			</substance>
 		</Ingredient>
@@ -203,13 +331,15 @@
 				</coding>
 			</role>
 			<substance>
-				<codeCodeableConcept>
+				<code>
+					<concept>
 					<coding>
 						<system value="http://snomed.info/sct"/>
 						<code value="444883009"/>
 						<display value="Distilled water"/>
 					</coding>
-				</codeCodeableConcept>
+					</concept>
+				</code>
 			</substance>
 		</Ingredient>
 	</contained>
@@ -251,7 +381,9 @@
 		<reference value="#adminsitrable-form"/>
 	</pharmaceuticalProduct>
 	<packagedMedicinalProduct>
+		<reference>
 		<reference value="#package"/>
+		</reference>
 	</packagedMedicinalProduct>
 	<name>
 		<productName value="Wonderdrug liquid 20ml (integral syringe)"/>
