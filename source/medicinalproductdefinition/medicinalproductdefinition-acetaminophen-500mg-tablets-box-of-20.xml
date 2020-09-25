@@ -29,7 +29,9 @@
             </coding>
          </manufacturedDoseForm>
          <ingredient>
+            <reference>
             <reference value="#Acetamin-ing-500"/>
+            </reference>
          </ingredient>
       </ManufacturedItemDefinition>
    </contained>

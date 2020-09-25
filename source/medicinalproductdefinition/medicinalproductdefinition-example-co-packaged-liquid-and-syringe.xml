@@ -20,7 +20,7 @@
 					<p><b>Ingredient</b>: Wondersubstance BP</p>
 				</blockquote>
 				<blockquote>
-					<p><b>Contained tem</b></p>
+					<p><b>Contained Item</b></p>
 					<p><b>Device</b>:<a href="#syringeDevice">Syringe</a></p>
 					<p><b>Amount</b>: 1</p>
 				</blockquote>
@@ -83,7 +83,9 @@
 				</coding>
 			</manufacturedDoseForm>
 			<ingredient>
+				<reference>
 				<reference value="#ingredient"/>
+				</reference>
 			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
