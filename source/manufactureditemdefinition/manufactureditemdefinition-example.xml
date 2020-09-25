@@ -19,7 +19,9 @@
     <reference value="Organization/example"/>
   </manufacturer>
   <ingredient>
-    <reference value="Ingredient/example"/>
+    <reference>
+      <reference value="Ingredient/example"/>
+    </reference>
   </ingredient>
   <property>
     <type>
