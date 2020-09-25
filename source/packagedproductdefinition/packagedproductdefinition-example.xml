@@ -7,15 +7,6 @@
     <value value="{PCID}"/>
   </identifier>
   <description value="ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS."/>
-  <batchIdentifier>
-    <outerPackaging>
-      <system value="http://ema.europa.eu/example/baid1"/>
-      <value value="AAF5699"/>
-      <period>
-        <end value="2016-06-06"/>
-      </period>
-    </outerPackaging>
-  </batchIdentifier>
   <!-- outer packaging -->
   <package>
     <type>
