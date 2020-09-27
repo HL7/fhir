@@ -1,141 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PackagedProductDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd" xmlns="http://hl7.org/fhir">
-  <id value="example"/>
-  <identifier>
-    <system value="http://ema.europa.eu/example/pcid"/>
-    <value value="{PCID}"/>
-  </identifier>
-  <description value="ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS."/>
-  <!-- outer packaging -->
-  <package>
-    <type>
-      <coding>
-        <system value="http://ema.europa.eu/example/packageitemcontainertype"/>
-        <code value="Carton"/>
-      </coding>
-    </type>
-    <!-- top level, so this can only ever be 1, but it is optional -->
-    <quantity value="1"/> 
-    <material>
-      <coding>
-        <system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
-        <code value="Paperboard"/>
-      </coding>
-    </material>
-    <manufacturer>
-      <reference value="Organization/example"/>
-    </manufacturer>
-    <property>
-      <type>
-        <coding>
-          <code value="height"/>
-        </coding>
-      </type>
-      <valueQuantity>
-        <value value="50"/>
-        <unit value="mm"/>
-      </valueQuantity>
-    </property>
-    <property>
-      <type>
-        <coding>
-          <code value="width"/>
-        </coding>
-      </type>
-      <valueQuantity>
-        <value value="45"/>
-        <unit value="mm"/>
-      </valueQuantity>
-    </property>
-    <property>
-      <type>
-        <coding>
-          <code value="depth"/>
-        </coding>
-      </type>
-      <valueQuantity>
-        <value value="23.5"/>
-        <unit value="mm"/>
-      </valueQuantity>
-    </property>
-    <!-- inner packaging -->
-    <package>
-      <type>
-        <coding>
-          <system value="http://ema.europa.eu/example/packageitemcontainertype"/>
-          <code value="Blister"/>
-        </coding>
-      </type>
-      <quantity value="1"/>
-      <material>
-        <coding>
-          <system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
-          <code value="PVC"/>
-        </coding>
-      </material>
-      <material>
-        <coding>
-          <system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
-          <code value="PVDC"/>
-        </coding>
-      </material>
-      <material>
-        <coding>
-          <system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
-          <code value="alu"/>
-        </coding>
-      </material>
-      <shelfLifeStorage>
-        <type>
-          <coding>
-            <system value="http://ema.europa.eu/example/shelfLifeTypePlaceHolder"/>
-            <code value="ShelfLifeofPackagedMedicinalProduct"/>
-          </coding>
-        </type>
-        <periodQuantity>
-          <value value="3"/>
-          <unit value="a"/>
-        </periodQuantity>
-        <specialPrecautionsForStorage>
-          <coding>
-            <system value="http://ema.europa.eu/example/specialprecautionsforstorage"/>
-            <code value="none"/>
-          </coding>
-        </specialPrecautionsForStorage>
-      </shelfLifeStorage>
-      <manufacturer>
-        <reference value="Organization/example"/>
-      </manufacturer>
-      <property>
-        <type>
-          <coding>
-            <code value="height"/>
-          </coding>
-        </type>
-        <valueQuantity>
-          <value value="45"/>
-          <unit value="mm"/>
-        </valueQuantity>
-      </property>
-      <property>
-        <type>
-          <coding>
-            <code value="width"/>
-          </coding>
-        </type>
-        <valueQuantity>
-          <value value="35"/>
-          <unit value="mm"/>
-        </valueQuantity>
-      </property>
-      <containedItem>
-        <item>
-          <reference value="ManufacturedItemDefinition/tablet"/>
-        </item>
-        <!-- 10 tablets in the blister pack -->
-        <amountInteger value="10"/>
-      </containedItem>
-    </package>
-  </package>
+<PackagedProductDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd" xmlns="http://hl7.org/fhir">
+	<id value="example"/>
+	<identifier>
+		<system value="http://ema.europa.eu/example/pcid"/>
+		<value value="{PCID}"/>
+	</identifier>
+	<description value="ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS."/>
+	<!-- outer packaging -->
+	<package>
+		<type>
+			<coding>
+				<system value="http://ema.europa.eu/example/packageitemcontainertype"/>
+				<code value="Carton"/>
+			</coding>
+		</type>
+		<!-- top level, so this can only ever be 1, but it is optional -->
+		<quantity value="1"/>
+		<material>
+			<coding>
+				<system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
+				<code value="Paperboard"/>
+			</coding>
+		</material>
+		<manufacturer>
+			<reference value="Organization/example"/>
+		</manufacturer>
+		<property>
+			<type>
+				<coding>
+					<code value="height"/>
+				</coding>
+			</type>
+			<valueQuantity>
+				<value value="50"/>
+				<unit value="mm"/>
+			</valueQuantity>
+		</property>
+		<property>
+			<type>
+				<coding>
+					<code value="width"/>
+				</coding>
+			</type>
+			<valueQuantity>
+				<value value="45"/>
+				<unit value="mm"/>
+			</valueQuantity>
+		</property>
+		<property>
+			<type>
+				<coding>
+					<code value="depth"/>
+				</coding>
+			</type>
+			<valueQuantity>
+				<value value="23.5"/>
+				<unit value="mm"/>
+			</valueQuantity>
+		</property>
+		<!-- inner packaging -->
+		<package>
+			<type>
+				<coding>
+					<system value="http://ema.europa.eu/example/packageitemcontainertype"/>
+					<code value="Blister"/>
+				</coding>
+			</type>
+			<quantity value="1"/>
+			<material>
+				<coding>
+					<system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
+					<code value="PVC"/>
+				</coding>
+			</material>
+			<material>
+				<coding>
+					<system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
+					<code value="PVDC"/>
+				</coding>
+			</material>
+			<material>
+				<coding>
+					<system value="http://ema.europa.eu/example/packageItemContainerMaterial"/>
+					<code value="alu"/>
+				</coding>
+			</material>
+			<shelfLifeStorage>
+				<type>
+					<coding>
+						<system value="http://ema.europa.eu/example/shelfLifeTypePlaceHolder"/>
+						<code value="ShelfLifeofPackagedMedicinalProduct"/>
+					</coding>
+				</type>
+				<periodQuantity>
+					<value value="3"/>
+					<unit value="a"/>
+				</periodQuantity>
+				<specialPrecautionsForStorage>
+					<coding>
+						<system value="http://ema.europa.eu/example/specialprecautionsforstorage"/>
+						<code value="none"/>
+					</coding>
+				</specialPrecautionsForStorage>
+			</shelfLifeStorage>
+			<manufacturer>
+				<reference value="Organization/example"/>
+			</manufacturer>
+			<property>
+				<type>
+					<coding>
+						<code value="height"/>
+					</coding>
+				</type>
+				<valueQuantity>
+					<value value="45"/>
+					<unit value="mm"/>
+				</valueQuantity>
+			</property>
+			<property>
+				<type>
+					<coding>
+						<code value="width"/>
+					</coding>
+				</type>
+				<valueQuantity>
+					<value value="35"/>
+					<unit value="mm"/>
+				</valueQuantity>
+			</property>
+			<containedItem>
+				<item>
+					<reference>
+					<reference value="ManufacturedItemDefinition/tablet"/>
+					</reference>
+				</item>
+				<!-- 10 tablets in the blister pack -->
+				<amountInteger value="10"/>
+			</containedItem>
+		</package>
+	</package>
 </PackagedProductDefinition>

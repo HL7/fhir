@@ -27,7 +27,7 @@
 			</manufacturedDoseForm>
 			<ingredient>
 				<reference>
-				<reference value="Ingredient/liquidIngredient"/>
+					<reference value="Ingredient/liquidIngredient"/>
 				</reference>
 			</ingredient>
 		</ManufacturedItemDefinition>
@@ -43,8 +43,10 @@
 	         This refers to items physically contained in the package. -->
 		<containedItem>
 			<item>
+				<reference>
 				<!-- reference an item defined above -->
 				<reference value="#liquidItem"/>
+				</reference>
 			</item>
 			<amountQuantity>
 				<value value="20"/>
@@ -53,8 +55,10 @@
 		</containedItem>
 		<containedItem>
 			<item>
+				<reference>
 				<!-- reference an item defined above -->
 				<reference value="#syringeDevice"/>
+				</reference>
 			</item>
 		</containedItem>
 	</package>
