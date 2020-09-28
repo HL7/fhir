@@ -79,11 +79,6 @@
 			<definition value="Text is displayed as a paragraph in a sequential position between sibling items (default behavior)"/>
 		</concept>
 		<concept>
-			<code value="prompt"/>
-			<display value="Prompt"/>
-			<definition value="Text is displayed immediately below or within the answer-entry area of the containing question item (typically as a guide for what to enter)"/>
-		</concept>
-		<concept>
 			<code value="unit"/>
 			<display value="Unit"/>
 			<definition value="Text is displayed adjacent (horizontally or vertically) to the answer space for the parent question, typically to indicate a unit of measure"/>
