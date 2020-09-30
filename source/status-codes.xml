@@ -17,6 +17,7 @@
   
   
   
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4000,7 +4001,7 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">InventoryReport</Data></Cell>
+    <Cell><Data ss:Type="String">InventoryReport.status</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
     <Cell><Data ss:Type="String">requested</Data></Cell>
@@ -4022,7 +4023,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>82</TopRowBottomPane>
+   <TopRowBottomPane>88</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
