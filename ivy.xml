@@ -5,15 +5,15 @@
 		<dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="4.0.0"/>
 		<!-- HAPI FHIR Core -->
 
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.utilities" rev="5.1.7"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2" rev="5.1.7"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2016may" rev="5.1.7"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu3" rev="5.1.7"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r4" rev="5.1.7"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r5" rev="5.1.7"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.convertors" rev="5.1.7"/>
-		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.validation" rev="5.1.7"/>
-		<dependency org="org.hl7.fhir.publisher" name="org.hl7.fhir.publisher.core" rev="1.1.17"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.utilities" rev="5.1.13"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2" rev="5.1.13"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu2016may" rev="5.1.13"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.dstu3" rev="5.1.13"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r4" rev="5.1.13"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.r5" rev="5.1.13"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.convertors" rev="5.1.13"/>
+		<dependency org="ca.uhn.hapi.fhir" name="org.hl7.fhir.validation" rev="5.1.13"/>
+		<dependency org="org.hl7.fhir.publisher" name="org.hl7.fhir.publisher.core" rev="1.1.26"/>
     
 		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" />
 		<dependency org="com.google.code.gson" name="gson" rev="2.8.5"/>

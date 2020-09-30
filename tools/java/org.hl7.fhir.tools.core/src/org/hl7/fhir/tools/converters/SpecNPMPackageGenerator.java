@@ -138,7 +138,7 @@ public class SpecNPMPackageGenerator {
     
     System.out.println(" .. Building NPM Package");
 
-    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folder, "hl7.fhir.r5.core.tgz"), "http://hl7.org/fhir", url, PackageType.CORE, ig, genDate);
+    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folder, "hl7.fhir.r5.core.tgz"), "http://hl7.org/fhir", url, PackageType.CORE, ig, genDate, true);
     
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     new org.hl7.fhir.r5.formats.JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
@@ -173,7 +173,7 @@ public class SpecNPMPackageGenerator {
     ig.setDescription("FHIR Core package - the NPM package that contains all the definitions for the base FHIR specification (XML)");
     ig.setPackageId("hl7.fhir.r5.corexml");
 
-    npm = new NPMPackageGenerator(Utilities.path(folder, "hl7.fhir.r5.corexml.tgz"), "http://hl7.org/fhir", url, PackageType.CORE, ig, genDate);
+    npm = new NPMPackageGenerator(Utilities.path(folder, "hl7.fhir.r5.corexml.tgz"), "http://hl7.org/fhir", url, PackageType.CORE, ig, genDate, true);
     bs = new ByteArrayOutputStream();
     new org.hl7.fhir.r5.formats.XmlParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
     npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());

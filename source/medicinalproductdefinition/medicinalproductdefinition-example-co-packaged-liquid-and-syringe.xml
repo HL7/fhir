@@ -1,6 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicinalProductDefinition xmlns="http://hl7.org/fhir">
 	<id value="drug-and-device"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>
+					Generated Narrative
+				</b>
+			</p>
+			<p>
+				<b>
+					Id
+				</b>
+				: drug-and-device
+			</p>
+			<p>
+				<b>
+					Identifier
+				</b>
+				: Wonderdrug+
+			</p>
+			<p>
+				<b>
+					Combined Pharmaceutical Dose Form
+				</b>
+				:
+				<span title="Codes: {http://example.org.uk/fhir/doseform solution for injection}">
+					solution for injection
+				</span>
+			</p>
+			<p>
+				<b>
+					Packaged Product
+				</b>
+				:
+				<a name="package"/>
+			</p>
+			<blockquote>
+				<p>
+					<b>
+						Package
+					</b>
+				</p>
+				<blockquote>
+					<p>
+						<b>
+							Contained Item
+						</b>
+					</p>
+					<p>
+						<b>
+							Item
+						</b>
+						:
+						<a href="#liquidItem">
+							Solution for Injection
+						</a>
+					</p>
+					<p>
+						<b>
+							Amount
+						</b>
+						: 20 ml
+					</p>
+					<p>
+						<b>
+							Ingredient
+						</b>
+						: Wondersubstance BP
+					</p>
+				</blockquote>
+				<blockquote>
+					<p>
+						<b>
+							Contained Item
+						</b>
+					</p>
+					<p>
+						<b>
+							Device
+						</b>
+						:
+						<a href="#syringeDevice">
+							Syringe
+						</a>
+					</p>
+					<p>
+						<b>
+							Amount
+						</b>
+						: 1
+					</p>
+				</blockquote>
+			</blockquote>
+			<h3>
+				Names
+			</h3>
+			<table class="grid">
+				<tr>
+					<td>
+						-
+					</td>
+					<td>
+						<b>
+							Product Name
+						</b>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						*
+					</td>
+					<td>
+						Wonderdrug+ liquid 20ml
+					</td>
+				</tr>
+			</table>
+		</div>
+	</text>
 	<contained>
 		<PackagedProductDefinition>
 			<id value="package"/>
@@ -8,7 +126,9 @@
 				<!-- can be more details of the package here, but not necessary for this use case -->
 				<containedItem>
 					<item>
+						<reference>
 						<reference value="#liquidItem"/>
+						</reference>
 					</item>
 					<amountQuantity>
 						<value value="20"/>
@@ -17,7 +137,9 @@
 				</containedItem>
 				<containedItem>
 					<item>
+						<reference>
 						<reference value="#syringeDevice"/>
+						</reference>
 					</item>
 				</containedItem>
 			</package>
@@ -46,7 +168,9 @@
 				</coding>
 			</manufacturedDoseForm>
 			<ingredient>
-				<reference value="#ingredient"/>
+				<reference>
+					<reference value="#ingredient"/>
+				</reference>
 			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
@@ -60,13 +184,16 @@
 				</coding>
 			</role>
 			<substance>
-				<codeCodeableConcept>
+				<code>
+					<concept>
 					<coding>
-						<system value="http://example.org.uk/fhir/ingredients"/> <!-- SNOMED perhaps -->
+						<system value="http://example.org.uk/fhir/ingredients"/>
+						<!-- SNOMED perhaps -->
 						<code value="12345"/>
 						<display value="Wondersubstance BP"/>
 					</coding>
-				</codeCodeableConcept>
+					</concept>
+				</code>
 				<!-- can be strength here but not necessary for this use case -->
 			</substance>
 		</Ingredient>
@@ -82,7 +209,9 @@
 		</coding>
 	</combinedPharmaceuticalDoseForm>
 	<packagedMedicinalProduct>
+		<reference>
 		<reference value="#package"/>
+		</reference>
 	</packagedMedicinalProduct>
 	<name>
 		<productName value="Wonderdrug+ liquid 20ml"/>

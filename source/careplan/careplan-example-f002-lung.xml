@@ -65,7 +65,7 @@
     <reference value="#goal"/>
   </goal>
   <activity>
-    <detail>
+    <plannedActivityDetail>
       <kind value="ServiceRequest"/>
       <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
       <code>
@@ -82,6 +82,6 @@
         <reference value="Practitioner/f003"/>
         <display value="M.I.M. Versteegh"/>
       </performer>
-    </detail>
+    </plannedActivityDetail>
   </activity>
 </CarePlan>

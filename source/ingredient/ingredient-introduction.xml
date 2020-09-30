@@ -2,16 +2,22 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
+		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
 		<p>
 			A material used in the preparation of a medicinal/pharmaceutical product, within the context of a particular use. 
 		</p>
 		<p>
 			An ingredient is part of a product, either alone or in combination with other ingredients. 
 			It is essentially a substance with the addition of the specific role it is playing in the product, which may include whether it is an active or inactive 
-			substance and what the stength is (the quantity of substance compared to the whole product).
+			substance and what the strength is (the quantity of substance compared to the whole product).
 			The ingredient is represented in the context of a given product, because its role and strength are a function of what it is used in. 
 			It is expected that the same substance used in a different role, or with a different strength, would be a different Ingredient resource instance.
 			Resource instances may however be shared by very similar products (e.g. different pack sizes of the same "product").
+		</p>
+		<p>
+			Some other resources, such as <a href="medication.html">Medication</a> and <a href="substance.html">Substance</a> 
+			allow specifying a basic ingredient representation. When more detail is needed such as for manufacturing or regulatory use, 
+			use Ingredient.
 		</p>
 	</div>
 </div>
