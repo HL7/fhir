@@ -163,7 +163,7 @@
 					</td>
 					<td>
 						<b>
-							ProductName
+							Product Name
 						</b>
 					</td>
 				</tr>
@@ -345,7 +345,7 @@
 	</contained>
 	<contained>
 		<AdministrableProductDefinition>
-			<id value="adminsitrable-form"/>
+			<id value="administrable-form"/>
 			<administrableDoseForm>
 				<coding>
 					<code value="solution for injection"/>
@@ -377,9 +377,6 @@
 			<code value="Powder and solution for injection with itegral syringe"/>
 		</coding>
 	</combinedPharmaceuticalDoseForm>
-	<pharmaceuticalProduct>
-		<reference value="#adminsitrable-form"/>
-	</pharmaceuticalProduct>
 	<packagedMedicinalProduct>
 		<reference>
 		<reference value="#package"/>
@@ -388,4 +385,9 @@
 	<name>
 		<productName value="Wonderdrug liquid 20ml (integral syringe)"/>
 	</name>
+	<administrableProduct>
+		<product>
+			<reference value="#administrable-form"/>
+		</product>
+	</administrableProduct>
 </MedicinalProductDefinition>
