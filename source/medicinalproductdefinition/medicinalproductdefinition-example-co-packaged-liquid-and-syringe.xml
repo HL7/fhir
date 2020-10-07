@@ -210,7 +210,7 @@
 	</combinedPharmaceuticalDoseForm>
 	<packagedMedicinalProduct>
 		<reference>
-		<reference value="#package"/>
+			<reference value="#package"/>
 		</reference>
 	</packagedMedicinalProduct>
 	<name>
