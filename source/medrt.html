@@ -30,6 +30,25 @@
  <tr><td>Filter Properties</td><td>None are described yet.</td></tr>
 </table>
 
+<h3>Usage Notes</h3>
+<p>
+The MED-RT code system includes relationships between MED-RT concepts and concepts in external code systems, as well as 
+relationships between concepts only in the external code systems. The external code systems that MED-RT references 
+include RxNorm, MeSH, and SNOMED CT US Edition.
+</p>
+<p>
+The representation of the contents of MED-RT in a FHIR CodeSystem resource may contain all concepts defined as existing 
+solely in MED-RT, and relationships between concepts defined within MED-RT, and between MED-RT concepts and a concept 
+in an external code system. In addition, ConceptMap resource(s) will be needed in order to represent the relationships 
+in MED-RT that exist between external code systems.
+</p>
+<p>
+<i>Currently all references to external code systems in MED-RT are to a specific version of the external code system.</i>
+</p>
+<p>  
+For more information on MED-RT, see https://ncit.nci.nih.gov/ncitbrowser/pages/vocabulary.jsf?dictionary=MED-RT.   
+</p>
+
 <h3>Version Issues</h3>
 <p>
 MED-RT is released as part of UMLS.  Therefore, each successive release has the date of the UMLS release as its version.
@@ -42,7 +61,7 @@ MED-RT has no copyright acknowledgement required.  However, users must adhere to
 </p>
 
 <a name="filters"></a>
-<h3>MED-RT Filter Properties</h3>
+<h3>Filter Properties</h3>
 
 
 <p>
