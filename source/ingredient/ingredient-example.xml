@@ -11,12 +11,14 @@
 		<reference value="Organization/example"/>
 	</manufacturer>
 	<substance>
-		<codeCodeableConcept>
+		<code>
+			<concept>
 			<coding>
 				<system value="http://ema.europa.eu/example/substance"/>
 				<code value="EQUIXABAN"/>
 			</coding>
-		</codeCodeableConcept>
+			</concept>
+		</code>
 		<strength>
 			<presentation>
 				<numerator>

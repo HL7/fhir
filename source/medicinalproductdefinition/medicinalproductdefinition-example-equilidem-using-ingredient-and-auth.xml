@@ -2,93 +2,217 @@
 <MedicinalProductDefinition xmlns="http://hl7.org/fhir">
 	<id value="equilidem-with-ing-and-auth"/>
 	<text>
-		<status value="generated"/> 
+		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p><b>Generated Narrative</b></p>
-			<p><b>Id</b>: equilidem-with-ing-and-auth</p>
-			<p><b>Identifier</b>: Equilidem25</p>
-			<p><b>Combined Pharmaceutical Dose Form</b>: <span title="Codes: {http://example.org.uk/fhir/dosefom tablet}">tablet</span></p>
-			<p><b>Indication</b>: Prevention of venous thromboembolic events
-				(VTE) in adult patients who have undergone elective hip or knee
-				replacement surgery. Prevention of stroke and systemic embolism
-				in adult patients with non-valvular atrial fibrillation (NVAF),
-				with one or more risk factors, such as prior stroke or transient
-				ischaemic attack (TIA); age ≥ 75 years; hypertension; diabetes
-				mellitus; symptomatic heart failure (NYHA Class &gt;= II).
-				Treatment of deep vein thrombosis (DVT) and pulmonary embolism
-				(PE), and prevention of recurrent DVT and PE in adults.</p>
-			<p><b>Legal Status Of Supply</b>: <span
-				title="Codes: {http://example.org.uk/fhir/legalstatusofsupply POM}"
-				>Prescription only medicine</span></p>
-			<p><b>classification</b>: <span
-				title="Codes: {http://www.whocc.no/atc/example B01A}"
-				>B01A</span></p>
-			<p><b>Ingredients</b>: </p>
+			<p>
+				<b>
+					Generated Narrative
+				</b>
+			</p>
+			<p>
+				<b>
+					Id
+				</b>
+				: equilidem-with-ing-and-auth
+			</p>
+			<p>
+				<b>
+					Identifier
+				</b>
+				: Equilidem25
+			</p>
+			<p>
+				<b>
+					Combined Pharmaceutical Dose Form
+				</b>
+				:
+				<span title="Codes: {http://example.org.uk/fhir/dosefom tablet}">
+					tablet
+				</span>
+			</p>
+			<p>
+				<b>
+					Indication
+				</b>
+				: Prevention of venous thromboembolic events (VTE) in adult patients who have undergone elective hip or knee replacement surgery. Prevention of stroke and systemic embolism in adult patients with non-valvular atrial fibrillation (NVAF), with one or more risk factors, such as prior stroke or transient ischaemic attack (TIA); age ≥ 75 years; hypertension; diabetes mellitus; symptomatic heart failure (NYHA Class >= II). Treatment of deep vein thrombosis (DVT) and pulmonary embolism (PE), and prevention of recurrent DVT and PE in adults.
+			</p>
+			<p>
+				<b>
+					Legal Status Of Supply
+				</b>
+				:
+				<span title="Codes: {http://example.org.uk/fhir/legalstatusofsupply POM}">
+					Prescription only medicine
+				</span>
+			</p>
+			<p>
+				<b>
+					classification
+				</b>
+				:
+				<span title="Codes: {http://www.whocc.no/atc/example B01A}">
+					B01A
+				</span>
+			</p>
+			<p>
+				<b>
+					Ingredients
+				</b>
+				:
+			</p>
 			<blockquote>
-				<p><b>Role</b>:<span title="Codes: {http://example.org.uk/fhir/ingredientType active}">active</span></p>
+				<p>
+					<b>
+						Role
+					</b>
+					:
+					<span title="Codes: {http://example.org.uk/fhir/ingredientType active}">
+						active
+					</span>
+				</p>
 				<blockquote>
-					<p><b>substance</b>: <span title="Codes: {http://example.org.uk/fhir/substances 123456}">Equilidonium Phosphate</span></p>
+					<p>
+						<b>
+							substance
+						</b>
+						:
+						<span title="Codes: {http://example.org.uk/fhir/substances 123456}">
+							Equilidonium Phosphate
+						</span>
+					</p>
 					<table class="grid">
 						<tr>
-							<td>-</td>
-							<td><b>Presentation</b></td>
+							<td>
+								-
+							</td>
+							<td>
+								<b>
+									Presentation
+								</b>
+							</td>
 						</tr>
 						<tr>
-							<td>*</td>
-							<td>22 ml/1 tablet</td>
+							<td>
+								*
+							</td>
+							<td>
+								22 ml/1 tablet
+							</td>
 						</tr>
 					</table>
 				</blockquote>
 			</blockquote>
 			<blockquote>
-				<p><b>Role</b>: <span title="Codes: {http://example.org.uk/fhir/ingredientType excipient}">excipient</span></p>
-				<blockquote><p><b>substance</b>:
-					<span
-						title="Codes: {http://example.org.uk/fhir/substances 456789}"
-						>Calcium Carbonate</span></p>
-					<table
-						class="grid">
+				<p>
+					<b>
+						Role
+					</b>
+					:
+					<span title="Codes: {http://example.org.uk/fhir/ingredientType excipient}">
+						excipient
+					</span>
+				</p>
+				<blockquote>
+					<p>
+						<b>
+							substance
+						</b>
+						:
+						<span title="Codes: {http://example.org.uk/fhir/substances 456789}">
+							Calcium Carbonate
+						</span>
+					</p>
+					<table class="grid">
 						<tr>
-							<td>-</td>
-							<td><b>Presentation</b></td>
+							<td>
+								-
+							</td>
+							<td>
+								<b>
+									Presentation
+								</b>
+							</td>
 						</tr>
 						<tr>
-							<td>*</td>
-							<td>3 ml/tablet</td>
+							<td>
+								*
+							</td>
+							<td>
+								3 ml/tablet
+							</td>
 						</tr>
 					</table>
-				</blockquote></blockquote>
-			<h3>Names</h3>
+				</blockquote>
+			</blockquote>
+			<h3>
+				Names
+			</h3>
 			<table class="grid">
 				<tr>
-					<td>-</td>
-					<td><b>ProductName</b></td>
+					<td>
+						-
+					</td>
+					<td>
+						<b>
+							ProductName
+						</b>
+					</td>
 				</tr>
 				<tr>
-					<td>*</td>
-					<td>Equilidem 2.5 mg film-coated tablets</td>
+					<td>
+						*
+					</td>
+					<td>
+						Equilidem 2.5 mg film-coated tablets
+					</td>
 				</tr>
 			</table>
-			<h3>Cross References</h3>
+			<h3>
+				Cross References
+			</h3>
 			<table class="grid">
 				<tr>
-					<td>-</td>
-					<td><b>Product</b></td>
+					<td>
+						-
+					</td>
+					<td>
+						<b>
+							Product
+						</b>
+					</td>
 				</tr>
 				<tr>
-					<td>*</td>
-					<td>Link to generic equivalent</td>
+					<td>
+						*
+					</td>
+					<td>
+						Link to generic equivalent
+					</td>
 				</tr>
 			</table>
-			<h3>Manufacturing Business Operations</h3>
+			<h3>
+				Manufacturing Business Operations
+			</h3>
 			<table class="grid">
 				<tr>
-					<td>-</td>
-					<td><b>Manufacturer</b></td>
+					<td>
+						-
+					</td>
+					<td>
+						<b>
+							Manufacturer
+						</b>
+					</td>
 				</tr>
 				<tr>
-					<td>*</td>
-					<td><span>EquiliDrugCo Processing Inc.</span></td>
+					<td>
+						*
+					</td>
+					<td>
+						<span>
+							EquiliDrugCo Processing Inc.
+						</span>
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -127,13 +251,15 @@
 				</coding>
 			</role>
 			<substance>
-				<codeCodeableConcept>
+				<code>
+					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/substances"/>
 						<code value="123456"/>
 						<display value="Equilidonium Phosphate"/>
 					</coding>
-				</codeCodeableConcept>
+					</concept>
+				</code>
 				<strength>
 					<presentation>
 						<numerator>
@@ -159,13 +285,15 @@
 				</coding>
 			</role>
 			<substance>
-				<codeCodeableConcept>
+				<code>
+					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/substances"/>
 						<code value="456789"/>
 						<display value="Calcium Carbonate"/>
 					</coding>
-				</codeCodeableConcept>
+					</concept>
+				</code>
 				<strength>
 					<presentation>
 						<numerator>
@@ -191,8 +319,7 @@
 			<code value="tablet"/>
 		</coding>
 	</combinedPharmaceuticalDoseForm>
-	<indication
-		value="Prevention of venous thromboembolic events (VTE) in adult patients who have undergone elective hip or knee replacement surgery. Prevention of stroke and systemic embolism in adult patients with non-valvular atrial fibrillation (NVAF), with one or more risk factors, such as prior stroke or transient ischaemic attack (TIA); age ≥ 75 years; hypertension; diabetes mellitus; symptomatic heart failure (NYHA Class >= II). Treatment of deep vein thrombosis (DVT) and pulmonary embolism (PE), and prevention of recurrent DVT and PE in adults."/>
+	<indication value="Prevention of venous thromboembolic events (VTE) in adult patients who have undergone elective hip or knee replacement surgery. Prevention of stroke and systemic embolism in adult patients with non-valvular atrial fibrillation (NVAF), with one or more risk factors, such as prior stroke or transient ischaemic attack (TIA); age ≥ 75 years; hypertension; diabetes mellitus; symptomatic heart failure (NYHA Class >= II). Treatment of deep vein thrombosis (DVT) and pulmonary embolism (PE), and prevention of recurrent DVT and PE in adults."/>
 	<legalStatusOfSupply>
 		<coding>
 			<system value="http://example.org.uk/fhir/legalstatusofsupply"/>
@@ -207,10 +334,14 @@
 		</coding>
 	</classification>
 	<ingredient>
+		<reference>
 		<reference value="#EquilidoniumPhosphate"/>
+		</reference>
 	</ingredient>
 	<ingredient>
+		<reference>
 		<reference value="#CalciumCarbonate"/>
+		</reference>
 	</ingredient>
 	<name>
 		<productName value="Equilidem 2.5 mg film-coated tablets"/>
