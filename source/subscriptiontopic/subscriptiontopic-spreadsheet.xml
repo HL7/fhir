@@ -19,7 +19,7 @@
   
   
   <TabRatio>735</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1741,7 +1741,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">SubscriptionTopic.resourceTrigger.queryCriteria.previousNotExistsBehavior</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1754,7 +1754,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">pass | fail</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">test-passes | test-fails</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">What behavior a server will exhibit if the previous state of a resource does NOT exist (e.g., during a CREATE).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1795,7 +1795,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">SubscriptionTopic.resourceTrigger.queryCriteria.currentNotExistsBehavior</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1808,7 +1808,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">pass | fail</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">test-passes | test-fails</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">What behavior a server will exhibit if the current state of a resource does NOT exist (e.g., during a DELETE).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2000,7 +2000,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>25</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4450,7 +4450,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4493,24 +4492,24 @@
     <Cell ss:StyleID="s115"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See Confluence for syntax</Font></ss:Data></Comment></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font></ss:Data></Comment></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">pass</Data></Cell>
+   <Row ss:Height="29">
+    <Cell ss:StyleID="s161"><Data ss:Type="String">test-passes</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">pass</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">The requested conditional statement will pass if a matching state does not exist</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">test passes</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">The requested conditional statement will pass if a matching state does not exist (e.g., previous state during create)</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s163"/>
    </Row>
    <Row>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">fail</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">test-fails</Data></Cell>
     <Cell ss:StyleID="s142"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">fail</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">The requested conditional statement will fail if a matching state does not exist</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">test fails</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">The requested conditional statement will fail if a matching state does not exist (e.g., previous state during create)</Data></Cell>
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s152"/>
@@ -5040,6 +5039,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

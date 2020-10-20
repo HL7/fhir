@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3495,7 +3495,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4299,39 +4298,39 @@
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">get-ws-binding-token</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Resource | Instance</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"><Data ss:Type="Boolean">0</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Get a binding token for use in a websocket connection</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">This operation is used to get a token for a websocket client to use in order to bind to one or more subscriptions.</Data></Cell>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">get-ws-binding-token.ids</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">id</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Ids to include</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">At the Resource level, one or more parameters containing one or more comma-delimited FHIR ids of Subscriptions to get tokens for.  In the absense of any specified ids, the server returns tokens for all Subscriptions available to the caller with a channel-type of websocket.  At the Instance level, this parameter is ignored.</Data></Cell>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">get-ws-binding-token.return</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Parameters</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Returned Parameters resource with the websocket binding token and expiration information.</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">The returned Parameters MUST include a valueString named "token" and a valueDateTime named "expiration".  The returned Parameters MAY include a valueString named "subscriptions" with a comma-delimited list of subscriptions covered by this token.</Data></Cell>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4870,12 +4869,13 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

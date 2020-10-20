@@ -124,31 +124,37 @@
 		</p>
 		<ul>
 			<li>
-				Client connects a secure Web Socket to the server's webSocketUrl (see <a href="extension-capabilitystatement-websocket.html">websocket extension</a> in the server's <a href="capabilitystatement.html">CapabilityStatement</a>).
+				Client connects via either Web Socket (ws://) or Secure Web Socket (wss://) to the server's webSocketUrl (see <a href="extension-capabilitystatement-websocket.html">websocket extension</a> in the server's <a href="capabilitystatement.html">CapabilityStatement</a>).
 			</li>
 			<li>
 				Client authenticates to server using a server-specified Web socket protocol (e.g. OAuth bearer token presentation).
 			</li>
 			<li>
-				Client sends a bind :id message over the socket (using the logical id of the subscription). For example, the client might issue: bind 123).
+				Client requests a websocket binding token for one or more subscriptions, using `$getWsBindingToken` operation.
 			</li>
 			<li>
-				Server responds with a "bound :id" message to acknowledge.
+				Client sends a `bind-with-token :token` message over the socket (using a token returned from `$getWsBindingToken`).
 			</li>
 			<li>
-				Server sends a "ping :id" message to notify the client each time a new result is available
+				Server responds with one or more `subscription-notification` `handshake` bundles (one per subscription).  The Server MAY additionally include one or more notification messages for each subscription (e.g., queued messages while no client was connected, last 'n' messages, etc.).
+			</li>
+			<li>
+				Server sends a `subscription-notification` bundle to notify the client each time a new notification is available. The format of the notification is determined by the subscription configuration (e.g., `contentType` and `content` fields).
+			</li>
+			<li>
+				Client should request a new token via the `$getWsBindingToken` operation before the token expires. Successive calls to `bind-with-token` are allowed and do not require a new websocket connection.
 			</li>
 		</ul>
 		<p>
 			[%stu-note%]
-			Warning: The WebSocket channel type is being examined to provide functional parity with other channel types. In particular, the current system fails to address authentication and a desire for multiple subscriptions to be available to a single WebSocket connection. More work is required.
+			The Websocket channel is under active development. More testing and feedback are required to ensure all requirements are met before finalizing the specification.
 			[%end-note%]
 		</p>
 			
 			<a name="websockets-security"/>
 			<h4>Channel Security Notes</h4>
 			<p>
-				WebSocket security for FHIR Subscriptions is not yet well understood.  Implementers should be aware (at minimum) of the following areas:
+				WebSocket security poses several challenges specific to the channel.  When implementing websockets for notifications, please keep in mind the following list of some areas of concern:
 			</p>
 			<ul>
 				<li>
