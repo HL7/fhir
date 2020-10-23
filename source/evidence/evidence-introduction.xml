@@ -19,11 +19,4 @@
 <p>The Evidence Resource is the central atomic component for the Evidence-related resources. The Evidence Resource may reference multiple Group and EvidenceVariable Resources; in these cases, the Group and EvidenceVariable Resources to which an Evidence Resource points does <i>not</i> refer back to the Evidence. In the context of evidence synthesis, an EvidenceVariable Resource may reference Evidence Resources where the EvidenceVariable Resource is used to define the set of evidence being synthesized.</p>
 </div>
 
-<div>
-<a name="references"></a>
-<h2>References</h2>
-<p>No resources refer to this resource directly.</p>
-<p>This resource does not implement any patterns.</p>
-</div>
-
 </div>
