@@ -956,7 +956,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s69"><Data ss:Type="String">PackagedProductDefinition.package</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Backbone Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1239,7 +1239,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
