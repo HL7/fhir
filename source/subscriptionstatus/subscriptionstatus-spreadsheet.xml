@@ -5470,13 +5470,13 @@
     <Cell ss:StyleID="s144"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">Message Notification</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Example of a notification wrapped in FHIR Messaging</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0f322dbe-4f8d-4cbd-9ecb-bc8dc6f65f6a</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">notification-message-id-only.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s143"/>
@@ -5776,7 +5776,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

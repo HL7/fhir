@@ -17,7 +17,7 @@
 	</p>
 	
 	<a name="concept-definition" />
-	<h3>Concept Definition</h3>
+	<h3>Conceptual Definition</h3>
 	<p>
 		Subscription Topics MUST always document the concept it represents.  While a short definition is included in the <code>SubscriptionTopic</code> itself, this documentation will typically not be sufficient for implementers.  Definitions must be clear and specific.  For example, if the goal is to define an 'admission' topic, the single word is common enough to feel sufficient - implementers generally know what an 'admission' is and could implement something that would qualify.  However, is the intention to represent a patient being physically admitted to a care facility, or the start of a clinical encounter?  Either definition is common, and without more information implementations will not be consistent.  Without complete and specific definitions, server implementions will vary and clients will have unexpected behavior.
 	</p>

@@ -104,11 +104,35 @@
 			To convey an event notification, the server POSTs a Bundle to the client's nominated endpoint URL per the format requests in the Subscription. The content-type of the POST <b>SHALL</b> match the contentType (<code>channel.contentType</code>) requested during creation of the Subscription. Each <code>Subscription.header</code> value <b>SHALL</b> be conveyed as an HTTP request header.
 		</p>
 
+		<img src="subscription-rest-hook-flow.svg" alt="Diagram with a worflow for a Subscription using REST hooks" />
+		<ol type="1">
+			<li>
+				Client creates a <code>Subscription</code> with the <code>channelType</code> set to <code>rest-hook</code>.
+			</li>
+			<li>
+				Server responds with a success code and creates the subscription with a state of <code>requested</code>.
+			</li>
+			<li>
+				Server performs an HTTP POST to the requested endpoint with a <code>handshake</code> notification.
+			</li>
+			<li>
+				Client Endpoint accepts the POST and returns a success HTTP code (e.g., 200).
+			</li>
+			<li>
+				Server may send a notification of type <code>heartbeat</code> at any time.
+			</li>
+			<li>
+				Server may send a notificaiton of type <code>event-notificaiton</code> at any time.
+			</li>
+		</ol>
+
 			<a name="rest-hook-security"/>
 			<h4>Channel Security Notes</h4>
 			<p>
-				Note that HTTP is not a secure or encrypted channel.  It is strongly recommended that implementations refuse requests to send notifications to URLs using the HTTP protocol (use HTTPS instead).
-				Note that HTTP does not provide endpoint verification.  It is strongly recommended that implementations refuse requests to send notifications to URLs using the HTTP protocol (use HTTPS instead).
+				HTTP is neither a secure nor an encrypted channel.  It is strongly recommended that production implementations refuse requests to send notifications to URLs using the HTTP protocol (use HTTPS instead).
+			</p>
+			<p>
+				HTTP does not provide endpoint verification.  It is strongly recommended that implementations refuse requests to send notifications to URLs using the HTTP protocol (use HTTPS instead).
 			</p>
 
 		<a name="websockets"/>
@@ -120,34 +144,53 @@
 			A client can declare its intention to receive notifications via Web Sockets by requesting a subscription with the channel type (<code>Subscription.channelType</code>) of <code>websocket</code> (from the subscription-channel-type Code System).
 		</p>
 		<p>
-			The subscriber then initiates a Web Socket connection to the server, at a URL advertised in the FHIR server's Capability statement (subscriptions/webSocketUrl (todo)). A simple protocol is used to listen for notifications:
+			An example workflow for receiving notifications via websockets is shown below:
 		</p>
-		<ul>
+		<img src="subscription-websocket-flow.svg" alt="Diagram with a worflow for a Subscription using websockets" />
+		<ol type="1">
 			<li>
-				Client connects via either Web Socket (ws://) or Secure Web Socket (wss://) to the server's webSocketUrl (see <a href="extension-capabilitystatement-websocket.html">websocket extension</a> in the server's <a href="capabilitystatement.html">CapabilityStatement</a>).
+				Client creates a <code>Subscription</code> with the <code>channelType</code> set to <code>websocket</code>.
 			</li>
 			<li>
-				Client authenticates to server using a server-specified Web socket protocol (e.g. OAuth bearer token presentation).
+				Server responds with a success code and creates the subscription.
 			</li>
 			<li>
-				Client requests a websocket binding token for one or more subscriptions, using `$getWsBindingToken` operation.
+				Client requests FHIR server's <a href="capabilitystatement.html">CapabilityStatement</a> to find the server's websocket URL via the <a href="extension-capabilitystatement-websocket.html">websocket extension</a>.
 			</li>
 			<li>
-				Client sends a `bind-with-token :token` message over the socket (using a token returned from `$getWsBindingToken`).
+				Server returns its <a href="capabilitystatement.html">CapabilityStatement</a>.
 			</li>
 			<li>
-				Server responds with one or more `subscription-notification` `handshake` bundles (one per subscription).  The Server MAY additionally include one or more notification messages for each subscription (e.g., queued messages while no client was connected, last 'n' messages, etc.).
+				Client connects to the server via websockets (ws:// or wss://).
 			</li>
 			<li>
-				Server sends a `subscription-notification` bundle to notify the client each time a new notification is available. The format of the notification is determined by the subscription configuration (e.g., `contentType` and `content` fields).
+				Client requests a websocket binding token, by invoking the <a href="subscription-operation-get-ws-binding-token.html">$getWsBindingToken</a> operation via REST.  Note: this call is intended to be repeated as necessary (e.g., prior to a token expiring, a client should request a new one).
 			</li>
 			<li>
-				Client should request a new token via the `$getWsBindingToken` operation before the token expires. Successive calls to `bind-with-token` are allowed and do not require a new websocket connection.
+				Server returns <a href="parameters.html">Parameters</a> with a <code>token</code> and an <code>expiration</code>.
 			</li>
-		</ul>
+			<li>
+				Client sends a <code>bind-with-token</code> message via websockets, with the token provided by the server.  Note: this operation can be repeated concurrently for multiple subscriptions, and serially for continued operation over a single websocket connection.
+			</li>
+			<li>
+				Server sends one or more <code>handshake</code> message via websockets (one per Subscription included in the token).  Note: some servers may additionally send one or more <code>event-notification</code> messages at this time (e.g., all messages since last connected, last 'n' messages, etc.).  Clients are expected to handle either flow.
+			</li>
+			<li>
+				Server may send a <code>heartbeat</code> message via websockets at any time.
+			</li>
+			<li>
+				Server may send an <code>event-notification</code> message via websockets at any time.
+			</li>
+			<li>
+				Either the server or the client may close the websocket connection.
+			</li>
+		</ol>
+		<p>
+			Note: all notifications sent from the server <b>SHALL</b> be in the format specified by the <code>Subscription</code> it is for (e.g., <code>contentType</code> and <code>content</code> fields).
+		</p>
 		<p>
 			[%stu-note%]
-			The Websocket channel is under active development. More testing and feedback are required to ensure all requirements are met before finalizing the specification.
+			The Websocket channel type needs more testing and feedback to ensure all requirements are met before finalizing the specification.
 			[%end-note%]
 		</p>
 			
@@ -181,8 +224,8 @@
 		</p>
 		<p>The email channel sets two guidelines about content:</p>
 			<ul>
-				<li>Message Body content MUST be human readable</li>
-				<li>Message Attachments CAN be machine readable</li>
+				<li>Message Body content <b>SHALL</b> be human readable</li>
+				<li>Message Attachments <b>SHOULD</b> be machine readable</li>
 			</ul>
 		<p>
 			Due to these guidelines, the <code>Subscription.contentType</code> refers to the content of the body of the message.  Attachment type information can be appended as a MIME parameter, for example:
@@ -196,10 +239,26 @@
 		<p>
 			The <code>Subscription.content</code> field must be applied to any attachments, and may be applied to body contents (depending on server implementation).  However, a server must not include a body which exceeds the specified content level.  For example, a server may choose to always include a standard message in the body of the message containing no PHI and vary the attachment, but cannot include PHI in the body of an email when the content is set to <code>empty</code>.
 		</p>
-		[%stu-note%]
-		Warning: The Email channel type is still being actively tested and might not be consistently supported by servers. More work is required.
-		[%end-note%]
-			
+
+		<img src="subscription-email-flow.svg" alt="Diagram with a worflow for a Subscription using email" />
+		<ol type="1">
+			<li>
+				Client creates a <code>Subscription</code> with the <code>channelType</code> set to <code>email</code>.
+			</li>
+			<li>
+				Server responds with a success code and creates the subscription with a state of either <code>requested</code> or <code>active</code>.
+			</li>
+			<li>
+				Optional: Server sends a email message to the requested endpoint with a <code>handshake</code> notification.  If the subscription was set to <code>requested</code>, it should be updated to <code>active</code> after successfully sending the email (pending additional steps such as user confirmation, etc.).
+			</li>
+			<li>
+				Server may send an email for a notification of type <code>heartbeat</code> at any time.
+			</li>
+			<li>
+				Server may send an email for a notificaiton of type <code>event-notificaiton</code> at any time.
+			</li>
+		</ol>
+
 			<a name="email-security" />
 			<h4>Channel Security Notes</h4>
 			<p>
@@ -209,15 +268,49 @@
 		<a name="messaging" />
 		<h3>Messaging</h3>
 		<p>
-			There are times when it is desireable to use Subscriptions as a communication channel between FHIR servers.  This can be accomplished using the message notification channel.
+			There are times when it is desireable to use Subscriptions as a communication channel between FHIR servers.  This can be accomplished using a <code>Subscription</code> with the channel type of <code>message</code>.
 		</p>
 		<p>
-			To receive notifications via messaging, a client should request a subscription with the channel type (<code>Subscription.channelType</code>) of <code>message</code> (from the subscription-channel-type Code System) and set the endpoint (<code>Subscription.endpoint</code>) to the FHIR server base URL.  Note that this URL must be accessible by the hosting server.
+			To receive notifications via messaging, a client should request a subscription with the channel type (<code>Subscription.channelType</code>) of <code>message</code> and set the endpoint (<code>Subscription.endpoint</code>) to the destination FHIR server base URL.  Note that this URL must be accessible by the hosting server.
 		</p>
-		<p>For each matching resource, a server will send a message to the nominated end-point. Most servers will require that the end-point is white-listed prior to allowing these kinds of subscriptions.</p>
-		[%stu-note%]
-		Warning: The Messaging channel type is not yet defined in a highly standardized way, and might not be consistently supported by servers. More work is required.
-		[%end-note%]
+		<p>
+			The FHIR server hosting the subscription (server) will send FHIR messages to the destination FHIR server (endpoint) as needed.  These messages will, as the contents of the message, have a fully-formed <code>subscription-notification</code> Bundle.  An example message can be found <a href="notification-message-id-only.xml.html">here</a>.
+		</p>
+
+		<img src="subscription-message-flow.svg" alt="Diagram with a worflow for a Subscription using FHIR messaging" />
+		<ol type="1">
+			<li>
+				Client creates a <code>Subscription</code> with the <code>channelType</code> set to <code>message</code>.
+			</li>
+			<li>
+				Server responds with a success code and creates the subscription with a state of <code>requested</code>.
+			</li>
+			<li>
+				Server sends a FHIR Message to the requested endpoint with a <code>handshake</code> notification.
+			</li>
+			<li>
+				Client Endpoint accepts the Message and returns success.
+			</li>
+			<li>
+				Server may send a Message containing a notification of type <code>heartbeat</code> at any time.
+			</li>
+			<li>
+				Server may send a Message containing a notificaiton of type <code>event-notificaiton</code> at any time.
+			</li>
+		</ol>
+
+		<p>
+			[%stu-note%]
+			The Messaging channel type needs more testing and feedback to ensure all requirements are met before finalizing the specification.
+			[%end-note%]
+		</p>
+
+			<a name="message-security" />
+			<h4>Channel Security Notes</h4>
+			<p>
+				Servers MAY require that the end-point is white-listed prior to allowing these kinds of subscriptions.  Additionally, servers MAY impose authorization/authentication requirements for server to server communication (e.g., certificate pinning, etc.). 
+			</p>
+
 
 	<a name="channel-extending" />
 	<h2>Defining Channel Types</h2>

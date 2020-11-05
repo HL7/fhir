@@ -91,11 +91,27 @@
 <a name="overview-topic"/>
 <h3>Subscription Topics</h3>
 
+<p>
+  The <code>SubscriptionTopic</code> resource is used to define conceptual or computable events for <code>Subscription</code> resources.  Conceptually, subscription topics specify: a type of <b>data</b> (e.g., Observation, Condition, etc.), a type of <b>change</b> (e.g., create, delete, update, etc.), and a set of allowed <b>filters</b>.
+</p>
+<p>
+  Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be computably defined whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressable in each language.  In such cases, the goal is correct implmentation of the concept - not literal translations between computable definitions.
+</p>
+<p>
+  More details about defining and deriving subscriptions topics can be found on the <a href="subscriptiontopic.html">SubscriptionTopic</a> resource page, specifically in the sections <a href="subscriptiontopic.html#defining">Defining Subscription Topics</a> and <a href="subscriptiontopic.html#deriving">Deriving from Existing Subscription Topics</a>.
+</p>
+
 <a name="overview-subscription"/>
 <h3>Subscriptions</h3>
+<p>
+  The <code>Subscription</code> resource is used to request notifications for a specific client about a specific topic (as defined by a <code>SubscriptionTopic</code>).  Conceptually, a subscriptions specify: a <b>topic</b> (<code>SubscriptionTopic</code>), the notification <b>channel</b> (e.g., REST, websockets, email, etc.), and the notification <b>payload</b> (e.g., MIME type, amount of detail, etc.).  Detailed information about channel-types and payload configuration can be found on the <a href="subscription.html">Subscription</a> resource page.
+</p>
 
 <a name="overview-notification"/>
 <h3>Subscription Notifications</h3>
+<p>
+  The <code>SubscriptionStatus</code> resource is used to encapsulate information about a subscription and meta-information about the notification itself (e.g., how many events are included, etc.).  There are currently two areas where the resource is used: in <a href="bundle.html#subscription-notification">subscription-notification Bundles</a> and as the return type for the <a href="subscription-operation-status.html">$status operation</a>.
+</p>
 
 <a name="safety"/>
 <h2>Safety and Security</h2>
