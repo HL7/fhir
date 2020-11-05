@@ -4,12 +4,15 @@
   <contained>
     <Substance>
       <id value="sub03"/>
+      <instance value="false"/>
       <code>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="387531004"/>
-          <display value="Azithromycin (substance)"/>
-        </coding>
+        <concept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="387531004"/>
+            <display value="Azithromycin (substance)"/>
+          </coding>
+        </concept>
       </code>
     </Substance>
   </contained>
