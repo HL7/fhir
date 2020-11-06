@@ -34,13 +34,13 @@
           <resource>
             <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
               <id value="bef7e5fb-b5ad-4b59-a618-1bace2bbf5c0"/>
+              <status value="active"/>
               <type value="event-notification"/>
               <eventsSinceSubscriptionStart value="310"/>
               <eventsInNotification value="1"/>
               <subscription>
                 <reference value="http://example.org/FHIR/R5/Subscription/123"/>
               </subscription>
-              <status value="active"/>
               <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
             </SubscriptionStatus>
           </resource>

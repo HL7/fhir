@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Gino Canessa</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-09-22T18:52:27Z</LastSaved>
+  <LastSaved>2020-11-06T18:37:31Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,6 +14,7 @@
   
   
   
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -816,8 +817,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -970,7 +969,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">requested | active | error | off</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">requested | active | error | off | entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">The status of the subscription, which marks the server state for managing the subscription</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A client can only submit subscription resources in the requested or off state. Only the server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off.&#10;&#10;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4057,11 +4056,11 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">Contact details for the subscription</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">identifier</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Subscription.identifier</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">A subscription identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"/>
@@ -4272,6 +4271,8 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">Get Current Subscription Status for One or More Subscriptions</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">This operation is used to return the current SubscriptionStatus information about one or more Subscriptions.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s133"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">$status-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$status-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">status.ids</Data></Cell>
@@ -4308,6 +4309,8 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Get a binding token for use in a websocket connection</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">This operation is used to get a token for a websocket client to use in order to bind to one or more subscriptions.</Data></Cell>
     <Cell ss:StyleID="s136"/>
+    <Cell><Data ss:Type="String">$get-ws-binding-token-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$get-ws-binding-token-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">get-ws-binding-token.ids</Data></Cell>
@@ -4869,12 +4872,13 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
