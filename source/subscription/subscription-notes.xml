@@ -20,23 +20,7 @@
 	<a name="safety"/>
 	<h2>Safety and Security</h2>
 	<p>
-		Servers are responsible for following <a href="security.html">FHIR security guidance</a>.  Recommendations specific to subscriptions are provided below.
-	</p>
-  <p>
-    A subscription is a request for future event notifications. As with any client-initiated interaction, Subscriptions could request information that a client is not allowed to see, and servers SHALL enforce authorization in accordance with their policy requirements. Servers SHOULD take a Subscription's SubscriptionTopic and filters into account when authorizing the creation of a Subscription, and SHOULD ensure that authorization is (still) in place at the time of each event notification.
-  </p>
-  <p>
-		When sending an event notification, servers can adopt various strategies to ensure that authorization is still in place. Some strategies may provide imperfect assurance (e.g., a server might rely on signed tokens with some pre-specified lifetime as evidence of authorization). In addition to these strategies, servers can mitigate the risk of disclosing sensitive information by limiting the payload types it supports (e.g., by prohibiting certain clients from requesting <code>full-resource</code> notification payloads and relying instead on <code>id-only</code> payloads).
-  </p>
-
-	<p>
-		<code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.).  Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in <code>Subscription.header</code> to verify that a message is from the desired source).
-	</p>
-	<p>
-		Each channel type involves the server sending a communication that could reveal information about the client and server relationship, as well as sensitive administrative or clinical information. Servers are responsible for ensuring appropriate security is employed for each channel. The Subscription resource does not address these concerns directly; it is assumed that these are administered by other configuration processes. For instance, a server might maintain a whitelist of acceptable endpoints or trusted certificate authorities for rest-hook channels.
-	</p>
-	<p>
-		Some topic and server implementation combinations may trigger internal notification workflows when notifications should NOT be sent.  For example, if a topic is designed around <code>Observation</code> resources being removed (e.g., deleted), an implementation may be triggered if an <code>Observation</code> is moved to a higher security level and is no longer available to a user.  These types of situations are implementation-specific, so this note is to raise awareness of potential pitfalls when implementing subscriptions.
+		Applications are responsible for following <a href="security.html">FHIR security guidance</a>.  Some recommendations specific to subscriptions are provided on the <a href="subscriptions.html#safety">Subscriptions Framework</a> page.
 	</p>
 
 	<a name="payloads"/>

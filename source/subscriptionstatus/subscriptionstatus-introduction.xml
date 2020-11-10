@@ -13,4 +13,12 @@
 
   </div>
 
+<div>
+  <a name="bnr"/>
+  <h2>Boundaries and Relationships</h2>
+  <p>
+    The <code>SubscriptionStatus</code> resource is used in the <a href="subscriptions.html">Subscriptions Framework</a>.  Information about the Boundaries and Relationships both within the Subscriptions Framework and to other areas of the FHIR specification can be found <a href="subscriptions.html#bnr">here</a>.
+  </p>
+</div>
+
 </div>

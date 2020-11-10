@@ -37,65 +37,7 @@
   <a name="bnr"/>
   <h2>Boundaries and Relationships</h2>
   <p>
-    There is a close relationship between <a href="subscriptiontopic.html">SubscriptionTopic</a> and <code>Subscription</code>.
-    <ul>
-      <li>
-        A <code>SubscriptionTopic</code> defines the <b>data</b> and <b>change</b> a <code>Subscription</code> uses to trigger notifications.
-      </li>
-      <li>
-        A <code>Subscription</code> describes a particular client's request to be notified about events defined in a <code>SubscriptionTopic</code> and how those notifications should be delivered.
-      </li>
-      <li>
-        A <code>Subscription</code> may define additional filters to be applied when detecting events for notifications, but only as defined and allowed in the relevant <code>SubscriptionTopic</code>.
-      </li>
-    </ul>
-  </p>
-  <p>
-    The use of Subscriptions requires the use of SubscriptionTopics - without an underlying SubscriptionTopic, a Subscription has no meaning and will not trigger any client notifications.
-  </p>
-  <p>
-    In use, Subscription relies on both <a href="bundle.html#subscription-notification">Bundle</a> and <a href="subscriptionstatus.html">SubscriptionStatus</a> for communicating notifications.
-  </p>
-  <p>
-    As an alternative to subscriptions, the FHIR REST API describes a
-    polling-based method for observing events using <a href="bundle.html">bundles</a>
-    and the <a href="http.html#history">history operation</a>. This method
-    of polling allows for a more straightforward implementation, but can cause delays
-    in process (e.g., time between polling operations) and may result in higher computational
-    costs on the server (e.g., processing queries when there are no state changes).
-  </p>
-  <p>
-    When using the <code>Subscription</code> resource, the FHIR server combines
-    the roles of publisher and information distributer. Some arrangements
-    of the 'publish and subscribe' pattern describe separate agents for the two roles.
-    This specification makes no recommendations towards the internal architecture of 
-    server implementations.
-  </p>
-
-  <a name="relationtofhircast"/>
-  <h3>Relation to FHIRcast</h3>
-  <p>
-    <a href="http://fhircast.org">FHIRcast</a> is a framework for user-activity synchronization across applications.  FHIRcast and Subscription are both conceptually based <a href="https://www.w3.org/TR/websub/">W3 WebSub</a>, and while the mechanics of two projects look similar, they are fundamentally different projects used to address different use cases.  In particular:
-    <ul>
-      <li>
-        <p>FHIRcast is designed to be used by multiple applications perhaps with the same user and typically on the same device</p>
-        <p>Subscriptions are designed to be used by multiple distinct systems, often outside of a user workflow</p>
-      </li>
-      <li>
-        <p>FHIRcast sends only single-event notifications</p>
-        <p>Subscriptions allow servers to batch multiple notifications in high-frequency scenarios</p>
-      </li>
-      <li>
-        <p>FHIRcast is designed around short-lived sessions</p>
-        <p>Subscriptions are intented to be long-lived resources</p>
-      </li>
-    </ul>
-  </p>
-
-  <a name="relationtomessaging"/>
-  <h3>Relation to Messaging</h3>
-  <p>
-    FHIR <a href="messaging.html">Messaging</a> is a message-based protocol which can be used for communication. While it would be possible to mesh Subscription Notifications into Messaging, the consistency of Subscription notifications would be lost (a driving principle of Subscriptions is that the notification should remain the same regardless of channel). When combining Messaging and Subscriptions, complete notifications are wrapped into Messaging Bundles.  More details are provided <a href="#messaging">below</a>.
+    The <code>Subscription</code> resource is used in the <a href="subscriptions.html">Subscriptions Framework</a>.  Information about the Boundaries and Relationships both within the Subscriptions Framework and to other areas of the FHIR specification can be found <a href="subscriptions.html#bnr">here</a>.
   </p>
 </div>
 

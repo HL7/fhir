@@ -32,21 +32,7 @@
   <a name="bnr"></a>
   <h2>Boundaries and Relationships</h2>
   <p>
-    There is a close relationship between <a href="subscriptiontopic.html">SubscriptionTopic</a> and <code>Subscription</code>.
-    <ul>
-      <li>
-        A <code>SubscriptionTopic</code> defines the <b>data</b> and <b>change</b> a <code>Subscription</code> uses to trigger notifications.
-      </li>
-      <li>
-        A <code>Subscription</code> describes a particular client's request to be notified about events defined in a <code>SubscriptionTopic</code> and how those notifications should be delivered.
-      </li>
-      <li>
-        A <code>Subscription</code> may define additional filters to be applied when detecting events for notifications, but only as defined and allowed in the relevant <code>SubscriptionTopic</code>.
-      </li>
-    </ul>
-  </p>
-  <p>
-    The use of Subscriptions requires the use of SubscriptionTopics - without an underlying SubscriptionTopic, a Subscription has no meaning and will not trigger any client notifications.
+    The <code>SubscriptionTopic</code> resource is used in the <a href="subscriptions.html">Subscriptions Framework</a>.  Information about the Boundaries and Relationships both within the Subscriptions Framework and to other areas of the FHIR specification can be found <a href="subscriptions.html#bnr">here</a>.
   </p>
 </div>
 
