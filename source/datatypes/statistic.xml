@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Khalid</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-08-14T17:54:19Z</LastSaved>
+  <LastSaved>2020-11-02T22:32:24Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,9 +18,8 @@
   
   
   <TabRatio>775</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>12</ActiveSheet>
+  <DoNotCalculateBeforeSave/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1226,6 +1225,31 @@
   <Style ss:ID="s216" ss:Parent="s63">
    <Alignment ss:Vertical="Top"/>
   </Style>
+  <Style ss:ID="s218">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s219">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+  </Style>
+  <Style ss:ID="s221">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s222">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R49C1"/>
@@ -1763,11 +1787,11 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="80" ss:StyleID="s122">
     <Cell ss:StyleID="s121"><Data ss:Type="String">Statistic.modelCharacteristic.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">StatisticModelCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s124"><Data ss:Type="String">Model specification</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Description of a component of the method to generate the statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s222"><Data ss:Type="String">Model specification</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><Data ss:Type="String">Description of a component of the method to generate the statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1778,12 +1802,11 @@
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="80" ss:StyleID="s122">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">Statistic.modelCharacteristic.value[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Statistic.modelCharacteristic.value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept | boolean | SimpleQuantity | Range</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">StatisticModelMethod</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s124"><Data ss:Type="String">Model specification details</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Further specification of a component of the method to generate the statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">SimpleQuantity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s222"><Data ss:Type="String">Numerical value to complete model specification</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><Data ss:Type="String">Further specification of the quantified value of the component of the method to generate the statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3199,9 +3222,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>31</TopRowBottomPane>
+   <TopRowBottomPane>27</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -5840,7 +5863,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7488,13 +7510,13 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='statistic-model-code'!R1C1:R1C9"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s169" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="68" ss:StyleID="s169" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s169" ss:Width="258.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s169" ss:Width="34.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s169" ss:Width="155.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s169" ss:Width="56.0"/>
    <Column ss:StyleID="s169" ss:Width="230.0"/>
-   <Column ss:StyleID="s169" ss:Width="541.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s169" ss:Width="601.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s169" ss:Width="84.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s169" ss:Width="242.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
@@ -7509,537 +7531,644 @@
     <Cell ss:StyleID="s134"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s171"><Data ss:Type="String">effectsFixed</Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">oneTailedTest</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s186"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Fixed-effects meta-analysis</Data></Cell>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">From a fixed-effects meta-analysis, pair with valueBoolean</Data></Cell>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s173"/>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">one-tailed test (1 threshold)</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for one-tailed test (1 threshold), no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"><Data ss:Type="String">effectsRandom</Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">twoTailedTest</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">Random-effects meta-analysis</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">From a random-effects meta-analysis, pair with valueBoolean</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">two-tailed test (2 thresholds)</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for two-tailed test (2 threshold), no additional elements needed</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"><Data ss:Type="String">methodTau</Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">zTest</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">Tau estimation method</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Method used for estimating tau squared (used with a random-effects meta-analysis), pair with valueCodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">z-test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for z-test, no additional elements needed</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"><Data ss:Type="String">poolMethod</Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">oneSampleTTest</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">Pooling method</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Method used to pool results, pair with valueCodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">1-sample t-test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for 1-sample t-test, may be paired with "value" to express degrees of freedom</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"><Data ss:Type="String">hartungKnapp</Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">twoSampleTTest</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">Hartung-Knapp adjustment</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Hartung-Knapp/Hartung-Knapp-Sidik-Jonkman adjustment used, pair with valueBoolean</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">2-sample t-test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for 2-sample t-test, may be paired with "value" to express degrees of freedom</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"><Data ss:Type="String">modifiedHartungKnapp</Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">pairedTTest</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">Modified Hartung-Knapp adjustment</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Modified Hartung-Knapp/Hartung-Knapp-Sidik-Jonkman adjustment used, pair with valueBoolean</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">paired t-test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for paired t-test, may be paired with "value" to express degrees of freedom</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"><Data ss:Type="String">zeroCellNumerical</Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">chiSquareTest</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">Zero-cell adjustment with constant</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Zero-cell adjustment done by adding a constant to all cells of affected studies, pair with valueSimpleQuantity</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Chi-square test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Chi-square test, may be paired with "value" to express degrees of freedom</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"><Data ss:Type="String">zeroCellTreatmentArmContinuityCorrection</Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">chiSquareTestTrend</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">Zero-cell adjustment with continuity correction</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Zero-cell adjustment done by treatment arm continuity correction, pair with valueBoolean</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Chi-square test for trend</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Chi-square test for trend, may be paired with "value" to express degrees of freedom</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"><Data ss:Type="String">adjusted</Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">pearsonCorrelation</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">Adjusted analysis</Data></Cell>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for adjusted analysis, pair with variable instead of value[x]</Data></Cell>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"><Data ss:Type="String">linearRegression</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">Linear Regression</Data></Cell>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for linear regression method of analysis, pair with valueBoolean</Data></Cell>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"><Data ss:Type="String">logisticRegression</Data></Cell>
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">Logistic Regression</Data></Cell>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for logistic regression method of analysis, pair with valueBoolean</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Pearson correlation</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Pearson correlation, no additional elements needed</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s174"><Data ss:Type="String">anova</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">ANOVA (ANalysis Of VAriance)</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for ANOVA method of analysis, may be paired with "value" to express degrees of freedom</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">anovaOneWay</Data></Cell>
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">one-way ANOVA</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for one-way ANOVA method of analysis, may be paired with "value" to express degrees of freedom</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">anovaTwoWay</Data></Cell>
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">Analysis of Variance (ANOVA)</Data></Cell>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for ANOVA method of analysis, pair with valueBoolean</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">2-way ANOVA without replication</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for 2-way ANOVA without replication method of analysis, may be paired with "value" to express degrees of freedom</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">anovaTwoWayReplication</Data></Cell>
+    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">2-way ANOVA with replication</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for 2-way ANOVA with replication method of analysis, may be paired with "value" to express degrees of freedom</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">manova</Data></Cell>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">multivariate ANOVA (MANOVA)</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for multivariate ANOVA (MANOVA) method of analysis, may be paired with "value" to express degrees of freedom</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">anovaThreeWay</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">3-way ANOVA</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for 3-way ANOVA method of analysis, may be paired with "value" to express degrees of freedom</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">signTest</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">sign test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for sign test, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">wilcoxonSignedRankTest</Data></Cell>
+    <Cell><Data ss:Type="Number">17</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Wilcoxon signed-rank test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Wilcoxon signed-rank test, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">wilcoxonRankSumTest</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Wilcoxon rank-sum test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Wilcoxon rank-sum test, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">mannWhitneyUTest</Data></Cell>
+    <Cell><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Mann-Whitney U test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Mann-Whitney U test, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">fishersExactTest</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Fisher’s exact test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Fisher's exact test, may be paired with "value" to express degrees of freedom</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">mcnemarsTest</Data></Cell>
+    <Cell><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">McNemar’s test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for McNemar's test, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">kruskalWallisTest</Data></Cell>
+    <Cell><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Kruskal Wallis test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Kruskal Wallis test, may be paired with "value" to express degrees of freedom</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">spearmanCorrelation</Data></Cell>
+    <Cell><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Spearman correlation</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Spearman correlation, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">kendallCorrelation</Data></Cell>
+    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Kendall correlation</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Kendall correlation, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">friedmanTest</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Friedman test</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Friedman test, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">goodmanKruskasGamma</Data></Cell>
+    <Cell><Data ss:Type="Number">26</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Goodman Kruska’s Gamma</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Goodman Kruska’s Gamma, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">glm</Data></Cell>
+    <Cell><Data ss:Type="Number">27</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">GLM (Generalized Linear Model)</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLM (Generalized Linear Model), no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s218"><Data ss:Type="String">glmProbit</Data></Cell>
+    <Cell><Data ss:Type="Number">28</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">GLM with probit link</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLM with probit link, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s218"><Data ss:Type="String">glmLogit</Data></Cell>
+    <Cell><Data ss:Type="Number">29</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">GLM with logit link</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLM with logit link, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s218"><Data ss:Type="String">glmIdentity</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">GLM with identity link</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLM with identity link, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s218"><Data ss:Type="String">glmLog</Data></Cell>
+    <Cell><Data ss:Type="Number">31</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">GLM with log link</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLM with log link, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s218"><Data ss:Type="String">glmGeneralizedLogit</Data></Cell>
+    <Cell><Data ss:Type="Number">32</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">GLM with generalized logit link</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLM with generalized logit link, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">glmm</Data></Cell>
+    <Cell><Data ss:Type="Number">33</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Generalized linear mixed model (GLMM)</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Generalized linear mixed model (GLMM), no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">glmmProbit</Data></Cell>
+    <Cell><Data ss:Type="Number">34</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">GLMM with probit link</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLMM with probit link, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">glmmLogit</Data></Cell>
+    <Cell><Data ss:Type="Number">35</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">GLMM with logit link</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLMM with logit link, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">glmmIdentity</Data></Cell>
+    <Cell><Data ss:Type="Number">36</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">GLMM with identity link</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLMM with identity link, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">glmmLog</Data></Cell>
+    <Cell><Data ss:Type="Number">37</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">GLMM with log link</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLMM with log link, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">glmmGeneralizedLogit</Data></Cell>
+    <Cell><Data ss:Type="Number">38</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">GLMM with generalized logit link</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for GLMM with generalized logit link, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">linearRegression</Data></Cell>
+    <Cell><Data ss:Type="Number">39</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Linear Regression</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for linear regression method of analysis, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">logisticRegression</Data></Cell>
+    <Cell><Data ss:Type="Number">40</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Logistic Regression</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for logistic regression method of analysis, no additional elements needed</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s176"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">polynomialRegression</Data></Cell>
+    <Cell><Data ss:Type="Number">41</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Polynomial Regression</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Polynomial regression method of analysis, no additional elements needed</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s174"><Data ss:Type="String">coxProportionalHazards</Data></Cell>
-    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell><Data ss:Type="Number">42</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s187"/>
     <Cell ss:StyleID="s187"><Data ss:Type="String">Cox Proportional Hazards</Data></Cell>
-    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Cox proportional hazards method of analysis, pair with valueBoolean</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Cox proportional hazards method of analysis, no additional elements needed</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">binomialDistributionRegression</Data></Cell>
+    <Cell><Data ss:Type="Number">43</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Binomial Distribution for Regression</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Binomial Distribution for Regression, no additional elements needed</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">multinomialDistributionRegression</Data></Cell>
+    <Cell><Data ss:Type="Number">44</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Multinomial Distribution for Regression</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Multinomial Distribution for Regression, no additional elements needed</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">poissonRegression</Data></Cell>
+    <Cell><Data ss:Type="Number">45</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Poisson Regression</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Poisson Regression, no additional elements needed</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">negativeBinomialRegression</Data></Cell>
+    <Cell><Data ss:Type="Number">46</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
-    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Negative Binomial Regression</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for Negative Binomial Regression, no additional elements needed</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s176"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s177"/>
-    <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s188"/>
-    <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">zeroCellConstant</Data></Cell>
+    <Cell><Data ss:Type="Number">47</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s187"/>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Zero-cell adjustment with constant</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Zero-cell adjustment done by adding a constant to all cells of affected studies, paired with "value" to define the constant</Data></Cell>
+    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s179"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16"/>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s174"><Data ss:Type="String">zeroCellContinuityCorrection</Data></Cell>
+    <Cell><Data ss:Type="Number">48</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Zero-cell adjustment with continuity correction</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Zero-cell adjustment done by treatment arm continuity correction, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">adjusted</Data></Cell>
+    <Cell><Data ss:Type="Number">49</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Adjusted analysis</Data></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Used for adjusted analysis, paired with variable element(s)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">interactionTerm</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Interaction term</Data></Cell>
+    <Cell><Data ss:Type="String">Used for interaction term, paired with "value" and two or more variable elements</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">manteHaenszelMethod</Data></Cell>
+    <Cell><Data ss:Type="Number">51</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Mantel-Haenszel method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Mantel-Haenszel method, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">metaAnalysis</Data></Cell>
+    <Cell><Data ss:Type="Number">52</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Meta-analysis</Data></Cell>
+    <Cell><Data ss:Type="String">Used for meta-analysis, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">inverseVariance</Data></Cell>
+    <Cell><Data ss:Type="Number">53</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Inverse variance method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for inverse variance method of meta-analysis, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">petoMethod</Data></Cell>
+    <Cell><Data ss:Type="Number">54</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Peto method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Peto method of meta-analysis, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">hartungKnapp</Data></Cell>
+    <Cell><Data ss:Type="Number">55</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Hartung-Knapp adjustment</Data></Cell>
+    <Cell ss:StyleID="s221"><Data ss:Type="String">Hartung-Knapp/Hartung-Knapp-Sidik-Jonkman adjustment used in meta-analysis, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">modifiedHartungKnapp</Data></Cell>
+    <Cell ss:StyleID="s219"><Data ss:Type="Number">56</Data></Cell>
+    <Cell ss:StyleID="s219"/>
+    <Cell ss:StyleID="s219"/>
+    <Cell ss:StyleID="s219"><Data ss:Type="String">Modified Hartung-Knapp adjustment</Data></Cell>
+    <Cell ss:StyleID="s221"><Data ss:Type="String">Modified Hartung-Knapp/Hartung-Knapp-Sidik-Jonkman adjustment used in meta-analysis, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">effectsFixed</Data></Cell>
+    <Cell><Data ss:Type="Number">57</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Fixed-effects</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">From a fixed-effects analysis, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">effectsRandom</Data></Cell>
+    <Cell><Data ss:Type="Number">58</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Random-effects</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">From a random-effects analysis, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">chiSquareTestHomogeneity</Data></Cell>
+    <Cell><Data ss:Type="Number">59</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Chi-square test for homogeneity</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Chi-square test for homogeneity, may be paired with "value" to express degrees of freedom</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">dersimonianLairdMethod</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Dersimonian-Laird method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Dersimonian-Laird method of tau estimation, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">pauleMandelMethod</Data></Cell>
+    <Cell><Data ss:Type="Number">61</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Paule-Mandel method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Paule-Mandel method of tau estimation, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">restrictedLikelihood</Data></Cell>
+    <Cell><Data ss:Type="Number">62</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Restricted Maximum Likelihood method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Restricted Maximum Likelihood method of tau estimation, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">maximumLikelihood</Data></Cell>
+    <Cell><Data ss:Type="Number">63</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Maximum Likelihood method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Maximum Likelihood method of tau estimation, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">empiricalBayes</Data></Cell>
+    <Cell><Data ss:Type="Number">64</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Empirical Bayes method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Empirical Bayes method of tau estimation, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">hunterSchmidt</Data></Cell>
+    <Cell><Data ss:Type="Number">65</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Hunter-Schmidt method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Hunter-Schmidt method of tau estimation, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sidikJonkman</Data></Cell>
+    <Cell><Data ss:Type="Number">66</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Sidik-Jonkman method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Sidik-Jonkman method of tau estimation, no additional elements needed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">hedgesMethod</Data></Cell>
+    <Cell><Data ss:Type="Number">67</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Hedges method</Data></Cell>
+    <Cell><Data ss:Type="String">Used for Hedges method of tau estimation, no additional elements needed</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -8052,12 +8181,13 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
