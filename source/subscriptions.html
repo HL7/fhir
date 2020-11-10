@@ -69,11 +69,12 @@
       <ul>
         <li>Define the <b>data</b> and <b>change</b> used to trigger notifications</li>
         <li>Define the filters allowed to clients</li>
+        <li>Always referenced by canonical URL</li>
       </ul>
     </li>
     <li><a href="subscription.html">Subscription</a> resources
       <ul>
-        <li>Describe a client's request to be notified about events defined in a <code>SubscriptionTopic</code></li>
+        <li>Describe a client's request to be notified about events defined by a <code>SubscriptionTopic</code></li>
         <li>Set filters on events (as defined in the referenced <code>SubscriptionTopic</code>)</li>
         <li>Describe the <a href="#channels">channel</a> and endpoint used to send notifications</li>
         <li>Describe the payload included in notifications (MIME type, content level, etc.)</li>
@@ -88,10 +89,10 @@
   </ul>
 </p>
 <p>
-  Definitionally, a <code>Subscription</code> requires the a <code>SubscriptionTopic</code> - without a resource describing the change of interest, a <code>Subscription</code> has no meaning and will not trigger any client notifications.
+  Definitionally, a <code>Subscription</code> requires a <code>SubscriptionTopic</code> - without a resource describing the change of interest, a <code>Subscription</code> has no meaning and will not trigger any client notifications.
 </p>
 <p>
-  While active, a <code>Subscription</code> relies on both <a href="bundle.html#subscription-notification">Bundle</a> and <a href="subscriptionstatus.html">SubscriptionStatus</a> for communicating notifications.
+  While active, a <code>Subscription</code> relies on both <a href="bundle.html#subscription-notification">Bundle</a> and <a href="subscriptionstatus.html">SubscriptionStatus</a> for sending notifications.
 </p>
 <p>
   When using the <code>Subscription</code> resource, the FHIR server combines
@@ -156,7 +157,7 @@
 <a name="overview-subscription"/>
 <h2>Subscriptions</h2>
 <p>
-  The <code>Subscription</code> resource is used to request notifications for a specific client about a specific topic (as defined by a <code>SubscriptionTopic</code>).  Conceptually, a subscriptions specify: a <b>topic</b> (<code>SubscriptionTopic</code>), the notification <b>channel</b> (e.g., REST, websockets, email, etc.), and the notification <b>payload</b> (e.g., MIME type, amount of detail, etc.).  Detailed information about channel-types and payload configuration can be found on the <a href="subscription.html">Subscription</a> resource page.
+  The <code>Subscription</code> resource is used to request notifications for a specific client about a specific topic (as defined by a <code>SubscriptionTopic</code>).  Conceptually, a subscription specifies: a <b>topic</b> (<code>SubscriptionTopic</code>), the notification <b>channel</b> (e.g., REST, websockets, email, etc.), and the notification <b>payload</b> (e.g., MIME type, amount of detail, etc.).  Detailed information about channel-types and payload configuration can be found on the <a href="subscription.html">Subscription</a> resource page.
 </p>
 <p>
   When a FHIR Server accepts a request to create a <code>Subscription</code>, the server is indicating to the client that the server:
