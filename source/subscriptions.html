@@ -52,7 +52,7 @@
   Any FHIR application may support the use of Subscriptions.  In this documentation:
   <ul>
     <li><b>Server</b> refers to the FHIR application or applications acting as the subscription provider.  This includes the responsibilities of implmenting one or more <code>SubscriptionTopics</code>, managing <code>Subscriptions</code>, and sending notifications.</li>
-    <li><b>Client</b> refers to the application or applications acting as subscriber.  This includes the responsibilites of acting as a FHIR client (to request a <code>Subscription</code>) and receiving notifications on a supported channel.</li>
+    <li><b>Client</b> or <b>Subscriber</b> refers to the application or applications acting as subscriber.  This includes the responsibilites of acting as a FHIR client (to request a <code>Subscription</code>) and receiving notifications on a supported channel.</li>
   </ul>
   Note: either role may be implemented by one or more applications across one or more systems.
 </p>
@@ -208,10 +208,10 @@
   Some topic and server implementation combinations may trigger internal notification workflows when notifications should NOT be sent.  For example, if a topic is designed around <code>Observation</code> resources being removed (e.g., deleted), an implementation may be triggered if an <code>Observation</code> is moved to a higher security level and is no longer available to a user.  These types of situations are implementation-specific, so this note is to raise awareness of potential pitfalls when implementing subscriptions.
 </p>
 <p>
-  Subscribers should ensure an appropriate process to validate incoming messages.  For example, if the <code>full-resource</code> content type is used, clients should provide a header or some other secret to the server so that messages can be verified prior to being used for health decisions.  In using content types of <code>empty</code> or <code>id-only</code> can mitigate the risk, as resources must be retrieved from a trusted location prior to use.
+  Subscribers should ensure an appropriate process to validate incoming messages.  For example, if the <code>full-resource</code> content type is used, clients should provide a header or some other secret to the server so that messages can be verified prior to being used for health decisions.  Using content types of <code>empty</code> or <code>id-only</code> can mitigate this risk, as resources must be retrieved from a trusted location prior to use.
 </p>
 <p>
-  Subscribers should be aware of and protect against the possibility of being used as part of an attack on a FHIR server.  For example, a malicious client may send a large volume of fake notifications with <code>empty</code> notifications, which would cause the subscriber to send many (potentially expensive) queries to a server.
+  Subscribers should be aware of, and protect against, the possibility of being used as part of an attack on a FHIR server.  For example, a malicious client may send a large volume of fake notifications with <code>empty</code> notifications, which would cause the subscriber to send many (potentially expensive) queries to a server.
 </p>
 
 <a name="errors"/>
@@ -241,27 +241,27 @@
 <a name="errors-delivery"/>
 <h3>Detecting Delivery Errors</h3>
 <p>
-  There are several mechanisms available to clients in order to understand the current state of notification delivery.  Below are some example error scenarios with details about how a client can detect the state.
+  There are several mechanisms available to subscribers in order to understand the current state of notification delivery.  Below are some example error scenarios with details about how a subscriber can detect the problem state.
 </p>
 
 <a name="errors-delivery-skipped"/>
 <h4>Skipped Event</h4>
 <p>
-  The diagram below shows how a client can use the <code>SubscriptionStatus.eventsSinceSubscriptionStart</code> element on received notifications to determine that an event has been missed.
+  The diagram below shows how a subscriber can use the <code>SubscriptionStatus.eventsSinceSubscriptionStart</code> element on received notifications to determine that an event has been missed.
 </p>
 <img src="subscriptions-skipped-event.svg" alt="Diagram of missing event workflow"/>
 <p>
-  In the above sequence, the client compares the <code>eventsSinceSubscriptionStart</code> of each received notification (per Subscription).  When the client received event 23, the client was aware that the last notification it received was a single notification for event 21.  The client then waited an amount of time to ensure that event 22 was indeed missing (and not, for example, still being processed) and started a recovery process.  The recovery process itself will vary by client, but should be a well-understood method for recovering in the event of errors.
+  In the above sequence, the subscriber tracks the <code>eventsSinceSubscriptionStart</code> of each received notification (per Subscription).  When the subscriber received event 23, the subscriber was aware that the last notification it received was a single notification for event 21.  The subscriber then waited an amount of time to ensure that event 22 was indeed missing (and not, for example, still being processed) and started a recovery process.  The recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
 </p>
 
 <a name="errors-delivery-heartbeat"/>
 <h4>Broken Communication</h4>
 <p>
-  The diagram below show how a client can use the <code>Subscription.heartbeatPeriod</code> to determine errors which prevent notifications from reaching the endpoint.
+  The diagram below show how a subscriber can use the <code>Subscription.heartbeatPeriod</code> to determine errors which prevent notifications from reaching the endpoint.
 </p>
 <img src="subscriptions-no-event.svg" alt="Diagram of heartbeat-detection workflow"/>
 <p>
-  In the above sequence, the client is aware that the <code>heartbeatPeriod</code> has elapsed for a subscription, without receiving any notifications.  The client then asks the server for the <code>$status</code> of the subscription, and seeing an error, begins a recovery process.  As in the previous scenario, the recovery process itself will vary by client, but should be a well-understood method for recovering in the event of errors.
+  In the above sequence, the subscriber is aware that the <code>heartbeatPeriod</code> has elapsed for a subscription without receiving any notifications.  The subscriber then asks the server for the <code>$status</code> of the subscription, and seeing an error, begins a recovery process.  As in the previous scenario, the recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
 </p>
 
 <a name="tracking"/>
