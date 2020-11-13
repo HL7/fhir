@@ -150,7 +150,7 @@
 			<a name="filters-timing-update"/>
 			<h5>Update</h5>
 			<p>
-				Filters for <code>update</code> operations can be applied to either the pre-update or post-update state. Servers <b>SHOULD</b> document their method of operation.
+				Filters for <code>update</code> operations can be applied to either the pre-update or post-update state. Servers SHOULD document their method of operation.
 			</p>
 
 	<a name="deriving" />
