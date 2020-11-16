@@ -764,12 +764,15 @@
   <contained>
     <Substance>
       <id value="citalopramSubstance"/>
+      <instance value="false"/>
       <code>
-        <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-          <code value="2556"/>
-        </coding>
-        <text value="citalopram"/>
+        <concept>
+          <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="2556"/>
+          </coding>
+          <text value="citalopram"/>
+        </concept>
       </code>
     </Substance>
   </contained>
