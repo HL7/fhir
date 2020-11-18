@@ -1,0 +1,2 @@
+// Request the current status of Subscription ABC123
+GET [base]/Subscription/ABC123/$status
