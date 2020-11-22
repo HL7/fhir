@@ -727,15 +727,16 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="28.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="40.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="176.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="37.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="59.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="227.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="179.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="133.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="71.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="37.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="59.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="227.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="179.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="133.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="71.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="86.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="38.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="266.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="259.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="21" ss:StyleID="s69" ss:Width="380.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="66.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="43" ss:StyleID="s70">
@@ -764,12 +765,12 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">Display Hint</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Provides guidance to narrative auto-generator.  Check Wiki documentation</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="67">
     <Cell ss:StyleID="s77"><Data ss:Type="String">ClinicalUseIssue</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s78"><Data ss:Type="String" x:Ticked="1">DomainResource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">clinical.general</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">A single item of clinical particulars - an indication, contraindication, interaction etc. for a medicinal product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A single usage issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Contraindication, Therapeutic Indication, Interactions, Undesirable Effects</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0;40</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1087,7 +1088,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">For an indication - the intended effect, aim or strategy to be achieved</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The intended effect, aim or strategy to be achieved</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21" ss:StyleID="s83"><Data ss:Type="String">Therapeutic Indication.Intended Effect</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27" ss:StyleID="Default">
@@ -1104,7 +1105,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">For an indication - timing or duration information</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Timing or duration information</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21" ss:StyleID="s83"><Data ss:Type="String">Therapeutic Indication.Timing / Duration</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55" ss:StyleID="Default">
@@ -1121,7 +1122,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">For an indicaton - the specific undesirable effects of the medicinal product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The specific undesirable effects of the medicinal product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21" ss:StyleID="s83"><Data ss:Type="String">Therapeutic Indication.Undesirable Effects</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
@@ -1173,7 +1174,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">The specific medication, food or laboratory test that interacts</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The specific medication, food, substance or laboratory test that interacts</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="21" ss:StyleID="s83"><Data ss:Type="String">Interactions.Interactant and Interactions.Interactions Text</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">600;313</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1733,9 +1734,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>18</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>17</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
