@@ -127,7 +127,7 @@
 			</language>
 		</countryLanguage>
 	</name>
-	<manufacturingBusinessOperation>
+	<operation>
 		<type>
 			<concept>
 				<coding>
@@ -145,5 +145,5 @@
 				<value value="1324TZ"/>
 			</identifier>
 		</authorization>
-	</manufacturingBusinessOperation>
+	</operation>
 </MedicinalProductDefinition>
