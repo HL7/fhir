@@ -189,10 +189,10 @@
 			</reference>
 		</product>
 	</crossReference>
-	<manufacturingBusinessOperation>
-		<manufacturer>
+	<operation>
+		<organization>
 			<display value="EquiliDrugCo Inc."/>
 			<!-- licence holder would use RegulatedAuthorization -->
-		</manufacturer>
-	</manufacturingBusinessOperation>
+		</organization>
+	</operation>
 </MedicinalProductDefinition>

@@ -353,10 +353,10 @@
 			</reference>
 		</product>
 	</crossReference>
-	<manufacturingBusinessOperation>
-		<manufacturer>
+	<operation>
+		<organization>
 			<display value="EquiliDrugCo Processing Inc."/>
 			<!-- licence holder uses RegulatedAuthorization -->
-		</manufacturer>
-	</manufacturingBusinessOperation>
+		</organization>
+	</operation>
 </MedicinalProductDefinition>
