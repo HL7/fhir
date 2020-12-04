@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3359,7 +3359,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>130</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4952,7 +4951,7 @@
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
   </Names>
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" ss:StyleID="s124" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="41" ss:StyleID="s124" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="114.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="281.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="252.0"/>
@@ -4962,36 +4961,41 @@
     <Cell ss:StyleID="s115"><Data ss:Type="String">Filename</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Name of the resulting profile resource-something-profile.xml or …profile.spreadsheet.xml</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Source</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Name of profile spreadsheet or XML file.  Defaults to same as Filename </Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">IDMP Pharmaceutical Product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">medicationdefinition-idmp-pharmaceuticalproduct-profile-spreadsheet.xml</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">spreadsheet</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">core</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">IDMP Medicinal Product</Data></Cell>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">medicationdefinition-idmp-medicinalproduct-profile-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">core</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">IDMP PackagedProduct</Data></Cell>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">medicationdefinition-idmp-packagedproduct-profile-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">core</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s129"><Data ss:Type="String">dm+d Virtual Medicinal Product Pack</Data></Cell>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">medicationdefinition-vmpp-packagedproduct-profile-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s129"/>
@@ -5205,6 +5209,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
