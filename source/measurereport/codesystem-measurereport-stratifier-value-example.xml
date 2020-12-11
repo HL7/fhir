@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/measurereport-stratifier-value-example"/>
+  <version value="1"/>
+  <name value="MeasureReportStratifierValueExample"/>
+  <title value="MeasureReportStratifierValueExample"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="Clinical Quality Information Workgroup"/>
+  <description value="Example Region Value Measure Groups for the Measure Resource."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
+  <content value="complete"/>
+  <concept>
+    <code value="northwest"/>
+    <display value="Northwest"/>
+    <definition value="Northwest region stratification."/>
+  </concept>
+  <concept>
+    <code value="northeast"/>
+    <display value="Northeast"/>
+    <definition value="Northeast region stratification."/>
+  </concept>
+  <concept>
+    <code value="southwest"/>
+    <display value="Soutwest"/>
+    <definition value="Soutwest region stratification."/>
+  </concept>
+  <concept>
+    <code value="southeast"/>
+    <display value="Southeast"/>
+    <definition value="Southeast region stratification."/>
+  </concept>
+</CodeSystem>
