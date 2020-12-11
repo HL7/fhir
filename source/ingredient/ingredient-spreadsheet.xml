@@ -608,11 +608,11 @@
   </Names>
   <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="65" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="331.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="47.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="47.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="33.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="54.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="54.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="248.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="76.0"/>
+   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="76.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="60.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="42.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="35.0"/>
@@ -621,7 +621,7 @@
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="60.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="74.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="29.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="218.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="242.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="62.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="19" ss:StyleID="s68" ss:Width="27.0"/>
@@ -700,7 +700,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Ingredient role within a drug product e.g. Active ingredient, Excipient</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">A classification of the ingredient identifying its purpose within the product, e.g. active, inactive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="s73"><Data ss:Type="String">Ingredient.Ingredient Role</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -817,7 +817,7 @@
     <Cell ss:Index="22" ss:StyleID="Default"><Data ss:Type="String">Substance.Substance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="51">
+   <Row ss:AutoFitHeight="0" ss:Height="58">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Ingredient.substance.strength</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -832,7 +832,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Quantity of the substance or specified substance present in the manufactured item or pharmaceutical product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. When there is a range of strengths, this represents the lower limit</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="Default"><Data ss:Type="String">Specified Substance.Strength</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">350;106</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -870,7 +870,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">An upper limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the high limit, with the presentation attribute becoming the lower limit</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">An upper limit for the quantity of substance in the unit of presentation. When there is a range of strengths, this represents the upper limit</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="Default"><Data ss:Type="String">Strength.Strength (Presentation)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1041,7 +1041,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Strength expressed in terms of a reference substance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the lower limit</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="Default"><Data ss:Type="String">Reference Strength.Reference Strength</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1060,7 +1060,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Strength expressed in terms of a reference substance, upper limit</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the upper limit</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="Default"><Data ss:Type="String">Reference Strength.Reference Strength</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1155,7 +1155,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The group of specified substance, e.g. group 1 to 4</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The group of specified substance, e.g. group 1 to 4, where the group categorises the level of &#10;description of the substance according to standardised sets of properties</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="Default"><Data ss:Type="String">Specified Substance.Specified Substance Group</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1704,14 +1704,14 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Zoom>80</Zoom>
+   <Zoom>90</Zoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

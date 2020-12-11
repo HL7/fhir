@@ -75,6 +75,7 @@
       <assert>
         <description value="Confirm that the returned HTTP status is 200(OK)."/>
         <response value="okay"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -82,6 +83,7 @@
       <assert>
         <description value="Confirm that the returned format is XML."/>
         <contentType value="xml"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -90,6 +92,7 @@
         <description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server might not support versioning."/>
         <headerField value="Last-Modified"/>
         <operator value="notEmpty"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="true"/>
       </assert>
     </action>
@@ -97,12 +100,14 @@
       <assert>
         <description value="Confirm that the returned resource type is Patient."/>
         <resource value="Patient"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
     <action>
       <assert>
         <description value="Confirm that the returned Patient conforms to the base FHIR specification."/>
+        <stopTestOnFail value="false"/>
         <validateProfileId value="patient-profile"/>
         <warningOnly value="false"/>
       </assert>
@@ -128,6 +133,7 @@
       <assert>
         <description value="Confirm that the returned HTTP status is 404(Not Found)."/>
         <response value="notFound"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -152,6 +158,7 @@
       <assert>
         <description value="Confirm that the returned HTTP status is 404(Not Found)."/>
         <response value="notFound"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -176,6 +183,7 @@
       <assert>
         <description value="Confirm that the returned HTTP status is 400(Bad Request)."/>
         <response value="bad"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>

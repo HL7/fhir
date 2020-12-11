@@ -52,3 +52,4 @@ WARNING: HealthcareService.eligibility.comment: MnM must have confirmed this sho
 INFORMATION: Binding @ Goal.target.detail[x]: Need to provide a binding
 WARNING: AdministrableProductDefinition.routeOfAdministration.targetSpecies: Element names should be singular
 WARNING: MedicinalProductDefinition.specialMeasures: Element names should be singular
+INFORMATION: PlanDefinition.action.relatedAction.actionId: Name of child (actionId) overlaps with name of parent (relatedAction)

@@ -28,4 +28,9 @@
       <display value="Off"/>
       <definition value="Too many errors have occurred or the subscription has expired."/>
     </concept>
+    <concept>
+      <code value="entered-in-error"/>
+      <display value="Entered in Error"/>
+      <definition value="This subscription has been flagged as incorrect."/>
+    </concept>
 </CodeSystem>

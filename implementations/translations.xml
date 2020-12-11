@@ -507,6 +507,9 @@
 		<translation lang="es">GuiaDeImplementacionSalida</translation>
 		<translation lang="zh">实施指南输出</translation>
 	</item>
+	<item id="InventoryReport">
+		<translation lang="en">InventoryReport</translation>
+	</item>
 	<item id="Invoice">
 		<translation lang="en">Invoice</translation>
 	</item>

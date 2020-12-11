@@ -3,12 +3,11 @@
 	"id": "admission",
 	"name": "AdmissionExample",
 	"status": "active",
-	"topic": {
-		"reference": "SubscriptionTopic/admission"
-	},
+	"topic": "http://example.org/R4/SubscriptionTopic/admission",
 	"reason": "subscription for beginning of a clinical encounter for patient 123",
 	"filterBy": [
 		{
+			"resourceType": "http://hl7.org/fhir/StructureDefinition/Encounter",
 			"searchParamName": "patient",
 			"value": "Patient/123"
 		}

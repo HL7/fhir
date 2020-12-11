@@ -382,6 +382,7 @@ signatures.html
       <page type="resource" resource="DeviceUseStatement"/>
       <page type="resource" resource="SupplyRequest"/>
       <page type="resource" resource="SupplyDelivery"/>
+      <page type="resource" resource="InventoryReport"/>
       <page type="resource" resource="ExampleScenario"/>
 
     </page>

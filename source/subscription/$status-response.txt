@@ -1,0 +1,4 @@
+// Returned on successful evaluation
+HTTP/1.1 200 OK
+
+$include subscription-status-response.xml

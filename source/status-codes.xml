@@ -323,7 +323,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R115C30"/>
   </Names>
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="127" ss:StyleID="s63" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="128" ss:StyleID="s63" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="237.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="70.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="74.0"/>
@@ -3484,7 +3484,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Subscription.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3" ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3971,7 +3971,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubscriptionStatus.status</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s77"/>
+    <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"/>
@@ -4000,6 +4000,13 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="String">InventoryReport.status</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
+    <Cell><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4016,9 +4023,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>106</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
