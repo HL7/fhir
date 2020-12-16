@@ -38,6 +38,7 @@
   <identifier>
     <value value="requestgroup-1"/>
   </identifier>  
+  <instantiatesUri value="http://example.org/request-group-medication-treatment"/>
   <groupIdentifier>
     <system value="http://example.org/treatment-group"/>
     <value value="00001"/>
@@ -45,6 +46,12 @@
   <status value="draft"/>
   <intent value="plan"/>
   <priority value="routine"/>
+  <code>
+	<coding>
+		<system value="http://hl7.org/fhir/request-intent"/>
+		<code value="plan"/>
+	</coding>
+  </code>
   <subject>
     <reference value="Patient/example"/>
   </subject>

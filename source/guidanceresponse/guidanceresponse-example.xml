@@ -3,7 +3,7 @@
   <id value="example"/>
   <!-- This example demonstrates the response to an $evaluate operation using the GuidanceResponse resource. -->
   <contained>
-    <Parameters >
+    <Parameters>
       <id value="outputParameters1"/>
       <parameter>
         <name value="score"/>
@@ -31,6 +31,23 @@
       </parameter>
     </Parameters>
   </contained>
+  <contained>
+    <Device>
+      <id value="software"/>
+      <identifier>
+        <system value="http://acme.com/ehr/client-ids"/>
+        <value value="goodhealth"/>
+      </identifier>
+      <type>
+        <text value="EHR"/>
+      </type>
+      <contact>
+        <system value="url"/>
+        <value value="http://acme.com"/>
+      </contact>
+      <url value="http://acme.com/goodhealth/ehr/"/>
+    </Device>
+  </contained>
   <requestIdentifier>
     <system value="http://example.org"/>
     <value value="guidanceRequest1"/>
@@ -49,7 +66,7 @@
   </encounter>
   <occurrenceDateTime value="2017-03-10T16:02:00Z"/>
   <performer>
-    <reference value="Device/software"/>
+    <reference value="#software"/>
   </performer>
   <reason>
     <concept>
