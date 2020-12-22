@@ -3,27 +3,26 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
-		<p>RegulatedAuthorization is a resource covering the authorization of a type of medicinal product, item, treatment or service, from a regulatory point of view. 
-			It refers to generally being allowed to legally use that class of treatment, and not any specific use. 
-			(It is not directly related to security or permissions within a running application.)
+		<p>RegulatedAuthorization is a resource covering the authorization of a type of regulated product, treatment, facility or activity. 
 		</p>
-		<p>Regulated items - those subject to local, regional or international legislation for their use - are subject to authorization procedures and outcomes. 
-			This is a general approval not related to any particular instance of use or any patient.
-		</p>
-		<p>This may cover:
-		</p>
-		<p>Overall marketing of medicinal products. The right to make drugs (or devices etc.) available to patients in general.
-		</p>
-		<p>Approval for the manufacturing of medicinal products.
-		</p>
-		<p>Authorisation to perform certain procedures, such as the right of a practitioner or organization to use sedation/anaesthesia or radiation therapy in general (unrelated to any specific instance of use).
-		</p>
-		<p>Clinical Trial authorizations - overall approval for a certain trial to take place, or for parts of one - but not consent for individuals to be on the trial.
-		</p>
-		<p>Recording whether a laboratory test is approved for use by a regulator (e.g. FDA, or a more local authority).
+		<p>Regulated products include animal and human drugs, devices, biologically derived, radiation-emitting, and nutritional products, software, etc. 
+			which are subject to local, regional or international legislation for their use.
 		</p>
 		<p>
-		Out of scope:
+			Regulated treatments include emergency use of a regulated product, sedation/anesthesia or radiation therapy.
+		</p>
+		<p>
+			Regulated facilities include the storage, manufacturing, distribution, or any other regulated aspect for regulated products
+		</p>
+		<p>
+			Regulated activities include conducting a Clinical Trial e.g. either parts or the whole of a certain trial. Marketing regulated products to patients in general, manufacturing regulated products. 
+			Storage or distribution of controlled substances. 
+			Recording whether a laboratory test is approved for use by a regulator, etc.
+		</p>
+
+
+		<p>
+			This is a general authorization and is not related to any particular instance of use or any patient, therefore the following is out of scope for the resource:
 		</p>
 		<p>Security authorizations - This resource is not directly related to "authorizations" as in permissions for users and actions in a security context. 
 		</p>

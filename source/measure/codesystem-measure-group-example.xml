@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/measure-group-example"/>
+  <version value="1"/>
+  <name value="MeasureGroupExample"/>
+  <title value="MeasureGroupExample"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="Clinical Quality Information Workgroup"/>
+  <description value="Example Measure Groups for the Measure Resource."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/measure-group-example"/>
+  <content value="complete"/>
+  <concept>
+    <code value="primary-rate"/>
+    <display value="Primary Rate"/>
+    <definition value="Primary Measure Group."/>
+  </concept>
+  <concept>
+    <code value="secondary-rate"/>
+    <display value="Secondary Rate"/>
+    <definition value="Secondary Measure Group"/>
+  </concept>
+</CodeSystem>

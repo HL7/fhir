@@ -20,6 +20,7 @@ The DiagnosticReport resource is suitable for the following kinds of diagnostic 
  <li>Pathology / Histopathology / related disciplines</li>
  <li>Imaging Investigations (x-ray, CT, MRI, etc.)</li>
  <li>Other diagnostics such as Cardiology, Gastroenterology, etc.</li>
+ <li>Product quality tests such as pH, Assay, Microbial limits, etc. on product and substance</li>
 </ul>
 <p>
 The DiagnosticReport resource is not intended to support cumulative result presentation (tabular presentation of past and present results in the resource).

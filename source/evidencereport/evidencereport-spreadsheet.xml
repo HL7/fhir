@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Khalid</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2020-06-12T21:11:17Z</LastSaved>
+  <LastSaved>2020-11-23T12:47:59Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,7 +18,7 @@
   
   
   <TabRatio>895</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <DoNotCalculateBeforeSave/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1163,7 +1163,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R34C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="152" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="153" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="322.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="76.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="43.0"/>
@@ -1795,7 +1795,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">replaces | amends | appends | transforms</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">replaces | amends | appends | transforms | replacedWith | amendedWith | appendedWith | transformedWith</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">The type of relationship that this composition has with anther composition or document</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">If this document appends another document, then the document cannot be fully understood without also accessing the referenced document</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2055,7 +2055,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Extensible classifiers</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Extensible classifiers as content</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Specifies any type of classification of the evidence report</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">May be used in searching and filtering, or may be the key content of the report</Data></Cell>
     <Cell ss:StyleID="s122"/>
@@ -2081,10 +2081,36 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">A reference to data that supports this section</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Reference to resources as content</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">A reference to the actual resource from which the narrative in the section is derived</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">If there are no entries in the list, an emptyReason SHOULD be provided</Data></Cell>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s123"><Data ss:Type="String">EvidenceReport.section.entryQuantity</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Quantity as content</Data></Cell>
+    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s89"/>
@@ -3077,7 +3103,7 @@
     <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14" ss:Span="67"/>
-   <Row ss:AutoFitHeight="0" ss:Height="15" ss:Index="150" ss:Span="2"/>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:Index="151" ss:Span="2"/>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -3091,13 +3117,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -5331,7 +5356,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">EvidenceReportType</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The kind of report, such as grouping of classifiers, search results, or human-compiled expression.</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">#evidence-report-type</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
@@ -5482,6 +5507,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6705,45 +6731,45 @@
     <Cell ss:StyleID="s170"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">replacedWith</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s181"/>
-    <Cell ss:StyleID="s181"/>
-    <Cell ss:StyleID="s181"/>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">Replaced With</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">This document was</Data></Cell>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s170"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">amendedWith</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s181"/>
-    <Cell ss:StyleID="s181"/>
-    <Cell ss:StyleID="s181"/>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">Amended With</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">This document was</Data></Cell>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s170"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s161"/>
+    <Cell><Data ss:Type="String">appendedWith</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s181"/>
-    <Cell ss:StyleID="s181"/>
-    <Cell ss:StyleID="s181"/>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">Appended With</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">This document was</Data></Cell>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s170"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">transformedWith</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s181"/>
-    <Cell ss:StyleID="s181"/>
-    <Cell ss:StyleID="s181"/>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">Transformed With</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">This document was</Data></Cell>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s170"/>
@@ -7185,7 +7211,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <LeftColumnVisible>3</LeftColumnVisible>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
