@@ -168,6 +168,8 @@ public class ResourceDefn  {
   private List<String> hints = new ArrayList<String>();
   private Map<String, PointSpec> layout = new HashMap<String, PointSpec>();
   private SecurityCategorization securityCategorization;
+
+  private long timestamp;
   
   private List<InheritedMapping> inheritedMappings = new ArrayList<InheritedMapping>();
   public FMGApproval approval;
@@ -508,6 +510,14 @@ public class ResourceDefn  {
 
   public void setInterface(boolean interface_) {
     this.interface_ = interface_;
+  }
+
+  public long getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(long timestamp) {
+    this.timestamp = timestamp;
   }
   
   
