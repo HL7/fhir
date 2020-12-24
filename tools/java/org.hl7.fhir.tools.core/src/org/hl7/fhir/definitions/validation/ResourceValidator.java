@@ -54,8 +54,8 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
-import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.definitions.model.MappingSpace;
+import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.context.IWorkerContext;
 import org.hl7.fhir.r5.model.CodeSystem;
@@ -115,7 +115,7 @@ public class ResourceValidator extends BaseValidator {
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
 	public ResourceValidator(Definitions definitions, Translations translations, CanonicalResourceManager<CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages, List<String> suppressedMessages, IWorkerContext context) throws IOException {
-		super(context);
+		super(context, null);
 		source = Source.ResourceValidator;
 		this.definitions = definitions;
 		this.translations = translations;

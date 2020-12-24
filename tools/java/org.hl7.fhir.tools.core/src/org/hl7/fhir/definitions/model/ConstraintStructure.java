@@ -15,6 +15,7 @@ public class ConstraintStructure {
   private WorkGroup wg;
   private String fmm;
   private boolean experimental;
+  private String summary;
     
   public ConstraintStructure(StructureDefinition resource, ImplementationGuideDefn usage, WorkGroup wg, String fmm, boolean experimental) {
     this.id = resource.getId();
@@ -111,6 +112,14 @@ public class ConstraintStructure {
 
   public void setFmm(String fmm) {
     this.fmm = fmm;
+  }
+
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
   }
 
   

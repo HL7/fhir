@@ -41,6 +41,7 @@ import org.hl7.fhir.r5.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.r5.elementmodel.ObjectConverter;
 import org.hl7.fhir.r5.formats.XmlParser;
 import org.hl7.fhir.r5.model.Base;
+import org.hl7.fhir.r5.model.CanonicalResource;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.Constants;
 import org.hl7.fhir.r5.model.OperationDefinition;
@@ -116,7 +117,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     }
 
     @Override
-    public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
+    public List<Base> executeFunction(Object appContext, List<Base> focus, String functionName, List<List<Base>> parameters) {
       return null;
     }
 
@@ -201,14 +202,14 @@ public class ExampleInspector implements IValidatorResourceFetcher {
   private ShExValidator shex;
   
   public void prepare() throws Exception {
-    validator = new InstanceValidator(context, hostServices);
+    validator = new InstanceValidator(context, hostServices, null);
     validator.setSuppressLoincSnomedMessages(true);
     validator.setResourceIdRule(IdStatus.REQUIRED);
     validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);
     validator.getExtensionDomains().add("http://hl7.org/fhir/us");
     validator.setFetcher(this);
     validator.setAllowExamples(true);
-    validator.setDebug(true);
+    validator.setDebug(false);
 
     xml = new XmlValidator(errorsInt, loadSchemas(), loadTransforms());
 
@@ -590,7 +591,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
 
 
   @Override
-  public boolean resolveURL(Object appContext, String path, String url) throws IOException, FHIRException {
+  public boolean resolveURL(Object appContext, String path, String url, String type) throws IOException, FHIRException {
     if (path.endsWith(".fullUrl"))
       return true;
     if (url.startsWith("http://hl7.org/fhir")) {
@@ -627,6 +628,18 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     URL url = new URL(source);
     URLConnection c = url.openConnection();
     return TextFile.streamToBytes(c.getInputStream());
+  }
+
+
+  @Override
+  public CanonicalResource fetchCanonicalResource(String url) {
+    return null;
+  }
+
+
+  @Override
+  public boolean fetchesCanonicalResource(String url) {
+    return false;
   }
   
  }

@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.r5.model.DataType;
 import org.hl7.fhir.r5.model.ElementDefinition;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;

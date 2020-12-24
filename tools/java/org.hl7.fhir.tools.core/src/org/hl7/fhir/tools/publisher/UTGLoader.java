@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.hl7.fhir.convertors.loaders.BaseLoaderR5.ILoaderKnowledgeProvider;
 import org.hl7.fhir.r5.model.Resource;
-import org.hl7.fhir.utilities.cache.NpmPackage;
+import org.hl7.fhir.utilities.npm.NpmPackage;
 
 import com.google.gson.JsonSyntaxException;
 

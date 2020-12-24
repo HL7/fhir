@@ -39,8 +39,8 @@ import java.util.Queue;
 import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
-import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.definitions.model.MappingSpace;
+import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.r5.context.CanonicalResourceManager;
 import org.hl7.fhir.r5.context.IWorkerContext;
 import org.hl7.fhir.r5.model.CodeSystem;

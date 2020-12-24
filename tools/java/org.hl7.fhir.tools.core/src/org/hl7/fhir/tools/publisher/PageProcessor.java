@@ -123,9 +123,9 @@ import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.PathEngineException;
-import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
-import org.hl7.fhir.igtools.spreadsheets.TypeParser;
-import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.definitions.model.MappingSpace;
+import org.hl7.fhir.definitions.parsers.TypeParser;
+import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.r5.conformance.ProfileUtilities;
 import org.hl7.fhir.r5.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r5.context.CanonicalResourceManager;
@@ -209,7 +209,7 @@ import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r5.utils.EOperationOutcome;
 import org.hl7.fhir.r5.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r5.utils.IResourceValidator;
-import org.hl7.fhir.r5.utils.StructureMapUtilities;
+import org.hl7.fhir.r5.utils.structuremap.StructureMapUtilities;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
 import org.hl7.fhir.r5.utils.Translations;
 import org.hl7.fhir.r5.utils.TypesUtilities;
@@ -226,9 +226,9 @@ import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.cache.FilesystemPackageCacheManager;
-import org.hl7.fhir.utilities.cache.NpmPackage;
-import org.hl7.fhir.utilities.cache.ToolsVersion;
+import org.hl7.fhir.utilities.npm.FilesystemPackageCacheManager;
+import org.hl7.fhir.utilities.npm.NpmPackage;
+import org.hl7.fhir.utilities.npm.ToolsVersion;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationOptions;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
@@ -333,7 +333,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
 
     @Override
-    public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
+    public List<Base> executeFunction(Object appContext, List<Base> focus, String functionName, List<List<Base>> parameters) {
       List<Base> list = new ArrayList<Base>();
       Base b = new BooleanType(true);
       list.add(b);
