@@ -166,7 +166,7 @@ public class Regenerator {
     }
  
     for (StructureDefinition cs : p.getExtensions()) {
-      CanonicalResource cr = generateExtension(root, r, p, cs);
+      CanonicalResource cr = generateExtension(root, r, p, cs.copy());
       ig.getDefinition().addResource().getReference().setReference(cr.fhirType()+"/"+cr.getId());
     }
  
@@ -212,13 +212,15 @@ public class Regenerator {
 
   private CanonicalResource generateExtension(String root, ResourceDefn r, Profile p, StructureDefinition sd) throws IOException {
     File fn = new File(Utilities.path(root,  sd.fhirType().toLowerCase()+"-extension-"+sd.getId()+".xml"));
+    sd.setSnapshot(null);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(fn), sd);
     fn.setLastModified(r.getTimestamp());    
     return sd;
   }
 
   private CanonicalResource generateProfile(String root, ResourceDefn r, Profile p, ConstraintStructure cs) throws IOException {
-    StructureDefinition sd = cs.getResource();
+    StructureDefinition sd = cs.getResource().copy();
+    sd.setSnapshot(null);
     if (!Utilities.noString(cs.getSummary())) {
       sd.addExtension(BuildExtensions.EXT_SUMMARY, new StringType(cs.getSummary()));
     }

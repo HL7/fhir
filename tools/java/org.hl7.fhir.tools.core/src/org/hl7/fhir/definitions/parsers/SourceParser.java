@@ -253,7 +253,7 @@ public class SourceParser {
         isAbstract = true;
         isInterface = true;
       }
-      ResourceDefn r = loadResource(n, null, true, isInterface);
+      ResourceDefn r = loadResource(n, null, true, isInterface, parts[1]);
       r.setAbstract(isAbstract);
       r.setInterface(isInterface);
       definitions.getBaseResources().put(parts[1], r);
@@ -266,7 +266,7 @@ public class SourceParser {
     
     logger.log("Load Resources", LogMessageType.Process);
     for (String n : ini.getPropertyNames("resources")) {
-      loadResource(n, definitions.getResources(), false, false);
+      loadResource(n, definitions.getResources(), false, false, ini.getStringProperty("resources", n));
     }
 
     processSearchExpressions();
@@ -343,6 +343,7 @@ public class SourceParser {
       }        
     }
     closeTemplates();
+       
   }
 
   private void loadExternals() throws Exception {
@@ -1158,7 +1159,7 @@ public class SourceParser {
     return StandardsStatus.fromCode(ns);
   }
 
-  private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, boolean isAbstract, boolean isTemplate) throws Exception {
+  private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, boolean isAbstract, boolean isTemplate, String t) throws Exception {
     String folder = n;
     File spreadsheet = new CSFile((srcDir) + folder + File.separatorChar + n + "-spreadsheet.xml");
 
@@ -1204,6 +1205,7 @@ public class SourceParser {
     File f = new File(Utilities.path(srcDir, folder, n+".svg"));
     if (f.exists()) 
       parseSvgFile(f, root.getLayout(), f.getName());
+    // ResourceDefn rootNew = new ResourceParser(srcDir, n, t, definitions, context).parse(n, t); 
     return root;
   }
 
