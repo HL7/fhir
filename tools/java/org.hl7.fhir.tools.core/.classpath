@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="/org.hl7.fhir.utilities"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.rdf"/>
@@ -12,7 +16,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r5"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu2016may"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.publisher.core"/>
 	<classpathentry kind="lib" path="../imports/ant-1.10.3.jar"/>
 	<classpathentry kind="lib" path="../imports/antlr4-runtime-4.6.jar"/>
 	<classpathentry kind="lib" path="../imports/antlr-runtime-3.5.2.jar"/>
@@ -109,5 +112,8 @@
 	<classpathentry kind="lib" path="../imports/xpp3-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="../imports/hapi-fhir-base-4.0.0.jar"/>
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/ucum-1.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/okhttp-4.9.0.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/kotlin-stdlib-1.4.21.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/okio-2.9.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
