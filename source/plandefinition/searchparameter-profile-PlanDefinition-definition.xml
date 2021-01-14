@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="PlanDefinition-definition"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/SearchParameter/PlanDefinition-definition"/>
+  <version value="4.5.0"/>
+  <name value="definition"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-04T14:00:02+11:00"/>
+  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Activity or plan definitions used by plan definition"/>
+  <code value="definition"/>
+  <base value="PlanDefinition"/>
+  <type value="reference"/>
+  <expression value="PlanDefinition.action.definition"/>
+  <xpath value="f:PlanDefinition/f:action/f:definitionCanonical | f:PlanDefinition/f:action/f:definitionUri"/>
+  <xpathUsage value="normal"/>
+  <target value="Questionnaire"/>
+  <target value="PlanDefinition"/>
+  <target value="ActivityDefinition"/>
+</SearchParameter>

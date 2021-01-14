@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="CompartmentDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CompartmentDefinition.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-code"/>
+        <description value="Patient | Encounter | RelatedPerson | Practitioner | Device"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="CompartmentDefinition.code"/>
+        <xpath value="f:CompartmentDefinition/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-context"/>
+        <description value="A use context assigned to the compartment definition"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(CompartmentDefinition.useContext.value as CodeableConcept)"/>
+        <xpath value="f:CompartmentDefinition/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the compartment definition"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(CompartmentDefinition.useContext.value as Quantity) | (CompartmentDefinition.useContext.value as Range)"/>
+        <xpath value="f:CompartmentDefinition/f:useContext/f:valueQuantity | f:CompartmentDefinition/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-context-type"/>
+        <description value="A type of use context assigned to the compartment definition"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="CompartmentDefinition.useContext.code"/>
+        <xpath value="f:CompartmentDefinition/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the compartment definition"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="CompartmentDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-context-type-value"/>
+        <description value="A use context type and value assigned to the compartment definition"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="CompartmentDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-date"/>
+        <description value="The compartment definition publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="CompartmentDefinition.date"/>
+        <xpath value="f:CompartmentDefinition/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-description"/>
+        <description value="The description of the compartment definition"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="CompartmentDefinition.description"/>
+        <xpath value="f:CompartmentDefinition/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-name"/>
+        <description value="Computationally friendly name of the compartment definition"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="CompartmentDefinition.name"/>
+        <xpath value="f:CompartmentDefinition/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-publisher"/>
+        <description value="Name of the publisher of the compartment definition"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="CompartmentDefinition.publisher"/>
+        <xpath value="f:CompartmentDefinition/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-resource"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CompartmentDefinition.resource.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-resource"/>
+        <description value="Name of resource type"/>
+        <code value="resource"/>
+        <type value="token"/>
+        <expression value="CompartmentDefinition.resource.code"/>
+        <xpath value="f:CompartmentDefinition/f:resource/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-status"/>
+        <description value="The current status of the compartment definition"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="CompartmentDefinition.status"/>
+        <xpath value="f:CompartmentDefinition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-url"/>
+        <description value="The uri that identifies the compartment definition"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="CompartmentDefinition.url"/>
+        <xpath value="f:CompartmentDefinition/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CompartmentDefinition-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CompartmentDefinition-version"/>
+        <description value="The business version of the compartment definition"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="CompartmentDefinition.version"/>
+        <xpath value="f:CompartmentDefinition/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

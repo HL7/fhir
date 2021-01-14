@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="PlanDefinition-core"/>
+  <title value="Base Profile for PlanDefinition"/>
+  <status value="active"/>
+  <date value="1970-01-01T10:00:00+10:00"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/shareableplandefinition"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-composed-of"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-context"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-context-quantity"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-context-type"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-date"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-definition"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-depends-on"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-derived-from"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-description"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-effective"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-identifier"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-jurisdiction"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-name"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-predecessor"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-publisher"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-status"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-successor"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-title"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-topic"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-type"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-url"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-version"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-context-type-quantity"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/PlanDefinition-context-type-value"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

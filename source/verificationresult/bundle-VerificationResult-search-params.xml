@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="VerificationResult-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="VerificationResult-target"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="VerificationResult.target"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/VerificationResult-target"/>
+        <description value="A resource that was validated"/>
+        <code value="target"/>
+        <type value="reference"/>
+        <expression value="VerificationResult.target"/>
+        <xpath value="f:VerificationResult/f:target"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

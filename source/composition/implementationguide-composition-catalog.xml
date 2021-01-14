@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="composition-catalog"/>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/introduction">
+    <valueString value="c:\work\org.hl7.fhir\build\source\composition\composition-catalog-profile-introduction.xml"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/notes">
+    <valueString value="c:\work\org.hl7.fhir\build\source\composition\[id]-profile-notes.xml (if you want one)"/>
+  </extension>
+  <version value="0.01"/>
+  <name value="Profile for Catalog"/>
+  <title value="Profile for Catalog"/>
+  <status value="draft"/>
+  <date value="2014-01-31T00:00:00.000"/>
+  <publisher value="Health Level Seven, Inc. - Clinical Quality Information WG"/>
+  <description value="describes how the Composition resource is used to represent a Catalog"/>
+  <definition>
+
+  </definition>
+</ImplementationGuide>

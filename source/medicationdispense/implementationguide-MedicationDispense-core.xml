@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="MedicationDispense-core"/>
+  <version value="0.1"/>
+  <name value="MedicationDispense HL7 Extensions"/>
+  <title value="MedicationDispense HL7 Extensions"/>
+  <status value="draft"/>
+  <date value="2019-03-23T00:00:00.000"/>
+  <publisher value="Health Level Seven, Inc. - FHIR WG"/>
+  <description value="Defines common extensions used with or related to the MedicationDispense resource"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/medicationdispense-refillsRemaining"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/medicationdispense-quantityRemaining"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

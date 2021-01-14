@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="SupplyDelivery-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyDelivery-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyDelivery.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyDelivery-identifier"/>
+        <description value="External identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="SupplyDelivery.identifier"/>
+        <xpath value="f:SupplyDelivery/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyDelivery-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyDelivery.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyDelivery-patient"/>
+        <description value="Patient for whom the item is supplied"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="SupplyDelivery.patient"/>
+        <xpath value="f:SupplyDelivery/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyDelivery-receiver"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyDelivery.receiver"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyDelivery-receiver"/>
+        <description value="Who collected the Supply"/>
+        <code value="receiver"/>
+        <type value="reference"/>
+        <expression value="SupplyDelivery.receiver"/>
+        <xpath value="f:SupplyDelivery/f:receiver"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyDelivery-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyDelivery.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyDelivery-status"/>
+        <description value="in-progress | completed | abandoned | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="SupplyDelivery.status"/>
+        <xpath value="f:SupplyDelivery/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyDelivery-supplier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyDelivery.supplier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyDelivery-supplier"/>
+        <description value="Dispenser"/>
+        <code value="supplier"/>
+        <type value="reference"/>
+        <expression value="SupplyDelivery.supplier"/>
+        <xpath value="f:SupplyDelivery/f:supplier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>
