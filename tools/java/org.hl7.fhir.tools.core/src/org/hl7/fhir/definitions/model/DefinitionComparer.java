@@ -664,8 +664,8 @@ public class DefinitionComparer {
     if (!markdownMatches(left.getDefinition(), right.getDefinition())) {
       res = false;
       System.out.println("Definitions differ @"+path+": definition = ");
-      System.out.println("  "+Utilities.normalize(left.getDefinition().strip()));
-      System.out.println("  "+Utilities.normalize(right.getDefinition().strip()));
+      System.out.println("  "+Utilities.normalize(left.getDefinition().trim()));
+      System.out.println("  "+Utilities.normalize(right.getDefinition().trim()));
     }
     
     if (!markdownMatches(left.getRequirements(), right.getRequirements())) {
@@ -676,8 +676,8 @@ public class DefinitionComparer {
     if (!markdownMatches(left.getComments(), right.getComments())) {
       res = false;
       System.out.println("Definitions differ @"+path+": comments = ");
-      System.out.println("  "+Utilities.normalize(left.getComments().strip()));
-      System.out.println("  "+Utilities.normalize(right.getComments().strip()));
+      System.out.println("  "+Utilities.normalize(left.getComments().trim()));
+      System.out.println("  "+Utilities.normalize(right.getComments().trim()));
     }
     
     if (!stringsMatch(left.getTodo(), right.getTodo())) {
