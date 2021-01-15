@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="Library-publisher"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/SearchParameter/Library-publisher"/>
+  <version value="4.5.0"/>
+  <name value="publisher"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-01-04T14:00:02+11:00"/>
+  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Name of the publisher of the library"/>
+  <code value="publisher"/>
+  <base value="Library"/>
+  <type value="string"/>
+  <expression value="Library.publisher"/>
+  <xpath value="f:Library/f:publisher"/>
+  <xpathUsage value="normal"/>
+</SearchParameter>

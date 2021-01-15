@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Group-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Group Example, Characteristic Based"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example"/>
+    </extension>
+    <item>
+      <reference value="Group/101"/>
+      <display value="General #1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Group Example, Member Based"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example-member"/>
+    </extension>
+    <item>
+      <reference value="Group/102"/>
+      <display value="General #2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Herd of 2500 breeding sows"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example-herd1"/>
+    </extension>
+    <item>
+      <reference value="Group/herd1"/>
+      <display value="Porcine herd"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patients primarily attributed to Practitioner 123"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="group-example-patientlist"/>
+    </extension>
+    <item>
+      <reference value="Group/example-patientlist"/>
+      <display value="Patient List"/>
+    </item>
+  </entry>
+</List>

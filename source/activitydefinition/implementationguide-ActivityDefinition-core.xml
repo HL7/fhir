@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="ActivityDefinition-core"/>
+  <title value="Base Profile for ActivityDefinition"/>
+  <status value="active"/>
+  <date value="1970-01-01T10:00:00+10:00"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-composed-of"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-context"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-context-quantity"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-context-type"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-date"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-depends-on"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-derived-from"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-description"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-effective"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-identifier"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-jurisdiction"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-name"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-predecessor"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-publisher"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-status"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-successor"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-title"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-topic"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-url"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-version"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-context-type-quantity"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/ActivityDefinition-context-type-value"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

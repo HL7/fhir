@@ -83,6 +83,9 @@ public class OperationParameter {
   }
 
   public List<OperationParameter> getParts() {
+    if (parts == null) {
+      parts = new ArrayList<>();
+    }
     return parts;
   }
 
@@ -108,6 +111,14 @@ public class OperationParameter {
 
   public void setSearchType(String searchType) {
     this.searchType = searchType;
+  }
+
+  public boolean hasBinding() {
+    return bs != null;
+  }
+
+  public BindingSpecification getBinding() {
+    return bs;
   }
 
 }

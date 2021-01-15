@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="AdministrableProductDefinition-ingredient"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/SearchParameter/AdministrableProductDefinition-ingredient"/>
+  <version value="4.5.0"/>
+  <name value="ingredient"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-04T14:00:02+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The ingredients of this administrable medicinal product. Sometimes it may be appropriate to specify these via the associated manufactured item(s)"/>
+  <code value="ingredient"/>
+  <base value="AdministrableProductDefinition"/>
+  <type value="reference"/>
+  <expression value="AdministrableProductDefinition.ingredient"/>
+  <xpath value="f:AdministrableProductDefinition/f:ingredient"/>
+  <xpathUsage value="normal"/>
+  <target value="Ingredient"/>
+</SearchParameter>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Condition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Condition Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example"/>
+    </extension>
+    <item>
+      <reference value="Condition/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="2nd Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example2"/>
+    </extension>
+    <item>
+      <reference value="Condition/example2"/>
+      <display value="2nd Case"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-word condition example (fever)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-f201-fever"/>
+    </extension>
+    <item>
+      <reference value="Condition/f201"/>
+      <display value="Fever"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-word condition example (malignancy)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-f202-malignancy"/>
+    </extension>
+    <item>
+      <reference value="Condition/f202"/>
+      <display value="Malignancy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-word condition example (sepsis)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-f203-sepsis"/>
+    </extension>
+    <item>
+      <reference value="Condition/f203"/>
+      <display value="Sepsis"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-word condition example (renal insufficiency)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-f204-renal"/>
+    </extension>
+    <item>
+      <reference value="Condition/f204"/>
+      <display value="Renal insufficiency"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-word condition example (Bacterial Infection)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-f205-infection"/>
+    </extension>
+    <item>
+      <reference value="Condition/f205"/>
+      <display value="Bacterial Infection"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-word condition example (heart)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-f001-heart"/>
+    </extension>
+    <item>
+      <reference value="Condition/f001"/>
+      <display value="Heart"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-word condition example (lung)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-f002-lung"/>
+    </extension>
+    <item>
+      <reference value="Condition/f002"/>
+      <display value="Lung"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-word condition example (abscess)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-f003-abscess"/>
+    </extension>
+    <item>
+      <reference value="Condition/f003"/>
+      <display value="Abscess"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Stroke example (for prognosis)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-stroke"/>
+    </extension>
+    <item>
+      <reference value="Condition/stroke"/>
+      <display value="Stroke"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Family history concern"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-family-history"/>
+    </extension>
+    <item>
+      <reference value="Condition/family-history"/>
+      <display value="Family History"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Severe burn of left ear"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="condition-example-linkage"/>
+    </extension>
+    <item>
+      <reference value="Condition/example-linkage"/>
+      <display value="Linkage"/>
+    </item>
+  </entry>
+</List>

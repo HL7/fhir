@@ -1,4 +1,75 @@
 -------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "valueSet" : ["http://hl7.org/fhir/ValueSet/practitioner-role",
+      "http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype"]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "id" : "action-participant-role",
+  "meta" : {
+    "lastUpdated" : "2017-02-16T10:33:00.000+11:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
+  },
+  "url" : "http://terminology.hl7.org/ValueSet/action-participant-role",
+  "version" : "0.1.0",
+  "name" : "ActionParticipantRole",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2017-02-15T16:33:00.000-07:00",
+  "expansion" : {
+    "identifier" : "urn:uuid:38f7a802-686d-43b7-ac92-a6e172db4cfb",
+    "timestamp" : "2021-01-15T01:33:13.971Z",
+    "parameter" : [{
+      "name" : "expansion-source",
+      "valueString" : "ValueSet/action-participant-role"
+    },
+    {
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "includeDesignations",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "expansion-source",
+      "valueString" : "ValueSet/practitioner-role"
+    },
+    {
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "includeDesignations",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/practitioner-role|4.0.1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200731"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
 {"code" : {
   "coding" : [{
     "code" : "self"

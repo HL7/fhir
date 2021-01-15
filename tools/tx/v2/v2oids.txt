@@ -1,0 +1,438 @@
+// id	Name	OID	id	ver
+// 1	SEX	2.16.840.1.113883.18.1	sex 2.1 - 2.4
+1	Administrative Sex	2.16.840.1.113883.18.2	administrativeSex
+2	Marital Status	2.16.840.1.113883.18.179	maritalStatus	
+3	Event type	2.16.840.1.113883.18.4	eventType	
+4	Patient Class	2.16.840.1.113883.18.5	patientClass	
+// 5	ETHNIC GROUP	2.16.840.1.113883.18.6	ethnicGroup	
+6	RELIGION	2.16.840.1.113883.18.7	religionV1	2.1
+6	Religion	2.16.840.1.113883.18.8	religion	2.4
+7	Admission type	2.16.840.1.113883.18.9	admissionType	
+8	Acknowledgment Code	2.16.840.1.113883.18.10	acknowledgmentCode	
+9	Ambulatory Status	2.16.840.1.113883.18.11	ambulatoryStatus	
+12	STOCK LOCATION	2.16.840.1.113883.18.12	stockLocation	
+17	Transaction Type	2.16.840.1.113883.18.13	transactionType	
+23	Admit Source	2.16.840.1.113883.18.14	admitSource	
+27	Priority	2.16.840.1.113883.18.15	priority	
+33	ROUTE	2.16.840.1.113883.18.16	route	
+34	SITE ADMINISTERED	2.16.840.1.113883.18.17	siteAdministered	
+38	Order status	2.16.840.1.113883.18.18	orderStatus	
+43	Condition code	2.16.840.1.113883.18.19	conditionCode	
+48	What Subject Filter	2.16.840.1.113883.18.20	whatSubjectFilter	
+52	Diagnosis Type	2.16.840.1.113883.18.21	diagnosisType	
+61	Check digit scheme	2.16.840.1.113883.18.22	checkDigitScheme	
+62	Event reason	2.16.840.1.113883.18.23	eventReason	
+63	Relationship	2.16.840.1.113883.18.24	relationship	
+65	Specimen Action Code	2.16.840.1.113883.18.25	specimenActionCode	
+66	Employment Status	2.16.840.1.113883.18.26	employmentStatus	
+69	Hospital Service	2.16.840.1.113883.18.27	hospitalService	
+70	Specimen Source Codes	2.16.840.1.113883.18.28	specimenSourceCodes	
+74	Diagnostic Service Section ID	2.16.840.1.113883.18.29	diagnosticServiceSectionId	
+76	Message type	2.16.840.1.113883.18.30	messageType	
+78	Interpretation Codes	2.16.840.1.113883.18.31	interpretationCodes	
+80	Nature of abnormal testing	2.16.840.1.113883.18.32	natureOfAbnormalTesting	
+83	Outlier Type	2.16.840.1.113883.18.33	outlierType	
+85	OBSERVATION RESULT STATUS	2.16.840.1.113883.18.34	observationResultStatus	
+85	Observation Result Status Codes Interpretation	2.16.840.1.113883.18.34	observationResultStatusCodesInterpretation	
+91	Query priority	2.16.840.1.113883.18.35	queryPriority	
+92	Re-Admission Indicator	2.16.840.1.113883.18.36	re-admissionIndicator	
+98	Type of Agreement	2.16.840.1.113883.18.37	typeOfAgreement	
+100	Invocation event	2.16.840.1.113883.18.38	invocationEvent	
+102	Delayed acknowledgment type	2.16.840.1.113883.18.39	delayedAcknowledgmentType	
+103	Processing ID	2.16.840.1.113883.18.40	processingId	
+104	Version ID	2.16.840.1.113883.18.41	versionId	
+105	SOURCE OF COMMENT	2.16.840.1.113883.18.42	sourceOfComment	
+106	Query/Response Format Code	2.16.840.1.113883.18.43	query/responseFormatCode	
+107	DEFERRED RESPONSE TYPE	2.16.840.1.113883.18.44	deferredResponseType	
+108	Query results level	2.16.840.1.113883.18.45	queryResultsLevel	
+109	Report priority	2.16.840.1.113883.18.46	reportPriority	
+116	Bed Status	2.16.840.1.113883.18.47	bedStatus	
+119	Order Control Codes	2.16.840.1.113883.18.48	orderControlCodes	
+121	Response flag	2.16.840.1.113883.18.49	responseFlag	
+122	Charge type	2.16.840.1.113883.18.50	chargeType	
+123	Result Status	2.16.840.1.113883.18.51	resultStatus	
+124	Transportation Mode	2.16.840.1.113883.18.52	transportationMode	
+126	Quantity Limited Request	2.16.840.1.113883.18.53	quantityLimitedRequest	
+127	Allergen Type	2.16.840.1.113883.18.54	allergenType	
+128	Allergy Severity	2.16.840.1.113883.18.55	allergySeverity	
+130	Visit User Code	2.16.840.1.113883.18.56	visitUserCode	
+131	Contact Role	2.16.840.1.113883.18.57	contactRole 2.3
+131	Contact Role	2.16.840.1.113883.18.58	contactRole2  2.5
+133	Procedure Practitioner Identifier Code Type	2.16.840.1.113883.18.59	procedurePractitionerIdentifierCodeType	
+135	Assignment of Benefits	2.16.840.1.113883.18.60	assignmentOfBenefits	
+136	Yes/No Table	2.16.840.1.113883.18.347	expandedYes-NoIndicator	
+137	Mail Claim Party	2.16.840.1.113883.18.61	mailClaimParty	
+140	Military Service	2.16.840.1.113883.18.62	militaryService	
+141	Military Rank/Grade	2.16.840.1.113883.18.63	militaryRank/grade	
+142	Military Status	2.16.840.1.113883.18.64	militaryStatus	
+144	Eligibility Source	2.16.840.1.113883.18.65	eligibilitySource	
+145	Room Type	2.16.840.1.113883.18.66	roomType	
+146	Amount type	2.16.840.1.113883.18.67	amountType	
+147	Policy Type	2.16.840.1.113883.18.68	policyType	
+148	Money or percentage indicator	2.16.840.1.113883.18.69	moneyOrPercentageIndicator	
+149	Day Type	2.16.840.1.113883.18.70	dayType	
+150	Certification patient type	2.16.840.1.113883.18.71	certificationPatientType	
+153	Value code	2.16.840.1.113883.18.72	valueCode	
+155	Accept/application acknowledgment conditions	2.16.840.1.113883.18.73	accept/applicationAcknowledgmentConditions	
+156	Which date/time qualifier	2.16.840.1.113883.18.74	whichDate/timeQualifier	
+157	Which date/time status qualifier	2.16.840.1.113883.18.75	whichDate/timeStatusQualifier	
+158	Date/time selection qualifier	2.16.840.1.113883.18.76	date/timeSelectionQualifier	
+159	Diet Code Specification Type	2.16.840.1.113883.18.77	dietCodeSpecificationType	
+160	Tray Type	2.16.840.1.113883.18.78	trayType	
+161	Allow Substitution	2.16.840.1.113883.18.79	allowSubstitution	
+162	Route of Administration	2.16.840.1.113883.18.80	routeOfAdministration	
+163	Body Site	2.16.840.1.113883.18.81	bodySite	
+164	Adminstration Device	2.16.840.1.113883.18.82	adminstrationDevice	
+165	Administration Method	2.16.840.1.113883.18.83	administrationMethod	
+166	RX Component Type	2.16.840.1.113883.18.84	rxComponentType	
+167	Substitution Status	2.16.840.1.113883.18.85	substitutionStatus	
+168	Processing priority	2.16.840.1.113883.18.86	processingPriority	
+169	Reporting Priority	2.16.840.1.113883.18.87	reportingPriority	
+170	Derived specimen	2.16.840.1.113883.18.88	derivedSpecimen	
+173	Coordination of Benefits	2.16.840.1.113883.18.89	coordinationOfBenefits	
+174	Nature of Service/Test/Observation	2.16.840.1.113883.18.90	natureOfService-test-observation	
+175	Master File Identifier Code	2.16.840.1.113883.18.91	masterFileIdentifierCode	
+177	Confidentiality code	2.16.840.1.113883.18.92	confidentialityCode	
+178	File Level Event Code	2.16.840.1.113883.18.93	fileLevelEventCode	
+179	Response level	2.16.840.1.113883.18.94	responseLevel	
+180	Record-level Event Code	2.16.840.1.113883.18.95	record-levelEventCode	
+181	MFN Record-level Error Return	2.16.840.1.113883.18.96	mfnRecord-levelErrorReturn	
+183	Active/Inactive	2.16.840.1.113883.18.97	active/inactive	
+185	Preferred Method of Contact	2.16.840.1.113883.18.98	preferredMethodOfContact	
+187	Provider billing	2.16.840.1.113883.18.99	providerBilling	
+189	Ethnic Group	2.16.840.1.113883.18.100	ethnicGroup	
+190	Address Type	2.16.840.1.113883.18.101	addressType	
+191	Type of Referenced Data	2.16.840.1.113883.18.102	typeOfReferencedData	
+193	Amount class	2.16.840.1.113883.18.103	amountClass	
+200	Name Type	2.16.840.1.113883.18.104	nameType	
+// 200	Name Type	2.16.840.1.113883.18.105	nameType2	2.7+
+201	Telecommunication use code	2.16.840.1.113883.18.106	telecommunicationUseCode	
+202	Telecommunication equipment type	2.16.840.1.113883.18.107	telecommunicationEquipmentType	
+203	Identifier type	2.16.840.1.113883.18.108	identifierType	
+204	Organizational Name Type	2.16.840.1.113883.18.109	organizationalNameType	
+205	Price type	2.16.840.1.113883.18.110	priceType	
+206	Segment action code	2.16.840.1.113883.18.111	segmentActionCode	
+207	Processing mode	2.16.840.1.113883.18.112	processingMode	
+208	Query Response Status	2.16.840.1.113883.18.113	queryResponseStatus	
+209	Relational Operator	2.16.840.1.113883.18.114	relationalOperator	
+210	Relational Conjunction	2.16.840.1.113883.18.115	relationalConjunction	
+211	Alternate Character Sets	2.16.840.1.113883.18.116	alternateCharacterSets	
+213	Purge Status Code	2.16.840.1.113883.18.117	purgeStatusCode	
+214	Special Program Code	2.16.840.1.113883.18.118	specialProgramCode	
+215	Publicity Code	2.16.840.1.113883.18.119	publicityCode	
+216	Patient Status Code	2.16.840.1.113883.18.120	patientStatusCode	
+217	Visit priority code	2.16.840.1.113883.18.121	visitPriorityCode	
+220	Living Arrangement	2.16.840.1.113883.18.122	livingArrangement	
+223	Living dependency	2.16.840.1.113883.18.123	livingDependency  2.3	
+223	Living dependency	2.16.840.1.113883.18.124	livingDependency2 2.4
+224	Transport Arranged	2.16.840.1.113883.18.125	transportArranged	
+225	Escort Required	2.16.840.1.113883.18.126	escortRequired	
+227	Manufacturers of Vaccines	2.16.840.1.113883.18.127	manufacturersOfVaccinesHL7	
+228	Diagnosis Classification	2.16.840.1.113883.18.128	diagnosisClassification	
+229	DRG Payor	2.16.840.1.113883.18.129	drgPayor	
+230	Procedure functional type	2.16.840.1.113883.18.130	procedureFunctionalType	
+231	Student Status	2.16.840.1.113883.18.131	studentStatus	
+232	Insurance Company Contact Reason	2.16.840.1.113883.18.132	insuranceCompanyContactReason	
+234	Report timing	2.16.840.1.113883.18.133	reportTiming	
+235	Report Source	2.16.840.1.113883.18.134	reportSource	
+236	Event reported to	2.16.840.1.113883.18.135	eventReportedTo	
+237	Event Qualification	2.16.840.1.113883.18.136	eventQualification	
+238	Event Seriousness	2.16.840.1.113883.18.137	eventSeriousness	
+239	Event expected	2.16.840.1.113883.18.138	eventExpected	
+240	Event Consequence	2.16.840.1.113883.18.139	eventConsequence	
+241	Patient Outcome	2.16.840.1.113883.18.140	patientOutcome	
+242	Primary Observer's Qualification	2.16.840.1.113883.18.141	primaryObserversQualification	
+243	Identity May Be Divulged	2.16.840.1.113883.18.142	identityMayBeDivulged	
+247	Start of Evaluation	2.16.840.1.113883.18.143	startOfEvaluation	
+248	Product source	2.16.840.1.113883.18.144	productSource	
+250	Relatedness Assessment	2.16.840.1.113883.18.145	relatednessAssessment	
+251	Action Taken in Response to the Event	2.16.840.1.113883.18.146	actionTakenInResponseToTheEvent	
+252	Causality Observations	2.16.840.1.113883.18.147	causalityObservations	
+253	Indirect exposure mechanism	2.16.840.1.113883.18.148	indirectExposureMechanism	
+254	Kind of quantity	2.16.840.1.113883.18.149	kindOfQuantity	
+255	Duration Categories	2.16.840.1.113883.18.150	durationCategories	
+256	Time Delay Post Challenge	2.16.840.1.113883.18.151	timeDelayPostChallenge	
+257	Nature of Challenge	2.16.840.1.113883.18.152	natureOfChallenge	
+258	Relationship modifier	2.16.840.1.113883.18.153	relationshipModifier	
+259	Modality	2.16.840.1.113883.18.154	modality	
+260	Patient location type	2.16.840.1.113883.18.155	patientLocationType	
+261	Location Equipment	2.16.840.1.113883.18.156	locationEquipment	
+262	Privacy Level	2.16.840.1.113883.18.157	privacyLevel	
+263	Level of Care	2.16.840.1.113883.18.158	levelOfCare	
+265	Specialty Type	2.16.840.1.113883.18.159	specialtyType	
+267	Days of the Week	2.16.840.1.113883.18.160	daysOfTheWeek	
+268	Override	2.16.840.1.113883.18.161	override	
+269	Charge on indicator	2.16.840.1.113883.18.162	chargeOnIndicator	
+270	Document Type	2.16.840.1.113883.18.163	documentType	
+271	Document Completion Status	2.16.840.1.113883.18.164	documentCompletionStatus
+272	Document Confidentiality Status	2.16.840.1.113883.18.165	documentConfidentialityStatus 2.3
+272	Document Confidentiality Status	2.16.840.1.113883.18.166	documentConfidentialityStatus2  2.3.1
+273	Document Availability Status	2.16.840.1.113883.18.167	documentAvailabilityStatus	
+275	Document storage status	2.16.840.1.113883.18.168	documentStorageStatus	
+276	Appointment reason codes	2.16.840.1.113883.18.169	appointmentReasonCodes	
+277	Appointment Type Codes	2.16.840.1.113883.18.170	appointmentTypeCodes	
+278	Filler status codes	2.16.840.1.113883.18.171	fillerStatusCodes	
+279	Allow Substitution Codes	2.16.840.1.113883.18.172	allowSubstitutionCodes	
+280	Referral priority	2.16.840.1.113883.18.173	referralPriority	
+281	Referral type	2.16.840.1.113883.18.174	referralType	
+282	Referral Disposition	2.16.840.1.113883.18.175	referralDisposition	
+283	Referral status	2.16.840.1.113883.18.176	referralStatus	
+284	Referral Category	2.16.840.1.113883.18.177	referralCategory	
+286	Provider role	2.16.840.1.113883.18.178	providerRole	
+287	Problem/Goal Action Code	2.16.840.1.113883.18.3	problem/goalActionCode	
+290	MIME base64 encoding characters	2.16.840.1.113883.18.180	mimeBase64EncodingCharacters	
+291	Subtype of referenced data	2.16.840.1.113883.18.181	subtypeOfReferencedData	
+292	Vaccines administered	2.16.840.1.113883.18.182	vaccinesAdministered	
+294	Time selection criteria parameter class codes	2.16.840.1.113883.18.183	timeSelectionCriteriaParameterClassCodes	
+298	CP Range Type	2.16.840.1.113883.18.184	cpRangeType	
+299	Encoding	2.16.840.1.113883.18.185	encoding	
+301	Universal ID Type	2.16.840.1.113883.18.186	universalIdType	
+305	Person Location Type	2.16.840.1.113883.18.187	personLocationType	
+309	Coverage type	2.16.840.1.113883.18.188	coverageType	
+311	Job Status	2.16.840.1.113883.18.189	jobStatus	
+315	Living Will Code	2.16.840.1.113883.18.190	livingWillCode	
+316	Organ Donor Code	2.16.840.1.113883.18.192	organDonorCode	
+317	Annotations	2.16.840.1.113883.18.193	annotations	
+321	Dispense Method	2.16.840.1.113883.18.194	dispenseMethod	
+322	Completion Status	2.16.840.1.113883.18.195	completionStatus	
+323	Action Code	2.16.840.1.113883.18.196	actionCode	
+324	Location characteristic ID	2.16.840.1.113883.18.197	locationCharacteristicId	
+325	Location Relationship ID	2.16.840.1.113883.18.198	locationRelationshipId	
+326	Visit Indicator	2.16.840.1.113883.18.199	visitIndicator	
+329	Quantity Method	2.16.840.1.113883.18.200	quantityMethod	
+330	Marketing Basis	2.16.840.1.113883.18.201	marketingBasis	
+331	Facility type	2.16.840.1.113883.18.202	facilityType	
+332	Source Type	2.16.840.1.113883.18.203	sourceType	
+334	Disabled Person Code	2.16.840.1.113883.18.204	disabledPersonCode	
+335	Repeat pattern	2.16.840.1.113883.18.205	repeatPattern	
+336	Referral reason	2.16.840.1.113883.18.206	referralReason	
+337	Certification status	2.16.840.1.113883.18.207	certificationStatus	
+338	Practitioner ID number type	2.16.840.1.113883.18.208	practitionerIdNumberType	
+339	Advanced Beneficiary Notice Code	2.16.840.1.113883.18.209	advancedBeneficiaryNoticeCode	
+344	Patient's Relationship to Insured	2.16.840.1.113883.18.210	patientsRelationshipToInsured	
+350	Occurrence code	2.16.840.1.113883.18.211	occurrenceCode	
+351	Occurrence span	2.16.840.1.113883.18.212	occurrenceSpan	
+//353	CWE statuses	2.16.840.1.113883.18.213	cweStatuses	
+354	Message Structure	2.16.840.1.113883.18.214	messageStructure	
+355	Primary Key Value Type	2.16.840.1.113883.18.215	primaryKeyValueType	
+356	Alternate character set handling scheme	2.16.840.1.113883.18.216	alternateCharacterSetHandlingScheme	
+357	Message Error Condition Codes	2.16.840.1.113883.18.217	messageErrorConditionCodes	
+359	Diagnosis Priority	2.16.840.1.113883.18.218	diagnosisPriority	
+360	Degree	2.16.840.1.113883.18.219	degree	2.3.1
+360	Degree/License/Certificate	2.16.840.1.113883.18.220	degree/license/certificate	2.7
+363	Assigning authority	2.16.840.1.113883.18.221	assigningAuthority	
+364	Comment Type	2.16.840.1.113883.18.222	commentType	
+365	Equipment State	2.16.840.1.113883.18.223	equipmentState	
+366	Local/Remote Control State	2.16.840.1.113883.18.224	local/remoteControlState	
+367	Alert level	2.16.840.1.113883.18.225	alertLevel	
+368	Remote control command	2.16.840.1.113883.18.226	remoteControlCommand	
+369	Specimen Role	2.16.840.1.113883.18.227	specimenRole	
+370	Container status	2.16.840.1.113883.18.228	containerStatus	
+371	Additive/Preservative	2.16.840.1.113883.18.229	additive-preservative	
+372	Specimen Component	2.16.840.1.113883.18.230	specimenComponent	
+373	Treatment	2.16.840.1.113883.18.231	treatment	
+374	System induced contaminants	2.16.840.1.113883.18.232	systemInducedContaminants	
+375	Artificial blood	2.16.840.1.113883.18.233	artificialBlood	
+376	Special Handling Code	2.16.840.1.113883.18.234	specialHandlingCode	
+377	Other environmental factors	2.16.840.1.113883.18.235	otherEnvironmentalFactors	
+383	Substance Status	2.16.840.1.113883.18.236	substanceStatus	
+384	Substance type	2.16.840.1.113883.18.237	substanceType	
+387	Command response	2.16.840.1.113883.18.238	commandResponse	
+388	Processing Type	2.16.840.1.113883.18.239	processingType	
+389	Analyte Repeat Status	2.16.840.1.113883.18.240	analyteRepeatStatus	
+391	Segment group	2.16.840.1.113883.18.241	segmentGroup	2.4
+391	Segment group	2.16.840.1.113883.18.242	segmentGroup2	2.6
+392	Match Reason	2.16.840.1.113883.18.243	matchReason	
+393	Match algorithms	2.16.840.1.113883.18.244	matchAlgorithms	
+394	Response modality	2.16.840.1.113883.18.245	responseModality	
+395	Modify Indicator	2.16.840.1.113883.18.246	modifyIndicator	
+396	Coding system	2.16.840.1.113883.18.247	codingSystem	
+397	Sequencing	2.16.840.1.113883.18.248	sequencing	
+398	Continuation style code	2.16.840.1.113883.18.249	continuationStyleCode	
+401	Government Reimbursement Program	2.16.840.1.113883.18.250	governmentReimbursementProgram	
+402	School type	2.16.840.1.113883.18.251	schoolType	
+403	Language Ability	2.16.840.1.113883.18.252	languageAbility	
+404	Language Proficiency	2.16.840.1.113883.18.253	languageProficiency	
+406	Organization unit type	2.16.840.1.113883.18.254	organizationUnitType	
+409	Application Change Type	2.16.840.1.113883.18.255	applicationChangeType	
+411	Supplemental service information values	2.16.840.1.113883.18.256	supplementalServiceInformationValues	
+415	DRG Transfer Type	2.16.840.1.113883.18.257	drgTransferType	
+416	Procedure DRG type	2.16.840.1.113883.18.258	procedureDrgType	
+417	Tissue Type Code	2.16.840.1.113883.18.259	tissueTypeCode	
+418	Procedure Priority	2.16.840.1.113883.18.260	procedurePriority	
+// 418	Procedure Priority	2.16.840.1.113883.18.261	procedurePriority2	
+421	Severity of Illness Code	2.16.840.1.113883.18.262	severityOfIllnessCode	
+422	Triage Code	2.16.840.1.113883.18.263	triageCode	
+423	Case Category Code	2.16.840.1.113883.18.264	caseCategoryCode	
+424	Gestation Category Code	2.16.840.1.113883.18.265	gestationCategoryCode	
+425	Newborn Code	2.16.840.1.113883.18.266	newbornCode	
+426	Blood Product Code	2.16.840.1.113883.18.267	bloodProductCode	
+427	Risk Management Incident Code	2.16.840.1.113883.18.268	riskManagementIncidentCode	
+428	Incident Type Code	2.16.840.1.113883.18.269	incidentTypeCode	
+429	Production Class Code	2.16.840.1.113883.18.270	productionClassCode	
+430	Mode of Arrival Code	2.16.840.1.113883.18.271	modeOfArrivalCode	
+431	Recreational Drug Use Code	2.16.840.1.113883.18.272	recreationalDrugUseCode	
+432	Admission Level of Care Code	2.16.840.1.113883.18.273	admissionLevelOfCareCode	
+433	Precaution Code	2.16.840.1.113883.18.274	precautionCode	
+434	Patient Condition Code	2.16.840.1.113883.18.275	patientConditionCode	
+435	Advance Directive Code	2.16.840.1.113883.18.276	advanceDirectiveCode	
+436	Sensitivity to Causative Agent Code	2.16.840.1.113883.18.277	sensitivityToCausativeAgentCode	
+437	Alert Device Code	2.16.840.1.113883.18.278	alertDeviceCode	
+438	Allergy Clinical Status	2.16.840.1.113883.18.279	allergyClinicalStatus	
+440	Data types	2.16.840.1.113883.18.280	dataTypes	
+441	Immunization Registry Status	2.16.840.1.113883.18.281	immunizationRegistryStatus	
+442	Location service code	2.16.840.1.113883.18.282	locationServiceCode	
+443	Provider role	2.16.840.1.113883.18.283	providerRole	
+444	Name Assembly Order	2.16.840.1.113883.18.284	nameAssemblyOrder	
+445	Identity Reliability Code	2.16.840.1.113883.18.285	identityReliabilityCode	
+450	Event type	2.16.840.1.113883.18.286	eventType	
+// 452	Health care provider type code	2.16.840.1.113883.18.287	healthCareProviderTypeCode	
+// 453	Health care provider classification	2.16.840.1.113883.18.288	healthCareProviderClassification	
+// 454	Health care provider area of specialization	2.16.840.1.113883.18.289	healthCareProviderAreaOfSpecialization	
+455	Type of bill code	2.16.840.1.113883.18.290	typeOfBillCode	
+456	Revenue code	2.16.840.1.113883.18.291	revenueCode	
+457	Overall Claim Disposition Code	2.16.840.1.113883.18.292	overallClaimDispositionCode	
+459	Reimbursement Action Code	2.16.840.1.113883.18.293	reimbursementActionCode	
+460	Denial or Rejection Code	2.16.840.1.113883.18.294	denialOrRejectionCode	
+465	Name/address representation	2.16.840.1.113883.18.295	name/addressRepresentation	
+466	Ambulatory Payment Classification Code	2.16.840.1.113883.18.296	ambulatoryPaymentClassificationCode	
+468	Payment Adjustment Code	2.16.840.1.113883.18.297	paymentAdjustmentCode	
+469	Packaging Status Code	2.16.840.1.113883.18.298	packagingStatusCode	
+470	Reimbursement Type Code	2.16.840.1.113883.18.299	reimbursementTypeCode	
+472	TQ conjunction ID	2.16.840.1.113883.18.300	tqConjunctionId	
+473	Formulary Status	2.16.840.1.113883.18.301	formularyStatus	
+474	Organization Unit Type	2.16.840.1.113883.18.302	organizationUnitType	
+475	Charge Type Reason	2.16.840.1.113883.18.303	chargeTypeReason	
+477	Controlled Substance Schedule*	2.16.840.1.113883.18.304	controlledSubstanceSchedule*	
+478	Formulary Status	2.16.840.1.113883.18.305	formularyStatus	
+480	Pharmacy Order Types	2.16.840.1.113883.18.306	pharmacyOrderTypes	
+482	Order Type	2.16.840.1.113883.18.307	orderType	
+483	Authorization Mode	2.16.840.1.113883.18.308	authorizationMode	
+484	Dispense Type	2.16.840.1.113883.18.309	dispenseType	
+485	Extended Priority Codes	2.16.840.1.113883.18.310	extendedPriorityCodes	
+487	Specimen Type	2.16.840.1.113883.18.311	specimenType	
+488	Specimen Collection Method	2.16.840.1.113883.18.312	specimenCollectionMethod	
+489	Risk Codes	2.16.840.1.113883.18.313	riskCodes	
+490	Specimen Reject Reason	2.16.840.1.113883.18.314	specimenRejectReason	
+491	Specimen Quality	2.16.840.1.113883.18.315	specimenQuality	
+492	Specimen Appropriateness	2.16.840.1.113883.18.316	specimenAppropriateness	
+493	Specimen Condition	2.16.840.1.113883.18.317	specimenCondition	
+494	Specimen Child Role	2.16.840.1.113883.18.318	specimenChildRole	
+495	Body Site Modifier	2.16.840.1.113883.18.319	bodySiteModifier	
+496	Consent Type	2.16.840.1.113883.18.320	consentType	
+497	Consent Mode	2.16.840.1.113883.18.321	consentMode	
+498	Consent Status	2.16.840.1.113883.18.322	consentStatus	
+499	Consent Bypass Reason	2.16.840.1.113883.18.323	consentBypassReason	
+500	Consent Disclosure Level	2.16.840.1.113883.18.324	consentDisclosureLevel	
+501	Consent Non-Disclosure Reason	2.16.840.1.113883.18.325	consentNon-disclosureReason	
+502	Non-Subject Consenter Reason	2.16.840.1.113883.18.326	non-subjectConsenterReason	
+503	Sequence/Results Flag	2.16.840.1.113883.18.327	sequence/resultsFlag	
+504	Sequence Condition Code	2.16.840.1.113883.18.328	sequenceConditionCode	
+505	Cyclic Entry/Exit Indicator	2.16.840.1.113883.18.329	cyclicEntry/exitIndicator	
+506	Service Request Relationship	2.16.840.1.113883.18.330	serviceRequestRelationship	
+507	Observation Result Handling	2.16.840.1.113883.18.331	observationResultHandling	
+508	Blood Product Processing Requirements	2.16.840.1.113883.18.332	bloodProductProcessingRequirements	
+510	Blood Product Dispense Status	2.16.840.1.113883.18.333	bloodProductDispenseStatus	
+511	BP Observation Status Codes Interpretation	2.16.840.1.113883.18.334	bpObservationStatusCodesInterpretation	
+513	Blood Product Transfusion/Disposition Status	2.16.840.1.113883.18.335    	bloodProductTransfusion/dispositionStatus	
+514	Transfusion Adverse Reaction	2.16.840.1.113883.18.336	transfusionAdverseReaction	
+516	Error severity	2.16.840.1.113883.18.337	errorSeverity	
+517	Inform Person Code	2.16.840.1.113883.18.338	informPersonCode	
+518	Override Type	2.16.840.1.113883.18.339	overrideType	
+520	Message Waiting Priority	2.16.840.1.113883.18.340	messageWaitingPriority	
+523	Computation Type	2.16.840.1.113883.18.341	computationType	
+524	Sequence condition	2.16.840.1.113883.18.342	sequenceCondition	
+527	Calendar Alignment	2.16.840.1.113883.18.343	calendarAlignment	
+528	Event Related Period	2.16.840.1.113883.18.344	eventRelatedPeriod	
+529	Precision	2.16.840.1.113883.18.345	precision	
+530	"Organization, Agency, Department"	2.16.840.1.113883.18.346	organization-Agency-Department	
+//532	Expanded Yes/no Indicator	2.16.840.1.113883.18.347	expandedYes/noIndicator	
+534	Notify Clergy Code	2.16.840.1.113883.18.348	notifyClergyCode	
+535	Signature Code	2.16.840.1.113883.18.349	signatureCode	
+536	Certificate Status	2.16.840.1.113883.18.350	certificateStatus	
+538	Institution Relationship Type	2.16.840.1.113883.18.351	institutionRelationshipType	
+540	Inactive Reason Code	2.16.840.1.113883.18.352	inactiveReasonCode	
+544	Container Condition	2.16.840.1.113883.18.353	containerCondition	
+547	Jurisdictional Breadth	2.16.840.1.113883.18.354	jurisdictionalBreadth	
+548	Signatory's Relationship to Subject	2.16.840.1.113883.18.355	signatory'sRelationshipToSubject	
+550	Body Parts	2.16.840.1.113883.18.356	bodyParts	
+553	Invoice Control Code	2.16.840.1.113883.18.357	invoiceControlCode	
+554	Invoice Reason Codes	2.16.840.1.113883.18.358	invoiceReasonCodes	
+555	Invoice Type	2.16.840.1.113883.18.359	invoiceType	
+556	Benefit Group	2.16.840.1.113883.18.360	benefitGroup	
+557	Payee Type	2.16.840.1.113883.18.361	payeeType	
+558	Payee Relationship to Invoice	2.16.840.1.113883.18.362	payeeRelationshipToInvoice	
+559	Product/Service Status	2.16.840.1.113883.18.363	product/serviceStatus	
+561	Product/Services Clarification Codes	2.16.840.1.113883.18.364	product/servicesClarificationCodes	
+562	Processing Consideration Codes	2.16.840.1.113883.18.365	processingConsiderationCodes	
+564	Adjustment Category Code	2.16.840.1.113883.18.366	adjustmentCategoryCode	
+565	Provider Adjustment Reason Code	2.16.840.1.113883.18.367	providerAdjustmentReasonCode	
+566	Blood Unit Type	2.16.840.1.113883.18.368	bloodUnitType	
+569	Adjustment Action	2.16.840.1.113883.18.369	adjustmentAction	
+570	Payment Method Code	2.16.840.1.113883.18.370	paymentMethodCode	
+571	Invoice Processing Results Status	2.16.840.1.113883.18.371	invoiceProcessingResultsStatus	
+572	Tax status	2.16.840.1.113883.18.372	taxStatus	
+615	User Authentication Credential Type Code	2.16.840.1.113883.18.373	userAuthenticationCredentialTypeCode	
+616	Address Expiration Reason	2.16.840.1.113883.18.374	addressExpirationReason	
+617	Address Usage	2.16.840.1.113883.18.375	addressUsage	
+618	Protection Code	2.16.840.1.113883.18.376	protectionCode	
+625	Item Status Codes	2.16.840.1.113883.18.377	itemStatusCodes	
+634	Item Importance Codes	2.16.840.1.113883.18.378	itemImportanceCodes	
+642	Reorder Theory Codes	2.16.840.1.113883.18.379	reorderTheoryCodes	
+651	Labor Calculation Type	2.16.840.1.113883.18.380	laborCalculationType	
+653	Date Format	2.16.840.1.113883.18.381	dateFormat	
+657	Device Type	2.16.840.1.113883.18.382	deviceType	
+659	Lot Control	2.16.840.1.113883.18.383	lotControl	
+667	Device Data State	2.16.840.1.113883.18.384	deviceDataState	
+669	Load Status	2.16.840.1.113883.18.385	loadStatus	
+682	Device Status	2.16.840.1.113883.18.386	deviceStatus	
+702	Cycle Type	2.16.840.1.113883.18.387	cycleType	
+717	Access Restriction Value	2.16.840.1.113883.18.388	accessRestrictionValue	
+719	Access Restriction Reason Code	2.16.840.1.113883.18.389	accessRestrictionReasonCode	
+725	Mood Codes	2.16.840.1.113883.18.390	moodCodes	
+728	CCL Value	2.16.840.1.113883.18.391	cclValue	
+731	DRG Diagnosis Determination Status	2.16.840.1.113883.18.392	drgDiagnosisDeterminationStatus	
+734	Grouper Status	2.16.840.1.113883.18.393	grouperStatus	
+739	DRG Status Patient	2.16.840.1.113883.18.394	drgStatusPatient	
+742	DRG Status Financial Calculation	2.16.840.1.113883.18.395	drgStatusFinancialCalculation	
+749	DRG Grouping Status	2.16.840.1.113883.18.396	drgGroupingStatus	
+755	Status Weight At Birth	2.16.840.1.113883.18.397	statusWeightAtBirth	
+757	DRG Status Respiration Minutes	2.16.840.1.113883.18.398	drgStatusRespirationMinutes	
+759	Status Admission	2.16.840.1.113883.18.399	statusAdmission	
+761	DRG Procedure Determination Status	2.16.840.1.113883.18.400	drgProcedureDeterminationStatus	
+763	DRG Procedure Relevance	2.16.840.1.113883.18.401	drgProcedureRelevance	
+776	Item Status	2.16.840.1.113883.18.402	itemStatus	
+778	Item Type	2.16.840.1.113883.18.403	itemType	
+790	Approving Regulatory Agency	2.16.840.1.113883.18.404	approvingRegulatoryAgency	
+793	Ruling Act	2.16.840.1.113883.18.405	rulingAct	
+806	Sterilization Type	2.16.840.1.113883.18.406	sterilizationType	
+818	Package	2.16.840.1.113883.18.407	package	
+834	MIME Types	2.16.840.1.113883.18.408	mimeTypes	
+868	Telecommunication Expiration Reason	2.16.840.1.113883.18.409	telecommunicationExpirationReason	
+871	Supply Risk Codes	2.16.840.1.113883.18.410	supplyRiskCodes	
+881	Role Executing Physician	2.16.840.1.113883.18.411	roleExecutingPhysician	
+882	Medical Role Executing Physician	2.16.840.1.113883.18.412	medicalRoleExecutingPhysician	
+894	Side of body	2.16.840.1.113883.18.413	sideOfBody	
+895	Present On Admission (POA) Indicator	2.16.840.1.113883.18.414	presentOnAdmission(poa)Indicator	
+904	Security Check Scheme	2.16.840.1.113883.18.415	securityCheckScheme	
+905	Shipment Status	2.16.840.1.113883.18.416	shipmentStatus	
+906	ActPriority	2.16.840.1.113883.18.417	actpriority	
+907	Confidentiality	2.16.840.1.113883.18.418	confidentiality	
+909	Patient Results Release Categorization Scheme	2.16.840.1.113883.18.419	patientResultsReleaseCategorizationScheme	
+912	Participation	2.16.840.1.113883.18.420	participation	
+914	Root Cause	2.16.840.1.113883.18.421	rootCause	
+916	Relevant Clincial Information	2.16.840.1.113883.18.422	relevantClinicalInformation	
+917	Bolus Type	2.16.840.1.113883.18.423	bolusType	
+918	PCA Type	2.16.840.1.113883.18.424	pcaType	
+919	Exclusive Test	2.16.840.1.113883.18.425	exclusiveTest	
+920	Preferred Specimen/Attribute Status	2.16.840.1.113883.18.426	preferredSpecimen/attributeStatus	
+921	Certification Type Code	2.16.840.1.113883.18.427	certificationTypeCode	
+922	Certification Category Code	2.16.840.1.113883.18.428	certificationCategoryCode	
+923	Process Interruption	2.16.840.1.113883.18.429	processInterruption	
+924	Cumulative Dosage Limit UoM	2.16.840.1.113883.18.430	cumulativeDosageLimitUom	
+925	Phlebotomy Issue	2.16.840.1.113883.18.431	phlebotomyIssue	
+926	Phlebotomy Status	2.16.840.1.113883.18.432	phlebotomyStatus	
+927	Arm Stick	2.16.840.1.113883.18.433	armStick	
+933	Intended Procedure Type	2.16.840.1.113883.18.434	intendedProcedureType	
+935	Process Interruption Reason	2.16.840.1.113883.18.435	processInterruptionReason	
+4000	Name/address representation	2.16.840.1.113883.18.436	name/addressRepresentation	

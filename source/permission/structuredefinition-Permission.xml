@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Permission"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Security"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="not-classified"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Permission"/>
+  <version value="4.5.0"/>
+  <name value="Permission"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Security)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/secure/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Permission."/>
+  <fhirVersion value="4.5.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Permission"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Permission">
+      <path value="Permission"/>
+      <short value="Permission"/>
+      <definition value="Permission."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="infrastructure.information"/>
+      </mapping>
+    </element>
+    <element id="Permission.status">
+      <path value="Permission.status"/>
+      <short value="active | entered-in-error | draft | rejected"/>
+      <definition value="Status."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PermissionStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes identifying the lifecycle stage of a product."/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/permission-status"/>
+      </binding>
+    </element>
+    <element id="Permission.intent">
+      <path value="Permission.intent"/>
+      <short value="grant|refuse"/>
+      <definition value="grant|refuse."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.asserter">
+      <path value="Permission.asserter"/>
+      <short value="The person or entity that asserts the permission"/>
+      <definition value="The person or entity that asserts the permission."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Person"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.assertionDate">
+      <path value="Permission.assertionDate"/>
+      <short value="The date that permission was asserted"/>
+      <definition value="The date that permission was asserted."/>
+      <alias value="class"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.validity">
+      <path value="Permission.validity"/>
+      <short value="The period in which the permission is active"/>
+      <definition value="The period in which the permission is active."/>
+      <alias value="type"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.purpose">
+      <path value="Permission.purpose"/>
+      <short value="The purpose for which the permission is given"/>
+      <definition value="The purpose for which the permission is given."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.dataScope">
+      <path value="Permission.dataScope"/>
+      <short value="This can be 1) the definition of data elements, or 2) a category or label) e.g. &#x201C;sensitive&#x201D;. It could also be a c) graph-like definition of a set of data elements"/>
+      <definition value="This can be 1) the definition of data elements, or 2) a category or label) e.g. &#x201C;sensitive&#x201D;. It could also be a c) graph-like definition of a set of data elements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.processingActivity">
+      <path value="Permission.processingActivity"/>
+      <short value="A description or definition of which activities are allowed to be done on the data"/>
+      <definition value="A description or definition of which activities are allowed to be done on the data."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.processingActivity.partyReference">
+      <path value="Permission.processingActivity.partyReference"/>
+      <short value="If the processing is a transfer, we must capture where it the data allowed or expected to be shared - with a party or person"/>
+      <definition value="If the processing is a transfer, we must capture where it the data allowed or expected to be shared - with a party or person."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.processingActivity.partyCodeableConcept">
+      <path value="Permission.processingActivity.partyCodeableConcept"/>
+      <short value="If the processing is a transfer, or involves another party, we must capture where it the data allowed or expected to be shared - with a party or person. This can be a party instance or party type&#xA;&#xA7; Purpose &#x2013; a specific purpose of the data"/>
+      <definition value="If the processing is a transfer, or involves another party, we must capture where it the data allowed or expected to be shared - with a party or person. This can be a party instance or party type&#xA;&#xA7; Purpose &#x2013; a specific purpose of the data."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.processingActivity.purpose">
+      <path value="Permission.processingActivity.purpose"/>
+      <short value="The purpose for which the permission is given"/>
+      <definition value="The purpose for which the permission is given."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.justification">
+      <path value="Permission.justification"/>
+      <short value="The asserted justification for using the data"/>
+      <definition value="The asserted justification for using the data."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.justification.evidence">
+      <path value="Permission.justification.evidence"/>
+      <short value="Evidence &#x2013; reference to consent, or a contract, or a policy, or a regulation, or an attachment that contains a screenshot"/>
+      <definition value="Evidence &#x2013; reference to consent, or a contract, or a policy, or a regulation, or an attachment that contains a screenshot."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Consent"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.justification.grounds">
+      <path value="Permission.justification.grounds"/>
+      <short value="This would be a codeableconcept, or a coding, which can be constrained to , for example, the 6 grounds for processing in GDPR"/>
+      <definition value="This would be a codeableconcept, or a coding, which can be constrained to , for example, the 6 grounds for processing in GDPR."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Permission.usageLimitations">
+      <path value="Permission.usageLimitations"/>
+      <short value="What limits apply to the use of the data"/>
+      <definition value="What limits apply to the use of the data."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

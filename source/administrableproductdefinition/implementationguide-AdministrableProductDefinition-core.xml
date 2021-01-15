@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="AdministrableProductDefinition-core"/>
+  <title value="Base Profile for AdministrableProductDefinition"/>
+  <status value="active"/>
+  <date value="1970-01-01T10:00:00+10:00"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/AdministrableProductDefinition-device"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/AdministrableProductDefinition-dose-form"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/AdministrableProductDefinition-identifier"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/AdministrableProductDefinition-ingredient"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/AdministrableProductDefinition-manufactured-item"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/AdministrableProductDefinition-route"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/AdministrableProductDefinition-subject"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/AdministrableProductDefinition-target-species"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

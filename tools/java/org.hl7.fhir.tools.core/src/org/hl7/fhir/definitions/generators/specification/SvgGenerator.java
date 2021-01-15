@@ -1148,16 +1148,20 @@ public class SvgGenerator extends BaseGenerator {
           name = name.substring(0, 29)+"...";
         String link = getBindingLink(prefix, e);
         if (b.getStrength() == BindingStrength.EXAMPLE) {
-          xml.attribute("xlink:href", link);
-          xml.attribute("id", "n"+(++nc));
-          xml.enter("a");
-          xml.attribute("id", "n"+(++nc));
+          if (link != null) {
+            xml.attribute("xlink:href", link);
+            xml.attribute("id", "n"+(++nc));
+            xml.enter("a");
+            xml.attribute("id", "n"+(++nc));
+          }
           xml.element("title", b.getDefinition()+" (Strength=Example)");
           for (String p : parts(name)) {
             ls.check(xml, left, top, p.length(), link);
             xml.text(ls.see(p));
           }
-          xml.exit("a");
+          if (link != null) {
+            xml.exit("a");
+          }
           xml.text("??");
         } else if (b.getStrength() == BindingStrength.PREFERRED) {
           xml.attribute("xlink:href", link);

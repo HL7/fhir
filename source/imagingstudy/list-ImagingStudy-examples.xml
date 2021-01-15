@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="ImagingStudy-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of imagingstudy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="imagingstudy-example"/>
+    </extension>
+    <item>
+      <reference value="ImagingStudy/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example XR imaging study with full elements"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="imagingstudy-example-xr"/>
+    </extension>
+    <item>
+      <reference value="ImagingStudy/example-xr"/>
+      <display value="Comprenensive"/>
+    </item>
+  </entry>
+</List>

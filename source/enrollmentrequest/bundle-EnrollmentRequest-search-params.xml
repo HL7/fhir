@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="EnrollmentRequest-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EnrollmentRequest-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EnrollmentRequest.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EnrollmentRequest-identifier"/>
+        <description value="The business identifier of the Enrollment"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="EnrollmentRequest.identifier"/>
+        <xpath value="f:EnrollmentRequest/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EnrollmentRequest-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EnrollmentRequest.candidate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EnrollmentRequest-patient"/>
+        <description value="The party to be enrolled"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="EnrollmentRequest.candidate"/>
+        <xpath value="f:EnrollmentRequest/f:candidate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EnrollmentRequest-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EnrollmentRequest.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EnrollmentRequest-status"/>
+        <description value="The status of the enrollment"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="EnrollmentRequest.status"/>
+        <xpath value="f:EnrollmentRequest/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EnrollmentRequest-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EnrollmentRequest.candidate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EnrollmentRequest-subject"/>
+        <description value="The party to be enrolled"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="EnrollmentRequest.candidate"/>
+        <xpath value="f:EnrollmentRequest/f:candidate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

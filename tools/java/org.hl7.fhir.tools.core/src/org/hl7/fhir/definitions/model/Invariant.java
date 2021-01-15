@@ -1,4 +1,7 @@
 package org.hl7.fhir.definitions.model;
+
+import org.hl7.fhir.utilities.Utilities;
+
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -123,6 +126,9 @@ public class Invariant {
 
   public void setSeverity(String value) {
     this.severity = value;    
+    if (Utilities.noString(value)) {
+      this.severity = "error";
+    }
   }
 
   public String getTurtle() {

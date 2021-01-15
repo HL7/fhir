@@ -41,6 +41,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.definitions.BuildExtensions;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.CommonSearchParameter;
@@ -1471,7 +1472,10 @@ public class ProfileGenerator {
       
       return null;
     ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
-    dst.setDescription(src.getDefinition());
+    dst.setDescription(src.getDescription());
+    if (!Utilities.noString(src.getDefinition())) {
+      dst.addExtension().setUrl(BuildExtensions.EXT_DEFINITION).setValue(new StringType(src.getDefinition()));      
+    }
     if (src.getBinding() != BindingMethod.Unbound) {
       dst.setStrength(src.getStrength());    
       dst.setValueSet(buildValueSetReference(src));
@@ -1495,6 +1499,9 @@ public class ProfileGenerator {
       } else {
         v = "|"+version.toCode();
       }
+    }
+    if (src.getBinding() == null) {
+      System.out.println("no binding!");
     }
     switch (src.getBinding()) {
     case Unbound: return null;
@@ -1593,6 +1600,10 @@ public class ProfileGenerator {
       }
     }
 
+    if (e.isTranslatable()) {
+      ce.addExtension(BuildExtensions.EXT_TRANSLATABLE, new BooleanType(true));      
+    }
+
     if (Utilities.existsInList(ce.getPath(), "Element.extension", "DomainResource.extension", "DomainResource.modifierExtension") && !ce.hasSlicing() && !ce.hasSliceName()) {
       ce.getSlicing().setDescription("Extensions are always sliced by (at least) url").setRules(SlicingRules.OPEN).addDiscriminator().setType(DiscriminatorType.VALUE).setPath("url");
     }
@@ -1605,6 +1616,9 @@ public class ProfileGenerator {
     buildDefinitionFromElement(path, ce, e, ap, p, null, false);
     if (!Utilities.noString(e.getStatedType())) {
       ToolingExtensions.addStringExtension(ce, "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name", e.getStatedType());
+    }
+    if (e.isNoBindingAllowed()) {
+      ToolingExtensions.addBooleanExtension(ce, BuildExtensions.EXT_NO_BINDING, true);      
     }
 
     if (!root) {
@@ -1628,8 +1642,8 @@ public class ProfileGenerator {
           if (t.hasParams() && !Utilities.existsInList(t.getName(), "Reference", "canonical", "CodeableReference")) {
             throw new Exception("Only resource types can specify parameters.  Path " + path + " in profile " + p.getName());
           }
-          if(t.getParams().size() > 1)
-          {
+
+          if(t.getParams().size() > 1) {
             if (t.getProfile() != null && t.getParams().size() !=1) {
               throw new Exception("Cannot declare profile on a resource reference declaring multiple resource types.  Path " + path + " in profile " + p.getName());
             }
@@ -1771,7 +1785,18 @@ public class ProfileGenerator {
     if (w5 == null)
       return null;
     W5Entry e = definitions.getW5s().get(w5);
-    return e == null ? null : e.getFiveWs();
+    if (e == null && w5.contains(".")) {
+      e = definitions.getW5s().get(w5.substring(0, w5.indexOf("."))); 
+      if (e.getSubClasses().contains(w5.substring(w5.indexOf(".")+1))) {
+        return w5;
+      }
+    }
+    if (e == null) {
+      System.out.println("Unknown W5 option: "+w5);
+      return null;
+    } else {
+      return e.getFiveWs();
+    }
   }
 
   private String isImplicitTypeConstraint(String path) throws Exception {
@@ -2343,7 +2368,8 @@ public class ProfileGenerator {
     ToolingExtensions.setStandardsStatus(opd, op.getStandardsStatus() == null ? rd.getStatus() : op.getStandardsStatus(), op.getNormativeVersion());
     opd.setId(FormatUtilities.makeId(id));
     opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+id);
-    opd.setName(op.getTitle());
+    opd.setName(op.getName());
+    opd.setTitle(op.getTitle());
     opd.setVersion(Constants.VERSION);
     opd.setPublisher("HL7 (FHIR Project)");
     opd.addContact().getTelecom().add(org.hl7.fhir.r5.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
@@ -2364,8 +2390,11 @@ public class ProfileGenerator {
     opd.addResource(resourceName);
     opd.setType(op.isType()); 
     opd.setInstance(op.isInstance());
-    if (op.getIdempotent() == null)
+    if (op.getIdempotent() == null) {
       throw new Error("Operation "+opd.getId()+" is not marked as Idempotent or not");
+    } else {
+      opd.setAffectsState(!op.getIdempotent());
+    }
     for (OperationParameter p : op.getParameters()) {
       produceOpParam(op.getName(), opd.getParameter(), p, null);
     }
@@ -2377,13 +2406,13 @@ public class ProfileGenerator {
   private void produceOpParam(String path, List<OperationDefinitionParameterComponent> opd, OperationParameter p, OperationParameterUse defUse) throws Exception {
     OperationDefinitionParameterComponent pp = new OperationDefinitionParameterComponent();
     pp.setName(p.getName());
-    if (p.getUse().equals("in"))
+    if (path.contains("."))
+      pp.setUse(defUse);
+    else if (p.getUse().equals("in"))
       pp.setUse(OperationParameterUse.IN);
     else if (p.getUse().equals("out"))
       pp.setUse(OperationParameterUse.OUT);
-    else if (path.contains("."))
-      pp.setUse(defUse);
-    else
+    else 
       throw new Exception("Unable to determine parameter use: "+p.getUse()+" at "+path+"."+p.getName()); // but this is validated elsewhere
     pp.setDocumentation(preProcessMarkdown(p.getDoc(), "Operation Parameter Doco"));
     pp.setMin(p.getMin());
@@ -2392,6 +2421,9 @@ public class ProfileGenerator {
       if (p.getBs().hasMax())
         throw new Error("Max binding not handled yet");
       pp.setBinding(new OperationDefinitionParameterBindingComponent().setStrength(p.getBs().getStrength()).setValueSet(buildValueSetReference(p.getBs())));
+      if (!Utilities.noString(p.getBinding().getName())) {
+        pp.getBinding().addExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName", new StringType(p.getBinding().getName()));
+      }
     }
     if (!Utilities.noString(p.getProfile())) {
       pp.addTargetProfile(p.getProfile());

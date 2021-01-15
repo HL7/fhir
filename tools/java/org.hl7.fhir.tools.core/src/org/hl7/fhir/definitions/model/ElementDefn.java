@@ -74,7 +74,6 @@ public class ElementDefn {
 	private String todo;
 	private List<String> aliases = new ArrayList<String>();
 	private String committeeNotes;
-	private String condition;
 	private String maxLength;
 	
 	private String profileName; // only in a profile, for slicing
@@ -90,6 +89,7 @@ public class ElementDefn {
 								// base definition (true) or was it specifically
 								// constrained in the profile (false)
   private String statedType; // explicitly stated type (=xxxx)
+  private String declaredTypeName = null;
 	private boolean isCoveredByExample; // true if an example has hit this
 	private String displayHint; // hits for generated narrative
 	private String w5;
@@ -129,24 +129,11 @@ public class ElementDefn {
 		comments = pattern.comments;
 		todo = pattern.todo;
 		committeeNotes = pattern.committeeNotes;
-		condition = pattern.condition;
 		example = pattern.example;
 		profileName = pattern.profileName;
 		fixed = pattern.fixed;
 		inherited = pattern.inherited;
 
-	}
-
-	public String getCondition() {
-		return condition;
-	}
-
-	public void setCondition(String condition) {
-		this.condition = condition;
-	}
-
-	public boolean hasCondition() {
-		return condition != null && !"".equals(condition);
 	}
 
   public boolean hasModifier() {
@@ -440,7 +427,6 @@ public class ElementDefn {
 	// If an element with children explicitly declares a typename
 	// ('=<typename>' in Excel "Type" column), a resource-local type is
 	// defined and its name stored on the parent element.
-	private String declaredTypeName = null;
 	
 	public String getDeclaredTypeName()
 	{
@@ -999,7 +985,6 @@ public class ElementDefn {
     aliases.clear();
     aliases.addAll(other.aliases);
     committeeNotes = other.committeeNotes == null ? null : other.committeeNotes.replace("{{title}}", title).replace("{{titles}}", titles);
-    condition = other.condition;
     maxLength = other.maxLength;
     profileName = other.profileName;
     discriminator.clear();

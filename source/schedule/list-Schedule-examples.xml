@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Schedule-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an Schedule resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="schedule-example"/>
+    </extension>
+    <item>
+      <reference value="Schedule/example"/>
+      <display value="Physio Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example 1 of a Schedule resource with a composite schedulable resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="schedule-provider-location1-example"/>
+    </extension>
+    <item>
+      <reference value="Schedule/exampleloc1"/>
+      <display value="Provider+Location1 Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example 2 of a Schedule resource with a composite schedulable resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="schedule-provider-location2-example"/>
+    </extension>
+    <item>
+      <reference value="Schedule/exampleloc2"/>
+      <display value="Provider+Location2 Example"/>
+    </item>
+  </entry>
+</List>

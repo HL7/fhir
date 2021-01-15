@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Linkage-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Linkage-author"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Linkage.author"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Linkage-author"/>
+        <description value="Author of the Linkage"/>
+        <code value="author"/>
+        <type value="reference"/>
+        <expression value="Linkage.author"/>
+        <xpath value="f:Linkage/f:author"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Linkage-item"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Linkage.item.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Linkage-item"/>
+        <description value="Matches on any item in the Linkage"/>
+        <code value="item"/>
+        <type value="reference"/>
+        <expression value="Linkage.item.resource"/>
+        <xpath value="f:Linkage/f:item/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Linkage-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Linkage.item.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Linkage-source"/>
+        <description value="Matches on any item in the Linkage with a type of &#39;source&#39;"/>
+        <code value="source"/>
+        <type value="reference"/>
+        <expression value="Linkage.item.resource"/>
+        <xpath value="f:Linkage/f:item/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="SupplyRequest-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyRequest-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyRequest.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyRequest-category"/>
+        <description value="The kind of supply (central, non-stock, etc.)"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="SupplyRequest.category"/>
+        <xpath value="f:SupplyRequest/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyRequest-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyRequest.authoredOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyRequest-date"/>
+        <description value="When the request was made"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="SupplyRequest.authoredOn"/>
+        <xpath value="f:SupplyRequest/f:authoredOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyRequest-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyRequest.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyRequest-identifier"/>
+        <description value="Business Identifier for SupplyRequest"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="SupplyRequest.identifier"/>
+        <xpath value="f:SupplyRequest/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyRequest-requester"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyRequest.requester"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyRequest-requester"/>
+        <description value="Individual making the request"/>
+        <code value="requester"/>
+        <type value="reference"/>
+        <expression value="SupplyRequest.requester"/>
+        <xpath value="f:SupplyRequest/f:requester"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyRequest-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyRequest.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyRequest-status"/>
+        <description value="draft | active | suspended +"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="SupplyRequest.status"/>
+        <xpath value="f:SupplyRequest/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyRequest-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyRequest.deliverTo"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyRequest-subject"/>
+        <description value="The destination of the supply"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="SupplyRequest.deliverTo"/>
+        <xpath value="f:SupplyRequest/f:deliverTo"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SupplyRequest-supplier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyRequest.supplier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyRequest-supplier"/>
+        <description value="Who is intended to fulfill the request"/>
+        <code value="supplier"/>
+        <type value="reference"/>
+        <expression value="SupplyRequest.supplier"/>
+        <xpath value="f:SupplyRequest/f:supplier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

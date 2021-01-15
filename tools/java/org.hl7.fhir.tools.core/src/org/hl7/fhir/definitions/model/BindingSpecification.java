@@ -359,9 +359,11 @@ public class BindingSpecification {
 
   public void setValueSet(ValueSet valueSet) {
     this.valueSet = valueSet;
-    ToolResourceUtilities.updateUsage(valueSet, usageContext);
-    if (!Utilities.noString(vsOid)) 
-      ValueSetUtilities.setOID(valueSet, vsOid);
+    if (valueSet != null) {
+      ToolResourceUtilities.updateUsage(valueSet, usageContext);
+      if (!Utilities.noString(vsOid)) 
+        ValueSetUtilities.setOID(valueSet, vsOid);
+    }
   }
 
   public List<DefinedCode> getAllCodes(CanonicalResourceManager<CodeSystem> codeSystems, CanonicalResourceManager<ValueSet> valueSets, boolean wantComplete) throws Exception {

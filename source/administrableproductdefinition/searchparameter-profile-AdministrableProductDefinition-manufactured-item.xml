@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="AdministrableProductDefinition-manufactured-item"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/SearchParameter/AdministrableProductDefinition-manufactured-item"/>
+  <version value="4.5.0"/>
+  <name value="manufactured-item"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-04T14:00:02+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients"/>
+  <code value="manufactured-item"/>
+  <base value="AdministrableProductDefinition"/>
+  <type value="reference"/>
+  <expression value="AdministrableProductDefinition.producedFrom"/>
+  <xpath value="f:AdministrableProductDefinition/f:producedFrom"/>
+  <xpathUsage value="normal"/>
+  <target value="ManufacturedItemDefinition"/>
+</SearchParameter>

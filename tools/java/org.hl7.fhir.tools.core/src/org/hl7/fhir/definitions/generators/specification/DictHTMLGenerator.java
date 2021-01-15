@@ -511,7 +511,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("Element Id", null, e.getPath());
     tableRowNE("Definition", null, page.processMarkdown(path, e.getDefinition(), prefix));
     tableRowNE("Note", null, businessIdWarning(resourceName, e.getName()));
-		tableRow("Cardinality", "conformance-rules.html#cardinality", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
+		tableRow("Cardinality", "conformance-rules.html#cardinality", cardinality);
 		tableRowNE("Terminology Binding", "terminologies.html", describeBinding(path, e));
 		if (!path.contains("."))
       tableRowNE("Type", "datatypes.html", type);

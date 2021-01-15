@@ -130,7 +130,7 @@ public class Example {
   
   private String getFileTitle(File path) {
     String s = path.getName();
-    return s.substring(0, s.indexOf("."));
+    return s.substring(0, s.lastIndexOf("."));
   }
   
   public String getName() {

@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Library-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-composed-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Library.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-composed-of"/>
+        <description value="What resource is being referenced"/>
+        <code value="composed-of"/>
+        <type value="reference"/>
+        <expression value="Library.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
+        <xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-content-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Library.content.contentType"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-content-type"/>
+        <description value="The type of content in the library (e.g. text/cql)"/>
+        <code value="content-type"/>
+        <type value="token"/>
+        <expression value="Library.content.contentType"/>
+        <xpath value="f:Library/f:content/f:contentType"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-context"/>
+        <description value="A use context assigned to the library"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(Library.useContext.value as CodeableConcept)"/>
+        <xpath value="f:Library/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the library"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(Library.useContext.value as Quantity) | (Library.useContext.value as Range)"/>
+        <xpath value="f:Library/f:useContext/f:valueQuantity | f:Library/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-context-type"/>
+        <description value="A type of use context assigned to the library"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="Library.useContext.code"/>
+        <xpath value="f:Library/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the library"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="Library.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-context-type-value"/>
+        <description value="A use context type and value assigned to the library"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="Library.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-date"/>
+        <description value="The library publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Library.date"/>
+        <xpath value="f:Library/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-depends-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Library.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-depends-on"/>
+        <description value="What resource is being referenced"/>
+        <code value="depends-on"/>
+        <type value="reference"/>
+        <expression value="Library.relatedArtifact.where(type=&#39;depends-on&#39;).resource"/>
+        <xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-derived-from"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Library.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-derived-from"/>
+        <description value="What resource is being referenced"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="Library.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-description"/>
+        <description value="The description of the library"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="Library.description"/>
+        <xpath value="f:Library/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-effective"/>
+        <description value="The time during which the library is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="Library.effectivePeriod"/>
+        <xpath value="f:Library/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-identifier"/>
+        <description value="External identifier for the library"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Library.identifier"/>
+        <xpath value="f:Library/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-jurisdiction"/>
+        <description value="Intended jurisdiction for the library"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="Library.jurisdiction"/>
+        <xpath value="f:Library/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-name"/>
+        <description value="Computationally friendly name of the library"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Library.name"/>
+        <xpath value="f:Library/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-predecessor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Library.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-predecessor"/>
+        <description value="What resource is being referenced"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="Library.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-publisher"/>
+        <description value="Name of the publisher of the library"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="Library.publisher"/>
+        <xpath value="f:Library/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-status"/>
+        <description value="The current status of the library"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Library.status"/>
+        <xpath value="f:Library/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-successor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Library.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-successor"/>
+        <description value="What resource is being referenced"/>
+        <code value="successor"/>
+        <type value="reference"/>
+        <expression value="Library.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
+        <xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-title"/>
+        <description value="The human-friendly name of the library"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="Library.title"/>
+        <xpath value="f:Library/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-topic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Library.topic"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-topic"/>
+        <description value="Topics associated with the module"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="Library.topic"/>
+        <xpath value="f:Library/f:topic"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Library.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-type"/>
+        <description value="The type of the library (e.g. logic-library, model-definition, asset-collection, module-definition)"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Library.type"/>
+        <xpath value="f:Library/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-url"/>
+        <description value="The uri that identifies the library"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="Library.url"/>
+        <xpath value="f:Library/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Library-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Library-version"/>
+        <description value="The business version of the library"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="Library.version"/>
+        <xpath value="f:Library/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

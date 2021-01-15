@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="Library-context-quantity"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/SearchParameter/Library-context-quantity"/>
+  <version value="4.5.0"/>
+  <name value="context-quantity"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-04T14:00:02+11:00"/>
+  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A quantity- or range-valued use context assigned to the library"/>
+  <code value="context-quantity"/>
+  <base value="Library"/>
+  <type value="quantity"/>
+  <expression value="(Library.useContext.value as Quantity) | (Library.useContext.value as Range)"/>
+  <xpath value="f:Library/f:useContext/f:valueQuantity | f:Library/f:useContext/f:valueRange"/>
+  <xpathUsage value="normal"/>
+  <comparator value="eq"/>
+  <comparator value="ne"/>
+  <comparator value="gt"/>
+  <comparator value="ge"/>
+  <comparator value="lt"/>
+  <comparator value="le"/>
+  <comparator value="sa"/>
+  <comparator value="eb"/>
+  <comparator value="ap"/>
+</SearchParameter>
