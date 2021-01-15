@@ -1,10 +1,12 @@
 package org.hl7.fhir.definitions;
 
-public class BuildExtensions {
+import org.hl7.fhir.r5.utils.ToolingExtensions;
+
+public class BuildExtensions extends ToolingExtensions {
 
   public static final String EXT_DESCRIPTION = "http://hl7.org/fhir/build/StructureDefinition/description";
   public static final String EXT_TITLE = "http://hl7.org/fhir/build/StructureDefinition/title";
-  public static final String ExampleType = "http://hl7.org/fhir/build/CodeSystem/example-type";
+  public static final String EXT_EXAMPLE_TYPE = "http://hl7.org/fhir/build/CodeSystem/example-type";
   public static final String EXT_NOT_REGISTERED = "http://hl7.org/fhir/build/StructureDefinition/registered";
   public static final String EXT_IG = "http://hl7.org/fhir/build/StructureDefinition/ig";
   public static final String EXT_EXAMPLE_FOR = "http://hl7.org/fhir/build/StructureDefinition/example-for";
@@ -20,7 +22,6 @@ public class BuildExtensions {
   public static final String EXT_UML_DIR = "http://hl7.org/fhir/build/StructureDefinition/uml-dir";
   public static final String EXT_UML_BREAK = "http://hl7.org/fhir/build/StructureDefinition/uml-break";
   public static final String EXT_SVG = "http://hl7.org/fhir/build/StructureDefinition/svg";
-  public static final String EXT_CONTEXT = "http://hl7.org/fhir/build/StructureDefinition/context";
   public static final String EXT_OCL = "http://hl7.org/fhir/build/StructureDefinition/ocl";
   public static final String EXT_FIXED_NAME = "http://hl7.org/fhir/build/StructureDefinition/fixed-name";
   public static final String EXT_TURTLE = "http://hl7.org/fhir/build/StructureDefinition/turtle";
@@ -40,5 +41,13 @@ public class BuildExtensions {
   public static final String EXT_CODE = "http://hl7.org/fhir/build/StructureDefinition/code";
   public static final String EXT_TYPE = "http://hl7.org/fhir/build/StructureDefinition/type";
   public static final String EXT_SUMMARY = "http://hl7.org/fhir/build/StructureDefinition/summary";
-
+//  public static final String EXT_EXPLANATION = "http://hl7.org/fhir/build/StructureDefinition/explanation";
+  public static final String EXT_NO_BINDING = "http://hl7.org/fhir/build/StructureDefinition/explanation";
+  public static final String EXT_OP_EXAMPLE = "http://hl7.org/fhir/build/StructureDefinition/example";
+  public static final String EXT_OP_EXAMPLE_CONTENT = "content";
+  public static final String EXT_OP_EXAMPLE_COMMENT = "comment";
+  public static final String EXT_OP_EXAMPLE_RESPONSE = "response";
+  public static final String EXT_OP_EXAMPLE_LIST = "list";
+  public static final String EXT_TEMPLATE = "http://hl7.org/fhir/build/StructureDefinition/template";
+  public static final String EXT_BINDING_NAME = "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName";
 }

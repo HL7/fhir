@@ -27,7 +27,6 @@ public class Operation {
     public boolean isResponse() {
       return response;
     }
-   
   }
 
   private String name;

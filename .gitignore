@@ -90,3 +90,6 @@ pharmacy-medRequest
 source/\.antlr/
 
 images/\.antlr/
+/source/activitydefinition/*.datestamp
+*.datestamp
+*.xlsx

@@ -83,6 +83,7 @@ public class ResourceDefn  {
     }
 
     public static SecurityCategorization fromCode(String sc) throws FHIRException {
+      if (sc == null) return null;
       if ("anonymous".equals(sc)) return ANONYMOUS;
       if ("business".equals(sc)) return BUSINESS;
       if ("individual".equals(sc)) return INDIVIDUAL;
@@ -143,9 +144,15 @@ public class ResourceDefn  {
     public String value;
   }
 
-  private class InheritedMapping {
+  public class InheritedMapping {
     private String path;
     private Map<String, String> mappings = new HashMap<String, String>();
+    public String getPath() {
+      return path;
+    }
+    public Map<String, String> getMappings() {
+      return mappings;
+    }
   }
 
   private List<Example> examples = new ArrayList<Example>();
@@ -163,7 +170,6 @@ public class ResourceDefn  {
   private String enteredInErrorStatus;
   private String fmmLevel;
   private String proposedOrder;
-  private String display;
   private ElementDefn template;
   private List<String> hints = new ArrayList<String>();
   private Map<String, PointSpec> layout = new HashMap<String, PointSpec>();
@@ -197,23 +203,6 @@ public class ResourceDefn  {
     this.definition = def;
   }
 
-
-  // EK: This function supports the new eCore model
-  // It it still defined in terms of the old functionality,
-  // we need to refactor all references to getContents()
-  // out of all generators.
-  public List<ElementDefn> getContents()
-  {
-    if( getRoot() != null )
-      return getRoot().getElements();
-    else
-      return new ArrayList<ElementDefn>();
-  }
-
-
-
-
-
   private TypeDefn root;   
 
   public TypeDefn getRoot()
@@ -227,21 +216,9 @@ public class ResourceDefn  {
   }
 
 
-  private boolean forFutureUse = false;
   private String requirements;
-  private boolean publishedInProfile;
   private String normativePackage;
   private String normativeVersion;
-
-  public boolean isForFutureUse()
-  {
-    return forFutureUse;
-  }
-
-  public void setForFutureUse(boolean future)
-  {
-    forFutureUse = future;
-  }
 
   public List<Example> getExamples() {
     return examples;
@@ -278,15 +255,6 @@ public class ResourceDefn  {
 
   public List<Operation> getOperations() {
     return operations;
-  }
-
-
-  public boolean isPublishedInProfile() {
-    return publishedInProfile;
-  }
-
-  public void setPublishedInProfile(boolean value) {
-    publishedInProfile = value;
   }
 
   public List<Profile> getConformancePackages() {
@@ -375,14 +343,6 @@ public class ResourceDefn  {
 
   public void setProposedOrder(String proposedOrder) {
     this.proposedOrder = proposedOrder;
-  }
-
-  public String getDisplay() {
-    return display;
-  }
-
-  public void setDisplay(String display) {
-    this.display = display;
   }
 
   public Example getExampleById(String id) {
@@ -518,6 +478,15 @@ public class ResourceDefn  {
 
   public void setTimestamp(long timestamp) {
     this.timestamp = timestamp;
+  }
+
+  @Override
+  public String toString() {
+    return "ResourceDefn [name=" + name + "]";
+  }
+
+  public List<InheritedMapping> getInheritedMappings() {
+    return inheritedMappings;
   }
   
   

@@ -20,7 +20,7 @@ public class BaseGenerator {
     else if (bs.getReference() != null)
       return bs.getReference();      
     else 
-      return "(unbound)";
+      return null;
   }
 
 }

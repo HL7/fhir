@@ -2465,7 +2465,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else
         pack = " (<a href=\""+ig.getHomePage()+"\">"+ig.getName()+"</a>)";
       if (!p.getTitle().equals(sd.getName()))
-        pack = " in <a href=\""+p.getId()+".html\">"+p.getTitle()+"</a> "+pack;
+        pack = " in <a href=\""+p.getId().toLowerCase()+".html\">"+p.getTitle()+"</a> "+pack;
     }
     if (sd.hasUserData("path"))
       return "This example conforms to the <a href=\""+sd.getUserData("path")+"\">profile "+(sd.getName())+"</a>"+pack+".";
@@ -2941,7 +2941,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       Profile ap = definitions.getPackMap().get(s);
       ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
       b.append("  <tr>\r\n");
-      b.append("    <td><a href=\"").append(ig.getPrefix()+ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
+      b.append("    <td><a href=\"").append(ig.getPrefix()+ap.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
       b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
       b.append("    <td>").append(Utilities.escapeXml(ap.describeKind())).append("</td>\r\n");
       b.append("    <td>").append(Utilities.escapeXml(ap.getFmmLevel())).append("</td>\r\n");
@@ -2956,7 +2956,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         for (Profile p : r.getConformancePackages()) {
           ImplementationGuideDefn ig = definitions.getIgs().get(p.getCategory());
           b.append("  <tr>\r\n");
-          b.append("    <td><a href=\""+ig.getPrefix()+p.getId()+".html\">"+Utilities.escapeXml(p.getTitle())+"</a></td>\r\n");
+          b.append("    <td><a href=\""+ig.getPrefix()+p.getId().toLowerCase()+".html\">"+Utilities.escapeXml(p.getTitle())+"</a></td>\r\n");
           b.append("    <td>"+Utilities.escapeXml(p.getDescription())+"</td>\r\n");
           b.append("    <td>"+Utilities.escapeXml(p.describeKind())+"</td>\r\n");
           b.append("    <td>"+Utilities.escapeXml(p.getFmmLevel())+"</td>\r\n");
@@ -5756,15 +5756,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             }
             for (ConceptSetFilterComponent c : cc.getFilter()) {
               if ("concept".equals(c.getProperty())) {
-                ConceptDefinitionComponent def = workerContext.getCodeDefinition("http://snomed.info/sct", c.getValue());
-                if (def==null) {
-                  throw new Exception("Unable to retrieve definition for SNOMED code: " + c.getValue());
-                }
-                String d = def.getDisplay();
-                if (concepts.containsKey(c.getValue()))
-                  concepts.get(c.getValue()).update(d, vs);
-                else
-                  concepts.put(c.getValue(), new SnomedConceptUsage(c.getValue(), d, vs));
+                getSnomedCTConcept(concepts, vs, c);
               }
             }
           }
@@ -5793,6 +5785,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     b.append("</table>\r\n");
     return b.toString();
+  }
+
+  public void getSnomedCTConcept(Map<String, SnomedConceptUsage> concepts, ValueSet vs, ConceptSetFilterComponent c) throws Exception {
+    ConceptDefinitionComponent def = workerContext.getCodeDefinition("http://snomed.info/sct", c.getValue());
+    if (def==null) {
+      throw new Exception("Unable to retrieve definition for SNOMED code: " + c.getValue());
+    }
+    String d = def.getDisplay();
+    if (concepts.containsKey(c.getValue()))
+      concepts.get(c.getValue()).update(d, vs);
+    else
+      concepts.put(c.getValue(), new SnomedConceptUsage(c.getValue(), d, vs));
   }
 
 
@@ -7142,9 +7146,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && isRes)
       b.append("<p>Note: as this is the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p>");
     b.append("</td></tr>");
-    if (p.getParts() != null)
-      for (OperationParameter pp : p.getParts())
-        genOperationParameter(resource, mode, path+p.getName()+".", b, op, pp, prefix);
+    for (OperationParameter pp : p.getParts())
+      genOperationParameter(resource, mode, path+p.getName()+".", b, op, pp, prefix);
   }
 
 
@@ -7482,7 +7485,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         b.append("    <td></td>\r\n");
       else {
         ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
-        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId().toLowerCase()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
       }
       b.append(" </tr>\r\n");
     }
@@ -7580,7 +7583,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         b.append("    <td></td>\r\n");
       else {
         ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
-        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId().toLowerCase()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
       }
       b.append(" </tr>\r\n");
     }
@@ -7650,7 +7653,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         b.append("    <td></td>\r\n");
       else {
         ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
-        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId().toLowerCase()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
       }
       b.append(" </tr>\r\n");
     }
@@ -7821,7 +7824,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (pack == null)
       s.append("<td></td>");
     else
-      s.append("<td>for Profile <a href=\""+prefix+pack.getId()+".html\">"+Utilities.escapeXml(pack.getTitle())+"</a></td>");
+      s.append("<td>for Profile <a href=\""+prefix+pack.getId().toLowerCase()+".html\">"+Utilities.escapeXml(pack.getTitle())+"</a></td>");
     s.append("</tr>");
   }
 

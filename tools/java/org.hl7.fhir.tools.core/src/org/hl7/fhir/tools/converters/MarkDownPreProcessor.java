@@ -44,7 +44,13 @@ public class MarkDownPreProcessor {
           StructureDefinition ed = workerContext.getExtensionStructure(null, parts[0]);
           if (ed == null)
             throw new Error(location + ": Unable to find extension "+parts[0]);
-          url = ed.getUserData("filename")+".html";
+          url = ed.getUserString("path");
+          if (url == null && ed.hasUserData("filename")) {
+            url = ed.getUserData("filename")+".html";
+          }
+          if (url == null) {
+            System.out.println("Broken link for "+ed.getUrl());
+          }
         } 
         if (Utilities.noString(url)) {
           String[] paths = parts[0].split("\\.");

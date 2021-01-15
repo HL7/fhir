@@ -49,12 +49,14 @@ public class ValueSetValidator extends BaseValidator {
             name.add(wp);
         }
       }
-      for (String w : stripPunctuation(splitByCamelCase(vs.getDescription()), true).split(" ")) {
-        String wl = w.toLowerCase();
-        if (!Utilities.noString(w) && !grammarWord(wl) && !nullVSWord(wl)) {
-          String wp = Utilities.pluralizeMe(wl);
-          if (!description.contains(wp))
-            description.add(wp);
+      if (vs.hasDescription()) {
+        for (String w : stripPunctuation(splitByCamelCase(vs.getDescription()), true).split(" ")) {
+          String wl = w.toLowerCase();
+          if (!Utilities.noString(w) && !grammarWord(wl) && !nullVSWord(wl)) {
+            String wp = Utilities.pluralizeMe(wl);
+            if (!description.contains(wp))
+              description.add(wp);
+          }
         }
       }
     }
@@ -372,7 +374,7 @@ public class ValueSetValidator extends BaseValidator {
        )
       return true;
     
-    return false; // todo: change this back to false
+    return false; 
   }
 
   private boolean isValidCode(String code, String system) {

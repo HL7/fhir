@@ -16240,6 +16240,10 @@
     <display value="Pharmaceutical dose form (dose form)"/>
     <display value="Pharmaceutical dose form"/>
   </concept>
+  <concept id="736665006" display="Dose form administration method">
+    <display value="Dose form administration method (administration method)"/>
+    <display value="Dose form administration method"/>
+  </concept>
   <concept id="737038009" display="Declined consent for treatment">
     <display value="Declined consent for treatment (finding)"/>
     <display value="Declined consent for treatment"/>
@@ -16338,6 +16342,10 @@
   <concept id="76302002" display="Spanish mustang horse">
     <display value="Spanish mustang horse"/>
     <display value="Spanish mustang horse (organism)"/>
+  </concept>
+  <concept id="763158003" display="Medicinal product">
+    <display value="Medicinal product (product)"/>
+    <display value="Medicinal product"/>
   </concept>
   <concept id="76364003" display="Boar power pig 27">
     <display value="Boar power pig 27"/>

@@ -117,6 +117,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.IgParser;
 import org.hl7.fhir.definitions.parsers.IgParser.GuidePageKind;
+import org.hl7.fhir.definitions.parsers.Regenerator;
 import org.hl7.fhir.definitions.parsers.SourceParser;
 import org.hl7.fhir.definitions.uml.UMLWriter;
 import org.hl7.fhir.definitions.validation.ConceptMapValidator;
@@ -734,7 +735,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (elementHasSCMapping(path)) {
       ValueSet vs = element.getBinding().getValueSet();
       if (vs == null)
-        throw new Exception("Element has a Status Code binding, but no ValueSet");
+        throw new Exception("Element @"+path+" has a Status Code binding, but no ValueSet");
       ConceptMap cm = (ConceptMap) vs.getUserData("build.statuscodes.map");
       if (cm == null) {
         cm = buildConceptMap(path, vs, rd);
@@ -1055,7 +1056,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void processProfile(Profile ap, ConstraintStructure profile, String filename, ResourceDefn baseResource) throws Exception {
-//    page.log(" ...   profile "+profile.getId(), LogMessageType.Process);
+    //    page.log(" ...   profile "+profile.getId(), LogMessageType.Process);
 
     // they've either been loaded from spreadsheets, or from profile declarations
     // what we're going to do:
@@ -1080,30 +1081,32 @@ public class Publisher implements URIResolver, SectionNumberer {
       // special case: if the profile itself doesn't claim a date, it's date is the date of this publication
       if (!profile.getResource().hasDate())
         profile.getResource().setDate(page.getGenDate().getTime());
-        if (profile.getResource().hasBaseDefinition() && !profile.getResource().hasSnapshot()) {
-          // cause it probably doesn't, coming from the profile directly
-          StructureDefinition base = getSnapShotForProfile(profile.getResource().getBaseDefinition());
-          new ProfileUtilities(page.getWorkerContext(), page.getValidationErrors(), page).generateSnapshot(base, profile.getResource(), profile.getResource().getBaseDefinition().split("#")[0], "http://hl7.org/fhir", profile.getResource().getName());
-        }
-        if (page.getProfiles().has(profile.getResource().getUrl()))
-          throw new Exception("Duplicate Profile URL "+profile.getResource().getUrl());
-        page.getProfiles().see(profile.getResource(), page.packageInfo());
+      if (profile.getResource().hasBaseDefinition() && !profile.getResource().hasSnapshot()) {
+        // cause it probably doesn't, coming from the profile directly
+        StructureDefinition base = getSnapShotForProfile(profile.getResource().getBaseDefinition());
+        new ProfileUtilities(page.getWorkerContext(), page.getValidationErrors(), page).generateSnapshot(base, profile.getResource(), profile.getResource().getBaseDefinition().split("#")[0], "http://hl7.org/fhir", profile.getResource().getName());
       }
+      if (page.getProfiles().has(profile.getResource().getUrl()))
+        throw new Exception("Duplicate Profile URL "+profile.getResource().getUrl());
+      System.out.println("register "+profile.getResource().getUrl());
+      page.getProfiles().see(profile.getResource(), page.packageInfo());
+    }
     if (!Utilities.noString(filename))
       profile.getResource().setUserData("filename", filename+".html");
     if (Utilities.noString(profile.getResource().getUserString("path"))) {
       String path = "";
       ImplementationGuideDefn ig = page.getDefinitions().getUsageIG(ap.getCategory(), "processProfile");
       if (ig!=null && !ig.isCore())
-          path = ig.getCode() + File.separator; 
+        path = ig.getCode() + File.separator; 
       profile.getResource().setUserData("path", path + filename+".html");
     }
   }
 
   private void sortProfile(StructureDefinition diff) throws Exception {
     StructureDefinition base = page.getWorkerContext().fetchResource(StructureDefinition.class, diff.getBaseDefinition());
-    if (base == null)
-      throw new Exception("unable to find base profile "+diff.getUrl());
+    if (base == null) {
+      throw new Exception("unable to find base profile "+diff.getBaseDefinition()+" for "+diff.getUrl());
+    }
     List<String> errors = new ArrayList<String>();
     new ProfileUtilities(page.getWorkerContext(), null, page).sortDifferential(base, diff, diff.getName(), errors, false);
 //    if (errors.size() > 0)
@@ -1714,7 +1717,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       return false;
     } else if (category != null) {
       long d = f.lastModified();
-      if ((!dates.containsKey(category) || d > dates.get(category)) && !f.getAbsolutePath().endsWith(".gen.svg") && !f.getName().contains("please-close-this-in-excel-and-return-the-build-prior-to-committing") )
+      if ((!dates.containsKey(category) || d > dates.get(category)) && !f.getAbsolutePath().endsWith(".gen.svg"))
         dates.put(category, d);
       return true;
     } else
@@ -2340,6 +2343,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       String filename = "extension-"+(ed.getUrl().startsWith("http://fhir-registry.smarthealthit.org/StructureDefinition/") ? ed.getUrl().substring(59).toLowerCase() : ed.getUrl().substring(40).toLowerCase());
       ed.setUserData("filename", filename);
       ImplementationGuideDefn ig = page.getDefinitions().getIgs().get(ed.getUserString(ToolResourceUtilities.NAME_RES_IG));
+      if (ig == null) {
+        ig = page.getDefinitions().getIgs().get("core");
+      }
       ed.setUserData("path", (ig.isCore() ? "" : ig.getCode()+File.separator) + filename+".html");
     }
 
@@ -2390,6 +2396,10 @@ public class Publisher implements URIResolver, SectionNumberer {
         produceCompartment(c);
       }
     }
+    
+    Regenerator regen = new Regenerator(page.getFolders().srcDir, page.getDefinitions(), page.getWorkerContext());
+    regen.generate();
+    
     Bundle searchParamsFeed = new Bundle();
     searchParamsFeed.setId("searchParams");
     searchParamsFeed.setType(BundleType.COLLECTION);
@@ -4809,10 +4819,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (st != null)
         src = insertSectionNumbers(src, st, pack.getId().toLowerCase() + ".html",  0, null);
       else if (ig != null && !ig.isCore())
-        src = addSectionNumbers(pack.getId() + ".html", pack.getId(), src, null, 1, null, ig);
+        src = addSectionNumbers(pack.getId() + ".html", pack.getId().toLowerCase(), src, null, 1, null, ig);
 
       page.getHTMLChecker().registerFile(prefix+pack.getId().toLowerCase() + ".html", "Profile " + pack.getId(), HTMLLinkChecker.XHTML_TYPE, true);
-      TextFile.stringToFile(src, page.getFolders().dstDir + prefix+pack.getId() + ".html");
+      TextFile.stringToFile(src, page.getFolders().dstDir + prefix+pack.getId().toLowerCase() + ".html");
     }
 
     // now, we produce each profile

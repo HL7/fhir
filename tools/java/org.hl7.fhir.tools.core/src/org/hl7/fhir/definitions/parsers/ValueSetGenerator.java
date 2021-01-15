@@ -1,13 +1,9 @@
 package org.hl7.fhir.definitions.parsers;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -173,8 +169,8 @@ public class ValueSetGenerator {
     definitions.getCodeSystems().see(cs, packageInfo);
         
     List<String> codes = new ArrayList<String>();
+    codes.addAll(definitions.getBaseResources().keySet());
     codes.addAll(definitions.getKnownResources().keySet());
-    //codes.addAll(definitions.getBaseResources().keySet());
     Collections.sort(codes);
     for (String s : codes) {
       DefinedCode rd = definitions.getKnownResources().get(s);

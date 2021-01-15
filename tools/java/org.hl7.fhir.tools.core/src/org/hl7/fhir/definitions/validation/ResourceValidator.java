@@ -1362,40 +1362,44 @@ public class ResourceValidator extends BaseValidator {
   public List<ValidationMessage> check(Compartment cmp) {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     for (ResourceDefn rd : cmp.getResources().keySet()) {
-      String[] links = cmp.getResources().get(rd).split("\\|");
-      for (String l : links) {
-        String s = l.trim();
-        if (!Utilities.noString(s) && !s.equals("{def}")) {
-          SearchParameterDefn spd = rd.getSearchParams().get(s);
-          if (rule(errors, IssueType.STRUCTURE, "compartment."+cmp.getName()+"."+rd.getName()+"."+s, spd != null, "Search Parameter '"+s+"' not found")) { 
-            if (rule(errors, IssueType.STRUCTURE, "compartment."+cmp.getName()+"."+rd.getName()+"."+s, spd.getType() == SearchType.reference, "Search Parameter '"+s+"' not a reference")) {
-              boolean ok = false;
-              for (String p : spd.getPaths()) {
-                ElementDefn ed;
-                try {
-                  ed = definitions.getElementByPath(p.split("\\."), "matching compartment", true);
-                } catch (Exception e) {
-                  rule(errors, IssueType.STRUCTURE, "compartment."+cmp.getName()+"."+rd.getName()+"."+s, ok, "Illegal path "+p);
-                  ed = null;
-                }
-                if (ed != null) {
-                  for (TypeRef tr : ed.getTypes()) {
-                    for (String tp : tr.getParams()) {
-                      if (definitions.hasLogicalModel(tp)) {
-                        ok = ok || definitions.getLogicalModel(tp).getImplementations().contains(cmp.getTitle());
-                      } else
-                        ok = ok || tp.equals(cmp.getTitle()) || tp.equals("Any");
-                    }
+      checkResCmp(cmp, errors, rd);
+    }
+    return errors;
+  }
+
+  public void checkResCmp(Compartment cmp, List<ValidationMessage> errors, ResourceDefn rd) {
+    String[] links = cmp.getResources().get(rd).split("\\|");
+    for (String l : links) {
+      String s = l.trim();
+      if (!Utilities.noString(s) && !s.equals("{def}")) {
+        SearchParameterDefn spd = rd.getSearchParams().get(s);
+        if (rule(errors, IssueType.STRUCTURE, "compartment."+cmp.getName()+"."+rd.getName()+"."+s, spd != null, "Search Parameter '"+s+"' not found")) { 
+          if (rule(errors, IssueType.STRUCTURE, "compartment."+cmp.getName()+"."+rd.getName()+"."+s, spd.getType() == SearchType.reference, "Search Parameter '"+s+"' not a reference")) {
+            boolean ok = false;
+            for (String p : spd.getPaths()) {
+              ElementDefn ed;
+              try {
+                ed = definitions.getElementByPath(p.split("\\."), "matching compartment", true);
+              } catch (Exception e) {
+                rule(errors, IssueType.STRUCTURE, "compartment."+cmp.getName()+"."+rd.getName()+"."+s, ok, "Illegal path "+p);
+                ed = null;
+              }
+              if (ed != null) {
+                for (TypeRef tr : ed.getTypes()) {
+                  for (String tp : tr.getParams()) {
+                    if (definitions.hasLogicalModel(tp)) {
+                      ok = ok || definitions.getLogicalModel(tp).getImplementations().contains(cmp.getTitle());
+                    } else
+                      ok = ok || tp.equals(cmp.getTitle()) || tp.equals("Any");
                   }
                 }
               }
-              rule(errors, IssueType.STRUCTURE, "compartment."+cmp.getName()+"."+rd.getName()+"."+s, ok, "No target match for "+cmp.getTitle());
             }
+            rule(errors, IssueType.STRUCTURE, "compartment."+cmp.getName()+"."+rd.getName()+"."+s, ok, "No target match for "+cmp.getTitle());
           }
         }
       }
     }
-    return errors;
   }
 
   public void resolvePatterns() throws FHIRException {

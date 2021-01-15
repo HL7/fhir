@@ -3,8 +3,10 @@ package org.hl7.fhir.definitions.model;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.definitions.model.ResourceDefn.PointSpec;
 import org.hl7.fhir.r5.model.ExpressionNode;
 import org.hl7.fhir.r5.model.SearchParameter;
 import org.hl7.fhir.utilities.StandardsStatus;
@@ -309,6 +311,10 @@ public class SearchParameterDefn {
   
   public boolean hasManualTypes() {
     return !manualTypes.isEmpty();
+  }
+
+  public Set<String> getManualTargets() {
+    return manualTargets;
   }
     
 }
