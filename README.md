@@ -1,10 +1,14 @@
 [![Build Status](https://dev.azure.com/fhir-build/build.fhir.org/_apis/build/status/FHIR%20CI%20Build)](https://dev.azure.com/fhir-build/build.fhir.org/_build/latest?definitionId=3)
 
+## Understanding the FHIR Publisher
+
+You don't need to run this unless you are one of the FHIR specification editors, or if you are translating FHIR to another language (Russian, Vietnamese, Spanish and Japanese versions exist to some degree). 
+
 ### To run the FHIR Publisher
-First ensure that [ant 1.9+](http://ant.apache.org/bindownload.cgi) is installed on your system.
+First ensure that [ant 1.9+](http://ant.apache.org/bindownload.cgi) is installed on your system. 
 
 1. Run `publish.bat` (windows) or `publish.sh` (OSX/Linux)
-2. Wait for it to finish (~10 minutes)
+2. Wait for it to finish (~30 minutes)
 
 See also: [FHIR Build Process](http://wiki.hl7.org/index.php?title=FHIR_Build_Process)
 
