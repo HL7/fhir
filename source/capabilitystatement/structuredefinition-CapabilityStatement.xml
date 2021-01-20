@@ -249,10 +249,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -400,10 +398,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
@@ -471,10 +467,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CapabilityStatementKind"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="How a capability statement is intended to be used."/>
-        </extension>
         <strength value="required"/>
+        <description value="How a capability statement is intended to be used."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/capability-statement-kind"/>
       </binding>
     </element>
@@ -627,10 +621,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="All published FHIR Versions."/>
-        </extension>
         <strength value="required"/>
+        <description value="All published FHIR Versions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
       </binding>
     </element>
@@ -736,10 +728,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RestfulCapabilityMode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The mode of a RESTful capability statement."/>
-        </extension>
         <strength value="required"/>
+        <description value="The mode of a RESTful capability statement."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/restful-capability-mode"/>
       </binding>
     </element>
@@ -796,10 +786,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RestfulSecurityService"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Types of security services used with FHIR."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Types of security services used with FHIR."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/restful-security-service"/>
       </binding>
     </element>
@@ -853,10 +841,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="One of the resource types defined as part of this version of FHIR."/>
-        </extension>
         <strength value="required"/>
+        <description value="One of the resource types defined as part of this version of FHIR."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
       </binding>
     </element>
@@ -929,10 +915,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TypeRestfulInteraction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Operations supported by REST at the type or instance level."/>
-        </extension>
         <strength value="required"/>
+        <description value="Operations supported by REST at the type or instance level."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/type-restful-interaction"/>
       </binding>
     </element>
@@ -964,10 +948,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResourceVersionPolicy"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="How the system supports versioning for a resource."/>
-        </extension>
         <strength value="required"/>
+        <description value="How the system supports versioning for a resource."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/versioning-policy"/>
       </binding>
     </element>
@@ -1030,10 +1012,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionalReadStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code that indicates how the server supports conditional read."/>
-        </extension>
         <strength value="required"/>
+        <description value="A code that indicates how the server supports conditional read."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/conditional-read-status"/>
       </binding>
     </element>
@@ -1068,10 +1048,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionalDeleteStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code that indicates how the server supports conditional delete."/>
-        </extension>
         <strength value="required"/>
+        <description value="A code that indicates how the server supports conditional delete."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/conditional-delete-status"/>
       </binding>
     </element>
@@ -1091,10 +1069,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ReferenceHandlingPolicy"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A set of flags that defines how references are supported."/>
-        </extension>
         <strength value="required"/>
+        <description value="A set of flags that defines how references are supported."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/reference-handling-policy"/>
       </binding>
     </element>
@@ -1180,10 +1156,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Data types allowed to be used for search parameters."/>
-        </extension>
         <strength value="required"/>
+        <description value="Data types allowed to be used for search parameters."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/search-param-type"/>
       </binding>
     </element>
@@ -1276,10 +1250,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SystemRestfulInteraction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Operations supported by REST at the system level."/>
-        </extension>
         <strength value="required"/>
+        <description value="Operations supported by REST at the system level."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/system-restful-interaction"/>
       </binding>
     </element>
@@ -1376,10 +1348,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MessageTransport"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The protocol used for message transport."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The protocol used for message transport."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/message-transport"/>
       </binding>
     </element>
@@ -1443,10 +1413,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EventCapabilityMode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The mode of a message capability statement."/>
-        </extension>
         <strength value="required"/>
+        <description value="The mode of a message capability statement."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/event-capability-mode"/>
       </binding>
     </element>
@@ -1494,10 +1462,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentMode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Whether the application produces or consumes documents."/>
-        </extension>
         <strength value="required"/>
+        <description value="Whether the application produces or consumes documents."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/document-mode"/>
       </binding>
     </element>

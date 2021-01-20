@@ -6,11 +6,6 @@
   <mode value="working"/>
   <entry>
     <item>
-      <reference value="ImplementationGuide/ActivityDefinition-core"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
       <reference value="ImplementationGuide/ActivityDefinition-cqf"/>
     </item>
   </entry>

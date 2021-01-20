@@ -156,10 +156,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="specialty"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Additional details about where the content was created (e.g. clinical specialty)."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Additional details about where the content was created (e.g. clinical specialty)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
       </binding>
       <mapping>
@@ -218,10 +216,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SlotStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The free/busy status of the slot."/>
-        </extension>
         <strength value="required"/>
+        <description value="The free/busy status of the slot."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/slotstatus"/>
       </binding>
       <mapping>

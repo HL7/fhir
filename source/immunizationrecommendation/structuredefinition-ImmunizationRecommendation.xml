@@ -298,10 +298,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VaccineCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of vaccine administered."/>
-        </extension>
         <strength value="example"/>
+        <description value="The type of vaccine administered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/vaccine-code"/>
       </binding>
       <mapping>
@@ -335,10 +333,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TargetDisease"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The disease that the recommended vaccination targets."/>
-        </extension>
         <strength value="example"/>
+        <description value="The disease that the recommended vaccination targets."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-target-disease"/>
       </binding>
       <mapping>
@@ -364,10 +360,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VaccineCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of vaccine administered."/>
-        </extension>
         <strength value="example"/>
+        <description value="The type of vaccine administered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/vaccine-code"/>
       </binding>
     </element>
@@ -387,10 +381,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationRecommendationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The patient&#39;s status with respect to a vaccination protocol."/>
-        </extension>
         <strength value="example"/>
+        <description value="The patient&#39;s status with respect to a vaccination protocol."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-status"/>
       </binding>
       <mapping>
@@ -416,10 +408,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationRecommendationReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The reason for the patient&#39;s status with respect to a vaccination protocol."/>
-        </extension>
         <strength value="example"/>
+        <description value="The reason for the patient&#39;s status with respect to a vaccination protocol."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-reason"/>
       </binding>
       <mapping>
@@ -469,10 +459,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationRecommendationDateCriterion"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Classifies date criterion with respect to conveying information about a patient&#39;s vaccination status (e.g. due date, latest to give date, etc.)."/>
-        </extension>
         <strength value="example"/>
+        <description value="Classifies date criterion with respect to conveying information about a patient&#39;s vaccination status (e.g. due date, latest to give date, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion"/>
       </binding>
       <mapping>

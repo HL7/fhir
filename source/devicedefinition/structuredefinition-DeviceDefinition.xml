@@ -193,10 +193,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceNameType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of name the device is referred by."/>
-        </extension>
         <strength value="required"/>
+        <description value="The type of name the device is referred by."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-nametype"/>
       </binding>
       <mapping>
@@ -242,10 +240,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceKind"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type of device e.g. according to official classification."/>
-        </extension>
         <strength value="example"/>
+        <description value="Type of device e.g. according to official classification."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-kind"/>
       </binding>
     </element>

@@ -204,10 +204,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying the lifecycle stage of a request."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of a request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-status"/>
       </binding>
       <mapping>
@@ -237,10 +235,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestIntent"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes indicating the degree of authority/intentionality associated with a request."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes indicating the degree of authority/intentionality associated with a request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-intent"/>
       </binding>
       <mapping>
@@ -267,10 +263,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the level of importance to be assigned to actioning the request."/>
-        </extension>
         <strength value="required"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
       <mapping>
@@ -496,10 +490,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the level of importance to be assigned to actioning the request."/>
-        </extension>
         <strength value="required"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
       <mapping>
@@ -563,10 +555,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionConditionKind"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The kind of condition for the action."/>
-        </extension>
         <strength value="required"/>
+        <description value="The kind of condition for the action."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind"/>
       </binding>
     </element>
@@ -617,10 +607,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionRelationshipType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines the types of relationships between actions."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines the types of relationships between actions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
       </binding>
     </element>
@@ -702,10 +690,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of action to be performed."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of action to be performed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
       </binding>
     </element>
@@ -722,10 +708,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionGroupingBehavior"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines organization behavior of a group."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines organization behavior of a group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior"/>
       </binding>
     </element>
@@ -742,10 +726,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionSelectionBehavior"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines selection behavior of a group."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines selection behavior of a group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior"/>
       </binding>
     </element>
@@ -762,10 +744,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionRequiredBehavior"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines expectations around whether an action or action group is required."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines expectations around whether an action or action group is required."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior"/>
       </binding>
     </element>
@@ -782,10 +762,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionPrecheckBehavior"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines selection frequency behavior for an action or group."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines selection frequency behavior for an action or group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior"/>
       </binding>
     </element>
@@ -802,10 +780,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionCardinalityBehavior"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines behavior for an action or a group for how many times that item may be repeated."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines behavior for an action or a group for how many times that item may be repeated."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior"/>
       </binding>
     </element>

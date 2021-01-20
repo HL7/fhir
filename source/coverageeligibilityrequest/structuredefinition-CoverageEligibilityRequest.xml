@@ -124,10 +124,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EligibilityRequestStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code specifying the state of the resource instance."/>
-        </extension>
         <strength value="required"/>
+        <description value="A code specifying the state of the resource instance."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/fm-status"/>
       </binding>
       <mapping>
@@ -153,10 +151,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcessPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The timeliness with which processing is required: STAT, normal, Deferred."/>
-        </extension>
         <strength value="example"/>
+        <description value="The timeliness with which processing is required: STAT, normal, Deferred."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
       </binding>
       <mapping>
@@ -183,10 +179,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EligibilityRequestPurpose"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code specifying the types of information being requested."/>
-        </extension>
         <strength value="required"/>
+        <description value="A code specifying the types of information being requested."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose"/>
       </binding>
       <mapping>
@@ -481,10 +475,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Benefit categories such as: oral, medical, vision etc."/>
-        </extension>
         <strength value="example"/>
+        <description value="Benefit categories such as: oral, medical, vision etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
       </binding>
     </element>
@@ -503,10 +495,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ServiceProduct"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Allowable service and product codes."/>
-        </extension>
         <strength value="example"/>
+        <description value="Allowable service and product codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
       </binding>
     </element>
@@ -525,10 +515,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Modifiers"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen."/>
-        </extension>
         <strength value="example"/>
+        <description value="Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-modifiers"/>
       </binding>
     </element>
@@ -628,10 +616,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ICD10"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="ICD10 Diagnostic codes."/>
-        </extension>
         <strength value="example"/>
+        <description value="ICD10 Diagnostic codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/icd-10"/>
       </binding>
     </element>

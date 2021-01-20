@@ -237,13 +237,11 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code specifying the state of the procedure."/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
           <valueString value="ActStatus"/>
         </extension>
         <strength value="required"/>
+        <description value="A code specifying the state of the procedure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/event-status"/>
       </binding>
       <mapping>
@@ -276,10 +274,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureNegationReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code that identifies the reason a procedure was not performed."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code that identifies the reason a procedure was not performed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-not-performed-reason"/>
       </binding>
       <mapping>
@@ -308,10 +304,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code that classifies a procedure for searching, sorting and display purposes."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code that classifies a procedure for searching, sorting and display purposes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-category"/>
       </binding>
       <mapping>
@@ -343,10 +337,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code to identify a specific procedure ."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code to identify a specific procedure ."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
       </binding>
       <mapping>
@@ -610,10 +602,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedurePerformerRole"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code that identifies the role of a performer of the procedure."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code that identifies the role of a performer of the procedure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
       </binding>
       <mapping>
@@ -729,10 +719,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code that identifies the reason a procedure is  required."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code that identifies the reason a procedure is  required."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-reason"/>
       </binding>
       <mapping>
@@ -798,10 +786,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureOutcome"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="An outcome of a procedure - whether it was resolved or otherwise."/>
-        </extension>
         <strength value="example"/>
+        <description value="An outcome of a procedure - whether it was resolved or otherwise."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-outcome"/>
       </binding>
       <mapping>
@@ -841,10 +827,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureComplication"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing complications that resulted from a procedure."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing complications that resulted from a procedure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
       <mapping>
@@ -881,10 +865,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureFollowUp"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Specific follow up required for a procedure e.g. removal of sutures."/>
-        </extension>
         <strength value="example"/>
+        <description value="Specific follow up required for a procedure e.g. removal of sutures."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-followup"/>
       </binding>
       <mapping>
@@ -944,10 +926,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceActionKind"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A kind of change that happened to the device during the procedure."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="A kind of change that happened to the device during the procedure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-action"/>
       </binding>
       <mapping>
@@ -989,10 +969,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureUsed"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing items used during a procedure."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing items used during a procedure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-kind"/>
       </binding>
       <mapping>

@@ -249,10 +249,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PlanDefinitionType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of PlanDefinition."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of PlanDefinition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/plan-definition-type"/>
       </binding>
       <mapping>
@@ -280,10 +278,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.5.0"/>
       </binding>
       <mapping>
@@ -353,10 +349,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
       </binding>
       <mapping>
@@ -500,10 +494,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
@@ -673,10 +665,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DefinitionTopic"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        </extension>
         <strength value="example"/>
+        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
       </binding>
       <mapping>
@@ -821,10 +811,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Example codes for grouping goals for filtering or presentation."/>
-        </extension>
         <strength value="example"/>
+        <description value="Example codes for grouping goals for filtering or presentation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-category"/>
       </binding>
       <mapping>
@@ -846,10 +834,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalDescription"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Describes goals that can be achieved."/>
-        </extension>
         <strength value="example"/>
+        <description value="Describes goals that can be achieved."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
       <mapping>
@@ -870,10 +856,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates the level of importance associated with reaching or sustaining a goal."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Indicates the level of importance associated with reaching or sustaining a goal."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
       </binding>
       <mapping>
@@ -894,10 +878,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalStartEvent"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the types of events that might trigger the start of a goal."/>
-        </extension>
         <strength value="example"/>
+        <description value="Identifies the types of events that might trigger the start of a goal."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-start-event"/>
       </binding>
       <mapping>
@@ -918,10 +900,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalAddresses"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies problems, conditions, issues, or concerns that goals may address."/>
-        </extension>
         <strength value="example"/>
+        <description value="Identifies problems, conditions, issues, or concerns that goals may address."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
       <mapping>
@@ -973,10 +953,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalTargetMeasure"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies types of parameters that can be tracked to determine goal achievement."/>
-        </extension>
         <strength value="example"/>
+        <description value="Identifies types of parameters that can be tracked to determine goal achievement."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
       </binding>
       <mapping>
@@ -1124,10 +1102,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the level of importance to be assigned to actioning the request."/>
-        </extension>
         <strength value="required"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|4.5.0"/>
       </binding>
       <mapping>
@@ -1148,10 +1124,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Provides examples of actions to be performed."/>
-        </extension>
         <strength value="example"/>
+        <description value="Provides examples of actions to be performed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-code"/>
       </binding>
       <mapping>
@@ -1173,10 +1147,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionReasonCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Provides examples of reasons for actions to be performed."/>
-        </extension>
         <strength value="example"/>
+        <description value="Provides examples of reasons for actions to be performed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-reason-code"/>
       </binding>
       <mapping>
@@ -1235,10 +1207,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
       </binding>
       <mapping>
@@ -1296,10 +1266,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionConditionKind"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines the kinds of conditions that can appear on actions."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines the kinds of conditions that can appear on actions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind|4.5.0"/>
       </binding>
       <mapping>
@@ -1395,10 +1363,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionRelationshipType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines the types of relationships between actions."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines the types of relationships between actions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type|4.5.0"/>
       </binding>
       <mapping>
@@ -1482,10 +1448,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionParticipantType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of participant for the action."/>
-        </extension>
         <strength value="required"/>
+        <description value="The type of participant for the action."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.5.0"/>
       </binding>
       <mapping>
@@ -1506,10 +1470,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionParticipantRole"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines roles played by participants for the action."/>
-        </extension>
         <strength value="example"/>
+        <description value="Defines roles played by participants for the action."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
       </binding>
       <mapping>
@@ -1530,10 +1492,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of action to be performed."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of action to be performed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
       </binding>
       <mapping>
@@ -1554,10 +1514,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionGroupingBehavior"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines organization behavior of a group."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines organization behavior of a group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior|4.5.0"/>
       </binding>
       <mapping>
@@ -1578,10 +1536,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionSelectionBehavior"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines selection behavior of a group."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines selection behavior of a group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior|4.5.0"/>
       </binding>
       <mapping>
@@ -1602,10 +1558,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionRequiredBehavior"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines expectations around whether an action or action group is required."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines expectations around whether an action or action group is required."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior|4.5.0"/>
       </binding>
       <mapping>
@@ -1626,10 +1580,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionPrecheckBehavior"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines selection frequency behavior for an action or group."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines selection frequency behavior for an action or group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior|4.5.0"/>
       </binding>
       <mapping>
@@ -1650,10 +1602,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionCardinalityBehavior"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines behavior for an action or a group for how many times that item may be repeated."/>
-        </extension>
         <strength value="required"/>
+        <description value="Defines behavior for an action or a group for how many times that item may be repeated."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior|4.5.0"/>
       </binding>
       <mapping>

@@ -238,10 +238,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The current status of the task."/>
-        </extension>
         <strength value="required"/>
+        <description value="The current status of the task."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/task-status"/>
       </binding>
       <mapping>
@@ -272,10 +270,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskStatusReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes to identify the reason for current status.  These will typically be specific to a particular workflow."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes to identify the reason for current status.  These will typically be specific to a particular workflow."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -297,10 +293,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskBusinessStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc."/>
-        </extension>
         <strength value="example"/>
+        <description value="The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -322,10 +316,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskIntent"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Distinguishes whether the task is a proposal, plan or full order."/>
-        </extension>
         <strength value="required"/>
+        <description value="Distinguishes whether the task is a proposal, plan or full order."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/task-intent"/>
       </binding>
       <mapping>
@@ -391,10 +383,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes to identify what the task involves.  These will typically be specific to a particular workflow."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes to identify what the task involves.  These will typically be specific to a particular workflow."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/task-code"/>
       </binding>
       <mapping>
@@ -615,10 +605,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskPerformerType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type(s) of task performers allowed."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="The type(s) of task performers allowed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
       </binding>
       <mapping>
@@ -708,10 +696,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital."/>
-        </extension>
         <strength value="example"/>
+        <description value="Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital."/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -924,10 +910,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskInputParameterType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1131,10 +1115,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskOutputParameterType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>

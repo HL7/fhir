@@ -87,13 +87,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The species of an animal."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AnimalSpecies"/>
         </extension>
         <strength value="example"/>
+        <description value="The species of an animal."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/animal-species"/>
       </binding>
     </element>
@@ -135,13 +133,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The breed of an animal."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AnimalBreed"/>
         </extension>
         <strength value="example"/>
+        <description value="The breed of an animal."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/animal-breeds"/>
       </binding>
     </element>
@@ -182,13 +178,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The state of the animal&#39;s reproductive organs."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AnimalGenderStatus"/>
         </extension>
         <strength value="example"/>
+        <description value="The state of the animal&#39;s reproductive organs."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/animal-genderstatus"/>
       </binding>
     </element>

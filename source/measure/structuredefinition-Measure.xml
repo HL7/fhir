@@ -272,10 +272,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -338,10 +336,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
       </binding>
       <mapping>
@@ -478,10 +474,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
@@ -648,10 +642,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DefinitionTopic"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        </extension>
         <strength value="example"/>
+        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
       </binding>
       <mapping>
@@ -785,10 +777,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureScoring"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The scoring type of the measure."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The scoring type of the measure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring"/>
       </binding>
       <mapping>
@@ -810,10 +800,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CompositeMeasureScoring"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The composite scoring method of the measure."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The composite scoring method of the measure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/composite-measure-scoring"/>
       </binding>
       <mapping>
@@ -838,10 +826,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
       </binding>
       <mapping>
@@ -933,10 +919,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureImprovementNotation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
-        </extension>
         <strength value="required"/>
+        <description value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
@@ -1009,10 +993,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureGroupExample"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Example of measure groups."/>
-        </extension>
         <strength value="example"/>
+        <description value="Example of measure groups."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-group-example"/>
       </binding>
       <mapping>
@@ -1064,10 +1046,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasurePopulationType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of population."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of population."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
       </binding>
       <mapping>
@@ -1134,10 +1114,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureStratifierExample"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Meaning of the stratifier."/>
-        </extension>
         <strength value="example"/>
+        <description value="Meaning of the stratifier."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
       </binding>
       <mapping>
@@ -1204,10 +1182,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureStratifierExample"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Meaning of the stratifier."/>
-        </extension>
         <strength value="example"/>
+        <description value="Meaning of the stratifier."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
       </binding>
       <mapping>
@@ -1274,10 +1250,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureSupplementalDataExample"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Meaning of the supplemental data."/>
-        </extension>
         <strength value="example"/>
+        <description value="Meaning of the supplemental data."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-supplemental-data-example"/>
       </binding>
       <mapping>
@@ -1298,10 +1272,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureDataUsage"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The intended usage for supplemental data elements in the measure."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The intended usage for supplemental data elements in the measure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-data-usage"/>
       </binding>
       <mapping>

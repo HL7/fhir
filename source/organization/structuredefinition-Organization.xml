@@ -197,10 +197,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="OrganizationType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used to categorize the organization."/>
-        </extension>
         <strength value="example"/>
+        <description value="Used to categorize the organization."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/organization-type"/>
       </binding>
       <mapping>
@@ -407,10 +405,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContactPartyType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The purpose for which you would contact a contact party."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The purpose for which you would contact a contact party."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contactentity-type"/>
       </binding>
       <mapping>

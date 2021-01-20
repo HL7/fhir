@@ -196,10 +196,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -463,10 +461,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EvidenceVariableRole"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The role that the assertion variable plays."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The role that the assertion variable plays."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/variable-role"/>
       </binding>
     </element>
@@ -508,10 +504,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EvidenceDirectness"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The quality of how direct the match is."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The quality of how direct the match is."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/directness"/>
       </binding>
     </element>
@@ -528,10 +522,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SynthesisType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Types of combining results from a body of evidence (eg. summary data meta-analysis)."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Types of combining results from a body of evidence (eg. summary data meta-analysis)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/synthesis-type"/>
       </binding>
     </element>
@@ -548,10 +540,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="StudyType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of study the evidence was derived from."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of study the evidence was derived from."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/study-type"/>
       </binding>
     </element>
@@ -621,10 +611,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EvidenceCertaintyType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The aspect of quality, confidence, or certainty."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The aspect of quality, confidence, or certainty."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/certainty-type"/>
       </binding>
     </element>
@@ -641,10 +629,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EvidenceCertaintyRating"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The assessment of quality, confidence, or certainty."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The assessment of quality, confidence, or certainty."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/certainty-rating"/>
       </binding>
     </element>

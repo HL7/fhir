@@ -254,10 +254,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes providing the status of an observation."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes providing the status of an observation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-status"/>
       </binding>
       <mapping>
@@ -299,10 +297,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for high level observation categories."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Codes for high level observation categories."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-category"/>
       </binding>
       <mapping>
@@ -331,10 +327,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying names of simple observations."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes identifying names of simple observations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
       </binding>
       <mapping>
@@ -659,10 +653,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationValueAbsentReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes specifying why the result (`Observation.value[x]`) is missing."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Codes specifying why the result (`Observation.value[x]`) is missing."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/data-absent-reason"/>
       </binding>
       <mapping>
@@ -690,10 +682,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationInterpretation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying interpretations of observations."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Codes identifying interpretations of observations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
       </binding>
       <mapping>
@@ -795,10 +785,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationMethod"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Methods for simple observations."/>
-        </extension>
         <strength value="example"/>
+        <description value="Methods for simple observations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-methods"/>
       </binding>
       <mapping>
@@ -965,10 +953,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationRangeMeaning"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Code for the meaning of a reference range."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Code for the meaning of a reference range."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/referencerange-meaning"/>
       </binding>
       <mapping>
@@ -1002,10 +988,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationRangeType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying the population the reference range applies to."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes identifying the population the reference range applies to."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/referencerange-appliesto"/>
       </binding>
       <mapping>
@@ -1154,10 +1138,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying names of simple observations."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes identifying names of simple observations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
       </binding>
       <mapping>
@@ -1261,10 +1243,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationValueAbsentReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes specifying why the result (`Observation.value[x]`) is missing."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Codes specifying why the result (`Observation.value[x]`) is missing."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/data-absent-reason"/>
       </binding>
       <mapping>
@@ -1295,10 +1275,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationInterpretation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying interpretations of observations."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Codes identifying interpretations of observations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
       </binding>
       <mapping>

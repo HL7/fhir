@@ -60,13 +60,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A subjective assessment of the severity of the condition as evaluated by the clinician."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionSeverity"/>
         </extension>
         <strength value="example"/>
+        <description value="A subjective assessment of the severity of the condition as evaluated by the clinician."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-severity"/>
       </binding>
     </element>

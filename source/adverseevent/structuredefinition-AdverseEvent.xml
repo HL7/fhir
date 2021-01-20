@@ -123,10 +123,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying the lifecycle stage of an event."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of an event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-status"/>
       </binding>
       <mapping>
@@ -154,10 +152,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventActuality"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Overall nature of the adverse event, e.g. real or potential."/>
-        </extension>
         <strength value="required"/>
+        <description value="Overall nature of the adverse event, e.g. real or potential."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-actuality"/>
       </binding>
       <mapping>
@@ -182,10 +178,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Overall categorization of the event, e.g. product-related or situational."/>
-        </extension>
         <strength value="example"/>
+        <description value="Overall categorization of the event, e.g. product-related or situational."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-category"/>
       </binding>
       <mapping>
@@ -207,10 +201,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed type of event."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed type of event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-type"/>
       </binding>
       <mapping>
@@ -391,10 +383,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventSeriousness"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Overall seriousness of this event for the patient."/>
-        </extension>
         <strength value="example"/>
+        <description value="Overall seriousness of this event for the patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-seriousness"/>
       </binding>
     </element>
@@ -415,10 +405,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventOutcome"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the type of outcome from the adverse event."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing the type of outcome from the adverse event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-outcome"/>
       </binding>
     </element>
@@ -476,10 +464,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventParticipantFunction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the type of involvement of the actor in the adverse event."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing the type of involvement of the actor in the adverse event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-participant-function"/>
       </binding>
       <mapping>
@@ -591,10 +577,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventCausalityMethod"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="TODO."/>
-        </extension>
         <strength value="example"/>
+        <description value="TODO."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-causality-method"/>
       </binding>
     </element>
@@ -615,10 +599,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventCausalityAssessment"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for the assessment of whether the entity caused the event."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for the assessment of whether the entity caused the event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-causality-assess"/>
       </binding>
     </element>
@@ -681,10 +663,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventContributingFactor"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the contributing factors suspected to have increased the probability or severity of the adverse event."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing the contributing factors suspected to have increased the probability or severity of the adverse event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-contributing-factor"/>
       </binding>
     </element>
@@ -727,10 +707,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventPreventiveAction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the preventive actions that contributed to avoiding the adverse event."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing the preventive actions that contributed to avoiding the adverse event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-preventive-action"/>
       </binding>
     </element>
@@ -772,10 +750,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventMitigatingAction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the ameliorating actions taken after the adverse event occured in order to reduce the extent of harm."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing the ameliorating actions taken after the adverse event occured in order to reduce the extent of harm."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-mitigating-action"/>
       </binding>
     </element>
@@ -820,10 +796,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdverseEventSupportingInfo"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the supporting information relevant to the event."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing the supporting information relevant to the event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-supporting-info"/>
       </binding>
     </element>

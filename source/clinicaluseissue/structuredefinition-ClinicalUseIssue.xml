@@ -114,10 +114,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ClinicalUseIssueType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Overall defining type of this clinical use issue."/>
-        </extension>
         <strength value="required"/>
+        <description value="Overall defining type of this clinical use issue."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-use-issue-type"/>
       </binding>
       <mapping>

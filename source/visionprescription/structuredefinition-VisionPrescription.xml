@@ -133,10 +133,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VisionStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code specifying the state of the resource instance."/>
-        </extension>
         <strength value="required"/>
+        <description value="A code specifying the state of the resource instance."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/fm-status"/>
       </binding>
       <mapping>
@@ -317,10 +315,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VisionProduct"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept describing the vision products."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept describing the vision products."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/vision-product"/>
       </binding>
       <mapping>
@@ -348,10 +344,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VisionEyes"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept listing the eye codes."/>
-        </extension>
         <strength value="required"/>
+        <description value="A coded concept listing the eye codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/vision-eye-codes"/>
       </binding>
       <mapping>
@@ -452,10 +446,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VisionBase"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept listing the base codes."/>
-        </extension>
         <strength value="required"/>
+        <description value="A coded concept listing the base codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/vision-base-codes"/>
       </binding>
       <mapping>

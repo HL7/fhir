@@ -175,10 +175,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricOperationalStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Describes the operational status of the DeviceMetric."/>
-        </extension>
         <strength value="required"/>
+        <description value="Describes the operational status of the DeviceMetric."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-operational-status"/>
       </binding>
     </element>
@@ -196,10 +194,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricColor"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Describes the typical color of representation."/>
-        </extension>
         <strength value="required"/>
+        <description value="Describes the typical color of representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-color"/>
       </binding>
     </element>
@@ -217,10 +213,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Describes the category of the metric."/>
-        </extension>
         <strength value="required"/>
+        <description value="Describes the category of the metric."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-category"/>
       </binding>
       <mapping>
@@ -267,10 +261,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCalibrationType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Describes the type of a metric calibration."/>
-        </extension>
         <strength value="required"/>
+        <description value="Describes the type of a metric calibration."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-type"/>
       </binding>
     </element>
@@ -288,10 +280,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCalibrationState"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Describes the state of a metric calibration."/>
-        </extension>
         <strength value="required"/>
+        <description value="Describes the state of a metric calibration."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-state"/>
       </binding>
     </element>

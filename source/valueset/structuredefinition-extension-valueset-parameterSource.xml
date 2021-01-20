@@ -54,13 +54,11 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Declares what the source of a parameter is."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ExpansionParameterSource"/>
         </extension>
         <strength value="required"/>
+        <description value="Declares what the source of a parameter is."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/expansion-parameter-source"/>
       </binding>
     </element>

@@ -143,10 +143,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InventoryReportStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the InventoryReport."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of the InventoryReport."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/inventoryreport-status"/>
       </binding>
       <mapping>
@@ -182,10 +180,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InventoryCountType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of count."/>
-        </extension>
         <strength value="required"/>
+        <description value="The type of count."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/inventoryreport-counttype"/>
       </binding>
     </element>

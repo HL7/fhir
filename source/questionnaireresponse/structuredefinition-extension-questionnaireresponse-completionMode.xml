@@ -59,13 +59,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes indicating how the questionnaire was completed."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CompletionMode"/>
         </extension>
         <strength value="required"/>
+        <description value="Codes indicating how the questionnaire was completed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/questionnaireresponse-mode"/>
       </binding>
     </element>
