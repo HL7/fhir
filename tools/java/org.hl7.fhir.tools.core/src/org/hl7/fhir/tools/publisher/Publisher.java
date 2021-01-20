@@ -271,15 +271,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-/**
- * This is the entry point for the publication method for FHIR The general order
- * of publishing is Check that everything we expect to find is found Load the
- * page.getDefinitions() Produce the specification 1. reference implementations
- * 2. schemas 4. final specification Validate the XML
- *
- * @author Grahame
- *
- */
 public class Publisher implements URIResolver, SectionNumberer {
 
   public static final String CANONICAL_BASE = "http://build.fhir.org/";
@@ -471,10 +462,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       pub.page.setBaseURL(getNamedParam(args, "-url"));
     if (hasParam(args, "-svn"))
       pub.page.setBuildId(getNamedParam(args, "-svn"));
-//    if (hasParam("args", "-noref"))
-//      pub.setNoReferenceImplementations(getNamedParam(args, "-noref"));
-//    if (hasParam(args, "-langfolder"))
-//      pub.setAlternativeLangFolder(getNamedParam(args, "-langfolder"));
     if (pub.web) {
       pub.page.setPublicationType(PageProcessor.WEB_PUB_NAME);
       pub.page.setPublicationNotice(PageProcessor.WEB_PUB_NOTICE);
