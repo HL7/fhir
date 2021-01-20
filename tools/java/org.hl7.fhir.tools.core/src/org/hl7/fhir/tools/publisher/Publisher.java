@@ -74,6 +74,7 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.hl7.fhir.convertors.VersionConvertor_40_50;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
@@ -1470,7 +1471,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpd.setStatus(PublicationStatus.DRAFT);
     cpd.setDescription(c.getIdentity()+". "+c.getDescription());
     cpd.setExperimental(true);
-    cpd.setVersion(Constants.VERSION);
+    cpd.setVersion(page.getVersion().toCode());
     cpd.setDate(page.getGenDate().getTime());
     cpd.setPublisher("FHIR Project Team");
     cpd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
@@ -2160,7 +2161,7 @@ public class Publisher implements URIResolver, SectionNumberer {
               buildSearchDefinition(rd, spd);
             splist.add(spd.getResource());
           }
-          rd = "Base".equals(rd.getRoot().typeCode())  ? null : page.getDefinitions().getResourceByName(rd.getRoot().typeCode());
+          rd = "Base".equals(rd.getRoot().typeCode()) || rd.getRoot().getTypes().isEmpty() ? null : page.getDefinitions().getResourceByName(rd.getRoot().typeCode());
         }
         EnumSet<FHIROperationType> ops = EnumSet.of(FHIROperationType.READ, FHIROperationType.SEARCH, FHIROperationType.CREATE, FHIROperationType.UPDATE, FHIROperationType.DELETE);
         gql.generateResource(new FileOutputStream(filename), sd, splist, ops);
@@ -2610,12 +2611,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       s.close();
 
       ImplementationGuide expIg = new ImplementationGuide();
-      expIg.addFhirVersion(FHIRVersion._4_4_0);
+      expIg.addFhirVersion(page.getVersion());
       expIg.setPackageId("hl7.fhir.r5.expansions");
-      expIg.setVersion(FHIRVersion._4_4_0.toCode());
+      expIg.setVersion(page.getVersion().toCode());
       expIg.setLicense(ImplementationGuide.SPDXLicense.CC01_0);
-      expIg.setTitle("FHIR R5 package : Expansions");
-      expIg.setDescription("Expansions for the R5 version of the FHIR standard");
+      expIg.setTitle("FHIR "+page.getVersion().getDisplay()+" package : Expansions");
+      expIg.setDescription("Expansions for the "+page.getVersion().getDisplay()+" version of the FHIR standard");
       NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(page.getFolders().dstDir, "hl7.fhir.r5.expansions.tgz"), "http://hl7.org/fhir", "http://hl7.org/fhir", PackageType.CORE, expIg, page.getGenDate().getTime(), true);
       Bundle expansionFeed = new Bundle();
       Set<String> urlset = new HashSet<>();
@@ -3245,7 +3246,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           CanonicalResource m = (CanonicalResource) e.getResource();
           String url = m.getUrl();
           if (url != null && url.startsWith("http://hl7.org/fhir") && !url.startsWith("http://hl7.org/fhir/sid")) {
-            if (!Constants.VERSION.equals(m.getVersion())) 
+            if (!page.getVersion().toCode().equals(m.getVersion())) 
               page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "definitions in FHIR space should have the correct version (url = "+url+", version = "+m.getVersion()+")", IssueSeverity.ERROR));              
           }
         }
@@ -3451,7 +3452,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     p.setAbstract(true);
     p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
     p.setName(rd.getName());
-    p.setVersion(Constants.VERSION);
+    p.setVersion(page.getVersion().toCode());
     p.setType(rd.getName());
     p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
     SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir, page.getUml(), page.getRc()).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd, rd);
@@ -3498,12 +3499,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       String xml = bytes.toString();
 
       bytes = new ByteArrayOutputStream();
-      JsonSpecGenerator genj = new JsonSpecGenerator(bytes, filename+"-definitions.html", null /*"http://hl7.org/fhir/"*/, page, page.genlevel(ig.isCore() ? 0 : 1));
+      JsonSpecGenerator genj = new JsonSpecGenerator(bytes, filename+"-definitions.html", null /*"http://hl7.org/fhir/"*/, page, page.genlevel(ig.isCore() ? 0 : 1), page.getVersion().toCode());
       genj.generateExtension(ed);
       genj.close();
       String json = bytes.toString();
       bytes = new ByteArrayOutputStream();
-      TurtleSpecGenerator gent = new TurtleSpecGenerator(bytes, filename+"-definitions.html", null /*"http://hl7.org/fhir/"*/, page, page.genlevel(ig.isCore() ? 0 : 1));
+      TurtleSpecGenerator gent = new TurtleSpecGenerator(bytes, filename+"-definitions.html", null /*"http://hl7.org/fhir/"*/, page, page.genlevel(ig.isCore() ? 0 : 1), page.getVersion().toCode());
       gent.generateExtension(ed);
       gent.close();
       String ttl = bytes.toString();
@@ -3813,30 +3814,34 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void checkFragments() throws Exception {
     for (Fragment f : fragments) {
-      try {
-        // System.out.println("    "+f.page+"/"+f.id);
-        String xml = f.getXml();
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        InputSource is = new InputSource(new StringReader(xml));
-        Document doc = builder.parse(is);
-        org.w3c.dom.Element base = doc.getDocumentElement();
-        String type = base.getAttribute("fragment");
-        if (!page.getDefinitions().hasPrimitiveType(type)) {
-          if (f.isJson()) {
-            org.hl7.fhir.r5.elementmodel.JsonParser p = new org.hl7.fhir.r5.elementmodel.JsonParser(page.getWorkerContext());
-            p.setupValidation(ValidationPolicy.QUICK, null);
-            p.parse(base.getTextContent(), type);
-          } else {
-            org.hl7.fhir.r5.elementmodel.XmlParser p = new org.hl7.fhir.r5.elementmodel.XmlParser(page.getWorkerContext());
-            p.setupValidation(ValidationPolicy.QUICK, null);
-            p.parse(XMLUtil.getFirstChild(base), type);
-          }
+      checkFragment(f);
+    }
+  }
+
+  public void checkFragment(Fragment f) {
+    try {
+      // System.out.println("    "+f.page+"/"+f.id);
+      String xml = f.getXml();
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      factory.setNamespaceAware(true);
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      InputSource is = new InputSource(new StringReader(xml));
+      Document doc = builder.parse(is);
+      org.w3c.dom.Element base = doc.getDocumentElement();
+      String type = base.getAttribute("fragment");
+      if (!page.getDefinitions().hasPrimitiveType(type)) {
+        if (f.isJson()) {
+          org.hl7.fhir.r5.elementmodel.JsonParser p = new org.hl7.fhir.r5.elementmodel.JsonParser(page.getWorkerContext());
+          p.setupValidation(ValidationPolicy.QUICK, null);
+          p.parse(base.getTextContent(), type);
+        } else {
+          org.hl7.fhir.r5.elementmodel.XmlParser p = new org.hl7.fhir.r5.elementmodel.XmlParser(page.getWorkerContext());
+          p.setupValidation(ValidationPolicy.QUICK, null);
+          p.parse(XMLUtil.getFirstChild(base), type);
         }
-      } catch (Exception e) {
-        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, f.getPage(), "Fragment Error in page " + f.getPage() +(f.id != null ? "#"+f.id : "") + ": " + e.getMessage(), IssueSeverity.ERROR));
       }
+    } catch (Exception e) {
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, f.getPage(), "Fragment Error in page " + f.getPage() +(f.id != null ? "#"+f.id : "") + ": " + e.getMessage(), IssueSeverity.ERROR));
     }
   }
 
@@ -3888,13 +3893,13 @@ public class Publisher implements URIResolver, SectionNumberer {
     String xml = new String(bs.toByteArray());
 
     bs = new ByteArrayOutputStream();
-    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, n + "-definitions.html", null, page, "");
+    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, n + "-definitions.html", null, page, "", page.getVersion().toCode());
     genJ.generate(resource.getRoot(), true, isAbstract);
     genJ.close();
     String json = new String(bs.toByteArray());
 
     bs = new ByteArrayOutputStream();
-    TurtleSpecGenerator gent = new TurtleSpecGenerator(bs, n + "-definitions.html", null, page, "");
+    TurtleSpecGenerator gent = new TurtleSpecGenerator(bs, n + "-definitions.html", null, page, "", page.getVersion().toCode());
     gent.generate(resource.getRoot(), isAbstract);
     gent.close();
     String ttl = new String(bs.toByteArray());
@@ -3936,7 +3941,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String mappingsList = mgen.getMappingsList();
 
     if (!logicalOnly) {
-      SvgGenerator svg = new SvgGenerator(page, "", resource.getLayout(), true, false);
+      SvgGenerator svg = new SvgGenerator(page, "", resource.getLayout(), true, false, page.getVersion().toCode());
       svg.generate(resource, page.getFolders().dstDir + n + ".svg", "1");
       svg.generate(resource, Utilities.path(page.getFolders().srcDir, n, n + ".gen.svg"), "1");
   
@@ -4309,9 +4314,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getDefinitions().addNs("http://hl7.org/fhir/"+rt+"/"+id, "Example", prefix +n + ".html");
       if (rt.equals("ValueSet") || rt.equals("CodeSystem") || rt.equals("ConceptMap") || rt.equals("CapabilityStatement") || rt.equals("Library")) {
         // for these, we use the reference implementation directly
-        CanonicalResource res = (CanonicalResource) new XmlParser().parse(new FileInputStream(file));
+        CanonicalResource res = (CanonicalResource) loadExample(file);
         if (res.getUrl() != null && res.getUrl().startsWith("http://hl7.org/fhir"))
-          res.setVersion(Constants.VERSION);
+          res.setVersion(page.getVersion().toCode());
         boolean wantSave = false;
         if (res instanceof CapabilityStatement) {
           ((CapabilityStatement) res).setFhirVersion(page.getVersion());
@@ -4356,7 +4361,7 @@ public class Publisher implements URIResolver, SectionNumberer {
                 bs.close();
                 NamingSystem ns = (NamingSystem) new XmlParser().parse(new ByteArrayInputStream(bs.toByteArray()));
                 if (!ns.hasUrl() || ns.getUrl().startsWith("http://hl7.org/fhir"))
-                  ns.setVersion(Constants.VERSION);
+                  ns.setVersion(page.getVersion().toCode());
                 
                 ns.setUserData("path", prefix +n+".html");
                 page.getDefinitions().getNamingSystems().add(ns);
@@ -4389,46 +4394,54 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
 
     if (rt.equals("ValueSet")) {
-      ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(file));
-      vs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
-      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
-      if (vs.getUrl().startsWith("http://hl7.org/fhir"))
-        vs.setVersion(Constants.VERSION);
+      try {
+        ValueSet vs = (ValueSet) loadExample(file);
+        vs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
+        vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
+        if (vs.getUrl().startsWith("http://hl7.org/fhir"))
+          vs.setVersion(page.getVersion().toCode());
 
-      page.getVsValidator().validate(page.getValidationErrors(), "Value set Example "+prefix +n, vs, false, false);
-      if (vs.getUrl() == null)
-        throw new Exception("Value set example " + e.getTitle() + " has no url");
-      vs.setUserData("path", prefix +n + ".html");
-      if (vs.getUrl().startsWith("http:"))
-        page.getValueSets().see(vs, page.packageInfo());
-      addToResourceFeed(vs, valueSetsFeed, file.getName());
-      page.getDefinitions().getValuesets().see(vs, page.packageInfo());
+        page.getVsValidator().validate(page.getValidationErrors(), "Value set Example "+prefix +n, vs, false, false);
+        if (vs.getUrl() == null)
+          throw new Exception("Value set example " + e.getTitle() + " has no url");
+        vs.setUserData("path", prefix +n + ".html");
+        if (vs.getUrl().startsWith("http:"))
+          page.getValueSets().see(vs, page.packageInfo());
+        addToResourceFeed(vs, valueSetsFeed, file.getName());
+        page.getDefinitions().getValuesets().see(vs, page.packageInfo());
+      } catch (Exception ex) {
+        if (page.getVersion().toCode().startsWith("4.0")) {
+          System.out.println("Value set "+file.getAbsolutePath()+" couldn't be parsed - ignoring! msg = "+ex.getMessage());
+        } else {
+          throw new FHIRException("Unable to parse "+file.getAbsolutePath()+": "+ex.getMessage(), ex);             
+        }
+      }
     } else if (rt.equals("CodeSystem")) {
-      CodeSystem cs = (CodeSystem) new XmlParser().parse(new FileInputStream(file));
+      CodeSystem cs = (CodeSystem) loadExample(file);
       if (cs.getUrl().startsWith("http://hl7.org/fhir"))
-        cs.setVersion(Constants.VERSION);
+        cs.setVersion(page.getVersion().toCode());
       cs.setUserData("example", "true");
       cs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
       cs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
       cs.setUserData("path", prefix +n + ".html");
       addToResourceFeed(cs, valueSetsFeed, file.getName());
       page.getCodeSystems().see(cs, page.packageInfo());
-    } else if (rt.equals("ConceptMap")) {
-      ConceptMap cm = (ConceptMap) new XmlParser().parse(new FileInputStream(file));
+    } else if (rt.equals("ConceptMap") && !page.getVersion().toCode().startsWith("4.0")) {
+      ConceptMap cm = (ConceptMap) loadExample(file);
       new ConceptMapValidator(page.getDefinitions(), e.getTitle()).validate(cm, false);
       if (cm.getUrl() == null)
         throw new Exception("Value set example " + e.getTitle() + " has no identifier");
       if (cm.getUrl().startsWith("http://hl7.org/fhir"))
-        cm.setVersion(Constants.VERSION);
+        cm.setVersion(page.getVersion().toCode());
       addToResourceFeed(cm, conceptMapsFeed, file.getName());
       page.getDefinitions().getConceptMaps().see(cm, page.packageInfo());
       cm.setUserData("path", prefix +n + ".html");
       page.getConceptMaps().see(cm, page.packageInfo());
     } else if (rt.equals("Library")) {
       try {
-        Library lib = (Library) new XmlParser().parse(new FileInputStream(file));
+        Library lib = (Library) loadExample(file);
         if (lib.hasUrl() && lib.getUrl().startsWith("http://hl7.org/fhir"))
-          lib.setVersion(Constants.VERSION);
+          lib.setVersion(page.getVersion().toCode());
         lib.setUserData("example", "true");
         lib.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
         lib.setUserData("path", prefix +n + ".html");
@@ -4525,6 +4538,15 @@ public class Publisher implements URIResolver, SectionNumberer {
     // ".html");
     page.getHTMLChecker().registerExternal(prefix +n + ".html");
     page.getHTMLChecker().registerExternal(prefix +n + ".xml.html");
+  }
+
+  public Resource loadExample(CSFile file) throws IOException, FileNotFoundException {
+    if (page.getVersion().toCode().startsWith("4.0")) {
+      org.hl7.fhir.r4.model.Resource res = new org.hl7.fhir.r4.formats.XmlParser().parse(new FileInputStream(file));
+      return VersionConvertor_40_50.convertResource(res);
+    } else {
+      return new XmlParser().parse(new FileInputStream(file));
+    }
   }
 
   private String fixExampleReferences(String path, String narrative) throws Exception {
@@ -4906,7 +4928,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String xml = new String(bs.toByteArray());
 
     bs = new ByteArrayOutputStream();
-    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, title + "-definitions.html", "", page, ig.isCore() ? "" : "../");
+    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, title + "-definitions.html", "", page, ig.isCore() ? "" : "../", page.getVersion().toCode());
     genJ.generate(profile.getResource());
     genJ.close();
     String json = new String(bs.toByteArray());
@@ -5200,7 +5222,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String mappings = mgen.getMappings();
     String mappingsList = mgen.getMappingsList();
 
-    SvgGenerator svg = new SvgGenerator(page, "", lm.getLayout(), true, false);
+    SvgGenerator svg = new SvgGenerator(page, "", lm.getLayout(), true, false, page.getVersion().toCode());
     String fn = ig.getPrefix()+n;
     if (lm.hasResource())
       svg.generate(lm.getResource(), page.getFolders().dstDir + fn+".svg", "2");
@@ -5227,7 +5249,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (lm.hasResource())
       src = insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "resource", n + ".html", ig, values, lm.getWg(), examples), st, n + ".html", ig.getLevel(), null);
     else
-      src = insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions()).process(src), st, n + ".html", ig.getLevel(), null);
+      src = insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions(), page.getVersion().toCode()).process(src), st, n + ".html", ig.getLevel(), null);
     TextFile.stringToFile(src, page.getFolders().dstDir + fn+".html");
     page.getHTMLChecker().registerFile(fn+".html", "Base Page for " + n, HTMLLinkChecker.XHTML_TYPE, true);
 
@@ -5236,7 +5258,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", ig, values, lm.getWg(), examples), st, n
             + "-definitions.html", ig.getLevel(), null), page.getFolders().dstDir + fn+"-definitions.html");
     else
-      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions()).process(src), st, n
+      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions(), page.getVersion().toCode()).process(src), st, n
           + "-definitions.html", ig.getLevel(), null), page.getFolders().dstDir + fn+"-definitions.html");
     page.getHTMLChecker().registerFile(fn+"-definitions.html", "Detailed Descriptions for " + (lm.hasResource() ? lm.getResource().getName() : lm.getDefinition().getName()), HTMLLinkChecker.XHTML_TYPE, true);
 
@@ -5244,7 +5266,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (lm.hasResource())
       TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "resource", n + ".html", ig, values, lm.getWg(), examples), st, n + ".html", ig.getLevel(), null), page.getFolders().dstDir + fn+"-implementations.html");
     else
-      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions()).process(src), st, n
+      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions(), page.getVersion().toCode()).process(src), st, n
           + "-implementations.html", ig.getLevel(), null), page.getFolders().dstDir + fn+"-implementations.html");
     page.getHTMLChecker().registerFile(fn+"-implementations.html", "Implementations for " + (lm.hasResource() ? lm.getResource().getName() : lm.getDefinition().getName()), HTMLLinkChecker.XHTML_TYPE, true);
 
@@ -5254,7 +5276,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html", ig, values, lm.getWg(), examples), st, n + "-mappings.html", ig.getLevel(), null),
           page.getFolders().dstDir + fn + "-mappings.html");
     else
-      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions()).process(src), st, n + "-mappings.html", ig.getLevel(), null),
+      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions(), page.getVersion().toCode()).process(src), st, n + "-mappings.html", ig.getLevel(), null),
         page.getFolders().dstDir + fn + "-mappings.html");
     page.getHTMLChecker().registerFile(fn+"-mappings.html", "Formal Mappings for " + n, HTMLLinkChecker.XHTML_TYPE, true);
 
@@ -5264,7 +5286,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "res-Analysis", n + "-analysis.html", ig, values, lm.getWg(), examples), st, n + "-analysis.html", ig.getLevel(), null),
           page.getFolders().dstDir + fn + "-analysis.html");
     else
-      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions()).process(src), st, n + "-analysis.html", ig.getLevel(), null),
+      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions(), page.getVersion().toCode()).process(src), st, n + "-analysis.html", ig.getLevel(), null),
         page.getFolders().dstDir + fn + "-analysis.html");
     page.getHTMLChecker().registerFile(fn+"-analysis.html", "Analysis for " + n, HTMLLinkChecker.XHTML_TYPE, true);
 
@@ -5636,7 +5658,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (buildFlags.get("all"))
         runJUnitTestsInProcess();
       page.log("Validating Examples", LogMessageType.Process);
-      ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions());
+      ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions(), page.getVersion().toCode());
       page.log(".. Loading", LogMessageType.Process);
       ei.prepare();
 

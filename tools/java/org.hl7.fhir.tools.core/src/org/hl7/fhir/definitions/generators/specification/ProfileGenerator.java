@@ -152,7 +152,7 @@ public class ProfileGenerator {
     None, 
     Resource,
     DataType
-  } 
+  }
 
   private BuildWorkerContext context;
   private Definitions definitions;
@@ -194,7 +194,12 @@ public class ProfileGenerator {
     if (uml != null) {
       if (!uml.hasPackage("core")) {
         this.uml = uml.getPackage("core");
-        this.uml.getTypes().put("PrimitiveType", new UMLClass("PrimitiveType", UMLClassType.Class));      
+        if (version == FHIRVersion.R4B) {
+          this.uml.getTypes().put("Type", new UMLClass("Type", UMLClassType.Class));
+          this.uml.getTypes().put("PrimitiveType", new UMLClass("PrimitiveType", UMLClassType.Class));
+        } else {
+          this.uml.getTypes().put("PrimitiveType", new UMLClass("PrimitiveType", UMLClassType.Class));
+        }
       } else {
         this.uml = uml.getPackage("core");
       }
@@ -239,7 +244,7 @@ public class ProfileGenerator {
     if (!de.hasMeta())
       de.setMeta(new Meta());
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
-    de.setVersion(Constants.VERSION);
+    de.setVersion(version.toCode());
     de.setName(ed.getPath());
     de.setStatus(PublicationStatus.DRAFT);
     de.setExperimental(true);
@@ -1266,7 +1271,7 @@ public class ProfileGenerator {
     spd.setCommonId(sp.getId());
     if (created) {
       sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
-      sp.setVersion(Constants.VERSION);
+      sp.setVersion(version.toCode());
       if (context.getSearchParameter(sp.getUrl()) != null)
         throw new Exception("Duplicated Search Parameter "+sp.getUrl());
       context.cacheResource(sp);
@@ -1664,7 +1669,7 @@ public class ProfileGenerator {
             }
           } else if (t.isWildcardType()) {
             // this list is filled out manually because it may be running before the types referred to have been loaded
-            for (String n : TypesUtilities.wildcardTypes()) 
+            for (String n : TypesUtilities.wildcardTypes(version.toString())) 
               expandedTypes.add(new TypeRef(n));
 
           } else if (!t.getName().startsWith("=")) {
@@ -2240,7 +2245,7 @@ public class ProfileGenerator {
           }
         }
       } else if (t.isWildcardType()) {
-        for (String n : TypesUtilities.wildcardTypes()) 
+        for (String n : TypesUtilities.wildcardTypes(version.toString())) 
           dst.getType(n);
       } else {
         if (definitions != null && definitions.getConstraints().containsKey(t.getName())) {
@@ -2370,7 +2375,7 @@ public class ProfileGenerator {
     opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+id);
     opd.setName(op.getName());
     opd.setTitle(op.getTitle());
-    opd.setVersion(Constants.VERSION);
+    opd.setVersion(version.toCode());
     opd.setPublisher("HL7 (FHIR Project)");
     opd.addContact().getTelecom().add(org.hl7.fhir.r5.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     opd.getContact().get(0).getTelecom().add(org.hl7.fhir.r5.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
@@ -2434,7 +2439,7 @@ public class ProfileGenerator {
         produceOpParam(path+"."+p.getName(), pp.getPart(), part, pp.getUse());
       }
     } else {
-      List<TypeRef> trs = new TypeParser().parse(p.getFhirType(), false, null, null, false);
+      List<TypeRef> trs = new TypeParser(version.toCode()).parse(p.getFhirType(), false, null, null, false);
       if (trs.size() > 1) {
         if (p.getSearchType() != null)
           pp.setSearchType(SearchParamType.fromCode(p.getSearchType()));

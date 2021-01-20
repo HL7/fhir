@@ -28,8 +28,9 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
   private List<LogicalModel> logicalModelSet;
   private ImplementationGuideDefn guide;
   private Definitions definitions;
+  private String version;
   
-  public LogicalModelProcessor(String title, PageProcessor page, ImplementationGuideDefn ig, String name, String type, String pagePath, StructureDefinition definition, String tx, String dict, Map<String, String> examples, List<LogicalModel> logicalModelSet, Definitions definitions) {
+  public LogicalModelProcessor(String title, PageProcessor page, ImplementationGuideDefn ig, String name, String type, String pagePath, StructureDefinition definition, String tx, String dict, Map<String, String> examples, List<LogicalModel> logicalModelSet, Definitions definitions, String version) {
     super(title, ig.getLevel(), page, ig, name, type, pagePath);
     this.guide = ig;
     this.definition = definition;
@@ -38,6 +39,7 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
     this.examples = examples;
     this.logicalModelSet = logicalModelSet;
     this.definitions = definitions;
+    this.version = version;
   }
 
   @Override
@@ -45,7 +47,7 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
     if (com[0].equals("lmheader"))
       return lmHeader(name, definition.getId(), com.length > 1 ? com[1] : null, true);
     else if (com[0].equals("svg"))
-      return new SvgGenerator(page, genlevel(), null, true, false).generate(definition, com[1], "");        
+      return new SvgGenerator(page, genlevel(), null, true, false, version).generate(definition, com[1], "");        
     else if (com[0].equals("draft-note"))
       return page.getDraftNote(definition);
     else if (com[0].equals("definition"))

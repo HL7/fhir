@@ -340,7 +340,7 @@ public class ValueSetGenerator {
     vs.setName("OperationOutcomeCodes");
     vs.setTitle("Operation Outcome Codes");
     vs.setPublisher("HL7 (FHIR Project)");
-    vs.setVersion(Constants.VERSION);
+    vs.setVersion(version);
 
     vs.setUserData("filename", "valueset-"+vs.getId());
     if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {

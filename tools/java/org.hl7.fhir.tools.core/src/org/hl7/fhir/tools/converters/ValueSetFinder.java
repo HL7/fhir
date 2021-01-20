@@ -4,8 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.model.BindingSpecification;
@@ -13,16 +19,27 @@ import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.parsers.CodeListToValueSetParser;
 import org.hl7.fhir.definitions.parsers.ValueSetGenerator;
 import org.hl7.fhir.definitions.parsers.spreadsheets.BindingsParser;
+import org.hl7.fhir.definitions.parsers.spreadsheets.SpreadSheetBase.ExtensionSorter;
+import org.hl7.fhir.r5.model.ElementDefinition;
+import org.hl7.fhir.r5.model.Extension;
+import org.hl7.fhir.r5.model.ImplementationGuide;
+import org.hl7.fhir.r5.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r5.formats.IParser.OutputStyle;
 import org.hl7.fhir.r5.formats.XmlParser;
+import org.hl7.fhir.r5.model.Bundle;
+import org.hl7.fhir.r5.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r5.model.CodeSystem;
 import org.hl7.fhir.r5.model.CodeType;
 import org.hl7.fhir.r5.model.Constants;
+import org.hl7.fhir.r5.model.DomainResource;
+import org.hl7.fhir.r5.model.Element;
 import org.hl7.fhir.r5.model.ValueSet;
 import org.hl7.fhir.r5.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r5.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r5.model.SearchParameter;
+import org.hl7.fhir.r5.model.StructureDefinition;
 import org.hl7.fhir.r5.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r5.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r5.utils.ToolingExtensions;
@@ -33,107 +50,84 @@ import org.hl7.fhir.utilities.xls.XLSXmlParser.Sheet;
 public class ValueSetFinder {
   
   public static void main(String[] args) throws Exception {
-    visitSpreadSheets(new File(args[0]));    
+    visitSearchParams(new File(args[0]));    
   }
 
-  private static void visitSpreadSheets(File fd) throws Exception {
+  private static void visitSearchParams(File fd) throws Exception {
     for (File f : fd.listFiles()) {
       if (f.isDirectory()) {
-        visitSpreadSheets(f);
-      } else if (f.getName().endsWith("-spreadsheet.xml")) {
-        checkBindings(f);
+        visitSearchParams(f);
+      } else if (f.getName().endsWith("-search-params.xml")) {
+        checkSearchParams(f);
       }
     }
-    
   }
 
-  private static void checkBindings(File f) throws Exception {
+  private static void checkSearchParams(File f) throws Exception {
+    String folder = Utilities.getDirectoryForFile(f.getAbsolutePath());
     System.out.println(f.getName());
-    XLSXmlParser xls = new XLSXmlParser(new FileInputStream(f), f.getName());
-    Sheet sheet = xls.getSheets().get("Bindings");
-    if (sheet != null) {
-      String sfx = "";
-      processSheet(xls, sheet, Utilities.getDirectoryForFile(f.getAbsolutePath()), sfx);
-    }    
-  }
+    try {
+      Set<String> s = new HashSet<>();
+      for (File fsp : new File(folder).listFiles()) {
+        if (fsp.getName().startsWith("searchparameter-")) {
+          SearchParameter sp = (SearchParameter) new XmlParser().parseAndClose(new FileInputStream(fsp));
+          s.add(sp.getId());
+        }
+      }
 
-  private static void processSheet(XLSXmlParser xls, Sheet sheet, String dir, String sfx) throws Exception {
-    for (int row = 0; row < sheet.rows.size(); row++) {
-      String bindingName = sheet.getColumn(row, "Binding Name");
-      if (Utilities.noString(bindingName) || bindingName.startsWith("!")) continue;
-
-      BindingMethod method = BindingsParser.readBinding(sheet.getColumn(row, "Binding"), "??");
-      String ref = sheet.getColumn(row, "Reference");
-      if (method == BindingMethod.CodeList) {
-        if (ref.startsWith("#valueset-"))
-          throw new Exception("don't start code list references with #valueset-");
-        String vfn = Utilities.path(dir, "valueset-"+sfx+ref.substring(1)+".xml");
-        String cfn = Utilities.path(dir, "codesystem-"+sfx+ref.substring(1)+".xml");
-        File vf = new File(vfn);
-        File cf = new File(cfn);
-        if (!vf.exists()) {
-          System.out.println("Produce "+vfn);
-          ValueSet vs = ValueSetUtilities.makeShareable(new ValueSet());
-          vs.setVersion(Constants.VERSION);
-          vs.setId(sfx+ref.substring(1));
-          vs.setUrl("http://hl7.org/fhir/ValueSet/"+sfx+ref.substring(1));
-          vs.setDescription(sheet.getColumn(row, "Description"));
-          vs.setName(bindingName);
-          vs.setStatus(PublicationStatus.fromCode(sheet.getColumn(row, "Status")));
-          vs.setCopyright(sheet.getColumn(row, "Copyright"));
-          
-          Sheet css = xls.getSheets().get(ref.substring(1));
-          if (css == null) {
-            throw new Exception("Error parsing binding "+bindingName+": code list reference '"+ref+"' not resolved");
+      for (File fig : new File(folder).listFiles()) {
+        if (fig.getName().startsWith("implementationguide-")) {
+          ImplementationGuide ig = (ImplementationGuide) new XmlParser().parseAndClose(new FileInputStream(fig));
+          ig.getDefinition().getResource().removeIf(res -> res.getReference().getReference().startsWith("SearchParameter/") && !s.contains(res.getReference().getReference().substring(res.getReference().getReference().indexOf("/")+1)));
+          if (ig.getDefinition().getResource().isEmpty()) {
+            fig.delete();
+          } else {
+            new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(fig), ig);            
           }
-
-          CodeSystem cs = CodeSystemUtilities.makeShareable(new CodeSystem());
-          cs.setVersion(Constants.VERSION);
-          cs.setId(sfx+ref.substring(1));
-          cs.setUrl("http://hl7.org/fhir/"+sfx+ref.substring(1));          
-          cs.setDescription(sheet.getColumn(row, "Description"));
-          cs.setName(bindingName);
-          cs.setStatus(PublicationStatus.fromCode(sheet.getColumn(row, "Status")));
-          cs.setCopyright(sheet.getColumn(row, "Copyright"));
-          
-          vs.getCompose().addInclude().setSystem(cs.getUrl());
-          
-          processCodes(cs, css);
-          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(vf), vs);
-          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(cf), cs);
         }
       }
-  }
-
-
-  }
-
-  private static void processCodes(CodeSystem cs, Sheet sheet) throws Exception {
-    Map<String, ConceptDefinitionComponent> concepts = new HashMap<>();
-    for (int row = 0; row < sheet.rows.size(); row++) {
-      if (Utilities.noString(sheet.getColumn(row, "System"))) {
-
-        ConceptDefinitionComponent cc = new ConceptDefinitionComponent(); 
-        cc.setUserData("id", sheet.getColumn(row, "Id"));
-        cc.setCode(sheet.getColumn(row, "Code"));
-        concepts.put(cc.getCode(),  cc);
-        cc.setDisplay(sheet.getColumn(row, "Display"));
-        if (sheet.getColumn(row, "Abstract").toUpperCase().equals("Y"))
-          CodeSystemUtilities.setNotSelectable(cs, cc);
-        if (cc.hasCode() && !cc.hasDisplay())
-          cc.setDisplay(Utilities.humanize(cc.getCode()));
-        cc.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
-        if (!Utilities.noString(sheet.getColumn(row, "Comment")))
-          ToolingExtensions.addCSComment(cc, sheet.getColumn(row, "Comment"));
-        String parent = sheet.getColumn(row, "Parent");
-        if (Utilities.noString(parent))
-          cs.addConcept(cc);
-        else {
-          concepts.get(parent).addConcept(cc);
-        }
-      }
+    } catch (Exception e) { 
+      System.out.println("  "+e.getMessage());
     }
   }
-  
+//  
+//  
+//
+//  public static class ExtensionSorter implements Comparator<Extension> {
+//
+//    @Override
+//    public int compare(Extension o1, Extension o2) {
+//      if (!o1.getUrl().equals(o2.getUrl())) {
+//        return o1.getUrl().compareTo(o2.getUrl());
+//      } else if (o1.hasExtension() || o2.hasExtension()) {
+//        return urls(o1).compareTo(urls(o2));
+//      } else if (!o1.getValue().fhirType().equals(o2.getValue().fhirType())) {
+//        return o1.getUrl().compareTo(o2.getUrl());
+//      } else if (o1.getValue().isPrimitive()) {
+//        return o1.getValue().primitiveValue().compareTo(o2.getValue().primitiveValue());
+//      } else {
+//        return 0;
+//      }
+//    }
+//
+//    private String urls(Extension src) {
+//      List<String> urls = new ArrayList<>();
+//      for (Extension ext : src.getExtension()) {
+//        urls.add(ext.getUrl());
+//      }
+//      Collections.sort(urls);
+//      return String.join("|", urls);
+//    }
+//  }
+//
+//  protected static void sortExtensions(Element e) {
+//    e.getExtension().removeIf(ext -> !ext.hasValue() && !e.hasExtension());
+//    Collections.sort(e.getExtension(), new ExtensionSorter());
+//  }
+//
+//  protected static void sortExtensions(DomainResource e) {
+//    e.getExtension().removeIf(ext -> !ext.hasValue() && !e.hasExtension());
+//    Collections.sort(e.getExtension(), new ExtensionSorter());
+//  }
   
 }

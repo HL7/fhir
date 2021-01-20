@@ -42,7 +42,7 @@ public class BuildExtensions extends ToolingExtensions {
   public static final String EXT_TYPE = "http://hl7.org/fhir/build/StructureDefinition/type";
   public static final String EXT_SUMMARY = "http://hl7.org/fhir/build/StructureDefinition/summary";
 //  public static final String EXT_EXPLANATION = "http://hl7.org/fhir/build/StructureDefinition/explanation";
-  public static final String EXT_NO_BINDING = "http://hl7.org/fhir/build/StructureDefinition/explanation";
+  public static final String EXT_NO_BINDING = "http://hl7.org/fhir/build/StructureDefinition/no-binding";
   public static final String EXT_OP_EXAMPLE = "http://hl7.org/fhir/build/StructureDefinition/example";
   public static final String EXT_OP_EXAMPLE_CONTENT = "content";
   public static final String EXT_OP_EXAMPLE_COMMENT = "comment";

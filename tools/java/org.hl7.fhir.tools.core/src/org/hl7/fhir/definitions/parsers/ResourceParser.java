@@ -463,7 +463,9 @@ public class ResourceParser {
     if (r.isAbstract()) {
       r.getRoot().setAbstractType(true);
     }
-    r.getRoot().getTypes().add(new TypeRef(sd.getBaseDefinition().replace("http://hl7.org/fhir/StructureDefinition/", "")));
+    if (sd.hasBaseDefinition()) {
+      r.getRoot().getTypes().add(new TypeRef(sd.getBaseDefinition().replace("http://hl7.org/fhir/StructureDefinition/", "")));
+    }
 //    r.setProfile(sd);
     
     return r;
@@ -775,8 +777,13 @@ public class ResourceParser {
         throw new FHIRException("Error loading "+csfn+": id mismatch. Expected "+id+" but found "+cs.getId());        
       }
       boolean save = CodeSystemUtilities.makeCSShareable(cs);
+      if (!cs.hasUrl()) {
+        cs.setUrl("http://hl7.org/fhir/"+cs.getId());
+        save = true;
+      }
       cs.setUserData("filename", "codesystem-"+cs.getId());
       cs.setUserData("path", "codesystem-"+cs.getId()+".html");
+
       cs.setVersion(version);
       if (!cs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
         cs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType(committee.getCode()));

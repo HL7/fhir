@@ -86,17 +86,17 @@ public class SchemaGenerator {
     names.addAll(definitions.getPrimitives().keySet());
     Collections.sort(names);
 	  for (String n : names) {
-      new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(definitions.getPrimitives().get(n), version, genDate, schema);	    
+      new JsonGenerator(definitions, workerContext, definitions.getKnownTypes(), version).generate(definitions.getPrimitives().get(n), version, genDate, schema);	    
 	  }
-    new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(new DefinedCode().setCode("xhtml").setDefinition("xhtml - escaped html (see specfication)"), version, genDate, schema);
+    new JsonGenerator(definitions, workerContext, definitions.getKnownTypes(), version).generate(new DefinedCode().setCode("xhtml").setDefinition("xhtml - escaped html (see specfication)"), version, genDate, schema);
 
 	  for (TypeRef tr : definitions.getKnownTypes()) {
 	    if (!definitions.getPrimitives().containsKey(tr.getName()) && !definitions.getConstraints().containsKey(tr.getName())) {
         TypeDefn root = definitions.getElementDefn(tr.getName());
         if (!isBackboneElement(root.getName())) {
-        JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root, version, genDate, null);
+        JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes(), version).generate(root, version, genDate, null);
         save(s, tmpResDir+root.getName().replace(".",  "_")+".schema.json");
-        new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root, version, genDate, schema);
+        new JsonGenerator(definitions, workerContext, definitions.getKnownTypes(), version).generate(root, version, genDate, schema);
         }
       }
     }
@@ -108,10 +108,10 @@ public class SchemaGenerator {
 	  Collections.sort(names);
 	  for (String name : names) {
 	    ResourceDefn root = definitions.getResourceByName(name);
-	    JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, null);
+	    JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes(), version).generate(root.getRoot(), version, genDate, null);
 	    save(s, tmpResDir+root.getName().replace(".",  "_")+".schema.json");
 	    if (!root.isAbstract()) {
-	      new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, schema);
+	      new JsonGenerator(definitions, workerContext, definitions.getKnownTypes(), version).generate(root.getRoot(), version, genDate, schema);
 	    }
 	  }
 

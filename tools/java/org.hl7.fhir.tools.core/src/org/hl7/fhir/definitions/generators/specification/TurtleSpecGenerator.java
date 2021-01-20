@@ -24,15 +24,17 @@ public class TurtleSpecGenerator extends OutputStreamWriter {
 	private String dtRoot;
 	private Definitions definitions;
   private PageProcessor page;
-  private String prefix; 
+  private String prefix;
+  private String version; 
 
-	public TurtleSpecGenerator(OutputStream out, String defPage, String dtRoot, PageProcessor page, String prefix) throws UnsupportedEncodingException {
+	public TurtleSpecGenerator(OutputStream out, String defPage, String dtRoot, PageProcessor page, String prefix, String version) throws UnsupportedEncodingException {
 		super(out, "UTF-8");
 		this.defPage = defPage;
 		this.dtRoot = dtRoot == null ? "" : dtRoot;
 		this.definitions = page.getDefinitions();
 		this.page = page;
 		this.prefix = prefix;
+		this.version = version;
 	}
 
   protected String getBindingLink(ElementDefn e) throws Exception {
@@ -178,7 +180,7 @@ public class TurtleSpecGenerator extends OutputStreamWriter {
   private List<TypeRef> getTypes(ElementDefn elem) {
     if (elem.getTypes().size() == 1 && elem.getTypes().get(0).isWildcardType()) {
       List<TypeRef> res = new ArrayList<TypeRef>();
-      for (String t : TypesUtilities.wildcardTypes()) {
+      for (String t : TypesUtilities.wildcardTypes(version)) {
         TypeRef tr = new TypeRef();
         tr.setName(t);
         res.add(tr);

@@ -63,10 +63,12 @@ public class JsonGenerator  {
 	private Map<String, ValueSet> enums = new HashMap<String, ValueSet>();
 	private Map<String, String> enumDefs = new HashMap<String, String>();
   private BuildWorkerContext workerContext;
+  private String version;
 
-	public JsonGenerator(Definitions definitions, BuildWorkerContext workerContext, List<TypeRef> types) throws UnsupportedEncodingException {
+	public JsonGenerator(Definitions definitions, BuildWorkerContext workerContext, List<TypeRef> types, String version) throws UnsupportedEncodingException {
 		this.definitions = definitions;
 		this.workerContext = workerContext;
+		this.version = version;
 		for (TypeRef t : types)
 		  datatypes.put(t.getName(), t);
 	}
@@ -156,7 +158,7 @@ public class JsonGenerator  {
   }
 
   private void generateAny(ElementDefn root, ElementDefn e, String prefix, JsonObject props, boolean relative) throws Exception {
-    List<String> allTypes = TypesUtilities.wildcardTypes();
+    List<String> allTypes = TypesUtilities.wildcardTypes(version);
         
     for (String s : allTypes) {
       JsonObject property = new JsonObject();

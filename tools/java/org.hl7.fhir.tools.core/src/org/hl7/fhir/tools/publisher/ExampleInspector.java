@@ -177,7 +177,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
   private boolean byRdf = VALIDATE_RDF;
   private ExampleHostServices hostServices;
   
-  public ExampleInspector(IWorkerContext context, Logger logger, String rootDir, String xsltDir, List<ValidationMessage> errors, Definitions definitions) throws JsonSyntaxException, FileNotFoundException, IOException {
+  public ExampleInspector(IWorkerContext context, Logger logger, String rootDir, String xsltDir, List<ValidationMessage> errors, Definitions definitions, String version) throws JsonSyntaxException, FileNotFoundException, IOException {
     super();
     this.context = context;
     this.logger = logger;
@@ -186,6 +186,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     this.errorsExt = errors;
     this.errorsInt = new ArrayList<ValidationMessage>();
     this.definitions = definitions;
+    this.version = version;
     hostServices = new ExampleHostServices();
     jsonLdDefns = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(rootDir, "fhir.jsonld")));
   }
@@ -200,6 +201,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
   private FHIRPathEngine fpe;
   private JsonObject jsonLdDefns;
   private ShExValidator shex;
+  private String version;
   
   public void prepare() throws Exception {
     validator = new InstanceValidator(context, hostServices, null);
@@ -410,8 +412,9 @@ public class ExampleInspector implements IValidatorResourceFetcher {
 
   public void summarise() throws EValidationFailed {
     logger.log("Summary: Errors="+Integer.toString(errorCount)+", Warnings="+Integer.toString(warningCount)+", Information messages="+Integer.toString(informationCount), LogMessageType.Error);
-    if (errorCount > 0)
+    if (errorCount > 0 && !version.equals("4.0.1")) {
       throw new EValidationFailed("Resource Examples failed instance validation");
+    }
   }
 
 
@@ -534,8 +537,8 @@ public class ExampleInspector implements IValidatorResourceFetcher {
           if (e.getElement().getProperty().getStructure().getBaseDefinition().contains("MetadataResource")) {
             String urle = e.getElement().getChildValue("url");
             String v = e.getElement().getChildValue("url");
-            if (urle != null && urle.startsWith("http://hl7.org/fhir") && !Constants.VERSION.equals(v)) {
-              e.getElement().setChildValue("version", Constants.VERSION);
+            if (urle != null && urle.startsWith("http://hl7.org/fhir") && !version.equals(v)) {
+              e.getElement().setChildValue("version", version);
               
             }
           }

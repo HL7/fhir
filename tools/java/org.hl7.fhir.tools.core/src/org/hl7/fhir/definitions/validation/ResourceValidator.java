@@ -716,7 +716,7 @@ public class ResourceValidator extends BaseValidator {
     //    hint(errors, IssueType.BUSINESSRULE, path, !e.isModifier() || e.getMinCardinality() > 0 || e.getDefaultValue()!=null, "if an element is modifier = true, minimum cardinality should be > 0 if no default is specified");
     rule(errors, IssueType.STRUCTURE, path, !e.getDefinition().toLowerCase().startsWith("this is"), "Definition should not start with 'this is'");
     rule(errors, IssueType.STRUCTURE, path, e.getDefinition().endsWith(".") || e.getDefinition().endsWith("?") , "Definition should end with '.' or '?', but is '"+e.getDefinition()+"'");
-    if (e.usesType("string") && e.usesType("CodeableConcept"))
+    if ((e.usesType("string") && e.usesType("CodeableConcept")) && !e.usesType("base64Binary")) // if it uses base64binary, then it's a wide set of types, and no comment is needed
       rule(errors, IssueType.STRUCTURE, path, e.hasComments() && e.getComments().contains("string") && e.getComments().contains("CodeableConcept"), "Element type cannot have both string and CodeableConcept unless the difference between their usage is explained in the comments");
     warning(errors, IssueType.BUSINESSRULE, path, Utilities.noString(e.getTodo()), "Element has a todo associated with it ("+e.getTodo()+")");
     
@@ -774,7 +774,7 @@ public class ResourceValidator extends BaseValidator {
 		  rule(errors, IssueType.STRUCTURE, path, e.hasBinding(), "An element of type code must have a binding");
 		}
     if ((e.usesType("Coding") && !parentName.equals("CodeableConcept")) || (e.usesType("CodeableConcept") && !(e.usesType("Reference") || e.usesType("Quantity") || e.usesType("SimpleQuantity")))) {
-      hint(errors, IssueType.STRUCTURE, path, e.hasBinding(), "An element of type CodeableConcept or Coding must have a binding");
+      hint(errors, IssueType.STRUCTURE, path, e.isNoBindingAllowed() || e.hasBinding(), "An element of type CodeableConcept or Coding must have a binding");
     }
     if (e.getTypes().size() > 1) {
       Set<String> types = new HashSet<String>();
@@ -1155,9 +1155,10 @@ public class ResourceValidator extends BaseValidator {
       if (path.toLowerCase().endsWith("status")) {
         if (rule(errors, IssueType.STRUCTURE, path, definitions.getStatusCodes().containsKey(path), "Status element not registered in status-codes.xml")) {
 //          rule(errors, IssueType.STRUCTURE, path, e.isModifier(), "Status elements that map to status-codes should be labelled as a modifier");
+          ArrayList<String> list = definitions.getStatusCodes().get(path);
           for (DefinedCode c : ac) {
             boolean ok = false;
-            for (String s : definitions.getStatusCodes().get(path)) {
+            for (String s : list) {
               String[] parts = s.split("\\,");
               for (String p : parts)
                 if (p.trim().equals(c.getCode()))
@@ -1165,17 +1166,19 @@ public class ResourceValidator extends BaseValidator {
             }
             rule(errors, IssueType.STRUCTURE, path, ok, "Status element code \""+c.getCode()+"\" not found in status-codes.xml");
           }
-          for (String s : definitions.getStatusCodes().get(path)) {
+          for (String s : list) {
             String[] parts = s.split("\\,");
             for (String p : parts) {
+              List<String> cl = new ArrayList<>();
               if (!Utilities.noString(p)) {
                 boolean ok = false;
                 for (DefinedCode c : ac) {
+                  cl.add(c.getCode());
                   if (p.trim().equals(c.getCode()))
                     ok = true;
                 }
                 if (!ok)
-                  rule(errors, IssueType.STRUCTURE, path, ok, "Status element code \""+p+"\" found in status-codes.xml but has no matching code");
+                  rule(errors, IssueType.STRUCTURE, path, ok, "Status element code \""+p+"\" found for "+path+" in status-codes.xml but has no matching code in the resource (codes = "+cl+")");
               }            
             }
           }

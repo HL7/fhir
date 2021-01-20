@@ -65,6 +65,13 @@ import org.hl7.fhir.utilities.Utilities;
 public class TypeParser {
 
 
+  private String version;
+
+  public TypeParser(String version) {
+    super();
+    this.version = version;
+  }
+
   public List<TypeRef> parse(String n, boolean inProfile, String profileExtensionBase, BaseWorkerContext resolver, boolean allowElement) throws Exception {
     return parse(n, inProfile, profileExtensionBase, resolver, allowElement, null);
   }
@@ -194,7 +201,7 @@ public class TypeParser {
           }
       } else if (t.isWildcardType()) {
         // this list is filled out manually because it may be running before the types referred to have been loaded
-        for (String n : TypesUtilities.wildcardTypes()) {
+        for (String n : TypesUtilities.wildcardTypes(version)) {
           TypeRefComponent tc = new TypeRefComponent().setCode(n);
           if (t.getVersioning() != null)
             tc.setVersioning(t.getVersioning());

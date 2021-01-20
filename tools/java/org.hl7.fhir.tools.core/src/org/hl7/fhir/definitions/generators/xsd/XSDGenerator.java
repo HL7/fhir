@@ -69,12 +69,14 @@ public class XSDGenerator  {
 	private Map<String, String> enumDefs = new HashMap<String, String>();
   private BuildWorkerContext workerContext;
   private Set<String> allenums = new HashSet<String>();
+  private String version;
 
-	public XSDGenerator(OutputStreamWriter out, Definitions definitions, boolean forCodeGeneration, BuildWorkerContext workerContext, Set<String> allenums) throws UnsupportedEncodingException {
+	public XSDGenerator(OutputStreamWriter out, Definitions definitions, boolean forCodeGeneration, BuildWorkerContext workerContext, Set<String> allenums, String version) throws UnsupportedEncodingException {
     writer = out;
 		this.definitions = definitions;
 		this.forCodeGeneration = forCodeGeneration;
 		this.workerContext = workerContext;
+		this.version = version;
 		if (allenums != null)
 	    this.allenums = allenums;
 	}
@@ -248,7 +250,7 @@ public class XSDGenerator  {
 
 
 	private void generateAny(ElementDefn root, ElementDefn e, String prefix, String close) throws Exception {
-		for (String t : TypesUtilities.wildcardTypes()) {
+		for (String t : TypesUtilities.wildcardTypes(version)) {
 			if (!definitions.getInfrastructure().containsKey(t) && !definitions.getConstraints().containsKey(t)) {
 			  String en = prefix != null ? prefix + upFirst(t) : t;
 			  //write("       <xs:element name=\""+t.getName()+"\" type=\""+t.getName()+"\"/>\r\n");        
@@ -413,7 +415,7 @@ public class XSDGenerator  {
 				BindingSpecification cd = e.getBinding();
 				if (cd != null && isEnum(cd)) {
 				  if (cd.getValueSet() == null) {
-				    throw new Error("no value for "+cd.getUri());
+				    throw new Error("no value for "+cd.getUri()+" on "+cd.getName());
 				  }
 					en = namify(cd.getValueSet().getName());
 					if (!cd.isShared()) {
