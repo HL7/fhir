@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="CatalogEntry"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Documents"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = retired"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/CatalogEntry"/>
+  <version value="4.0.1"/>
+  <name value="CatalogEntry"/>
+  <status value="draft"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Catalog entries are wrappers that contextualize items included in a catalog."/>
+  <fhirVersion value="4.0.1"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="CatalogEntry"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="CatalogEntry">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="CatalogEntry"/>
+      <short value="An entry in a catalog"/>
+      <definition value="Catalog entries are wrappers that contextualize items included in a catalog."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="conformance.content"/>
+      </mapping>
+    </element>
+    <element id="CatalogEntry.identifier">
+      <path value="CatalogEntry.identifier"/>
+      <short value="Unique identifier of the catalog item"/>
+      <definition value="Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CatalogEntry.type">
+      <path value="CatalogEntry.type"/>
+      <short value="The type of item - medication, device, service, protocol or other"/>
+      <definition value="The type of item - medication, device, service, protocol or other."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="CatalogEntry.orderable">
+      <path value="CatalogEntry.orderable"/>
+      <short value="Whether the entry represents an orderable item"/>
+      <definition value="Whether the entry represents an orderable item."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CatalogEntry.referencedItem">
+      <path value="CatalogEntry.referencedItem"/>
+      <short value="The item that is being defined"/>
+      <definition value="The item in a catalog or definition."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CatalogEntry.additionalIdentifier">
+      <path value="CatalogEntry.additionalIdentifier"/>
+      <short value="Any additional identifier(s) for the catalog item, in the same granularity or concept"/>
+      <definition value="Used in supporting related concepts, e.g. NDC to RxNorm."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="CatalogEntry.classification">
+      <path value="CatalogEntry.classification"/>
+      <short value="Classification (category or class) of the item entry"/>
+      <definition value="Classes of devices, or ATC for medication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="CatalogEntry.status">
+      <path value="CatalogEntry.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The lifecycle status of an artifact."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+    </element>
+    <element id="CatalogEntry.validityPeriod">
+      <path value="CatalogEntry.validityPeriod"/>
+      <short value="The time period in which this catalog entry is expected to be active"/>
+      <definition value="The time period in which this catalog entry is expected to be active."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="CatalogEntry.validTo">
+      <path value="CatalogEntry.validTo"/>
+      <short value="The date until which this catalog entry is expected to be active"/>
+      <definition value="The date until which this catalog entry is expected to be active."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="CatalogEntry.lastUpdated">
+      <path value="CatalogEntry.lastUpdated"/>
+      <short value="When was this catalog last updated"/>
+      <definition value="Typically date of issue is different from the beginning of the validity. This can be used to see when an item was last updated."/>
+      <comment value="Perhaps not needed - if we use fhir resource metadata."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="CatalogEntry.additionalCharacteristic">
+      <path value="CatalogEntry.additionalCharacteristic"/>
+      <short value="Additional characteristics of the catalog entry"/>
+      <definition value="Used for examplefor Out of Formulary, or any specifics."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="CatalogEntry.additionalClassification">
+      <path value="CatalogEntry.additionalClassification"/>
+      <short value="Additional classification of the catalog entry"/>
+      <definition value="User for example for ATC classification, or."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="CatalogEntry.relatedEntry">
+      <path value="CatalogEntry.relatedEntry"/>
+      <short value="An item that this catalog entry is related to"/>
+      <definition value="Used for example, to point to a substance, or to a device used to administer a medication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="CatalogEntry.relatedEntry.relationtype">
+      <path value="CatalogEntry.relatedEntry.relationtype"/>
+      <short value="triggers | is-replaced-by"/>
+      <definition value="The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The type of relations between entries."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CatalogEntryRelationType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of relations between entries."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/relation-type"/>
+      </binding>
+    </element>
+    <element id="CatalogEntry.relatedEntry.item">
+      <path value="CatalogEntry.relatedEntry.item"/>
+      <short value="The reference to the related item"/>
+      <definition value="The reference to the related item."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CatalogEntry"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

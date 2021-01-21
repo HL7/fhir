@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-outcome"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <h2>AdverseEventOutcome</h2>
+      
+      <div>
+        
+        <p>TODO (and should this be required?).</p>
+
+      
+      </div>
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/adverse-event-outcome defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">resolved
+            
+            <a name="adverse-event-outcome-resolved"> </a>
+          
+          </td>
+          
+          <td>Resolved</td>
+          
+          <td/>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">recovering
+            
+            <a name="adverse-event-outcome-recovering"> </a>
+          
+          </td>
+          
+          <td>Recovering</td>
+          
+          <td/>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">ongoing
+            
+            <a name="adverse-event-outcome-ongoing"> </a>
+          
+          </td>
+          
+          <td>Ongoing</td>
+          
+          <td/>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">resolvedWithSequelae
+            
+            <a name="adverse-event-outcome-resolvedWithSequelae"> </a>
+          
+          </td>
+          
+          <td>Resolved with Sequelae</td>
+          
+          <td/>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">fatal
+            
+            <a name="adverse-event-outcome-fatal"> </a>
+          
+          </td>
+          
+          <td>Fatal</td>
+          
+          <td/>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">unknown
+            
+            <a name="adverse-event-outcome-unknown"> </a>
+          
+          </td>
+          
+          <td>Unknown</td>
+          
+          <td/>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/adverse-event-outcome"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1252"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="AdverseEventOutcome"/>
+  <title value="AdverseEventOutcome"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="TODO (and should this be required?)."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-outcome"/>
+  <content value="complete"/>
+  <concept>
+    <code value="resolved"/>
+    <display value="Resolved"/>
+  </concept>
+  <concept>
+    <code value="recovering"/>
+    <display value="Recovering"/>
+  </concept>
+  <concept>
+    <code value="ongoing"/>
+    <display value="Ongoing"/>
+  </concept>
+  <concept>
+    <code value="resolvedWithSequelae"/>
+    <display value="Resolved with Sequelae"/>
+  </concept>
+  <concept>
+    <code value="fatal"/>
+    <display value="Fatal"/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+  </concept>
+</CodeSystem>

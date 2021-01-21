@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="precision-estimate-type"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <h2>PrecisionEstimateType</h2>
+      
+      <div>
+        
+        <p>Method of reporting variability of estimates, such as confidence intervals, interquartile range or standard deviation.</p>
+
+      
+      </div>
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/precision-estimate-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">CI
+            
+            <a name="precision-estimate-type-CI"> </a>
+          
+          </td>
+          
+          <td>confidence interval</td>
+          
+          <td>confidence interval.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">IQR
+            
+            <a name="precision-estimate-type-IQR"> </a>
+          
+          </td>
+          
+          <td>interquartile range</td>
+          
+          <td>interquartile range.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">SD
+            
+            <a name="precision-estimate-type-SD"> </a>
+          
+          </td>
+          
+          <td>standard deviation</td>
+          
+          <td>standard deviation.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">SE
+            
+            <a name="precision-estimate-type-SE"> </a>
+          
+          </td>
+          
+          <td>standard error</td>
+          
+          <td>standard error.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/precision-estimate-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1358"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="PrecisionEstimateType"/>
+  <title value="PrecisionEstimateType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Method of reporting variability of estimates, such as confidence intervals, interquartile range or standard deviation."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/precision-estimate-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="CI"/>
+    <display value="confidence interval"/>
+    <definition value="confidence interval."/>
+  </concept>
+  <concept>
+    <code value="IQR"/>
+    <display value="interquartile range"/>
+    <definition value="interquartile range."/>
+  </concept>
+  <concept>
+    <code value="SD"/>
+    <display value="standard deviation"/>
+    <definition value="standard deviation."/>
+  </concept>
+  <concept>
+    <code value="SE"/>
+    <display value="standard error"/>
+    <definition value="standard error."/>
+  </concept>
+</CodeSystem>

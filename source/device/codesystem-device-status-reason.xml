@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="device-status-reason"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <h2>FHIRDeviceStatusReason</h2>
+      
+      <div>
+        
+        <p>The availability status reason of the device.</p>
+
+      
+      </div>
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/device-status-reason defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">online
+            
+            <a name="device-status-reason-online"> </a>
+          
+          </td>
+          
+          <td>Online</td>
+          
+          <td>The device is off.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">paused
+            
+            <a name="device-status-reason-paused"> </a>
+          
+          </td>
+          
+          <td>Paused</td>
+          
+          <td>The device is paused.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">standby
+            
+            <a name="device-status-reason-standby"> </a>
+          
+          </td>
+          
+          <td>Standby</td>
+          
+          <td>The device is ready but not actively operating.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">offline
+            
+            <a name="device-status-reason-offline"> </a>
+          
+          </td>
+          
+          <td>Offline</td>
+          
+          <td>The device is offline.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">not-ready
+            
+            <a name="device-status-reason-not-ready"> </a>
+          
+          </td>
+          
+          <td>Not Ready</td>
+          
+          <td>The device is not ready.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">transduc-discon
+            
+            <a name="device-status-reason-transduc-discon"> </a>
+          
+          </td>
+          
+          <td>Transducer Disconnected</td>
+          
+          <td>The device transducer is disconnected.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">hw-discon
+            
+            <a name="device-status-reason-hw-discon"> </a>
+          
+          </td>
+          
+          <td>Hardware Disconnected</td>
+          
+          <td>The device hardware is disconnected.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">off
+            
+            <a name="device-status-reason-off"> </a>
+          
+          </td>
+          
+          <td>Off</td>
+          
+          <td>The device is off.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/device-status-reason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1082"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="FHIRDeviceStatusReason"/>
+  <title value="FHIRDeviceStatusReason"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The availability status reason of the device."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/device-status-reason"/>
+  <content value="complete"/>
+  <concept>
+    <code value="online"/>
+    <display value="Online"/>
+    <definition value="The device is off."/>
+  </concept>
+  <concept>
+    <code value="paused"/>
+    <display value="Paused"/>
+    <definition value="The device is paused."/>
+  </concept>
+  <concept>
+    <code value="standby"/>
+    <display value="Standby"/>
+    <definition value="The device is ready but not actively operating."/>
+  </concept>
+  <concept>
+    <code value="offline"/>
+    <display value="Offline"/>
+    <definition value="The device is offline."/>
+  </concept>
+  <concept>
+    <code value="not-ready"/>
+    <display value="Not Ready"/>
+    <definition value="The device is not ready."/>
+  </concept>
+  <concept>
+    <code value="transduc-discon"/>
+    <display value="Transducer Disconnected"/>
+    <definition value="The device transducer is disconnected."/>
+  </concept>
+  <concept>
+    <code value="hw-discon"/>
+    <display value="Hardware Disconnected"/>
+    <definition value="The device hardware is disconnected."/>
+  </concept>
+  <concept>
+    <code value="off"/>
+    <display value="Off"/>
+    <definition value="The device is off."/>
+  </concept>
+</CodeSystem>

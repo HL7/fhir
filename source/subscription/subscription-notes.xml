@@ -116,7 +116,7 @@ are available - POST to [base]/Subscription:
   "channel": {
     "type": "rest-hook",
     "endpoint": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
-    "header": "Authorization: Bearer secret-token-abc-123"
+    "header": ["Authorization: Bearer secret-token-abc-123"]
   }
 }
 </pre>
@@ -214,7 +214,7 @@ email:
   "channel": {
     "type": "email",
     "endpoint": "mailto:mt-auburn-results@direct.biliwatch.com",
-    "header": "A new bilirubin result has arrived!"
+    "header": ["A new bilirubin result has arrived!"]
   }
 }
 </pre>

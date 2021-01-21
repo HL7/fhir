@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MedicinalProductUndesirableEffect"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Medication Definition"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/MedicinalProductUndesirableEffect"/>
+  <version value="4.0.1"/>
+  <name value="MedicinalProductUndesirableEffect"/>
+  <status value="draft"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Describe the undesirable effects of the medicinal product."/>
+  <fhirVersion value="4.0.1"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="MedicinalProductUndesirableEffect"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="MedicinalProductUndesirableEffect">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="MedicinalProductUndesirableEffect"/>
+      <short value="MedicinalProductUndesirableEffect"/>
+      <definition value="Describe the undesirable effects of the medicinal product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="MedicinalProductUndesirableEffect.subject">
+      <path value="MedicinalProductUndesirableEffect.subject"/>
+      <short value="The medication for which this is an indication"/>
+      <definition value="The medication for which this is an indication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductUndesirableEffect.symptomConditionEffect">
+      <path value="MedicinalProductUndesirableEffect.symptomConditionEffect"/>
+      <short value="The symptom, condition or undesirable effect"/>
+      <definition value="The symptom, condition or undesirable effect."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductUndesirableEffect.classification">
+      <path value="MedicinalProductUndesirableEffect.classification"/>
+      <short value="Classification of the effect"/>
+      <definition value="Classification of the effect."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductUndesirableEffect.frequencyOfOccurrence">
+      <path value="MedicinalProductUndesirableEffect.frequencyOfOccurrence"/>
+      <short value="The frequency of occurrence of the effect"/>
+      <definition value="The frequency of occurrence of the effect."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductUndesirableEffect.population">
+      <path value="MedicinalProductUndesirableEffect.population"/>
+      <short value="The population group to which this applies"/>
+      <definition value="The population group to which this applies."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Population"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

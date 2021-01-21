@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ResearchDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-composed-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-composed-of"/>
+        <description value="What resource is being referenced"/>
+        <code value="composed-of"/>
+        <type value="reference"/>
+        <expression value="ResearchDefinition.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
+        <xpath value="f:ResearchDefinition/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-context"/>
+        <description value="A use context assigned to the research definition"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(ResearchDefinition.useContext.value as CodeableConcept)"/>
+        <xpath value="f:ResearchDefinition/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.useContext.valueQuantity,ResearchDefinition.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the research definition"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(ResearchDefinition.useContext.value as Quantity) | (ResearchDefinition.useContext.value as Range)"/>
+        <xpath value="f:ResearchDefinition/f:useContext/f:valueQuantity | f:ResearchDefinition/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-context-type"/>
+        <description value="A type of use context assigned to the research definition"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="ResearchDefinition.useContext.code"/>
+        <xpath value="f:ResearchDefinition/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the research definition"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="ResearchDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-context-type-value"/>
+        <description value="A use context type and value assigned to the research definition"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="ResearchDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-date"/>
+        <description value="The research definition publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="ResearchDefinition.date"/>
+        <xpath value="f:ResearchDefinition/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-depends-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.relatedArtifact.resource,ResearchDefinition.library"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-depends-on"/>
+        <description value="What resource is being referenced"/>
+        <code value="depends-on"/>
+        <type value="reference"/>
+        <expression value="ResearchDefinition.relatedArtifact.where(type=&#39;depends-on&#39;).resource | ResearchDefinition.library"/>
+        <xpath value="f:ResearchDefinition/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource | f:ResearchDefinition/f:library"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-derived-from"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-derived-from"/>
+        <description value="What resource is being referenced"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="ResearchDefinition.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:ResearchDefinition/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-description"/>
+        <description value="The description of the research definition"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="ResearchDefinition.description"/>
+        <xpath value="f:ResearchDefinition/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-effective"/>
+        <description value="The time during which the research definition is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="ResearchDefinition.effectivePeriod"/>
+        <xpath value="f:ResearchDefinition/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-identifier"/>
+        <description value="External identifier for the research definition"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ResearchDefinition.identifier"/>
+        <xpath value="f:ResearchDefinition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-jurisdiction"/>
+        <description value="Intended jurisdiction for the research definition"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="ResearchDefinition.jurisdiction"/>
+        <xpath value="f:ResearchDefinition/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-name"/>
+        <description value="Computationally friendly name of the research definition"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="ResearchDefinition.name"/>
+        <xpath value="f:ResearchDefinition/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-predecessor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-predecessor"/>
+        <description value="What resource is being referenced"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="ResearchDefinition.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:ResearchDefinition/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-publisher"/>
+        <description value="Name of the publisher of the research definition"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="ResearchDefinition.publisher"/>
+        <xpath value="f:ResearchDefinition/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-status"/>
+        <description value="The current status of the research definition"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ResearchDefinition.status"/>
+        <xpath value="f:ResearchDefinition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-successor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-successor"/>
+        <description value="What resource is being referenced"/>
+        <code value="successor"/>
+        <type value="reference"/>
+        <expression value="ResearchDefinition.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
+        <xpath value="f:ResearchDefinition/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-title"/>
+        <description value="The human-friendly name of the research definition"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="ResearchDefinition.title"/>
+        <xpath value="f:ResearchDefinition/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-topic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.topic"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-topic"/>
+        <description value="Topics associated with the ResearchDefinition"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="ResearchDefinition.topic"/>
+        <xpath value="f:ResearchDefinition/f:topic"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-url"/>
+        <description value="The uri that identifies the research definition"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="ResearchDefinition.url"/>
+        <xpath value="f:ResearchDefinition/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchDefinition-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchDefinition.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchDefinition-version"/>
+        <description value="The business version of the research definition"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="ResearchDefinition.version"/>
+        <xpath value="f:ResearchDefinition/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

@@ -601,16 +601,16 @@ public class SpreadsheetParser {
     List<OperationExample> results = new ArrayList<Operation.OperationExample>();
     if (!Utilities.noString(req))
       for (String s : TextFile.fileToString(Utilities.path(folder, req)).split("\r\n--------------------------------------\r\n"))
-        results.add(convertToExample(s, false));
+        results.add(convertToExample(req, s, false));
     if (!Utilities.noString(resp))
       for (String s : TextFile.fileToString(Utilities.path(folder, resp)).split("\r\n--------------------------------------\r\n"))
-        results.add(convertToExample(s, true));
+        results.add(convertToExample(resp, s, true));
 
     return results;
   }
 
 
-  private OperationExample convertToExample(String s, boolean resp) throws Exception {
+  private OperationExample convertToExample(String fn, String s, boolean resp) throws Exception {
     String[] lines = s.trim().split("\\r?\\n");
     StringBuilder content = new StringBuilder();
     String comment = null;
@@ -646,7 +646,7 @@ public class SpreadsheetParser {
         content.append(Utilities.escapeXml(l));
         content.append("\r\n");
       }
-    return new OperationExample(content.toString(), comment, resp);
+    return new OperationExample(fn, content.toString(), comment, resp);
   }
 
   private void process(StringBuilder content, int indent, String s) {
@@ -892,7 +892,7 @@ public class SpreadsheetParser {
             sp.setDescription(d);
           }
 
-          sp.setXpath(Utilities.noString(xp) ? new XPathQueryGenerator(definitions, log, null).generateXpath(pn) : xp);
+          sp.setXpath(Utilities.noString(xp) ? new XPathQueryGenerator(definitions, log, null).generateXpath(pn, root2.getName()) : xp);
           sp.setXpathUsage(readSearchXPathUsage(sheet.getColumn(row, "Path Usage"), row));
         }
         sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());

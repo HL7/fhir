@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="DocumentReference-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="XDS example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="xds-example"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/xds"/>
+      <display value="XDS example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example"/>
+      <display value="Generic exampl"/>
+    </item>
+  </entry>
+</List>

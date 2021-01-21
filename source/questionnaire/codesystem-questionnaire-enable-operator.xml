@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-enable-operator"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <h2>QuestionnaireItemOperator</h2>
+      
+      <div>
+        
+        <p>The criteria by which a question is enabled.</p>
+
+      
+      </div>
+      
+      <p>This code system http://hl7.org/fhir/questionnaire-enable-operator defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">exists
+            
+            <a name="questionnaire-enable-operator-exists"> </a>
+          
+          </td>
+          
+          <td>Exists</td>
+          
+          <td>True if whether an answer exists is equal to the enableWhen answer (which must be a boolean).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">=
+            
+            <a name="questionnaire-enable-operator-.61"> </a>
+          
+          </td>
+          
+          <td>Equals</td>
+          
+          <td>True if whether at least one answer has a value that is equal to the enableWhen answer.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">!=
+            
+            <a name="questionnaire-enable-operator-.33.61"> </a>
+          
+          </td>
+          
+          <td>Not Equals</td>
+          
+          <td>True if whether at least no answer has a value that is equal to the enableWhen answer.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">&gt;
+            
+            <a name="questionnaire-enable-operator-.62"> </a>
+          
+          </td>
+          
+          <td>Greater Than</td>
+          
+          <td>True if whether at least no answer has a value that is greater than the enableWhen answer.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">&lt;
+            
+            <a name="questionnaire-enable-operator-.60"> </a>
+          
+          </td>
+          
+          <td>Less Than</td>
+          
+          <td>True if whether at least no answer has a value that is less than the enableWhen answer.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">&gt;=
+            
+            <a name="questionnaire-enable-operator-.62.61"> </a>
+          
+          </td>
+          
+          <td>Greater or Equals</td>
+          
+          <td>True if whether at least no answer has a value that is greater or equal to the enableWhen answer.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">&lt;=
+            
+            <a name="questionnaire-enable-operator-.60.61"> </a>
+          
+          </td>
+          
+          <td>Less or Equals</td>
+          
+          <td>True if whether at least no answer has a value that is less or equal to the enableWhen answer.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/questionnaire-enable-operator"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1006"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="QuestionnaireItemOperator"/>
+  <title value="QuestionnaireItemOperator"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The criteria by which a question is enabled."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-enable-operator"/>
+  <content value="complete"/>
+  <concept>
+    <code value="exists"/>
+    <display value="Exists"/>
+    <definition value="True if whether an answer exists is equal to the enableWhen answer (which must be a boolean)."/>
+  </concept>
+  <concept>
+    <code value="="/>
+    <display value="Equals"/>
+    <definition value="True if whether at least one answer has a value that is equal to the enableWhen answer."/>
+  </concept>
+  <concept>
+    <code value="!="/>
+    <display value="Not Equals"/>
+    <definition value="True if whether at least no answer has a value that is equal to the enableWhen answer."/>
+  </concept>
+  <concept>
+    <code value="&gt;"/>
+    <display value="Greater Than"/>
+    <definition value="True if whether at least no answer has a value that is greater than the enableWhen answer."/>
+  </concept>
+  <concept>
+    <code value="&lt;"/>
+    <display value="Less Than"/>
+    <definition value="True if whether at least no answer has a value that is less than the enableWhen answer."/>
+  </concept>
+  <concept>
+    <code value="&gt;="/>
+    <display value="Greater or Equals"/>
+    <definition value="True if whether at least no answer has a value that is greater or equal to the enableWhen answer."/>
+  </concept>
+  <concept>
+    <code value="&lt;="/>
+    <display value="Less or Equals"/>
+    <definition value="True if whether at least no answer has a value that is less or equal to the enableWhen answer."/>
+  </concept>
+</CodeSystem>

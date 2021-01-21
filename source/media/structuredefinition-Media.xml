@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Media"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Diagnostics"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value="n/a - this would be handled whereever the media is linked from"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Media"/>
+  <version value="4.0.1"/>
+  <name value="Media"/>
+  <status value="draft"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference."/>
+  <fhirVersion value="4.0.1"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="dicom"/>
+    <uri value="http://nema.org/dicom"/>
+    <name value="DICOM Tag Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="sct-concept"/>
+    <uri value="http://snomed.info/conceptdomain"/>
+    <name value="SNOMED CT Concept Domain Binding"/>
+  </mapping>
+  <mapping>
+    <identity value="sct-attr"/>
+    <uri value="http://snomed.org/attributebinding"/>
+    <name value="SNOMED CT Attribute Binding"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Media"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Media">
+      <path value="Media"/>
+      <short value="A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference"/>
+      <definition value="A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act[classCode=&quot;DGIMG&quot;, moodCode=&quot;EVN&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="infrastructure.structure"/>
+      </mapping>
+    </element>
+    <element id="Media.identifier">
+      <path value="Media.identifier"/>
+      <short value="Identifier(s) for the image"/>
+      <definition value="Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers."/>
+      <comment value="The identifier label and use can be used to determine what kind of identifier it is."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="0008,0018 | ~0008,0050 | 0020,000D | 0020,000E"/>
+      </mapping>
+    </element>
+    <element id="Media.basedOn">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="14144."/>
+      </extension>
+      <path value="Media.basedOn"/>
+      <short value="Procedure that caused this media to be created"/>
+      <definition value="A procedure that is fulfilled in whole or in part by the creation of this media."/>
+      <requirements value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
+      <alias value="fulfills"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target"/>
+      </mapping>
+    </element>
+    <element id="Media.partOf">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#10299."/>
+      </extension>
+      <path value="Media.partOf"/>
+      <short value="Part of referenced event"/>
+      <definition value="A larger event of which this particular event is a component or step."/>
+      <comment value="Not to be used to link an event to an Encounter - use Media.encounter for that.&#xD;&#xD;[The allowed reference resources may be adjusted as appropriate for the event resource]."/>
+      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc."/>
+      <alias value="container"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Media.status">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#10299."/>
+      </extension>
+      <path value="Media.status"/>
+      <short value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
+      <definition value="The current state of the {{title}}."/>
+      <comment value="A nominal state-transition diagram can be found in the [[event.html#statemachine | Event pattern]] documentation&#xD;&#xD;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes identifying the lifecycle stage of an event."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MediaStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of an event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/event-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+    </element>
+    <element id="Media.type">
+      <path value="Media.type"/>
+      <short value="Classification of media as image, video, or audio"/>
+      <definition value="A code that classifies whether the media is an image, video or audio recording or some other media category."/>
+      <requirements value="Used for filtering what observations are retrieved and displayed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes for high level media categories."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MediaType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes for high level media categories."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/media-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Media.modality">
+      <path value="Media.modality"/>
+      <short value="The type of acquisition equipment/process"/>
+      <definition value="Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MediaModality"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/media-modality"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="0008,0060 | 0008,1032"/>
+      </mapping>
+    </element>
+    <element id="Media.view">
+      <path value="Media.view"/>
+      <short value="Imaging view, e.g. Lateral or Antero-posterior"/>
+      <definition value="The name of the imaging view e.g. Lateral or Antero-posterior (AP)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Imaging view (projection) used when collecting an image."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MediaView"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Imaging view (projection) used when collecting an image."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/media-view"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="DiagnosticImage.subjectOrientationCode"/>
+      </mapping>
+    </element>
+    <element id="Media.subject">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="14144."/>
+      </extension>
+      <path value="Media.subject"/>
+      <short value="Who/What this Media is a record of"/>
+      <definition value="Who/What this Media is a record of."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=&quot;SUBJ&quot;]???"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="~0010,0020"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Media.encounter">
+      <path value="Media.encounter"/>
+      <short value="Encounter associated with media"/>
+      <definition value="The encounter that establishes the context for this media."/>
+      <comment value="This will typically be the encounter the media occurred within."/>
+      <requirements value="Links the Media to the Encounter context."/>
+      <alias value="context"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.encounter"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=COMP].source[classCode&lt;=PCPR, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Media.created[x]">
+      <path value="Media.created[x]"/>
+      <short value="When Media was collected"/>
+      <definition value="The date and time(s) at which the media was collected."/>
+      <alias value="timing"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="Media.issued">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="14144."/>
+      </extension>
+      <path value="Media.issued"/>
+      <short value="Date/Time this version was made available"/>
+      <definition value="The date and time this version of the media was made available to providers, typically after having been reviewed."/>
+      <comment value="It may be the same as the [`lastUpdated` ](resource-definitions.html#Meta.lastUpdated) time of the resource itself.  For Observations that do require review and verification for certain updates, it might not be the same as the `lastUpdated` time of the resource itself due to a non-clinically significant update that does not require the new version to be reviewed and verified again."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="instant"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBR.22 (or MSH.7), or perhaps OBX-19 (depends on who observation made)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=AUT].time"/>
+      </mapping>
+    </element>
+    <element id="Media.operator">
+      <path value="Media.operator"/>
+      <short value="The person who generated the image"/>
+      <definition value="The person who administered the collection of the image."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=&quot;PERF&quot;]???"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="0008,1060?"/>
+      </mapping>
+    </element>
+    <element id="Media.reasonCode">
+      <path value="Media.reasonCode"/>
+      <short value="Why was event performed?"/>
+      <definition value="Describes why the event occurred in coded or textual form."/>
+      <comment value="Textual reasons can be captured using reasonCode.text."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The reason for the media."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MediaReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The reason for the media."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/procedure-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
+    </element>
+    <element id="Media.bodySite">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="14144."/>
+      </extension>
+      <path value="Media.bodySite"/>
+      <short value="Observed body part"/>
+      <definition value="Indicates the site on the subject&#39;s body where the observation was made (i.e. the target site)."/>
+      <comment value="Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   &#xA;&#xA;If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use the standard extension[ bodySite](extension-bodysite.html)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes describing anatomical locations. May include laterality."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite"/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body site concepts"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
+      <mapping>
+        <identity value="sct-concept"/>
+        <map value="&lt; 123037004 |Body structure|"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="targetSiteCode"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-attr"/>
+        <map value="718497002 |Inherent location|"/>
+      </mapping>
+    </element>
+    <element id="Media.deviceName">
+      <path value="Media.deviceName"/>
+      <short value="Name of the device/manufacturer"/>
+      <definition value="The name of the device / manufacturer of the device  that was used to make the recording."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=&quot;DEV&quot;].role.player.Entity[classCode=&quot;DEV&quot;].name"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="0008,0070"/>
+      </mapping>
+    </element>
+    <element id="Media.device">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="14144."/>
+      </extension>
+      <path value="Media.device"/>
+      <short value="Observing Device"/>
+      <definition value="The device used to collect the media."/>
+      <comment value="An extension should be used if further typing of the device is needed.  Secondary devices used to support collecting a media can be represented using either extension or through the Observation.related element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="sct-concept"/>
+        <map value="&lt; 49062001 |Device|"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=DEV]"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-attr"/>
+        <map value="424226004 |Using device|"/>
+      </mapping>
+    </element>
+    <element id="Media.height">
+      <path value="Media.height"/>
+      <short value="Height of the image in pixels (photo/video)"/>
+      <definition value="Height of the image in pixels (photo/video)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;OBS&quot;, moodCode=&quot;EVN&quot;,code=&quot;&lt;CODE&gt;&quot;].value"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="0028,0010"/>
+      </mapping>
+    </element>
+    <element id="Media.width">
+      <path value="Media.width"/>
+      <short value="Width of the image in pixels (photo/video)"/>
+      <definition value="Width of the image in pixels (photo/video)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;OBS&quot;, moodCode=&quot;EVN&quot;,code=&quot;&lt;CODE&gt;&quot;].value"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="0028,0011"/>
+      </mapping>
+    </element>
+    <element id="Media.frames">
+      <path value="Media.frames"/>
+      <short value="Number of frames if &gt; 1 (photo)"/>
+      <definition value="The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required."/>
+      <comment value="if the number of frames is not supplied, the value may be unknown. Applications should not assume that there is only one frame unless it is explicitly stated."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;OBS&quot;, moodCode=&quot;EVN&quot;,code=&quot;&lt;CODE&gt;&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="Media.duration">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="14144."/>
+      </extension>
+      <path value="Media.duration"/>
+      <short value="Length in seconds (audio / video)"/>
+      <definition value="The duration of the recording in seconds - for audio and video."/>
+      <comment value="The duration might differ from occurrencePeriod if recording was paused."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;OBS&quot;, moodCode=&quot;EVN&quot;,code=&quot;&lt;CODE&gt;&quot;].value"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="~0028,0002"/>
+      </mapping>
+    </element>
+    <element id="Media.content">
+      <path value="Media.content"/>
+      <short value="Actual Media - reference or data"/>
+      <definition value="The actual content of the media - inline or by direct reference to the media source file."/>
+      <comment value="Recommended content types: image/jpeg, image/png, image/tiff, video/mpeg, audio/mp4, application/dicom. Application/dicom can contain the transfer syntax as a parameter.  For media that covers a period of time (video/sound), the content.creationTime is the end time. Creation time is used for tracking, organizing versions and searching."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="Media.note">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#14149."/>
+      </extension>
+      <path value="Media.note"/>
+      <short value="Comments made about the media"/>
+      <definition value="Comments made about the media by the performer, subject or other participants."/>
+      <comment value="Not to be used for observations, conclusions, etc. Instead use an [Observation](observation.html) based on the Media/ImagingStudy resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -28,32 +28,32 @@
   
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
+    <resource value="http://example.org/fhir/ActivityDefinition/administer-zika-virus-exposure-assessment"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
+    <resource value="http://example.org/fhir/ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="ActivityDefinition/provide-mosquito-prevention-advice"/>
+    <resource value="http://example.org/fhir/ActivityDefinition/provide-mosquito-prevention-advice"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="Library/zika-virus-intervention-logic"/>
+    <resource value="http://example.org/fhir/Library/zika-virus-intervention-logic"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="PlanDefinition/zika-virus-intervention"/>
+    <resource value="http://example.org/fhir/PlanDefinition/zika-virus-intervention"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="Questionnaire/zika-virus-exposure-assessment"/>
+    <resource value="http://hl7.org/fhir/Questionnaire/zika-virus-exposure-assessment"/>
   </relatedArtifact>
 
   <relatedArtifact>

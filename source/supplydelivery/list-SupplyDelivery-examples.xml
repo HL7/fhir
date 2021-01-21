@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="SupplyDelivery-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple delivery for resupply"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="supplydelivery-example"/>
+    </extension>
+    <item>
+      <reference value="SupplyDelivery/simpledelivery"/>
+      <display value="Simple Resupply"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Delivery of an insulin pump"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="supplydelivery-example-pumpdelivery"/>
+    </extension>
+    <item>
+      <reference value="SupplyDelivery/pumpdelivery"/>
+      <display value="Pump Delivery"/>
+    </item>
+  </entry>
+</List>

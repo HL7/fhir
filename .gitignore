@@ -86,3 +86,7 @@ pharmacy-medRequest
 source/\.antlr/
 
 images/\.antlr/
+/source/structuredefinition/*.xlsx
+/source/structuredefinition/*.datestamp
+*.xlsx
+*.datestamp

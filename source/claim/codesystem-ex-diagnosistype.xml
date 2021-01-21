@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="ex-diagnosistype"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/ex-diagnosistype"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1167"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="ExampleDiagnosisTypeCodes"/>
   <title value="Example Diagnosis Type Codes"/>
   <status value="draft"/>
@@ -38,7 +50,7 @@
   <concept>
     <code value="nursing"/>
     <display value="Nursing Diagnosis"/>
-    <definition value="A diagnosis which identifies people's responses to situations in their lives, such as a readiness to change or a willingness to accept assistance."/>
+    <definition value="A diagnosis which identifies people&#39;s responses to situations in their lives, such as a readiness to change or a willingness to accept assistance."/>
   </concept>
   <concept>
     <code value="prenatal"/>
@@ -48,7 +60,7 @@
   <concept>
     <code value="principal"/>
     <display value="Principal Diagnosis"/>
-    <definition value="The single medical diagnosis that is most relevant to the patient's chief complaint or need for treatment."/>
+    <definition value="The single medical diagnosis that is most relevant to the patient&#39;s chief complaint or need for treatment."/>
   </concept>
   <concept>
     <code value="radiology"/>

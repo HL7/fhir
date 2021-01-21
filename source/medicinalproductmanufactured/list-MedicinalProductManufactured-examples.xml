@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="MedicinalProductManufactured-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of medicinalproductmanufactured"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductmanufactured-example"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductManufactured/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+</List>

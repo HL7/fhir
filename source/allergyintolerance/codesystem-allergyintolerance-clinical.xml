@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="allergyintolerance-clinical"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1373"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="AllergyIntoleranceClinicalStatusCodes"/>
   <title value="AllergyIntolerance Clinical Status Codes"/>
   <status value="draft"/>
@@ -13,16 +25,16 @@
   <concept>
     <code value="active"/>
     <display value="Active"/>
-    <definition value="The subject is currently experiencing, or is at risk of, a reaction to the identified substance."/> 
+    <definition value="The subject is currently experiencing, or is at risk of, a reaction to the identified substance."/>
   </concept>
   <concept>
     <code value="inactive"/>
     <display value="Inactive"/>
     <definition value="The subject is no longer at risk of a reaction to the identified substance."/>
-	  <concept>
-		<code value="resolved"/>
-		<display value="Resolved"/>
-		<definition value="A reaction to the identified substance has been clinically reassessed by testing or re-exposure and is considered no longer to be present. Re-exposure could be accidental, unplanned, or outside of any clinical setting."/>
-	  </concept>
-   </concept>
+    <concept>
+      <code value="resolved"/>
+      <display value="Resolved"/>
+      <definition value="A reaction to the identified substance has been clinically reassessed by testing or re-exposure and is considered no longer to be present. Re-exposure could be accidental, unplanned, or outside of any clinical setting."/>
+    </concept>
+  </concept>
 </CodeSystem>

@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="condition-clinical"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1074"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="ConditionClinicalStatusCodes"/>
   <title value="Condition Clinical Status Codes"/>
   <status value="draft"/>
@@ -14,30 +26,30 @@
     <code value="active"/>
     <display value="Active"/>
     <definition value="The subject is currently experiencing the symptoms of the condition or there is evidence of the condition."/>
-	  <concept>
-		<code value="recurrence"/>
-		<display value="Recurrence"/>
-		<definition value="The subject is experiencing a re-occurence or repeating of a previously resolved condition, e.g. urinary tract infection, pancreatitis, cholangitis, conjunctivitis."/>
-	  </concept>
-	  <concept>
-		<code value="relapse"/>
-		<display value="Relapse"/>
-		<definition value="The subject is experiencing a return of a condition, or signs and symptoms after a period of improvement or remission, e.g. relapse of cancer, multiple sclerosis, rheumatoid arthritis, systemic lupus erythematosus, bipolar disorder, [psychotic relapse of] schizophrenia, etc."/>
-	  </concept>		  
+    <concept>
+      <code value="recurrence"/>
+      <display value="Recurrence"/>
+      <definition value="The subject is experiencing a re-occurence or repeating of a previously resolved condition, e.g. urinary tract infection, pancreatitis, cholangitis, conjunctivitis."/>
+    </concept>
+    <concept>
+      <code value="relapse"/>
+      <display value="Relapse"/>
+      <definition value="The subject is experiencing a return of a condition, or signs and symptoms after a period of improvement or remission, e.g. relapse of cancer, multiple sclerosis, rheumatoid arthritis, systemic lupus erythematosus, bipolar disorder, [psychotic relapse of] schizophrenia, etc."/>
+    </concept>
   </concept>
   <concept>
     <code value="inactive"/>
     <display value="Inactive"/>
     <definition value="The subject is no longer experiencing the symptoms of the condition or there is no longer evidence of the condition."/>
-	  <concept>
-		<code value="remission"/>
-		<display value="Remission"/>
-		<definition value="The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning."/>
-	  </concept>
-	  <concept>
-		<code value="resolved"/>
-		<display value="Resolved"/>
-		<definition value="The subject is no longer experiencing the symptoms of the condition and there is a negligible perceived risk of the symptoms returning."/>
-	  </concept>
-   </concept>
+    <concept>
+      <code value="remission"/>
+      <display value="Remission"/>
+      <definition value="The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning."/>
+    </concept>
+    <concept>
+      <code value="resolved"/>
+      <display value="Resolved"/>
+      <definition value="The subject is no longer experiencing the symptoms of the condition and there is a negligible perceived risk of the symptoms returning."/>
+    </concept>
+  </concept>
 </CodeSystem>

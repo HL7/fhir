@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="AdverseEvent-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-actuality"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.actuality"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-actuality"/>
+        <description value="actual | potential"/>
+        <code value="actuality"/>
+        <type value="token"/>
+        <expression value="AdverseEvent.actuality"/>
+        <xpath value="f:AdverseEvent/f:actuality"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-category"/>
+        <description value="product-problem | product-quality | product-use-error | wrong-dose | incorrect-prescribing-information | wrong-technique | wrong-route-of-administration | wrong-rate | wrong-duration | wrong-time | expired-drug | medical-device-use-error | problem-different-manufacturer | unsafe-physical-environment"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="AdverseEvent.category"/>
+        <xpath value="f:AdverseEvent/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-date"/>
+        <description value="When the event occurred"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="AdverseEvent.date"/>
+        <xpath value="f:AdverseEvent/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-event"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.event"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-event"/>
+        <description value="Type of the event itself in relation to the subject"/>
+        <code value="event"/>
+        <type value="token"/>
+        <expression value="AdverseEvent.event"/>
+        <xpath value="f:AdverseEvent/f:event"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-location"/>
+        <description value="Location where adverse event occurred"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="AdverseEvent.location"/>
+        <xpath value="f:AdverseEvent/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-recorder"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.recorder"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-recorder"/>
+        <description value="Who recorded the adverse event"/>
+        <code value="recorder"/>
+        <type value="reference"/>
+        <expression value="AdverseEvent.recorder"/>
+        <xpath value="f:AdverseEvent/f:recorder"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-resultingcondition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.resultingCondition"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-resultingcondition"/>
+        <description value="Effect on the subject due to this event"/>
+        <code value="resultingcondition"/>
+        <type value="reference"/>
+        <expression value="AdverseEvent.resultingCondition"/>
+        <xpath value="f:AdverseEvent/f:resultingCondition"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-seriousness"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.seriousness"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-seriousness"/>
+        <description value="Seriousness of the event"/>
+        <code value="seriousness"/>
+        <type value="token"/>
+        <expression value="AdverseEvent.seriousness"/>
+        <xpath value="f:AdverseEvent/f:seriousness"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-severity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.severity"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-severity"/>
+        <description value="mild | moderate | severe"/>
+        <code value="severity"/>
+        <type value="token"/>
+        <expression value="AdverseEvent.severity"/>
+        <xpath value="f:AdverseEvent/f:severity"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-study"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.study"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-study"/>
+        <description value="AdverseEvent.study"/>
+        <code value="study"/>
+        <type value="reference"/>
+        <expression value="AdverseEvent.study"/>
+        <xpath value="f:AdverseEvent/f:study"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-subject"/>
+        <description value="Subject impacted by event"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="AdverseEvent.subject"/>
+        <xpath value="f:AdverseEvent/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdverseEvent-substance"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdverseEvent.suspectEntity.instance"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-substance"/>
+        <description value="Refers to the specific entity that caused the adverse event"/>
+        <code value="substance"/>
+        <type value="reference"/>
+        <expression value="AdverseEvent.suspectEntity.instance"/>
+        <xpath value="f:AdverseEvent/f:suspectEntity/f:instance"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

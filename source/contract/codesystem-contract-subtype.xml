@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://terminology.hl7.org/CodeSystem/contractsubtypecodes"/>
+  <id value="contract-subtype"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <url value="http://hl7.org/fhir/contract-subtype"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="ContractSubtypeCodes"/>
   <title value="Contract Subtype Codes"/>
   <status value="draft"/>
@@ -12,12 +24,12 @@
   <content value="complete"/>
   <concept>
     <code value="disclosure-ca"/>
-	<display value="Disclosure-CA"/>
-	<definition value="Canadian health information disclosure policy."/>
+    <display value="Disclosure-CA"/>
+    <definition value="Canadian health information disclosure policy."/>
   </concept>
   <concept>
     <code value="disclosure-us"/>
-	<display value="Disclosure-US"/>
-	<definition value="United States health information disclosure policy."/>
+    <display value="Disclosure-US"/>
+    <definition value="United States health information disclosure policy."/>
   </concept>
 </CodeSystem>

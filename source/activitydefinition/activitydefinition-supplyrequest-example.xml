@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id value="blood-tubes-supply"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-    </div>
-  </text>
   <status value="draft"/>
   <description value="10 Blood collect tubes blue cap"/>
   <purpose value="Describes a request for 10 Blood collection tubes with blue caps."/>
@@ -20,5 +15,5 @@
   <quantity>
     <value value="10"/>
   </quantity>
-  <transform value="StructureMap/supplyrequest-transform"/>
+  <transform value="http://example.org/fhir/StructureMap/supplyrequest-transform"/>
 </ActivityDefinition>

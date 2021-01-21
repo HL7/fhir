@@ -46,12 +46,12 @@
   </topic>
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource value="Library/fhir-model-definition"/>
+    <resource value="http://example.org/fhir/Library/fhir-model-definition"/>
   </relatedArtifact>
 
   <relatedArtifact>
   	<type value="depends-on"/>
-  	<resource value="ValueSet/zika-affected-area"/>
+  	<resource value="http://hl7.org/fhir/ValueSet/zika-affected-area"/>
   </relatedArtifact>
 
   <parameter>

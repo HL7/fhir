@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MedicinalProductInteraction"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Medication Definition"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/MedicinalProductInteraction"/>
+  <version value="4.0.1"/>
+  <name value="MedicinalProductInteraction"/>
+  <status value="draft"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The interactions of the medicinal product with other medicinal products, or other forms of interactions."/>
+  <fhirVersion value="4.0.1"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="MedicinalProductInteraction"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="MedicinalProductInteraction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="MedicinalProductInteraction"/>
+      <short value="MedicinalProductInteraction"/>
+      <definition value="The interactions of the medicinal product with other medicinal products, or other forms of interactions."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="MedicinalProductInteraction.subject">
+      <path value="MedicinalProductInteraction.subject"/>
+      <short value="The medication for which this is a described interaction"/>
+      <definition value="The medication for which this is a described interaction."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductInteraction.description">
+      <path value="MedicinalProductInteraction.description"/>
+      <short value="The interaction described"/>
+      <definition value="The interaction described."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductInteraction.interactant">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,25"/>
+      </extension>
+      <path value="MedicinalProductInteraction.interactant"/>
+      <short value="The specific medication, food or laboratory test that interacts"/>
+      <definition value="The specific medication, food or laboratory test that interacts."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductInteraction.interactant.item[x]">
+      <path value="MedicinalProductInteraction.interactant.item[x]"/>
+      <short value="The specific medication, food or laboratory test that interacts"/>
+      <definition value="The specific medication, food or laboratory test that interacts."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductInteraction.type">
+      <path value="MedicinalProductInteraction.type"/>
+      <short value="The type of the interaction e.g. drug-drug interaction, drug-food interaction, drug-lab test interaction"/>
+      <definition value="The type of the interaction e.g. drug-drug interaction, drug-food interaction, drug-lab test interaction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductInteraction.effect">
+      <path value="MedicinalProductInteraction.effect"/>
+      <short value="The effect of the interaction, for example &quot;reduced gastric absorption of primary medication&quot;"/>
+      <definition value="The effect of the interaction, for example &quot;reduced gastric absorption of primary medication&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductInteraction.incidence">
+      <path value="MedicinalProductInteraction.incidence"/>
+      <short value="The incidence of the interaction, e.g. theoretical, observed"/>
+      <definition value="The incidence of the interaction, e.g. theoretical, observed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicinalProductInteraction.management">
+      <path value="MedicinalProductInteraction.management"/>
+      <short value="Actions for managing the interaction"/>
+      <definition value="Actions for managing the interaction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -9,11 +9,13 @@ import org.hl7.fhir.utilities.StandardsStatus;
 public class Operation {
 
   public static class OperationExample {
+    private String contentSource;
     private String content;
     private String comment;
     private boolean response;
-    public OperationExample(String content, String comment, boolean response) {
+    public OperationExample(String contentSource, String content, String comment, boolean response) {
       super();
+      this.contentSource = contentSource;
       this.content = content;
       this.comment = comment;
       this.response = response;
@@ -26,6 +28,9 @@ public class Operation {
     }
     public boolean isResponse() {
       return response;
+    }
+    public String getContentSource() {
+      return contentSource;
     }
    
   }

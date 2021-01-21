@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Evidence-core"/>
+  <name value="Evidence Synthesis Profile"/>
+  <title value="Evidence Synthesis Profile"/>
+  <status value="draft"/>
+  <date value="2018-10-31T00:00:00.000"/>
+  <publisher value="Health Level Seven, Inc. - Clinical Decision Support Workgroup"/>
+  <description value="Explanation of what this profile contains/is for."/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/synthesis"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

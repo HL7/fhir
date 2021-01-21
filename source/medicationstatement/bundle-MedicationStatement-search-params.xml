@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="MedicationStatement-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-category"/>
+        <description value="Returns statements of this category of medicationstatement"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="MedicationStatement.category"/>
+        <xpath value="f:MedicationStatement/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.medicationCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-code"/>
+        <description value="Return statements of this medication code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="(MedicationStatement.medication as CodeableConcept)"/>
+        <xpath value="f:MedicationStatement/f:medicationCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.context"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-context"/>
+        <description value="Returns statements for a specific context (episode or episode of Care)."/>
+        <code value="context"/>
+        <type value="reference"/>
+        <expression value="MedicationStatement.context"/>
+        <xpath value="f:MedicationStatement/f:context"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.effective[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-effective"/>
+        <description value="Date when patient was taking (or not taking) the medication"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="MedicationStatement.effective"/>
+        <xpath value="f:MedicationStatement/f:effectiveDateTime | f:MedicationStatement/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-identifier"/>
+        <description value="Return statements with this external identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="MedicationStatement.identifier"/>
+        <xpath value="f:MedicationStatement/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-medication"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.medicationReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-medication"/>
+        <description value="Return statements of this medication reference"/>
+        <code value="medication"/>
+        <type value="reference"/>
+        <expression value="(MedicationStatement.medication as Reference)"/>
+        <xpath value="f:MedicationStatement/f:medicationReference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-part-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.partOf"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-part-of"/>
+        <description value="Returns statements that are part of another event."/>
+        <code value="part-of"/>
+        <type value="reference"/>
+        <expression value="MedicationStatement.partOf"/>
+        <xpath value="f:MedicationStatement/f:partOf"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-patient"/>
+        <description value="Returns statements for a specific patient."/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="MedicationStatement.subject.where(resolve() is Patient)"/>
+        <xpath value="f:MedicationStatement/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.informationSource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-source"/>
+        <description value="Who or where the information in the statement came from"/>
+        <code value="source"/>
+        <type value="reference"/>
+        <expression value="MedicationStatement.informationSource"/>
+        <xpath value="f:MedicationStatement/f:informationSource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-status"/>
+        <description value="Return statements that match the given status"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="MedicationStatement.status"/>
+        <xpath value="f:MedicationStatement/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationStatement-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationStatement.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationStatement-subject"/>
+        <description value="The identity of a patient, animal or group to list statements for"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="MedicationStatement.subject"/>
+        <xpath value="f:MedicationStatement/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

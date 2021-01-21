@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-seriousness"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <h2>AdverseEventSeriousness</h2>
+      
+      <div>
+        
+        <p>Overall seriousness of this event for the patient.</p>
+
+      
+      </div>
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/adverse-event-seriousness defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td>
+            
+            <b>Lvl</b>
+          
+          </td>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>1</td>
+          
+          <td style="white-space:nowrap">Non-serious
+            
+            <a name="adverse-event-seriousness-Non-serious"> </a>
+          
+          </td>
+          
+          <td>Non-serious</td>
+          
+          <td>Non-serious.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>1</td>
+          
+          <td style="white-space:nowrap">Serious
+            
+            <a name="adverse-event-seriousness-Serious"> </a>
+          
+          </td>
+          
+          <td>Serious</td>
+          
+          <td>Serious.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  SeriousResultsInDeath
+            
+            <a name="adverse-event-seriousness-SeriousResultsInDeath"> </a>
+          
+          </td>
+          
+          <td>Results in death</td>
+          
+          <td>Results in death.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  SeriousIsLifeThreatening
+            
+            <a name="adverse-event-seriousness-SeriousIsLifeThreatening"> </a>
+          
+          </td>
+          
+          <td>Is Life-threatening</td>
+          
+          <td>Is Life-threatening.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  SeriousResultsInHospitalization
+            
+            <a name="adverse-event-seriousness-SeriousResultsInHospitalization"> </a>
+          
+          </td>
+          
+          <td>Requires or prolongs inpatient hospitalization</td>
+          
+          <td>Requires inpatient hospitalization or causes prolongation of existing hospitalization.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  SeriousResultsInDisability
+            
+            <a name="adverse-event-seriousness-SeriousResultsInDisability"> </a>
+          
+          </td>
+          
+          <td>Results in persistent or significant disability/incapacity</td>
+          
+          <td>Results in persistent or significant disability/incapacity.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  SeriousIsBirthDefect
+            
+            <a name="adverse-event-seriousness-SeriousIsBirthDefect"> </a>
+          
+          </td>
+          
+          <td>Is a congenital anomaly/birth defect</td>
+          
+          <td>Is a congenital anomaly/birth defect.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  SeriousRequiresPreventImpairment
+            
+            <a name="adverse-event-seriousness-SeriousRequiresPreventImpairment"> </a>
+          
+          </td>
+          
+          <td>Requires intervention to prevent permanent impairment</td>
+          
+          <td>Requires intervention to prevent permanent impairment or damage (i.e., an important medical event that requires medical judgement).</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1253"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="AdverseEventSeriousness"/>
+  <title value="AdverseEventSeriousness"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Overall seriousness of this event for the patient."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-seriousness"/>
+  <content value="complete"/>
+  <concept>
+    <code value="Non-serious"/>
+    <display value="Non-serious"/>
+    <definition value="Non-serious."/>
+  </concept>
+  <concept>
+    <code value="Serious"/>
+    <display value="Serious"/>
+    <definition value="Serious."/>
+    <concept>
+      <code value="SeriousResultsInDeath"/>
+      <display value="Results in death"/>
+      <definition value="Results in death."/>
+    </concept>
+    <concept>
+      <code value="SeriousIsLifeThreatening"/>
+      <display value="Is Life-threatening"/>
+      <definition value="Is Life-threatening."/>
+    </concept>
+    <concept>
+      <code value="SeriousResultsInHospitalization"/>
+      <display value="Requires or prolongs inpatient hospitalization"/>
+      <definition value="Requires inpatient hospitalization or causes prolongation of existing hospitalization."/>
+    </concept>
+    <concept>
+      <code value="SeriousResultsInDisability"/>
+      <display value="Results in persistent or significant disability/incapacity"/>
+      <definition value="Results in persistent or significant disability/incapacity."/>
+    </concept>
+    <concept>
+      <code value="SeriousIsBirthDefect"/>
+      <display value="Is a congenital anomaly/birth defect"/>
+      <definition value="Is a congenital anomaly/birth defect."/>
+    </concept>
+    <concept>
+      <code value="SeriousRequiresPreventImpairment"/>
+      <display value="Requires intervention to prevent permanent impairment"/>
+      <definition value="Requires intervention to prevent permanent impairment or damage (i.e., an important medical event that requires medical judgement)."/>
+    </concept>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="observation-genetic-Observation-dna-variant"/>
+  <url value="http://hl7.org/fhir/SearchParameter/observation-genetic-Observation-dna-variant"/>
+  <version value="4.0.1"/>
+  <name value="dna-variant"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="HGVS DNA variant"/>
+  <code value="dna-variant"/>
+  <base value="Observation"/>
+  <type value="string"/>
+  <expression value="Observation.extension(&#39;http://hl7.org/fhir/StructureDefinition/observation-geneticsDnaVariant&#39;)"/>
+  <xpathUsage value="normal"/>
+</SearchParameter>

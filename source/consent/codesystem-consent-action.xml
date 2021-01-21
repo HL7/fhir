@@ -1,6 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="consent-action"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cbcc"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1227"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="ConsentActionCodes"/>
   <title value="Consent Action Codes"/>
   <status value="draft"/>
@@ -32,6 +45,6 @@
   <concept>
     <code value="correct"/>
     <display value="Access and Correct"/>
-    <definition value="Allow retrieval of a patient's information for the purpose of update or rectify"/>
+    <definition value="Allow retrieval of a patient&#39;s information for the purpose of update or rectify"/>
   </concept>
 </CodeSystem>

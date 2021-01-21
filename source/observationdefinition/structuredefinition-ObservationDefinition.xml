@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ObservationDefinition"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Definitional Artifacts"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+  <version value="4.0.1"/>
+  <name value="ObservationDefinition"/>
+  <status value="draft"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service."/>
+  <purpose value="In a catalog of health-related services that use or produce observations and measurements, this resource describes the expected characteristics of these observation / measurements."/>
+  <fhirVersion value="4.0.1"/>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ObservationDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="ObservationDefinition">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="330,200"/>
+      </extension>
+      <path value="ObservationDefinition"/>
+      <short value="Definition of an observation"/>
+      <definition value="Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service."/>
+      <comment value="An instance of this resource informs the consumer of a health-related service (such as a lab diagnostic test or panel) about how the observations used or produced by this service will look like."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM2&#xA;OM3&#xA;OMC"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[classCode=OBS, moodCode=DEF]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.diagnostics"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.category">
+      <path value="ObservationDefinition.category"/>
+      <short value="Category of observation"/>
+      <definition value="A code that classifies the general type of observation."/>
+      <comment value="This element allows various categorization schemes based on the owner&#x2019;s definition of the category and effectively multiple categories can be used for one instance of ObservationDefinition. The level of granularity is defined by the category concepts in the value set."/>
+      <requirements value="Used for filtering what kinds of observations are retrieved and displayed."/>
+      <alias value="Class of observation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes for high level observation categories."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for high level observation categories."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;DEF&quot;].code"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.code">
+      <path value="ObservationDefinition.code"/>
+      <short value="Type of observation (code / type)"/>
+      <definition value="Describes what will be observed. Sometimes this is called the observation &quot;name&quot;."/>
+      <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
+      <alias value="Name"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes identifying names of simple observations."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying names of simple observations."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM1-2&#xA;OMC-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.identifier">
+      <path value="ObservationDefinition.identifier"/>
+      <short value="Business identifier for this ObservationDefinition instance"/>
+      <definition value="A unique identifier assigned to this ObservationDefinition artifact."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ObservationDefinition.permittedDataType">
+      <path value="ObservationDefinition.permittedDataType"/>
+      <short value="Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period"/>
+      <definition value="The data types allowed for the value element of the instance observations conforming to this ObservationDefinition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueCode value="CodeableConcept"/>
+      </example>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Permitted data type for observation value."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationDataType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Permitted data type for observation value."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/permitted-data-type"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM1-3"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.multipleResultsAllowed">
+      <path value="ObservationDefinition.multipleResultsAllowed"/>
+      <short value="Multiple results allowed"/>
+      <definition value="Multiple results allowed for observations conforming to this ObservationDefinition."/>
+      <comment value="An example of observation allowing multiple results is &quot;bacteria identified by culture&quot;. Conversely, the measurement of a potassium level allows a single result."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueBoolean value="true"/>
+      </example>
+    </element>
+    <element id="ObservationDefinition.method">
+      <path value="ObservationDefinition.method"/>
+      <short value="Method used to produce the observation"/>
+      <definition value="The method or technique used to perform the observation."/>
+      <comment value="Only used if not implicit in observation code."/>
+      <requirements value="In some cases, method can impact results."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Methods for simple observations."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationMethod"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Methods for simple observations."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-methods"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM1-14"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="methodCode"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.preferredReportName">
+      <path value="ObservationDefinition.preferredReportName"/>
+      <short value="Preferred report name"/>
+      <definition value="The preferred name to be used when reporting the results of observations conforming to this ObservationDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM1-9"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.quantitativeDetails">
+      <path value="ObservationDefinition.quantitativeDetails"/>
+      <short value="Characteristics of quantitative results"/>
+      <definition value="Characteristics for quantitative results of this observation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM2"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.quantitativeDetails.customaryUnit">
+      <path value="ObservationDefinition.quantitativeDetails.customaryUnit"/>
+      <short value="Customary unit for quantitative results"/>
+      <definition value="Customary unit used to report quantitative results of observations conforming to this ObservationDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes identifying units of measure."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationUnit"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes identifying units of measure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM2-2"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.quantitativeDetails.unit">
+      <path value="ObservationDefinition.quantitativeDetails.unit"/>
+      <short value="SI unit for quantitative results"/>
+      <definition value="SI unit used to report quantitative results of observations conforming to this ObservationDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes identifying units of measure."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationUnit"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes identifying units of measure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM2-4"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.quantitativeDetails.conversionFactor">
+      <path value="ObservationDefinition.quantitativeDetails.conversionFactor"/>
+      <short value="SI to Customary unit conversion factor"/>
+      <definition value="Factor for converting value expressed with SI unit to value expressed with customary unit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM2-5"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.quantitativeDetails.decimalPrecision">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="500,0"/>
+      </extension>
+      <path value="ObservationDefinition.quantitativeDetails.decimalPrecision"/>
+      <short value="Decimal precision of observation quantitative results"/>
+      <definition value="Number of digits after decimal separator when the results of such observations are of type Quantity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM2-3"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.qualifiedInterval">
+      <path value="ObservationDefinition.qualifiedInterval"/>
+      <short value="Qualified range for continuous and ordinal observation results"/>
+      <definition value="Multiple  ranges of results qualified by different contexts for ordinal or continuous observations conforming to this ObservationDefinition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM2-6"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.qualifiedInterval.category">
+      <path value="ObservationDefinition.qualifiedInterval.category"/>
+      <short value="reference | critical | absolute"/>
+      <definition value="The category of interval of values for continuous or ordinal observations conforming to this ObservationDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueCode value="critical"/>
+      </example>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes identifying the category of observation range."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationRangeCategory"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes identifying the category of observation range."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-range-category"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM-2"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.qualifiedInterval.range">
+      <path value="ObservationDefinition.qualifiedInterval.range"/>
+      <short value="The interval itself, for continuous or ordinal observations"/>
+      <definition value="The low and high values determining the interval. There may be only one of the two."/>
+      <requirements value="The unit may be not relevant for ordinal values. In case it is there, it is the same as quantitativeDetails.unit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Range"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM-2"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.qualifiedInterval.context">
+      <path value="ObservationDefinition.qualifiedInterval.context"/>
+      <short value="Range context qualifier"/>
+      <definition value="Codes to indicate the health context the range applies to. For example, the normal or therapeutic range."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Code identifying the health context of a range."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationRangeMeaning"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Code identifying the health context of a range."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/referencerange-meaning"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="n.a."/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.qualifiedInterval.appliesTo">
+      <path value="ObservationDefinition.qualifiedInterval.appliesTo"/>
+      <short value="Targetted population of the range"/>
+      <definition value="Codes to indicate the target population this reference range applies to."/>
+      <comment value="If this element is not present then the global population is assumed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes identifying the population the reference range applies to."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationRangeAppliesTo"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying the population the reference range applies to."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/referencerange-appliesto"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RFR.6"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.qualifiedInterval.gender">
+      <path value="ObservationDefinition.qualifiedInterval.gender"/>
+      <short value="male | female | other | unknown"/>
+      <definition value="Sex of the population the range applies to."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueCode value="female"/>
+      </example>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The gender of a person used for administrative purposes."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdministrativeGender"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v2-map">
+          <valueString value="http://terminology.hl7.org/ValueSet/v2-0001"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
+          <valueString value="http://terminology.hl7.org/ValueSet/v3-AdministrativeGender"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The gender of a person used for administrative purposes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RFR.2"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.qualifiedInterval.age">
+      <path value="ObservationDefinition.qualifiedInterval.age"/>
+      <short value="Applicable age range, if relevant"/>
+      <definition value="The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so."/>
+      <comment value="Some analytes vary greatly over age."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Range"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RFR.3"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.qualifiedInterval.gestationalAge">
+      <path value="ObservationDefinition.qualifiedInterval.gestationalAge"/>
+      <short value="Applicable gestational age range, if relevant"/>
+      <definition value="The gestational age to which this reference range is applicable, in the context of pregnancy."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Range"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RFR.4"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.qualifiedInterval.condition">
+      <path value="ObservationDefinition.qualifiedInterval.condition"/>
+      <short value="Condition associated with the reference range"/>
+      <definition value="Text based condition for which the reference range is valid."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RFR.7"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.validCodedValueSet">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="300,20"/>
+      </extension>
+      <path value="ObservationDefinition.validCodedValueSet"/>
+      <short value="Value set of valid coded values for the observations conforming to this ObservationDefinition"/>
+      <definition value="The set of valid coded results for the observations  conforming to this ObservationDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM3-3"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.normalCodedValueSet">
+      <path value="ObservationDefinition.normalCodedValueSet"/>
+      <short value="Value set of normal coded values for the observations conforming to this ObservationDefinition"/>
+      <definition value="The set of normal coded results for the observations conforming to this ObservationDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM3-4"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.abnormalCodedValueSet">
+      <path value="ObservationDefinition.abnormalCodedValueSet"/>
+      <short value="Value set of abnormal coded values for the observations conforming to this ObservationDefinition"/>
+      <definition value="The set of abnormal coded results for the observation conforming to this ObservationDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM3-5"/>
+      </mapping>
+    </element>
+    <element id="ObservationDefinition.criticalCodedValueSet">
+      <path value="ObservationDefinition.criticalCodedValueSet"/>
+      <short value="Value set of critical coded values for the observations conforming to this ObservationDefinition"/>
+      <definition value="The set of critical coded results for the observation conforming to this ObservationDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM3-6"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

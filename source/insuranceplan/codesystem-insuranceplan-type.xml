@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://terminology.hl7.org/CodeSystem/insurance-plan-type"/>
+  <id value="insuranceplan-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/insuranceplan-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1261"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="InsurancePlanType"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -11,52 +23,41 @@
   <concept>
     <code value="medical"/>
     <display value="Medical"/>
-    <!-- <definition value=""/> -->
   </concept>
   <concept>
     <code value="dental"/>
     <display value="Dental"/>
-    <!-- <definition value=""/> -->
   </concept>
   <concept>
     <code value="mental"/>
     <display value="Mental Health"/>
-    <!-- <definition value=""/> -->
   </concept>
   <concept>
     <code value="subst-ab"/>
     <display value="Substance Abuse"/>
-    <!-- <definition value=""/> -->
   </concept>
   <concept>
     <code value="vision"/>
     <display value="Vision"/>
-    <!-- <definition value=""/> -->
   </concept>
   <concept>
     <code value="Drug"/>
     <display value="Drug"/>
-    <!-- <definition value=""/> -->
   </concept>
   <concept>
     <code value="short-term"/>
     <display value="Short Term"/>
-    <!-- <definition value=""/> -->
   </concept>
   <concept>
     <code value="long-term"/>
     <display value="Long Term Care"/>
-    <!-- <definition value=""/> -->
   </concept>
   <concept>
     <code value="hospice"/>
     <display value="Hospice"/>
-    <!-- <definition value=""/> -->
   </concept>
   <concept>
     <code value="home"/>
     <display value="Home Health"/>
-    <!-- <definition value=""/> -->
   </concept>
-
 </CodeSystem>

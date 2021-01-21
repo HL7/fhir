@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="observation-genetics"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/observation-genetics"/>
+  <version value="4.0.1"/>
+  <name value="Observation-genetics"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2016-03-14"/>
+  <publisher value="Health Level Seven International (Clinical Genomics)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/clingenomics"/>
+    </telecom>
+  </contact>
+  <description value="Describes how the observation resource is used to report structured genetic test results"/>
+  <fhirVersion value="4.0.1"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="sct-concept"/>
+    <uri value="http://snomed.info/conceptdomain"/>
+    <name value="SNOMED CT Concept Domain Binding"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="sct-attr"/>
+    <uri value="http://snomed.org/attributebinding"/>
+    <name value="SNOMED CT Attribute Binding"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Observation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Observation">
+      <path value="Observation"/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="Observation.extension:Gene">
+      <path value="Observation.extension"/>
+      <sliceName value="Gene"/>
+      <short value="HGNC gene symbol"/>
+      <definition value="A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions ([SO:0000704](http://www.sequenceontology.org/browser/current_svn/term/SO:0000704)). This element is the official gene symbol approved by the HGNC, which is a short abbreviated form of the gene name ([HGNC](http://www.genenames.org)). LOINC Code: ([48018-6](http://loinc.org/48018-6))."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene"/>
+      </type>
+    </element>
+    <element id="Observation.extension:DNARegionName">
+      <path value="Observation.extension"/>
+      <sliceName value="DNARegionName"/>
+      <short value="DNA region name"/>
+      <definition value="A human readable name for the region of interest. Typically Exon #, Intron # or other. NOTE: This is not standardized and is mainly for convenience and display purposes.  LOINC Code: ([47999-8](http://loinc.org/47999-8))."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName"/>
+      </type>
+    </element>
+    <element id="Observation.extension:CopyNumberEvent">
+      <path value="Observation.extension"/>
+      <sliceName value="CopyNumberEvent"/>
+      <short value="Copy number variation"/>
+      <definition value="A variation that increases or decreases the copy number of a given region ([SO:0001019](http://www.sequenceontology.org/browser/current_svn/term/SO:0001019)). Values: amplification/deletion/LOH."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-geneticsCopyNumberEvent"/>
+      </type>
+    </element>
+    <element id="Observation.extension:GenomicSourceClass">
+      <path value="Observation.extension"/>
+      <sliceName value="GenomicSourceClass"/>
+      <short value="Genomic source class"/>
+      <definition value="Source of sample used to determine the sequence in sequencing lab -- germline, somatic, prenatal. LOINC Code: ([48002-0](http://loinc.org/48002-0))."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass"/>
+      </type>
+    </element>
+    <element id="Observation.extension:Interpretation">
+      <path value="Observation.extension"/>
+      <sliceName value="Interpretation"/>
+      <short value="Clinical interpretations for variant"/>
+      <definition value="Clinical Interpretations for variant. It&#39;s a reference to an Observation resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-geneticsInterpretation"/>
+      </type>
+    </element>
+    <element id="Observation.extension:Variant">
+      <path value="Observation.extension"/>
+      <sliceName value="Variant"/>
+      <short value="Variant"/>
+      <definition value="Variant information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariant"/>
+      </type>
+    </element>
+    <element id="Observation.extension:AminoAcidChange">
+      <path value="Observation.extension"/>
+      <sliceName value="AminoAcidChange"/>
+      <short value="AminoAcidChange"/>
+      <definition value="AminoAcidChange information."/>
+      <comment value="Loss of heterozygosity (LOH) is a functional variant whereby the sequence alteration causes a loss of function of one allele of a gene ([SO:0001786](http://www.sequenceontology.org/browser/current_svn/term/SO:0001786))."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-geneticsAminoAcidChange"/>
+      </type>
+    </element>
+    <element id="Observation.extension:Allele">
+      <path value="Observation.extension"/>
+      <sliceName value="Allele"/>
+      <short value="Allele"/>
+      <definition value="Allele information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-geneticsAllele"/>
+      </type>
+    </element>
+    <element id="Observation.extension:Ancestry">
+      <path value="Observation.extension"/>
+      <sliceName value="Ancestry"/>
+      <short value="Ancestry"/>
+      <definition value="Ancestry information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-geneticsAncestry"/>
+      </type>
+    </element>
+    <element id="Observation.extension:PhaseSet">
+      <path value="Observation.extension"/>
+      <sliceName value="PhaseSet"/>
+      <short value="Phase set"/>
+      <definition value="Phase set information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

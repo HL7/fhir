@@ -46,7 +46,7 @@
 	<classpathentry kind="lib" path="../imports/jackson-databind-2.5.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/antlr-runtime-3.5.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/ucum-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/ucum-1.0.jar"/>
 	<classpathentry kind="lib" path="../imports/org.everit.json.schema-1.9.1.jar"/>
 	<classpathentry kind="lib" path="../imports/guava-23.6-jre.jar"/>
 	<classpathentry kind="lib" path="../imports/json-20171018.jar"/>

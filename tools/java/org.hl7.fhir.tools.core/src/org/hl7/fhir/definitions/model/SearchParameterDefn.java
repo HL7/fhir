@@ -87,6 +87,7 @@ public class SearchParameterDefn {
   private boolean hierarchy;
   private StandardsStatus standardsStatus;
   private String url;
+  private Set<String> manualTypes = new HashSet<String>();
   
   // operational tracking
   private String xPath;
@@ -301,4 +302,18 @@ public class SearchParameterDefn {
     this.standardsStatus = standardsStatus;
     this.normativeVersion = normativeVersion;    
   }
+  
+  public Set<String> getManualTypes() {
+    return manualTypes;
+  }
+  
+  public boolean hasManualTypes() {
+    return !manualTypes.isEmpty();
+  }
+
+  public Set<String> getManualTargets() {
+    return manualTargets;
+  }
+    
+
 }

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="evidence-variant-state"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <h2>EvidenceVariantState</h2>
+      
+      <div>
+        
+        <p>Used for results by exposure in variant states such as low-risk, medium-risk and high-risk states.</p>
+
+      
+      </div>
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/evidence-variant-state defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">low-risk
+            
+            <a name="evidence-variant-state-low-risk"> </a>
+          
+          </td>
+          
+          <td>low risk</td>
+          
+          <td>low risk estimate.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">medium-risk
+            
+            <a name="evidence-variant-state-medium-risk"> </a>
+          
+          </td>
+          
+          <td>medium risk</td>
+          
+          <td>medium risk estimate.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">high-risk
+            
+            <a name="evidence-variant-state-high-risk"> </a>
+          
+          </td>
+          
+          <td>high risk</td>
+          
+          <td>high risk estimate.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/evidence-variant-state"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1354"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="EvidenceVariantState"/>
+  <title value="EvidenceVariantState"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Used for results by exposure in variant states such as low-risk, medium-risk and high-risk states."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/evidence-variant-state"/>
+  <content value="complete"/>
+  <concept>
+    <code value="low-risk"/>
+    <display value="low risk"/>
+    <definition value="low risk estimate."/>
+  </concept>
+  <concept>
+    <code value="medium-risk"/>
+    <display value="medium risk"/>
+    <definition value="medium risk estimate."/>
+  </concept>
+  <concept>
+    <code value="high-risk"/>
+    <display value="high risk"/>
+    <definition value="high risk estimate."/>
+  </concept>
+</CodeSystem>

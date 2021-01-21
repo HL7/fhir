@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="FamilyMemberHistory-core"/>
+  <version value="0.01"/>
+  <name value="Family member history for genetics analysis"/>
+  <title value="Family member history for genetics analysis"/>
+  <status value="draft"/>
+  <date value="2013-10-02T00:00:00.000"/>
+  <publisher value="Health Level Seven International (Clinical Genomics)"/>
+  <description value="Adds additional information to a family member history supporting both the capture of mother/father relationships as well as additional observations necessary to enable genetics-based risk analysis for patients"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/familymemberhistory-genetic"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/family-member-history-genetics-parent"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/family-member-history-genetics-sibling"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/family-member-history-genetics-observation"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/familymemberhistory-abatement"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/familymemberhistory-severity"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/familymemberhistory-patient-record"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/familymemberhistory-type"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

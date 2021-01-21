@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="action-participant-role"/>
   <meta>
@@ -8,20 +9,40 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <h2>Action Participant Role</h2>
+      
       <p>Either a practitioner role or a relationship type.</p>
+      
       <p>This value set includes codes from the following value sets:</p>
+      
       <ul>
+        
         <li>Include all codes defined in
+          
           <a href="valueset-practitioner-role.html">http://hl7.org/fhir/ValueSet/practitioner-role</a>
+        
         </li>
+        
         <li>Include all codes defined in
+          
           <a href="valueset-relatedperson-relationshiptype.html">http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype</a>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
-  <url value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/action-participant-role"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.796"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="ActionParticipantRole"/>
   <status value="draft"/>
   <experimental value="false"/>

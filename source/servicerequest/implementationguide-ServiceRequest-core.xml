@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="ServiceRequest-core"/>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/introduction">
+    <valueString value="servicerequest-genetics-introduction.xml"/>
+  </extension>
+  <version value="0.02"/>
+  <name value="ServiceRequest-Genetics"/>
+  <title value="ServiceRequest-Genetics"/>
+  <status value="draft"/>
+  <date value="2015-10-20T00:00:00.000"/>
+  <publisher value="Health Level Seven International (Clinical Genomics)"/>
+  <description value="Describes how the ServiceRequest resource is used to for genetics"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/servicerequest-genetics"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/servicerequest-geneticsItem"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/example-pgx"/>
+      </reference>
+      <name value="PGx"/>
+      <description value="PGx Phenotype example"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/genetics-example-1"/>
+      </reference>
+      <name value="Order-genetics-1"/>
+      <description value="Order for ABCB4 gene mutation analysis"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/servicerequest-precondition"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/servicerequest-questionnaireRequest"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

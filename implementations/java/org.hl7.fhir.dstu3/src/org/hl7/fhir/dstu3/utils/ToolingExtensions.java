@@ -85,6 +85,9 @@ public class ToolingExtensions {
   public static final String EXT_ALLOWEDRESOURCE = "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource";
   public static final String EXT_REFERENCEFILTER = "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter";
   public static final String EXT_CODE_GENERATION_PARENT = "http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super";
+  public static final String EXT_BEST_PRACTICE_EXPLANATION = "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation";
+  public static final String EXT_HIERARCHY = "http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy";
+  public static final String EXT_BEST_PRACTICE = "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice";
 
   // unregistered?
   public static final String EXT_MAPPING_PREFIX = "http://hl7.org/fhir/tools/StructureDefinition/logical-mapping-prefix";

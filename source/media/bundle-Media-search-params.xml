@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Media-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-based-on"/>
+        <description value="Procedure that caused this media to be created"/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="Media.basedOn"/>
+        <xpath value="f:Media/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-created"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.created[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-created"/>
+        <description value="When Media was collected"/>
+        <code value="created"/>
+        <type value="date"/>
+        <expression value="Media.created"/>
+        <xpath value="f:Media/f:createdDateTime | f:Media/f:createdPeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-device"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.device"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-device"/>
+        <description value="Observing Device"/>
+        <code value="device"/>
+        <type value="reference"/>
+        <expression value="Media.device"/>
+        <xpath value="f:Media/f:device"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-encounter"/>
+        <description value="Encounter associated with media"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="Media.encounter"/>
+        <xpath value="f:Media/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-identifier"/>
+        <description value="Identifier(s) for the image"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Media.identifier"/>
+        <xpath value="f:Media/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-modality"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.modality"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-modality"/>
+        <description value="The type of acquisition equipment/process"/>
+        <code value="modality"/>
+        <type value="token"/>
+        <expression value="Media.modality"/>
+        <xpath value="f:Media/f:modality"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-operator"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.operator"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-operator"/>
+        <description value="The person who generated the image"/>
+        <code value="operator"/>
+        <type value="reference"/>
+        <expression value="Media.operator"/>
+        <xpath value="f:Media/f:operator"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-patient"/>
+        <description value="Who/What this Media is a record of"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Media.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Media/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-site"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.bodySite"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-site"/>
+        <description value="Observed body part"/>
+        <code value="site"/>
+        <type value="token"/>
+        <expression value="Media.bodySite"/>
+        <xpath value="f:Media/f:bodySite"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-status"/>
+        <description value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Media.status"/>
+        <xpath value="f:Media/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-subject"/>
+        <description value="Who/What this Media is a record of"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Media.subject"/>
+        <xpath value="f:Media/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-type"/>
+        <description value="Classification of media as image, video, or audio"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Media.type"/>
+        <xpath value="f:Media/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Media-view"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Media.view"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Media-view"/>
+        <description value="Imaging view, e.g. Lateral or Antero-posterior"/>
+        <code value="view"/>
+        <type value="token"/>
+        <expression value="Media.view"/>
+        <xpath value="f:Media/f:view"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

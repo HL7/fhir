@@ -46,12 +46,15 @@
   <contained>
     <Substance>
       <id value="citalopramSubstance"/>
+      <instance value="false"/>
       <code>
+        <concept>
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
           <code value="2556"/>
         </coding>
         <text value="citalopram"/>
+        </concept>
       </code>
     </Substance>
   </contained>
@@ -64,9 +67,9 @@
 	  <reference value="Patient/124"/>
   </subject>
   <!--definition>
-    <reference value="ActivityDefinition/citalopramPrescription"/>
+    <reference value="http://example.org/fhir/ActivityDefinition/citalopramPrescription"/>
   </definition-->
-  <instantiates value="ActivityDefinition/citalopramPrescription"/>
+  <instantiates value="http://example.org/fhir/ActivityDefinition/citalopramPrescription"/>
   <dosageInstruction>
 	<text value="1 tablet oral 1 time daily"/>
 	<timing>

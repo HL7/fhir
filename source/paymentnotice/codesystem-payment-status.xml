@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="payment-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/paymentstatus"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1187"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="PaymentStatusCodes"/>
   <title value="Payment Status Codes"/>
   <status value="draft"/>
@@ -12,12 +24,12 @@
   <content value="complete"/>
   <concept>
     <code value="paid"/>
-	<display value="Paid"/>
-	<definition value="The payment has been sent physically or electronically."/>
+    <display value="Paid"/>
+    <definition value="The payment has been sent physically or electronically."/>
   </concept>
   <concept>
     <code value="cleared"/>
-	<display value="Cleared"/>
-	<definition value="The payment has been received by the payee."/>
+    <display value="Cleared"/>
+    <definition value="The payment has been received by the payee."/>
   </concept>
 </CodeSystem>

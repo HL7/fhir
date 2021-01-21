@@ -1,18 +1,26 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="audit-event-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <url value="http://dicom.nema.org/resources/ontology/DCM/400"/>
-  <version value="20150326"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/audit-event-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.462"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="AuditEventID"/>
   <title value="Audit Event ID"/>
   <status value="active"/>
   <date value="2015-03-26"/>
   <publisher value="NEMA/DICOM"/>
   <description value="Event Types for Audit Events - defined by DICOM with some FHIR specific additions."/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
   <compose>
     <include>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>

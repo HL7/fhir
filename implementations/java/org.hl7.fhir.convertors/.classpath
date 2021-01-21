@@ -19,7 +19,7 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/javaparser-1.0.11.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/ucum-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/ucum-1.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/org.hl7.fhir.utg/jars/jackcess-2.1.4.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/org.hl7.fhir.utg/jars/commons-lang-2.6.jar"/>
 	<classpathentry kind="output" path="bin"/>

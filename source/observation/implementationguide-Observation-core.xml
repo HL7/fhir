@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Observation-core"/>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/introduction">
+    <valueString value="observation-devicemetricobservation-profile-introduction.xml"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/notes">
+    <valueString value="observation-devicemetricobservation-profile-notes.xml"/>
+  </extension>
+  <name value="Device Metric Observation Profile"/>
+  <title value="Device Metric Observation Profile"/>
+  <status value="draft"/>
+  <date value="2014-11-17T00:00:00.000"/>
+  <publisher value="Health Level Seven International (Health Care Devices)"/>
+  <description value="This profile describes the direct or derived, qualitative or quantitative physiological measurement, setting, or calculation data produced by a medical device or a device component."/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/devicemetricobservation"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-bodyPosition"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-delta"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-focusCode"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-timeOffset"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-sequelTo"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-replaces"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-gatewayDevice"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-specimenCode"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-deviceCode"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-precondition"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-reagent"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-secondaryFinding"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-genetics"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-geneticsGene"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-geneticsDNARegionName"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-geneticsCopyNumberEvent"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-geneticsGenomicSourceClass"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-geneticsInterpretation"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-geneticsVariant"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-geneticsAminoAcidChange"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-geneticsAllele"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-geneticsAncestry"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/observation-geneticsPhaseSet"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/observation-genetic-Observation-gene-identifier"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/observation-genetic-Observation-dna-variant"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/observation-genetic-Observation-amino-acid-change"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/observation-genetic-Observation-gene-dnavariant"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/observation-genetic-Observation-gene-amino-acid-change"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-genetics-1"/>
+      </reference>
+      <name value="Genetics 1"/>
+      <description value="Genetics example 1"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-genetics-2"/>
+      </reference>
+      <name value="Genetics 2"/>
+      <description value="Genetics example 2"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-genetics-3"/>
+      </reference>
+      <name value="Genetics 3"/>
+      <description value="Genetics example 3"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-genetics-4"/>
+      </reference>
+      <name value="Genetics 4"/>
+      <description value="Genetics example 4"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-genetics-5"/>
+      </reference>
+      <name value="Genetics 5"/>
+      <description value="Genetics example 5"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-diplotype1"/>
+      </reference>
+      <name value="Diplotype(with Haplotypes Ref)"/>
+      <description value="Example of diplotype data (with haplotypes observation as reference)"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-haplotype1"/>
+      </reference>
+      <name value="Haplotype"/>
+      <description value="Example of haplotype data that is basis of a diplotype data"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-haplotype2"/>
+      </reference>
+      <name value="Haplotype-2"/>
+      <description value="Example of another haplotype data that is basis of a diplotype data"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-phenotype"/>
+      </reference>
+      <name value="Phenotype"/>
+      <description value="Example of phenotype data"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-TPMT-diplotype"/>
+      </reference>
+      <name value="TPMT-diplotype"/>
+      <description value="Example of a TPMT diplotype that link to two TPMT haplotype observations"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-TPMT-haplotype-one"/>
+      </reference>
+      <name value="TPMT-haplotype-one"/>
+      <description value="Example of a TPMT haplotype observation"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-TPMT-haplotype-two"/>
+      </reference>
+      <name value="TPMT-haplotype-two"/>
+      <description value="Example of another TPMT haplotype observation"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-genetics-brcapat"/>
+      </reference>
+      <name value="Breast Cancer genetic test"/>
+      <description value="Example of breast cancer genetic observation"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/vitalsigns"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/bodyweight"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/vitalspanel"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/bodyheight"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/resprate"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/heartrate"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/bodytemp"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/headcircum"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/oxygensat"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/bmi"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/bp"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

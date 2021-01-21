@@ -1,26 +1,37 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/devicerequest.xsd">
-	<meta>
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-	</meta>
-	<name value="MediaModality"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="media-modality"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/media-modality"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1001"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="MediaModality"/>
   <title value="Media Modality"/>
-	<status value="draft"/>
-	<publisher value="FHIR Project team"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it."/>
-	<copyright value="This resource includes content from the Digital Imaging and Communications in Medicine (DICOM) Standard, Copyright 2011 by the National Electrical Manufacturers Association"/>
-	<compose>
-		<include>
-			<valueSet value="http://hl7.org/fhir/ValueSet/dicom-cid29"/>
-		</include>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/media-modality"/>
-		</include>
-	</compose>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it."/>
+  <copyright value="This resource includes content from the Digital Imaging and Communications in Medicine (DICOM) Standard, Copyright 2011 by the National Electrical Manufacturers Association"/>
+  <compose>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/dicom-cid29"/>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/media-modality"/>
+    </include>
+  </compose>
 </ValueSet>

@@ -20,3 +20,14 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "E84.0",
+  "display" : "Cystic fibrosis with pulmonary manifestations"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Cystic fibrosis with pulmonary manifestations",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

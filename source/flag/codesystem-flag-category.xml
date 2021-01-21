@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="flag-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/flag-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1071"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="FlagCategory"/>
   <title value="Flag Category"/>
   <status value="draft"/>
@@ -13,12 +25,12 @@
   <concept>
     <code value="diet"/>
     <display value="Diet"/>
-    <definition value="Flags related to the subject's dietary needs."/>
+    <definition value="Flags related to the subject&#39;s dietary needs."/>
   </concept>
   <concept>
     <code value="drug"/>
     <display value="Drug"/>
-    <definition value="Flags related to the subject's medications."/>
+    <definition value="Flags related to the subject&#39;s medications."/>
   </concept>
   <concept>
     <code value="lab"/>
@@ -38,7 +50,7 @@
   <concept>
     <code value="clinical"/>
     <display value="Clinical"/>
-    <definition value="Flags related to the subject's clinical data."/>
+    <definition value="Flags related to the subject&#39;s clinical data."/>
   </concept>
   <concept>
     <code value="behavioral"/>
@@ -53,7 +65,7 @@
   <concept>
     <code value="advance-directive"/>
     <display value="Advance Directive"/>
-    <definition value="Flags related to subject's advance directives."/>
+    <definition value="Flags related to subject&#39;s advance directives."/>
   </concept>
   <concept>
     <code value="safety"/>

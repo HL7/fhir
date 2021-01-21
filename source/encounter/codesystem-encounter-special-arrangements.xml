@@ -1,11 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="encounter-special-arrangements"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/encounter-special-arrangements"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1090"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="SpecialArrangements"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This codesystem defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patient's visit."/>
+  <description value="This codesystem defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patient&#39;s visit."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
@@ -26,7 +38,7 @@
   <concept>
     <code value="att"/>
     <display value="Attendant"/>
-    <definition value="A person who accompanies a patient to provide assistive services necessary for the patient's care during the encounter."/>
+    <definition value="A person who accompanies a patient to provide assistive services necessary for the patient&#39;s care during the encounter."/>
   </concept>
   <concept>
     <code value="dog"/>

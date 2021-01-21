@@ -86,6 +86,10 @@ public class OperationParameter {
     return parts;
   }
 
+  public BindingSpecification getBinding() {
+    return bs;
+  }
+
   public BindingSpecification getBs() {
     return bs;
   }

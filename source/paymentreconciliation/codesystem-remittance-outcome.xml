@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="remittance-outcome"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h2>Claim Processing Codes</h2>
+      <div>
+        <p>This value set includes Claim Processing Outcome codes.</p>
+
+      </div>
+      <p>
+        <b>Copyright Statement:</b>
+      </p>
+      <div>
+        <p>HL7 Inc.</p>
+
+      </div>
+      <p>This code system http://hl7.org/fhir/remittance-outcome defines the following codes:</p>
+      <table class="codes">
+        <tr>
+          <td style="white-space:nowrap">
+            <b>Code</b>
+          </td>
+          <td>
+            <b>Display</b>
+          </td>
+          <td>
+            <b>Definition</b>
+          </td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">queued
+            <a name="remittance-outcome-queued"> </a>
+          </td>
+          <td>Queued</td>
+          <td>The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">complete
+            <a name="remittance-outcome-complete"> </a>
+          </td>
+          <td>Processing Complete</td>
+          <td>The processing has completed without errors</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">error
+            <a name="remittance-outcome-error"> </a>
+          </td>
+          <td>Error</td>
+          <td>One or more errors have been detected in the Claim</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">partial
+            <a name="remittance-outcome-partial"> </a>
+          </td>
+          <td>Partial Processing</td>
+          <td>No errors have been detected in the Claim and some of the adjudication has been performed.</td>
+        </tr>
+      </table>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/remittance-outcome"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.14"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="ClaimProcessingCodes"/>
+  <title value="Claim Processing Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes Claim Processing Outcome codes."/>
+  <copyright value="HL7 Inc."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/remittance-outcome"/>
+  <content value="complete"/>
+  <concept>
+    <code value="queued"/>
+    <display value="Queued"/>
+    <definition value="The Claim/Pre-authorization/Pre-determination has been received but processing has not begun."/>
+  </concept>
+  <concept>
+    <code value="complete"/>
+    <display value="Processing Complete"/>
+    <definition value="The processing has completed without errors"/>
+  </concept>
+  <concept>
+    <code value="error"/>
+    <display value="Error"/>
+    <definition value="One or more errors have been detected in the Claim"/>
+  </concept>
+  <concept>
+    <code value="partial"/>
+    <display value="Partial Processing"/>
+    <definition value="No errors have been detected in the Claim and some of the adjudication has been performed."/>
+  </concept>
+</CodeSystem>

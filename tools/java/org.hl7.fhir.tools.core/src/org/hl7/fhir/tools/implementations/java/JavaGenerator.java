@@ -477,7 +477,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.4.0.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "junit-4.11.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "hamcrest-core-1.3.jar"), names);
 
@@ -772,7 +772,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "commonmark-0.12.1.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commonmark-ext-gfm-tables-0.12.1.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "antlr-runtime-3.5.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0.jar"), names);
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.r4",          "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.r4",          "src").length()+1, names);

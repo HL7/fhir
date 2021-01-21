@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="restful-interaction"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h2>FHIR Restful Interactions</h2>
+      <div>
+        <p>The set of interactions defined by the RESTful part of the FHIR specification.</p>
+
+      </div>
+      <p>This code system http://hl7.org/fhir/restful-interaction defines the following codes:</p>
+      <table class="codes">
+        <tr>
+          <td>
+            <b>Lvl</b>
+          </td>
+          <td style="white-space:nowrap">
+            <b>Code</b>
+          </td>
+          <td>
+            <b>Display</b>
+          </td>
+          <td>
+            <b>Definition</b>
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">read
+            <a name="restful-interaction-read"> </a>
+          </td>
+          <td>read</td>
+          <td>Read the current state of the resource.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">vread
+            <a name="restful-interaction-vread"> </a>
+          </td>
+          <td>vread</td>
+          <td>Read the state of a specific version of the resource.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">update
+            <a name="restful-interaction-update"> </a>
+          </td>
+          <td>update</td>
+          <td>Update an existing resource by its id (or create it if it is new).</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">patch
+            <a name="restful-interaction-patch"> </a>
+          </td>
+          <td>patch</td>
+          <td>Update an existing resource by posting a set of changes to it.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">delete
+            <a name="restful-interaction-delete"> </a>
+          </td>
+          <td>delete</td>
+          <td>Delete a resource.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">history
+            <a name="restful-interaction-history"> </a>
+          </td>
+          <td>history</td>
+          <td>Retrieve the change history for a particular resource, type of resource, or the entire system.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;history-instance
+            <a name="restful-interaction-history-instance"> </a>
+          </td>
+          <td>history-instance</td>
+          <td>Retrieve the change history for a particular resource.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;history-type
+            <a name="restful-interaction-history-type"> </a>
+          </td>
+          <td>history-type</td>
+          <td>Retrieve the change history for all resources of a particular type.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;history-system
+            <a name="restful-interaction-history-system"> </a>
+          </td>
+          <td>history-system</td>
+          <td>Retrieve the change history for all resources on a system.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">create
+            <a name="restful-interaction-create"> </a>
+          </td>
+          <td>create</td>
+          <td>Create a new resource with a server assigned id.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">search
+            <a name="restful-interaction-search"> </a>
+          </td>
+          <td>search</td>
+          <td>Search a resource type or all resources based on some filter criteria.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;search-type
+            <a name="restful-interaction-search-type"> </a>
+          </td>
+          <td>search-type</td>
+          <td>Search all resources of the specified type based on some filter criteria.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;search-system
+            <a name="restful-interaction-search-system"> </a>
+          </td>
+          <td>search-system</td>
+          <td>Search all resources based on some filter criteria.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">capabilities
+            <a name="restful-interaction-capabilities"> </a>
+          </td>
+          <td>capabilities</td>
+          <td>Get a Capability Statement for the system.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">transaction
+            <a name="restful-interaction-transaction"> </a>
+          </td>
+          <td>transaction</td>
+          <td>Update, create or delete a set of resources as a single transaction.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">batch
+            <a name="restful-interaction-batch"> </a>
+          </td>
+          <td>batch</td>
+          <td>perform a set of a separate interactions in a single http operation</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">operation
+            <a name="restful-interaction-operation"> </a>
+          </td>
+          <td>operation</td>
+          <td>Perform an operation as defined by an OperationDefinition.</td>
+        </tr>
+      </table>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://hl7.org/fhir/restful-interaction"/>
+  <version value="4.0.1"/>
+  <name value="FHIR Restful Interactions"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="FHIR Project"/>
+  <description value="The set of interactions defined by the RESTful part of the FHIR specification."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/restful-interaction"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <concept>
+    <code value="read"/>
+    <display value="read"/>
+    <definition value="Read the current state of the resource."/>
+  </concept>
+  <concept>
+    <code value="vread"/>
+    <display value="vread"/>
+    <definition value="Read the state of a specific version of the resource."/>
+  </concept>
+  <concept>
+    <code value="update"/>
+    <display value="update"/>
+    <definition value="Update an existing resource by its id (or create it if it is new)."/>
+  </concept>
+  <concept>
+    <code value="patch"/>
+    <display value="patch"/>
+    <definition value="Update an existing resource by posting a set of changes to it."/>
+  </concept>
+  <concept>
+    <code value="delete"/>
+    <display value="delete"/>
+    <definition value="Delete a resource."/>
+  </concept>
+  <concept>
+    <code value="history"/>
+    <display value="history"/>
+    <definition value="Retrieve the change history for a particular resource, type of resource, or the entire system."/>
+    <concept>
+      <code value="history-instance"/>
+      <display value="history-instance"/>
+      <definition value="Retrieve the change history for a particular resource."/>
+    </concept>
+    <concept>
+      <code value="history-type"/>
+      <display value="history-type"/>
+      <definition value="Retrieve the change history for all resources of a particular type."/>
+    </concept>
+    <concept>
+      <code value="history-system"/>
+      <display value="history-system"/>
+      <definition value="Retrieve the change history for all resources on a system."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="create"/>
+    <display value="create"/>
+    <definition value="Create a new resource with a server assigned id."/>
+  </concept>
+  <concept>
+    <code value="search"/>
+    <display value="search"/>
+    <definition value="Search a resource type or all resources based on some filter criteria."/>
+    <concept>
+      <code value="search-type"/>
+      <display value="search-type"/>
+      <definition value="Search all resources of the specified type based on some filter criteria."/>
+    </concept>
+    <concept>
+      <code value="search-system"/>
+      <display value="search-system"/>
+      <definition value="Search all resources based on some filter criteria."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="capabilities"/>
+    <display value="capabilities"/>
+    <definition value="Get a Capability Statement for the system."/>
+  </concept>
+  <concept>
+    <code value="transaction"/>
+    <display value="transaction"/>
+    <definition value="Update, create or delete a set of resources as a single transaction."/>
+  </concept>
+  <concept>
+    <code value="batch"/>
+    <display value="batch"/>
+    <definition value="perform a set of a separate interactions in a single http operation"/>
+  </concept>
+  <concept>
+    <code value="operation"/>
+    <display value="operation"/>
+    <definition value="Perform an operation as defined by an OperationDefinition."/>
+  </concept>
+</CodeSystem>

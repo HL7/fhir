@@ -11,7 +11,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">ActivityDefinition/referralPrimaryCareMentalHealth-initial</td>
+               <td style="padding-left: 25px; padding-right: 25px;">http://hl7.org/fhir/ActivityDefinition/referralPrimaryCareMentalHealth-initial</td>
             </tr>
          </table>
          <p/>

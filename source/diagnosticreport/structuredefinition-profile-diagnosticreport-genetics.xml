@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="diagnosticreport-genetics"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/diagnosticreport-genetics"/>
+  <version value="4.0.1"/>
+  <name value="DiagnosticReport-Genetics"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-10-09"/>
+  <publisher value="Health Level Seven International (Clinical Genomics)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/clingenomics"/>
+    </telecom>
+  </contact>
+  <description value="Describes how the DiagnosticReport resource is used to report structured genetic test results"/>
+  <fhirVersion value="4.0.1"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="DiagnosticReport"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="DiagnosticReport">
+      <path value="DiagnosticReport"/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="DiagnosticReport.extension:AssessedCondition">
+      <path value="DiagnosticReport.extension"/>
+      <sliceName value="AssessedCondition"/>
+      <short value="AssessedCondition"/>
+      <definition value="Used to denote condition context for genetic testing, which may influence reported variants and interpretation for large genomic testing panels e.g. lung cancer or familial breast cancer."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAssessedCondition"/>
+      </type>
+    </element>
+    <element id="DiagnosticReport.extension:FamilyMemberHistory">
+      <path value="DiagnosticReport.extension"/>
+      <sliceName value="FamilyMemberHistory"/>
+      <short value="FamilyHistory"/>
+      <definition value="Significant health events and conditions for a person related to the patient relevant in the context of care for the patient."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory"/>
+      </type>
+    </element>
+    <element id="DiagnosticReport.extension:Analysis">
+      <path value="DiagnosticReport.extension"/>
+      <sliceName value="Analysis"/>
+      <short value="Analysis"/>
+      <definition value="Knowledge-based comments on the effect of the sequence on patient&#39;s condition/medication reaction."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAnalysis"/>
+      </type>
+    </element>
+    <element id="DiagnosticReport.extension:References">
+      <path value="DiagnosticReport.extension"/>
+      <sliceName value="References"/>
+      <short value="References"/>
+      <definition value="Additional bibliographic reference information about genetics, medications, clinical trials, etc. associated with knowledge-based information on genetics/genetic condition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsReferences"/>
+      </type>
+    </element>
+    <element id="DiagnosticReport.conclusionCode">
+      <path value="DiagnosticReport.conclusionCode"/>
+      <min value="0"/>
+      <max value="0"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

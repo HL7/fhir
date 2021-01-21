@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ClinicalImpression-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-assessor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.assessor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-assessor"/>
+        <description value="The clinician performing the assessment"/>
+        <code value="assessor"/>
+        <type value="reference"/>
+        <expression value="ClinicalImpression.assessor"/>
+        <xpath value="f:ClinicalImpression/f:assessor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-date"/>
+        <description value="When the assessment was documented"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="ClinicalImpression.date"/>
+        <xpath value="f:ClinicalImpression/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-encounter"/>
+        <description value="Encounter created as part of"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="ClinicalImpression.encounter"/>
+        <xpath value="f:ClinicalImpression/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-finding-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.finding.itemCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-finding-code"/>
+        <description value="What was found"/>
+        <code value="finding-code"/>
+        <type value="token"/>
+        <expression value="ClinicalImpression.finding.itemCodeableConcept"/>
+        <xpath value="f:ClinicalImpression/f:finding/f:itemCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-finding-ref"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.finding.itemReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-finding-ref"/>
+        <description value="What was found"/>
+        <code value="finding-ref"/>
+        <type value="reference"/>
+        <expression value="ClinicalImpression.finding.itemReference"/>
+        <xpath value="f:ClinicalImpression/f:finding/f:itemReference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-identifier"/>
+        <description value="Business identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ClinicalImpression.identifier"/>
+        <xpath value="f:ClinicalImpression/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-investigation"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.investigation.item"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-investigation"/>
+        <description value="Record of a specific investigation"/>
+        <code value="investigation"/>
+        <type value="reference"/>
+        <expression value="ClinicalImpression.investigation.item"/>
+        <xpath value="f:ClinicalImpression/f:investigation/f:item"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-patient"/>
+        <description value="Patient or group assessed"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="ClinicalImpression.subject.where(resolve() is Patient)"/>
+        <xpath value="f:ClinicalImpression/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-previous"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.previous"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-previous"/>
+        <description value="Reference to last assessment"/>
+        <code value="previous"/>
+        <type value="reference"/>
+        <expression value="ClinicalImpression.previous"/>
+        <xpath value="f:ClinicalImpression/f:previous"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-problem"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.problem"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-problem"/>
+        <description value="Relevant impressions of patient state"/>
+        <code value="problem"/>
+        <type value="reference"/>
+        <expression value="ClinicalImpression.problem"/>
+        <xpath value="f:ClinicalImpression/f:problem"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-status"/>
+        <description value="in-progress | completed | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ClinicalImpression.status"/>
+        <xpath value="f:ClinicalImpression/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-subject"/>
+        <description value="Patient or group assessed"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="ClinicalImpression.subject"/>
+        <xpath value="f:ClinicalImpression/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalImpression-supporting-info"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalImpression.supportingInfo"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-supporting-info"/>
+        <description value="Information supporting the clinical impression"/>
+        <code value="supporting-info"/>
+        <type value="reference"/>
+        <expression value="ClinicalImpression.supportingInfo"/>
+        <xpath value="f:ClinicalImpression/f:supportingInfo"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

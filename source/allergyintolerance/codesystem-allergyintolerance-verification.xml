@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="allergyintolerance-verification"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1371"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="AllergyIntoleranceVerificationStatusCodes"/>
   <title value="AllergyIntolerance Verification Status Codes"/>
   <status value="draft"/>
@@ -13,21 +25,21 @@
   <concept>
     <code value="unconfirmed"/>
     <display value="Unconfirmed"/>
-    <definition value="A low level of certainty about the propensity for a reaction to the identified substance."/> 
+    <definition value="A low level of certainty about the propensity for a reaction to the identified substance."/>
   </concept>
   <concept>
     <code value="confirmed"/>
     <display value="Confirmed"/>
     <definition value="A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge."/>
-   </concept>
-     <concept>
+  </concept>
+  <concept>
     <code value="refuted"/>
     <display value="Refuted"/>
     <definition value="A propensity for a reaction to the identified substance has been disputed or disproven with a sufficient level of clinical certainty to justify invalidating the assertion. This might or might not include testing or rechallenge."/>
-   </concept>
-     <concept>
+  </concept>
+  <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
     <definition value="The statement was entered in error and is not valid."/>
-   </concept>
+  </concept>
 </CodeSystem>

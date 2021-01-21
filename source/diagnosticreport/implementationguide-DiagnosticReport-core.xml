@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="DiagnosticReport-core"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <name value="Example Lipid Profile"/>
+  <title value="Example Lipid Profile"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-05-12T00:00:00.000"/>
+  <publisher value="Grahame Grieve"/>
+  <description value="Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/lipidprofile"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cholesterol"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/triglyceride"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/hdlcholesterol"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ldlcholesterol"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/lipids"/>
+      </reference>
+      <name value="Lipid profile"/>
+      <description value="Lipid profile"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/diagnosticReport-locationPerformed"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/diagnosticReport-summaryOf"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/diagnosticReport-replaces"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/diagnosticReport-extends"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/diagnosticReport-addendumOf"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/diagnosticReport-risk"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/diagnosticreport-genetics"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/DiagnosticReport-geneticsAssessedCondition"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/DiagnosticReport-geneticsAnalysis"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/DiagnosticReport-geneticsReferences"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/diagnosticreport-genetic-DiagnosticReport-assessed-condition"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/dg2"/>
+      </reference>
+      <name value="Genetics -with family"/>
+      <description value="An example of a genetics test report with Family member history"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/comprehensive-bone-marrow-report"/>
+      </reference>
+      <name value="Comprehensive report"/>
+      <description value="An example of a comprehensive bone marrow report"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="DiagnosticReport/example-pgx"/>
+      </reference>
+      <name value="PGx Example"/>
+      <description value="An example of a PGx haplotype report"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/hlaresult"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/hla-genotyping-results-allele-database"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/hla-genotyping-results-glstring"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/hla-genotyping-results-haploid"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/hla-genotyping-results-method"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/hla-1"/>
+      </reference>
+      <name value="HLA genotyping"/>
+      <description value="An example of a HLA genotyping results report"/>
+    </resource>
+  </definition>
+</ImplementationGuide>

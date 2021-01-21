@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="concept-map-equivalence"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h2>ConceptMapEquivalence</h2>
+      <div>
+        <p>The degree of equivalence between concepts.</p>
+
+      </div>
+      <p>This code system http://hl7.org/fhir/concept-map-equivalence defines the following codes:</p>
+      <table class="codes">
+        <tr>
+          <td>
+            <b>Lvl</b>
+          </td>
+          <td style="white-space:nowrap">
+            <b>Code</b>
+          </td>
+          <td>
+            <b>Display</b>
+          </td>
+          <td>
+            <b>Definition</b>
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">relatedto
+            <a name="concept-map-equivalence-relatedto"> </a>
+          </td>
+          <td>Related To</td>
+          <td>The concepts are related to each other, and have at least some overlap in meaning, but the exact relationship is not known.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;equivalent
+            <a name="concept-map-equivalence-equivalent"> </a>
+          </td>
+          <td>Equivalent</td>
+          <td>The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;&#xA0;&#xA0;equal
+            <a name="concept-map-equivalence-equal"> </a>
+          </td>
+          <td>Equal</td>
+          <td>The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identical or irrelevant (i.e. intentionally identical).</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;wider
+            <a name="concept-map-equivalence-wider"> </a>
+          </td>
+          <td>Wider</td>
+          <td>The target mapping is wider in meaning than the source concept.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;subsumes
+            <a name="concept-map-equivalence-subsumes"> </a>
+          </td>
+          <td>Subsumes</td>
+          <td>The target mapping subsumes the meaning of the source concept (e.g. the source is-a target).</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;narrower
+            <a name="concept-map-equivalence-narrower"> </a>
+          </td>
+          <td>Narrower</td>
+          <td>The target mapping is narrower in meaning than the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;specializes
+            <a name="concept-map-equivalence-specializes"> </a>
+          </td>
+          <td>Specializes</td>
+          <td>The target mapping specializes the meaning of the source concept (e.g. the target is-a source).</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;inexact
+            <a name="concept-map-equivalence-inexact"> </a>
+          </td>
+          <td>Inexact</td>
+          <td>The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is inexact SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">unmatched
+            <a name="concept-map-equivalence-unmatched"> </a>
+          </td>
+          <td>Unmatched</td>
+          <td>There is no match for this concept in the target code system.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">&#xA0;&#xA0;disjoint
+            <a name="concept-map-equivalence-disjoint"> </a>
+          </td>
+          <td>Disjoint</td>
+          <td>This is an explicit assertion that there is no mapping between the source and target concept.</td>
+        </tr>
+      </table>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/concept-map-equivalence"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.18"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="ConceptMapEquivalence"/>
+  <title value="ConceptMapEquivalence"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <description value="The degree of equivalence between concepts."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-equivalence"/>
+  <content value="complete"/>
+  <concept>
+    <code value="relatedto"/>
+    <display value="Related To"/>
+    <definition value="The concepts are related to each other, and have at least some overlap in meaning, but the exact relationship is not known."/>
+    <concept>
+      <code value="equivalent"/>
+      <display value="Equivalent"/>
+      <definition value="The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical)."/>
+      <concept>
+        <code value="equal"/>
+        <display value="Equal"/>
+        <definition value="The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identical or irrelevant (i.e. intentionally identical)."/>
+      </concept>
+    </concept>
+    <concept>
+      <code value="wider"/>
+      <display value="Wider"/>
+      <definition value="The target mapping is wider in meaning than the source concept."/>
+    </concept>
+    <concept>
+      <code value="subsumes"/>
+      <display value="Subsumes"/>
+      <definition value="The target mapping subsumes the meaning of the source concept (e.g. the source is-a target)."/>
+    </concept>
+    <concept>
+      <code value="narrower"/>
+      <display value="Narrower"/>
+      <definition value="The target mapping is narrower in meaning than the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally."/>
+    </concept>
+    <concept>
+      <code value="specializes"/>
+      <display value="Specializes"/>
+      <definition value="The target mapping specializes the meaning of the source concept (e.g. the target is-a source)."/>
+    </concept>
+    <concept>
+      <code value="inexact"/>
+      <display value="Inexact"/>
+      <definition value="The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is inexact SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="unmatched"/>
+    <display value="Unmatched"/>
+    <definition value="There is no match for this concept in the target code system."/>
+    <concept>
+      <code value="disjoint"/>
+      <display value="Disjoint"/>
+      <definition value="This is an explicit assertion that there is no mapping between the source and target concept."/>
+    </concept>
+  </concept>
+</CodeSystem>

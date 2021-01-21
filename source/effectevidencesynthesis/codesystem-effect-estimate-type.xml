@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="effect-estimate-type"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <h2>EffectEstimateType</h2>
+      
+      <div>
+        
+        <p>Whether the effect estimate is an absolute effect estimate (absolute difference) or a relative effect estimate (relative difference), and the specific type of effect estimate (eg relative risk or median difference).</p>
+
+      
+      </div>
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/effect-estimate-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">relative-RR
+            
+            <a name="effect-estimate-type-relative-RR"> </a>
+          
+          </td>
+          
+          <td>relative risk</td>
+          
+          <td>relative risk (a type of relative effect estimate).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">relative-OR
+            
+            <a name="effect-estimate-type-relative-OR"> </a>
+          
+          </td>
+          
+          <td>odds ratio</td>
+          
+          <td>odds ratio (a type of relative effect estimate).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">relative-HR
+            
+            <a name="effect-estimate-type-relative-HR"> </a>
+          
+          </td>
+          
+          <td>hazard ratio</td>
+          
+          <td>hazard ratio (a type of relative effect estimate).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">absolute-ARD
+            
+            <a name="effect-estimate-type-absolute-ARD"> </a>
+          
+          </td>
+          
+          <td>absolute risk difference</td>
+          
+          <td>absolute risk difference (a type of absolute effect estimate).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">absolute-MeanDiff
+            
+            <a name="effect-estimate-type-absolute-MeanDiff"> </a>
+          
+          </td>
+          
+          <td>mean difference</td>
+          
+          <td>mean difference (a type of absolute effect estimate).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">absolute-SMD
+            
+            <a name="effect-estimate-type-absolute-SMD"> </a>
+          
+          </td>
+          
+          <td>standardized mean difference</td>
+          
+          <td>standardized mean difference (a type of absolute effect estimate).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">absolute-MedianDiff
+            
+            <a name="effect-estimate-type-absolute-MedianDiff"> </a>
+          
+          </td>
+          
+          <td>median difference</td>
+          
+          <td>median difference (a type of absolute effect estimate).</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/effect-estimate-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1356"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="EffectEstimateType"/>
+  <title value="EffectEstimateType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Whether the effect estimate is an absolute effect estimate (absolute difference) or a relative effect estimate (relative difference), and the specific type of effect estimate (eg relative risk or median difference)."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/effect-estimate-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="relative-RR"/>
+    <display value="relative risk"/>
+    <definition value="relative risk (a type of relative effect estimate)."/>
+  </concept>
+  <concept>
+    <code value="relative-OR"/>
+    <display value="odds ratio"/>
+    <definition value="odds ratio (a type of relative effect estimate)."/>
+  </concept>
+  <concept>
+    <code value="relative-HR"/>
+    <display value="hazard ratio"/>
+    <definition value="hazard ratio (a type of relative effect estimate)."/>
+  </concept>
+  <concept>
+    <code value="absolute-ARD"/>
+    <display value="absolute risk difference"/>
+    <definition value="absolute risk difference (a type of absolute effect estimate)."/>
+  </concept>
+  <concept>
+    <code value="absolute-MeanDiff"/>
+    <display value="mean difference"/>
+    <definition value="mean difference (a type of absolute effect estimate)."/>
+  </concept>
+  <concept>
+    <code value="absolute-SMD"/>
+    <display value="standardized mean difference"/>
+    <definition value="standardized mean difference (a type of absolute effect estimate)."/>
+  </concept>
+  <concept>
+    <code value="absolute-MedianDiff"/>
+    <display value="median difference"/>
+    <definition value="median difference (a type of absolute effect estimate)."/>
+  </concept>
+</CodeSystem>

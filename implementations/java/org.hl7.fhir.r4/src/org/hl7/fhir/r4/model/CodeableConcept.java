@@ -323,6 +323,10 @@ public boolean hasSystem(String url) {
 }
   
   
+public void addCoding(String system, String code, String display) {
+    getCoding().add(new Coding(system, code, display));
+  }
+  
 
 // end addition
 

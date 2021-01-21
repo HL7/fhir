@@ -1,20 +1,33 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
-	<url value="http://terminology.hl7.org/CodeSystem/endpoint-payload-type" />
-	<name value="EndpointPayloadType" />
-	<status value="draft" />
-	<experimental value="false" />
-	<description value="This is an example codesystem defined by the FHIR project, it represents global concepts for no content, or any unrestricted content." />
-	<caseSensitive value="true" />
-	<content value="complete" />
-	<concept>
-		<code value="any" />
-		<display value="Any" />
-		<definition value="Any payload type can be used with this endpoint, it is either a payload agnostic infrastructure (such as a storage repository), or some other type of endpoint where payload considerations are internally handled, and not available" />
-	</concept>
-	<concept>
-		<code value="none" />
-		<display value="None" />
-		<definition value="This endpoint does not require any content to be sent; simply connecting to the endpoint is enough notification. This can be used as a 'ping' to wakeup a service to retrieve content, which could be to ensure security considerations are correctly handled" />
-	</concept>
+  <id value="endpoint-payload-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/endpoint-payload-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1139"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="EndpointPayloadType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This is an example codesystem defined by the FHIR project, it represents global concepts for no content, or any unrestricted content."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="any"/>
+    <display value="Any"/>
+    <definition value="Any payload type can be used with this endpoint, it is either a payload agnostic infrastructure (such as a storage repository), or some other type of endpoint where payload considerations are internally handled, and not available"/>
+  </concept>
+  <concept>
+    <code value="none"/>
+    <display value="None"/>
+    <definition value="This endpoint does not require any content to be sent; simply connecting to the endpoint is enough notification. This can be used as a &#39;ping&#39; to wakeup a service to retrieve content, which could be to ensure security considerations are correctly handled"/>
+  </concept>
 </CodeSystem>

@@ -1,10 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="immunization-funding-source"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pher"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/immunization-funding-source"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1100"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="ImmunizationEventFundingSource"/>
   <title value="Immunization Event Funding Source"/>
-
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This code system supports describing the source of the vaccine actually administered. This may be different than the patient eligbility (e.g. the patient may be eligibile for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)."/>

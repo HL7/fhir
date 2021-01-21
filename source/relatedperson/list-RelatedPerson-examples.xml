@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="RelatedPerson-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RelatedPerson Benedicte du Marche"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="relatedperson-example"/>
+    </extension>
+    <item>
+      <reference value="RelatedPerson/benedicte"/>
+      <display value="Benedicte"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RelatedPerson Peter Chalmers"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="relatedperson-example-peter"/>
+    </extension>
+    <item>
+      <reference value="RelatedPerson/peter"/>
+      <display value="Peter"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Sarah Abels"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="relatedperson-example-f001-sarah"/>
+    </extension>
+    <item>
+      <reference value="RelatedPerson/f001"/>
+      <display value="SarahAbels"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Ariadne Bor-Jansma"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="relatedperson-example-f002-ariadne"/>
+    </extension>
+    <item>
+      <reference value="RelatedPerson/f002"/>
+      <display value="AriadneBor"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Mother of Newborn Example for Newborn Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="relatedperson-example-newborn-mom"/>
+    </extension>
+    <item>
+      <reference value="RelatedPerson/newborn-mom"/>
+      <display value="Mother"/>
+    </item>
+  </entry>
+</List>

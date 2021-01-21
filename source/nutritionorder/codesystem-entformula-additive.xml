@@ -1,36 +1,49 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
-	<url value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
-	<name value="EnteralFormulaAdditiveTypeCode"/>
+  <id value="entformula-additive"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1123"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="EnteralFormulaAdditiveTypeCode"/>
   <title value="Enteral Formula Additive Type Code"/>
-	<status value="draft"/>
-	<experimental value="false"/>
-	<description value="EnteralFormulaAdditiveType: Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example."/>
-	<caseSensitive value="true"/>
-	<content value="complete"/>
-	<concept>
-		<code value="lipid"/>
-		<display value="Lipid"/>
-		<definition value="Modular lipid enteral formula component"/>
-	</concept>
-	<concept>
-		<code value="protein"/>
-		<display value="Protein"/>
-		<definition value="Modular protein enteral formula component"/>
-	</concept>
-	<concept>
-		<code value="carbohydrate"/>
-		<display value="Carbohydrate"/>
-		<definition value="Modular carbohydrate enteral formula component"/>
-	</concept>
-	<concept>
-		<code value="fiber"/>
-		<display value="Fiber"/>
-		<definition value="Modular fiber enteral formula component"/>
-	</concept>
-	<concept>
-		<code value="water"/>
-		<display value="Water"/>
-		<definition value="Added water"/>
-	</concept>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="EnteralFormulaAdditiveType: Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="lipid"/>
+    <display value="Lipid"/>
+    <definition value="Modular lipid enteral formula component"/>
+  </concept>
+  <concept>
+    <code value="protein"/>
+    <display value="Protein"/>
+    <definition value="Modular protein enteral formula component"/>
+  </concept>
+  <concept>
+    <code value="carbohydrate"/>
+    <display value="Carbohydrate"/>
+    <definition value="Modular carbohydrate enteral formula component"/>
+  </concept>
+  <concept>
+    <code value="fiber"/>
+    <display value="Fiber"/>
+    <definition value="Modular fiber enteral formula component"/>
+  </concept>
+  <concept>
+    <code value="water"/>
+    <display value="Water"/>
+    <definition value="Added water"/>
+  </concept>
 </CodeSystem>

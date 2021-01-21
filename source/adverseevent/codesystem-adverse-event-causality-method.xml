@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-causality-method"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <h2>AdverseEventCausalityMethod</h2>
+      
+      <div>
+        
+        <p>TODO.</p>
+
+      
+      </div>
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/adverse-event-causality-method defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">ProbabilityScale
+            
+            <a name="adverse-event-causality-method-ProbabilityScale"> </a>
+          
+          </td>
+          
+          <td>Probability Scale</td>
+          
+          <td/>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">Bayesian
+            
+            <a name="adverse-event-causality-method-Bayesian"> </a>
+          
+          </td>
+          
+          <td>Bayesian</td>
+          
+          <td/>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">Checklist
+            
+            <a name="adverse-event-causality-method-Checklist"> </a>
+          
+          </td>
+          
+          <td>Checklist</td>
+          
+          <td/>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/adverse-event-causality-method"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1255"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="AdverseEventCausalityMethod"/>
+  <title value="AdverseEventCausalityMethod"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="TODO."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-causality-method"/>
+  <content value="complete"/>
+  <concept>
+    <code value="ProbabilityScale"/>
+    <display value="Probability Scale"/>
+  </concept>
+  <concept>
+    <code value="Bayesian"/>
+    <display value="Bayesian"/>
+  </concept>
+  <concept>
+    <code value="Checklist"/>
+    <display value="Checklist"/>
+  </concept>
+</CodeSystem>

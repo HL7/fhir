@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="subscription-channel-type"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <h2>SubscriptionChannelType</h2>
+      
+      <div>
+        
+        <p>The type of method used to execute a subscription.</p>
+
+      
+      </div>
+      
+      <p>This code system http://hl7.org/fhir/subscription-channel-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">rest-hook
+            
+            <a name="subscription-channel-type-rest-hook"> </a>
+          
+          </td>
+          
+          <td>Rest Hook</td>
+          
+          <td>The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">websocket
+            
+            <a name="subscription-channel-type-websocket"> </a>
+          
+          </td>
+          
+          <td>Websocket</td>
+          
+          <td>The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">email
+            
+            <a name="subscription-channel-type-email"> </a>
+          
+          </td>
+          
+          <td>Email</td>
+          
+          <td>The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">sms
+            
+            <a name="subscription-channel-type-sms"> </a>
+          
+          </td>
+          
+          <td>SMS</td>
+          
+          <td>The channel is executed by sending an SMS message to the phone number identified in the URL (tel:).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">message
+            
+            <a name="subscription-channel-type-message"> </a>
+          
+          </td>
+          
+          <td>Message</td>
+          
+          <td>The channel is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc.) to the application identified in the URI.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/subscription-channel-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.501"/>
+  </identifier>
+  <version value="4.0.1"/>
+  <name value="SubscriptionChannelType"/>
+  <title value="SubscriptionChannelType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of method used to execute a subscription."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/subscription-channel-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="rest-hook"/>
+    <display value="Rest Hook"/>
+    <definition value="The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made."/>
+  </concept>
+  <concept>
+    <code value="websocket"/>
+    <display value="Websocket"/>
+    <definition value="The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL."/>
+  </concept>
+  <concept>
+    <code value="email"/>
+    <display value="Email"/>
+    <definition value="The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:)."/>
+  </concept>
+  <concept>
+    <code value="sms"/>
+    <display value="SMS"/>
+    <definition value="The channel is executed by sending an SMS message to the phone number identified in the URL (tel:)."/>
+  </concept>
+  <concept>
+    <code value="message"/>
+    <display value="Message"/>
+    <definition value="The channel is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc.) to the application identified in the URI."/>
+  </concept>
+</CodeSystem>

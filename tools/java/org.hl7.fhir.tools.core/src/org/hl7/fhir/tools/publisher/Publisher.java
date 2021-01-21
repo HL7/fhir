@@ -118,6 +118,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.IgParser;
 import org.hl7.fhir.definitions.parsers.IgParser.GuidePageKind;
+import org.hl7.fhir.definitions.parsers.Regenerator;
 import org.hl7.fhir.definitions.parsers.SourceParser;
 import org.hl7.fhir.definitions.validation.ConceptMapValidator;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
@@ -1702,7 +1703,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     result.setType(getSearchParamType(i.getType()));
     result.setDocumentation(i.getDescription());
     if (Utilities.noString(i.getXPath()))
-      i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths())); // used elsewhere later
+      i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths(), rn)); // used elsewhere later
     return result;
   }
 
@@ -2454,6 +2455,10 @@ public class Publisher implements URIResolver, SectionNumberer {
         produceCompartment(c);
       }
     }
+    
+    Regenerator regen = new Regenerator(page.getFolders().srcDir, page.getDefinitions(), page.getWorkerContext());
+    regen.generate();
+    
     Bundle searchParamsFeed = new Bundle();
     searchParamsFeed.setId("searchParams");
     searchParamsFeed.setType(BundleType.COLLECTION);

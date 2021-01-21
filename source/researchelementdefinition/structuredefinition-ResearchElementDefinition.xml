@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ResearchElementDefinition"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Evidence-Based Medicine"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value="Delete the report if it is"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="MetadataResource"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition"/>
+  <version value="4.0.1"/>
+  <name value="ResearchElementDefinition"/>
+  <status value="draft"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The ResearchElementDefinition resource describes a &quot;PICO&quot; element that knowledge (evidence, assertion, recommendation) is about."/>
+  <purpose value="Need to be able to define and reuse the definition of individual elements of a research question."/>
+  <fhirVersion value="4.0.1"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ResearchElementDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource">
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super">
+      <valueString value="MetadataResource"/>
+    </extension>
+  </baseDefinition>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="ResearchElementDefinition">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="ResearchElementDefinition"/>
+      <short value="A population, intervention, or exposure definition"/>
+      <definition value="The ResearchElementDefinition resource describes a &quot;PICO&quot; element that knowledge (evidence, assertion, recommendation) is about."/>
+      <comment value="PICO stands for Population (the population within which exposures are being compared), Intervention (the conditional state or exposure state being described for its effect on outcomes), Comparison (the alternative conditional state or alternative exposure state being compared against), and Outcome (the result or effect of the intervention in the population)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="red-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+      </constraint>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.url">
+      <path value="ResearchElementDefinition.url"/>
+      <short value="Canonical identifier for this research element definition, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this research element definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this research element definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the research element definition is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the research element definition to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.url"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.identifier">
+      <path value="ResearchElementDefinition.identifier"/>
+      <short value="Additional identifier for the research element definition"/>
+      <definition value="A formal identifier that is used to identify this research element definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this research element definition outside of FHIR, where it is not possible to use the logical URI."/>
+      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.version">
+      <path value="ResearchElementDefinition.version"/>
+      <short value="Business version of the research element definition"/>
+      <definition value="The identifier that is used to identify this version of the research element definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the research element definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
+      <comment value="There may be different research element definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the research element definition with the format [url]|[version]."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.version"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.name">
+      <path value="ResearchElementDefinition.name"/>
+      <short value="Name for this research element definition (computer friendly)"/>
+      <definition value="A natural language name identifying the research element definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="inv-0"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="ResearchElementDefinition.title">
+      <path value="ResearchElementDefinition.title"/>
+      <short value="Name for this research element definition (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the research element definition."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.title"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.shortTitle">
+      <path value="ResearchElementDefinition.shortTitle"/>
+      <short value="Title for use in informal contexts"/>
+      <definition value="The short title provides an alternate title for use in informal descriptive contexts where the full, formal title is not necessary."/>
+      <requirements value="Need to be able to reference the content by a short description, but still provide a longer, more formal title for the content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ResearchElementDefinition.subtitle">
+      <path value="ResearchElementDefinition.subtitle"/>
+      <short value="Subordinate title of the ResearchElementDefinition"/>
+      <definition value="An explanatory or alternate title for the ResearchElementDefinition giving additional information about its content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.status">
+      <path value="ResearchElementDefinition.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this research element definition. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of research element definitions that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The lifecycle status of an artifact."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.experimental">
+      <path value="ResearchElementDefinition.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this research element definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <comment value="Allows filtering of research element definitions that are appropriate for use versus not."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level research element definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.experimental"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.subject[x]">
+      <path value="ResearchElementDefinition.subject[x]"/>
+      <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
+      <definition value="The intended subjects for the ResearchElementDefinition. If this element is not provided, a Patient subject is assumed, but the subject of the ResearchElementDefinition can be anything."/>
+      <comment value="The subject of the ResearchElementDefinition is critical in interpreting the criteria definitions, as the logic in the ResearchElementDefinitions is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <meaningWhenMissing value="Patient"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubjectType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.subject"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.date">
+      <path value="ResearchElementDefinition.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date  (and optionally time) when the research element definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the research element definition changes."/>
+      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the research element definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.date"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.publisher">
+      <path value="ResearchElementDefinition.publisher"/>
+      <short value="Name of the publisher (organization or individual)"/>
+      <definition value="The name of the organization or individual that published the research element definition."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the research element definition is the organization or individual primarily responsible for the maintenance and upkeep of the research element definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the research element definition. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the research element definition.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.publisher"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.contact">
+      <path value="ResearchElementDefinition.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.contact"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.description">
+      <path value="ResearchElementDefinition.description"/>
+      <short value="Natural language description of the research element definition"/>
+      <definition value="A free text natural language description of the research element definition from a consumer&#39;s perspective."/>
+      <comment value="This description can be used to capture details such as why the research element definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the research element definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the research element definition is presumed to be the predominant language in the place the research element definition was created)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.description"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.comment">
+      <path value="ResearchElementDefinition.comment"/>
+      <short value="Used for footnotes or explanatory notes"/>
+      <definition value="A human-readable string to clarify or explain concepts about the resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.useContext">
+      <path value="ResearchElementDefinition.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate research element definition instances."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.useContext"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.jurisdiction">
+      <path value="ResearchElementDefinition.jurisdiction"/>
+      <short value="Intended jurisdiction for research element definition (if applicable)"/>
+      <definition value="A legal or geographic region in which the research element definition is intended to be used."/>
+      <comment value="It may be possible for the research element definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Countries and regions within which this artifact is targeted for use."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.jurisdiction"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.purpose">
+      <path value="ResearchElementDefinition.purpose"/>
+      <short value="Why this research element definition is defined"/>
+      <definition value="Explanation of why this research element definition is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the research element definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this research element definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.purpose"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.usage">
+      <path value="ResearchElementDefinition.usage"/>
+      <short value="Describes the clinical usage of the ResearchElementDefinition"/>
+      <definition value="A detailed description, from a clinical perspective, of how the ResearchElementDefinition is used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.copyright">
+      <path value="ResearchElementDefinition.copyright"/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="A copyright statement relating to the research element definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the research element definition."/>
+      <requirements value="Consumers must be able to determine any legal restrictions on the use of the research element definition and/or its content."/>
+      <alias value="License"/>
+      <alias value="Restrictions"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.copyright"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.approvalDate">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Consider how this applies to this resource."/>
+      </extension>
+      <path value="ResearchElementDefinition.approvalDate"/>
+      <short value="When the research element definition was approved by publisher"/>
+      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.approvalDate"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.lastReviewDate">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Consider how this applies to this resource."/>
+      </extension>
+      <path value="ResearchElementDefinition.lastReviewDate"/>
+      <short value="When the research element definition was last reviewed"/>
+      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+      <comment value="If specified, this date follows the original approval date."/>
+      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.lastReviewDate"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.effectivePeriod">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Consider how this applies to this resource."/>
+      </extension>
+      <path value="ResearchElementDefinition.effectivePeriod"/>
+      <short value="When the research element definition is expected to be used"/>
+      <definition value="The period during which the research element definition content was or is planned to be in active use."/>
+      <comment value="The effective period for a research element definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the research element definition are or are expected to be used instead."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.effectivePeriod"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.topic">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Consider how this applies to this resource."/>
+      </extension>
+      <path value="ResearchElementDefinition.topic"/>
+      <short value="The category of the ResearchElementDefinition, such as Education, Treatment, Assessment, etc."/>
+      <definition value="Descriptive topics related to the content of the ResearchElementDefinition. Topics provide a high-level categorization grouping types of ResearchElementDefinitions that can be useful for filtering and searching."/>
+      <requirements value="Repositories must be able to determine how to categorize the ResearchElementDefinition so that it can be found by topical searches."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DefinitionTopic"/>
+        </extension>
+        <strength value="example"/>
+        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
+      </binding>
+    </element>
+    <element id="ResearchElementDefinition.author">
+      <path value="ResearchElementDefinition.author"/>
+      <short value="Who authored the content"/>
+      <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT]"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.editor">
+      <path value="ResearchElementDefinition.editor"/>
+      <short value="Who edited the content"/>
+      <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.reviewer">
+      <path value="ResearchElementDefinition.reviewer"/>
+      <short value="Who reviewed the content"/>
+      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.endorser">
+      <path value="ResearchElementDefinition.endorser"/>
+      <short value="Who endorsed the content"/>
+      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+      </mapping>
+    </element>
+    <element id="ResearchElementDefinition.relatedArtifact">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Consider how this applies to this resource."/>
+      </extension>
+      <path value="ResearchElementDefinition.relatedArtifact"/>
+      <short value="Additional documentation, citations, etc."/>
+      <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
+      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+      <requirements value="ResearchElementDefinitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.library">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Consider how this applies to this resource."/>
+      </extension>
+      <path value="ResearchElementDefinition.library"/>
+      <short value="Logic used by the ResearchElementDefinition"/>
+      <definition value="A reference to a Library resource containing the formal logic used by the ResearchElementDefinition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.type">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="This list initially included ExposureAlternative, but whether an element is an exposure or an alternative is a function of how it is used in a ResearchDefinition, rather than an intrinsic aspect of the element definition, right?"/>
+      </extension>
+      <path value="ResearchElementDefinition.type"/>
+      <short value="population | exposure | outcome"/>
+      <definition value="The type of research element, a population, an exposure, or an outcome."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The possible types of research elements (E.g. Population, Exposure, Outcome)."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchElementType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The possible types of research elements (E.g. Population, Exposure, Outcome)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-element-type"/>
+      </binding>
+    </element>
+    <element id="ResearchElementDefinition.variableType">
+      <path value="ResearchElementDefinition.variableType"/>
+      <short value="dichotomous | continuous | descriptive"/>
+      <definition value="The type of the outcome (e.g. Dichotomous, Continuous, or Descriptive)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The possible types of variables for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VariableType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The possible types of variables for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/variable-type"/>
+      </binding>
+    </element>
+    <element id="ResearchElementDefinition.characteristic">
+      <path value="ResearchElementDefinition.characteristic"/>
+      <short value="What defines the members of the research element"/>
+      <definition value="A characteristic that defines the members of the research element. Multiple characteristics are applied with &quot;and&quot; semantics."/>
+      <comment value="Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.definition[x]">
+      <path value="ResearchElementDefinition.characteristic.definition[x]"/>
+      <short value="What code or expression defines members?"/>
+      <definition value="Define members of the research element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year)."/>
+      <requirements value="Need to be able to define members in simple codes when the membership aligns well with terminology, with common criteria such as observations in a value set or lab tests within a year, or with expression language to support criteria that do not fit in the above."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <type>
+        <code value="DataRequirement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.usageContext">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Define semantics when multiple definition types are present, or disallow mixtures."/>
+      </extension>
+      <path value="ResearchElementDefinition.characteristic.usageContext"/>
+      <short value="What code/value pairs define members?"/>
+      <definition value="Use UsageContext to define the members of the population, such as Age Ranges, Genders, Settings."/>
+      <requirements value="Need to be able to define members more structurally when more information can be communicated such as age range."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.exclude">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="This was called &quot;inclusiveness&quot; with a code list of &quot;presence, absence&quot;. Changed to &quot;exclude&quot; boolean to simplify representation and to align with Group characteristic expression."/>
+      </extension>
+      <path value="ResearchElementDefinition.characteristic.exclude"/>
+      <short value="Whether the characteristic includes or excludes members"/>
+      <definition value="When true, members with this characteristic are excluded from the element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="False"/>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.unitOfMeasure">
+      <path value="ResearchElementDefinition.characteristic.unitOfMeasure"/>
+      <short value="What unit is the outcome described in?"/>
+      <definition value="Specifies the UCUM unit for the outcome."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Unified Code for Units of Measure (UCUM)."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UCUMUnits"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Unified Code for Units of Measure (UCUM)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units"/>
+      </binding>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.studyEffectiveDescription">
+      <path value="ResearchElementDefinition.characteristic.studyEffectiveDescription"/>
+      <short value="What time period does the study cover"/>
+      <definition value="A narrative description of the time period the study covers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.studyEffective[x]">
+      <path value="ResearchElementDefinition.characteristic.studyEffective[x]"/>
+      <short value="What time period does the study cover"/>
+      <definition value="Indicates what effective period the study covers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <type>
+        <code value="Timing"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.studyEffectiveTimeFromStart">
+      <path value="ResearchElementDefinition.characteristic.studyEffectiveTimeFromStart"/>
+      <short value="Observation time from study start"/>
+      <definition value="Indicates duration from the study initiation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.studyEffectiveGroupMeasure">
+      <path value="ResearchElementDefinition.characteristic.studyEffectiveGroupMeasure"/>
+      <short value="mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-median"/>
+      <definition value="Indicates how elements are aggregated within the study effective period."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Possible group measure aggregates (E.g. Mean, Median)."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GroupMeasure"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Possible group measure aggregates (E.g. Mean, Median)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-measure"/>
+      </binding>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.participantEffectiveDescription">
+      <path value="ResearchElementDefinition.characteristic.participantEffectiveDescription"/>
+      <short value="What time period do participants cover"/>
+      <definition value="A narrative description of the time period the study covers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.participantEffective[x]">
+      <path value="ResearchElementDefinition.characteristic.participantEffective[x]"/>
+      <short value="What time period do participants cover"/>
+      <definition value="Indicates what effective period the study covers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <type>
+        <code value="Timing"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.participantEffectiveTimeFromStart">
+      <path value="ResearchElementDefinition.characteristic.participantEffectiveTimeFromStart"/>
+      <short value="Observation time from study start"/>
+      <definition value="Indicates duration from the participant&#39;s study entry."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+    </element>
+    <element id="ResearchElementDefinition.characteristic.participantEffectiveGroupMeasure">
+      <path value="ResearchElementDefinition.characteristic.participantEffectiveGroupMeasure"/>
+      <short value="mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-median"/>
+      <definition value="Indicates how elements are aggregated within the study effective period."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Possible group measure aggregates (E.g. Mean, Median)."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GroupMeasure"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Possible group measure aggregates (E.g. Mean, Median)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-measure"/>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

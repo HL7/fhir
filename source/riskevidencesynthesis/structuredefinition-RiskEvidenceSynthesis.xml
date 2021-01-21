@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="RiskEvidenceSynthesis"/>
+  <meta>
+    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Evidence-Based Medicine"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = retired"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="MetadataResource"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/RiskEvidenceSynthesis"/>
+  <version value="4.0.1"/>
+  <name value="RiskEvidenceSynthesis"/>
+  <status value="draft"/>
+  <date value="2021-01-17T07:06:13+11:00"/>
+  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The RiskEvidenceSynthesis resource describes the likelihood of an outcome in a population plus exposure state where the risk estimate is derived from a combination of research studies."/>
+  <fhirVersion value="4.0.1"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="RiskEvidenceSynthesis"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource">
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super">
+      <valueString value="MetadataResource"/>
+    </extension>
+  </baseDefinition>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="RiskEvidenceSynthesis">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="RiskEvidenceSynthesis"/>
+      <short value="A quantified estimate of risk based on a body of evidence"/>
+      <definition value="The RiskEvidenceSynthesis resource describes the likelihood of an outcome in a population plus exposure state where the risk estimate is derived from a combination of research studies."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="rvs-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+      </constraint>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.url">
+      <path value="RiskEvidenceSynthesis.url"/>
+      <short value="Canonical identifier for this risk evidence synthesis, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this risk evidence synthesis when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this risk evidence synthesis is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the risk evidence synthesis is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the risk evidence synthesis to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.url"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.identifier">
+      <path value="RiskEvidenceSynthesis.identifier"/>
+      <short value="Additional identifier for the risk evidence synthesis"/>
+      <definition value="A formal identifier that is used to identify this risk evidence synthesis when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this risk evidence synthesis outside of FHIR, where it is not possible to use the logical URI."/>
+      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.version">
+      <path value="RiskEvidenceSynthesis.version"/>
+      <short value="Business version of the risk evidence synthesis"/>
+      <definition value="The identifier that is used to identify this version of the risk evidence synthesis when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the risk evidence synthesis author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <comment value="There may be different risk evidence synthesis instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the risk evidence synthesis with the format [url]|[version]."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.version"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.name">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Note: This was added back in because this is a metadata resource and it&#39;s a required element for metadata resource searching."/>
+      </extension>
+      <path value="RiskEvidenceSynthesis.name"/>
+      <short value="Name for this risk evidence synthesis (computer friendly)"/>
+      <definition value="A natural language name identifying the risk evidence synthesis. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="inv-0"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="RiskEvidenceSynthesis.title">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Note: This was added back in because this is a metadata resource and it&#39;s a required element for metadata resource searching."/>
+      </extension>
+      <path value="RiskEvidenceSynthesis.title"/>
+      <short value="Name for this risk evidence synthesis (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the risk evidence synthesis."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.title"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.status">
+      <path value="RiskEvidenceSynthesis.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this risk evidence synthesis. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of risk evidence synthesiss that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The lifecycle status of an artifact."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.date">
+      <path value="RiskEvidenceSynthesis.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date  (and optionally time) when the risk evidence synthesis was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the risk evidence synthesis changes."/>
+      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the risk evidence synthesis. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.date"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.publisher">
+      <path value="RiskEvidenceSynthesis.publisher"/>
+      <short value="Name of the publisher (organization or individual)"/>
+      <definition value="The name of the organization or individual that published the risk evidence synthesis."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the risk evidence synthesis is the organization or individual primarily responsible for the maintenance and upkeep of the risk evidence synthesis. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the risk evidence synthesis. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the risk evidence synthesis.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.publisher"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.contact">
+      <path value="RiskEvidenceSynthesis.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.contact"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.description">
+      <path value="RiskEvidenceSynthesis.description"/>
+      <short value="Natural language description of the risk evidence synthesis"/>
+      <definition value="A free text natural language description of the risk evidence synthesis from a consumer&#39;s perspective."/>
+      <comment value="This description can be used to capture details such as why the risk evidence synthesis was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the risk evidence synthesis as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the risk evidence synthesis is presumed to be the predominant language in the place the risk evidence synthesis was created)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.description"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.note">
+      <path value="RiskEvidenceSynthesis.note"/>
+      <short value="Used for footnotes or explanatory notes"/>
+      <definition value="A human-readable string to clarify or explain concepts about the resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.useContext">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Note: This was added back in because this is a metadata resource and it&#39;s a required element for metadata resource searching."/>
+      </extension>
+      <path value="RiskEvidenceSynthesis.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate risk evidence synthesis instances."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.useContext"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.jurisdiction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="Note: This was added back in because this is a metadata resource and it&#39;s a required element for metadata resource searching."/>
+      </extension>
+      <path value="RiskEvidenceSynthesis.jurisdiction"/>
+      <short value="Intended jurisdiction for risk evidence synthesis (if applicable)"/>
+      <definition value="A legal or geographic region in which the risk evidence synthesis is intended to be used."/>
+      <comment value="It may be possible for the risk evidence synthesis to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Countries and regions within which this artifact is targeted for use."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.jurisdiction"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.copyright">
+      <path value="RiskEvidenceSynthesis.copyright"/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="A copyright statement relating to the risk evidence synthesis and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the risk evidence synthesis."/>
+      <requirements value="Consumers must be able to determine any legal restrictions on the use of the risk evidence synthesis and/or its content."/>
+      <alias value="License"/>
+      <alias value="Restrictions"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.copyright"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.approvalDate">
+      <path value="RiskEvidenceSynthesis.approvalDate"/>
+      <short value="When the risk evidence synthesis was approved by publisher"/>
+      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.approvalDate"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.lastReviewDate">
+      <path value="RiskEvidenceSynthesis.lastReviewDate"/>
+      <short value="When the risk evidence synthesis was last reviewed"/>
+      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+      <comment value="If specified, this date follows the original approval date."/>
+      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.lastReviewDate"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.effectivePeriod">
+      <path value="RiskEvidenceSynthesis.effectivePeriod"/>
+      <short value="When the risk evidence synthesis is expected to be used"/>
+      <definition value="The period during which the risk evidence synthesis content was or is planned to be in active use."/>
+      <comment value="The effective period for a risk evidence synthesis  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the risk evidence synthesis are or are expected to be used instead."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.effectivePeriod"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.topic">
+      <path value="RiskEvidenceSynthesis.topic"/>
+      <short value="The category of the EffectEvidenceSynthesis, such as Education, Treatment, Assessment, etc."/>
+      <definition value="Descriptive topics related to the content of the RiskEvidenceSynthesis. Topics provide a high-level categorization grouping types of EffectEvidenceSynthesiss that can be useful for filtering and searching."/>
+      <requirements value="Repositories must be able to determine how to categorize the RiskEvidenceSynthesis so that it can be found by topical searches."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DefinitionTopic"/>
+        </extension>
+        <strength value="example"/>
+        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
+      </binding>
+    </element>
+    <element id="RiskEvidenceSynthesis.author">
+      <path value="RiskEvidenceSynthesis.author"/>
+      <short value="Who authored the content"/>
+      <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT]"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.editor">
+      <path value="RiskEvidenceSynthesis.editor"/>
+      <short value="Who edited the content"/>
+      <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.reviewer">
+      <path value="RiskEvidenceSynthesis.reviewer"/>
+      <short value="Who reviewed the content"/>
+      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.endorser">
+      <path value="RiskEvidenceSynthesis.endorser"/>
+      <short value="Who endorsed the content"/>
+      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+      </mapping>
+    </element>
+    <element id="RiskEvidenceSynthesis.relatedArtifact">
+      <path value="RiskEvidenceSynthesis.relatedArtifact"/>
+      <short value="Additional documentation, citations, etc."/>
+      <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
+      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+      <requirements value="RiskEvidenceSynthesiss must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.synthesisType">
+      <path value="RiskEvidenceSynthesis.synthesisType"/>
+      <short value="Type of synthesis"/>
+      <definition value="Type of synthesis eg meta-analysis."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Types of combining results from a body of evidence (eg. summary data meta-analysis)."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SynthesisType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Types of combining results from a body of evidence (eg. summary data meta-analysis)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/synthesis-type"/>
+      </binding>
+    </element>
+    <element id="RiskEvidenceSynthesis.studyType">
+      <path value="RiskEvidenceSynthesis.studyType"/>
+      <short value="Type of study"/>
+      <definition value="Type of study eg randomized trial."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Types of research studies (types of research methods)."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="StudyType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Types of research studies (types of research methods)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/study-type"/>
+      </binding>
+    </element>
+    <element id="RiskEvidenceSynthesis.population">
+      <path value="RiskEvidenceSynthesis.population"/>
+      <short value="What population?"/>
+      <definition value="A reference to a EvidenceVariable resource that defines the population for the research."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="RiskEvidenceSynthesis.exposure">
+      <path value="RiskEvidenceSynthesis.exposure"/>
+      <short value="What exposure?"/>
+      <definition value="A reference to a EvidenceVariable resource that defines the exposure for the research."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="RiskEvidenceSynthesis.outcome">
+      <path value="RiskEvidenceSynthesis.outcome"/>
+      <short value="What outcome?"/>
+      <definition value="A reference to a EvidenceVariable resomece that defines the outcome for the research."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="RiskEvidenceSynthesis.sampleSize">
+      <path value="RiskEvidenceSynthesis.sampleSize"/>
+      <short value="What sample size was involved?"/>
+      <definition value="A description of the size of the sample involved in the synthesis."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.sampleSize.description">
+      <path value="RiskEvidenceSynthesis.sampleSize.description"/>
+      <short value="Description of sample size"/>
+      <definition value="Human-readable summary of sample size."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.sampleSize.numberOfStudies">
+      <path value="RiskEvidenceSynthesis.sampleSize.numberOfStudies"/>
+      <short value="How many studies?"/>
+      <definition value="Number of studies included in this evidence synthesis."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.sampleSize.numberOfParticipants">
+      <path value="RiskEvidenceSynthesis.sampleSize.numberOfParticipants"/>
+      <short value="How many participants?"/>
+      <definition value="Number of participants included in this evidence synthesis."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate">
+      <path value="RiskEvidenceSynthesis.riskEstimate"/>
+      <short value="What was the estimated risk"/>
+      <definition value="The estimated risk of the outcome."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.description">
+      <path value="RiskEvidenceSynthesis.riskEstimate.description"/>
+      <short value="Description of risk estimate"/>
+      <definition value="Human-readable summary of risk estimate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.type">
+      <path value="RiskEvidenceSynthesis.riskEstimate.type"/>
+      <short value="Type of risk estimate"/>
+      <definition value="Examples include proportion and mean."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Whether the risk estimate is dichotomous, continuous or qualitative and the specific type of risk estimate (eg proportion or median)."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RiskEstimateType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Whether the risk estimate is dichotomous, continuous or qualitative and the specific type of risk estimate (eg proportion or median)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/risk-estimate-type"/>
+      </binding>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.value">
+      <path value="RiskEvidenceSynthesis.riskEstimate.value"/>
+      <short value="Point estimate"/>
+      <definition value="The point estimate of the risk estimate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.unitOfMeasure">
+      <path value="RiskEvidenceSynthesis.riskEstimate.unitOfMeasure"/>
+      <short value="What unit is the outcome described in?"/>
+      <definition value="Specifies the UCUM unit for the outcome."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Unified Code for Units of Measure (UCUM)."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UCUMUnits"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Unified Code for Units of Measure (UCUM)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units"/>
+      </binding>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.denominatorCount">
+      <path value="RiskEvidenceSynthesis.riskEstimate.denominatorCount"/>
+      <short value="Sample size for group measured"/>
+      <definition value="The sample size for the group that was measured for this risk estimate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.numeratorCount">
+      <path value="RiskEvidenceSynthesis.riskEstimate.numeratorCount"/>
+      <short value="Number with the outcome"/>
+      <definition value="The number of group members with the outcome of interest."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.precisionEstimate">
+      <path value="RiskEvidenceSynthesis.riskEstimate.precisionEstimate"/>
+      <short value="How precise the estimate is"/>
+      <definition value="A description of the precision of the estimate for the effect."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.precisionEstimate.type">
+      <path value="RiskEvidenceSynthesis.riskEstimate.precisionEstimate.type"/>
+      <short value="Type of precision estimate"/>
+      <definition value="Examples include confidence interval and interquartile range."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Method of reporting variability of estimates, such as confidence intervals, interquartile range or standard deviation."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PrecisionEstimateType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Method of reporting variability of estimates, such as confidence intervals, interquartile range or standard deviation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/precision-estimate-type"/>
+      </binding>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.precisionEstimate.level">
+      <path value="RiskEvidenceSynthesis.riskEstimate.precisionEstimate.level"/>
+      <short value="Level of confidence interval"/>
+      <definition value="Use 95 for a 95% confidence interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.precisionEstimate.from">
+      <path value="RiskEvidenceSynthesis.riskEstimate.precisionEstimate.from"/>
+      <short value="Lower bound"/>
+      <definition value="Lower bound of confidence interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.riskEstimate.precisionEstimate.to">
+      <path value="RiskEvidenceSynthesis.riskEstimate.precisionEstimate.to"/>
+      <short value="Upper bound"/>
+      <definition value="Upper bound of confidence interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.certainty">
+      <path value="RiskEvidenceSynthesis.certainty"/>
+      <short value="How certain is the risk"/>
+      <definition value="A description of the certainty of the risk estimate."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.certainty.rating">
+      <path value="RiskEvidenceSynthesis.certainty.rating"/>
+      <short value="Certainty rating"/>
+      <definition value="A rating of the certainty of the effect estimate."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The quality of the evidence described. The code system used specifies the quality scale used to grade this evidence source while the code specifies the actual quality score (represented as a coded value) associated with the evidence."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QualityOfEvidenceRating"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The quality of the evidence described. The code system used specifies the quality scale used to grade this evidence source while the code specifies the actual quality score (represented as a coded value) associated with the evidence."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/evidence-quality"/>
+      </binding>
+    </element>
+    <element id="RiskEvidenceSynthesis.certainty.note">
+      <path value="RiskEvidenceSynthesis.certainty.note"/>
+      <short value="Used for footnotes or explanatory notes"/>
+      <definition value="A human-readable string to clarify or explain concepts about the resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.certainty.certaintySubcomponent">
+      <path value="RiskEvidenceSynthesis.certainty.certaintySubcomponent"/>
+      <short value="A component that contributes to the overall certainty"/>
+      <definition value="A description of a component of the overall certainty."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="RiskEvidenceSynthesis.certainty.certaintySubcomponent.type">
+      <path value="RiskEvidenceSynthesis.certainty.certaintySubcomponent.type"/>
+      <short value="Type of subcomponent of certainty rating"/>
+      <definition value="Type of subcomponent of certainty rating."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The subcomponent classification of quality of evidence rating systems."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CertaintySubcomponentType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The subcomponent classification of quality of evidence rating systems."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-type"/>
+      </binding>
+    </element>
+    <element id="RiskEvidenceSynthesis.certainty.certaintySubcomponent.rating">
+      <path value="RiskEvidenceSynthesis.certainty.certaintySubcomponent.rating"/>
+      <short value="Subcomponent certainty rating"/>
+      <definition value="A rating of a subcomponent of rating certainty."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The quality rating of the subcomponent of a quality of evidence rating."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CertaintySubcomponentRating"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The quality rating of the subcomponent of a quality of evidence rating."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/certainty-subcomponent-rating"/>
+      </binding>
+    </element>
+    <element id="RiskEvidenceSynthesis.certainty.certaintySubcomponent.note">
+      <path value="RiskEvidenceSynthesis.certainty.certaintySubcomponent.note"/>
+      <short value="Used for footnotes or explanatory notes"/>
+      <definition value="A human-readable string to clarify or explain concepts about the resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- NOTE: This example will soon be revised and moved to the Genomics Reporting implementation guide - current version at http://hl7.org/fhir/uv/genomics-reporting -->
 <!--  lab report example: a CBC  --><ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-	<id value="og-example1"/>
+	<id value="genetics-example-1"/>
 	<status value="active"/>
 	<intent value="original-order"/>
 	<code>

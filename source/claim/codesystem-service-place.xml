@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="service-place"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/ex-serviceplace"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1157"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="ExampleServicePlaceCodes"/>
   <title value="Example Service Place Codes"/>
   <status value="draft"/>
@@ -63,7 +75,7 @@
   <concept>
     <code value="13"/>
     <display value="Assisted Living Fa"/>
-    <definition value="Congregate residential facility with self-contained living units providing assessment of each resident's needs and on-site support 24 hours a day, 7 days a week, with the capacity to deliver or arrange for services including some health care and other services."/>
+    <definition value="Congregate residential facility with self-contained living units providing assessment of each resident&#39;s needs and on-site support 24 hours a day, 7 days a week, with the capacity to deliver or arrange for services including some health care and other services."/>
   </concept>
   <concept>
     <code value="14"/>
@@ -92,7 +104,7 @@
   </concept>
   <concept>
     <code value="41"/>
-    <display value="Ambulance—Land"/>
+    <display value="Ambulance&#x2014;Land"/>
     <definition value="A land vehicle specifically designed, equipped and staffed for lifesaving and transporting the sick or injured."/>
   </concept>
 </CodeSystem>

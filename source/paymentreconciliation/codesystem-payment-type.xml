@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="payment-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/payment-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1186"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="PaymentTypeCodes"/>
   <title value="Payment Type Codes"/>
   <status value="draft"/>
@@ -12,17 +24,17 @@
   <content value="complete"/>
   <concept>
     <code value="payment"/>
-	<display value="Payment"/>
-	<definition value="The amount is partial or complete settlement of the amounts due."/>
+    <display value="Payment"/>
+    <definition value="The amount is partial or complete settlement of the amounts due."/>
   </concept>
   <concept>
     <code value="adjustment"/>
-	<display value="Adjustment"/>
-	<definition value="The amount is an adjustment regarding claims already paid."/>
+    <display value="Adjustment"/>
+    <definition value="The amount is an adjustment regarding claims already paid."/>
   </concept>
   <concept>
     <code value="advance"/>
-	<display value="Advance"/>
-	<definition value="The amount is an advance against future claims."/>
+    <display value="Advance"/>
+    <definition value="The amount is an advance against future claims."/>
   </concept>
 </CodeSystem>

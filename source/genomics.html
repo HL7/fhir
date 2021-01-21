@@ -271,7 +271,7 @@ Source: <a href="sequence-complex-variant.xml.html">XML</a>, <a href="sequence-c
 
 <h3>Structure Diagram</h3>
 
-[%profile-diff observation-genetics%]
+[%!profile-diff observation-genetics%]
 
 <h3>Description</h3>
 
@@ -375,7 +375,7 @@ Source: <a href="observation-example-genetics-3.xml.html">XML</a>, <a href="obse
 
 <h3>Structure Diagram</h3>
 
-[%profile-diff diagnosticreport-genetics%]
+[%!profile-diff diagnosticreport-genetics%]
 
 <p>
 This <a href="diagnosticreport-genetic.html">DiagnosticReport-genetics</a> is built on top of DiagnosticReport. The new profile is used to describe a genetics test report. The result element in DiagnosticReport will refer to the Observation resource that can lead to a bundle of genetic observations. The element of code, effective[x], issued, performer, request, specimen are be used to describe the details of the genetic test. Extensions about AssessedCondition and FamilyMemberHistory are added. Overall, this profile extends the DiagnosticReport resource to enable reporting of structured genetic test results. In addition, it denotes condition context for genetic testing, which may influence reported variants and interpretations for large genomic testing panels.
@@ -442,7 +442,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   A complex extension is added on top of the ServiceRequest resource. Here is the structure of the extension:
 </p>
 
-[%profile-diff servicerequest-genetics%]
+[%!profile-diff servicerequest-genetics%]
 
 <h3>Description</h3>
 <p>

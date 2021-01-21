@@ -151,3 +151,122 @@ v: {
   "error" : "The code system \"http://www.genenames.org\" is not known; The code provided (http://www.genenames.org#12014) is not  valid in the value set HGNC"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.genenames.org",
+  "code" : "HGNC:4931"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code \"HGNC:4931\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#HGNC:4931) is not valid (from http://local.fhir.org:960/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.genenames.org",
+  "code" : "HGNC:4932"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code \"HGNC:4932\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#HGNC:4932) is not valid (from http://local.fhir.org:960/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.genenames.org",
+  "code" : "HGNC:4933"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code \"HGNC:4933\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#HGNC:4933) is not valid (from http://local.fhir.org:960/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.genenames.org",
+  "code" : "3236"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code \"3236\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#3236) is not valid (from http://local.fhir.org:960/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.genenames.org",
+  "code" : "2623"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code \"2623\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#2623) is not valid (from http://local.fhir.org:960/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.genenames.org",
+  "code" : "2625"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code \"2625\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#2625) is not valid (from http://local.fhir.org:960/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.genenames.org",
+  "code" : "12014"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.genenames.org"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code \"12014\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#12014) is not valid (from http://local.fhir.org:960/r4)"
+}
+-------------------------------------------------------------------------------------

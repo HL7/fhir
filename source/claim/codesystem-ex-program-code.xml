@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="ex-program-code"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
   <url value="http://terminology.hl7.org/CodeSystem/ex-programcode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1161"/>
+  </identifier>
+  <version value="4.0.1"/>
   <name value="ExampleProgramCodes"/>
   <title value="Example Program Codes"/>
   <status value="draft"/>
@@ -29,4 +41,5 @@
     <code value="none"/>
     <display value="None"/>
     <definition value="No program code applies."/>
-  </concept></CodeSystem>
+  </concept>
+</CodeSystem>
