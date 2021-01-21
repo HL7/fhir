@@ -438,8 +438,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private String validateId;
 
   public static void main(String[] args) throws Exception {
-    //
-
     Publisher pub = new Publisher();
     pub.page = new PageProcessor(PageProcessor.DEF_TS_SERVER);
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
