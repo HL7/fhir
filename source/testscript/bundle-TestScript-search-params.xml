@@ -233,6 +233,66 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="TestScript-scope-artifact"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestScript.scope.artifact"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-scope-conformance"/>
+        <description value="The conformance artifact under test"/>
+        <code value="scope-artifact"/>
+        <type value="reference"/>
+        <expression value="TestScript.scope.artifact"/>
+        <xpath value="f:TestScript/f:scope/f:artifact"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-scope-conformance"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestScript.scope.conformance"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-scope-level"/>
+        <description value="The testing expectation for this conformance artifact"/>
+        <code value="scope-conformance"/>
+        <type value="token"/>
+        <expression value="TestScript.scope.conformance"/>
+        <xpath value="f:TestScript/f:scope/f:conformance"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-scope-phase"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestScript.scope.phase"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-scope-phase"/>
+        <description value="The phase of testing for this conformance artifact"/>
+        <code value="scope-phase"/>
+        <type value="token"/>
+        <expression value="TestScript.scope.phase"/>
+        <xpath value="f:TestScript/f:scope/f:phase"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="TestScript-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>

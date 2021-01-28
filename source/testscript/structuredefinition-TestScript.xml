@@ -653,6 +653,71 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </type>
     </element>
+    <element id="TestScript.scope">
+      <path value="TestScript.scope"/>
+      <short value="Indication of the artifact(s) that are tested by this test case"/>
+      <definition value="The scope indicates a conformance artifact that is tested by the test(s) within this test case and the expectation of the test outcome(s) as well as the intended test phase inclusion."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestScript.scope.artifact">
+      <path value="TestScript.scope.artifact"/>
+      <short value="The specific conformance artifact being tested"/>
+      <definition value="The specific conformance artifact being tested. The canonical reference can be version-specific."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="TestScript.scope.conformance">
+      <path value="TestScript.scope.conformance"/>
+      <short value="required | optional"/>
+      <definition value="The expectation of whether the test must pass for the system to be considered conformant with the artifact: required - all tests must pass, optional - all test are expected to pass but non-pass status may be allowed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <meaningWhenMissing value="required"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TestScriptScopeConformanceType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The expectation of whether the test must pass for the system to be considered conformant with the artifact."/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The expectation of whether the test must pass for the system to be considered conformant with the artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/testscript-scope-conformance-codes"/>
+      </binding>
+    </element>
+    <element id="TestScript.scope.phase">
+      <path value="TestScript.scope.phase"/>
+      <short value="unit | integration | production"/>
+      <definition value="The phase of testing for this artifact: unit - development / implementation phase, integration - internal system to system phase, production - live system to system phase (Note, this may involve pii/phi data)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <meaningWhenMissing value="unit"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TestScriptScopePhaseType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The phase of testing for this artifact."/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The phase of testing for this artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/testscript-scope-phase-codes"/>
+      </binding>
+    </element>
     <element id="TestScript.fixture">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="550,150"/>
