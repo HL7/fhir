@@ -1,12 +1,10 @@
 
 plugins {
-//    // Apply the java-library plugin for API and implementation separation.
-//    `java-library`
-//    id("org.sonatype.gradle.plugins.scan") version "2.0.2"
     java
     application
 }
-//
+
+// TODO
 //ant.importBuild("build.xml") { oldTargetName ->
 //    if (oldTargetName == "Publish") {
 //        "ant_build"
@@ -41,12 +39,8 @@ repositories {
 }
 
 dependencies {
-    implementation("org.hl7.fhir", "kindling", "0.0.10-SNAPSHOT")
+    implementation("org.hl7.fhir", "kindling", "0.0.11-SNAPSHOT")
 }
-
-//configurations.all {
-//    resolutionStrategy.cacheDynamicVersionsFor(0, "seconds")
-//}
 
 task("runExecutableJar", JavaExec::class) {
     main = "org.hl7.fhir.tools.publisher.Publisher"
