@@ -136,10 +136,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchSubjectStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates the progression of a study subject through a study."/>
-        </extension>
         <strength value="required"/>
+        <description value="Indicates the progression of a study subject through a study."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-status"/>
       </binding>
       <mapping>
@@ -179,10 +177,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchSubjectStateType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the kind of state being refered to."/>
-        </extension>
         <strength value="example"/>
+        <description value="Identifies the kind of state being refered to."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state-type"/>
       </binding>
     </element>
@@ -199,10 +195,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchSubjectState"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates the progression of a study subject through a study."/>
-        </extension>
         <strength value="example"/>
+        <description value="Indicates the progression of a study subject through a study."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state"/>
       </binding>
       <mapping>
@@ -232,10 +226,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchSubjectMilestone"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates the progression of a study subject through the study milestones."/>
-        </extension>
         <strength value="example"/>
+        <description value="Indicates the progression of a study subject through the study milestones."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-milestone"/>
       </binding>
       <mapping>
@@ -260,10 +252,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="StateChangeReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates why the state of the subject changed."/>
-        </extension>
         <strength value="example"/>
+        <description value="Indicates why the state of the subject changed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/state-change-reason"/>
       </binding>
     </element>

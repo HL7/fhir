@@ -63,6 +63,7 @@ public class HTMLLinkChecker implements FileNotifier {
   private List<String> externals = new ArrayList<String>();
   private List<ValidationMessage> issues;
   private String webPath;
+  private String version;
 
   
   public HTMLLinkChecker(PageProcessor page, List<ValidationMessage> issues, String webPath) {
@@ -70,6 +71,14 @@ public class HTMLLinkChecker implements FileNotifier {
     this.page = page;
     this.issues = issues;
     this.webPath = webPath;
+  }
+
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
   }
 
   public void registerExternal(String filename) {
@@ -206,7 +215,11 @@ public class HTMLLinkChecker implements FileNotifier {
 
   private void reportError(String path, String msg) {
     if (!ok(msg)) {
-      issues.add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path, msg, IssueSeverity.ERROR));
+      if (version.equals("4.0.1")) {
+        issues.add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path, msg, IssueSeverity.WARNING));        
+      } else {
+        issues.add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path, msg, IssueSeverity.ERROR));
+      }
     }
   }
 

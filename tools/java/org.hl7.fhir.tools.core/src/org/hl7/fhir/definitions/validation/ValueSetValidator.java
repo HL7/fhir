@@ -234,21 +234,7 @@ public class ValueSetValidator extends BaseValidator {
       int i = 0;
       for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
         i++;
-        if (inc.hasSystem() && !context.hasResource(CodeSystem.class, inc.getSystem()) && !isContainedSystem(vs, inc.getSystem()))
-          rule(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isKnownCodeSystem(inc.getSystem()), "The system '"+inc.getSystem()+"' is not valid");
-        
-        if (inc.hasSystem() && canValidate(inc.getSystem())) {
-          for (ConceptReferenceComponent cc : inc.getConcept()) {
-            if (inc.getSystem().equals("http://dicom.nema.org/resources/ontology/DCM"))
-              warning(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
-                  "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1)",
-                  "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1a)");             
-            else if (!isValidCode(cc.getCode(), inc.getSystem()))
-              rule(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", false, 
-                "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (2)");
-            
-          }
-        }
+        checkValueSetCode(errors, nameForErrors, vs, i, inc);
       }
     }
     int warnings = 0;
@@ -257,6 +243,24 @@ public class ValueSetValidator extends BaseValidator {
         warnings++;
     }
     vs.setUserData("warnings", o_warnings - warnings);
+  }
+
+  public void checkValueSetCode(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, int i, ConceptSetComponent inc) {
+    if (inc.hasSystem() && !context.hasResource(CodeSystem.class, inc.getSystem()) && !isContainedSystem(vs, inc.getSystem()))
+      rule(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isKnownCodeSystem(inc.getSystem()), "The system '"+inc.getSystem()+"' is not valid");
+    
+    if (inc.hasSystem() && canValidate(inc.getSystem())) {
+      for (ConceptReferenceComponent cc : inc.getConcept()) {
+        if (inc.getSystem().equals("http://dicom.nema.org/resources/ontology/DCM"))
+          warning(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
+              "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1)",
+              "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1a)");             
+        else if (!isValidCode(cc.getCode(), inc.getSystem()))
+          rule(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", false, 
+            "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (2)");
+        
+      }
+    }
   }
 
   private boolean isContainedSystem(ValueSet vs, String system) {

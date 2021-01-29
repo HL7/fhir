@@ -146,10 +146,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes providing the status/availability of a specimen."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes providing the status/availability of a specimen."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/specimen-status"/>
       </binding>
       <mapping>
@@ -180,10 +178,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of the specimen."/>
-        </extension>
         <strength value="example"/>
+        <description value="The type of the specimen."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0487"/>
       </binding>
       <mapping>
@@ -416,10 +412,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenCollectionMethod"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The  technique that is used to perform the procedure."/>
-        </extension>
         <strength value="example"/>
+        <description value="The  technique that is used to perform the procedure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/specimen-collection-method"/>
       </binding>
       <mapping>
@@ -486,10 +480,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FastingStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the fasting status of the patient."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Codes describing the fasting status of the patient."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0916"/>
       </binding>
       <mapping>
@@ -541,10 +533,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenProcessingProcedure"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type indicating the technique used to process the specimen."/>
-        </extension>
         <strength value="example"/>
+        <description value="Type indicating the technique used to process the specimen."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/specimen-processing-procedure"/>
       </binding>
       <mapping>
@@ -651,10 +641,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenContainerType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type of specimen container."/>
-        </extension>
         <strength value="example"/>
+        <description value="Type of specimen container."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
       </binding>
       <mapping>
@@ -724,10 +712,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenContainerAdditive"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Substance added to specimen container."/>
-        </extension>
         <strength value="example"/>
+        <description value="Substance added to specimen container."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0371"/>
       </binding>
       <mapping>
@@ -755,10 +741,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenCondition"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the state of the specimen."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Codes describing the state of the specimen."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0493"/>
       </binding>
       <mapping>

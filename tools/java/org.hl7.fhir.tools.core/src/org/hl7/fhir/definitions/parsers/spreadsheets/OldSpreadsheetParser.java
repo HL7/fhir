@@ -817,7 +817,7 @@ public class OldSpreadsheetParser {
           throw new Exception("Search Param "+pack.getTitle()+"/"+n+" includes relative time "+ getLocation(row));
 //        if (!n.toLowerCase().equals(n))
 //          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" must be all lowercase "+ getLocation(row));
-        sp.setVersion(Constants.VERSION);
+        sp.setVersion(version.toCode());
         sp.setName(n);
         sp.setCode(n);
 
@@ -1167,7 +1167,7 @@ public class OldSpreadsheetParser {
           throw new Exception("don't start code list references with #valueset-");
         cd.setValueSet(ValueSetUtilities.makeShareable(new ValueSet()));
         valuesets.add(cd.getValueSet());
-        cd.getValueSet().setVersion(Constants.VERSION);
+        cd.getValueSet().setVersion(version.toCode());
         cd.getValueSet().setId(igSuffix(ig)+ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(1));
         cd.getValueSet().setUserData("filename", "valueset-"+cd.getValueSet().getId());
@@ -1839,7 +1839,7 @@ public class OldSpreadsheetParser {
 		  }
 		}
 
-		TypeParser tp = new TypeParser();
+		TypeParser tp = new TypeParser(version.toCode());
 		e.getTypes().addAll(tp.parse(sheet.getColumn(row, "Type"), isProfile, profileExtensionBase, context, !path.contains("."), this.name));
 		if (isRoot && e.getTypes().size() == 1 && definitions  != null) {
 		  String t = e.getTypes().get(0).getName();
@@ -2157,7 +2157,7 @@ public class OldSpreadsheetParser {
     ex.setDerivation(TypeDerivationRule.CONSTRAINT);
     ex.setAbstract(false);
     ex.setFhirVersion(version);
-    ex.setVersion(Constants.VERSION);
+    ex.setVersion(version.toCode());
     if (wg != null)
       ToolingExtensions.setCodeExtension(ex, ToolingExtensions.EXT_WORKGROUP, wg.getCode());
     String fmm = sheet.getColumn(row, "FMM");
@@ -2346,7 +2346,7 @@ public class OldSpreadsheetParser {
     if (!Utilities.noString(sheet.getColumn(row, "Type"))) {
       ElementDefn exv = new ElementDefn();
       exv.setName("value[x]");
-      exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, context, false, sheet.title));
+      exv.getTypes().addAll(new TypeParser(version.toCode()).parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, context, false, sheet.title));
 
 /*      if (!exv.getName().equals("value[x]")) {
         ElementDefn exd = new ElementDefn();

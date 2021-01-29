@@ -60,13 +60,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code of the alarm."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FlagPriority"/>
         </extension>
         <strength value="example"/>
+        <description value="A code of the alarm."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/flag-priority"/>
       </binding>
     </element>

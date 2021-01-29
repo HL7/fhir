@@ -140,10 +140,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyRequestStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Status of the supply request."/>
-        </extension>
         <strength value="required"/>
+        <description value="Status of the supply request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplyrequest-status"/>
       </binding>
       <mapping>
@@ -181,10 +179,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyRequestKind"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Category of supply request."/>
-        </extension>
         <strength value="example"/>
+        <description value="Category of supply request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplyrequest-kind"/>
       </binding>
       <mapping>
@@ -215,10 +211,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the level of importance to be assigned to actioning the request."/>
-        </extension>
         <strength value="required"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
       <mapping>
@@ -260,10 +254,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyRequestItem"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The item that was requested."/>
-        </extension>
         <strength value="example"/>
+        <description value="The item that was requested."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supply-item"/>
       </binding>
       <mapping>
@@ -330,10 +322,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ParameterCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code that identifies the device detail."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code that identifies the device detail."/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -530,10 +520,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyRequestReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The reason why the supply item was requested."/>
-        </extension>
         <strength value="example"/>
+        <description value="The reason why the supply item was requested."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplyrequest-reason"/>
       </binding>
       <mapping>

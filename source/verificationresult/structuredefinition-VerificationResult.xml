@@ -104,10 +104,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="need"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The frequency with which the target must be validated."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="The frequency with which the target must be validated."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-need"/>
       </binding>
     </element>
@@ -125,10 +123,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="status"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The validation status of the target."/>
-        </extension>
         <strength value="required"/>
+        <description value="The validation status of the target."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-status"/>
       </binding>
     </element>
@@ -157,10 +153,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="validation-type"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="What the target is validated against."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="What the target is validated against."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-validation-type"/>
       </binding>
     </element>
@@ -178,10 +172,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="validation-process"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The primary process by which the target is validated."/>
-        </extension>
         <strength value="example"/>
+        <description value="The primary process by which the target is validated."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-validation-process"/>
       </binding>
     </element>
@@ -229,10 +221,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="failure-action"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The result if validation fails."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="The result if validation fails."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-failure-action"/>
       </binding>
     </element>
@@ -277,10 +267,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="primary-source-type"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type of the validation primary source."/>
-        </extension>
         <strength value="example"/>
+        <description value="Type of the validation primary source."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-primary-source-type"/>
       </binding>
     </element>
@@ -298,10 +286,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="communication-method"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Method for communicating with the data source (manual; API; Push)."/>
-        </extension>
         <strength value="example"/>
+        <description value="Method for communicating with the data source (manual; API; Push)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-communication-method"/>
       </binding>
     </element>
@@ -318,10 +304,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="validation-status"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Status of the validation of the target against the primary source."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Status of the validation of the target against the primary source."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-validation-status"/>
       </binding>
     </element>
@@ -349,10 +333,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="can-push-updates"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Ability of the primary source to push updates/alerts."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Ability of the primary source to push updates/alerts."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-can-push-updates"/>
       </binding>
     </element>
@@ -369,10 +351,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="push-type-available"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type of alerts/updates the primary source can send."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Type of alerts/updates the primary source can send."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-push-type-available"/>
       </binding>
     </element>
@@ -428,10 +408,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="communication-method"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Method for communicating with the data source (manual; API; Push)."/>
-        </extension>
         <strength value="example"/>
+        <description value="Method for communicating with the data source (manual; API; Push)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-communication-method"/>
       </binding>
     </element>

@@ -136,10 +136,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Current state of the encounter."/>
-        </extension>
         <strength value="required"/>
+        <description value="Current state of the encounter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-status"/>
       </binding>
       <mapping>
@@ -193,10 +191,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Current state of the encounter."/>
-        </extension>
         <strength value="required"/>
+        <description value="Current state of the encounter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-status"/>
       </binding>
       <mapping>
@@ -232,10 +228,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterClass"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Classification of the encounter."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Classification of the encounter."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
       </binding>
       <mapping>
@@ -284,10 +278,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterClass"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Classification of the encounter."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Classification of the encounter."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
       </binding>
       <mapping>
@@ -362,10 +354,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterServiceType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Broad categorization of the service that is to be provided."/>
-        </extension>
         <strength value="example"/>
+        <description value="Broad categorization of the service that is to be provided."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-type"/>
       </binding>
       <mapping>
@@ -394,10 +384,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Priority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates the urgency of the encounter."/>
-        </extension>
         <strength value="example"/>
+        <description value="Indicates the urgency of the encounter."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPriority"/>
       </binding>
       <mapping>
@@ -461,10 +449,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Current status of the subject  within the encounter."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Current status of the subject  within the encounter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-subject-status"/>
       </binding>
     </element>
@@ -557,10 +543,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ParticipantType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Role of participant in encounter."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Role of participant in encounter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-participant-type"/>
       </binding>
       <mapping>
@@ -719,10 +703,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Reason why the encounter takes place."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Reason why the encounter takes place."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-reason"/>
       </binding>
       <mapping>
@@ -812,10 +794,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of diagnosis this condition represents."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="The type of diagnosis this condition represents."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/diagnosis-role"/>
       </binding>
       <mapping>
@@ -918,10 +898,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdmitSource"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="From where the patient was admitted."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="From where the patient was admitted."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-admit-source"/>
       </binding>
       <mapping>
@@ -949,10 +927,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ReAdmissionType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The reason for re-admission of this hospitalization encounter."/>
-        </extension>
         <strength value="example"/>
+        <description value="The reason for re-admission of this hospitalization encounter."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0092"/>
       </binding>
       <mapping>
@@ -979,10 +955,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PatientDiet"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Medical, cultural or ethical food preferences to help with catering requirements."/>
-        </extension>
         <strength value="example"/>
+        <description value="Medical, cultural or ethical food preferences to help with catering requirements."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diet"/>
       </binding>
       <mapping>
@@ -1007,10 +981,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Courtesies"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Special courtesies."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Special courtesies."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-special-courtesy"/>
       </binding>
       <mapping>
@@ -1035,10 +1007,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Arrangements"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Special arrangements."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Special arrangements."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-special-arrangements"/>
       </binding>
       <mapping>
@@ -1083,10 +1053,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DischargeDisp"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Discharge Disposition."/>
-        </extension>
         <strength value="example"/>
+        <description value="Discharge Disposition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-discharge-disposition"/>
       </binding>
       <mapping>
@@ -1157,10 +1125,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterLocationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the location."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of the location."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-location-status"/>
       </binding>
       <mapping>
@@ -1182,10 +1148,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PhysicalType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Physical form of the location."/>
-        </extension>
         <strength value="example"/>
+        <description value="Physical form of the location."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/location-physical-type"/>
       </binding>
     </element>

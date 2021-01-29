@@ -478,7 +478,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String dictForDt(String dt) throws Exception {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  DictHTMLGenerator gen = new DictHTMLGenerator(new FileOutputStream(tmp), this, "");
-	  TypeParser tp = new TypeParser();
+	  TypeParser tp = new TypeParser(version.toCode());
 	  TypeRef t = tp.parse(dt, false, null, workerContext, true).get(0);
 
 	  ElementDefn e;
@@ -503,7 +503,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  tmp.deleteOnExit();
 	  TerminologyNotesGenerator gen = new TerminologyNotesGenerator(new FileOutputStream(tmp), this);
-	  TypeParser tp = new TypeParser();
+	  TypeParser tp = new TypeParser(version.toCode());
 	  TypeRef t = tp.parse(dt, false, null, workerContext, true).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
@@ -527,7 +527,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String xmlForDt(String dt, String pn) throws Exception {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
 	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this, "");
-	  TypeParser tp = new TypeParser();
+	  TypeParser tp = new TypeParser(version.toCode());
 	  TypeRef t = tp.parse(dt, false, null, workerContext, true).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
 	  if (e == null) {
@@ -545,8 +545,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String jsonForDt(String dt, String pn) throws Exception {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
-    JsonSpecGenerator gen = new JsonSpecGenerator(b, pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this, "");
-    TypeParser tp = new TypeParser();
+    JsonSpecGenerator gen = new JsonSpecGenerator(b, pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this, "", version.toCode());
+    TypeParser tp = new TypeParser(version.toCode());
     TypeRef t = tp.parse(dt, false, null, workerContext, true).get(0);
     ElementDefn e = definitions.getElementDefn(t.getName());
     if (e == null) {
@@ -563,8 +563,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String ttlForDt(String dt, String pn) throws Exception {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
-    TurtleSpecGenerator gen = new TurtleSpecGenerator(b, pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this, "");
-    TypeParser tp = new TypeParser();
+    TurtleSpecGenerator gen = new TurtleSpecGenerator(b, pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this, "", version.toCode());
+    TypeParser tp = new TypeParser(version.toCode());
     TypeRef t = tp.parse(dt, false, null, workerContext, true).get(0);
     ElementDefn e = definitions.getElementDefn(t.getName());
     if (e == null) {
@@ -689,7 +689,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String s3 = src.substring(i2+2);
 
       String[] com = s2.split(" ");
-      if (com.length == 4 && com[0].equals("edt")) {
+      if (s2.startsWith("!")) {
+        src = s1+s3;        
+      } else if (com.length == 4 && com[0].equals("edt")) {
         if (tabs != null)
           tabs.add("tabs-"+com[1]);
         src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[3]), umlForDt(com[1], com[3]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]), diffForDt(com[1], com[2]))+s3;
@@ -811,7 +813,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
-        src = s1+new SvgGenerator(this, genlevel(level), null, false, file.contains("datatypes")).generate(folders.srcDir+ com[1], com[2])+s3;
+        src = s1+new SvgGenerator(this, genlevel(level), null, false, file.contains("datatypes"), version.toCode()).generate(folders.srcDir+ com[1], com[2])+s3;
       else if (com[0].equals("file")) {
         if (new File(folders.templateDir + com[1]+".html").exists()) {
           src = s1+TextFile.fileToString(folders.templateDir + com[1]+".html")+s3;          
@@ -1329,6 +1331,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genWildcardTypeList()+s3;
       else if (com[0].startsWith("GF#"))
         src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">"+com[0]+"</a>"+s3;      
+      else if (com[0].startsWith("GFT#"))
+        src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">Task</a>"+s3;      
       else if (com[0].equals("operation")) {
         Operation op = (Operation) object;
         src = s1+genOperation(op, rd.getName(), rd.getName().toLowerCase(), false, rd.getStatus(), genlevel(level), rd.getNormativePackage())+s3;
@@ -2485,7 +2489,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           "classes="+dt+"\r\n"+
           "element-attributes=true\r\n";
       TextFile.stringToFileNoPrefix(s, tmp.getAbsolutePath());
-      return new SvgGenerator(this, "", null, false, true).generate(tmp.getAbsolutePath(), id);
+      return new SvgGenerator(this, "", null, false, true, version.toCode()).generate(tmp.getAbsolutePath(), id);
     } finally {
       tmp.delete();
     }
@@ -5276,7 +5280,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String name = file.substring(0,file.indexOf("."));
 
       String[] com = s2.split(" ");
-      if (com.length == 3 && com[0].equals("edt")) {
+      if (s2.startsWith("!")) {
+        src = s1+s3;
+      } else if (com.length == 3 && com[0].equals("edt")) {
         if (tabs != null)
           tabs.add("tabs-"+com[1]);
         src = s1+orgDT(com[1], xmlForDt(com[1], com[2]), treeForDt(com[1]), umlForDt(com[1], com[2]), umlForDt(com[1], com[2]+"b"), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], com[2]), ttlForDt(com[1], com[2]), diffForDt(com[1], com[2]))+s3;
@@ -5367,7 +5373,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
-        src = s1+new SvgGenerator(this, genlevel(level), null, false, file.contains("datatypes")).generate(folders.srcDir+ com[1], com[2])+s3;
+        src = s1+new SvgGenerator(this, genlevel(level), null, false, file.contains("datatypes"), version.toCode()).generate(folders.srcDir+ com[1], com[2])+s3;
       else if (com[0].equals("file"))
         src = s1+/*TextFile.fileToString(folders.srcDir + com[1]+".html")+*/s3;
       else if (com[0].equals("settitle")) {
@@ -5684,6 +5690,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genWildcardTypeList()+s3;
       else if (com[0].startsWith("GF#"))
         src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">"+com[0]+"</a>"+s3;      
+      else if (com[0].startsWith("GFT#"))
+        src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">Task</a>"+s3;      
       else  if (com[0].equals("canonical-resources")) 
         src = s1+listCanonicalResources()+s3;      
       else if (com[0].equals("special-search-parameters")) { 
@@ -6049,7 +6057,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("othertabs"))
         src = s1 + genOtherTabs(com[1], tabs) + s3;
       else if (com[0].equals("svg"))
-        src = s1+new SvgGenerator(this, genlevel(level), resource.getLayout(), true, false).generate(resource, com[1])+s3;
+        src = s1+new SvgGenerator(this, genlevel(level), resource.getLayout(), true, false, version.toCode()).generate(resource, com[1])+s3;
       else if (com[0].equals("normative")) {
         String np = null;
         if (com[2].equals("%check") || com[2].equals("%check-op")) {
@@ -9188,6 +9196,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   public void setVersion(FHIRVersion version) {
     this.version = version;
     workerContext.setVersion(version.toCode());
+    htmlchecker.setVersion(version.toCode());
   }
 
   public void setFolders(FolderManager folders) throws Exception {
@@ -10804,7 +10813,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
     StringBuilder b = new StringBuilder();
     TypeClassification tc = null;
     boolean first = true;
-    for (WildcardInformation wi : TypesUtilities.wildcards()) {
+    for (WildcardInformation wi : TypesUtilities.wildcards(version.toCode())) {
       if (tc != wi.getClassification()) {
         if (first)
           first = false;
@@ -10826,7 +10835,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   
   private String genExtensionTypeList() {
     StringBuilder b = new StringBuilder();
-    for (WildcardInformation wi : TypesUtilities.wildcards()) {
+    for (WildcardInformation wi : TypesUtilities.wildcards(version.toCode())) {
       b.append("<li>value");
       b.append(Utilities.capitalize(wi.getTypeName()));
       b.append(": <a href=\"");

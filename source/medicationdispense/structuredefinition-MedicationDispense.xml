@@ -228,10 +228,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationDispenseStatusReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code describing why a dispense was not performed."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code describing why a dispense was not performed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"/>
       </binding>
       <mapping>
@@ -257,10 +255,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationDispenseAdminLocation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code describing where the dispensed medication is expected to be consumed or administered."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code describing where the dispensed medication is expected to be consumed or administered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-admin-location"/>
       </binding>
       <mapping>
@@ -284,10 +280,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept identifying which substance or product can be dispensed."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept identifying which substance or product can be dispensed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
       </binding>
       <mapping>
@@ -415,10 +409,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationDispensePerformerFunction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code describing the role an individual played in dispensing a medication."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code describing the role an individual played in dispensing a medication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-performer-function"/>
       </binding>
       <mapping>

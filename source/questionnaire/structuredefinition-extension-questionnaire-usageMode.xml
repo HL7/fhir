@@ -67,13 +67,11 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the modes of usage of a questionnaire that should enable a particular questionnaire item."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="QuestionnaireItemUsageMode"/>
         </extension>
         <strength value="required"/>
+        <description value="Identifies the modes of usage of a questionnaire that should enable a particular questionnaire item."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-usage-mode"/>
       </binding>
     </element>

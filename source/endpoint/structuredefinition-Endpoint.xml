@@ -113,10 +113,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EndpointStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the endpoint."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of the endpoint."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/endpoint-status"/>
       </binding>
       <mapping>

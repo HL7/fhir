@@ -145,10 +145,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LinkageType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used to distinguish different roles a resource can play within a set of linked resources."/>
-        </extension>
         <strength value="required"/>
+        <description value="Used to distinguish different roles a resource can play within a set of linked resources."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/linkage-type"/>
       </binding>
     </element>

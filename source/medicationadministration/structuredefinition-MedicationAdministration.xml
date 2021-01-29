@@ -200,13 +200,11 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationAdministrationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A set of codes indicating the current status of a MedicationAdministration."/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
           <valueString value="ActStatus"/>
         </extension>
         <strength value="required"/>
+        <description value="A set of codes indicating the current status of a MedicationAdministration."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-admin-status"/>
       </binding>
       <mapping>
@@ -239,10 +237,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationAdministrationNegationReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A set of codes indicating the reason why the MedicationAdministration is negated."/>
-        </extension>
         <strength value="example"/>
+        <description value="A set of codes indicating the reason why the MedicationAdministration is negated."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes"/>
       </binding>
       <mapping>
@@ -271,10 +267,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationAdministrationLocation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept describing where the medication administered is expected to occur."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept describing where the medication administered is expected to occur."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-admin-location"/>
       </binding>
       <mapping>
@@ -298,10 +292,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying substance or product that can be administered."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes identifying substance or product that can be administered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
       </binding>
       <mapping>
@@ -492,10 +484,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationAdministrationPerformerFunction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code describing the role an individual played in administering the medication."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code describing the role an individual played in administering the medication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/med-admin-perform-function"/>
       </binding>
       <mapping>
@@ -547,10 +537,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationAdministrationReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A set of codes indicating the reason why the MedicationAdministration was made."/>
-        </extension>
         <strength value="example"/>
+        <description value="A set of codes indicating the reason why the MedicationAdministration was made."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/reason-medication-given-codes"/>
       </binding>
       <mapping>
@@ -683,10 +671,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationAdministrationSite"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept describing the site location the medicine enters into or onto the body."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept describing the site location the medicine enters into or onto the body."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/approach-site-codes"/>
       </binding>
       <mapping>
@@ -711,10 +697,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RouteOfAdministration"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
       </binding>
       <mapping>
@@ -740,10 +724,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationAdministrationMethod"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept describing the technique by which the medicine is administered."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept describing the technique by which the medicine is administered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/administration-method-codes"/>
       </binding>
       <mapping>

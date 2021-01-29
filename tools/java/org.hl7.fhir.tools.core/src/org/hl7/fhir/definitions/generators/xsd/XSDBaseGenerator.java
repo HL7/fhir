@@ -79,15 +79,18 @@ public class XSDBaseGenerator {
 
   private boolean forCodeGeneration;
 
-  private BuildWorkerContext workerContext; 
+  private BuildWorkerContext workerContext;
+
+  private String version; 
 
   // private Map<String, PrimitiveType> primitives;
 
-  public XSDBaseGenerator(OutputStreamWriter out, boolean forCodeGeneration, BuildWorkerContext workerContext, Set<String> genEnums) throws UnsupportedEncodingException {
+  public XSDBaseGenerator(OutputStreamWriter out, boolean forCodeGeneration, BuildWorkerContext workerContext, Set<String> genEnums, String version) throws UnsupportedEncodingException {
     writer = out;
     this.forCodeGeneration = forCodeGeneration;
     this.workerContext = workerContext;
     this.genEnums = genEnums;
+    this.version = version;
   }
 
   private void write(String s) throws IOException {
@@ -616,7 +619,7 @@ public class XSDBaseGenerator {
       }
       close = "/>";
     }
-    for (String t : TypesUtilities.wildcardTypes()) {
+    for (String t : TypesUtilities.wildcardTypes(version)) {
       if (!definitions.getInfrastructure().containsKey(t) && !definitions.getConstraints().containsKey(t) && !definitions.getShared().contains(t)) {
         if (t.equals("ReferenceXX")) {
           write("           <xs:element name=\""+prefix+"Resource\" type=\"Reference\""+close+"\r\n");        

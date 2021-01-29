@@ -68,9 +68,11 @@ public class SpreadSheetReloader extends SpreadSheetBase {
   }
 
   private String xlsx;
+  private String version;
 
-  public SpreadSheetReloader(BaseWorkerContext context, String srcFolder, String resourceName) {
+  public SpreadSheetReloader(BaseWorkerContext context, String srcFolder, String resourceName, String version) {
     super(context, srcFolder, resourceName);
+    this.version = version;
   }
 
   protected boolean useLoadingDates() {
@@ -215,7 +217,7 @@ public class SpreadSheetReloader extends SpreadSheetBase {
       } else if (value.startsWith("#")) {
         ed.setContentReference(value);
       } else {
-        List<TypeRef> tl = new TypeParser().parse(value, false, null, context, false);
+        List<TypeRef> tl = new TypeParser(version).parse(value, false, null, context, false);
         for (TypeRef tr : tl) {
           TypeRefComponent t = ed.addType().setCode(tr.getName());
           if ("SimpleQuantity".equals(t.getCode())) {

@@ -35,14 +35,16 @@ public class JsonSpecGenerator extends OutputStreamWriter {
   private Definitions definitions;
   private PageProcessor page;
   private String prefix;
+  private String version;
 
-  public JsonSpecGenerator(OutputStream out, String defPage, String dtRoot, PageProcessor page, String prefix) throws UnsupportedEncodingException {
+  public JsonSpecGenerator(OutputStream out, String defPage, String dtRoot, PageProcessor page, String prefix, String version) throws UnsupportedEncodingException {
     super(out, "UTF-8");
     this.defPage = defPage;
     this.dtRoot = dtRoot == null ? "" : dtRoot;
     this.definitions = page.getDefinitions();
     this.page = page;
     this.prefix = prefix;
+    this.version = version;
   }
 
   protected String getBindingLink(ElementDefn e) throws Exception {
@@ -255,7 +257,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
         for (TypeRef t : elem.getTypes())
           generateCoreElemDetails(elem, indent, rootName, pathName, backbone, last, width, en.replace("[x]", nameForType(t.getName())), t, false);
       } else {
-        List<WildcardInformation> tr = TypesUtilities.wildcards();
+        List<WildcardInformation> tr = TypesUtilities.wildcards(version);
         write("<span style=\"color: Gray\">// "+en+": <span style=\"color: navy; opacity: 0.8\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShortDefn()) + "</span>. One of these "+Integer.toString(tr.size())+":</span>\r\n");
         for (WildcardInformation t : tr)
           generateCoreElemDetails(elem, indent, rootName, pathName, backbone, last, width, en.replace("[x]", upFirst(t.getTypeName())), toTypeRef(t), false);	      

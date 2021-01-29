@@ -54,13 +54,11 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The extent to which the properties of the code system (including the filters) are represented in a code system resource."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CodeSystemPropertiesMode"/>
         </extension>
         <strength value="required"/>
+        <description value="The extent to which the properties of the code system (including the filters) are represented in a code system resource."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-properties-mode"/>
       </binding>
     </element>

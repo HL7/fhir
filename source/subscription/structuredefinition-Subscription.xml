@@ -120,10 +120,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubscriptionState"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of a subscription."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of a subscription."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-state"/>
       </binding>
       <mapping>
@@ -222,10 +220,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRDefinedTypeExt"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Either a resource or a data type, including logical model types."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Either a resource or a data type, including logical model types."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
       </binding>
     </element>
@@ -254,10 +250,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubscriptionFilterBySearchModifier"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Operator to apply to filter label."/>
-        </extension>
         <strength value="required"/>
+        <description value="Operator to apply to filter label."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-search-modifier"/>
       </binding>
     </element>
@@ -286,10 +280,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubscriptionChannelType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of method used to execute a subscription."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of method used to execute a subscription."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-channel-type"/>
       </binding>
     </element>
@@ -379,10 +371,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubscriptionPayloadContent"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes to represent how much resource content to send in the notification payload."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes to represent how much resource content to send in the notification payload."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-payload-content"/>
       </binding>
     </element>
@@ -400,10 +390,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubscriptionUrlLocation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The location, in Bundle.entry, where URLs for resources should be located."/>
-        </extension>
         <strength value="required"/>
+        <description value="The location, in Bundle.entry, where URLs for resources should be located."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-url-location"/>
       </binding>
     </element>

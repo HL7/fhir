@@ -154,7 +154,7 @@ public class CodeListToValueSetParser {
   private void generateConceptMapV2(String v2map, ValueSet vs, CodeSystem cs) throws Exception {
     ConceptMap cm = new ConceptMap();
     cm.setId("cm-"+vs.getId()+"-v2");
-    cm.setVersion(Constants.VERSION);
+    cm.setVersion(version);
     cm.setUserData("path", cm.getId()+".html");
     cm.setUserData("generate", true);
     cm.setUrl("http://hl7.org/fhir/ConceptMap/" + cm.getId());
@@ -247,7 +247,7 @@ public class CodeListToValueSetParser {
       v3map = "http://terminology.hl7.org/ValueSet/v3-"+v3map;
 
     ConceptMap cm = new ConceptMap();
-    cm.setVersion(Constants.VERSION);
+    cm.setVersion(version);
     cm.setId("cm-"+vs.getId()+"-v3");
     cm.setUserData("path", cm.getId()+".html");
     cm.setUserData("generate", true);

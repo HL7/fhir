@@ -173,10 +173,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RiskAssessmentStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the risk assessment; e.g. preliminary, final, amended, etc."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of the risk assessment; e.g. preliminary, final, amended, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-status"/>
       </binding>
       <mapping>
@@ -203,10 +201,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RiskAssessmentMethod"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
-        </extension>
         <strength value="example"/>
+        <description value="The mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -446,10 +442,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RiskAssessmentOutcome"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The condition or other outcome; e.g. death, remission, amputation, infection, etc."/>
-        </extension>
         <strength value="example"/>
+        <description value="The condition or other outcome; e.g. death, remission, amputation, infection, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -503,10 +497,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RiskAssessmentProbability"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The likelihood of the occurrence of a specified outcome."/>
-        </extension>
         <strength value="example"/>
+        <description value="The likelihood of the occurrence of a specified outcome."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/risk-probability"/>
       </binding>
     </element>

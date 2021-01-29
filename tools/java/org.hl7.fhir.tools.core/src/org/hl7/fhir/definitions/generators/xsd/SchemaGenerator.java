@@ -69,7 +69,7 @@ public class SchemaGenerator {
 	    }
 	  }
 
-	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd")), "UTF-8"), forCodeGeneration, workerContext, new HashSet<>());
+	  XSDBaseGenerator xsdb = new XSDBaseGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+"fhir-base.xsd")), "UTF-8"), forCodeGeneration, workerContext, new HashSet<>(), version);
 	  xsdb.setDefinitions(definitions);
 	  xsdb.generate(version, genDate, true);
 	  xsdb.getWriter().close();
@@ -81,7 +81,7 @@ public class SchemaGenerator {
     Collections.sort(names);
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
-		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd")), "UTF-8"), definitions, forCodeGeneration, workerContext, allenums);
+		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd")), "UTF-8"), definitions, forCodeGeneration, workerContext, allenums, version);
 		  sgen.setDataTypes(definitions.getKnownTypes());
 		  sgen.generate(root.getRoot(), version, genDate, true);
 		  sgen.getWriter().close();
@@ -100,7 +100,7 @@ public class SchemaGenerator {
 	  single.write("  <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml=\"http://www.w3.org/XML/1998/namespace\", however this causes performance issues with other tools and thus is not in the base schemas. -->\r\n");
 
     allenums = new HashSet<String>();
-    xsdb = new XSDBaseGenerator(single, forCodeGeneration, workerContext, allenums);
+    xsdb = new XSDBaseGenerator(single, forCodeGeneration, workerContext, allenums, version);
     xsdb.setDefinitions(definitions);
     xsdb.generate(version, genDate, false);
  
@@ -125,7 +125,7 @@ public class SchemaGenerator {
 //  
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
-      XSDGenerator sgen = new XSDGenerator(single, definitions, forCodeGeneration, workerContext, allenums);
+      XSDGenerator sgen = new XSDGenerator(single, definitions, forCodeGeneration, workerContext, allenums, version);
       sgen.setDataTypes(definitions.getKnownTypes());
       sgen.generate(root.getRoot(), version, genDate, false);
     }

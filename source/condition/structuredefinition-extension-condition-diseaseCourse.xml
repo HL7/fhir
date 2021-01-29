@@ -60,13 +60,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes that describe the clinical course of the disease."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionCourse"/>
         </extension>
         <strength value="example"/>
+        <description value="Codes that describe the clinical course of the disease."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-course"/>
       </binding>
     </element>
