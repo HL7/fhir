@@ -776,6 +776,9 @@
    <Row>
     <Cell><Data ss:Type="String">InventoryReport</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="String">MedicationDefinition</Data></Cell>
+   </Row>
    <Row ss:Index="145">
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>

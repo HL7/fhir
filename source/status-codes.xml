@@ -4007,6 +4007,13 @@
     <Cell><Data ss:Type="String">requested</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="String">MedicationDefinition.status</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">inactive</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
