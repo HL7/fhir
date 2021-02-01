@@ -6,6 +6,9 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
 <status value = "draft"/>
+<name>
+<productName value = "example product"/>
+</name>
 
   <!-- insert contents here -->
   
