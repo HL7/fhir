@@ -233,6 +233,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="TestScript-scope-artifact"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestScript.scope.artifact"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-scope-artifact"/>
+        <description value="The artifact under test"/>
+        <code value="scope-artifact"/>
+        <type value="reference"/>
+        <expression value="TestScript.scope.artifact"/>
+        <xpath value="f:TestScript/f:scope/f:artifact"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="TestScript-scope-artifact-conformance"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
