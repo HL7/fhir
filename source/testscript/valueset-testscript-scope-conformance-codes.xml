@@ -25,12 +25,12 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/testscript-scope-conformance-codes"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.703"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1536"/>
   </identifier>
   <version value="4.5.0"/>
   <name value="TestScriptScopeConformanceType"/>
@@ -53,7 +53,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/testscript-scope-conformance-codes"/>
+      <system value="http://terminology.hl7.org/CodeSystem/testscript-scope-conformance-codes"/>
     </include>
   </compose>
 </ValueSet>
