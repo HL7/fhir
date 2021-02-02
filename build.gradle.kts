@@ -42,7 +42,7 @@ dependencies {
     implementation("org.hl7.fhir", "kindling", "0.0.11-SNAPSHOT")
 }
 
-task("runExecutableJar", JavaExec::class) {
+task("publish", JavaExec::class) {
     main = "org.hl7.fhir.tools.publisher.Publisher"
     classpath = sourceSets["main"].compileClasspath
 }
