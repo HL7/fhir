@@ -26,4 +26,4 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    tasks: 'publish'
+    tasks: 'publish --debug'
