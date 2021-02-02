@@ -1,0 +1,31 @@
+trigger:
+- none
+
+pr:
+- master
+
+# Different users have different machine setups, we run the build three times, on ubuntu, osx, and windows
+strategy:
+  matrix:
+    linux:
+      imageName: 'ubuntu-latest'
+    mac:
+      imageName: "macos-10.15"
+    windows:
+      imageName: "windows-2019"
+  maxParallel: 3
+
+steps:
+
+# Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
+- task: Gradle@2
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx16384m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: 'publish'
