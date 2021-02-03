@@ -16,7 +16,6 @@ jobs:
     inputs:
       targetType: 'inline'
       script: |
-        echo "1. source branch -> $(Build.SourceBranch)"
-        echo "2. source branch -> $(Build.SourceBranchName)"
-        echo "3. source branch -> $(System.PullRequest.SourceBranch)"
-        echo "2. source branch -> $(System.PullRequest.TargetBranch)"
+        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
+        echo "1. source branch -> $(System.PullRequest.SourceBranch)"
+        echo "2. source branch -> $TARGET_DIRECTORY"
