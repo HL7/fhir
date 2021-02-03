@@ -42,7 +42,7 @@ jobs:
       script: |
         cd publish
         TARGET_DIRECTORY=$(echo "$(System.PullRequest.TargetBranch)" | sed -r 's/\//_/g')
-        tar czf - * | ssh  -i deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY
+        tar czf - * | ssh  -i ../deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY
 
 # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
 # on Zulip (chat.fhir.org) to let users know that the build is available.
