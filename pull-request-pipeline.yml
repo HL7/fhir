@@ -42,8 +42,8 @@ jobs:
       script: |
         cd publish
         chmod 400 $(Agent.TempDirectory)/deploy.rsa
-        TARGET_DIRECTORY=$(echo "$(System.PullRequest.TargetBranch)" | sed -r 's/\//_/g')
-        echo "Publishing to target $(TARGET_DIRECTORY)"
+        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
+        echo "Publishing to target $TARGET_DIRECTORY"
         tar czf - * | ssh  -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY
 
 # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
@@ -57,7 +57,7 @@ jobs:
     inputs:
       targetType: 'inline'
       script: |
-        TARGET_DIRECTORY=$(echo "$(System.PullRequest.TargetBranch)" | sed -r 's/\//_/g')
+        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
         curl -X POST https://chat.fhir.org/api/v1/messages \
             -u $(ZULIP_BOT_EMAIL):$(ZULIP_BOT_API_KEY) \
             -d "type=stream" \
@@ -76,7 +76,7 @@ jobs:
     inputs:
       targetType: 'inline'
       script: |
-        TARGET_DIRECTORY=$(echo "$(System.PullRequest.TargetBranch)" | sed -r 's/\//_/g')
+        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
         curl -X POST https://chat.fhir.org/api/v1/messages \
             -u $(ZULIP_BOT_EMAIL):$(ZULIP_BOT_API_KEY) \
             -d "type=stream" \
