@@ -41,6 +41,7 @@ jobs:
       targetType: 'inline'
       script: |
         cd publish
+        chmod 400 $(Agent.TempDirectory)/deploy.rsa
         TARGET_DIRECTORY=$(echo "$(System.PullRequest.TargetBranch)" | sed -r 's/\//_/g')
         tar czf - * | ssh  -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY
 
