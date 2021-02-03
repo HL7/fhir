@@ -4,26 +4,68 @@ trigger:
 pr:
 - master
 
-# Different users have different machine setups, we run the build three times, on ubuntu, osx, and windows
-strategy:
-  matrix:
-    linux:
-      imageName: 'ubuntu-latest'
-    mac:
-      imageName: "macos-10.15"
-    windows:
-      imageName: "windows-2019"
-  maxParallel: 3
+variables:
+- group: ZULIP_VAR_GROUP
 
-steps:
-- task: Gradle@2
-  inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx65536m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'publish --debug'
+jobs:
+- job: publish
+  timeoutInMinutes: 60
+  steps:
+  # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
+  - task: Gradle@2
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      gradleOptions: '-Xmx16384m'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.8'
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: true
+      testResultsFiles: '**/TEST-*.xml'
+      tasks: 'publish'
+
+- job: successNotification
+  dependsOn: publish
+  condition: succeeded()
+  timeoutInMinutes: 5
+  steps:
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        SVNREV=$(git rev-parse --short HEAD)
+        LASTMSG=$(git log --oneline --graph HEAD~1..)
+        
+        curl -X POST https://chat.fhir.org/api/v1/messages \
+            -u $(ZULIP_BOT_EMAIL):$(ZULIP_BOT_API_KEY) \
+            -d "type=stream" \
+            -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
+            -d "subject=FHIR Build Status" \
+            -d $"content=Build success :thumbs_up:! @${SVNREV} [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=${BUILD_BUILDNUMBER}&_a=summary&view=logs)
+        \`\`\`
+        ${LASTMSG}
+        \`\`\`
+        "
+
+- job: failureNotification
+  dependsOn: publish
+  condition: failed()
+  timeoutInMinutes: 5
+  steps:
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        SVNREV=$(git rev-parse --short HEAD)
+        FAIL_MSG=$(cat publish/simple-error.txt)
+        
+        curl -X POST https://chat.fhir.org/api/v1/messages \
+            -u $(ZULIP_BOT_EMAIL):$(ZULIP_BOT_API_KEY) \
+            -d "type=stream" \
+            -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
+            -d "subject=FHIR Build Status" \
+            -d $"content=Build failed :thumbs_down:! @${SVNREV} [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=${BUILD_BUILDNUMBER}&_a=summary&view=logs)
+        \`\`\`
+        ${FAIL_MSG}
+        \`\`\`
+        "
