@@ -10,8 +10,6 @@ variables:
 jobs:
 - job: publish
   timeoutInMinutes: 60
-  pool:
-    vmImage: 'ubuntu-latest'
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
@@ -30,8 +28,6 @@ jobs:
   dependsOn: publish
   condition: succeeded()
   timeoutInMinutes: 5
-  pool:
-    vmImage: 'ubuntu-latest'
   steps:
   - task: Bash@3
     inputs:
@@ -55,8 +51,6 @@ jobs:
   dependsOn: publish
   condition: failed()
   timeoutInMinutes: 5
-  pool:
-    vmImage: 'ubuntu-latest'
   steps:
   - task: Bash@3
     inputs:
