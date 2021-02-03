@@ -16,5 +16,7 @@ jobs:
     inputs:
       targetType: 'inline'
       script: |
-        TARGET_DIRECTORY=$(echo "$(BUILD_SOURCEBRANCH)" | sed -r 's/\//_/g')
-        echo "Publishing to target $(TARGET_DIRECTORY)"
+        echo "1. source branch -> $Build.SourceBranch"
+        echo "2. source branch -> $(Build.SourceBranch)"
+        echo "3. source branch -> $Build.SourceBranchName"
+        echo "4. source branch -> $(Build.SourceBranchName)"
