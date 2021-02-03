@@ -1,8 +1,8 @@
 trigger:
-- none
+- master
 
 pr:
-- master
+- none
 
 # Different users have different machine setups, we run the build three times, on ubuntu, osx, and windows
 strategy:
