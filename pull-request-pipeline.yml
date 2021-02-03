@@ -10,8 +10,6 @@ variables:
 jobs:
 - job: publish
   timeoutInMinutes: 60
-  pool:
-    vmImage: 'ubuntu-latest'
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
@@ -30,8 +28,6 @@ jobs:
   dependsOn: publish
   condition: succeeded()
   timeoutInMinutes: 5
-  pool:
-    vmImage: 'ubuntu-latest'
   steps:
   - task: Bash@3
     inputs:
@@ -55,8 +51,6 @@ jobs:
   dependsOn: publish
   condition: failed()
   timeoutInMinutes: 5
-  pool:
-    vmImage: 'ubuntu-latest'
   steps:
   - task: Bash@3
     inputs:
@@ -70,7 +64,7 @@ jobs:
             -d "type=stream" \
             -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
             -d "subject=FHIR Build Status" \
-            -d $"content=Build failed :thumbs_down:! @${SVNREV} [build logs](https://dev.azure.com/fhir-build/build.fhir.org/_build/results?buildId=${BUILD_BUILDNUMBER}&_a=summary&view=logs)
+            -d $"content=Build failed :thumbs_down:! @${SVNREV} [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=${BUILD_BUILDNUMBER}&_a=summary&view=logs)
         \`\`\`
         ${FAIL_MSG}
         \`\`\`
