@@ -16,5 +16,5 @@ jobs:
     inputs:
       targetType: 'inline'
       script: |
-        TARGET_DIRECTORY=$(echo "$(BUILD_SOURCEBRANCH)" | sed -r 's/\//_/g')
-        echo "Publishing to target $(TARGET_DIRECTORY)"
+        TARGET_DIRECTORY=$(echo "$Build.SourceBranch" | sed -r 's/\//_/g')
+        echo "Publishing to target $TARGET_DIRECTORY"
