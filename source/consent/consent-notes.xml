@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <h2>Policies</h2>
 <p>
@@ -35,7 +35,7 @@ consent has been rejected, and consent approved.
 	  <li>Opt-in with restrictions: Sharing allowed, but the patient may make exceptions (See the Canadian examples).</li>
 	  </ol>
       <p>For each of these patterns (positive or negative pattern), there can be exceptions. 
-	  These exceptions are explicitly recorded in the <b>except</b> element. 
+	  These exceptions are explicitly recorded in Consent.provision sub-trees. 
       </p>	
 <h2>Realm specifics</h2>
  <h3>US Realm Sample Use-Cases</h3>

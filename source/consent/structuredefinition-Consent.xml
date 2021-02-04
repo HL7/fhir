@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Consent"/>
@@ -138,13 +138,6 @@
       <type>
         <code value="Identifier"/>
       </type>
-      <example>
-        <label value="General"/>
-        <valueIdentifier>
-          <system value="urn:ietf:rfc:3986"/>
-          <value value="Local eCMS identifier"/>
-        </valueIdentifier>
-      </example>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
