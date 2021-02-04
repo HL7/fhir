@@ -899,10 +899,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubpotentReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The reason why a dose is considered to be subpotent."/>
-        </extension>
         <strength value="example"/>
+        <description value="The reason why a dose is considered to be subpotent."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-subpotent-reason"/>
       </binding>
       <mapping>

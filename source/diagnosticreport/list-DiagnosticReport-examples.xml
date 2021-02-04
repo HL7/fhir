@@ -93,10 +93,10 @@
       <valueString value="An collection Bundle showing an example of a complex Micro Isolate and Sensitivities"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="diagnosticreport-example-lri"/>
+      <valueString value="bundle-lri-example"/>
     </extension>
     <item>
-      <reference value="DiagnosticReport/lri-example"/>
+      <reference value="Bundle/lri-example"/>
       <display value="Micro Isolate and Sensitivities-2"/>
     </item>
   </entry>

@@ -60,13 +60,11 @@
         <code value="Coding"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The method that the patient arrived at the facility."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="modeOfArrival"/>
         </extension>
         <strength value="example"/>
+        <description value="The method that the patient arrived at the facility."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0430"/>
       </binding>
     </element>

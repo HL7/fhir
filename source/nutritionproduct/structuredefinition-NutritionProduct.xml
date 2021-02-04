@@ -96,10 +96,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritionProductStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying the lifecycle stage of a product."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of a product."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/nutritionproduct-status"/>
       </binding>
       <mapping>
@@ -133,10 +131,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritionProductCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying classes of nutrition products."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes identifying classes of nutrition products."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/nutrition-product-category"/>
       </binding>
       <mapping>
@@ -170,10 +166,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritionProductCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying specific types of nutrition products."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes identifying specific types of nutrition products."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
       </binding>
       <mapping>
@@ -243,10 +237,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritionProductNutrient"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes that identify nutrients that could be parts of nutrition products."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes that identify nutrients that could be parts of nutrition products."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/nutrition-product-nutrient"/>
       </binding>
     </element>
@@ -310,10 +302,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AllergenClass"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes that identify substances that can be an allergen."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes that identify substances that can be an allergen."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/allergen-class"/>
       </binding>
     </element>
@@ -340,10 +330,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PropertyCharacteristic"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes that identify properties that can be measured."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes that identify properties that can be measured."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measurement-property"/>
       </binding>
     </element>

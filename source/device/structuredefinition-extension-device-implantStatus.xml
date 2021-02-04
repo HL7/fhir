@@ -60,13 +60,11 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A set codes that define the functional status of an implanted device."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Implant Status"/>
         </extension>
         <strength value="required"/>
+        <description value="A set codes that define the functional status of an implanted device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/implantStatus"/>
       </binding>
     </element>

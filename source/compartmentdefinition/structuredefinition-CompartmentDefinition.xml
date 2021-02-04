@@ -183,10 +183,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -350,10 +348,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CompartmentType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Which type a compartment definition describes."/>
-        </extension>
         <strength value="required"/>
+        <description value="Which type a compartment definition describes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/compartment-type"/>
       </binding>
     </element>
@@ -400,10 +396,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="One of the resource types defined as part of this version of FHIR."/>
-        </extension>
         <strength value="required"/>
+        <description value="One of the resource types defined as part of this version of FHIR."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
       </binding>
     </element>

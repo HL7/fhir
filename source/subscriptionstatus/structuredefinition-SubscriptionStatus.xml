@@ -88,10 +88,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubscriptionState"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of a subscription at the time this notification was generated."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of a subscription at the time this notification was generated."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-state"/>
       </binding>
       <mapping>
@@ -115,10 +113,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubscriptionNotificationType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of notification represented by the status message."/>
-        </extension>
         <strength value="required"/>
+        <description value="The type of notification represented by the status message."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-notification-type"/>
       </binding>
       <mapping>
@@ -191,10 +187,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubscriptionError"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes to represent subscription error details."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes to represent subscription error details."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-error"/>
       </binding>
     </element>

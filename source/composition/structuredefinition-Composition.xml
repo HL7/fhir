@@ -153,13 +153,11 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CompositionStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The workflow/clinical status of the composition."/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
           <valueString value="ActStatus"/>
         </extension>
         <strength value="required"/>
+        <description value="The workflow/clinical status of the composition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/composition-status"/>
       </binding>
       <mapping>
@@ -199,10 +197,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type of a composition."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Type of a composition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
       </binding>
       <mapping>
@@ -242,10 +238,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="High-level kind of a clinical document at a macro level."/>
-        </extension>
         <strength value="example"/>
+        <description value="High-level kind of a clinical document at a macro level."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/document-classcodes"/>
       </binding>
       <mapping>
@@ -446,10 +440,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentConfidentiality"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes specifying the level of confidentiality of the composition."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes specifying the level of confidentiality of the composition."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-Confidentiality|2.0.0"/>
       </binding>
       <mapping>
@@ -506,10 +498,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CompositionAttestationMode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The way in which a person authenticated a composition."/>
-        </extension>
         <strength value="required"/>
+        <description value="The way in which a person authenticated a composition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
       </binding>
       <mapping>
@@ -634,10 +624,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentRelationshipType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of relationship between documents."/>
-        </extension>
         <strength value="required"/>
+        <description value="The type of relationship between documents."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/document-relationship-type"/>
       </binding>
       <mapping>
@@ -722,10 +710,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentEventType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="This list of codes represents the main clinical acts being documented."/>
-        </extension>
         <strength value="example"/>
+        <description value="This list of codes represents the main clinical acts being documented."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActCode"/>
       </binding>
       <mapping>
@@ -862,10 +848,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CompositionSectionType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Classification of a section of a composition/document."/>
-        </extension>
         <strength value="example"/>
+        <description value="Classification of a section of a composition/document."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/doc-section-codes"/>
       </binding>
       <mapping>
@@ -957,10 +941,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SectionMode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The processing mode that applies to this section."/>
-        </extension>
         <strength value="required"/>
+        <description value="The processing mode that applies to this section."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/list-mode"/>
       </binding>
       <mapping>
@@ -991,10 +973,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SectionEntryOrder"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="What order applies to the items in the entry."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="What order applies to the items in the entry."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/list-order"/>
       </binding>
       <mapping>
@@ -1046,10 +1026,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SectionEmptyReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="If a section is empty, why it is empty."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="If a section is empty, why it is empty."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/list-empty-reason"/>
       </binding>
       <mapping>

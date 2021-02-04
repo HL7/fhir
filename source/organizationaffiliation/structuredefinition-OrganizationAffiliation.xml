@@ -201,10 +201,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="OrganizationAffiliation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The role the participating organization providing services to the primary organization."/>
-        </extension>
         <strength value="example"/>
+        <description value="The role the participating organization providing services to the primary organization."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/organization-role"/>
       </binding>
       <mapping>
@@ -226,10 +224,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="OrganizationSpecialty"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Specific specialty associated with the participating organization."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Specific specialty associated with the participating organization."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
       </binding>
       <mapping>

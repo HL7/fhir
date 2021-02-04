@@ -127,10 +127,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CatalogEntryType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Types of resources that can be attached to catalog entries."/>
-        </extension>
         <strength value="required"/>
+        <description value="Types of resources that can be attached to catalog entries."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/catalogentry-type"/>
       </binding>
     </element>
@@ -154,10 +152,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CatalogEntryStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Public usability statuses for catalog entries."/>
-        </extension>
         <strength value="required"/>
+        <description value="Public usability statuses for catalog entries."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/catalogentry-status"/>
       </binding>
     </element>
@@ -238,10 +234,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CatalogEntryRelationType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Types of relationships between entries."/>
-        </extension>
         <strength value="required"/>
+        <description value="Types of relationships between entries."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/catalogentry-relation-type"/>
       </binding>
     </element>
@@ -306,10 +300,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CatalogEntryBilling"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Billing codes for entries of catalogs of orderable items."/>
-        </extension>
         <strength value="example"/>
+        <description value="Billing codes for entries of catalogs of orderable items."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/cpt-all"/>
       </binding>
       <mapping>

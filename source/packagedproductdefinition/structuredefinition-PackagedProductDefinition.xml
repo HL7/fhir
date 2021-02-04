@@ -157,10 +157,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the level of importance to be assigned to actioning the request."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>

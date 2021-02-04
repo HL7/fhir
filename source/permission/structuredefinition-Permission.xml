@@ -84,10 +84,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PermissionStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying the lifecycle stage of a product."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of a product."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/permission-status"/>
       </binding>
     </element>

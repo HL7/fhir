@@ -68,13 +68,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of signature needed."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SignatureRequired"/>
         </extension>
         <strength value="preferred"/>
+        <description value="The type of signature needed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/signature-type"/>
       </binding>
     </element>

@@ -128,10 +128,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InvoiceStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying the lifecycle stage of an Invoice."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of an Invoice."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/invoice-status"/>
       </binding>
       <mapping>
@@ -459,10 +457,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InvoicePriceComponentType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes indicating the kind of the price component."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes indicating the kind of the price component."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/invoice-priceComponentType"/>
       </binding>
       <mapping>
