@@ -27,8 +27,8 @@ e: {
   "experimental" : false,
   "date" : "2017-02-15T16:33:00.000-07:00",
   "expansion" : {
-    "identifier" : "urn:uuid:8ec3484a-222f-4669-b2c9-c901c7514e29",
-    "timestamp" : "2021-02-04T15:35:57.301Z",
+    "identifier" : "urn:uuid:3237628c-e073-412b-a4d1-14df45ec24b0",
+    "timestamp" : "2021-02-04T19:37:08.469Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/action-participant-role"
@@ -116,8 +116,8 @@ e: {
   "experimental" : false,
   "date" : "2014-07-28",
   "expansion" : {
-    "identifier" : "urn:uuid:25f7f45b-bdfb-407d-9f2f-60cf6ff6c14f",
-    "timestamp" : "2021-02-04T15:36:10.316Z",
+    "identifier" : "urn:uuid:29cd91e1-5ade-4f4a-a6e6-ea1b720777f8",
+    "timestamp" : "2021-02-04T19:37:29.578Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/security-labels"
@@ -2322,7 +2322,7 @@ e: {
   "resourceType" : "ValueSet",
   "id" : "action-participant-role",
   "meta" : {
-    "lastUpdated" : "2021-02-04T08:34:57.233-07:00",
+    "lastUpdated" : "2021-02-04T12:35:47.694-07:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
   "text" : {
@@ -2339,10 +2339,10 @@ e: {
   "status" : "draft",
   "experimental" : false,
   "date" : "2017-02-15T16:33:00.000-07:00",
-  "description" : "Value Set Contents (Expansion) for ActionParticipantRole at Thu, Feb 4, 2021 10:37-0500",
+  "description" : "Value Set Contents (Expansion) for ActionParticipantRole at Fri, Feb 5, 2021 06:38+1100",
   "expansion" : {
-    "identifier" : "urn:uuid:a2874830-c89c-4994-8c78-e7cbca09ed01",
-    "timestamp" : "2021-02-04T15:37:34.754Z",
+    "identifier" : "urn:uuid:89c922eb-574d-464d-a8b8-9681da8a3174",
+    "timestamp" : "2021-02-04T19:38:25.267Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/action-participant-role"
@@ -2408,7 +2408,7 @@ e: {
   "resourceType" : "ValueSet",
   "id" : "security-labels",
   "meta" : {
-    "lastUpdated" : "2021-02-04T10:34:57.233-05:00",
+    "lastUpdated" : "2021-02-05T06:35:47.694+11:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
   "text" : {
@@ -2426,10 +2426,10 @@ e: {
   "status" : "active",
   "experimental" : false,
   "date" : "2014-07-28",
-  "description" : "Value Set Contents (Expansion) for SecurityLabels at Thu, Feb 4, 2021 10:37-0500",
+  "description" : "Value Set Contents (Expansion) for SecurityLabels at Fri, Feb 5, 2021 06:38+1100",
   "expansion" : {
-    "identifier" : "urn:uuid:2fd48195-4eb0-49ee-b371-7e1d4c15647c",
-    "timestamp" : "2021-02-04T15:37:56.988Z",
+    "identifier" : "urn:uuid:1e4abe9c-e48b-4e03-b8cf-2ac16193a6fe",
+    "timestamp" : "2021-02-04T19:38:58.283Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/security-labels"
@@ -4804,41 +4804,5 @@ v: {
   "display" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"cohort\"); The code provided (#cohort) is not valid in the value set 'MeasureScoring' (from http://tx.fhir.org/r4)"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "coding" : [{
-    "code" : "create"
-  }]
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://terminology.hl7.org/CodeSystem/action-type"
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"create\"); The code provided (#create) is not valid in the value set 'ActionType' (from http://tx.fhir.org/r4)"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "coding" : [{
-    "code" : "clinical-protocol"
-  }]
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://terminology.hl7.org/CodeSystem/plan-definition-type"
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "The code system \"\" is not known (encountered paired with code = \"clinical-protocol\"); The code provided (#clinical-protocol) is not valid in the value set 'PlanDefinitionType' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
