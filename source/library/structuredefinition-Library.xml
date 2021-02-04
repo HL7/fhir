@@ -248,10 +248,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -306,10 +304,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LibraryType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of knowledge asset this library contains."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of knowledge asset this library contains."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/library-type"/>
       </binding>
       <mapping>
@@ -342,10 +338,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The possible types of subjects for a library (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The possible types of subjects for a library (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
       </binding>
       <mapping>
@@ -485,10 +479,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
@@ -655,10 +647,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DefinitionTopic"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        </extension>
         <strength value="example"/>
+        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
       </binding>
       <mapping>

@@ -218,10 +218,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ParticipantType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Role of participant in encounter."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Role of participant in encounter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-participant-type"/>
       </binding>
       <mapping>
@@ -292,10 +290,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ParticipantStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The Participation status of an appointment."/>
-        </extension>
         <strength value="required"/>
+        <description value="The Participation status of an appointment."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participationstatus"/>
       </binding>
       <mapping>

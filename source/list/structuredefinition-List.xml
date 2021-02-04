@@ -136,10 +136,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ListStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The current state of the list."/>
-        </extension>
         <strength value="required"/>
+        <description value="The current state of the list."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/list-status|4.5.0"/>
       </binding>
       <mapping>
@@ -169,10 +167,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ListMode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The processing mode that applies to this list."/>
-        </extension>
         <strength value="required"/>
+        <description value="The processing mode that applies to this list."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/list-mode|4.5.0"/>
       </binding>
       <mapping>
@@ -220,10 +216,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ListPurpose"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="What the purpose of a list is."/>
-        </extension>
         <strength value="example"/>
+        <description value="What the purpose of a list is."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/list-example-codes"/>
       </binding>
       <mapping>
@@ -345,10 +339,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ListOrder"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="What order applies to the items in a list."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="What order applies to the items in a list."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/list-order"/>
       </binding>
       <mapping>
@@ -404,10 +396,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ListItemFlag"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes that provide further information about the reason and meaning of the item in the list."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes that provide further information about the reason and meaning of the item in the list."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/list-item-flag"/>
       </binding>
       <mapping>
@@ -481,10 +471,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ListEmptyReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="If a list is empty, why it is empty."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="If a list is empty, why it is empty."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/list-empty-reason"/>
       </binding>
       <mapping>

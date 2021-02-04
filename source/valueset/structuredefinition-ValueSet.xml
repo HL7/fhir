@@ -221,10 +221,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.5.0"/>
       </binding>
       <mapping>
@@ -378,10 +376,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
@@ -592,7 +588,7 @@
       </mapping>
     </element>
     <element id="ValueSet.compose.include.concept.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="ValueSet.compose.include.concept.code"/>
@@ -680,10 +676,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Details of how a designation would be used."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Details of how a designation would be used."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/designation-use"/>
       </binding>
     </element>
@@ -718,7 +712,7 @@
       </mapping>
     </element>
     <element id="ValueSet.compose.include.filter.property">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="ValueSet.compose.include.filter.property"/>
@@ -750,10 +744,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FilterOperator"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The kind of operation to perform as a part of a property based filter."/>
-        </extension>
         <strength value="required"/>
+        <description value="The kind of operation to perform as a part of a property based filter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|4.5.0"/>
       </binding>
       <mapping>
@@ -762,7 +754,7 @@
       </mapping>
     </element>
     <element id="ValueSet.compose.include.filter.value">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="ValueSet.compose.include.filter.value"/>
@@ -955,7 +947,7 @@
       </type>
     </element>
     <element id="ValueSet.expansion.property.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="ValueSet.expansion.property.code"/>
@@ -1059,7 +1051,7 @@
       </type>
     </element>
     <element id="ValueSet.expansion.contains.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="ValueSet.expansion.contains.code"/>
@@ -1112,7 +1104,7 @@
       </type>
     </element>
     <element id="ValueSet.expansion.contains.property.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="ValueSet.expansion.contains.property.code"/>
@@ -1125,7 +1117,7 @@
       </type>
     </element>
     <element id="ValueSet.expansion.contains.property.value[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="ValueSet.expansion.contains.property.value[x]"/>

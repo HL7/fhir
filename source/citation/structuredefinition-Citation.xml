@@ -224,10 +224,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -368,10 +366,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
@@ -485,10 +481,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CitationSummaryStyle"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The format for display of the citation."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The format for display of the citation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-summary-style"/>
       </binding>
     </element>
@@ -540,10 +534,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CitationVariantType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="To describe the reason for the variant citation, such as version number or subpart specification."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="To describe the reason for the variant citation, such as version number or subpart specification."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-variant-type"/>
       </binding>
     </element>
@@ -591,10 +583,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AlternativeTitleType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used to express the reason and specific aspect for the variant title, such as language and specific language."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Used to express the reason and specific aspect for the variant title, such as language and specific language."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/alternative-title-type"/>
       </binding>
     </element>
@@ -658,10 +648,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ArticleUrlType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Code the reason for different URLs, eg abstract and full-text."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Code the reason for different URLs, eg abstract and full-text."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/article-url-type"/>
       </binding>
     </element>
@@ -699,10 +687,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AlternativeTitleType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used to express the reason and specific aspect for the variant title, such as language and specific language."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Used to express the reason and specific aspect for the variant title, such as language and specific language."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/alternative-title-type"/>
       </binding>
     </element>
@@ -904,10 +890,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CitationContribution"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Citation contribution."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Citation contribution."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-contribution"/>
       </binding>
     </element>
@@ -965,10 +949,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContributorSummaryType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used to code author list statement, contributorship statement, and such."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Used to code author list statement, contributorship statement, and such."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-type"/>
       </binding>
     </element>
@@ -985,10 +967,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContributorSummaryStyle"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used to code the format of the display string."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Used to code the format of the display string."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-style"/>
       </binding>
     </element>
@@ -1005,10 +985,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContributorSummarySource"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used to code the producer or rule for creating the display string."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Used to code the producer or rule for creating the display string."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-source"/>
       </binding>
     </element>
@@ -1046,10 +1024,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublishingModelType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="To identify the medium/media in which the cited article is published, eg print, electronic or print-electronic."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="To identify the medium/media in which the cited article is published, eg print, electronic or print-electronic."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publishing-model-type"/>
       </binding>
     </element>
@@ -1077,10 +1053,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublishedInType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of publication such as book, database, or journal."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of publication such as book, database, or journal."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/published-in-type"/>
       </binding>
     </element>
@@ -1161,10 +1135,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="JournalIssueMedium"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="NLM codes Internet or Print."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="NLM codes Internet or Print."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/journal-issue-medium"/>
       </binding>
     </element>
@@ -1359,10 +1331,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CitationClassifier"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used for many classifiers including PublicationType, CitationSubset, MeshHeading, Chemical."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Used for many classifiers including PublicationType, CitationSubset, MeshHeading, Chemical."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-classifier"/>
       </binding>
     </element>
@@ -1459,10 +1429,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedlineCitationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used for status."/>
-        </extension>
         <strength value="required"/>
+        <description value="Used for status."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medline-citation-status"/>
       </binding>
     </element>
@@ -1479,10 +1447,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedlineCitationOwner"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used for owner."/>
-        </extension>
         <strength value="required"/>
+        <description value="Used for owner."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medline-citation-owner"/>
       </binding>
     </element>
@@ -1539,10 +1505,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PubMedPubStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="PubMed Publication Status."/>
-        </extension>
         <strength value="required"/>
+        <description value="PubMed Publication Status."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/pubmed-pubstatus"/>
       </binding>
     </element>
@@ -1569,10 +1533,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PubMedPubStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="PubMed Publication Status."/>
-        </extension>
         <strength value="required"/>
+        <description value="PubMed Publication Status."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/pubmed-pubstatus"/>
       </binding>
     </element>

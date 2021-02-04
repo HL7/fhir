@@ -115,10 +115,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FlagStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or was entered in error."/>
-        </extension>
         <strength value="required"/>
+        <description value="Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or was entered in error."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/flag-status"/>
       </binding>
       <mapping>
@@ -145,10 +143,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FlagCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A general category for flags for filtering/display purposes."/>
-        </extension>
         <strength value="example"/>
+        <description value="A general category for flags for filtering/display purposes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/flag-category"/>
       </binding>
       <mapping>
@@ -175,10 +171,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FlagCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detail codes identifying specific flagged issues."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detail codes identifying specific flagged issues."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/flag-code"/>
       </binding>
       <mapping>

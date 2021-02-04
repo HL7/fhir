@@ -106,13 +106,11 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes indicating whether the goal has been accepted by a stakeholder."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalAcceptanceStatus"/>
         </extension>
         <strength value="required"/>
+        <description value="Codes indicating whether the goal has been accepted by a stakeholder."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-acceptance-status"/>
       </binding>
     </element>
@@ -145,13 +143,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes indicating the relative priority assigned to a goal by a stakeholder."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalAcceptancePriority"/>
         </extension>
         <strength value="example"/>
+        <description value="Codes indicating the relative priority assigned to a goal by a stakeholder."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
       </binding>
     </element>

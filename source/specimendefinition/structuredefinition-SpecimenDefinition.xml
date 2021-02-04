@@ -171,10 +171,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying the status of a SpecimenDefinition resource."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes identifying the status of a SpecimenDefinition resource."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
     </element>
@@ -283,10 +281,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Jurisdiction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for country, country subdivision and region for indicating where a resource is intended to be used."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Codes for country, country subdivision and region for indicating where a resource is intended to be used."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
     </element>
@@ -362,10 +358,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CollectedSpecimenType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of the specimen to be collected."/>
-        </extension>
         <strength value="example"/>
+        <description value="The type of the specimen to be collected."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0487"/>
       </binding>
       <mapping>
@@ -481,10 +475,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="IntendedSpecimenType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of specimen conditioned in a container for lab testing."/>
-        </extension>
         <strength value="example"/>
+        <description value="The type of specimen conditioned in a container for lab testing."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0487"/>
       </binding>
     </element>
@@ -505,10 +497,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenContainedPreference"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Degree of preference of a type of conditioned specimen."/>
-        </extension>
         <strength value="required"/>
+        <description value="Degree of preference of a type of conditioned specimen."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/specimen-contained-preference"/>
       </binding>
       <mapping>
@@ -583,10 +573,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContainerCap"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Color of the container cap."/>
-        </extension>
         <strength value="example"/>
+        <description value="Color of the container cap."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/container-cap"/>
       </binding>
     </element>
@@ -672,10 +660,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContainerAdditive"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Substance added to specimen container."/>
-        </extension>
         <strength value="example"/>
+        <description value="Substance added to specimen container."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0371"/>
       </binding>
       <mapping>
@@ -748,10 +734,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RejectionCriterion"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Criterion for rejection of the specimen by laboratory."/>
-        </extension>
         <strength value="example"/>
+        <description value="Criterion for rejection of the specimen by laboratory."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/rejection-criteria"/>
       </binding>
       <mapping>
@@ -782,10 +766,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="HandlingConditionSet"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Set of handling instructions prior testing of the specimen."/>
-        </extension>
         <strength value="example"/>
+        <description value="Set of handling instructions prior testing of the specimen."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/handling-condition"/>
       </binding>
       <mapping>
@@ -840,10 +822,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TestingDestination"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes specifying where the specimen will be tested."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes specifying where the specimen will be tested."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
       </binding>
     </element>

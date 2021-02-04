@@ -149,10 +149,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code specifying the state of the resource instance."/>
-        </extension>
         <strength value="required"/>
+        <description value="A code specifying the state of the resource instance."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-status"/>
       </binding>
       <mapping>
@@ -182,10 +180,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractLegalState"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes for the legal state of a contract."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Detailed codes for the legal state of a contract."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-legalstate"/>
       </binding>
     </element>
@@ -224,10 +220,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractContentDerivative"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="This is an example set of Content Derivative type codes, which represent the minimal content derived from the basal information source."/>
-        </extension>
         <strength value="example"/>
+        <description value="This is an example set of Content Derivative type codes, which represent the minimal content derived from the basal information source."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-content-derivative"/>
       </binding>
       <mapping>
@@ -292,10 +286,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractExpiration"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for the Cessation of Contracts."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for the Cessation of Contracts."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-expiration-type"/>
       </binding>
     </element>
@@ -437,10 +429,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractScope"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for the range of legal concerns."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for the range of legal concerns."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-scope"/>
       </binding>
     </element>
@@ -473,10 +463,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="List of overall contract codes."/>
-        </extension>
         <strength value="example"/>
+        <description value="List of overall contract codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-type"/>
       </binding>
       <mapping>
@@ -506,10 +494,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractSubtype"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes within the above."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed codes within the above."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-subtype"/>
       </binding>
       <mapping>
@@ -547,10 +533,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractDefinitionType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes for the definition of contracts."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed codes for the definition of contracts."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-definition-type"/>
       </binding>
     </element>
@@ -567,10 +551,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractDefinitionSubtype"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes for the additional definition of contracts."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed codes for the additional definition of contracts."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-definition-subtype"/>
       </binding>
     </element>
@@ -610,10 +592,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractPublicationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Status of the publication of contract content."/>
-        </extension>
         <strength value="required"/>
+        <description value="Status of the publication of contract content."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-publicationstatus"/>
       </binding>
     </element>
@@ -743,10 +723,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractTermType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes for the types of contract provisions."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed codes for the types of contract provisions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-term-type"/>
       </binding>
       <mapping>
@@ -775,10 +753,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractTermSubType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes for the subtypes of contract provisions."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed codes for the subtypes of contract provisions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-term-subtype"/>
       </binding>
       <mapping>
@@ -841,10 +817,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractSecurityClassification"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for confidentiality protection."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for confidentiality protection."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-security-classification"/>
       </binding>
     </element>
@@ -861,10 +835,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractSecurityCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for policy category."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for policy category."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-security-category"/>
       </binding>
     </element>
@@ -881,10 +853,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractSecurityControl"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for handling instructions."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for handling instructions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-security-control"/>
       </binding>
     </element>
@@ -964,10 +934,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractPartyRole"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for offer participant roles."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for offer participant roles."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-party-role"/>
       </binding>
     </element>
@@ -1006,10 +974,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractTermType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes for the types of contract provisions."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed codes for the types of contract provisions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-term-type"/>
       </binding>
       <mapping>
@@ -1035,10 +1001,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractDecisionType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of decision made by a grantor with respect to an offer made by a grantee."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of decision made by a grantor with respect to an offer made by a grantee."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActConsentDirective"/>
       </binding>
       <mapping>
@@ -1063,10 +1027,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractDecisionMode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for conveying a decision."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for conveying a decision."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-decision-mode"/>
       </binding>
     </element>
@@ -1201,10 +1163,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractAssetScope"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for scoping an asset."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for scoping an asset."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-assetscope"/>
       </binding>
     </element>
@@ -1221,10 +1181,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractAssetType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Condes for the type of an asset."/>
-        </extension>
         <strength value="example"/>
+        <description value="Condes for the type of an asset."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-assettype"/>
       </binding>
     </element>
@@ -1252,10 +1210,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractAssetSubtype"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Condes for the sub-type of an asset."/>
-        </extension>
         <strength value="example"/>
+        <description value="Condes for the sub-type of an asset."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-assetsubtype"/>
       </binding>
     </element>
@@ -1272,10 +1228,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConsentContentClass"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The class (type) of information a consent rule covers."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The class (type) of information a consent rule covers."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/consent-content-class"/>
       </binding>
       <mapping>
@@ -1323,10 +1277,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractAssetContext"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for the context of the asset."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for the context of the asset."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-assetcontext"/>
       </binding>
     </element>
@@ -1363,10 +1315,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AssetAvailabilityType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for asset availability."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for asset availability."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/asset-availability"/>
       </binding>
       <mapping>
@@ -1722,10 +1672,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractAction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes for the contract action."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed codes for the contract action."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-action"/>
       </binding>
       <mapping>
@@ -1783,10 +1731,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractActorRole"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes for the contract actor role."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed codes for the contract actor role."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-actorrole"/>
       </binding>
       <mapping>
@@ -1807,10 +1753,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractActionReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes for the contract action reason."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed codes for the contract action reason."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
       </binding>
       <mapping>
@@ -1849,10 +1793,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractActionStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for the status of an term action."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for the status of an term action."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-actionstatus"/>
       </binding>
     </element>
@@ -1934,10 +1876,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractActionPerformerType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for the types of action perfomer."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for the types of action perfomer."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
       </binding>
     </element>
@@ -1954,10 +1894,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractActionPerformerRole"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for the role of the action performer."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for the role of the action performer."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/security-role-type"/>
       </binding>
     </element>
@@ -2009,10 +1947,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractActionReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed codes for the contract action reason."/>
-        </extension>
         <strength value="example"/>
+        <description value="Detailed codes for the contract action reason."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
       </binding>
     </element>
@@ -2119,10 +2055,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ContractSignerType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="List of parties who may be signing."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="List of parties who may be signing."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-signer-type"/>
       </binding>
       <mapping>

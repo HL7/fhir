@@ -108,10 +108,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="sequenceType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type if a sequence -- DNA, RNA, or amino acid sequence."/>
-        </extension>
         <strength value="required"/>
+        <description value="Type if a sequence -- DNA, RNA, or amino acid sequence."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
       </binding>
     </element>
@@ -879,10 +877,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LOINC LL379-9 answerlist"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="DNA change type."/>
-        </extension>
         <strength value="required"/>
+        <description value="DNA change type."/>
         <valueSet value="http://loinc.org/vs/LL379-9"/>
       </binding>
     </element>

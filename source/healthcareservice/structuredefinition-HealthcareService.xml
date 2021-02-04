@@ -172,10 +172,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="service-category"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A category of the service(s) that could be provided."/>
-        </extension>
         <strength value="example"/>
+        <description value="A category of the service(s) that could be provided."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-category"/>
       </binding>
       <mapping>
@@ -202,10 +200,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="service-type"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Additional details about where the content was created (e.g. clinical specialty)."/>
-        </extension>
         <strength value="example"/>
+        <description value="Additional details about where the content was created (e.g. clinical specialty)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-type"/>
       </binding>
       <mapping>
@@ -227,10 +223,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="service-specialty"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A specialty that a healthcare service may provide."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="A specialty that a healthcare service may provide."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
       </binding>
       <mapping>
@@ -370,10 +364,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ServiceProvisionConditions"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The code(s) that detail the conditions under which the healthcare service is available/offered."/>
-        </extension>
         <strength value="example"/>
+        <description value="The code(s) that detail the conditions under which the healthcare service is available/offered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-provision-conditions"/>
       </binding>
       <mapping>
@@ -404,10 +396,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ServiceEligibility"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Coded values underwhich a specific service is made available."/>
-        </extension>
         <strength value="example"/>
+        <description value="Coded values underwhich a specific service is made available."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -443,10 +433,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Program"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Government or local programs that this service applies to."/>
-        </extension>
         <strength value="example"/>
+        <description value="Government or local programs that this service applies to."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/program"/>
       </binding>
       <mapping>
@@ -468,10 +456,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ServiceCharacteristic"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy)."/>
-        </extension>
         <strength value="example"/>
+        <description value="A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy)."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -519,10 +505,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ReferralMethod"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The methods of referral can be used when referring to a specific HealthCareService resource."/>
-        </extension>
         <strength value="example"/>
+        <description value="The methods of referral can be used when referring to a specific HealthCareService resource."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-referral-method"/>
       </binding>
       <mapping>
@@ -575,10 +559,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DaysOfWeek"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The days of the week."/>
-        </extension>
         <strength value="required"/>
+        <description value="The days of the week."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/days-of-week"/>
       </binding>
       <mapping>

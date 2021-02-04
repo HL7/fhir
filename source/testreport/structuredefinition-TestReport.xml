@@ -251,9 +251,6 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TestReportParticipantType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of participant."/>
-        </extension>
         <strength value="required"/>
         <description value="The type of participant."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/report-participant-type"/>

@@ -179,10 +179,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyDeliveryStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Status of the supply delivery."/>
-        </extension>
         <strength value="required"/>
+        <description value="Status of the supply delivery."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-status"/>
       </binding>
       <mapping>
@@ -226,10 +224,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyDeliveryType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of supply dispense."/>
-        </extension>
         <strength value="required"/>
+        <description value="The type of supply dispense."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-type"/>
       </binding>
       <mapping>
@@ -292,10 +288,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplyDeliveryItem"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The item that was delivered."/>
-        </extension>
         <strength value="example"/>
+        <description value="The item that was delivered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supply-item"/>
       </binding>
       <mapping>

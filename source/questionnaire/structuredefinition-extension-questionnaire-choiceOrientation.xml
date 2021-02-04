@@ -65,13 +65,11 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Direction in which lists of possible answers should be displayed."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ChoiceListOrientation"/>
         </extension>
         <strength value="required"/>
+        <description value="Direction in which lists of possible answers should be displayed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/choice-list-orientation"/>
       </binding>
     </element>

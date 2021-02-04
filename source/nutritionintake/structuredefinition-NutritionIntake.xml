@@ -186,13 +186,11 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritionIntakeStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept indicating the current status of a NutritionIntake."/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
           <valueString value="ActStatus"/>
         </extension>
         <strength value="required"/>
+        <description value="A coded concept indicating the current status of a NutritionIntake."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/event-status"/>
       </binding>
       <mapping>
@@ -218,10 +216,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritionIntakeStatusReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept indicating the reason for the status of the statement."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept indicating the reason for the status of the statement."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/reason-medication-status-codes"/>
       </binding>
       <mapping>
@@ -243,10 +239,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritionIntakeCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept identifying where the medication included in the NutritionIntake is expected to be consumed or administered."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept identifying where the medication included in the NutritionIntake is expected to be consumed or administered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/diet-type"/>
       </binding>
       <mapping>
@@ -379,10 +373,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FoodType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Types of food."/>
-        </extension>
         <strength value="example"/>
+        <description value="Types of food."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
       </binding>
     </element>
@@ -405,10 +397,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FoodProduct"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Specific food that can be consumed by a patient."/>
-        </extension>
         <strength value="example"/>
+        <description value="Specific food that can be consumed by a patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/food-type"/>
       </binding>
       <mapping>
@@ -480,10 +470,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NotConsumedReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Reasons for why something was not consumed."/>
-        </extension>
         <strength value="example"/>
+        <description value="Reasons for why something was not consumed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/not-consumed-reason"/>
       </binding>
     </element>
@@ -512,10 +500,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutrientType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Types of nutrients that can be found in a nutrition product."/>
-        </extension>
         <strength value="example"/>
+        <description value="Types of nutrients that can be found in a nutrition product."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/nutrient-code"/>
       </binding>
     </element>
@@ -553,10 +539,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritionPerformerType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type of performance."/>
-        </extension>
         <strength value="example"/>
+        <description value="Type of performance."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
       </binding>
     </element>
@@ -617,10 +601,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="IntakeReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Reason for why something was ingested."/>
-        </extension>
         <strength value="example"/>
+        <description value="Reason for why something was ingested."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
       <mapping>

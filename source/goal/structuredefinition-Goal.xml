@@ -125,10 +125,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalLifecycleStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes that reflect the current state of a goal and whether the goal is still being targeted."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes that reflect the current state of a goal and whether the goal is still being targeted."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-status"/>
       </binding>
       <mapping>
@@ -158,10 +156,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalAchievementStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates the progression, or lack thereof, towards the goal against the target."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="Indicates the progression, or lack thereof, towards the goal against the target."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-achievement"/>
       </binding>
       <mapping>
@@ -184,10 +180,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for grouping and sorting goals."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for grouping and sorting goals."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-category"/>
       </binding>
       <mapping>
@@ -226,10 +220,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The level of importance associated with a goal."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="The level of importance associated with a goal."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
       </binding>
       <mapping>
@@ -257,10 +249,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalDescription"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes providing the details of a particular goal.  This will generally be system or implementation guide-specific.  In many systems, only the text element will be used."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes providing the details of a particular goal.  This will generally be system or implementation guide-specific.  In many systems, only the text element will be used."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
       <mapping>
@@ -328,10 +318,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalStartEvent"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing events that can trigger the initiation of a goal."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing events that can trigger the initiation of a goal."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-start-event"/>
       </binding>
       <mapping>
@@ -381,10 +369,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalTargetMeasure"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes to identify the value being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes to identify the value being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
       </binding>
     </element>
@@ -425,10 +411,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalTargetDetail"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes to identify the target value of the focus to be achieved to signify the fulfillment of the goal."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes to identify the target value of the focus to be achieved to signify the fulfillment of the goal."/>
       </binding>
     </element>
     <element id="Goal.target.due[x]">
@@ -571,10 +555,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalOutcome"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The result of the goal; e.g. &quot;25% increase in shoulder mobility&quot;, &quot;Anxiety reduced to moderate levels&quot;.  &quot;15 kg weight loss sustained over 6 months&quot;."/>
-        </extension>
         <strength value="example"/>
+        <description value="The result of the goal; e.g. &quot;25% increase in shoulder mobility&quot;, &quot;Anxiety reduced to moderate levels&quot;.  &quot;15 kg weight loss sustained over 6 months&quot;."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
     </element>

@@ -60,13 +60,11 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="An HL7 administrative unit that owns artifacts in the FHIR specification."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="HL7Workgroup"/>
         </extension>
         <strength value="required"/>
+        <description value="An HL7 administrative unit that owns artifacts in the FHIR specification."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/hl7-work-group"/>
       </binding>
     </element>

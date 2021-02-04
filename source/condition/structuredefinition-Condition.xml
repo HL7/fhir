@@ -178,10 +178,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionClinicalStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The clinical status of the condition or diagnosis."/>
-        </extension>
         <strength value="required"/>
+        <description value="The clinical status of the condition or diagnosis."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-clinical"/>
       </binding>
       <mapping>
@@ -226,10 +224,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionVerificationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The verification status to support or decline the clinical status of the condition or diagnosis."/>
-        </extension>
         <strength value="required"/>
+        <description value="The verification status to support or decline the clinical status of the condition or diagnosis."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-ver-status"/>
       </binding>
       <mapping>
@@ -271,10 +267,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A category assigned to the condition."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="A category assigned to the condition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-category"/>
       </binding>
       <mapping>
@@ -308,10 +302,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionSeverity"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A subjective assessment of the severity of the condition as evaluated by the clinician."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="A subjective assessment of the severity of the condition as evaluated by the clinician."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-severity"/>
       </binding>
       <mapping>
@@ -351,10 +343,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionKind"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identification of the condition or diagnosis."/>
-        </extension>
         <strength value="example"/>
+        <description value="Identification of the condition or diagnosis."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
       <mapping>
@@ -687,10 +677,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionStage"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing condition stages (e.g. Cancer stages)."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing condition stages (e.g. Cancer stages)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-stage"/>
       </binding>
       <mapping>
@@ -740,10 +728,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionStageType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the kind of condition staging (e.g. clinical or pathological)."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing the kind of condition staging (e.g. clinical or pathological)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-stage-type"/>
       </binding>
       <mapping>
@@ -792,10 +778,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ManifestationOrSymptom"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes that describe the manifestation or symptoms of a condition."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes that describe the manifestation or symptoms of a condition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/manifestation-or-symptom"/>
       </binding>
       <mapping>

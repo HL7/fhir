@@ -64,13 +64,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="User interface controls or widgets used for questionnaire items."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ItemControl"/>
         </extension>
         <strength value="extensible"/>
+        <description value="User interface controls or widgets used for questionnaire items."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-item-control"/>
       </binding>
     </element>

@@ -73,13 +73,11 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes that describe causes of patient conditions; e.g. Surgical mishap, escalation of a previous condition, etc."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionCause"/>
         </extension>
         <strength value="example"/>
+        <description value="Codes that describe causes of patient conditions; e.g. Surgical mishap, escalation of a previous condition, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-cause"/>
       </binding>
     </element>

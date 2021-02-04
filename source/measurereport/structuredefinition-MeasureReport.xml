@@ -362,10 +362,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureGroupExample"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Example of measure groups."/>
-        </extension>
         <strength value="example"/>
+        <description value="Example of measure groups."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-group-example"/>
       </binding>
       <mapping>
@@ -404,10 +402,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasurePopulation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
       </binding>
       <mapping>
@@ -489,10 +485,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureStratifierExample"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Meaning of the stratifier."/>
-        </extension>
         <strength value="example"/>
+        <description value="Meaning of the stratifier."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
       </binding>
       <mapping>
@@ -533,10 +527,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportStratifierValueExample"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The stratum value."/>
-        </extension>
         <strength value="example"/>
+        <description value="The stratum value."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
       </binding>
       <mapping>
@@ -571,10 +563,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureStratifierExample"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Meaning of the stratifier."/>
-        </extension>
         <strength value="example"/>
+        <description value="Meaning of the stratifier."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
       </binding>
       <mapping>
@@ -595,10 +585,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportStratifierValueExample"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The stratum value."/>
-        </extension>
         <strength value="example"/>
+        <description value="The stratum value."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
       </binding>
       <mapping>
@@ -639,10 +627,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasurePopulation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
       </binding>
       <mapping>

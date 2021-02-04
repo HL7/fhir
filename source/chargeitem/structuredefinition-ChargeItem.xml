@@ -184,10 +184,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ChargeItemStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying the lifecycle stage of a ChargeItem."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of a ChargeItem."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/chargeitem-status"/>
       </binding>
       <mapping>
@@ -410,10 +408,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ChargeItemPerformerFunction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the types of functional roles performers can take on when performing events."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing the types of functional roles performers can take on when performing events."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
       </binding>
       <mapping>
@@ -749,10 +745,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ChargeItemProduct"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Example binding for product type."/>
-        </extension>
         <strength value="example"/>
+        <description value="Example binding for product type."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-kind"/>
       </binding>
       <mapping>

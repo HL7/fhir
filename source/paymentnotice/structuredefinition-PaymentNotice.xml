@@ -134,10 +134,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PaymentNoticeStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code specifying the state of the resource instance."/>
-        </extension>
         <strength value="required"/>
+        <description value="A code specifying the state of the resource instance."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/fm-status"/>
       </binding>
       <mapping>
@@ -337,10 +335,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PaymentStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The payment conveyance status codes."/>
-        </extension>
         <strength value="example"/>
+        <description value="The payment conveyance status codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/payment-status"/>
       </binding>
       <mapping>

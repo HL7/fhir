@@ -6,11 +6,6 @@
   <mode value="working"/>
   <entry>
     <item>
-      <reference value="ImplementationGuide/GuidanceResponse-core"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
       <reference value="ImplementationGuide/GuidanceResponse-cdshooks"/>
     </item>
   </entry>

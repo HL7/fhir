@@ -136,10 +136,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ClinicalImpressionStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The workflow state of a clinical impression."/>
-        </extension>
         <strength value="required"/>
+        <description value="The workflow state of a clinical impression."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/event-status"/>
       </binding>
       <mapping>
@@ -174,10 +172,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ClinicalImpressionStatusReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying the reason for the current state of a clinical impression."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes identifying the reason for the current state of a clinical impression."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinicalimpression-status-reason"/>
       </binding>
       <mapping>
@@ -411,10 +407,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionKind"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identification of the Condition or diagnosis."/>
-        </extension>
         <strength value="example"/>
+        <description value="Identification of the Condition or diagnosis."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
       <mapping>
@@ -445,10 +439,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ClinicalImpressionPrognosis"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Prognosis or outlook findings."/>
-        </extension>
         <strength value="example"/>
+        <description value="Prognosis or outlook findings."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinicalimpression-prognosis"/>
       </binding>
       <mapping>

@@ -109,10 +109,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="One of the message events defined as part of this version of FHIR."/>
-        </extension>
         <strength value="example"/>
+        <description value="One of the message events defined as part of this version of FHIR."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/message-events"/>
       </binding>
       <mapping>
@@ -516,10 +514,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EventReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Reason for event occurrence."/>
-        </extension>
         <strength value="example"/>
+        <description value="Reason for event occurrence."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/message-reason-encounter"/>
       </binding>
       <mapping>
@@ -593,10 +589,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResponseType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The kind of response to a message."/>
-        </extension>
         <strength value="required"/>
+        <description value="The kind of response to a message."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/response-code"/>
       </binding>
       <mapping>
