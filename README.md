@@ -5,14 +5,14 @@ This library builds and publishes the FHIR specification, based on the contained
 | :---: | :---: |
 | [![Build Status][Badge-AzureMasterPipeline]][Link-AzureMasterPipeline] | [![Build Status][Badge-AzureR4BPipeline]][Link-AzureR4BPipeline] |
 
-#### Publishing Locally
+### Publishing Locally
 
 1. Run `./gradlew publish` from the command line
 2. Wait for it to finish (~20 minutes)
 
 See also: [FHIR Build Process][Link-Wiki]
 
-#### Command line parameters
+### Command line parameters
 
 There are multiple options available for publishing:
 
@@ -53,8 +53,6 @@ publishes any changes from that branch to [build.fhir.org/R4B][Link-BuildFhirOrg
 This project is maintained by [Grahame Grieve][Link-grahameGithub] and [Mark Iantorno][Link-markGithub] on behalf of the FHIR community.
 
 ---
-##### Copyright HL7, Inc.
-Open-source under BSD3 [License](/LICENSE)
 
 [Link-AzureMasterPipeline]: https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/latest?definitionId=44&branchName=refs%2Fpull%2F1084%2Fmerge
 [Link-AzureR4BPipeline]: https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/latest?definitionId=46&branchName=R4B
