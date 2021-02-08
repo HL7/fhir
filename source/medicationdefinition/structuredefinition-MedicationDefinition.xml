@@ -128,7 +128,7 @@
 		<element id="MedicationDefinition.type">
 			<path value="MedicationDefinition.type"/>
 			<short value="Regulatory type, e.g. Investigational or Authorized"/>
-			<definition value="Regulatory type, e.g. Investigational or Authorized"/>
+			<definition value="Regulatory type, e.g. Investigational or Authorized."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -138,7 +138,7 @@
 		<element id="MedicationDefinition.domain">
 			<path value="MedicationDefinition.domain"/>
 			<short value="If this medicine applies to human or veterinary uses"/>
-			<definition value="If this medicine applies to human or veterinary uses"/>
+			<definition value="If this medicine applies to human or veterinary uses."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -148,7 +148,7 @@
 		<element id="MedicationDefinition.version">
 			<path value="MedicationDefinition.version"/>
 			<short value="A business level identifier of the product version"/>
-			<definition value="A business level identifier of the product version"/>
+			<definition value="A business level identifier of the product version."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -186,7 +186,7 @@
 		<element id="MedicationDefinition.statusDate">
 			<path value="MedicationDefinition.statusDate"/>
 			<short value="The date at which the given status became applicable"/>
-			<definition value="The date at which the given status became applicable"/>
+			<definition value="The date at which the given status became applicable."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -195,7 +195,7 @@
 		</element>
 		<element id="MedicationDefinition.description">
 			<path value="MedicationDefinition.description"/>
-			<short value="General description of this product"/>
+			<short value="General description of this product."/>
 			<definition value="General description of this product"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -206,7 +206,7 @@
 		<element id="MedicationDefinition.legalStatusOfSupply">
 			<path value="MedicationDefinition.legalStatusOfSupply"/>
 			<short value="The legal status of supply of the packaged item as classified by the regulator"/>
-			<definition value="The legal status of supply of the packaged item as classified by the regulator"/>
+			<definition value="The legal status of supply of the packaged item as classified by the regulator."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -216,7 +216,7 @@
 		<element id="MedicationDefinition.doseForm">
 			<path value="MedicationDefinition.doseForm"/>
 			<short value="The dose form for a single part product, or combined form of a multiple part product"/>
-			<definition value="The dose form for a single part product, or combined form of a multiple part product"/>
+			<definition value="The dose form for a single part product, or combined form of a multiple part product."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -226,7 +226,7 @@
 		<element id="MedicationDefinition.doseForm.type">
 			<path value="MedicationDefinition.doseForm.type"/>
 			<short value="The administrable dose form, after necessary reconstitution"/>
-			<definition value="The administrable dose form, after necessary reconstitution"/>
+			<definition value="The administrable dose form, after necessary reconstitution."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -236,7 +236,7 @@
 		<element id="MedicationDefinition.doseForm.code">
 			<path value="MedicationDefinition.doseForm.code"/>
 			<short value="Dose form as manufactured and before any transformation into the pharmaceutical product"/>
-			<definition value="Dose form as manufactured and before any transformation into the pharmaceutical product"/>
+			<definition value="Dose form as manufactured and before any transformation into the pharmaceutical product."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -246,7 +246,7 @@
 		<element id="MedicationDefinition.indication">
 			<path value="MedicationDefinition.indication"/>
 			<short value="General combined description of indication(s) for this product, for use when a structured set is not available. See also the ClinicalUseIssue resource, which can be used for more structured indications, and can be made to reference to this resource"/>
-			<definition value="General combined description of indication(s) for this product, for use when a structured set is not available. See also the ClinicalUseIssue resource, which can be used for more structured indications, and can be made to reference to this resource"/>
+			<definition value="General combined description of indication(s) for this product, for use when a structured set is not available. See also the ClinicalUseIssue resource, which can be used for more structured indications, and can be made to reference to this resource."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -256,7 +256,7 @@
 		<element id="MedicationDefinition.pediatricUseIndicator">
 			<path value="MedicationDefinition.pediatricUseIndicator"/>
 			<short value="If authorised for use in children"/>
-			<definition value="If authorised for use in children"/>
+			<definition value="If authorised for use in children."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -266,7 +266,7 @@
 		<element id="MedicationDefinition.additionalIndicator">
 			<path value="MedicationDefinition.additionalIndicator"/>
 			<short value="Whether the Medicinal Product is subject to additional monitoring for regulatory reasons"/>
-			<definition value="Whether the Medicinal Product is subject to additional monitoring for regulatory reasons"/>
+			<definition value="Whether the Medicinal Product is subject to additional monitoring for regulatory reasons."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -276,7 +276,7 @@
 		<element id="MedicationDefinition.specialMeasures">
 			<path value="MedicationDefinition.specialMeasures"/>
 			<short value="Whether the Medicinal Product is subject to special measures for regulatory reasons"/>
-			<definition value="Whether the Medicinal Product is subject to special measures for regulatory reasons"/>
+			<definition value="Whether the Medicinal Product is subject to special measures for regulatory reasons."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -286,7 +286,7 @@
 		<element id="MedicationDefinition.classification">
 			<path value="MedicationDefinition.classification"/>
 			<short value="Allows the product to be classified by various systems"/>
-			<definition value="Allows the product to be classified by various systems"/>
+			<definition value="Allows the product to be classified by various systems."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -296,7 +296,7 @@
 		<element id="MedicationDefinition.property">
 			<path value="MedicationDefinition.property"/>
 			<short value="Characteristics e.g. a products onset of action"/>
-			<definition value="Characteristics e.g. a products onset of action"/>
+			<definition value="Characteristics e.g. a products onset of action."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -306,7 +306,7 @@
 		<element id="MedicationDefinition.property.type">
 			<path value="MedicationDefinition.property.type"/>
 			<short value="A code expressing the type of characteristic"/>
-			<definition value="A code expressing the type of characteristic"/>
+			<definition value="A code expressing the type of characteristic."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -316,7 +316,7 @@
 		<element id="MedicationDefinition.property.value[x]">
 			<path value="MedicationDefinition.property.value[x]"/>
 			<short value="A value for the characteristic"/>
-			<definition value="A value for the characteristic"/>
+			<definition value="A value for the characteristic."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -330,7 +330,7 @@
 		<element id="MedicationDefinition.property.status">
 			<path value="MedicationDefinition.property.status"/>
 			<short value="The status of characteristic e.g. assigned or pending"/>
-			<definition value="The status of characteristic e.g. assigned or pending"/>
+			<definition value="The status of characteristic e.g. assigned or pending."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -340,7 +340,7 @@
 		<element id="MedicationDefinition.marketingStatus">
 			<path value="MedicationDefinition.marketingStatus"/>
 			<short value="Marketing status of the medicinal product, in contrast to marketing authorization"/>
-			<definition value="Marketing status of the medicinal product, in contrast to marketing authorization"/>
+			<definition value="Marketing status of the medicinal product, in contrast to marketing authorization."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -350,7 +350,7 @@
 		<element id="MedicationDefinition.ingredient">
 			<path value="MedicationDefinition.ingredient"/>
 			<short value="The ingredients that make up this manufactured item"/>
-			<definition value="The ingredients that make up this manufactured item"/>
+			<definition value="The ingredients that make up this manufactured item."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -360,7 +360,7 @@
 		<element id="MedicationDefinition.ingredient.role">
 			<path value="MedicationDefinition.ingredient.role"/>
 			<short value="The role of the ingredient in the product"/>
-			<definition value="The role of the ingredient in the product"/>
+			<definition value="The role of the ingredient in the product."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -370,7 +370,7 @@
 		<element id="MedicationDefinition.ingredient.substance">
 			<path value="MedicationDefinition.ingredient.substance"/>
 			<short value="The actual ingredient"/>
-			<definition value="The actual ingredient that constitutes the product"/>
+			<definition value="The actual ingredient that constitutes the product."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -380,7 +380,7 @@
 		<element id="MedicationDefinition.ingredient.substance.type">
 			<path value="MedicationDefinition.ingredient.substance.type"/>
 			<short value="The type of ingredient in the product"/>
-			<definition value="The type of ingredient in the product"/>
+			<definition value="The type of ingredient in the product."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -390,7 +390,7 @@
 		<element id="MedicationDefinition.ingredient.substance.substance">
 			<path value="MedicationDefinition.ingredient.substance.substance"/>
 			<short value="The substance or product defined as ingredient"/>
-			<definition value="The substance or product defined as ingredient"/>
+			<definition value="The substance or product defined as ingredient."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -402,7 +402,7 @@
 		<element id="MedicationDefinition.ingredient.substance.strength">
 			<path value="MedicationDefinition.ingredient.substance.strength"/>
 			<short value="The strength of the substance"/>
-			<definition value="The strength of the substance"/>
+			<definition value="The strength of the substance."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -412,7 +412,7 @@
 		<element id="MedicationDefinition.ingredient.substance.strength.strengthType">
 			<path value="MedicationDefinition.ingredient.substance.strength.strengthType"/>
 			<short value="The type of strength (reference strength, etc)"/>
-			<definition value="The type of strength (reference strength, etc)"/>
+			<definition value="The type of strength (reference strength, etc)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -422,7 +422,7 @@
 		<element id="MedicationDefinition.ingredient.substance.strength.strength">
 			<path value="MedicationDefinition.ingredient.substance.strength.strength"/>
 			<short value="The value of the strength"/>
-			<definition value="The value of the strength"/>
+			<definition value="The value of the strength."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -448,7 +448,7 @@
 		<element id="MedicationDefinition.attachedDocument">
 			<path value="MedicationDefinition.attachedDocument"/>
 			<short value="Supporting documentation, typically for regulatory submission"/>
-			<definition value="Supporting documentation, typically for regulatory submission"/>
+			<definition value="Supporting documentation, typically for regulatory submission."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -459,7 +459,7 @@
 		<element id="MedicationDefinition.masterFile">
 			<path value="MedicationDefinition.masterFile"/>
 			<short value="A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)"/>
-			<definition value="A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)"/>
+			<definition value="A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -470,7 +470,7 @@
 		<element id="MedicationDefinition.contact">
 			<path value="MedicationDefinition.contact"/>
 			<short value="A product specific contact, person (in a role), or an organization"/>
-			<definition value="A product specific contact, person (in a role), or an organization"/>
+			<definition value="A product specific contact, person (in a role), or an organization."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -480,7 +480,7 @@
 		<element id="MedicationDefinition.contact.type">
 			<path value="MedicationDefinition.contact.type"/>
 			<short value="Allows the contact to be classified, for example QPPV, Pharmacovigilance Enquiry Information"/>
-			<definition value="Allows the contact to be classified, for example QPPV, Pharmacovigilance Enquiry Information"/>
+			<definition value="Allows the contact to be classified, for example QPPV, Pharmacovigilance Enquiry Information."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -490,7 +490,7 @@
 		<element id="MedicationDefinition.contact.contact">
 			<path value="MedicationDefinition.contact.contact"/>
 			<short value="A product specific contact, person (in a role), or an organization"/>
-			<definition value="A product specific contact, person (in a role), or an organization"/>
+			<definition value="A product specific contact, person (in a role), or an organization."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -502,7 +502,7 @@
 		<element id="MedicationDefinition.name">
 			<path value="MedicationDefinition.name"/>
 			<short value="The product's name, including full name and possibly coded parts"/>
-			<definition value="The product's name, including full name and possibly coded parts"/>
+			<definition value="The product's name, including full name and possibly coded parts."/>
 			<min value="1"/>
 			<max value="*"/>
 			<type>
@@ -512,7 +512,7 @@
 		<element id="MedicationDefinition.name.productName">
 			<path value="MedicationDefinition.name.productName"/>
 			<short value="The full product name"/>
-			<definition value="The full product name"/>
+			<definition value="The full product name."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -522,7 +522,7 @@
 		<element id="MedicationDefinition.name.type">
 			<path value="MedicationDefinition.name.type"/>
 			<short value="Type of product name, such as rINN, BAN, Proprietary, Non-Proprietary"/>
-			<definition value="Type of product name, such as rINN, BAN, Proprietary, Non-Proprietary"/>
+			<definition value="Type of product name, such as rINN, BAN, Proprietary, Non-Proprietary."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -532,7 +532,7 @@
 		<element id="MedicationDefinition.name.namePart">
 			<path value="MedicationDefinition.name.namePart"/>
 			<short value="Coding words or phrases of the name"/>
-			<definition value="Coding words or phrases of the name"/>
+			<definition value="Coding words or phrases of the name."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -542,7 +542,7 @@
 		<element id="MedicationDefinition.name.namePart.part">
 			<path value="MedicationDefinition.name.namePart.part"/>
 			<short value="A fragment of a product name"/>
-			<definition value="A fragment of a product name"/>
+			<definition value="A fragment of a product name."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -552,7 +552,7 @@
 		<element id="MedicationDefinition.name.namePart.type">
 			<path value="MedicationDefinition.name.namePart.type"/>
 			<short value="Identifying type for this part of the name (e.g. strength part)"/>
-			<definition value="Identifying type for this part of the name (e.g. strength part)"/>
+			<definition value="Identifying type for this part of the name (e.g. strength part)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -562,7 +562,7 @@
 		<element id="MedicationDefinition.name.countryLanguage">
 			<path value="MedicationDefinition.name.countryLanguage"/>
 			<short value="Country where the name applies"/>
-			<definition value="Country where the name applies"/>
+			<definition value="Country where the name applies."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -572,7 +572,7 @@
 		<element id="MedicationDefinition.name.countryLanguage.country">
 			<path value="MedicationDefinition.name.countryLanguage.country"/>
 			<short value="Country code for where this name applies"/>
-			<definition value="Country code for where this name applies"/>
+			<definition value="Country code for where this name applies."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -582,7 +582,7 @@
 		<element id="MedicationDefinition.name.countryLanguage.jurisdiction">
 			<path value="MedicationDefinition.name.countryLanguage.jurisdiction"/>
 			<short value="Jurisdiction code for where this name applies"/>
-			<definition value="Jurisdiction code for where this name applies"/>
+			<definition value="Jurisdiction code for where this name applies."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -592,7 +592,7 @@
 		<element id="MedicationDefinition.name.countryLanguage.language">
 			<path value="MedicationDefinition.name.countryLanguage.language"/>
 			<short value="Language code for this name"/>
-			<definition value="Language code for this name"/>
+			<definition value="Language code for this name."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -602,7 +602,7 @@
 		<element id="MedicationDefinition.crossReference">
 			<path value="MedicationDefinition.crossReference"/>
 			<short value="Reference to another product, e.g. for linking authorised to investigational product"/>
-			<definition value="Reference to another product, e.g. for linking authorised to investigational product"/>
+			<definition value="Reference to another product, e.g. for linking authorised to investigational product."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -612,7 +612,7 @@
 		<element id="MedicationDefinition.crossReference.product">
 			<path value="MedicationDefinition.crossReference.product"/>
 			<short value="Reference to another product, e.g. for linking authorised to investigational product"/>
-			<definition value="Reference to another product, e.g. for linking authorised to investigational product"/>
+			<definition value="Reference to another product, e.g. for linking authorised to investigational product."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -623,7 +623,7 @@
 		<element id="MedicationDefinition.crossReference.type">
 			<path value="MedicationDefinition.crossReference.type"/>
 			<short value="The type of relationship, for instance branded to generic, product to development product (investigational), parallel import version"/>
-			<definition value="The type of relationship, for instance branded to generic, product to development product (investigational), parallel import version"/>
+			<definition value="The type of relationship, for instance branded to generic, product to development product (investigational), parallel import version."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -633,7 +633,7 @@
 		<element id="MedicationDefinition.crossReference.relativeQuantity">
 			<path value="MedicationDefinition.crossReference.relativeQuantity"/>
 			<short value="Reference to another product, e.g. for linking authorised to investigational product"/>
-			<definition value="Reference to another product, e.g. for linking authorised to investigational product"/>
+			<definition value="Reference to another product, e.g. for linking authorised to investigational product."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -643,7 +643,7 @@
 		<element id="MedicationDefinition.unitOfPresentation">
 			<path value="MedicationDefinition.unitOfPresentation"/>
 			<short value="Todo"/>
-			<definition value="Todo"/>
+			<definition value="Todo."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -653,7 +653,7 @@
 		<element id="MedicationDefinition.partOf">
 			<path value="MedicationDefinition.partOf"/>
 			<short value="The product that this is a pharmaceutical product of"/>
-			<definition value="The product that this is a pharmaceutical product of"/>
+			<definition value="The product that this is a pharmaceutical product of."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -664,7 +664,7 @@
 		<element id="MedicationDefinition.producedFrom">
 			<path value="MedicationDefinition.producedFrom"/>
 			<short value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients"/>
-			<definition value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients"/>
+			<definition value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -675,7 +675,7 @@
 		<element id="MedicationDefinition.marketingAuthorizationHolder">
 			<path value="MedicationDefinition.marketingAuthorizationHolder"/>
 			<short value="Manufacturer of the item (Note that this should be named 'manufacturer' but it currently causes technical issues)"/>
-			<definition value="Manufacturer of the item (Note that this should be named 'manufacturer' but it currently causes technical issues)"/>
+			<definition value="Manufacturer of the item (Note that this should be named 'manufacturer' but it currently causes technical issues)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -686,7 +686,7 @@
 		<element id="MedicationDefinition.marketingAuthorization">
 			<path value="MedicationDefinition.marketingAuthorization"/>
 			<short value="An authorization for this package type"/>
-			<definition value="An authorization for this package type"/>
+			<definition value="An authorization for this package type."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -697,7 +697,7 @@
 		<element id="MedicationDefinition.businessOperation">
 			<path value="MedicationDefinition.businessOperation"/>
 			<short value="An operation applied to the product, for manufacturing or administrative purpose"/>
-			<definition value="An operation applied to the product, for manufacturing or administrative purpose"/>
+			<definition value="An operation applied to the product, for manufacturing or administrative purpose."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -707,7 +707,7 @@
 		<element id="MedicationDefinition.businessOperation.type">
 			<path value="MedicationDefinition.businessOperation.type"/>
 			<short value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. This may be a subtype of some other wider scope of authorized operation, referenced by the authorization attribute"/>
-			<definition value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. This may be a subtype of some other wider scope of authorized operation, referenced by the authorization attribute"/>
+			<definition value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. This may be a subtype of some other wider scope of authorized operation, referenced by the authorization attribute."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -718,7 +718,7 @@
 		<element id="MedicationDefinition.businessOperation.effectiveDate">
 			<path value="MedicationDefinition.businessOperation.effectiveDate"/>
 			<short value="Date range of applicability"/>
-			<definition value="Date range of applicability"/>
+			<definition value="Date range of applicability."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -728,7 +728,7 @@
 		<element id="MedicationDefinition.businessOperation.manufacturer">
 			<path value="MedicationDefinition.businessOperation.manufacturer"/>
 			<short value="The manufacturer or establishment associated with the process"/>
-			<definition value="The manufacturer or establishment associated with the process"/>
+			<definition value="The manufacturer or establishment associated with the process."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -739,7 +739,7 @@
 		<element id="MedicationDefinition.businessOperation.authorization">
 			<path value="MedicationDefinition.businessOperation.authorization"/>
 			<short value="An authorization for this process, either as a logical reference, holding just an identifier, or a full reference to a resource that captures the details. The authorization may possibly apply to several products or a wider scope of process of which this is a part"/>
-			<definition value="An authorization for this process, either as a logical reference, holding just an identifier, or a full reference to a resource that captures the details. The authorization may possibly apply to several products or a wider scope of process of which this is a part"/>
+			<definition value="An authorization for this process, either as a logical reference, holding just an identifier, or a full reference to a resource that captures the details. The authorization may possibly apply to several products or a wider scope of process of which this is a part."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -750,7 +750,7 @@
 		<element id="MedicationDefinition.businessOperation.confidentialityIndicator">
 			<path value="MedicationDefinition.businessOperation.confidentialityIndicator"/>
 			<short value="To indicate if this process is commercially confidential"/>
-			<definition value="To indicate if this process is commercially confidential"/>
+			<definition value="To indicate if this process is commercially confidential."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -760,7 +760,7 @@
 		<element id="MedicationDefinition.device">
 			<path value="MedicationDefinition.device"/>
 			<short value="A device that is integral to the medication item, in effect being considered as an 'ingredient' of the pharmaceutical product. This is not intended for devices that are just co-packaged"/>
-			<definition value="A device that is integral to the medication item, in effect being considered as an 'ingredient' of the pharmaceutical product. This is not intended for devices that are just co-packaged"/>
+			<definition value="A device that is integral to the medication item, in effect being considered as an 'ingredient' of the pharmaceutical product. This is not intended for devices that are just co-packaged."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -771,7 +771,7 @@
 		<element id="MedicationDefinition.copackagedIndicator">
 			<path value="MedicationDefinition.copackagedIndicator"/>
 			<short value="States whether a drug product is supplied with another item such as a diluent or adjuvant"/>
-			<definition value="States whether a drug product is supplied with another item such as a diluent or adjuvant"/>
+			<definition value="States whether a drug product is supplied with another item such as a diluent or adjuvant."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -781,7 +781,7 @@
 		<element id="MedicationDefinition.administrationDosage">
 			<path value="MedicationDefinition.administrationDosage"/>
 			<short value="The path by which the pharmaceutical product is taken into or makes contact with the body"/>
-			<definition value="The path by which the pharmaceutical product is taken into or makes contact with the body"/>
+			<definition value="The path by which the pharmaceutical product is taken into or makes contact with the body."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -791,7 +791,7 @@
 		<element id="MedicationDefinition.administrationDosage.routeOfAdministration">
 			<path value="MedicationDefinition.administrationDosage.routeOfAdministration"/>
 			<short value="Coded expression for the route"/>
-			<definition value="Coded expression for the route"/>
+			<definition value="Coded expression for the route."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -801,7 +801,7 @@
 		<element id="MedicationDefinition.administrationDosage.dosage">
 			<path value="MedicationDefinition.administrationDosage.dosage"/>
 			<short value="The maximum single dose that can be administered as per the protocol of a clinical trial can be specified using a numerical value and its unit of measurement"/>
-			<definition value="The maximum single dose that can be administered as per the protocol of a clinical trial can be specified using a numerical value and its unit of measurement"/>
+			<definition value="The maximum single dose that can be administered as per the protocol of a clinical trial can be specified using a numerical value and its unit of measurement."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -811,7 +811,7 @@
 		<element id="MedicationDefinition.administrationDosage.targetSpecies">
 			<path value="MedicationDefinition.administrationDosage.targetSpecies"/>
 			<short value="A species for which this route applies"/>
-			<definition value="A species for which this route applies"/>
+			<definition value="A species for which this route applies."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -821,7 +821,7 @@
 		<element id="MedicationDefinition.administrationDosage.withdrawalPeriod">
 			<path value="MedicationDefinition.administrationDosage.withdrawalPeriod"/>
 			<short value="A species specific time during which consumption of animal product is not appropriate"/>
-			<definition value="A species specific time during which consumption of animal product is not appropriate"/>
+			<definition value="A species specific time during which consumption of animal product is not appropriate."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -831,7 +831,7 @@
 		<element id="MedicationDefinition.administrationDosage.withdrawalPeriod.tissue">
 			<path value="MedicationDefinition.administrationDosage.withdrawalPeriod.tissue"/>
 			<short value="Coded expression for the type of tissue for which the withdrawal period applues, e.g. meat, milk"/>
-			<definition value="Coded expression for the type of tissue for which the withdrawal period applues, e.g. meat, milk"/>
+			<definition value="Coded expression for the type of tissue for which the withdrawal period applues, e.g. meat, milk."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -841,7 +841,7 @@
 		<element id="MedicationDefinition.administrationDosage.withdrawalPeriod.value">
 			<path value="MedicationDefinition.administrationDosage.withdrawalPeriod.value"/>
 			<short value="A value for the time"/>
-			<definition value="A value for the time"/>
+			<definition value="A value for the time."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -851,7 +851,7 @@
 		<element id="MedicationDefinition.administrationDosage.withdrawalPeriod.supportingInformation">
 			<path value="MedicationDefinition.administrationDosage.withdrawalPeriod.supportingInformation"/>
 			<short value="Extra information about the withdrawal period"/>
-			<definition value="Extra information about the withdrawal period"/>
+			<definition value="Extra information about the withdrawal period."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
