@@ -12,6 +12,10 @@ This library builds and publishes the FHIR specification, based on the contained
 
 See also: [FHIR Build Process][Link-Wiki]
 
+##### If running commands on the terminal is a frightening prospect for you...
+
+We provide executable script files for windows (publish.bat) and mac (publish.sh).
+
 ### Command line parameters
 
 There are multiple options available for publishing:
