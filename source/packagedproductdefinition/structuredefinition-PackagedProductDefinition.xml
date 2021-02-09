@@ -181,6 +181,21 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="PackagedProductDefinition.containedItemQuantity">
+      <path value="PackagedProductDefinition.containedItemQuantity"/>
+      <short value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribite is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Repeats are not to be used to represent differerent pack sizes (e.g. 20 pack vs 50 pack) - which would be different resource instances. This attribute differs from  containedItem.amount in that it can give a single count of all tablet types in a pack, even when these are different manufactured items"/>
+      <definition value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribite is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Repeats are not to be used to represent differerent pack sizes (e.g. 20 pack vs 50 pack) - which would be different resource instances. This attribute differs from  containedItem.amount in that it can give a single count of all tablet types in a pack, even when these are different manufactured items."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="PackagedProductDefinition.description">
       <path value="PackagedProductDefinition.description"/>
       <short value="Textual description. Note that this is not the name of the package or product"/>
