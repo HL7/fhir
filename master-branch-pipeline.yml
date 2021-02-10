@@ -14,13 +14,13 @@ jobs:
   - task: Bash@3
     inputs:
       targetType: 'inline'
-      script: 'wget https://download.java.net/java/GA/jdk9/9/binaries/openjdk-9_linux-x64_bin.tar.gz -O java9.tar.gz'
+      script: 'wget https://download.java.net/java/GA/jdk9/9/binaries/openjdk-9_linux-x64_bin.tar.gz -O $(Build.ArtifactStagingDirectory)/java9.tar.gz'
   - task: JavaToolInstaller@0
     inputs:
       versionSpec: "8"
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: "java9.tar.gz"
+      jdkFile: "$(Build.ArtifactStagingDirectory)/java9.tar.gz"
       jdkDestinationDirectory: ""
   - task: Bash@3
     inputs:
