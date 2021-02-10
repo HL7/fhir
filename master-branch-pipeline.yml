@@ -41,7 +41,7 @@ jobs:
       jdkArchitectureOption: 'x64'
       publishJUnitResults: true
       testResultsFiles: '**/TEST-*.xml'
-      tasks: 'publish'
+      tasks: 'publish --full-stacktrace'
 
 - job: publishBranchBuild
   dependsOn: buildSpecification
