@@ -215,17 +215,14 @@
         <map value="Marketing Authorisation.Validity Period Start, Marketing Authorisation.Validity Period End"/>
       </mapping>
     </element>
-    <element id="RegulatedAuthorization.indication[x]">
-      <path value="RegulatedAuthorization.indication[x]"/>
+    <element id="RegulatedAuthorization.indication">
+      <path value="RegulatedAuthorization.indication"/>
       <short value="Condition for which the use of the regulated product applies"/>
       <definition value="Condition for which the use of the regulated product applies."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
       </type>
       <isSummary value="true"/>
