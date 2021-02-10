@@ -11,15 +11,18 @@ variables:
 jobs:
 - job: installJava
   steps:
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: 'wget https://javadl.oracle.com/webapps/download/AutoDL?BundleId=244058_89d678f2be164786b292527658ca1605 -O java8.tar.gz'
   - task: JavaToolInstaller@0
     inputs:
       versionSpec: "8"
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: "~/azure-pipelines/java.tar.gz"
+      jdkFile: "java8.tar.gz"
       jdkDestinationDirectory: ""
       cleanDestinationDirectory: false
-
 
 - job: buildSpecification
   steps:
