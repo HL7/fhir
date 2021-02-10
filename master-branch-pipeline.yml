@@ -13,12 +13,13 @@ jobs:
   steps:
   - task: JavaToolInstaller@0
     inputs:
-      versionSpec: "11"
+      versionSpec: "8"
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
       jdkFile: "~/azure-pipelines/java.tar.gz"
       jdkDestinationDirectory: ""
       cleanDestinationDirectory: false
+
 
 - job: buildSpecification
   steps:
