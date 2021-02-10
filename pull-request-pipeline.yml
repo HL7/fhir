@@ -9,20 +9,38 @@ variables:
 - group: SSH_UPLOAD
 
 jobs:
+- job: setupEnvironment
+  steps:
+  - task: Bash@3
+    displayName: 'Download java sdk'
+    inputs:
+      targetType: 'inline'
+      script: 'wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u262-b10/openlogic-openjdk-8u262-b10-linux-x64.tar.gz -O $(Build.ArtifactStagingDirectory)/java8.tar.gz'
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: "8"
+      jdkArchitectureOption: x64
+      jdkSourceOption: LocalDirectory
+      jdkFile: "$(Build.ArtifactStagingDirectory)/java8.tar.gz"
+      jdkDestinationDirectory: ""
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        echo JAVA_HOME set to -> $JAVA_HOME
+        echo JAVA_HOME_8_X64 set to -> $JAVA_HOME_8_X64
+        echo which java returns
+        which java
+
 - job: buildSpecification
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
     inputs:
-      workingDirectory: ''
       gradleWrapperFile: 'gradlew'
-      gradleOptions: '-Xmx16384m'
       javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.8'
-      jdkArchitectureOption: 'x64'
-      publishJUnitResults: true
-      testResultsFiles: '**/TEST-*.xml'
-      tasks: 'publish'
+      publishJUnitResults: false
+      tasks: 'publish --stacktrace'
 
 - job: publishBranchBuild
   dependsOn: buildSpecification
