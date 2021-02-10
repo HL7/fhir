@@ -12,6 +12,7 @@ jobs:
 - job: buildSpecification
   steps:
   - task: Bash@3
+    displayName: 'Download java sdk.'
     inputs:
       targetType: 'inline'
       script: 'wget https://download.java.net/java/GA/jdk9/9/binaries/openjdk-9_linux-x64_bin.tar.gz -O $(Build.ArtifactStagingDirectory)/java9.tar.gz'
