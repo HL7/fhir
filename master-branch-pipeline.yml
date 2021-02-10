@@ -1,8 +1,8 @@
 trigger:
-- none
+- master
 
 pr:
-- master
+- none
 
 variables:
 - group: ZULIP_VAR_GROUP
