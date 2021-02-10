@@ -32,18 +32,13 @@ jobs:
         echo which java returns
         which java
         ls -la
-        
+
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
     inputs:
-      workingDirectory: ''
       gradleWrapperFile: 'gradlew'
-      gradleOptions: '-Xmx16384m'
       javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.8'
-      jdkArchitectureOption: 'x64'
-      publishJUnitResults: true
-      testResultsFiles: '**/TEST-*.xml'
+      publishJUnitResults: false
       tasks: 'publish --full-stacktrace'
 
 - job: publishBranchBuild
