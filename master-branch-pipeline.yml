@@ -32,7 +32,7 @@ jobs:
         echo which java returns
         which java
 
-- job: buildSpecification
+- job: buildAndPublishSpecification
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
@@ -48,7 +48,7 @@ jobs:
     displayName: 'Download ssh key.'
     inputs:
       secureFile: deploy.rsa
-      
+
   # This task takes the successfully built publish directory produced in the 'buildSpecification' job above and pushes it to
   # build.fhir.org in a directory named after that branch that triggered this pull request.
   - task: Bash@3
@@ -63,7 +63,7 @@ jobs:
 # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
 # on Zulip (chat.fhir.org) to let users know that the build is available.
 - job: successNotification
-  dependsOn: publishBranchBuild
+  dependsOn: buildAndPublishSpecification
   condition: succeeded()
   timeoutInMinutes: 5
   steps:
@@ -81,7 +81,7 @@ jobs:
             "
 
 - job: failureNotification
-  dependsOn: publishBranchBuild
+  dependsOn: buildAndPublishSpecification
   condition: failed()
   timeoutInMinutes: 5
   steps:
