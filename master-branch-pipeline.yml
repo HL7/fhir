@@ -15,7 +15,7 @@ jobs:
     displayName: 'Download java sdk.'
     inputs:
       targetType: 'inline'
-      script: 'wget https://download.java.net/java/GA/jdk9/9/binaries/openjdk-9_linux-x64_bin.tar.gz -O $(Build.ArtifactStagingDirectory)/java9.tar.gz'
+      script: 'wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u262-b10/openlogic-openjdk-8u262-b10-linux-x64.tar.gz -O $(Build.ArtifactStagingDirectory)/java9.tar.gz'
   - task: JavaToolInstaller@0
     inputs:
       versionSpec: "8"
