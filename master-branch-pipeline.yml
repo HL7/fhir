@@ -9,6 +9,17 @@ variables:
 - group: SSH_UPLOAD
 
 jobs:
+- job: installJava
+  steps:
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: "11"
+      jdkArchitectureOption: x64
+      jdkSourceOption: LocalDirectory
+      jdkFile: "~/azure-pipelines/java.tar.gz"
+      jdkDestinationDirectory: "/builds/binaries/externals"
+      cleanDestinationDirectory: true
+
 - job: buildSpecification
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
