@@ -9,7 +9,7 @@ variables:
 - group: SSH_UPLOAD
 
 jobs:
-- job: installJava
+- job: buildSpecification
   steps:
   - task: Bash@3
     inputs:
@@ -22,10 +22,13 @@ jobs:
       jdkSourceOption: LocalDirectory
       jdkFile: "java9.tar.gz"
       jdkDestinationDirectory: ""
-      cleanDestinationDirectory: false
-
-- job: buildSpecification
-  steps:
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        echo $JAVA_HOME
+        echo $JAVA_HOME_8_X64
+        
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
     inputs:
