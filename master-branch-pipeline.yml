@@ -9,7 +9,7 @@ variables:
 - group: SSH_UPLOAD
 
 jobs:
-- job: buildSpecification
+- job: setupEnvironment
   steps:
   - task: Bash@3
     displayName: 'Download java sdk.'
@@ -31,8 +31,19 @@ jobs:
         echo JAVA_HOME_8_X64 set to -> $JAVA_HOME_8_X64
         echo which java returns
         which java
-        ls -la
 
+- job: buildSpecification1
+  steps:
+  # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
+  - task: Gradle@2
+    inputs:
+      gradleWrapperFile: 'gradlew'
+      javaHomeOption: 'JDKVersion'
+      publishJUnitResults: false
+      tasks: 'build'
+
+- job: buildSpecification
+  steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
     inputs:
