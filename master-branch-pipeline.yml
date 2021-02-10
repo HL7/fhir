@@ -17,7 +17,7 @@ jobs:
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
       jdkFile: "~/azure-pipelines/java.tar.gz"
-      jdkDestinationDirectory: "."
+      jdkDestinationDirectory: ""
       cleanDestinationDirectory: true
 
 - job: buildSpecification
