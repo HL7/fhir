@@ -42,16 +42,13 @@ jobs:
       publishJUnitResults: false
       tasks: 'publish --stacktrace'
 
-- job: publishBranchBuild
-  dependsOn: buildSpecification
-  condition: succeeded()
-  steps:
   # We need a valid ssh key to upload to build.fhir.org. This is stored in the azure pipelines secure filesystem.
   # This step downloads the file for use within this job.
   - task: DownloadSecureFile@1
     displayName: 'Download ssh key.'
     inputs:
       secureFile: deploy.rsa
+      
   # This task takes the successfully built publish directory produced in the 'buildSpecification' job above and pushes it to
   # build.fhir.org in a directory named after that branch that triggered this pull request.
   - task: Bash@3
