@@ -32,7 +32,7 @@ jobs:
         echo which java returns
         which java
 
-- job: buildSpecification
+- job: buildAndPublishSpecification
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
@@ -42,31 +42,28 @@ jobs:
       publishJUnitResults: false
       tasks: 'publish --stacktrace'
 
-- job: publishBranchBuild
-  dependsOn: buildSpecification
-  condition: succeeded()
-  steps:
-    # We need a valid ssh key to upload to build.fhir.org. This is stored in the azure pipelines secure filesystem.
-    # This step downloads the file for use within this job.
-    - task: DownloadSecureFile@1
-      displayName: 'Download ssh key.'
-      inputs:
-        secureFile: deploy.rsa
-    # This task takes the successfully built publish directory produced in the 'buildSpecification' job above and pushes it to
-    # build.fhir.org in a directory named after that branch that triggered this pull request.
-    - task: Bash@3
-      inputs:
-        targetType: 'inline'
-        script: |
-          cd publish
-          chmod 400 $(Agent.TempDirectory)/deploy.rsa
-          echo "Publishing to target R4B"
-          tar czf - * | ssh  -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish R4B
+  # We need a valid ssh key to upload to build.fhir.org. This is stored in the azure pipelines secure filesystem.
+  # This step downloads the file for use within this job.
+  - task: DownloadSecureFile@1
+    displayName: 'Download ssh key.'
+    inputs:
+      secureFile: deploy.rsa
+
+  # This task takes the successfully built publish directory produced in the 'buildSpecification' job above and pushes it to
+  # build.fhir.org in a directory named after that branch that triggered this pull request.
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        cd publish
+        chmod 400 $(Agent.TempDirectory)/deploy.rsa
+        echo "Publishing to target R4B"
+        tar czf - * | ssh  -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish R4B
 
 # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
 # on Zulip (chat.fhir.org) to let users know that the build is available.
 - job: successNotification
-  dependsOn: publishBranchBuild
+  dependsOn: buildAndPublishSpecification
   condition: succeeded()
   timeoutInMinutes: 5
   steps:
@@ -83,7 +80,7 @@ jobs:
               "
 
 - job: failureNotification
-  dependsOn: publishBranchBuild
+  dependsOn: buildAndPublishSpecification
   condition: failed()
   timeoutInMinutes: 5
   steps:
