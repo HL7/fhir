@@ -96,13 +96,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes defining the type of the substance (including pharmaceutical products)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubstanceCode"/>
         </extension>
         <strength value="example"/>
+        <description value="Codes defining the type of the substance (including pharmaceutical products)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
       </binding>
     </element>
@@ -136,13 +134,11 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The risk of an adverse reaction (allergy or intolerance) for this patient upon exposure to the substance (including pharmaceutical products)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AllergyIntoleranceSubstanceExposureRisk"/>
         </extension>
         <strength value="required"/>
+        <description value="The risk of an adverse reaction (allergy or intolerance) for this patient upon exposure to the substance (including pharmaceutical products)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/allerg-intol-substance-exp-risk"/>
       </binding>
     </element>

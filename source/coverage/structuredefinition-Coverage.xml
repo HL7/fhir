@@ -158,10 +158,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CoverageStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code specifying the state of the resource instance."/>
-        </extension>
         <strength value="required"/>
+        <description value="A code specifying the state of the resource instance."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/fm-status"/>
       </binding>
       <mapping>
@@ -192,10 +190,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CoverageType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of insurance: public health, worker compensation; private accident, auto, private health, etc.) or a direct payment by an individual or organization."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="The type of insurance: public health, worker compensation; private accident, auto, private health, etc.) or a direct payment by an individual or organization."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/coverage-type"/>
       </binding>
       <mapping>
@@ -395,10 +391,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Relationship"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The relationship between the Subscriber and the Beneficiary (insured/covered party/patient)."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The relationship between the Subscriber and the Beneficiary (insured/covered party/patient)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscriber-relationship"/>
       </binding>
       <mapping>
@@ -499,10 +493,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CoverageClass"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The policy classifications, eg. Group, Plan, Class, etc."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The policy classifications, eg. Group, Plan, Class, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/coverage-class"/>
       </binding>
     </element>
@@ -624,10 +616,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CopayTypes"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The types of services to which patient copayments are specified."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The types of services to which patient copayments are specified."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/coverage-copay-type"/>
       </binding>
     </element>
@@ -692,10 +682,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CoverageFinancialException"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The types of exceptions from the part or full value of financial obligations such as copays."/>
-        </extension>
         <strength value="example"/>
+        <description value="The types of exceptions from the part or full value of financial obligations such as copays."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/coverage-financial-exception"/>
       </binding>
     </element>

@@ -232,10 +232,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritionOrderStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes identifying the lifecycle stage of the nutrition order."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of the nutrition order."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-status"/>
       </binding>
       <mapping>
@@ -277,10 +275,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutritiionOrderIntent"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes indicating the degree of authority/intentionality associated with a nutrition order."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes indicating the degree of authority/intentionality associated with a nutrition order."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-intent"/>
       </binding>
       <mapping>
@@ -454,10 +450,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PatientDiet"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Medical, cultural or ethical food preferences to help with catering requirements."/>
-        </extension>
         <strength value="example"/>
+        <description value="Medical, cultural or ethical food preferences to help with catering requirements."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diet"/>
       </binding>
       <mapping>
@@ -486,10 +480,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FoodType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes used to indicate the type of food that should NOT be given to the patient."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes used to indicate the type of food that should NOT be given to the patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/food-type"/>
       </binding>
       <mapping>
@@ -536,10 +528,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="OralDiet"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes used to indicate the type of diet being ordered for a patient."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes used to indicate the type of diet being ordered for a patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/diet-type"/>
       </binding>
       <mapping>
@@ -619,10 +609,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NutrientModifier"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for types of nutrients that are being modified such as carbohydrate or sodium."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for types of nutrients that are being modified such as carbohydrate or sodium."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/nutrient-code"/>
       </binding>
       <mapping>
@@ -699,10 +687,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TextureModifier"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for food consistency types or texture modifications to apply to foods."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for food consistency types or texture modifications to apply to foods."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/texture-code"/>
       </binding>
       <mapping>
@@ -732,10 +718,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TextureModifiedFoodType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for types of foods that are texture-modified."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for types of foods that are texture-modified."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/modified-foodtype"/>
       </binding>
       <mapping>
@@ -764,10 +748,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FluidConsistencyType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes used to represent the consistency of fluids and liquids provided to the patient."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes used to represent the consistency of fluids and liquids provided to the patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/consistency-type"/>
       </binding>
       <mapping>
@@ -843,10 +825,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SupplementType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for nutritional supplements to be provided to the patient."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for nutritional supplements to be provided to the patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplement-type"/>
       </binding>
       <mapping>
@@ -995,10 +975,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EnteralFormulaType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for type of enteral formula to be administered to patient."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for type of enteral formula to be administered to patient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/entformula-type"/>
       </binding>
       <mapping>
@@ -1052,10 +1030,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EnteralFormulaAdditiveType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/entformula-additive"/>
       </binding>
       <mapping>
@@ -1128,10 +1104,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EnteralRouteOfAdministration"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes specifying the route of administration of enteral formula."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Codes specifying the route of administration of enteral formula."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/enteral-route"/>
       </binding>
       <mapping>

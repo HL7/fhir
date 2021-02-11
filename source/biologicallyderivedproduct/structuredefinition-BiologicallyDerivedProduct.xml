@@ -116,10 +116,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Biologically Derived Product Category."/>
-        </extension>
         <strength value="required"/>
+        <description value="Biologically Derived Product Category."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/product-category"/>
       </binding>
     </element>
@@ -136,10 +134,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Biologically Derived Product Code."/>
-        </extension>
         <strength value="example"/>
+        <description value="Biologically Derived Product Code."/>
       </binding>
     </element>
     <element id="BiologicallyDerivedProduct.status">
@@ -155,10 +151,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Biologically Derived Product Status."/>
-        </extension>
         <strength value="required"/>
+        <description value="Biologically Derived Product Status."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biological-product-status"/>
       </binding>
     </element>
@@ -275,10 +269,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductProcedure"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Biologically Derived Product Procedure."/>
-        </extension>
         <strength value="example"/>
+        <description value="Biologically Derived Product Procedure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
       </binding>
     </element>
@@ -382,10 +374,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductStorageScale"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="BiologicallyDerived Product Storage Scale."/>
-        </extension>
         <strength value="required"/>
+        <description value="BiologicallyDerived Product Storage Scale."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/product-storage-scale"/>
       </binding>
     </element>

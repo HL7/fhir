@@ -110,10 +110,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationFormalRepresentation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept that defines the type of a medication."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept that defines the type of a medication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
       </binding>
       <mapping>
@@ -150,10 +148,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationKnowledgeStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept defining if the medication is in active use."/>
-        </extension>
         <strength value="required"/>
+        <description value="A coded concept defining if the medication is in active use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-status"/>
       </binding>
       <mapping>
@@ -222,10 +218,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationForm"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept defining the form of a medication."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept defining the form of a medication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-form-codes"/>
       </binding>
       <mapping>
@@ -441,10 +435,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationIngredientStrength"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept defining the strength of an ingredient."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept defining the strength of an ingredient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-ingredientstrength"/>
       </binding>
       <mapping>
@@ -495,10 +487,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRoute"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept defining the intended route of administration."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept defining the intended route of administration."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
       </binding>
     </element>
@@ -561,10 +551,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationCostCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept defining the category of a medication."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept defining the category of a medication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-cost-category"/>
       </binding>
     </element>
@@ -773,10 +761,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationPackageType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept defining the type of packaging of a medication."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept defining the type of packaging of a medication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-package-type"/>
       </binding>
     </element>
@@ -847,10 +833,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationCharacteristic"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept defining the characteristic types of a medication."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept defining the characteristic types of a medication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-characteristic"/>
       </binding>
     </element>

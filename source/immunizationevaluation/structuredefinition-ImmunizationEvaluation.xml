@@ -125,10 +125,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImmunizationEvaluationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the evaluation being done."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of the evaluation being done."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-evaluation-status"/>
       </binding>
       <mapping>
@@ -222,10 +220,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EvaluationTargetDisease"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The vaccine preventable disease the dose is being evaluated against."/>
-        </extension>
         <strength value="example"/>
+        <description value="The vaccine preventable disease the dose is being evaluated against."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-evaluation-target-disease"/>
       </binding>
       <mapping>
@@ -259,10 +255,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EvaluationDoseStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the administered dose relative to the published recommendations for the target disease."/>
-        </extension>
         <strength value="example"/>
+        <description value="The status of the administered dose relative to the published recommendations for the target disease."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status"/>
       </binding>
       <mapping>
@@ -283,10 +277,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EvaluationDoseStatusReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The reason the dose status was assigned."/>
-        </extension>
         <strength value="example"/>
+        <description value="The reason the dose status was assigned."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status-reason"/>
       </binding>
       <mapping>

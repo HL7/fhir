@@ -185,10 +185,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DiagnosticReportStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the diagnostic report."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of the diagnostic report."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-report-status"/>
       </binding>
       <mapping>

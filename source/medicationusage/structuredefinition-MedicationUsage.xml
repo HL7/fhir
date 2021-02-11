@@ -180,13 +180,11 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationUsageStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept indicating the current status of a MedicationUsage."/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
           <valueString value="ActStatus"/>
         </extension>
         <strength value="required"/>
+        <description value="A coded concept indicating the current status of a MedicationUsage."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-status"/>
       </binding>
       <mapping>
@@ -216,10 +214,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationUsageStatusReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept indicating the reason for the status of the statement."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept indicating the reason for the status of the statement."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/reason-medication-status-codes"/>
       </binding>
       <mapping>
@@ -245,10 +241,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationUsageAdministrationLocation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept identifying where the medication included in the MedicationUsage is expected to be consumed or administered."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept identifying where the medication included in the MedicationUsage is expected to be consumed or administered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-admin-location"/>
       </binding>
       <mapping>
@@ -276,10 +270,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept identifying the substance or product being taken."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept identifying the substance or product being taken."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
       </binding>
       <mapping>
@@ -450,10 +442,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept identifying why the medication is being taken."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept identifying why the medication is being taken."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
       <mapping>

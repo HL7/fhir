@@ -147,13 +147,11 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription."/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
           <valueString value="ActStatus"/>
         </extension>
         <strength value="required"/>
+        <description value="A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-status"/>
       </binding>
       <mapping>
@@ -187,10 +185,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestStatusReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the reasons for a given status."/>
-        </extension>
         <strength value="example"/>
+        <description value="Identifies the reasons for a given status."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-status-reason"/>
       </binding>
       <mapping>
@@ -219,10 +215,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestIntent"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The kind of medication order."/>
-        </extension>
         <strength value="required"/>
+        <description value="The kind of medication order."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-intent"/>
       </binding>
       <mapping>
@@ -252,10 +246,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestAdministrationLocation"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept identifying where the medication is to be consumed or administered."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept identifying where the medication is to be consumed or administered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"/>
       </binding>
       <mapping>
@@ -285,10 +277,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the level of importance to be assigned to actioning the request."/>
-        </extension>
         <strength value="required"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
       <mapping>
@@ -372,10 +362,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept identifying substance or product that can be ordered."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept identifying substance or product that can be ordered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
       </binding>
       <mapping>
@@ -598,10 +586,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestPerformerType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the type of individual that is desired to administer the medication."/>
-        </extension>
         <strength value="example"/>
+        <description value="Identifies the type of individual that is desired to administer the medication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
       </binding>
       <mapping>
@@ -649,10 +635,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A coded concept indicating why the medication was ordered."/>
-        </extension>
         <strength value="example"/>
+        <description value="A coded concept indicating why the medication was ordered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
       <mapping>
@@ -769,10 +753,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestCourseOfTherapy"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the overall pattern of medication administratio."/>
-        </extension>
         <strength value="example"/>
+        <description value="Identifies the overall pattern of medication administratio."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy"/>
       </binding>
       <mapping>
@@ -1091,10 +1073,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestSubstitution"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the type of substitution allowed."/>
-        </extension>
         <strength value="example"/>
+        <description value="Identifies the type of substitution allowed."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode"/>
       </binding>
       <mapping>

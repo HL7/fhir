@@ -3,10 +3,4 @@
 <List xmlns="http://hl7.org/fhir">
   <id value="MedicationAdministration-packs"/>
   <status value="current"/>
-  <mode value="working"/>
-  <entry>
-    <item>
-      <reference value="ImplementationGuide/MedicationAdministration-core"/>
-    </item>
-  </entry>
 </List>

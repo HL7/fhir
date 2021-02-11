@@ -90,13 +90,11 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates the degree of adherence to a specified behavior or capability expected for a system to be deemed conformant with a specification."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConformanceExpectation"/>
         </extension>
         <strength value="required"/>
+        <description value="Indicates the degree of adherence to a specified behavior or capability expected for a system to be deemed conformant with a specification."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/conformance-expectation"/>
       </binding>
     </element>

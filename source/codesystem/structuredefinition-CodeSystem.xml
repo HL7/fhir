@@ -225,10 +225,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.5.0"/>
       </binding>
       <mapping>
@@ -378,10 +376,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
@@ -474,10 +470,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CodeSystemHierarchyMeaning"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The meaning of the hierarchy of concepts in a code system."/>
-        </extension>
         <strength value="required"/>
+        <description value="The meaning of the hierarchy of concepts in a code system."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning|4.5.0"/>
       </binding>
     </element>
@@ -520,10 +514,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CodeSystemContentMode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource."/>
-        </extension>
         <strength value="required"/>
+        <description value="The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-content-mode|4.5.0"/>
       </binding>
     </element>
@@ -568,7 +560,7 @@
       <isSummary value="true"/>
     </element>
     <element id="CodeSystem.filter.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="CodeSystem.filter.code"/>
@@ -606,10 +598,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FilterOperator"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The kind of operation to perform as a part of a property based filter."/>
-        </extension>
         <strength value="required"/>
+        <description value="The kind of operation to perform as a part of a property based filter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|4.5.0"/>
       </binding>
     </element>
@@ -642,7 +632,7 @@
       <isSummary value="true"/>
     </element>
     <element id="CodeSystem.property.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="CodeSystem.property.code"/>
@@ -691,10 +681,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PropertyType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of a property value."/>
-        </extension>
         <strength value="required"/>
+        <description value="The type of a property value."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/concept-property-type|4.5.0"/>
       </binding>
     </element>
@@ -716,7 +704,7 @@
       </type>
     </element>
     <element id="CodeSystem.concept.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="CodeSystem.concept.code"/>
@@ -805,10 +793,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Details of how a designation would be used."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="Details of how a designation would be used."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/designation-use"/>
       </binding>
     </element>
@@ -839,7 +825,7 @@
       </type>
     </element>
     <element id="CodeSystem.concept.property.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/explanation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
       <path value="CodeSystem.concept.property.code"/>

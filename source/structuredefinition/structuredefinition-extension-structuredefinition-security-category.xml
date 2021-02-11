@@ -61,13 +61,11 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Provides general guidance around the kind of access Control to Read, Search, Create, Update, or Delete a resource."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResourceSecurityCategory"/>
         </extension>
         <strength value="required"/>
+        <description value="Provides general guidance around the kind of access Control to Read, Search, Create, Update, or Delete a resource."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/resource-security-category"/>
       </binding>
     </element>

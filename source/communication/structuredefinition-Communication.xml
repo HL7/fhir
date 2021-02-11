@@ -217,10 +217,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CommunicationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the communication."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of the communication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/event-status"/>
       </binding>
       <mapping>
@@ -249,10 +247,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CommunicationNotDoneReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for the reason why a communication did not happen."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for the reason why a communication did not happen."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/communication-not-done-reason"/>
       </binding>
       <mapping>
@@ -274,10 +270,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CommunicationCategory"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for general categories of communications such as alerts, instructions, etc."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for general categories of communications such as alerts, instructions, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/communication-category"/>
       </binding>
       <mapping>
@@ -304,10 +298,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CommunicationPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes indicating the relative importance of a communication."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes indicating the relative importance of a communication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
       <mapping>
@@ -328,10 +320,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CommunicationMedium"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for communication mediums such as phone, fax, email, in person, etc."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for communication mediums such as phone, fax, email, in person, etc."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ParticipationMode"/>
       </binding>
     </element>
@@ -378,10 +368,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CommunicationTopic"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing the purpose or content of the communication."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes describing the purpose or content of the communication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/communication-topic"/>
       </binding>
       <mapping>
@@ -544,10 +532,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CommunicationReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for describing reasons for the occurrence of a communication."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for describing reasons for the occurrence of a communication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
       <mapping>

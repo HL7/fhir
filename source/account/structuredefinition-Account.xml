@@ -115,10 +115,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AccountStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates whether the account is available to be used."/>
-        </extension>
         <strength value="required"/>
+        <description value="Indicates whether the account is available to be used."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/account-status"/>
       </binding>
       <mapping>
@@ -144,10 +142,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AccountType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The usage type of this account, permits categorization of accounts."/>
-        </extension>
         <strength value="example"/>
+        <description value="The usage type of this account, permits categorization of accounts."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/account-type"/>
       </binding>
       <mapping>

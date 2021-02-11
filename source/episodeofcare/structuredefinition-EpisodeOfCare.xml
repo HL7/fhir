@@ -122,10 +122,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EpisodeOfCareStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the episode of care."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of the episode of care."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/episode-of-care-status"/>
       </binding>
       <mapping>
@@ -163,10 +161,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EpisodeOfCareStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the episode of care."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of the episode of care."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/episode-of-care-status"/>
       </binding>
     </element>
@@ -195,10 +191,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EpisodeOfCareType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of the episode of care."/>
-        </extension>
         <strength value="example"/>
+        <description value="The type of the episode of care."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/episodeofcare-type"/>
       </binding>
       <mapping>
@@ -261,10 +255,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of diagnosis this condition represents."/>
-        </extension>
         <strength value="preferred"/>
+        <description value="The type of diagnosis this condition represents."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/diagnosis-role"/>
       </binding>
     </element>

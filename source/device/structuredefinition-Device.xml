@@ -284,10 +284,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="UDIEntryType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes to identify how UDI data was entered."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes to identify how UDI data was entered."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/udi-entry-type"/>
       </binding>
       <mapping>
@@ -312,10 +310,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRDeviceStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The availability status of the device."/>
-        </extension>
         <strength value="required"/>
+        <description value="The availability status of the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-status"/>
       </binding>
       <mapping>
@@ -344,10 +340,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRDeviceStatusReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The availability status reason of the device."/>
-        </extension>
         <strength value="extensible"/>
+        <description value="The availability status reason of the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-status-reason"/>
       </binding>
       <mapping>
@@ -545,10 +539,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceNameType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of name the device is referred by."/>
-        </extension>
         <strength value="required"/>
+        <description value="The type of name the device is referred by."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-nametype"/>
       </binding>
       <mapping>
@@ -619,10 +611,8 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
           <valueString value="&#x2018;GMDN&#x2019; is a registered trade mark owned by GMDN Agency Ltd."/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes to identify medical devices."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes to identify medical devices."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
     </element>

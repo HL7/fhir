@@ -152,10 +152,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GuidanceResponseStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of a guidance response."/>
-        </extension>
         <strength value="required"/>
+        <description value="The status of a guidance response."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/guidance-response-status"/>
       </binding>
       <mapping>

@@ -210,10 +210,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BundleType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates the purpose of a bundle - how it is intended to be used."/>
-        </extension>
         <strength value="required"/>
+        <description value="Indicates the purpose of a bundle - how it is intended to be used."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/bundle-type"/>
       </binding>
       <mapping>
@@ -384,10 +382,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SearchEntryMode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Why an entry is in the result set - whether it&#39;s included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
-        </extension>
         <strength value="required"/>
+        <description value="Why an entry is in the result set - whether it&#39;s included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/search-entry-mode"/>
       </binding>
     </element>
@@ -432,10 +428,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="HTTPVerb"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details."/>
-        </extension>
         <strength value="required"/>
+        <description value="HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/http-verb"/>
       </binding>
     </element>

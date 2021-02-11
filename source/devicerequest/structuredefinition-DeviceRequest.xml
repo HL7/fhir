@@ -288,10 +288,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceRequestStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes representing the status of the request."/>
-        </extension>
         <strength value="required"/>
+        <description value="Codes representing the status of the request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-status"/>
       </binding>
       <mapping>
@@ -331,10 +329,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestIntent"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The kind of diagnostic request."/>
-        </extension>
         <strength value="required"/>
+        <description value="The kind of diagnostic request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-intent"/>
       </binding>
       <mapping>
@@ -369,10 +365,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestPriority"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the level of importance to be assigned to actioning the request."/>
-        </extension>
         <strength value="required"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
       <mapping>
@@ -411,10 +405,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceRequestCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes for devices that can be requested."/>
-        </extension>
         <strength value="example"/>
+        <description value="Codes for devices that can be requested."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-kind"/>
       </binding>
       <mapping>
@@ -483,10 +475,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ParameterCode"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code that identifies the device detail."/>
-        </extension>
         <strength value="example"/>
+        <description value="A code that identifies the device detail."/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -737,10 +727,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceRequestParticipantRole"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
-        </extension>
         <strength value="example"/>
+        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
       </binding>
       <mapping>
@@ -816,10 +804,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceRequestReason"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Diagnosis or problem codes justifying the reason for requesting the device."/>
-        </extension>
         <strength value="example"/>
+        <description value="Diagnosis or problem codes justifying the reason for requesting the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
       <mapping>
