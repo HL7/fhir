@@ -217,7 +217,7 @@
     </element>
     <element id="RegulatedAuthorization.indication">
       <path value="RegulatedAuthorization.indication"/>
-      <short value="Condition for which the use of the regulated product applies"/>
+      <short value="Condition for which the use of the regulated product  applies"/>
       <definition value="Condition for which the use of the regulated product applies."/>
       <min value="0"/>
       <max value="1"/>
