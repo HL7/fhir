@@ -421,4 +421,13 @@
 		<sort>40</sort>
 		<publish>true</publish>
 	</space>
+	<space>
+		<url>https://en.wikipedia.org/wiki/Identification_of_medicinal_products</url>
+		<link>https://en.wikipedia.org/wiki/Identification_of_medicinal_products</link>
+		<columnName>IDMP Mapping</columnName>
+		<title>IDMP Mapping</title>
+		<id>idmp</id>
+		<sort>41</sort>
+		<publish>true</publish>
+	</space>
 </mappingSpaces>
