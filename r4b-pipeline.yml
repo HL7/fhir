@@ -1,8 +1,8 @@
 trigger:
-  - R4B
+- R4B
 
 pr:
-  - R4B
+- none
 
 variables:
   - group: ZULIP_VAR_GROUP
