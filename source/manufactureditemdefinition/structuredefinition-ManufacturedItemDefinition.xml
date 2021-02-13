@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ManufacturedItemDefinition"/>
+  <meta>
+    <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Medication Definition"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status=entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+  <version value="4.5.0"/>
+  <name value="ManufacturedItemDefinition"/>
+  <status value="draft"/>
+  <date value="2020-12-31T07:32:20+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product."/>
+  <fhirVersion value="4.5.0"/>
+  <mapping>
+    <identity value="idmp"/>
+    <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
+    <name value="IDMP Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ManufacturedItemDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="ManufacturedItemDefinition">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="ManufacturedItemDefinition"/>
+      <short value="The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product"/>
+      <definition value="The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Manufactured Item"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.medication"/>
+      </mapping>
+    </element>
+    <element id="ManufacturedItemDefinition.identifier">
+      <path value="ManufacturedItemDefinition.identifier"/>
+      <short value="Unique identifier"/>
+      <definition value="Unique identifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="ManufacturedItemDefinition.manufacturedDoseForm">
+      <path value="ManufacturedItemDefinition.manufacturedDoseForm"/>
+      <short value="Dose form as manufactured and before any transformation into the pharmaceutical product"/>
+      <definition value="Dose form as manufactured and before any transformation into the pharmaceutical product."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Manufactured Item.Manufactured Dose Form"/>
+      </mapping>
+    </element>
+    <element id="ManufacturedItemDefinition.unitOfPresentation">
+      <path value="ManufacturedItemDefinition.unitOfPresentation"/>
+      <short value="The &#x201C;real world&#x201D; units in which the quantity of the manufactured item is described"/>
+      <definition value="The &#x201C;real world&#x201D; units in which the quantity of the manufactured item is described."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Manufactured Item.Unit of Presentation"/>
+      </mapping>
+    </element>
+    <element id="ManufacturedItemDefinition.manufacturer">
+      <path value="ManufacturedItemDefinition.manufacturer"/>
+      <short value="Manufacturer of the item (Note that this should be named &quot;manufacturer&quot; but it currently causes technical issues)"/>
+      <definition value="Manufacturer of the item (Note that this should be named &quot;manufacturer&quot; but it currently causes technical issues)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Manufactured Item.Manufacturer / Establishment (Organisation)"/>
+      </mapping>
+    </element>
+    <element id="ManufacturedItemDefinition.ingredient">
+      <path value="ManufacturedItemDefinition.ingredient"/>
+      <short value="The ingredients that make up this manufactured item"/>
+      <definition value="The ingredients that make up this manufactured item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Manufactured Item.Ingredient"/>
+      </mapping>
+    </element>
+    <element id="ManufacturedItemDefinition.property">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="475,50"/>
+      </extension>
+      <path value="ManufacturedItemDefinition.property"/>
+      <short value="General characteristics of this item"/>
+      <definition value="General characteristics of this item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Manufactured Item.Physical Characteristics"/>
+      </mapping>
+    </element>
+    <element id="ManufacturedItemDefinition.property.type">
+      <path value="ManufacturedItemDefinition.property.type"/>
+      <short value="A code expressing the type of characteristic"/>
+      <definition value="A code expressing the type of characteristic."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Physical Characteristics, all attributes"/>
+      </mapping>
+    </element>
+    <element id="ManufacturedItemDefinition.property.value[x]">
+      <path value="ManufacturedItemDefinition.property.value[x]"/>
+      <short value="A value for the characteristic"/>
+      <definition value="A value for the characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Physical Characteristics, attribute&#39;s value"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
