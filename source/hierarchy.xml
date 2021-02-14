@@ -282,6 +282,7 @@ signatures.html
   	  <page type="resource" resource="ObservationDefinition"/> 
   	  <page type="resource" resource="SpecimenDefinition"/>
   	  <page type="resource" resource="CatalogEntry"/>
+      <page type="resource" resource="NutritionProduct"/>
       <!-- Think these 3 need to be left off as are REALLy drafty -->
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>
@@ -342,10 +343,15 @@ signatures.html
       <page type="resource" resource="MedicinalProductInteraction"/>
       <page type="resource" resource="MedicinalProductUndesirableEffect"/>
       <page type="resource" resource="MedicinalProductIngredient"/>
+      <page type="resource" resource="MedicinalProductDefinition"/>
     	<page type="resource" resource="MedicinalProductManufactured"/>
     	<page type="resource" resource="MedicinalProductPackaged"/>
+      <page type="resource" resource="PackagedProductDefinition"/>
+	  
     	<page type="resource" resource="MedicinalProductPharmaceutical"/>
       <page type="resource" resource="ManufacturedItemDefinition"/>
+      <page type="resource" resource="AdministrableProductDefinition"/>
+      <page type="resource" resource="RegulatedAuthorization"/>
       <page type="resource" resource="Ingredient"/>
       <page type="resource" resource="SubstanceDefinition"/>
       <page type="resource" resource="SubstanceSpecification"/>

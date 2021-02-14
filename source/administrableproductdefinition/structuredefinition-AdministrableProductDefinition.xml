@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AdministrableProductDefinition"/>
+  <meta>
+    <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Medication Definition"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status=entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+  <version value="4.5.0"/>
+  <name value="AdministrableProductDefinition"/>
+  <status value="draft"/>
+  <date value="2020-12-31T07:32:20+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed)."/>
+  <fhirVersion value="4.5.0"/>
+  <mapping>
+    <identity value="idmp"/>
+    <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
+    <name value="IDMP Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="AdministrableProductDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="AdministrableProductDefinition">
+      <path value="AdministrableProductDefinition"/>
+      <short value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed)"/>
+      <definition value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed)."/>
+      <alias value="Pharmaceutical Product"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.medication"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.identifier">
+      <path value="AdministrableProductDefinition.identifier"/>
+      <short value="An identifier for the administrable product"/>
+      <definition value="An identifier for the administrable product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.subjectTodo">
+      <path value="AdministrableProductDefinition.subjectTodo"/>
+      <short value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product"/>
+      <definition value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <!--targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/-->
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="(link to Medicinal Product)"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.administrableDoseForm">
+      <path value="AdministrableProductDefinition.administrableDoseForm"/>
+      <short value="The administrable dose form, i.e. the dose form of the final product after necessary reconstitution or processing"/>
+      <definition value="The administrable dose form, i.e. the dose form of the final product after necessary reconstitution or processing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product.Administrable Dose Form"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.unitOfPresentation">
+      <path value="AdministrableProductDefinition.unitOfPresentation"/>
+      <short value="The units of presentation for the administrable product, for example &#39;tablet&#39;"/>
+      <definition value="The units of presentation for the administrable product, for example &#39;tablet&#39;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product.Unit of Presentation"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.producedFrom">
+      <path value="AdministrableProductDefinition.producedFrom"/>
+      <short value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients"/>
+      <definition value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a (this is the link from Pharmaceutical Product to the Manufactured Item(s))"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.ingredient">
+      <path value="AdministrableProductDefinition.ingredient"/>
+      <short value="The ingredients of this administrable medicinal product. Sometimes it may be appropriate to specify these via the associated manufactured item(s)"/>
+      <definition value="The ingredients of this administrable medicinal product. Sometimes it may be appropriate to specify these via the associated manufactured item(s)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product.Ingredient"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.device">
+      <path value="AdministrableProductDefinition.device"/>
+      <short value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product. This is not intended for devices that are just co-packaged"/>
+      <definition value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product. This is not intended for devices that are just co-packaged."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product.Device"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.property">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="500,17"/>
+      </extension>
+      <path value="AdministrableProductDefinition.property"/>
+      <short value="Characteristics e.g. a products onset of action"/>
+      <definition value="Characteristics e.g. a products onset of action."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product Characteristics"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.property.type">
+      <path value="AdministrableProductDefinition.property.type"/>
+      <short value="A code expressing the type of characteristic"/>
+      <definition value="A code expressing the type of characteristic."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product Characteristics.Code System (not a one to one map, the resource is more capable)"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.property.value[x]">
+      <path value="AdministrableProductDefinition.property.value[x]"/>
+      <short value="A value for the characteristic"/>
+      <definition value="A value for the characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product Characteristics.Value (not a one to one map, the resource is more capable)"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.property.status">
+      <path value="AdministrableProductDefinition.property.status"/>
+      <short value="The status of characteristic e.g. assigned or pending"/>
+      <definition value="The status of characteristic e.g. assigned or pending."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product Characteristics.Status"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="57,185"/>
+      </extension>
+      <path value="AdministrableProductDefinition.routeOfAdministration"/>
+      <short value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route"/>
+      <definition value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product.Route of Administration"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.code">
+      <path value="AdministrableProductDefinition.routeOfAdministration.code"/>
+      <short value="Coded expression for the route"/>
+      <definition value="Coded expression for the route."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Route of Administration.Route of Administration"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.firstDose">
+      <path value="AdministrableProductDefinition.routeOfAdministration.firstDose"/>
+      <short value="The first dose (dose quantity) administered can be specified for the product, using a numerical value and its unit of measurement"/>
+      <definition value="The first dose (dose quantity) administered can be specified for the product, using a numerical value and its unit of measurement."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Dosing and Route of Administration.First dose in humans (Investigational Medicinal Product)"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.maxSingleDose">
+      <path value="AdministrableProductDefinition.routeOfAdministration.maxSingleDose"/>
+      <short value="The maximum single dose that can be administered, can be specified using a numerical value and its unit of measurement"/>
+      <definition value="The maximum single dose that can be administered, can be specified using a numerical value and its unit of measurement."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Dosing and Route of Administration.Maximum single dose (Investigational Medicinal Product)"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.maxDosePerDay">
+      <path value="AdministrableProductDefinition.routeOfAdministration.maxDosePerDay"/>
+      <short value="The maximum dose per day (maximum dose quantity to be administered in any one 24-h period) that can be administered"/>
+      <definition value="The maximum dose per day (maximum dose quantity to be administered in any one 24-h period) that can be administered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Dosing and Route of Administration.Maximum dose per day (Investigational Medicinal Product)"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.maxDosePerTreatmentPeriod">
+      <path value="AdministrableProductDefinition.routeOfAdministration.maxDosePerTreatmentPeriod"/>
+      <short value="The maximum dose per treatment period that can be administered"/>
+      <definition value="The maximum dose per treatment period that can be administered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Dosing and Route of Administration.Maximum dose per treatment period (Investigational Medicinal Product)"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.maxTreatmentPeriod">
+      <path value="AdministrableProductDefinition.routeOfAdministration.maxTreatmentPeriod"/>
+      <short value="The maximum treatment period during which an Investigational Medicinal Product can be administered"/>
+      <definition value="The maximum treatment period during which an Investigational Medicinal Product can be administered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Dosing and Route of Administration.Maximum treatment period (Investigational Medicinal Product)"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="360,219"/>
+      </extension>
+      <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies"/>
+      <short value="A species for which this route applies"/>
+      <definition value="A species for which this route applies."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.code">
+      <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.code"/>
+      <short value="Coded expression for the species"/>
+      <definition value="Coded expression for the species."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="620,209"/>
+      </extension>
+      <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod"/>
+      <short value="A species specific time during which consumption of animal product is not appropriate"/>
+      <definition value="A species specific time during which consumption of animal product is not appropriate."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue">
+      <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue"/>
+      <short value="Coded expression for the type of tissue for which the withdrawal period applues, e.g. meat, milk"/>
+      <definition value="Coded expression for the type of tissue for which the withdrawal period applues, e.g. meat, milk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.value">
+      <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.value"/>
+      <short value="A value for the time"/>
+      <definition value="A value for the time."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.supportingInformation">
+      <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.supportingInformation"/>
+      <short value="Extra information about the withdrawal period"/>
+      <definition value="Extra information about the withdrawal period."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

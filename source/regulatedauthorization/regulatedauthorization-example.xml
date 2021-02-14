@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RegulatedAuthorization xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/regulatedauthorization.xsd">
+  <id value="example"/>
+  <identifier>
+    <system value="http://ema.europa.eu/example/marketingAuthorisationNumber"/>
+    <value value="EU/1/11/999/001"/>
+  </identifier>
+  <region>
+    <coding>
+      <system value="http://ema.europa.eu/example/country"/>
+      <code value="EU"/>
+    </coding>
+  </region>
+  <status>
+    <coding>
+      <system value="http://ema.europa.eu/example/authorisationstatus"/>
+      <code value="active"/>
+    </coding>
+  </status>
+  <statusDate value="2015-01-14"/>
+  <validityPeriod>
+    <start value="2014-09-03"/>
+    <end value="2020-05-20"/>
+  </validityPeriod>
+  <!--dataExclusivityPeriod>
+    <start value="2010-08-15"/>
+    <end value="2020-08-15"/>
+  </dataExclusivityPeriod>
+  <dateOfFirstAuthorization value="2010-08-15"/>
+  <internationalBirthDate value="2010-08-15"/-->
+  <jurisdictionalAuthorization id="1">
+    <reference value="RegulatedAuthorization/Jurusdictional1"/>
+  </jurisdictionalAuthorization>
+  <holder>
+    <reference value="Organization/example"/>
+  </holder>
+  <regulator>
+    <reference value="Organization/example"/>
+  </regulator>
+  <case>
+    <identifier>
+      <system value="http://ema.europa.eu/example/procedureidentifier-number"/>
+      <value value="EMEA/H/C/009999/IA/0099/G"/>
+    </identifier>
+    <type>
+      <coding>
+        <system value="http://ema.europa.eu/example/marketingAuthorisationProcedureType"/>
+        <code value="VariationTypeIA"/>
+      </coding>
+    </type>
+    <datePeriod>
+      <start value="2014-09-02"/>
+      <end value="2015-08-21"/>
+    </datePeriod>
+    <application>
+      <identifier>
+        <system value="http://ema.europa.eu/example/applicationidentifier-number"/>
+        <value value="IA38G"/>
+      </identifier>
+      <type>
+        <coding>
+          <system value="http://ema.europa.eu/example/marketingAuthorisationApplicationType"/>
+          <code value="GroupTypeIAVariationNotification"/>
+        </coding>
+      </type>
+      <dateDateTime value="2015-08-01"/>
+    </application>
+    <application>
+      <identifier>
+        <system value="http://ema.europa.eu/example/applicationidentifier-number"/>
+        <value value="IA38F"/>
+      </identifier>
+      <type>
+        <coding>
+          <system value="http://ema.europa.eu/example/marketingAuthorisationApplicationType"/>
+          <code value="GroupTypeIAVariationNotification"/>
+        </coding>
+      </type>
+      <dateDateTime value="2014-09-01"/>
+    </application>
+  </case>
+</RegulatedAuthorization>
