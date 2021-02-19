@@ -195,8 +195,8 @@
 		</element>
 		<element id="MedicationDefinition.description">
 			<path value="MedicationDefinition.description"/>
-			<short value="General description of this product."/>
-			<definition value="General description of this product"/>
+			<short value="General description of this product"/>
+			<definition value="General description of this product."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -508,6 +508,7 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
+			<isSummary value="true"/>
 		</element>
 		<element id="MedicationDefinition.name.productName">
 			<path value="MedicationDefinition.name.productName"/>
@@ -518,6 +519,7 @@
 			<type>
 				<code value="string"/>
 			</type>
+			<isSummary value="true"/>
 		</element>
 		<element id="MedicationDefinition.name.type">
 			<path value="MedicationDefinition.name.type"/>
