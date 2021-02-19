@@ -307,6 +307,9 @@
     <Cell><Data ss:Type="String">DeviceDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceMetric</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
