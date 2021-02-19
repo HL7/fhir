@@ -664,7 +664,7 @@
     <element id="ObservationDefinition.qualifiedValues.context">
       <path value="ObservationDefinition.qualifiedValues.context"/>
       <short value="Context qualifier for the set of qualified values"/>
-      <definition value="A concept defining the context for this set of qualified values"/>
+      <definition value="A concept defining the context for this set of qualified values."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -757,7 +757,7 @@
     <element id="ObservationDefinition.qualifiedValues.rangeCategory">
       <path value="ObservationDefinition.qualifiedValues.rangeCategory"/>
       <short value="reference | critical | absolute"/>
-      <definition value="The category of range of values for continuous or ordinal observations that match the criteria of this set of qualified values"/>
+      <definition value="The category of range of values for continuous or ordinal observations that match the criteria of this set of qualified values."/>
       <min value="0"/>
       <max value="1"/>
       <type>
