@@ -739,7 +739,7 @@
         <key value="que-12"/>
         <severity value="error"/>
         <human value="If there are more than one enableWhen, enableBehavior must be specified"/>
-        <expression value="enableWhen.count() &gt; 2 implies enableBehavior.exists()"/>
+        <expression value="enableWhen.count() &gt; 1 implies enableBehavior.exists()"/>
         <xpath value="not(f:answerOption) or not(count(f:*[starts-with(local-name(.), &#39;initial&#39;)]))"/>
       </constraint>
       <mapping>
