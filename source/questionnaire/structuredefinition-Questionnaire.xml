@@ -119,7 +119,7 @@
     <element id="Questionnaire.url">
       <path value="Questionnaire.url"/>
       <short value="Canonical identifier for this questionnaire, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers."/>
       <comment value="The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension."/>
       <requirements value="&#x2026;  This is the id that will be used to link a QuestionnaireResponse to the Questionnaire the response is for."/>
       <min value="0"/>
