@@ -14,7 +14,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDispense-device"/>
         <description value="Code that identifies this device"/>
-        <code value="concept"/>
+        <code value="code"/>
         <type value="token"/>
         <expression value="DeviceDispense.device.concept"/>
         <xpath value="f:DeviceDispense/f:device/f:concept"/>
