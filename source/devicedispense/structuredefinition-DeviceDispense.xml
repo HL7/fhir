@@ -70,7 +70,7 @@
 			</extension>
 			<path value="DeviceDispense"/>
 			<short value="Device Dispense"/>
-			<definition value="Device Dispense"/>
+			<definition value="A record of dispensation of a device."/>
 			<min value="0"/>
 			<max value="*"/>
 		</element>
@@ -84,6 +84,10 @@
 			<type>
 				<code value="Identifier"/>
 			</type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
 			<isSummary value="true"/>
 		</element>
 
@@ -118,17 +122,6 @@
 			<map value=".outboundRelationship[typeCode=COMP]/target[classCode=PROC,moodCode=EVN]"/>
 		</mapping>
 		</element>
-		<element id="DeviceDispense.status">
-			<path value="DeviceDispense.status"/>
-			<short value="The status of the dispense"/>
-			<definition value="The status of the dispense"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="code"/>
-			</type>
-		</element>
-
     <element id="DeviceDispense.status">
       <path value="DeviceDispense.status"/>
       <short value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown"/>
@@ -154,7 +147,7 @@
         </extension>
         <strength value="required"/>
         <description value="Describes the lifecycle of the dispense."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-status"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/devicedispense-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
