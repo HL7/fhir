@@ -5,15 +5,15 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceDispense-device"/>
+        <id value="DeviceDispense-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceDispense.device.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDispense-device"/>
-        <description value="Code that identifies this device"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDispense-code"/>
+        <description value="Search for devices that match this code"/>
         <code value="code"/>
         <type value="token"/>
         <expression value="DeviceDispense.device.concept"/>
