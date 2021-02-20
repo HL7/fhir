@@ -5,19 +5,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceDispense-code"/>
+        <id value="DeviceDispense-device"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceDispense.code"/>
+          <valueString value="DeviceDispense.device.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDispense-code"/>
-        <description value="Code that identifies this medication"/>
-        <code value="code"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDispense-device"/>
+        <description value="Code that identifies this device"/>
+        <code value="concept"/>
         <type value="token"/>
-        <expression value="DeviceDispense.code"/>
-        <xpath value="f:DeviceDispense/f:code"/>
+        <expression value="DeviceDispense.device.concept"/>
+        <xpath value="f:DeviceDispense/f:device/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
