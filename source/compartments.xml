@@ -70,7 +70,7 @@
  <Worksheet ss:Name="compartments">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="50.666666666666671"
-   ss:DefaultRowHeight="14.333333333333332">
+   ss:DefaultRowHeight="14.25">
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="110" ss:Span="1"/>
    <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="131"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="209"/>
@@ -124,6 +124,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -132,7 +133,7 @@
  <Worksheet ss:Name="resources">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="153" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s65" ss:DefaultColumnWidth="50.666666666666671"
-   ss:DefaultRowHeight="14.333333333333332">
+   ss:DefaultRowHeight="14.25">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="158"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="198"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="98"/>
@@ -780,38 +781,37 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BiologicallyDerivedProduct</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationKnowledge</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ChargeItemDefinition</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">InventoryReport</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceDispense</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">subject</Data></Cell>
    </Row>
-   <Row ss:Index="145">
+   <Row ss:Index="145" ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
-   <Row ss:Index="148">
+   <Row ss:Index="148" ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Evidence</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubscriptionTopic</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NutritionProduct</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Permission</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubscriptionStatus</Data></Cell>
    </Row>
   </Table>
@@ -821,6 +821,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -839,7 +840,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>141</ActiveRow>
+     <ActiveRow>142</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

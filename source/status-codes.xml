@@ -4713,19 +4713,32 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">InventoryReport.status</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
     <Cell><Data ss:Type="String">requested</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceDispense.status</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">inactive</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">preparation</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">on-hold</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">unknown</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4734,6 +4747,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>-4</HorizontalResolution>
@@ -4743,7 +4757,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>106</TopRowBottomPane>
+   <TopRowBottomPane>115</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4756,11 +4770,13 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>106</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
      <ActiveRow>128</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>2</ActiveCol>
+     <RangeSelection>R129C3:R129C19</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
