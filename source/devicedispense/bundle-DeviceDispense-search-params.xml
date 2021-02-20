@@ -22,4 +22,25 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDispense-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDispense.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDispense-subject"/>
+        <description value="The identity of a patient for whom to list dispenses"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="DeviceDispense.subject"/>
+        <xpath value="f:DeviceDispense/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>

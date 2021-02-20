@@ -73,6 +73,10 @@
 			<definition value="A record of dispensation of a device."/>
 			<min value="0"/>
 			<max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.device"/>
+      </mapping>
 		</element>
 		<element id="DeviceDispense.identifier">
 			<path value="DeviceDispense.identifier"/>
