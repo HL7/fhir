@@ -75,7 +75,7 @@
 			<max value="*"/>
       <mapping>
         <identity value="w5"/>
-        <map value="clinical.device"/>
+        <map value="administrative.device"/>
       </mapping>
 		</element>
 		<element id="DeviceDispense.identifier">
