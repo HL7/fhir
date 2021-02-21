@@ -79,7 +79,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="clinical.medication"/>
+        <map value="administrative.medication"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.identifier">
@@ -1363,54 +1363,6 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Relationship.Reference_Source"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.nucleicAcid">
-      <path value="SubstanceDefinition.nucleicAcid"/>
-      <short value="Data items specific to nucleic acids"/>
-      <definition value="Data items specific to nucleic acids."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="(used to add specifics of Nucleic Acids to Substances)"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.polymer">
-      <path value="SubstanceDefinition.polymer"/>
-      <short value="Data items specific to polymers"/>
-      <definition value="Data items specific to polymers."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstancePolymer"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="(used to  add specifics of Polymers to Substances)"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.protein">
-      <path value="SubstanceDefinition.protein"/>
-      <short value="Data items specific to proteins"/>
-      <definition value="Data items specific to proteins."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceProtein"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="(used to  add specifics of Proteins to Substances)"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.sourceMaterial">

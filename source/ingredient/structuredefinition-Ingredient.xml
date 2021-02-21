@@ -79,12 +79,12 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="clinical.medication"/>
+        <map value="administrative.medication"/>
       </mapping>
     </element>
     <element id="Ingredient.identifier">
       <path value="Ingredient.identifier"/>
-      <short value="An identifier or code by which the ingredient can be referencedTODO"/>
+      <short value="An identifier or code by which the ingredient can be referenced"/>
       <definition value="The identifier(s) of this Ingredient that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate."/>
       <min value="0"/>
       <max value="1"/>

@@ -125,19 +125,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AdministrableProductDefinition-subjectTodo"/>
+        <id value="AdministrableProductDefinition-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AdministrableProductDefinition.subjectTodo"/>
+          <valueString value="AdministrableProductDefinition.subject"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-subjectTodo"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-subject"/>
         <description value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product"/>
         <code value="subject"/>
         <type value="reference"/>
-        <expression value="AdministrableProductDefinition.subjectTodo"/>
-        <xpath value="f:AdministrableProductDefinition/f:subjectTodo"/>
+        <expression value="AdministrableProductDefinition.subject"/>
+        <xpath value="f:AdministrableProductDefinition/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

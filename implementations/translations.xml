@@ -570,10 +570,6 @@
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>
 	</item>
-	<item id="MedicinalProduct">
-		<translation lang="en">MedicinalProduct</translation>
-		<translation lang="it">ProdottoMedicinale</translation>
-	</item>
 	<item id="MedicinalProductDefinition">
 		<translation lang="en">MedicinalProductDefinition</translation>
 	</item>
@@ -592,18 +588,6 @@
 	</item>
 	<item id="RegulatedAuthorization">
 		<translation lang="en">RegulatedAuthorization</translation>
-	</item>
-	<item id="MedicinalProductContraindication">
-		<translation lang="en">MedicinalProductContraindication</translation>
-	</item>
-	<item id="MedicinalProductIndication">
-		<translation lang="en">MedicinalProductInteraction</translation>
-	</item>
-	<item id="MedicinalProductInteraction">
-		<translation lang="en">MedicinalProductInteraction</translation>
-	</item>
-	<item id="MedicinalProductUndesirableEffect">
-		<translation lang="en">MedicinalProductUndesirableEffect</translation>
 	</item>
 	<item id="MedicinalProductIngredient">
 		<translation lang="en">MedicinalProductIngredient</translation>
@@ -960,24 +944,9 @@
     <item id="SubstanceReferenceInformation">
         <translation lang="en">SubstanceReferenceInformation</translation>
     </item>
-	<item id="SubstanceSpecification">
-		<translation lang="en">SubstanceSpecification</translation>
-	</item>
 	<item id="SubstanceDefinition">
 		<translation lang="en">SubstanceDefinition</translation>
 	</item>
-	<item id="SubstanceSourceMaterial">
-		<translation lang="en">SubstanceSourceMaterial</translation>
-	</item>
-    <item id="SubstancePolymer">
-        <translation lang="en">SubstancePolymer</translation>
-	</item>
-	<item id="SubstanceProtein">
-		<translation lang="en">SubstanceProtein</translation>
-	</item>
-	<item id="SubstanceNucleicAcid">
-		<translation lang="en">SubstanceNucleicAcid</translation>
-    </item>
 	<item id="SupplyDelivery">
 		<translation lang="en">SupplyDelivery</translation>
 		<translation lang="zh">供应交付</translation>

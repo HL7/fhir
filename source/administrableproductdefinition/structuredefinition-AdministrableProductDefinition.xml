@@ -77,7 +77,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="clinical.medication"/>
+        <map value="administrative.medication"/>
       </mapping>
     </element>
     <element id="AdministrableProductDefinition.identifier">
@@ -95,16 +95,15 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="AdministrableProductDefinition.subjectTodo">
-      <path value="AdministrableProductDefinition.subjectTodo"/>
+    <element id="AdministrableProductDefinition.subject">
+      <path value="AdministrableProductDefinition.subject"/>
       <short value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product"/>
       <definition value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <!--targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/-->
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>

@@ -79,7 +79,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="clinical.medication"/>
+        <map value="administrative.medication"/>
       </mapping>
     </element>
     <element id="PackagedProductDefinition.identifier">
