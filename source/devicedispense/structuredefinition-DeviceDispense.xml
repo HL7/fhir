@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition
-	xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
 	<id value="DeviceDispense"/>
 	<meta>
 		<lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
