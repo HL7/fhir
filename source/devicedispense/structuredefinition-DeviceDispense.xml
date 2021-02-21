@@ -52,6 +52,11 @@
 		<uri value="http://hl7.org/v2"/>
 		<name value="HL7 v2 Mapping"/>
 	</mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
 	<mapping>
 		<identity value="rim"/>
 		<uri value="http://hl7.org/v3"/>
