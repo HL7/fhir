@@ -84,8 +84,8 @@
     </element>
     <element id="RegulatedAuthorization.identifier">
       <path value="RegulatedAuthorization.identifier"/>
-      <short value="Business identifier for the authorization, typically assigned by the authorizing body"/>
-      <definition value="Business identifier for the authorization, typically assigned by the authorizing body."/>
+      <short value="Business identifier for the authorization, typically this is assigned by the authorizing body"/>
+      <definition value="Business identifier for the authorization, typically  this is assigned by the authorizing body."/>
       <min value="0"/>
       <max value="*"/>
       <type>

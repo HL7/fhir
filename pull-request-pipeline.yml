@@ -3,6 +3,7 @@ trigger:
 
 pr:
 - master
+- R4B
 
 variables:
 - group: ZULIP_VAR_GROUP
