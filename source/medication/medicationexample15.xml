@@ -29,9 +29,9 @@
       <display value="Capecitabine 500mg oral tablet (Xeloda)"/>
     </coding>
   </code>
-  <manufacturer>
+  <sponsor>
       <reference value="#org2"/>
-  </manufacturer>
+  </sponsor>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
