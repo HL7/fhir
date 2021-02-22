@@ -173,10 +173,10 @@
         <map value=".statusCode"/>
       </mapping>
     </element>
-    <element id="Medication.manufacturer">
-      <path value="Medication.manufacturer"/>
-      <short value="Manufacturer of the item"/>
-      <definition value="Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product."/>
+    <element id="Medication.sponsor">
+      <path value="Medication.sponsor"/>
+      <short value="Organization responsible for manufacturing the item"/>
+      <definition value="Describes the details of the manufacturer of the medication product. This is not intended to represent the distributor of a medication product.&#xA0; Describes&#xA0;the organization that is responsible for the manufacturing of the item and holds the registration to market the product in a jurisdiction.. This might not be the company that physically manufactures the product.&#xA0; May be known as Market Authorization Holder."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -184,18 +184,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="script10.6"/>
-        <map value="no mapping"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="RXD-20-Substance Manufacturer Name / RXG-21-Substance Manufacturer Name / RXA-17-Substance Manufacturer Name"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".player.scopingRole[typeCode=MANU].scoper"/>
