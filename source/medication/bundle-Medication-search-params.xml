@@ -140,20 +140,14 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Medication-manufacturer"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Medication.manufacturer"/>
+          <valueString value="Medication.sponsor"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Medication-manufacturer"/>
         <description value="Returns medications made or sold for this manufacturer"/>
-        <code value="manufacturer"/>
+        <code value="sponsor"/>
         <type value="reference"/>
-        <expression value="Medication.manufacturer"/>
-        <xpath value="f:Medication/f:manufacturer"/>
-        <xpathUsage value="normal"/>
+        <expression value="Medication.sponsor"/>
+        <xpath value="f:Medication/f:sponsor"/>
       </SearchParameter>
     </resource>
   </entry>
