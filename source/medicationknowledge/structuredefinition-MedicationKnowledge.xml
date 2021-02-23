@@ -595,8 +595,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline">
-      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline"/>
+    <element id="MedicationKnowledge.indicationGuideline.indication.dosingGuideline">
+      <path value="MedicationKnowledge.indicationGuideline.indication.dosingGuideline"/>
       <short value="Guidelines for dosage of the medication"/>
       <definition value="The guidelines for the dosage of the medication for the indication."/>
       <min value="0"/>
@@ -605,8 +605,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.treatmentIntent">
-      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.treatmentIntent"/>
+    <element id="MedicationKnowledge.indicationGuideline.indication.dosingGuideline.treatmentIntent">
+      <path value="MedicationKnowledge.indicationGuideline.indication.dosingGuideline.treatmentIntent"/>
       <short value="Intention of the treatment"/>
       <definition value="The overall intention of the treatment, for example, prophylactic, supporative, curative, etc."/>
       <min value="0"/>
@@ -615,8 +615,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage">
-      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage"/>
+    <element id="MedicationKnowledge.indicationGuideline.indication.dosingGuideline.dosage">
+      <path value="MedicationKnowledge.indicationGuideline.indication.dosingGuideline.dosage"/>
       <short value="Dosage for the medication for the specific guidelines"/>
       <definition value="Dosage for the medication for the specific guidelines."/>
       <min value="0"/>
@@ -625,8 +625,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.type">
-      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.type"/>
+    <element id="MedicationKnowledge.indicationGuideline.indication.dosingGuideline.dosage.type">
+      <path value="MedicationKnowledge.indicationGuideline.indication.dosingGuideline.dosage.type"/>
       <short value="Category of dosage for a medication"/>
       <definition value="The type or category of dosage for a given medication (for example, prophylaxis, maintenance, therapeutic, etc.)."/>
       <min value="1"/>
@@ -635,8 +635,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.dosage">
-      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.dosage"/>
+    <element id="MedicationKnowledge.indicationGuideline.indication.dosingGuideline.dosage.dosage">
+      <path value="MedicationKnowledge.indicationGuideline.indication.dosingGuideline.dosage.dosage"/>
       <short value="Dosage for the medication for the specific guidelines"/>
       <definition value="Dosage for the medication for the specific guidelines."/>
       <min value="1"/>
@@ -645,8 +645,8 @@
         <code value="Dosage"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.administrationTreatment">
-      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.administrationTreatment"/>
+    <element id="MedicationKnowledge.indicationGuideline.indication.dosingGuideline.administrationTreatment">
+      <path value="MedicationKnowledge.indicationGuideline.indication.dosingGuideline.administrationTreatment"/>
       <short value="Type of treatment the guideline applies to"/>
       <definition value="The type of the treatment that the guideline applies to, for example, long term therapy, first line treatment, etc."/>
       <min value="0"/>
@@ -655,8 +655,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic">
-      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic"/>
+    <element id="MedicationKnowledge.indicationGuideline.indication.patientCharacteristic">
+      <path value="MedicationKnowledge.indicationGuideline.indication.patientCharacteristic"/>
       <short value="Characteristics of the patient that are relevant to the administration guidelines"/>
       <definition value="Characteristics of the patient that are relevant to the administration guidelines (for example, height, weight, gender, etc.)."/>
       <min value="0"/>
@@ -665,8 +665,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.type">
-      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.type"/>
+    <element id="MedicationKnowledge.indicationGuideline.indication.patientCharacteristic.type">
+      <path value="MedicationKnowledge.indicationGuideline.indication.patientCharacteristic.type"/>
       <short value="Categorization of specific characteristic that is relevant to the administration guideline"/>
       <definition value="The categorization of the specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender)."/>
       <min value="1"/>
@@ -675,8 +675,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.value[x]">
-      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.value[x]"/>
+    <element id="MedicationKnowledge.indicationGuideline.indication.patientCharacteristic.value[x]">
+      <path value="MedicationKnowledge.indicationGuideline.indication.patientCharacteristic.value[x]"/>
       <short value="The specific characteristic"/>
       <definition value="The specific characteristic (e.g. height, weight, gender, etc.)."/>
       <min value="0"/>
