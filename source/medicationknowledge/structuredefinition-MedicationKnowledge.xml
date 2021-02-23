@@ -586,7 +586,7 @@
     </element>
     <element id="MedicationKnowledge.indicationGuideline.indication">
       <path value="MedicationKnowledge.indicationGuideline.indication"/>
-      <short value="Indication for the use that apply to the specific administration guideline"/>
+      <short value="Indication for use that applies to the specific administration guideline"/>
       <definition value="Indication or reason for use of the medication that applies to the specific administration guideline."/>
       <min value="0"/>
       <max value="*"/>
