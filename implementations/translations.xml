@@ -155,6 +155,9 @@
 	<item id="ChargeItemDefinition">
 		<translation lang="en">ChargeItemDefinition</translation>
 	</item>
+	<item id="Citation">
+		<translation lang="en">Citation</translation>
+	</item>
 	<item id="Claim">
 		<translation lang="en">Claim</translation>
 		<translation lang="es">Reclamación / Factura</translation>
@@ -364,11 +367,11 @@
 		<translation lang="es">DefinitionDeEvento</translation>
 		<translation lang="zh">事件定义</translation>
 	</item>
-  <item id="Evidence">
-    <translation lang="en">Evidence</translation>
-  </item>
-  <item id="EvidenceVariable">
-    <translation lang="en">EvidenceVariable</translation>
+	<item id="Evidence">
+		<translation lang="en">Evidence</translation>
+	</item>
+	<item id="EvidenceVariable">
+		<translation lang="en">EvidenceVariable</translation>
 	</item>
 	<item id="ExampleScenario">
 		<translation lang="en">ExampleScenario</translation>
