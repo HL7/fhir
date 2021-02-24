@@ -1,12 +1,13 @@
 trigger:
-- R4B
-
-pr:
 - none
 
+pr:
+- master
+- R4B
+
 variables:
-  - group: ZULIP_VAR_GROUP
-  - group: SSH_UPLOAD
+- group: ZULIP_VAR_GROUP
+- group: SSH_UPLOAD
 
 jobs:
 - job: setupEnvironment
@@ -48,7 +49,6 @@ jobs:
     displayName: 'Download ssh key.'
     inputs:
       secureFile: deploy.rsa
-
   # This task takes the successfully built publish directory produced in the 'buildSpecification' job above and pushes it to
   # build.fhir.org in a directory named after that branch that triggered this pull request.
   - task: Bash@3
@@ -57,8 +57,9 @@ jobs:
       script: |
         cd publish
         chmod 400 $(Agent.TempDirectory)/deploy.rsa
-        echo "Publishing to target R4B"
-        tar czf - * | ssh  -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish R4B
+        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
+        echo "Publishing to target $TARGET_DIRECTORY"
+        tar czf - * | ssh  -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY
 
 # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
 # on Zulip (chat.fhir.org) to let users know that the build is available.
@@ -67,31 +68,34 @@ jobs:
   condition: succeeded()
   timeoutInMinutes: 5
   steps:
-    - task: Bash@3
-      inputs:
-        targetType: 'inline'
-        script: |
-          curl -X POST https://chat.fhir.org/api/v1/messages \
-              -u $(ZULIP_BOT_EMAIL):$(ZULIP_BOT_API_KEY) \
-              -d "type=stream" \
-              -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
-              -d "subject=FHIR Build Status" \
-              -d $"content=PR Build success for branch R4B :thumbs_up:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildNumber)&_a=summary&view=logs) \nPublished webpage can be viewed [here](https://build.fhir.org/branches/R4B)
-              "
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
+        curl -X POST https://chat.fhir.org/api/v1/messages \
+            -u $(ZULIP_BOT_EMAIL):$(ZULIP_BOT_API_KEY) \
+            -d "type=stream" \
+            -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
+            -d "subject=FHIR Build Status" \
+            -d $"content=PR Build success for branch $TARGET_DIRECTORY :thumbs_up:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildNumber)&_a=summary&view=logs)
+            Published webpage can be viewed [here](https://build.fhir.org/branches/$TARGET_DIRECTORY)
+            "
 
 - job: failureNotification
   dependsOn: buildAndPublishSpecification
   condition: failed()
   timeoutInMinutes: 5
   steps:
-    - task: Bash@3
-      inputs:
-        targetType: 'inline'
-        script: |
-          curl -X POST https://chat.fhir.org/api/v1/messages \
-              -u $(ZULIP_BOT_EMAIL):$(ZULIP_BOT_API_KEY) \
-              -d "type=stream" \
-              -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
-              -d "subject=FHIR Build Status" \
-              -d $"content=Build failed for branch R4B :thumbs_down:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildNumber)&_a=summary&view=logs)
-              "
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
+        curl -X POST https://chat.fhir.org/api/v1/messages \
+            -u $(ZULIP_BOT_EMAIL):$(ZULIP_BOT_API_KEY) \
+            -d "type=stream" \
+            -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
+            -d "subject=FHIR Build Status" \
+            -d $"content=Build failed for branch $TARGET_DIRECTORY :thumbs_down:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildNumber)&_a=summary&view=logs)
+            "
