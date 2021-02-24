@@ -30,7 +30,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.useContext.valueCodeableConcept"/>
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-context"/>
         <description value="A use context assigned to the evidence variable"/>
@@ -50,7 +50,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.useContext.valueQuantity,EvidenceVariable.useContext.valueRange"/>
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-context-quantity"/>
         <description value="A quantity- or range-valued use context assigned to the evidence variable"/>
@@ -70,7 +70,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.useContext.code"/>
+          <valueString value="{{name}}.useContext.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-context-type"/>
         <description value="A type of use context assigned to the evidence variable"/>
@@ -135,10 +135,10 @@
       <SearchParameter>
         <id value="EvidenceVariable-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.date"/>
+          <valueString value="{{name}}.date"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-date"/>
         <description value="The evidence variable publication date"/>
@@ -195,10 +195,10 @@
       <SearchParameter>
         <id value="EvidenceVariable-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.description"/>
+          <valueString value="{{name}}.description"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-description"/>
         <description value="The description of the evidence variable"/>
@@ -213,32 +213,12 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="EvidenceVariable-effective"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.effectivePeriod"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-effective"/>
-        <description value="The time during which the evidence variable is intended to be in use"/>
-        <code value="effective"/>
-        <type value="date"/>
-        <expression value="EvidenceVariable.effectivePeriod"/>
-        <xpath value="f:EvidenceVariable/f:effectivePeriod"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="EvidenceVariable-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.identifier"/>
+          <valueString value="{{name}}.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-identifier"/>
         <description value="External identifier for the evidence variable"/>
@@ -253,32 +233,12 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="EvidenceVariable-jurisdiction"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.jurisdiction"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-jurisdiction"/>
-        <description value="Intended jurisdiction for the evidence variable"/>
-        <code value="jurisdiction"/>
-        <type value="token"/>
-        <expression value="EvidenceVariable.jurisdiction"/>
-        <xpath value="f:EvidenceVariable/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="EvidenceVariable-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.name"/>
+          <valueString value="{{name}}.name"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-name"/>
         <description value="Computationally friendly name of the evidence variable"/>
@@ -315,10 +275,10 @@
       <SearchParameter>
         <id value="EvidenceVariable-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.publisher"/>
+          <valueString value="{{name}}.publisher"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-publisher"/>
         <description value="Name of the publisher of the evidence variable"/>
@@ -335,10 +295,10 @@
       <SearchParameter>
         <id value="EvidenceVariable-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.status"/>
+          <valueString value="{{name}}.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-status"/>
         <description value="The current status of the evidence variable"/>
@@ -375,10 +335,10 @@
       <SearchParameter>
         <id value="EvidenceVariable-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.title"/>
+          <valueString value="{{name}}.title"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-title"/>
         <description value="The human-friendly name of the evidence variable"/>
@@ -397,15 +357,10 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.topic"/>
-        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-topic"/>
         <description value="Topics associated with the EvidenceVariable"/>
         <code value="topic"/>
         <type value="token"/>
-        <expression value="EvidenceVariable.topic"/>
-        <xpath value="f:EvidenceVariable/f:topic"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -415,10 +370,10 @@
       <SearchParameter>
         <id value="EvidenceVariable-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.url"/>
+          <valueString value="{{name}}.url"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-url"/>
         <description value="The uri that identifies the evidence variable"/>
@@ -435,10 +390,10 @@
       <SearchParameter>
         <id value="EvidenceVariable-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EvidenceVariable.version"/>
+          <valueString value="{{name}}.version"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-version"/>
         <description value="The business version of the evidence variable"/>

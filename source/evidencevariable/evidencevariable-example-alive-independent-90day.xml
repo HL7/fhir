@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+  <id value="example-alive-independent-90day"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        &quot;Alive and not functionally dependent at 90 days&quot; is an outcome used in expressing what an Evidence is about.
+      </p>
+	</div>
+  </text>
+  <title value="Alive and not functionally dependent at 90 days"/>
+  <status value="draft"/>
+  <actual value="false"/>
+  <characteristicCombination value="intersection"/>
+  <characteristic>
+    <description value="not functionally dependent at 90 days"/>
+    <definitionCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="718705001"/>
+        <display value="Functionally dependent (finding)"/>
+      </coding>
+    </definitionCodeableConcept>
+    <exclude value="true"/>
+    <timeFromStart>
+      <quantity>
+        <value value="90"/>
+        <unit value="day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+      </quantity>
+    </timeFromStart>
+  </characteristic>
+  <characteristic>
+    <description value="alive at 90 days"/>
+    <definitionCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="419099009"/>
+        <display value="Dead (finding)"/>
+      </coding>
+    </definitionCodeableConcept>
+    <exclude value="true"/>
+    <timeFromStart>
+      <quantity>
+        <value value="90"/>
+        <unit value="day"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="d"/>
+      </quantity>
+    </timeFromStart>
+  </characteristic>
+  <handling value="dichotomous"/>
+</EvidenceVariable>
