@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+  <id value="example-mRS3-6-at-90days"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        &quot;mRS 3-6 at 90 days&quot; is an outcome, defined by a CQL expression, used in expressing what an Evidence is about.
+      </p>
+	</div>
+  </text>
+  <title value="Modified Rankin Scale score 3-6 at 90 days after treatment"/>
+  <status value="draft"/>
+  <actual value="true"/>
+  <characteristic>
+		<description value="mRS 3-6 at 90 days"/>
+		<definitionExpression>
+			<description value="mRS 3-6"/>
+			<language value="text/cql"/>
+			<expression value="[&quot;Observation&quot;: code in &quot;75859-9|LOINC&quot;] mRS where mRS.value between 3 and 6"/>
+		</definitionExpression>
+		<timeFromStart>
+			<quantity>
+				<value value="90"/>
+				<unit value="day"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="d"/>
+			</quantity>
+		</timeFromStart>
+  </characteristic>
+  <handling value="dichotomous"/>
+</EvidenceVariable>

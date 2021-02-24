@@ -1156,3 +1156,14 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "8410",
+  "display" : "alteplase"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "alteplase",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

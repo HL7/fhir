@@ -10732,6 +10732,11 @@
     <display value="Urethral structure"/>
     <display value="Urethral structure (body structure)"/>
   </concept>
+  <concept id="1386000" display="Intracranial hemorrhage">
+    <display value="Intracranial hemorrhage"/>
+    <display value="Intracranial haemorrhage"/>
+    <display value="Intracranial hemorrhage (disorder)"/>
+  </concept>
   <concept id="13934009" display="Panama sheep">
     <display value="Panama sheep"/>
     <display value="Panama sheep (organism)"/>
@@ -11000,6 +11005,10 @@
     <display value="Medication review"/>
     <display value="Review of medication"/>
     <display value="Review of medication (procedure)"/>
+  </concept>
+  <concept id="182886004" display="Placebo given">
+    <display value="Placebo given"/>
+    <display value="Placebo given (situation)"/>
   </concept>
   <concept id="182888003" display="Medication requested">
     <display value="Medication requested"/>
@@ -14174,6 +14183,10 @@
     <display value="Paediatric endocrinology"/>
     <display value="Pediatric endocrinology (qualifier value)"/>
   </concept>
+  <concept id="419620001" display="Death">
+    <display value="Death (event)"/>
+    <display value="Death"/>
+  </concept>
   <concept id="419672006" display="Bottle">
     <display value="Bottle"/>
     <display value="Bottles"/>
@@ -15777,6 +15790,10 @@
     <display value="No known allergy (situation)"/>
     <display value="No known allergy"/>
     <display value="NKA - No known allergy"/>
+  </concept>
+  <concept id="718705001" display="Functionally dependent">
+    <display value="Functionally dependent (finding)"/>
+    <display value="Functionally dependent"/>
   </concept>
   <concept id="71878006" display="Calcium measurement">
     <display value="Calcium measurement"/>
