@@ -431,7 +431,6 @@ signatures.html
       <page title="Sharing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-distribution.html"/>
       <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
-      <page type="resource" resource="EffectEvidenceSynthesis"/>
       <page type="resource" resource="EventDefinition"/>
 	  <page type="resource" resource="Citation"/>
       <page type="resource" resource="Evidence"/>
@@ -453,7 +452,6 @@ signatures.html
       <page type="resource" resource="MeasureReport"/>
       <page type="resource" resource="ResearchDefinition"/>
       <page type="resource" resource="ResearchElementDefinition"/>
-      <page type="resource" resource="RiskEvidenceSynthesis"/>
     </page>
   </page>
 
