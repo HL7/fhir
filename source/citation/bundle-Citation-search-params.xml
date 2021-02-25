@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Citation-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-context"/>
+        <description value="A use context assigned to the citation"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(Citation.useContext.value as CodeableConcept)"/>
+        <xpath value="f:Citation/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the citation"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(Citation.useContext.value as Quantity) | (Citation.useContext.value as Range)"/>
+        <xpath value="f:Citation/f:useContext/f:valueQuantity | f:Citation/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-context-type"/>
+        <description value="A type of use context assigned to the citation"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="Citation.useContext.code"/>
+        <xpath value="f:Citation/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the citation"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="Citation.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-context-type-value"/>
+        <description value="A use context type and value assigned to the citation"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="Citation.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-date"/>
+        <description value="The citation publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Citation.date"/>
+        <xpath value="f:Citation/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-description"/>
+        <description value="The description of the citation"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="Citation.description"/>
+        <xpath value="f:Citation/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-effective"/>
+        <description value="The time during which the citation is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="Citation.effectivePeriod"/>
+        <xpath value="f:Citation/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-identifier"/>
+        <description value="External identifier for the citation"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Citation.identifier"/>
+        <xpath value="f:Citation/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-jurisdiction"/>
+        <description value="Intended jurisdiction for the citation"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="Citation.jurisdiction"/>
+        <xpath value="f:Citation/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-name"/>
+        <description value="Computationally friendly name of the citation"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Citation.name"/>
+        <xpath value="f:Citation/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-publisher"/>
+        <description value="Name of the publisher of the citation"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="Citation.publisher"/>
+        <xpath value="f:Citation/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-status"/>
+        <description value="The current status of the citation"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Citation.status"/>
+        <xpath value="f:Citation/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-title"/>
+        <description value="The human-friendly name of the citation"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="Citation.title"/>
+        <xpath value="f:Citation/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-url"/>
+        <description value="The uri that identifies the citation"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="Citation.url"/>
+        <xpath value="f:Citation/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Citation-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Citation-version"/>
+        <description value="The business version of the citation"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="Citation.version"/>
+        <xpath value="f:Citation/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>
