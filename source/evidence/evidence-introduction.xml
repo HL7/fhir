@@ -1,42 +1,22 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<!-- content goes here -->
 <div>
-<a name="bnc"></a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 
-<p>The scope of the Evidence resource is to describe the conditional state (population and exposures being considered or compared within a population) with or without the outcomes that knowledge (evidence, assertion, recommendation) is about.
-
-The Evidence resource is a commonly bundled series of evidence variables from the "PICO" specification of medical knowledge:
-
-Population - the population within which exposures and outcomes are being considered 
-Intervention - the conditional state or exposure state being described for which one is expressing the risk of or effect on an outcome 
-Comparison - the alternative conditional state or alternative exposure state when one is comparing states for the effect on an outcome 
-Outcome - the result or effect of an intervention or exposure in a population
-
-PICO (and its variants like PECO or PICOT) is a universal acronym used in evidence-based medicine communities to clearly express research questions and evidence findings.
-
-The Evidence resource allows expression of the higher-order concept for recommendations in healthcare where multiple outcomes are considered, and the higher-order concept/combination for framing research questions.</p>
+<p>The Evidence Resource enables the expression of the most granular form of evidence, such as the actual quantitative results of a study or scientific analysis.</p>
+<p>Human-readable summaries of the Evidence Resource may be expressed in description, assertion, and note elements. The description element is typically used for the primary expression. The assertion element is less commonly used and is typically used for interpretive expression. The note element may be used for any number of explanatory, variant, or related comments.</p>
+<p>The variableDefinition element is used to describe What the evidence is about. Each variable defined must be assigned a variable role which signals how that variable is used in the statistics within the Evidence resource. The variable definition may be expressed in human-readable form (with a description element) and/or expressed in computable form by referencing Group or EvidenceVariable resources. In general, Group resources are used to define populations and EvidenceVariable resources are used to define exposures and measured variables. The variableDefinition elements allows expression of the observed variable and the intended variable. In many forms of expression the Evidence is interpreted for a specific context and recognition of both observed and intended variables is important for understanding the applicability and certainty of the evidence.</p>
+<p>The heart of the evidence is the statistic. The <a href="statistic.html#Statistic">Statistic DataType</a> provides a machine-interpretable expression of a statistic, including the quantity; unit of measure; classification of statistic type; sample size; attributes such as confidence intervals, p values, and heterogeneity estimates; and statistic model characteristics. An Evidence resource may contain more than one statistic, in which case each statistic matches the same combination of variable definitions. The <a href="ordereddistribution.html#OrderedDistribution">OrderedDistribution DataType</a> provides a machine-interpretable expression of an ordered array of statistics, such as a histogram or a report stratified by quintiles.</p>
+<p>Because a <i>statistic</i> can rarely be interpreted without knowing how it was obtained, the Evidence Resource enables expression of the <i>studyType</i>. For evidence derived from synthesis of evidence, the Evidence Resource enables expression of the <i>synthesisType</i>.</p>
+<p>The <b>certainty Element</b> provides a machine-interpretable expression of certainty, confidence or quality of the resource in which it is included. The <b>certainty Element</b> can express overall certainty and certainty of any subcomponent concepts using codeable concepts from structured rating systems. The <b>certainty Element</b> enables machine-to-machine communication of the certainty of evidence.</p>
 
 </div>
 
 <div>
+<a name="boundaries"></a>
 <h2>Boundaries and Relationships</h2>
-<p>The Evidence resource references the EvidenceVariable resource two or more times to clearly specify the relationship among evidence variable concepts in framing a research question, evidence assertion, or recommendation.</p>
+<p>The Evidence Resource is the central atomic component for the Evidence-related resources. The Evidence Resource may reference multiple Group and EvidenceVariable Resources; in these cases, the Group and EvidenceVariable Resources to which an Evidence Resource points does <i>not</i> refer back to the Evidence. In the context of evidence synthesis, an EvidenceVariable Resource may reference Evidence Resources where the EvidenceVariable Resource is used to define the set of evidence being synthesized.</p>
 </div>
-
-<!-- (optional):
-<div>
-<h2>Background and Context</h2>
-<p>
-Description of the population for which a recommendation or evidence summary is applicable, Description of the intervention or exposure for which a recommendation or evidence summary is applicable, and Description of the comparator state or the evidence is about or what the recommendation is against.
-
-These descriptions could be used in coded specifications of recommendations from clinical practice guidelines to facilitate searching for recommendations that match an individual patient (eg patient is in the population and meets the criteria for the comparator state but not the criteria for the recommended exposure state)
-
-These descriptions could be used in Summary of Findings tables from systematic reviews to facilitate the representation of medical knowledge when creating recommendations.
-
-These descriptions could be used in classification of new evidence reports to facilitate recognition of signal for updating existing evidence summaries and recommendations.
-</p>
-</div>
--->
 
 </div>

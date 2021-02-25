@@ -431,13 +431,18 @@ signatures.html
       <page title="Sharing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-distribution.html"/>
       <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
-      <page type="resource" resource="EffectEvidenceSynthesis"/>
       <page type="resource" resource="EventDefinition"/>
+	  <page type="resource" resource="Citation"/>
       <page type="resource" resource="Evidence"/>
       <page title="Statistic" filename="statistic.html">
         <page title="Examples" filename="statistic-examples.html"/>
         <page title="Detailed Descriptions" filename="statistic-definitions.html"/>
         <page title="Statistic Mappings" filename="statistic-mappings.html"/>
+      </page>
+      <page title="OrderedDistribution" filename="ordereddistribution.html">
+        <page title="Examples" filename="ordereddistribution-examples.html"/>
+        <page title="Detailed Descriptions" filename="ordereddistribution-definitions.html"/>
+        <page title="OrderedDistribution Mappings" filename="ordereddistribution-mappings.html"/>
       </page>
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
@@ -447,7 +452,6 @@ signatures.html
       <page type="resource" resource="MeasureReport"/>
       <page type="resource" resource="ResearchDefinition"/>
       <page type="resource" resource="ResearchElementDefinition"/>
-      <page type="resource" resource="RiskEvidenceSynthesis"/>
     </page>
   </page>
 
