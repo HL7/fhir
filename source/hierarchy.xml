@@ -432,6 +432,7 @@ signatures.html
       <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
       <page type="resource" resource="EventDefinition"/>
+	  <page type="resource" resource="EvidenceReport"/>
 	  <page type="resource" resource="Citation"/>
       <page type="resource" resource="Evidence"/>
       <page title="Statistic" filename="statistic.html">
