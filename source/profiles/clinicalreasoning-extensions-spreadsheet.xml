@@ -18,7 +18,7 @@
   
   
   <ActiveSheet>4</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -804,6 +804,18 @@
     <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
    </Borders>
    <Interior/>
+  </Style>
+  <Style ss:ID="s166">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s167">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
+   </Borders>
   </Style>
  </Styles>
  <Names>
@@ -4077,7 +4089,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R1C23"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="32" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="41" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:StyleID="s84" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="120.0"/>
@@ -4595,6 +4607,78 @@
     <Cell ss:Index="8"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Surface this ECA Rule here</Data></Cell>
     <Cell><Data ss:Type="String">Specifies the URI of a CDS Hooks service that uses this PlanDefinition as its implementation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">contactReference</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Reference(Person | Group | Device | Organization)</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Who or what the contact is</Data></Cell>
+    <Cell><Data ss:Type="String">A reference to a Person, Group, Device, or Organization that is the contact</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">contributionTime</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">When the contribution was made</Data></Cell>
+    <Cell><Data ss:Type="String">When the contribution was made by this contributor</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">contactAddress</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Address</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Contributor address</Data></Cell>
+    <Cell><Data ss:Type="String">The address of the contributor</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">certainty</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Certainty or quality rating</Data></Cell>
+    <Cell><Data ss:Type="String">An assessment of certainty, confidence, or quality of the item on which it appears</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">certainty.description</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Textual description of certainty</Data></Cell>
+    <Cell><Data ss:Type="String">A textual description of the certainty</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">certainty.note</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Annotation</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Footnotes and/or explanatory notes</Data></Cell>
+    <Cell><Data ss:Type="String">Footnotes and/or explanatory notes about the certainty</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">certainty.type</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">CertaintyType</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Aspect of certainty being rated</Data></Cell>
+    <Cell><Data ss:Type="String">The aspect of the certainty being rated</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">certainty.rating</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">CertaintyRating</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Assessment or judgement of the aspect</Data></Cell>
+    <Cell><Data ss:Type="String">The assessment, rating, or judgement of the aspect being rated</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">certainty.rater</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Who provided the rating</Data></Cell>
+    <Cell><Data ss:Type="String">The individual or group who provided the rating</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -5649,34 +5733,20 @@
     <Cell ss:StyleID="s134"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">CertaintyType</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The aspect of quality, confidence, or certainty</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/certainty-type" ss:StyleID="s151"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/certainty-type</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s167"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">CertaintyRating</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The assessment of quality, confidence, or certainty</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/certainty-rating" ss:StyleID="s151"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/certainty-rating</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s167"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"/>
