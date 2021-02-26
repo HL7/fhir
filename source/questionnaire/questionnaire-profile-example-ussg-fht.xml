@@ -275,10 +275,10 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 					<definition value="http://loinc.org/rdf#54114-4"/>
 					<text value="Family member health information"/>
 					<type value="group"/>
-					<repeats value="true"/>
 					<item>
 						<linkId value="2.1"/>
 						<type value="group"/>
+						<repeats value="true"/>
 <!-- because of task GF#12866, this can no longer be a nested group, though it seems that this was purely cosmetic 
 						<item>
 							<linkId value="2.1.1"/>
