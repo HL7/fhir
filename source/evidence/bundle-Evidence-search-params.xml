@@ -5,32 +5,12 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Evidence-composed-of"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.relatedArtifact.resource"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-composed-of"/>
-        <description value="What resource is being referenced"/>
-        <code value="composed-of"/>
-        <type value="reference"/>
-        <expression value="Evidence.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
-        <xpath value="f:Evidence/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Evidence-context"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.useContext.valueCodeableConcept"/>
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-context"/>
         <description value="A use context assigned to the evidence"/>
@@ -50,7 +30,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.useContext.valueQuantity,Evidence.useContext.valueRange"/>
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-context-quantity"/>
         <description value="A quantity- or range-valued use context assigned to the evidence"/>
@@ -70,7 +50,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.useContext.code"/>
+          <valueString value="{{name}}.useContext.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-context-type"/>
         <description value="A type of use context assigned to the evidence"/>
@@ -135,10 +115,10 @@
       <SearchParameter>
         <id value="Evidence-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.date"/>
+          <valueString value="{{name}}.date"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-date"/>
         <description value="The evidence publication date"/>
@@ -153,52 +133,12 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Evidence-depends-on"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.relatedArtifact.resource"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-depends-on"/>
-        <description value="What resource is being referenced"/>
-        <code value="depends-on"/>
-        <type value="reference"/>
-        <expression value="Evidence.relatedArtifact.where(type=&#39;depends-on&#39;).resource"/>
-        <xpath value="f:Evidence/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Evidence-derived-from"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.relatedArtifact.resource"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-derived-from"/>
-        <description value="What resource is being referenced"/>
-        <code value="derived-from"/>
-        <type value="reference"/>
-        <expression value="Evidence.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
-        <xpath value="f:Evidence/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Evidence-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.description"/>
+          <valueString value="{{name}}.description"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-description"/>
         <description value="The description of the evidence"/>
@@ -213,32 +153,12 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Evidence-effective"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.effectivePeriod"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-effective"/>
-        <description value="The time during which the evidence is intended to be in use"/>
-        <code value="effective"/>
-        <type value="date"/>
-        <expression value="Evidence.effectivePeriod"/>
-        <xpath value="f:Evidence/f:effectivePeriod"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Evidence-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.identifier"/>
+          <valueString value="{{name}}.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-identifier"/>
         <description value="External identifier for the evidence"/>
@@ -253,72 +173,12 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Evidence-jurisdiction"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.jurisdiction"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-jurisdiction"/>
-        <description value="Intended jurisdiction for the evidence"/>
-        <code value="jurisdiction"/>
-        <type value="token"/>
-        <expression value="Evidence.jurisdiction"/>
-        <xpath value="f:Evidence/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Evidence-name"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.name"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-name"/>
-        <description value="Computationally friendly name of the evidence"/>
-        <code value="name"/>
-        <type value="string"/>
-        <expression value="Evidence.name"/>
-        <xpath value="f:Evidence/f:name"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Evidence-predecessor"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.relatedArtifact.resource"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-predecessor"/>
-        <description value="What resource is being referenced"/>
-        <code value="predecessor"/>
-        <type value="reference"/>
-        <expression value="Evidence.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
-        <xpath value="f:Evidence/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Evidence-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.publisher"/>
+          <valueString value="{{name}}.publisher"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-publisher"/>
         <description value="Name of the publisher of the evidence"/>
@@ -335,10 +195,10 @@
       <SearchParameter>
         <id value="Evidence-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.status"/>
+          <valueString value="{{name}}.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-status"/>
         <description value="The current status of the evidence"/>
@@ -353,32 +213,12 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Evidence-successor"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.relatedArtifact.resource"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-successor"/>
-        <description value="What resource is being referenced"/>
-        <code value="successor"/>
-        <type value="reference"/>
-        <expression value="Evidence.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
-        <xpath value="f:Evidence/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Evidence-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.title"/>
+          <valueString value="{{name}}.title"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-title"/>
         <description value="The human-friendly name of the evidence"/>
@@ -393,32 +233,12 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Evidence-topic"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.topic"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-topic"/>
-        <description value="Topics associated with the Evidence"/>
-        <code value="topic"/>
-        <type value="token"/>
-        <expression value="Evidence.topic"/>
-        <xpath value="f:Evidence/f:topic"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Evidence-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.url"/>
+          <valueString value="{{name}}.url"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-url"/>
         <description value="The uri that identifies the evidence"/>
@@ -435,10 +255,10 @@
       <SearchParameter>
         <id value="Evidence-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Evidence.version"/>
+          <valueString value="{{name}}.version"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Evidence-version"/>
         <description value="The business version of the evidence"/>

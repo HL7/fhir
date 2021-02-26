@@ -1925,17 +1925,6 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RequestGroup.Action"/>
         </ns4:element>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="EffectEvidenceSynthesis.Certainty" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="rating">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="note">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Annotation"/>
-        </ns4:element>
-        <ns4:element name="certaintySubcomponent">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.EffectEvidenceSynthesis.CertaintySubcomponent"/>
-        </ns4:element>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="ImplementationGuide.Page1" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="name" elementType="FHIR.string"/>
         <ns4:element name="title" elementType="FHIR.string"/>
@@ -2265,12 +2254,6 @@
                 <ns4:choice xsi:type="ns4:NamedTypeSpecifier" modelName="FHIR" name="Ratio"/>
             </ns4:elementTypeSpecifier>
         </ns4:element>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RiskEvidenceSynthesis.PrecisionEstimate" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="level" elementType="FHIR.decimal"/>
-        <ns4:element name="from" elementType="FHIR.decimal"/>
-        <ns4:element name="to" elementType="FHIR.decimal"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FilterOperator" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
@@ -3955,11 +3938,6 @@
         </ns4:element>
         <ns4:element name="address" elementType="FHIR.Address"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="EffectEvidenceSynthesis.SampleSize" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="description" elementType="FHIR.string"/>
-        <ns4:element name="numberOfStudies" elementType="FHIR.integer"/>
-        <ns4:element name="numberOfParticipants" elementType="FHIR.integer"/>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="CapabilityStatement.Resource" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="type" elementType="FHIR.code"/>
         <ns4:element name="profile" elementType="FHIR.canonical"/>
@@ -4161,17 +4139,6 @@
         </ns4:element>
         <ns4:element name="securityLabelNumber">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.unsignedInt"/>
-        </ns4:element>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RiskEvidenceSynthesis.RiskEstimate" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="description" elementType="FHIR.string"/>
-        <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="value" elementType="FHIR.decimal"/>
-        <ns4:element name="unitOfMeasure" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="denominatorCount" elementType="FHIR.integer"/>
-        <ns4:element name="numeratorCount" elementType="FHIR.integer"/>
-        <ns4:element name="precisionEstimate">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RiskEvidenceSynthesis.PrecisionEstimate"/>
         </ns4:element>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="CoverageEligibilityRequest.Item" retrievable="false" baseType="FHIR.BackboneElement">
@@ -4496,16 +4463,6 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CoverageEligibilityResponse.Item"/>
         </ns4:element>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="EffectEvidenceSynthesis.EffectEstimate" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="description" elementType="FHIR.string"/>
-        <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="variantState" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="value" elementType="FHIR.decimal"/>
-        <ns4:element name="unitOfMeasure" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="precisionEstimate">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.EffectEvidenceSynthesis.PrecisionEstimate"/>
-        </ns4:element>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="url" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
     </ns4:typeInfo>
@@ -4795,69 +4752,6 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="DocumentReferenceStatus" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="EffectEvidenceSynthesis" retrievable="true" baseType="FHIR.DomainResource">
-        <ns4:element name="url" elementType="FHIR.uri"/>
-        <ns4:element name="identifier">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Identifier"/>
-        </ns4:element>
-        <ns4:element name="version" elementType="FHIR.string"/>
-        <ns4:element name="name" elementType="FHIR.string"/>
-        <ns4:element name="title" elementType="FHIR.string"/>
-        <ns4:element name="status" elementType="FHIR.PublicationStatus"/>
-        <ns4:element name="date" elementType="FHIR.dateTime"/>
-        <ns4:element name="publisher" elementType="FHIR.string"/>
-        <ns4:element name="contact">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
-        </ns4:element>
-        <ns4:element name="description" elementType="FHIR.markdown"/>
-        <ns4:element name="note">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Annotation"/>
-        </ns4:element>
-        <ns4:element name="useContext">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.UsageContext"/>
-        </ns4:element>
-        <ns4:element name="jurisdiction">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="copyright" elementType="FHIR.markdown"/>
-        <ns4:element name="approvalDate" elementType="FHIR.date"/>
-        <ns4:element name="lastReviewDate" elementType="FHIR.date"/>
-        <ns4:element name="effectivePeriod" elementType="FHIR.Period"/>
-        <ns4:element name="topic">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="author">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
-        </ns4:element>
-        <ns4:element name="editor">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
-        </ns4:element>
-        <ns4:element name="reviewer">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
-        </ns4:element>
-        <ns4:element name="endorser">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
-        </ns4:element>
-        <ns4:element name="relatedArtifact">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RelatedArtifact"/>
-        </ns4:element>
-        <ns4:element name="synthesisType" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="studyType" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="population" elementType="FHIR.Reference"/>
-        <ns4:element name="exposure" elementType="FHIR.Reference"/>
-        <ns4:element name="exposureAlternative" elementType="FHIR.Reference"/>
-        <ns4:element name="outcome" elementType="FHIR.Reference"/>
-        <ns4:element name="sampleSize" elementType="FHIR.EffectEvidenceSynthesis.SampleSize"/>
-        <ns4:element name="resultsByExposure">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.EffectEvidenceSynthesis.ResultsByExposure"/>
-        </ns4:element>
-        <ns4:element name="effectEstimate">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.EffectEvidenceSynthesis.EffectEstimate"/>
-        </ns4:element>
-        <ns4:element name="certainty">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.EffectEvidenceSynthesis.Certainty"/>
-        </ns4:element>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="PlanDefinition.RelatedAction" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="actionId" elementType="FHIR.id"/>
         <ns4:element name="relationship" elementType="FHIR.ActionRelationshipType"/>
@@ -5093,15 +4987,6 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="PractitionerRole.NotAvailable" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="description" elementType="FHIR.string"/>
         <ns4:element name="during" elementType="FHIR.Period"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RiskEvidenceSynthesis.CertaintySubcomponent" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="rating">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="note">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Annotation"/>
-        </ns4:element>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="TerminologyCapabilities" retrievable="true" baseType="FHIR.DomainResource">
         <ns4:element name="url" elementType="FHIR.uri"/>
@@ -7633,63 +7518,6 @@
         <ns4:element name="value" elementType="FHIR.string"/>
         <ns4:element name="name" elementType="FHIR.string"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RiskEvidenceSynthesis" retrievable="true" baseType="FHIR.DomainResource">
-        <ns4:element name="url" elementType="FHIR.uri"/>
-        <ns4:element name="identifier">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Identifier"/>
-        </ns4:element>
-        <ns4:element name="version" elementType="FHIR.string"/>
-        <ns4:element name="name" elementType="FHIR.string"/>
-        <ns4:element name="title" elementType="FHIR.string"/>
-        <ns4:element name="status" elementType="FHIR.PublicationStatus"/>
-        <ns4:element name="date" elementType="FHIR.dateTime"/>
-        <ns4:element name="publisher" elementType="FHIR.string"/>
-        <ns4:element name="contact">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
-        </ns4:element>
-        <ns4:element name="description" elementType="FHIR.markdown"/>
-        <ns4:element name="note">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Annotation"/>
-        </ns4:element>
-        <ns4:element name="useContext">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.UsageContext"/>
-        </ns4:element>
-        <ns4:element name="jurisdiction">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="copyright" elementType="FHIR.markdown"/>
-        <ns4:element name="approvalDate" elementType="FHIR.date"/>
-        <ns4:element name="lastReviewDate" elementType="FHIR.date"/>
-        <ns4:element name="effectivePeriod" elementType="FHIR.Period"/>
-        <ns4:element name="topic">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="author">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
-        </ns4:element>
-        <ns4:element name="editor">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
-        </ns4:element>
-        <ns4:element name="reviewer">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
-        </ns4:element>
-        <ns4:element name="endorser">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ContactDetail"/>
-        </ns4:element>
-        <ns4:element name="relatedArtifact">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RelatedArtifact"/>
-        </ns4:element>
-        <ns4:element name="synthesisType" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="studyType" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="population" elementType="FHIR.Reference"/>
-        <ns4:element name="exposure" elementType="FHIR.Reference"/>
-        <ns4:element name="outcome" elementType="FHIR.Reference"/>
-        <ns4:element name="sampleSize" elementType="FHIR.RiskEvidenceSynthesis.SampleSize"/>
-        <ns4:element name="riskEstimate" elementType="FHIR.RiskEvidenceSynthesis.RiskEstimate"/>
-        <ns4:element name="certainty">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RiskEvidenceSynthesis.Certainty"/>
-        </ns4:element>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="Device.UdiCarrier" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="deviceIdentifier" elementType="FHIR.string"/>
         <ns4:element name="issuer" elementType="FHIR.uri"/>
@@ -7869,17 +7697,6 @@
         <ns4:element name="nTerminalModification" elementType="FHIR.string"/>
         <ns4:element name="cTerminalModificationId" elementType="FHIR.Identifier"/>
         <ns4:element name="cTerminalModification" elementType="FHIR.string"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RiskEvidenceSynthesis.Certainty" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="rating">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="note">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Annotation"/>
-        </ns4:element>
-        <ns4:element name="certaintySubcomponent">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RiskEvidenceSynthesis.CertaintySubcomponent"/>
-        </ns4:element>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="SubstanceProtein" retrievable="true" baseType="FHIR.DomainResource">
         <ns4:element name="sequenceType" elementType="FHIR.CodeableConcept"/>
@@ -9066,11 +8883,6 @@
         <ns4:element name="attachment" elementType="FHIR.Attachment"/>
         <ns4:element name="format" elementType="FHIR.Coding"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RiskEvidenceSynthesis.SampleSize" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="description" elementType="FHIR.string"/>
-        <ns4:element name="numberOfStudies" elementType="FHIR.integer"/>
-        <ns4:element name="numberOfParticipants" elementType="FHIR.integer"/>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="TestScript.Teardown" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="action">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.TestScript.Action2"/>
@@ -9523,15 +9335,6 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.canonical"/>
         </ns4:element>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="EffectEvidenceSynthesis.CertaintySubcomponent" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="rating">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="note">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Annotation"/>
-        </ns4:element>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="DataRequirement.Sort" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="path" elementType="FHIR.string"/>
         <ns4:element name="direction" elementType="FHIR.SortDirection"/>
@@ -9671,7 +9474,6 @@
         <ns4:element name="DiagnosticReport" elementType="FHIR.DiagnosticReport"/>
         <ns4:element name="DocumentManifest" elementType="FHIR.DocumentManifest"/>
         <ns4:element name="DocumentReference" elementType="FHIR.DocumentReference"/>
-        <ns4:element name="EffectEvidenceSynthesis" elementType="FHIR.EffectEvidenceSynthesis"/>
         <ns4:element name="Encounter" elementType="FHIR.Encounter"/>
         <ns4:element name="Endpoint" elementType="FHIR.Endpoint"/>
         <ns4:element name="EnrollmentRequest" elementType="FHIR.EnrollmentRequest"/>
@@ -9749,7 +9551,6 @@
         <ns4:element name="ResearchStudy" elementType="FHIR.ResearchStudy"/>
         <ns4:element name="ResearchSubject" elementType="FHIR.ResearchSubject"/>
         <ns4:element name="RiskAssessment" elementType="FHIR.RiskAssessment"/>
-        <ns4:element name="RiskEvidenceSynthesis" elementType="FHIR.RiskEvidenceSynthesis"/>
         <ns4:element name="Schedule" elementType="FHIR.Schedule"/>
         <ns4:element name="SearchParameter" elementType="FHIR.SearchParameter"/>
         <ns4:element name="ServiceRequest" elementType="FHIR.ServiceRequest"/>
@@ -10040,18 +9841,6 @@
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FlagStatus" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="EffectEvidenceSynthesis.PrecisionEstimate" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="level" elementType="FHIR.decimal"/>
-        <ns4:element name="from" elementType="FHIR.decimal"/>
-        <ns4:element name="to" elementType="FHIR.decimal"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="EffectEvidenceSynthesis.ResultsByExposure" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="description" elementType="FHIR.string"/>
-        <ns4:element name="exposureState" elementType="FHIR.ExposureState"/>
-        <ns4:element name="variantState" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="riskEvidenceSynthesis" elementType="FHIR.Reference"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="TestScript.Variable" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="name" elementType="FHIR.string"/>
