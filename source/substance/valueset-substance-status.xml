@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="substance-status"/>
   <meta>
-    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <h2>FHIRSubstanceStatus</h2>
-      <div>
-        <p>A code to indicate if the substance is actively used.</p>
-
-      </div>
-      <p>This value set includes codes from the following code systems:</p>
       <ul>
         <li>Include all codes defined in 
           <a href="codesystem-substance-status.html">
@@ -32,16 +27,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
+  <url value="http://hl7.org/fhir/ValueSet/substance-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.474"/>
   </identifier>
-  <version value="4.0.1"/>
+  <version value="4.5.0"/>
   <name value="FHIRSubstanceStatus"/>
   <title value="FHIRSubstanceStatus"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-01-17T07:06:13+11:00"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

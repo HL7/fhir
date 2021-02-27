@@ -3,7 +3,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SubstanceReferenceInformation"/>
   <meta>
-    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Specialized.Medication Definition"/>
@@ -21,10 +21,10 @@
     <valueCode value="brr"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation"/>
-  <version value="4.0.1"/>
+  <version value="4.5.0"/>
   <name value="SubstanceReferenceInformation"/>
   <status value="draft"/>
-  <date value="2021-01-17T07:06:13+11:00"/>
+  <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
   <contact>
     <telecom>
@@ -39,7 +39,7 @@
     </telecom>
   </contact>
   <description value="Todo."/>
-  <fhirVersion value="4.0.1"/>
+  <fhirVersion value="4.5.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -67,7 +67,7 @@
       <max value="*"/>
       <mapping>
         <identity value="w5"/>
-        <map value="clinical.medication"/>
+        <map value="administrative.medication"/>
       </mapping>
     </element>
     <element id="SubstanceReferenceInformation.comment">
@@ -177,68 +177,9 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SubstanceReferenceInformation.classification">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="100,80"/>
-      </extension>
-      <path value="SubstanceReferenceInformation.classification"/>
-      <short value="Todo"/>
-      <definition value="Todo."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SubstanceReferenceInformation.classification.domain">
-      <path value="SubstanceReferenceInformation.classification.domain"/>
-      <short value="Todo"/>
-      <definition value="Todo."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SubstanceReferenceInformation.classification.classification">
-      <path value="SubstanceReferenceInformation.classification.classification"/>
-      <short value="Todo"/>
-      <definition value="Todo."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SubstanceReferenceInformation.classification.subtype">
-      <path value="SubstanceReferenceInformation.classification.subtype"/>
-      <short value="Todo"/>
-      <definition value="Todo."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SubstanceReferenceInformation.classification.source">
-      <path value="SubstanceReferenceInformation.classification.source"/>
-      <short value="Todo"/>
-      <definition value="Todo."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
     <element id="SubstanceReferenceInformation.target">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="640,30"/>
+        <valueCode value="740,30"/>
       </extension>
       <path value="SubstanceReferenceInformation.target"/>
       <short value="Todo"/>
