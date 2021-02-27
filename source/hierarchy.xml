@@ -424,7 +424,6 @@ signatures.html
       <page type="resource" resource="ClinicalUseIssue"/>
       <page type="resource" resource="Ingredient"/>
       <page type="resource" resource="SubstanceDefinition"/>
-      <page type="resource" resource="SubstanceReferenceInformation"/>
       <page title="MarketingStatus" filename="marketingstatus.html">
         <page title="Examples" filename="marketingstatus-examples.html"/>
         <page title="Detailed Descriptions" filename="marketingstatus-definitions.html"/>
