@@ -535,7 +535,7 @@
         <map value="Specified_Substance_Group_1.Characteristic_Attribute.Reference_Source"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.referenceInformation">
+    <!--element id="SubstanceDefinition.referenceInformation">
       <path value="SubstanceDefinition.referenceInformation"/>
       <short value="General information detailing this substance"/>
       <definition value="General information detailing this substance."/>
@@ -550,7 +550,7 @@
         <identity value="idmp"/>
         <map value="Reference_Information"/>
       </mapping>
-    </element>
+    </element-->
     <element id="SubstanceDefinition.structure">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="350,569"/>
