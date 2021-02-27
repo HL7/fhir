@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="RegulatedAuthorization-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="regulatedauthorization-example"/>
+    </extension>
+    <item>
+      <reference value="RegulatedAuthorization/example"/>
+      <display value="General Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Basic Example of a drug authorization for Equilidem"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="regulatedauthorization-example-basic-drug-auth"/>
+    </extension>
+    <item>
+      <reference value="RegulatedAuthorization/basic-drug-auth"/>
+      <display value="Basic Example of a drug authorization for Equilidem"/>
+    </item>
+  </entry>
+</List>
