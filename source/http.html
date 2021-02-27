@@ -162,6 +162,12 @@ with the logical identity. It is not necessary to explicitly embed the patient i
 URL - implementations can associate a FHIR end-point with a particular patient or
 provider by using an OAuth login. See <a href="compartmentdefinition.html">Compartments</a> for the logical underpinning.
 </p>
+<p>
+Servers SHALL support both forms (with a trailing slash ex:<code>[base]/[type]/</code>, and without a trailing slash ex:<code>[base]/type]</code> ) if they support either, 
+and servers are discouraged from redirecting a client to achieve a canonical query URL. 
+It is up to a server to decide whether to "canonicalize" a query (e.g., when populating Bundle.link[self], 
+a server can add or remove a trailing slash to fit its own preferred convention).
+</p>
 <p><b>Identity</b></p>
 <p>
 Systems often need to compare two URLs to determine whether they refer to the same underlying object or not.
