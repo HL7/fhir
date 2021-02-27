@@ -735,9 +735,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubstanceDefinition</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceReferenceInformation</Data></Cell>
-   </Row>
+
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">VerificationResult</Data></Cell>
    </Row>
