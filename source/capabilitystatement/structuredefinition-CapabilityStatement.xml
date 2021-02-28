@@ -101,14 +101,14 @@
         <severity value="error"/>
         <human value="If kind = requirements, implementation and software must be absent"/>
         <expression value="(kind!=&#39;requirements&#39;) or (implementation.exists().not() and software.exists().not())"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and not(exists(f:software)))"/>
+        <xpath value="not(f:kind/@value=&#39;requirements&#39;) or (not(exists(f:implementation)) and not(exists(f:software)))"/>
       </constraint>
       <constraint>
         <key value="cpb-15"/>
         <severity value="error"/>
         <human value="If kind = capability, implementation must be absent, software must be present"/>
         <expression value="(kind != &#39;capability&#39;) or (implementation.exists().not() and software.exists())"/>
-        <xpath value=" not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
+        <xpath value=" not(f:kind/@value=&#39;capability&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
       </constraint>
       <constraint>
         <key value="cpb-3"/>
