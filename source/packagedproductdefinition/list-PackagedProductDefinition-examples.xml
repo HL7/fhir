@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="PackagedProductDefinition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General example, carton with blister pack and tablets inside"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="packagedproductdefinition-example"/>
+    </extension>
+    <item>
+      <reference value="PackagedProductDefinition/example"/>
+      <display value="General Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Basic example of a co-packaged liquid and a syringe, contents only, no packaging described"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="packagedproductdefinition-example-co-packaged-liquid-and-syringe"/>
+    </extension>
+    <item>
+      <reference value="PackagedProductDefinition/package-with-liquid-and-syringe"/>
+      <display value="Basic co-packaged liquid and syringe"/>
+    </item>
+  </entry>
+</List>
