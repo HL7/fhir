@@ -884,7 +884,7 @@
         <key value="que-7"/>
         <severity value="error"/>
         <human value="If the operator is &#39;exists&#39;, the value must be a boolean"/>
-        <expression value="operator = &#39;exists&#39; implies (answer is Boolean)"/>
+        <expression value="operator = &#39;exists&#39; implies (answer is boolean)"/>
         <xpath value="f:operator/@value != &#39;exists&#39; or exists(f:answerBoolean)"/>
       </constraint>
       <isModifier value="true"/>
