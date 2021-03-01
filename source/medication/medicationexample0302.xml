@@ -14,9 +14,9 @@
       <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
     </coding>
   </code>
-  <manufacturer>
+  <sponsor>
     <reference value="#org7"/>
-  </manufacturer>
+  </sponsor>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>

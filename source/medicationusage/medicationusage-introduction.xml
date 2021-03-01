@@ -17,6 +17,7 @@
             but is a report by a patient, significant other or a clinician that one or more of the
             prescribe, dispense or administer actions has occurred, resulting is a belief that the
             patient is, has, or will be using a particular medication. </p>
+        <p>The MedicationUsage resource was previously known as MedicationStatement.</p>
         <p>MedicationUsage is an event resource from a FHIR workflow perspective - see <a
                 href="workflow.html#event">Workflow Event</a></p>
     </div>
