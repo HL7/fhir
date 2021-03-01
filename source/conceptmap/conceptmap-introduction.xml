@@ -3,6 +3,11 @@
 <div> 
 <a name="scope"></a>
 <h2>Scope and Usage</h2> 
+[%dragons-start%]
+<p class="warning">
+ConceptMap will have significant changes in R5. The R5 CI build version of ConceptMap can be found here: http://build.fhir.org/conceptmap.html.
+</p>
+[%dragons-end%]
 <p>
 A concept map defines a mapping from a set of concepts defined in a code system (commonly referred to as the "system") to one or more concepts defined in other code systems.  In the mapping context, a system can be a typical <a href="terminologies.html">code system</a> based on a recognized standard or local terminology (in any of its forms), or in some cases it may be an <a href="conceptmap.html#implicit">"implicit" code system</a> that is not based on a recognized terminology but still represents a set of "concepts" that can be usefully mapped. Mappings are one way - from the source to the target system. In many cases, the reverse mappings are valid, but this cannot be assumed to be the case. 
 </p>
