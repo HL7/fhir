@@ -3545,7 +3545,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">TriggerDefinition</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A named event requires a name, a periodic event requires timing, and a data event requires data</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">(type = 'named-event' implies name.exists()) and (type = 'periodic' implies timing.exists()) and (type.startsWith('data-') implies data.exists())</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">((not(f:type/@value = 'named-event')) or name.exists()) and (not(f:type/@value = 'periodic') or timing.exists()) and (not(starts-with(f:type/@value, 'data-')) or data.exists())</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">(not(f:type/@value='named-event') or exists(f:name)) and (not(f:type/@value='periodic') or exists(f:timing)) and (not(starts-with(f:type/@value, 'data-')) or exists(f:data))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"><NamedCell ss:Name="Invariantids"/></Cell>
