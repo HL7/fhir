@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PackagedProductDefinition xmlns="http://hl7.org/fhir">
+	<id value="package-with-liquid-and-syringe"/>
+	<!-- Note that contained here is a completely different meaning to "containedItem" below
+	     This refers to data contained in the resource, not physically in the package. -->
+	<contained>
+		<DeviceDefinition>
+			<id value="syringeDevice"/>
+			<type>
+				<text value="syringe"/>
+			</type>
+			<!-- Schema appears to be broken, deviceName is not present in XSD -->
+			<!--deviceName>
+				<name value="WonderSyringe"/>
+				<type value="manufacturer-name"/>
+			</deviceName-->
+		</DeviceDefinition>
+	</contained>
+	<contained>
+		<ManufacturedItemDefinition>
+			<id value="liquidItem"/>
+			<manufacturedDoseForm>
+				<coding>
+					<system value="http://example.org.uk/fhir/doseform"/>
+					<code value="solution for injection"/>
+				</coding>
+			</manufacturedDoseForm>
+			<ingredient>
+				<reference>
+					<reference value="Ingredient/liquidIngredient"/>
+				</reference>
+			</ingredient>
+		</ManufacturedItemDefinition>
+	</contained>
+	<!-- the product for which this is one available package type (possibly one package type of several for this product) -->
+	<subject>
+		<reference value="MedicinalProductDefinition/ProductThatHasThisPackType"/>
+	</subject>
+	<!-- package contents start here, consists of a liquid and a syringe -->
+	<package>
+		<!-- here we can describe the packaging, but in this case we just want to talk about the contents -->
+		<!-- Note that containedItem here is a completely different meaning to "contained" above
+	         This refers to items physically contained in the package. -->
+		<containedItem>
+			<item>
+				<reference>
+				<!-- reference an item defined above -->
+				<reference value="#liquidItem"/>
+				</reference>
+			</item>
+			<amountQuantity>
+				<value value="20"/>
+				<unit value="ml"/>
+			</amountQuantity>
+		</containedItem>
+		<containedItem>
+			<item>
+				<reference>
+				<!-- reference an item defined above -->
+				<reference value="#syringeDevice"/>
+				</reference>
+			</item>
+		</containedItem>
+	</package>
+</PackagedProductDefinition>

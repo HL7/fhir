@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubstanceDefinition xmlns="http://hl7.org/fhir">
+   <id value="example"/>
+   <identifier>
+      <system value="http://example.europa.eu/fhir/SMSId"/>
+      <value value="100000099270"/>
+   </identifier>
+   <status>
+      <coding>
+         <system value="http://example.europa.eu/fhir/Status"/>
+         <code value="200000005004"/>
+         <display value="Current"/>
+      </coding>
+   </status>
+   <category>
+      <coding>
+         <system value="http://example.europa.eu/fhir/SubstanceType"/>
+         <code value="100000075670"/>
+         <display value="Chemical"/>
+      </coding>
+   </category>
+   <domain>
+      <coding>
+         <system value="http://example.europa.eu/fhir/Domain"/>
+         <code value="100000000012"/>
+         <display value="Human use"/>
+      </coding>
+   </domain>
+   <code>
+      <code>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Substance"/>
+            <code value="SUB99611MIG"/>
+         </coding>
+      </code>
+   </code>
+   <name>
+      <name value="PARACETAMOL"/>
+      <status>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Status"/>
+            <code value="200000005004"/>
+            <display value="Current"/>
+         </coding>
+      </status>
+      <preferred value="true"/>
+      <language>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Language"/>
+            <code value="100000072147"/>
+            <display value="English"/>
+         </coding>
+      </language>
+   </name>
+   <name>
+      <name value="ΠΑΡΑΚΕΤΑΜΌΛΗ"/>
+      <status>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Status"/>
+            <code value="200000005004"/>
+            <display value="Current"/>
+         </coding>
+      </status>
+      <preferred value="false"/>
+      <language>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Language"/>
+            <code value="100000072181"/>
+            <display value="Greek, Modern (1453-)"/>
+         </coding>
+      </language>
+   </name>
+   <name>
+      <name value="ПАРАЦЕТАМОЛ"/>
+      <status>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Status"/>
+            <code value="200000005004"/>
+            <display value="Current"/>
+         </coding>
+      </status>
+      <preferred value="false"/>
+      <language>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Language"/>
+            <code value="100000072142"/>
+            <display value="Bulgarian"/>
+         </coding>
+      </language>
+   </name>
+   <name>
+      <name value="ACETAMINOPHEN"/>
+      <status>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Status"/>
+            <code value="200000005004"/>
+            <display value="Current"/>
+         </coding>
+      </status>
+      <preferred value="false"/>
+      <language>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Language"/>
+            <code value="100000072147"/>
+            <display value="English"/>
+         </coding>
+      </language>
+   </name>
+</SubstanceDefinition>

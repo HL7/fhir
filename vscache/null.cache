@@ -67,7 +67,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200131"
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200731"
     }]
   }
 },
@@ -2327,7 +2327,7 @@ e: {
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 0 concepts</p><div style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\"><p>Expansion based on: </p><ul><li>http://terminology.hl7.org/CodeSystem/practitioner-role version 4.0.1</li><li>SNOMED CT International edition 31-Jan 2020</li></ul></div><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 0 concepts</p><div style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\"><p>Expansion based on: </p><ul><li>http://terminology.hl7.org/CodeSystem/practitioner-role version 4.0.1</li><li>SNOMED CT International edition 31-Jul 2020</li></ul></div><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr></table></div>"
   },
   "url" : "http://hl7.org/fhir/ValueSet/action-participant-role",
   "identifier" : [{
@@ -2373,7 +2373,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200131"
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200731"
     }]
   }
 },

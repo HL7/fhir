@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManufacturedItemDefinition xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/manufactureditemdefinition.xsd">
+  <id value="example"/>
+  <manufacturedDoseForm>
+    <coding>
+      <system value="http://ema.europa.eu/example/manufactureddoseform"/>
+      <code value="Film-coatedtablet"/>
+    </coding>
+  </manufacturedDoseForm>
+  <unitOfPresentation>
+    <coding>
+      <system value="http://ema.europa.eu/example/unitofpresentation"/>
+      <code value="Tablet"/>
+    </coding>
+  </unitOfPresentation>
+  <manufacturer>
+    <reference value="Organization/example"/>
+  </manufacturer>
+  <ingredient>
+    <reference>
+      <reference value="Ingredient/example"/>
+    </reference>
+  </ingredient>
+  <property>
+    <type>
+      <coding>
+        <code value="shape"/>
+      </coding>
+    </type>
+    <valueCodeableConcept>
+      <text value="Oval"/>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <code value="color"/>
+      </coding>
+    </type>
+    <valueCodeableConcept>
+      <text value="pink"/>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <code value="imprint"/>
+      </coding>
+    </type>
+    <valueCodeableConcept>
+      <text value="894"/>
+    </valueCodeableConcept>
+  </property>
+</ManufacturedItemDefinition>

@@ -1,0 +1,13 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<div>
+		<a name="scope"></a>
+		<h2>Scope and Usage</h2>
+		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
+		<p>
+			A medically related item or items of any type, in a container or package, representing the unit that has been prepared for sale, supply or similar use.
+			These can include packaged medications, devices and other items such as food, biologicals, raw materials, medical fluids, gases etc.
+			This resource represents the whole package of items, and all the packaging within, rather than the individual items themselves. 
+			In some cases a "product" exists at a logically higher level, which has a variety of available packages associated with it, typically of different sizes.
+		</p>
+	</div>
+</div>

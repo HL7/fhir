@@ -1,0 +1,61 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<div>
+		<a name="scope"> </a>
+		<h2>Scope and Usage</h2>
+		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
+		<p>
+			The MedicinalProductDefinition resource covers the detailed defining data of medicinal products, 
+			to a level beyond what is typically needed for day to day prescribing, but that is commonly required by manufacturers and regulators, 
+			and also for use in drug catalogs and pharmacopoeias.
+			
+			(For direct patient care when prescribing the correct resource is <a href="medication.html">Medication</a>).
+		</p>
+		<p>
+			This product resource is associated with others that describe the <a href="packagedproductdefinition.html">packaging</a>, 
+			the actual medication in its <a href="manufactureditemdefinition.html">manufactured form</a> (e.g. the tablet itself),
+			its <a href="ingredient.html">ingredients</a>, and the <a href="substancedefinition.html">substances</a> within.
+			These products are generally regulated by national or regional bodies or agencies. See note below about the <a href="#auth">RegulatedAuthorization</a> resource. 
+		</p>
+		<p>
+			The administrable (or "pharmaceutical") product - which differs in that it is now "mixed" from its components (if necessary) and is ready for use - is covered by the <a href="administrableproductdefinition.html">AdministrableProductDefinition</a> resource.
+		</p>
+		<p>
+			This MedicinalProductDefinition resource is the one that represents the product as a whole, even though some parts of the full data model are in the other 
+			resources of this module. The full product is actually represented by several resources working together - it can be thought of as one large model.
+		</p>
+		<p>
+			Each part can be used individually to represent some aspects of the full product. But the product as a whole, should be a MedicinalProductDefinition.
+			(As an example, if just a representation of the individual tablet of a product is needed, just the ManufacturedItemDefintion resource can be used. 
+			But that doesn't make the tablet into a "product" - it is still just the physical manifestation of an overall drug product. 
+			There is logically a MedicinalProductDefinition there too, even if it is not being used or transmitted at this time.) 
+		</p>
+		<p>
+			The MedicinalProductDefinition resource acts as a "header", representing the product itself, and is the unit that is 
+			generally submitted for regulation (and is approved for sale), or that appears in a drug catalog or pharmacopoeia. 
+		</p>
+		<p>
+			A list of drug definitions would be list of MedicinalProductDefinitions, but each would have a series of 
+			associated packs and manufactured items (and ingredients etc.), with references to the appropriate resources.
+		</p>
+		<p>
+			The "product level" at the top has features such as names and identifiers, classifications, legal status, 
+			and usage characteristics (indications, contra-indications) 
+			since they are common to all package types available for this product, the tablets (or powders etc.) that physically are the medication, 
+			as well as the form of the drug that is eventually given to the patient. 
+		</p>
+		<p>
+			A product can have multiple pack types - which may come and go over time - and the existence of differing package options 
+			(different amounts of the drug, or bottle vs. packet) is one of the reasons to have an overarching product record that collates them all. 
+		</p>
+		<p>
+			A product is normally limited to a single formulation (set of ingredients) and physical form and strength. 
+			These defining characteristics are some of the key features that marketing approvals and approved usage indications are based on. 
+			A change of any of these would usually mean a different product - a different MedicinalProductDefinition instance - and a different approval being needed.
+		</p>
+		<p id="auth">
+			<b>A key aspect of a regulated medicinal product is the authorisation (marketing authorisation). 
+			This is not directly carried on the product resource, but instead a <a href="regulatedauthorization.html">RegulatedAuthorization</a> resource is 
+				created which points back to this resource.</b>
+		</p>
+	</div>
+</div>
