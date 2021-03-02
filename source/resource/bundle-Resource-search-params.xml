@@ -60,6 +60,20 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Resource-_list"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_list"/>
+        <description value="All resources in nominated list (by id, Type/id, url or one of the magic List types)"/>
+        <code value="_list"/>
+        <type value="string"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Resource-_profile"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
