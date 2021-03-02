@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-  <id value="PlanDefinition-cqf"/>
+  <id value="PlanDefinition-cdshooks"/>
   <version value="0.01"/>
   <name value="CDS Hooks Service PlanDefinition"/>
   <title value="CDS Hooks Service PlanDefinition"/>
