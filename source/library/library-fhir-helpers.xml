@@ -34,7 +34,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">4.0.1</td>
+               <td style="padding-left: 25px; padding-right: 25px;">4.5.0</td>
             </tr>
          </table>
          <p/>
@@ -162,7 +162,7 @@
     <use value="official"/>
     <value value="FHIRHelpers"/>
     </identifier>
-    <version value="4.0.1"/>
+    <version value="4.5.0"/>
     <title value="FHIR Helpers"/>
     <status value="active"/>
     <experimental value="true"/>
@@ -179,12 +179,12 @@
 
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource value="Library/fhir-model-definition"/>
+    <resource value="http://example.org/fhir/Library/fhir-model-definition"/>
   </relatedArtifact>
   
   <relatedArtifact>
     <type value="predecessor"/>
-    <resource value="library-fhir-helpers-predecessor"/>
+    <resource value="http://example.org/fhir/Library/library-fhir-helpers-predecessor"/>
   </relatedArtifact>
 
   <content>

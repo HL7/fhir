@@ -205,12 +205,12 @@
 
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource value="Library/library-quick-model-definition"/>
+    <resource value="http://example.org/fhir/Library/library-quick-model-definition"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="derived-from"/>
-    <resource value="Measure/measure-exclusive-breastfeeding"/>
+    <resource value="http://example.org/fhir/Measure/measure-exclusive-breastfeeding"/>
   </relatedArtifact>
 
   <!--valueSet>

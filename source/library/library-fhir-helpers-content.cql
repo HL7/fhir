@@ -1,6 +1,6 @@
-library FHIRHelpers version '4.0.1'
+library FHIRHelpers version '4.0.0'
 
-using FHIR version '4.0.1'
+using FHIR version '4.0.0'
 
 define function ToInterval(period FHIR.Period):
     Interval[period."start".value, period."end".value]
