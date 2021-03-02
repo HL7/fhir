@@ -112,4 +112,16 @@
       <display value="Order Serum Dengue Virus IgM"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Alteplase Dosing for Stroke to be used by an EvidenceVariable resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-example-alteplase-dosing"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/example-alteplase-dosing"/>
+      <display value="Alteplase Dosing for Stroke"/>
+    </item>
+  </entry>
 </List>

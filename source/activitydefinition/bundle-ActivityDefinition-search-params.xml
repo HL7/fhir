@@ -30,7 +30,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.useContext.valueCodeableConcept"/>
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-context"/>
         <description value="A use context assigned to the activity definition"/>
@@ -50,7 +50,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.useContext.valueQuantity,ActivityDefinition.useContext.valueRange"/>
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-context-quantity"/>
         <description value="A quantity- or range-valued use context assigned to the activity definition"/>
@@ -70,7 +70,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.useContext.code"/>
+          <valueString value="{{name}}.useContext.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-context-type"/>
         <description value="A type of use context assigned to the activity definition"/>
@@ -135,10 +135,10 @@
       <SearchParameter>
         <id value="ActivityDefinition-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.date"/>
+          <valueString value="{{name}}.date"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-date"/>
         <description value="The activity definition publication date"/>
@@ -195,10 +195,10 @@
       <SearchParameter>
         <id value="ActivityDefinition-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.description"/>
+          <valueString value="{{name}}.description"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-description"/>
         <description value="The description of the activity definition"/>
@@ -218,7 +218,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.effectivePeriod"/>
+          <valueString value="{{name}}.effectivePeriod"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-effective"/>
         <description value="The time during which the activity definition is intended to be in use"/>
@@ -238,7 +238,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.identifier"/>
+          <valueString value="{{name}}.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-identifier"/>
         <description value="External identifier for the activity definition"/>
@@ -258,7 +258,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.jurisdiction"/>
+          <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-jurisdiction"/>
         <description value="Intended jurisdiction for the activity definition"/>
@@ -275,10 +275,10 @@
       <SearchParameter>
         <id value="ActivityDefinition-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.name"/>
+          <valueString value="{{name}}.name"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-name"/>
         <description value="Computationally friendly name of the activity definition"/>
@@ -315,10 +315,10 @@
       <SearchParameter>
         <id value="ActivityDefinition-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.publisher"/>
+          <valueString value="{{name}}.publisher"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-publisher"/>
         <description value="Name of the publisher of the activity definition"/>
@@ -335,10 +335,10 @@
       <SearchParameter>
         <id value="ActivityDefinition-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.status"/>
+          <valueString value="{{name}}.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-status"/>
         <description value="The current status of the activity definition"/>
@@ -375,10 +375,10 @@
       <SearchParameter>
         <id value="ActivityDefinition-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.title"/>
+          <valueString value="{{name}}.title"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-title"/>
         <description value="The human-friendly name of the activity definition"/>
@@ -415,10 +415,10 @@
       <SearchParameter>
         <id value="ActivityDefinition-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.url"/>
+          <valueString value="{{name}}.url"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-url"/>
         <description value="The uri that identifies the activity definition"/>
@@ -435,10 +435,10 @@
       <SearchParameter>
         <id value="ActivityDefinition-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ActivityDefinition.version"/>
+          <valueString value="{{name}}.version"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-version"/>
         <description value="The business version of the activity definition"/>
