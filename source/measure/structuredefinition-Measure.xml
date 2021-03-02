@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="anonymous"/>
@@ -52,6 +52,11 @@
     <name value="Workflow Pattern"/>
   </mapping>
   <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
     <name value="FiveWs Pattern Mapping"/>
@@ -60,11 +65,6 @@
     <identity value="objimpl"/>
     <uri value="http://hl7.org/fhir/object-implementation"/>
     <name value="Object Implementation Information"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -77,6 +77,9 @@
   <derivation value="specialization"/>
   <differential>
     <element id="Measure">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="The Measure resource is a FHIR-rendering of the Health Quality Measure Format (HQMF)."/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,0"/>
       </extension>
@@ -86,22 +89,28 @@
       <min value="0"/>
       <max value="*"/>
       <constraint>
+        <key value="cnl-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
+      <constraint>
         <key value="mea-1"/>
         <severity value="error"/>
         <human value="Stratifier SHALL be either a single criteria or a set of criteria components"/>
         <expression value="group.stratifier.all((code | description | criteria).exists() xor component.exists())"/>
         <xpath value="exists(f:group/stratifier/code) or exists(f:group/stratifier/component)"/>
-      </constraint>
-      <constraint>
-        <key value="mea-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[classCode=OBS, moodCode=DEFN]"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -109,6 +118,9 @@
       </mapping>
     </element>
     <element id="Measure.url">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Version-independent identifier, this was typically a GUID in HQMF documents, with additional GUIDs defined for each version of the eCQM. In FHIR, this is accomplished with the base URL as the version-independent identifier, and the base URL combined with the version element as the version-specific identifier."/>
+      </extension>
       <path value="Measure.url"/>
       <short value="Canonical identifier for this measure, represented as a URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this measure is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the measure is stored on different servers."/>
@@ -127,6 +139,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".identifier[scope=BUSN;reliability=ISS]"/>
       </mapping>
     </element>
     <element id="Measure.identifier">
@@ -150,11 +166,18 @@
         <map value="FiveWs.identifier"/>
       </mapping>
       <mapping>
+        <identity value="rim"/>
+        <map value=".identifier"/>
+      </mapping>
+      <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
     </element>
     <element id="Measure.version">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="This is only the version, not a complete version-specific identifier; this element is combined with the url to obtain a version-specific identifier (i.e. url|version)."/>
+      </extension>
       <path value="Measure.version"/>
       <short value="Business version of the measure"/>
       <definition value="The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
@@ -173,8 +196,15 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.name">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="In human-readable renderings of HQMF, the measure title is typically referred to as the name; this will be a source of confusion going forward, as _name_ in FHIR is intended to be a machine-friendly identifier (i.e. a valid identifier in traditional development languages such as Java, JavaScript, C, and C#)."/>
+      </extension>
       <path value="Measure.name"/>
       <short value="Name for this measure (computer friendly)"/>
       <definition value="A natural language name identifying the measure. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
@@ -185,8 +215,12 @@
       <type>
         <code value="string"/>
       </type>
-      <condition value="inv-0"/>
+      <condition value="cnl-0"/>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="Measure.title">
       <path value="Measure.title"/>
@@ -203,6 +237,10 @@
         <identity value="workflow"/>
         <map value="Definition.title"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".title"/>
+      </mapping>
     </element>
     <element id="Measure.subtitle">
       <path value="Measure.subtitle"/>
@@ -213,6 +251,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.status">
       <path value="Measure.status"/>
@@ -228,9 +270,6 @@
       <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
         </extension>
@@ -248,6 +287,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
       </mapping>
     </element>
     <element id="Measure.experimental">
@@ -270,8 +313,15 @@
         <identity value="w5"/>
         <map value="FiveWs.class"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.subject[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Subject is the entity that is the focus of the measure, typically patient, and the referent of population criteria expressions; population basis is the type of elements in the population, i.e. the result type of population criteria expressions. In the special case that the subject and population basis are the same, the result type of criteria expressions is a boolean. Population basis is scheduled to be added as a first-class element both at the root, and overridable per group."/>
+      </extension>
       <path value="Measure.subject[x]"/>
       <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
       <definition value="The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything."/>
@@ -287,9 +337,6 @@
       </type>
       <meaningWhenMissing value="Patient"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
         </extension>
@@ -297,6 +344,10 @@
         <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?) { only applies for subject Patient? }"/>
+      </mapping>
     </element>
     <element id="Measure.date">
       <path value="Measure.date"/>
@@ -317,6 +368,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].time"/>
       </mapping>
     </element>
     <element id="Measure.publisher">
@@ -339,6 +394,10 @@
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=AUT].role"/>
+      </mapping>
     </element>
     <element id="Measure.contact">
       <path value="Measure.contact"/>
@@ -355,6 +414,10 @@
         <identity value="workflow"/>
         <map value="Definition.contact"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=CALLBCK].role"/>
+      </mapping>
     </element>
     <element id="Measure.description">
       <path value="Measure.description"/>
@@ -370,6 +433,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.description"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
       </mapping>
     </element>
     <element id="Measure.useContext">
@@ -388,6 +455,10 @@
         <identity value="workflow"/>
         <map value="Definition.useContext"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.jurisdiction">
       <path value="Measure.jurisdiction"/>
@@ -401,9 +472,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Jurisdiction"/>
         </extension>
@@ -417,6 +485,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.jurisdiction"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
       </mapping>
     </element>
     <element id="Measure.purpose">
@@ -438,6 +510,10 @@
         <map value="FiveWs.why[x]"/>
       </mapping>
       <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode.text"/>
+      </mapping>
+      <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
@@ -451,8 +527,15 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.copyright">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Copyright is the copyright statement of the measure content itself, as opposed to content restrictions and usage information (see disclaimer)."/>
+      </extension>
       <path value="Measure.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the measure and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the measure."/>
@@ -467,6 +550,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.copyright"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>
@@ -488,6 +575,10 @@
         <map value="Definition.approvalDate"/>
       </mapping>
       <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=SUBJ].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
+      </mapping>
+      <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
@@ -506,6 +597,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.lastReviewDate"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRleationship[typeCode=SUBJ;subsetCode=RECENT].act[classCode=CACT;moodCode=EVN;code=review].effectiveTime"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>
@@ -529,6 +624,10 @@
         <map value="Definition.effectivePeriod"/>
       </mapping>
       <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+      <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
@@ -544,9 +643,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DefinitionTopic"/>
         </extension>
@@ -554,6 +650,10 @@
         <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.author">
       <path value="Measure.author"/>
@@ -578,6 +678,10 @@
       <type>
         <code value="ContactDetail"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT] { not a great match, but there does not appear to be an editor concept in V3 participation }"/>
+      </mapping>
     </element>
     <element id="Measure.reviewer">
       <path value="Measure.reviewer"/>
@@ -618,8 +722,15 @@
       <type>
         <code value="RelatedArtifact"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
+      </mapping>
     </element>
     <element id="Measure.library">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Library is not required to allow for measures that are strictly narrative, as well as for measures that have inline criteria expressions."/>
+      </extension>
       <path value="Measure.library"/>
       <short value="Logic used by the measure"/>
       <definition value="A reference to a Library resource containing the formal logic used by the measure."/>
@@ -629,8 +740,15 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.disclaimer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Disclaimer contains usage information, including licensing restrictions, as well as third-party content disclaimers such as copyright and license information of referenced content."/>
+      </extension>
       <path value="Measure.disclaimer"/>
       <short value="Disclaimer for use of the measure or its referenced content"/>
       <definition value="Notices and disclaimers regarding the use of the measure or related to intellectual property (such as code systems) referenced by the measure."/>
@@ -641,8 +759,15 @@
         <code value="markdown"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.scoring">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Scoring determines what population criteria types are allowed/expected, see the Quality Measure IG for profiles that make this explicit (which are scheduled for promotion to the base specification). In addition, scoring is scheduled to be introduced at the group level to allow groups to override the root scoring."/>
+      </extension>
       <path value="Measure.scoring"/>
       <short value="proportion | ratio | continuous-variable | cohort"/>
       <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented."/>
@@ -653,9 +778,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The scoring type of the measure."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureScoring"/>
         </extension>
@@ -663,6 +785,10 @@
         <description value="The scoring type of the measure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of how the calculation is performed }"/>
+      </mapping>
     </element>
     <element id="Measure.compositeScoring">
       <path value="Measure.compositeScoring"/>
@@ -675,9 +801,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The composite scoring method of the measure."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CompositeMeasureScoring"/>
         </extension>
@@ -685,8 +808,15 @@
         <description value="The composite scoring method of the measure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/composite-measure-scoring"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of how component measures are combined }"/>
+      </mapping>
     </element>
     <element id="Measure.type">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Type is scheduled to be introduced at the group level to allow groups to override the root type."/>
+      </extension>
       <path value="Measure.type"/>
       <short value="process | outcome | structure | patient-reported-outcome | composite"/>
       <definition value="Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
@@ -697,9 +827,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureType"/>
         </extension>
@@ -707,8 +834,15 @@
         <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of what the measure applies to }"/>
+      </mapping>
     </element>
     <element id="Measure.riskAdjustment">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Although risk adjustment is characterized narratively here, there is active work to describe risk adjustment models formally."/>
+      </extension>
       <path value="Measure.riskAdjustment"/>
       <short value="How risk adjustment is applied for this measure"/>
       <definition value="A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results."/>
@@ -719,6 +853,10 @@
         <code value="string"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.rateAggregation">
       <path value="Measure.rateAggregation"/>
@@ -731,8 +869,15 @@
         <code value="string"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.rationale">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Rationale and purpose are scheduled to be collapsed."/>
+      </extension>
       <path value="Measure.rationale"/>
       <short value="Detailed description of why the measure exists"/>
       <definition value="Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence."/>
@@ -743,6 +888,10 @@
         <code value="markdown"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.clinicalRecommendationStatement">
       <path value="Measure.clinicalRecommendationStatement"/>
@@ -754,6 +903,10 @@
         <code value="markdown"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.improvementNotation">
       <path value="Measure.improvementNotation"/>
@@ -767,9 +920,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureImprovementNotation"/>
         </extension>
@@ -777,6 +927,10 @@
         <description value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".interpretationCode"/>
+      </mapping>
     </element>
     <element id="Measure.definition">
       <path value="Measure.definition"/>
@@ -789,6 +943,10 @@
         <code value="markdown"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.guidance">
       <path value="Measure.guidance"/>
@@ -801,8 +959,15 @@
         <code value="markdown"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.group">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Measures can have any number of groups, each defining a different performance rate. Although currently they must all be of the same type, scoring, subject, and populationBasis, the committee has scheduled work to allow these aspects of performance rates to be specified per group, allowing much greater flexibility in the description and packaging of FHIR-based eCQMs."/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,300"/>
       </extension>
@@ -814,6 +979,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="Measure.group.code">
       <path value="Measure.group.code"/>
@@ -824,6 +993,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureGroupExample"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Example of measure groups."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-group-example"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
     </element>
     <element id="Measure.group.description">
       <path value="Measure.group.description"/>
@@ -834,6 +1015,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
     </element>
     <element id="Measure.group.population">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -847,6 +1032,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="Measure.group.population.code">
       <path value="Measure.group.population.code"/>
@@ -858,9 +1047,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of population."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasurePopulationType"/>
         </extension>
@@ -868,6 +1054,10 @@
         <description value="The type of population."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
     </element>
     <element id="Measure.group.population.description">
       <path value="Measure.group.population.description"/>
@@ -878,6 +1068,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
     </element>
     <element id="Measure.group.population.criteria">
       <path value="Measure.group.population.criteria"/>
@@ -889,6 +1083,10 @@
       <type>
         <code value="Expression"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.group.stratifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -902,6 +1100,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="Measure.group.stratifier.code">
       <path value="Measure.group.stratifier.code"/>
@@ -912,6 +1114,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureStratifierExample"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Meaning of the stratifier."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
     </element>
     <element id="Measure.group.stratifier.description">
       <path value="Measure.group.stratifier.description"/>
@@ -922,6 +1136,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
     </element>
     <element id="Measure.group.stratifier.criteria">
       <path value="Measure.group.stratifier.criteria"/>
@@ -932,6 +1150,10 @@
       <type>
         <code value="Expression"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.group.stratifier.component">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -946,6 +1168,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="Measure.group.stratifier.component.code">
       <path value="Measure.group.stratifier.component.code"/>
@@ -956,6 +1182,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureStratifierExample"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Meaning of the stratifier."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
     </element>
     <element id="Measure.group.stratifier.component.description">
       <path value="Measure.group.stratifier.component.description"/>
@@ -966,6 +1204,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
     </element>
     <element id="Measure.group.stratifier.component.criteria">
       <path value="Measure.group.stratifier.component.criteria"/>
@@ -976,6 +1218,10 @@
       <type>
         <code value="Expression"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="Measure.supplementalData">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -990,6 +1236,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="Measure.supplementalData.code">
       <path value="Measure.supplementalData.code"/>
@@ -1000,6 +1250,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureSupplementalDataExample"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Meaning of the supplemental data."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-supplemental-data-example"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
     </element>
     <element id="Measure.supplementalData.usage">
       <path value="Measure.supplementalData.usage"/>
@@ -1011,9 +1273,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The intended usage for supplemental data elements in the measure."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureDataUsage"/>
         </extension>
@@ -1021,6 +1280,10 @@
         <description value="The intended usage for supplemental data elements in the measure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-data-usage"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode"/>
+      </mapping>
     </element>
     <element id="Measure.supplementalData.description">
       <path value="Measure.supplementalData.description"/>
@@ -1031,6 +1294,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
     </element>
     <element id="Measure.supplementalData.criteria">
       <path value="Measure.supplementalData.criteria"/>
@@ -1041,6 +1308,10 @@
       <type>
         <code value="Expression"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>

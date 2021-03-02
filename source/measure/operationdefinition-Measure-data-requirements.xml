@@ -3,10 +3,10 @@
 <OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="Measure-data-requirements"/>
   <meta>
-    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
@@ -37,12 +37,12 @@
     <valueMarkdown value="The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the measure. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the libraries referenced by the measures. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements). This operation defines what resources are subsequently referenced in the evaluatedResources element of the MeasureReport when submitting measure data"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-data-requirements"/>
-  <version value="4.0.1"/>
+  <version value="4.5.0"/>
   <name value="data-requirements"/>
   <title value="Data Requirements"/>
   <status value="draft"/>
   <kind value="operation"/>
-  <date value="2021-01-17T07:06:13+11:00"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
