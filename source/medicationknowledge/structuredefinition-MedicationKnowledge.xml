@@ -176,10 +176,10 @@
         <map value="ManufacturedProduct.subjectOf.DocumentEvent.author"/>
       </mapping>
     </element>
-    <element id="MedicationKnowledge.manufacturer">
-      <path value="MedicationKnowledge.manufacturer"/>
-      <short value="Manufacturer of the item"/>
-      <definition value="Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product."/>
+    <element id="MedicationKnowledge.sponsor">
+      <path value="MedicationKnowledge.sponsor"/>
+      <short value="Organization responsible for manufacturing of the item"/>
+      <definition value="Describes the details of the manufacturer of the medication product. This is not intended to represent the distributor of a medication product.&#xA0; Describes&#xA0;the organization that is responsible for the manufacturing of the item and holds the registration to market the product in a jurisdiction. This might not be the company that physically manufactures the product.&#xA0; May be known as Market Authorization Holder."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -187,22 +187,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="script10.6"/>
-        <map value="no mapping"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="RXD-20-Substance Manufacturer Name / RXG-21-Substance Manufacturer Name / RXA-17-Substance Manufacturer Name"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".player.scopingRole[typeCode=MANU].scoper"/>
-      </mapping>
     </element>
     <element id="MedicationKnowledge.doseForm">
       <path value="MedicationKnowledge.doseForm"/>
@@ -590,24 +574,49 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.administrationGuideline">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="120,200"/>
-      </extension>
-      <path value="MedicationKnowledge.administrationGuideline"/>
-      <short value="Guidelines or protocols for administration of the medication"/>
-      <definition value="Guidelines or protocols that are applicable for the administration of the medication."/>
+    <element id="MedicationKnowledge.indicationGuideline">
+      <path value="MedicationKnowledge.indicationGuideline"/>
+      <short value="Guidelines or protocols for administration of the medication for an indication"/>
+      <definition value="Guidelines or protocols that are applicable for the administration of the medication based on indication."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.administrationGuideline.dosage">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,300"/>
-      </extension>
-      <path value="MedicationKnowledge.administrationGuideline.dosage"/>
+    <element id="MedicationKnowledge.indicationGuideline.indication">
+      <path value="MedicationKnowledge.indicationGuideline.indication"/>
+      <short value="Indication for use that applies to the specific administration guideline"/>
+      <definition value="Indication or reason for use of the medication that applies to the specific administration guideline."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline">
+      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline"/>
+      <short value="Guidelines for dosage of the medication"/>
+      <definition value="The guidelines for the dosage of the medication for the indication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.treatmentIntent">
+      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.treatmentIntent"/>
+      <short value="Intention of the treatment"/>
+      <definition value="The overall intention of the treatment, for example, prophylactic, supporative, curative, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage">
+      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage"/>
       <short value="Dosage for the medication for the specific guidelines"/>
       <definition value="Dosage for the medication for the specific guidelines."/>
       <min value="0"/>
@@ -616,8 +625,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.administrationGuideline.dosage.type">
-      <path value="MedicationKnowledge.administrationGuideline.dosage.type"/>
+    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.type">
+      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.type"/>
       <short value="Category of dosage for a medication"/>
       <definition value="The type or category of dosage for a given medication (for example, prophylaxis, maintenance, therapeutic, etc.)."/>
       <min value="1"/>
@@ -626,8 +635,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.administrationGuideline.dosage.dosage">
-      <path value="MedicationKnowledge.administrationGuideline.dosage.dosage"/>
+    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.dosage">
+      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.dosage"/>
       <short value="Dosage for the medication for the specific guidelines"/>
       <definition value="Dosage for the medication for the specific guidelines."/>
       <min value="1"/>
@@ -636,22 +645,18 @@
         <code value="Dosage"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.administrationGuideline.indication">
-      <path value="MedicationKnowledge.administrationGuideline.indication"/>
-      <short value="Indication for use that apply to the specific administration guidelines"/>
-      <definition value="Indication or reason for use of the medication that applies to the specific administration guidelines."/>
+    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.administrationTreatment">
+      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.administrationTreatment"/>
+      <short value="Type of treatment the guideline applies to"/>
+      <definition value="The type of the treatment that the guideline applies to, for example, long term therapy, first line treatment, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+        <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.administrationGuideline.patientCharacteristic">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="50,300"/>
-      </extension>
-      <path value="MedicationKnowledge.administrationGuideline.patientCharacteristic"/>
+    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic">
+      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic"/>
       <short value="Characteristics of the patient that are relevant to the administration guidelines"/>
       <definition value="Characteristics of the patient that are relevant to the administration guidelines (for example, height, weight, gender, etc.)."/>
       <min value="0"/>
@@ -660,8 +665,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.administrationGuideline.patientCharacteristic.type">
-      <path value="MedicationKnowledge.administrationGuideline.patientCharacteristic.type"/>
+    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.type">
+      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.type"/>
       <short value="Categorization of specific characteristic that is relevant to the administration guideline"/>
       <definition value="The categorization of the specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender)."/>
       <min value="1"/>
@@ -670,8 +675,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.administrationGuideline.patientCharacteristic.value[x]">
-      <path value="MedicationKnowledge.administrationGuideline.patientCharacteristic.value[x]"/>
+    <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.value[x]">
+      <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.value[x]"/>
       <short value="The specific characteristic"/>
       <definition value="The specific characteristic (e.g. height, weight, gender, etc.)."/>
       <min value="0"/>
@@ -681,7 +686,9 @@
       </type>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
       </type>
     </element>
     <element id="MedicationKnowledge.medicineClassification">

@@ -21,7 +21,6 @@
       <display value="phenoxymethylpenicillin 125 mg / 5 mL oral liquid, 5 mL measure"/>
     </coding>  
   </code>  
-  <isBrand value="false"/>
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>

@@ -10,12 +10,32 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ClinicalUseIssue.contraindication.diseaseSymptomProcedure"/>
+          <valueString value="ClinicalUseIssue.contraindication.diseaseSymptomProcedure.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseIssue-contraindication"/>
-        <description value="The situation that is being documented as contraindicating against this item"/>
+        <description value="The situation that is being documented as contraindicating against this item, as a code"/>
         <code value="contraindication"/>
         <type value="token"/>
+        <expression value="ClinicalUseIssue.contraindication.diseaseSymptomProcedure"/>
+        <xpath value="f:ClinicalUseIssue/f:contraindication/f:diseaseSymptomProcedure"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalUseIssue-contraindication-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalUseIssue.contraindication.diseaseSymptomProcedure.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseIssue-contraindication-reference"/>
+        <description value="The situation that is being documented as contraindicating against this item, as a reference"/>
+        <code value="contraindication-reference"/>
+        <type value="reference"/>
         <expression value="ClinicalUseIssue.contraindication.diseaseSymptomProcedure"/>
         <xpath value="f:ClinicalUseIssue/f:contraindication/f:diseaseSymptomProcedure"/>
         <xpathUsage value="normal"/>
@@ -30,12 +50,32 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ClinicalUseIssue.undesirableEffect.symptomConditionEffect"/>
+          <valueString value="ClinicalUseIssue.undesirableEffect.symptomConditionEffect.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseIssue-effect"/>
-        <description value="The situation in which the undesirable effect may manifest"/>
+        <description value="The situation in which the undesirable effect may manifest, as a code"/>
         <code value="effect"/>
         <type value="token"/>
+        <expression value="ClinicalUseIssue.undesirableEffect.symptomConditionEffect"/>
+        <xpath value="f:ClinicalUseIssue/f:undesirableEffect/f:symptomConditionEffect"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalUseIssue-effect-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalUseIssue.undesirableEffect.symptomConditionEffect.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseIssue-effect-reference"/>
+        <description value="The situation in which the undesirable effect may manifest, as a reference"/>
+        <code value="effect-reference"/>
+        <type value="reference"/>
         <expression value="ClinicalUseIssue.undesirableEffect.symptomConditionEffect"/>
         <xpath value="f:ClinicalUseIssue/f:undesirableEffect/f:symptomConditionEffect"/>
         <xpathUsage value="normal"/>
@@ -70,12 +110,32 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ClinicalUseIssue.indication.diseaseSymptomProcedure"/>
+          <valueString value="ClinicalUseIssue.indication.diseaseSymptomProcedure.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseIssue-indication"/>
-        <description value="The situation that is being documented as an indicaton for this item"/>
+        <description value="The situation that is being documented as an indicaton for this item, as a code"/>
         <code value="indication"/>
         <type value="token"/>
+        <expression value="ClinicalUseIssue.indication.diseaseSymptomProcedure"/>
+        <xpath value="f:ClinicalUseIssue/f:indication/f:diseaseSymptomProcedure"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalUseIssue-indication-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalUseIssue.indication.diseaseSymptomProcedure.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseIssue-indication"/>
+        <description value="The situation that is being documented as an indicaton for this item, as a reference"/>
+        <code value="indication-reference"/>
+        <type value="reference"/>
         <expression value="ClinicalUseIssue.indication.diseaseSymptomProcedure"/>
         <xpath value="f:ClinicalUseIssue/f:indication/f:diseaseSymptomProcedure"/>
         <xpathUsage value="normal"/>

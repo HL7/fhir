@@ -12,7 +12,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/DomainResource-_text"/>
         <description value="Search on the narrative of the resource"/>
         <code value="_text"/>
-        <type value="string"/>
+        <type value="special"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

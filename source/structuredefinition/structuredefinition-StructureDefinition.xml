@@ -866,7 +866,7 @@
         <key value="sdf-8"/>
         <severity value="error"/>
         <human value="All snapshot elements must start with the StructureDefinition&#39;s specified type for non-logical models, or with the same type name for logical models"/>
-        <expression value="(%resource.kind = &#39;logical&#39; or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&amp;&#39;.&#39;))"/>
+        <expression value="(%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&amp;&#39;.&#39;))"/>
         <xpath value="f:element[1]/f:path/@value=parent::f:StructureDefinition/f:type/@value and count(f:element[position()!=1])=count(f:element[position()!=1][starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, &#39;.&#39;))])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
