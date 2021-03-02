@@ -68,6 +68,7 @@
         <description value="All resources in nominated list (by id, Type/id, url or one of the magic List types)"/>
         <code value="_list"/>
         <type value="string"/>
+        <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
