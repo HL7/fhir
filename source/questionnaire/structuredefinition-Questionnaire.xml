@@ -691,7 +691,7 @@
         <severity value="error"/>
         <human value="Only &#39;choice&#39; and &#39;open-choice&#39; items can have answerValueSet"/>
         <expression value="(type =&#39;choice&#39; or type = &#39;open-choice&#39; or type = &#39;decimal&#39; or type = &#39;integer&#39; or type = &#39;date&#39; or type = &#39;dateTime&#39; or type = &#39;time&#39; or type = &#39;string&#39; or type = &#39;quantity&#39;) or (answerValueSet.empty() and answerOption.empty())"/>
-        <xpath value="f:type/@value=('choice','open-choice','decimal','integer','date','dateTime','time','string','quantity') or not(f:answerOption or f:answerValueSet)"/>
+        <xpath value="f:type/@value=(&#39;choice&#39;,&#39;open-choice&#39;,&#39;decimal&#39;,&#39;integer&#39;,&#39;date&#39;,&#39;dateTime&#39;,&#39;time&#39;,&#39;string&#39;,&#39;quantity&#39;,&#39;) or not(f:answerOption or f:answerValueSet)"/>
       </constraint>
       <constraint>
         <key value="que-4"/>
@@ -884,7 +884,7 @@
         <key value="que-7"/>
         <severity value="error"/>
         <human value="If the operator is &#39;exists&#39;, the value must be a boolean"/>
-        <expression value="operator = &#39;exists&#39; implies (answer is Boolean)"/>
+        <expression value="operator = &#39;exists&#39; implies (answer is boolean)"/>
         <xpath value="f:operator/@value != &#39;exists&#39; or exists(f:answerBoolean)"/>
       </constraint>
       <isModifier value="true"/>
