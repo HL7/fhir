@@ -18,18 +18,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="CMS 146 Patient Listing Report"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="measurereport-cms146-cat2-example"/>
-    </extension>
-    <item>
-      <reference value="MeasureReport/measurereport-cms146-cat2-example"/>
-      <display value="CMS146PatientList"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="CMS 146 Individual Report"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -50,6 +38,18 @@
     <item>
       <reference value="MeasureReport/hiv-indicators"/>
       <display value="HIV Indicators"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example MeasureReport for a single patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measurereport-general-example"/>
+    </extension>
+    <item>
+      <reference value="MeasureReport/general-example-of-report"/>
+      <display value="General Example"/>
     </item>
   </entry>
 </List>
