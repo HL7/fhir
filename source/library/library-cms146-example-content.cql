@@ -5,8 +5,8 @@ Pull requests
 Issues
 Marketplace
 Explore
- 
-@grahamegrieve 
+
+@grahamegrieve
 HL7
 /
 fhir
@@ -19,7 +19,7 @@ fhir/source/library/library-cms146-example.xml
 d6bdadc 5 hours ago
 @brynrhodes@melvapeters
 607 lines (598 sloc)  68.9 KB
-  
+
 <?xml version="1.0" encoding="UTF-8"?>
 <Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
   <id value="library-cms146-example"/>
@@ -438,7 +438,7 @@ d6bdadc 5 hours ago
                   <div>
                      <p style="margin-bottom: 5px;">
                         <b>type: </b>
-                        <span>MedicationUsage</span>
+                        <span>MedicationStatement</span>
                      </p>
                      <p style="margin-bottom: 5px;">
                         <b>code filter:</b>
@@ -605,7 +605,7 @@ d6bdadc 5 hours ago
   </dataRequirement>
 
   <dataRequirement>
-    <type value="MedicationUsage"/>
+    <type value="MedicationStatement"/>
     <codeFilter>
       <path value="status"/>
       <code>

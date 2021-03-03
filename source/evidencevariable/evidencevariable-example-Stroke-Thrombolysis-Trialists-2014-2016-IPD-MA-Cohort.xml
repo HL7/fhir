@@ -12,6 +12,15 @@
   <name value="Stroke Thrombolysis Trialists’ 2014-2016 IPD-MA Cohort"/>
   <title value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis"/>
 	<status value="draft"/>
+  <useContext>
+    <code>
+      <system>http://terminology.hl7.org/CodeSystem/usage-context-type</system>
+      <code>focus</code>
+    </code>
+    <valueCodeableConcept>
+      <text>Stroke</text>
+    </valueCodeableConcept>
+  </useContext>
 	<relatedArtifact>
 		<type value="citation"/>
 		<label value="Emberson 2014"/>
