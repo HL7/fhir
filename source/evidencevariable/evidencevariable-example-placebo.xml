@@ -11,6 +11,15 @@
   </text>
   <title value="placebo"/>
   <status value="draft" />
+  <useContext>
+    <code>
+      <system>http://terminology.hl7.org/CodeSystem/usage-context-type</system>
+      <code>focus</code>
+    </code>
+    <valueCodeableConcept>
+      <text>Stroke</text>
+    </valueCodeableConcept>
+  </useContext>
   <actual value="true"/>
   <characteristic>
 	<description value="placebo"/>

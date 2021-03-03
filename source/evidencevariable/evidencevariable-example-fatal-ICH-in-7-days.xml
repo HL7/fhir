@@ -14,6 +14,15 @@
   <note>
     <text value="Death must be due to intracranial hemorrhage"/>
   </note>
+  <useContext>
+    <code>
+      <system>http://terminology.hl7.org/CodeSystem/usage-context-type</system>
+      <code>focus</code>
+    </code>
+    <valueCodeableConcept>
+      <text>Stroke</text>
+    </valueCodeableConcept>
+  </useContext>
   <actual value="true"/>
   <characteristicCombination value="intersection"/>
   <characteristic>

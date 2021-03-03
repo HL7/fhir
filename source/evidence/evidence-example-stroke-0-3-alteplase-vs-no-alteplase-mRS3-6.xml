@@ -12,6 +12,15 @@
   <url value="Evidence/example-stroke-0-3-alteplase-vs-no-alteplase-mRS3-6"/>
   <title value="Effect of Alteplase vs No alteplase on mRS 3-6 at 90 days in Stroke 0-3 hours prior"/>
   <status value="draft"/>
+  <useContext>
+    <code>
+      <system>http://terminology.hl7.org/CodeSystem/usage-context-type</system>
+      <code>focus</code>
+    </code>
+    <valueCodeableConcept>
+      <text>Stroke</text>
+    </valueCodeableConcept>
+  </useContext>
   <relatedArtifact>
 	<type value="citation"/>
 	<label value="Wardlaw 2014"/>

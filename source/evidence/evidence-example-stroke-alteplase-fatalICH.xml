@@ -12,6 +12,15 @@
   <url value="Evidence/example-stroke-alteplase-fatalICH"/>
   <title value="Risk of fatal ICH with alteplase for stroke"/>
   <status value="draft"/>
+  <useContext>
+    <code>
+      <system>http://terminology.hl7.org/CodeSystem/usage-context-type</system>
+      <code>focus</code>
+    </code>
+    <valueCodeableConcept>
+      <text>Stroke</text>
+    </valueCodeableConcept>
+  </useContext>
   <relatedArtifact>
 	<type value="citation"/>
 	<label value="Emberson 2014"/>
