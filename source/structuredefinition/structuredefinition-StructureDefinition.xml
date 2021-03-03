@@ -936,7 +936,7 @@
         <severity value="error"/>
         <human value="No slicing on the root element"/>
         <expression value="element.where(path.contains(&#39;.&#39;).not()).slicing.empty()"/>
-        <xpath value="not(f:element[1]/f:slicing)"/>
+        <xpath value="not(exists(f:element[not(contains(f:path/@value,'.'))]/f:slicing))"/>
       </constraint>
       <constraint>
         <key value="sdf-8a"/>
