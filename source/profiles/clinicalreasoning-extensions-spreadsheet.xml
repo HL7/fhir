@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4127,8 +4127,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">Attachment</Data></Cell>
+    <Cell><Data ss:Type="String">Element</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -4138,8 +4138,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">Attachment</Data></Cell>
+    <Cell><Data ss:Type="String">Element</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -4149,8 +4149,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">citation</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">Attachment</Data></Cell>
+    <Cell><Data ss:Type="String">Element</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">citation</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
@@ -4623,7 +4623,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">Contributor address</Data></Cell>
     <Cell><Data ss:Type="String">The address of the contributor</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">certainty</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
@@ -4631,21 +4631,21 @@
     <Cell ss:Index="14"><Data ss:Type="String">Certainty or quality rating</Data></Cell>
     <Cell><Data ss:Type="String">An assessment of certainty, confidence, or quality of the item on which it appears</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">certainty.description</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Textual description of certainty</Data></Cell>
     <Cell><Data ss:Type="String">A textual description of the certainty</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">certainty.note</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Annotation</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Footnotes and/or explanatory notes</Data></Cell>
     <Cell><Data ss:Type="String">Footnotes and/or explanatory notes about the certainty</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">certainty.type</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -4653,7 +4653,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">Aspect of certainty being rated</Data></Cell>
     <Cell><Data ss:Type="String">The aspect of the certainty being rated</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">certainty.rating</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -4661,7 +4661,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">Assessment or judgement of the aspect</Data></Cell>
     <Cell><Data ss:Type="String">The assessment, rating, or judgement of the aspect being rated</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">certainty.rater</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
@@ -4680,10 +4680,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6002,7 +6003,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
