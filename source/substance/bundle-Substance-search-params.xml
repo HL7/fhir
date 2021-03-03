@@ -27,17 +27,17 @@
       <SearchParameter>
         <id value="Substance-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Substance.code,Substance.ingredient.substanceCodeableConcept"/>
+          <valueString value="Substance.code.concept,Substance.ingredient.substanceCodeableConcept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Substance-code"/>
         <description value="The code of the substance or ingredient"/>
         <code value="code"/>
         <type value="token"/>
-        <expression value="Substance.code | (Substance.ingredient.substance as CodeableConcept)"/>
-        <xpath value="f:Substance/f:code | f:Substance/f:ingredient/f:substanceCodeableConcept"/>
+        <expression value="Substance.code.concept | (Substance.ingredient.substance as CodeableConcept)"/>
+        <xpath value="f:Substance/f:code/f:concept | f:Substance/f:ingredient/f:substanceCodeableConcept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -45,19 +45,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Substance-container-identifier"/>
+        <id value="Substance-code-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Substance.instance.identifier"/>
+          <valueString value="Substance.code.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Substance-container-identifier"/>
-        <description value="Identifier of the package/container"/>
-        <code value="container-identifier"/>
-        <type value="token"/>
-        <expression value="Substance.instance.identifier"/>
-        <xpath value="f:Substance/f:instance/f:identifier"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Substance-code-reference"/>
+        <description value="A reference to the defining substance"/>
+        <code value="code-reference"/>
+        <type value="reference"/>
+        <expression value="Substance.code.reference"/>
+        <xpath value="f:Substance/f:code/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -67,17 +67,17 @@
       <SearchParameter>
         <id value="Substance-expiry"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Substance.instance.expiry"/>
+          <valueString value="Substance.expiry"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Substance-expiry"/>
         <description value="Expiry date of package or container of substance"/>
         <code value="expiry"/>
         <type value="date"/>
-        <expression value="Substance.instance.expiry"/>
-        <xpath value="f:Substance/f:instance/f:expiry"/>
+        <expression value="Substance.expiry"/>
+        <xpath value="f:Substance/f:expiry"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -110,14 +110,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Substance.instance.quantity"/>
+          <valueString value="Substance.quantity"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Substance-quantity"/>
         <description value="Amount of substance in the package"/>
         <code value="quantity"/>
         <type value="quantity"/>
-        <expression value="Substance.instance.quantity"/>
-        <xpath value="f:Substance/f:instance/f:quantity"/>
+        <expression value="Substance.quantity"/>
+        <xpath value="f:Substance/f:quantity"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -127,7 +127,7 @@
       <SearchParameter>
         <id value="Substance-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Substance.status"/>

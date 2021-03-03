@@ -155,6 +155,9 @@
 	<item id="ChargeItemDefinition">
 		<translation lang="en">ChargeItemDefinition</translation>
 	</item>
+	<item id="Citation">
+		<translation lang="en">Citation</translation>
+	</item>
 	<item id="Claim">
 		<translation lang="en">Claim</translation>
 		<translation lang="es">Reclamación / Factura</translation>
@@ -172,6 +175,9 @@
 		<translation lang="fr">ImpressionClinique</translation>
 		<translation lang="it">ImpressioneClinica</translation>
 		<translation lang="zh">临床印象</translation>
+	</item>
+	<item id="ClinicalUseIssue">
+		<translation lang="en">ClinicalUseIssue</translation>
 	</item>
 	<item id="CodeSystem">
 		<translation lang="en">CodeSystem</translation>
@@ -323,9 +329,6 @@
 		<translation lang="es">RecursoDeDominio</translation>
 		<translation lang="zh">领域资源</translation>
 	</item>
-  <item id="EffectEvidenceSynthesis">
-    <translation lang="en">EffectEvidenceSynthesis</translation>
-  </item>
 	<item id="Encounter">
 		<translation lang="en">Encounter</translation>
 		<translation lang="zh">就医过程</translation>
@@ -364,11 +367,14 @@
 		<translation lang="es">DefinitionDeEvento</translation>
 		<translation lang="zh">事件定义</translation>
 	</item>
-  <item id="Evidence">
-    <translation lang="en">Evidence</translation>
-  </item>
-  <item id="EvidenceVariable">
-    <translation lang="en">EvidenceVariable</translation>
+	<item id="Evidence">
+		<translation lang="en">Evidence</translation>
+	</item>
+	<item id="EvidenceReport">
+		<translation lang="en">EvidenceReport</translation>
+	</item>
+	<item id="EvidenceVariable">
+		<translation lang="en">EvidenceVariable</translation>
 	</item>
 	<item id="ExampleScenario">
 		<translation lang="en">ExampleScenario</translation>
@@ -567,29 +573,32 @@
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>
 	</item>
-	<item id="MedicinalProduct">
-		<translation lang="en">MedicinalProduct</translation>
-		<translation lang="it">ProdottoMedicinale</translation>
+	<item id="MedicinalProductDefinition">
+		<translation lang="en">MedicinalProductDefinition</translation>
+	</item>
+	<item id="PackagedProductDefinition">
+		<translation lang="en">PackagedProductDefinition</translation>
+	</item>
+	<item id="ManufacturedItemDefinition">
+		<translation lang="en">ManufacturedItemDefinition</translation>
+	</item>
+	<item id="AdministrableProductDefinition">
+		<translation lang="en">AdministrableProductDefinition</translation>
 	</item>
 	<item id="MedicinalProductAuthorization">
 		<translation lang="en">MedicinalProductAuthorization</translation>
 		<translation lang="it">AutorizzazioneProdottoMedicinale</translation>
 	</item>
-	<item id="MedicinalProductContraindication">
-		<translation lang="en">MedicinalProductContraindication</translation>
-	</item>
-	<item id="MedicinalProductIndication">
-		<translation lang="en">MedicinalProductInteraction</translation>
-	</item>
-	<item id="MedicinalProductInteraction">
-		<translation lang="en">MedicinalProductInteraction</translation>
-	</item>
-	<item id="MedicinalProductUndesirableEffect">
-		<translation lang="en">MedicinalProductUndesirableEffect</translation>
+	<item id="RegulatedAuthorization">
+		<translation lang="en">RegulatedAuthorization</translation>
 	</item>
 	<item id="MedicinalProductIngredient">
 		<translation lang="en">MedicinalProductIngredient</translation>
 		<translation lang="it">IngredienteProdottoMedicinale</translation>
+	</item>
+	<item id="Ingredient">
+		<translation lang="en">Ingredient</translation>
+		<!--translation lang="it">IngredienteProdottoMedicinale</translation-->
 	</item>
 	<item id="MedicinalProductManufactured">
 		<translation lang="en">MedicinalProductManufactured</translation>
@@ -633,6 +642,12 @@
 		<translation lang="es">OrdenNutrición</translation>
 		<translation lang="zh">营养医嘱</translation>
 	</item>
+	<item id="NutritionProduct">
+			<translation lang="en">NutritionProduct</translation>
+			<translation lang="fr">ProduitNutritionnel</translation>
+			<translation lang="es">ProductoNutricional</translation>
+	</item>
+
 	<item id="Observation">
 		<translation lang="en">Observation</translation>
 		<translation lang="zh">观察</translation>
@@ -846,9 +861,6 @@
 		<translation lang="es">EvaluacionDeRiesgo</translation>
 		<translation lang="zh">风险评估</translation>
 	</item>
-  <item id="RiskEvidenceSynthesis">
-    <translation lang="en">RiskEvidenceSynthesis</translation>
-  </item>
 	<item id="Schedule">
 		<translation lang="en">Schedule</translation>
 		<translation lang="es">Agenda</translation>
@@ -932,21 +944,9 @@
     <item id="SubstanceReferenceInformation">
         <translation lang="en">SubstanceReferenceInformation</translation>
     </item>
-	<item id="SubstanceSpecification">
-		<translation lang="en">SubstanceSpecification</translation>
+	<item id="SubstanceDefinition">
+		<translation lang="en">SubstanceDefinition</translation>
 	</item>
-	<item id="SubstanceSourceMaterial">
-		<translation lang="en">SubstanceSourceMaterial</translation>
-	</item>
-    <item id="SubstancePolymer">
-        <translation lang="en">SubstancePolymer</translation>
-	</item>
-	<item id="SubstanceProtein">
-		<translation lang="en">SubstanceProtein</translation>
-	</item>
-	<item id="SubstanceNucleicAcid">
-		<translation lang="en">SubstanceNucleicAcid</translation>
-    </item>
 	<item id="SupplyDelivery">
 		<translation lang="en">SupplyDelivery</translation>
 		<translation lang="zh">供应交付</translation>

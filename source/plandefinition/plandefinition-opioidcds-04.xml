@@ -85,7 +85,7 @@
         <display value="MME Conversion Tables"/>
         <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
     </relatedArtifact>
-    <library value="Library/opioidcds-recommendation-04"/>
+    <library value="http://example.org/fhir/Library/opioidcds-recommendation-04"/>
     <action>
         <!-- non-dynamic card summary -->
         <title value="Extended-release opioid prescription triggered."/>

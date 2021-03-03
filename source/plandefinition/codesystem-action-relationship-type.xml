@@ -3,21 +3,12 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="action-relationship-type"/>
   <meta>
-    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <h2>ActionRelationshipType</h2>
-      
-      <div>
-        
-        <p>Defines the types of relationships between actions.</p>
-
-      
-      </div>
       
       <p>This code system http://hl7.org/fhir/action-relationship-type defines the following codes:</p>
       
@@ -182,19 +173,19 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="3"/>
   </extension>
   <url value="http://hl7.org/fhir/action-relationship-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.814"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.814"/>
   </identifier>
-  <version value="4.0.1"/>
+  <version value="4.5.0"/>
   <name value="ActionRelationshipType"/>
   <title value="ActionRelationshipType"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-01-17T07:06:13+11:00"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

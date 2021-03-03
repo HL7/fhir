@@ -734,19 +734,21 @@
         </coding>
         <text value="citalopram"/>
       </code>
-        <form>
+        <doseForm>
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="385055001"/>
             <display value="Tablet dose form"/>
           </coding>
           <text value="Tablet dose form"/>
-        </form>
+        </doseForm>
         <ingredient>
-          <itemReference>
+          <item>
+            <reference>
             <reference value="#citalopramSubstance"/>
-          </itemReference>
-          <strength>
+            </reference>
+          </item>
+          <strengthRatio>
             <numerator>
               <value value="20"/>
               <unit value="mg"/>
@@ -755,19 +757,22 @@
               <value value="1"/>
               <unit value="{tbl}"/>
             </denominator>
-          </strength>
+          </strengthRatio>
         </ingredient>
     </Medication>
   </contained>
   <contained>
     <Substance>
       <id value="citalopramSubstance"/>
+      <instance value="false"/>
       <code>
-        <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-          <code value="2556"/>
-        </coding>
-        <text value="citalopram"/>
+        <concept>
+          <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="2556"/>
+          </coding>
+          <text value="citalopram"/>
+        </concept>
       </code>
     </Substance>
   </contained>
@@ -926,13 +931,13 @@
   </relatedArtifact>
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="ActivityDefinition/referralPrimaryCareMentalHealth"/>
+    <resource value="http://example.org/fhir/ActivityDefinition/referralPrimaryCareMentalHealth"/>
   </relatedArtifact>
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource value="ActivityDefinition/citalopramPrescription"/>
+    <resource value="http://example.org/fhir/ActivityDefinition/citalopramPrescription"/>
   </relatedArtifact>
-  <library value="Library/suiciderisk-orderset-logic"/>
+  <library value="http://example.org/fhir/Library/suiciderisk-orderset-logic"/>
   <!-- Actions -->
   <action>
     <title value="Suicide Risk Assessment and Outpatient Management"/>

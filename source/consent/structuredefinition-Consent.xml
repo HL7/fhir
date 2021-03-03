@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Consent"/>
@@ -81,28 +81,28 @@
         <severity value="error"/>
         <human value="IF Scope=adr, there must be a patient"/>
         <expression value="patient.exists() or scope.coding.where(system=&#39;something&#39; and code=&#39;adr&#39;).exists().not()"/>
-        <xpath value="exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value=&#39;something&#39; and f:code/@value=&#39;adr&#39;])))"/>
+        <xpath value="exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='adr']))"/>
       </constraint>
       <constraint>
         <key value="ppc-5"/>
         <severity value="error"/>
         <human value="IF Scope=treatment, there must be a patient"/>
         <expression value="patient.exists() or scope.coding.where(system=&#39;something&#39; and code=&#39;treatment&#39;).exists().not()"/>
-        <xpath value="exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value=&#39;something&#39; and f:code/@value=&#39;treatment&#39;])))"/>
+        <xpath value="exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='treatment']))"/>
       </constraint>
       <constraint>
         <key value="ppc-2"/>
         <severity value="error"/>
         <human value="IF Scope=privacy, there must be a patient"/>
         <expression value="patient.exists() or scope.coding.where(system=&#39;something&#39; and code=&#39;patient-privacy&#39;).exists().not()"/>
-        <xpath value="exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value=&#39;something&#39; and f:code/@value=&#39;patient-privacy&#39;])))"/>
+        <xpath value="exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='patient-privacy']))"/>
       </constraint>
       <constraint>
         <key value="ppc-3"/>
         <severity value="error"/>
         <human value="IF Scope=research, there must be a patient"/>
         <expression value="patient.exists() or scope.coding.where(system=&#39;something&#39; and code=&#39;research&#39;).exists().not()"/>
-        <xpath value="exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value=&#39;something&#39; and f:code/@value=&#39;research&#39;])))"/>
+        <xpath value="exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='research']))"/>
       </constraint>
       <constraint>
         <key value="ppc-1"/>
@@ -138,13 +138,6 @@
       <type>
         <code value="Identifier"/>
       </type>
-      <example>
-        <label value="General"/>
-        <valueIdentifier>
-          <system value="urn:ietf:rfc:3986"/>
-          <value value="Local eCMS identifier"/>
-        </valueIdentifier>
-      </example>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>

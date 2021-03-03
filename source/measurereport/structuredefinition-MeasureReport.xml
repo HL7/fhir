@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="business"/>
@@ -44,14 +44,14 @@
   <description value="The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation."/>
   <fhirVersion value="4.0.1"/>
   <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
     <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -60,6 +60,9 @@
   <derivation value="specialization"/>
   <differential>
     <element id="MeasureReport">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="The MeasureReport resource is a FHIR rendering of the Quality Reporting Document Architecture, category I and III, as well as category II, which was never fully materialized in QRDA."/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,0"/>
       </extension>
@@ -74,6 +77,7 @@
         <human value="Stratifiers SHALL be either a single criteria or a set of criteria components"/>
         <expression value="group.stratifier.stratum.all(value.exists() xor component.exists())"/>
         <xpath value="not(f:kind/@value=&#39;data-collection&#39;) or not(exists(f:group))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>
       <constraint>
         <key value="mrp-1"/>
@@ -81,7 +85,12 @@
         <human value="Measure Reports used for data collection SHALL NOT communicate group and score information"/>
         <expression value="(type != &#39;data-collection&#39;) or group.exists().not()"/>
         <xpath value="not(f:kind/@value=&#39;data-collection&#39;) or not(exists(f:group))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[classCode=OBS, moodCode=EVN]"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="clinical.general"/>
@@ -103,6 +112,10 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="id"/>
+      </mapping>
     </element>
     <element id="MeasureReport.status">
       <path value="MeasureReport.status"/>
@@ -118,11 +131,11 @@
       <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The status of the measure report."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The status of the measure report."/>
         </extension>
         <strength value="required"/>
         <description value="The status of the measure report (e.g. complete, pending, or error)"/>
@@ -132,8 +145,15 @@
         <identity value="w5"/>
         <map value="FiveWs.status"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="status"/>
+      </mapping>
     </element>
     <element id="MeasureReport.type">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="individual is QRDA category I, summary is QRDA category III."/>
+      </extension>
       <path value="MeasureReport.type"/>
       <short value="individual | subject-list | summary | data-collection"/>
       <definition value="The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; a summary report, which returns a population count for each of the criteria in the measure; or a data-collection, which enables the MeasureReport to be used to exchange the data-of-interest for a quality measure."/>
@@ -146,11 +166,11 @@
       <condition value="mrp-1"/>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of the measure report."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The type of the measure report."/>
         </extension>
         <strength value="required"/>
         <description value="The type of the measure report: individual, patient listing, or summary"/>
@@ -159,6 +179,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="methodCode"/>
       </mapping>
     </element>
     <element id="MeasureReport.measure">
@@ -176,8 +200,15 @@
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]"/>
+      </mapping>
     </element>
     <element id="MeasureReport.subject">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Subject can be a Group when the measurereport type is summary."/>
+      </extension>
       <path value="MeasureReport.subject"/>
       <short value="What individual(s) the report is for"/>
       <definition value="Optional subject identifying the individual or individuals the report is for."/>
@@ -199,6 +230,10 @@
         <map value="FiveWs.subject[x]"/>
       </mapping>
       <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=SBJ]"/>
+      </mapping>
+      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.subject"/>
       </mapping>
@@ -217,8 +252,15 @@
         <identity value="w5"/>
         <map value="FiveWs.recorded"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=AUT].time"/>
+      </mapping>
     </element>
     <element id="MeasureReport.reporter">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="There is work within DEQM and QM IGs to better define the relationship between the reporter (such as a reporting vendor) and the practitioner, provider, or organization that generated the data being reported."/>
+      </extension>
       <path value="MeasureReport.reporter"/>
       <short value="Who is reporting the data"/>
       <definition value="The individual, location, or organization that is reporting the data."/>
@@ -236,6 +278,10 @@
         <identity value="w5"/>
         <map value="FiveWs.source"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=PRF]"/>
+      </mapping>
     </element>
     <element id="MeasureReport.period">
       <path value="MeasureReport.period"/>
@@ -247,8 +293,15 @@
         <code value="Period"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="effectiveTime"/>
+      </mapping>
     </element>
     <element id="MeasureReport.improvementNotation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Improvement notation is included in MeasureReport because it is critical to interpreting the measure, but it must match the improvementNotation of the measure being reported."/>
+      </extension>
       <path value="MeasureReport.improvementNotation"/>
       <short value="increase | decrease"/>
       <definition value="Whether improvement in the measure is noted by an increase or decrease in the measure score."/>
@@ -262,16 +315,20 @@
       <isModifierReason value="Improvement notation determines how to interpret the measure score (i.e. whether an increase is an improvement)"/>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureImprovementNotation"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
         </extension>
         <strength value="required"/>
         <description value="The improvement notation of the measure report (e.g. increase or decrease)"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="interpretationCode"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -286,6 +343,10 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="mrp-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.code">
       <path value="MeasureReport.group.code"/>
@@ -297,6 +358,18 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureGroupExample"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Example of measure groups."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-group-example"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.population">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -310,6 +383,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.population.code">
       <path value="MeasureReport.group.population.code"/>
@@ -322,9 +399,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasurePopulation"/>
         </extension>
@@ -332,6 +406,10 @@
         <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.population.count">
       <path value="MeasureReport.group.population.count"/>
@@ -342,6 +420,10 @@
       <type>
         <code value="integer"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.population.subjectResults">
       <path value="MeasureReport.group.population.subjectResults"/>
@@ -353,6 +435,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/List"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=SBJ]"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.measureScore">
       <path value="MeasureReport.group.measureScore"/>
@@ -364,6 +450,10 @@
         <code value="Quantity"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -377,6 +467,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.code">
       <path value="MeasureReport.group.stratifier.code"/>
@@ -387,6 +481,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureStratifierExample"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Meaning of the stratifier."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -403,6 +509,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.value">
       <path value="MeasureReport.group.stratifier.stratum.value"/>
@@ -413,6 +523,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureReportStratifierValueExample"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The stratum value."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.component">
       <path value="MeasureReport.group.stratifier.stratum.component"/>
@@ -423,6 +545,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.component.code">
       <path value="MeasureReport.group.stratifier.stratum.component.code"/>
@@ -433,6 +559,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureStratifierExample"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Meaning of the stratifier."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.component.value">
       <path value="MeasureReport.group.stratifier.stratum.component.value"/>
@@ -443,6 +581,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureReportStratifierValueExample"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The stratum value."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.population">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -459,6 +609,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=COMP]"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.population.code">
       <path value="MeasureReport.group.stratifier.stratum.population.code"/>
@@ -470,9 +624,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasurePopulation"/>
         </extension>
@@ -480,6 +631,10 @@
         <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.population.count">
       <path value="MeasureReport.group.stratifier.stratum.population.count"/>
@@ -490,6 +645,10 @@
       <type>
         <code value="integer"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.population.subjectResults">
       <path value="MeasureReport.group.stratifier.stratum.population.subjectResults"/>
@@ -501,6 +660,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/List"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=SBJ]"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.measureScore">
       <path value="MeasureReport.group.stratifier.stratum.measureScore"/>
@@ -511,8 +674,15 @@
       <type>
         <code value="Quantity"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
     </element>
     <element id="MeasureReport.evaluatedResource">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Evaluated resources are only included in individual reports to capture data that was referenced as part of the calculation."/>
+      </extension>
       <path value="MeasureReport.evaluatedResource"/>
       <short value="What data was used to calculate the measure score"/>
       <definition value="A reference to a Bundle containing the Resources that were used in the calculation of this measure."/>
@@ -522,6 +692,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetObservation"/>
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>

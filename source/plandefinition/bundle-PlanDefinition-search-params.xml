@@ -30,7 +30,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.useContext.valueCodeableConcept"/>
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-context"/>
         <description value="A use context assigned to the plan definition"/>
@@ -50,7 +50,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.useContext.valueQuantity,PlanDefinition.useContext.valueRange"/>
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-context-quantity"/>
         <description value="A quantity- or range-valued use context assigned to the plan definition"/>
@@ -70,7 +70,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.useContext.code"/>
+          <valueString value="{{name}}.useContext.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-context-type"/>
         <description value="A type of use context assigned to the plan definition"/>
@@ -135,10 +135,10 @@
       <SearchParameter>
         <id value="PlanDefinition-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.date"/>
+          <valueString value="{{name}}.date"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-date"/>
         <description value="The plan definition publication date"/>
@@ -215,10 +215,10 @@
       <SearchParameter>
         <id value="PlanDefinition-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.description"/>
+          <valueString value="{{name}}.description"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-description"/>
         <description value="The description of the plan definition"/>
@@ -238,7 +238,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.effectivePeriod"/>
+          <valueString value="{{name}}.effectivePeriod"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-effective"/>
         <description value="The time during which the plan definition is intended to be in use"/>
@@ -258,7 +258,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.identifier"/>
+          <valueString value="{{name}}.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-identifier"/>
         <description value="External identifier for the plan definition"/>
@@ -278,7 +278,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.jurisdiction"/>
+          <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-jurisdiction"/>
         <description value="Intended jurisdiction for the plan definition"/>
@@ -295,10 +295,10 @@
       <SearchParameter>
         <id value="PlanDefinition-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.name"/>
+          <valueString value="{{name}}.name"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-name"/>
         <description value="Computationally friendly name of the plan definition"/>
@@ -335,10 +335,10 @@
       <SearchParameter>
         <id value="PlanDefinition-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.publisher"/>
+          <valueString value="{{name}}.publisher"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-publisher"/>
         <description value="Name of the publisher of the plan definition"/>
@@ -355,10 +355,10 @@
       <SearchParameter>
         <id value="PlanDefinition-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.status"/>
+          <valueString value="{{name}}.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-status"/>
         <description value="The current status of the plan definition"/>
@@ -395,10 +395,10 @@
       <SearchParameter>
         <id value="PlanDefinition-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.title"/>
+          <valueString value="{{name}}.title"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-title"/>
         <description value="The human-friendly name of the plan definition"/>
@@ -455,10 +455,10 @@
       <SearchParameter>
         <id value="PlanDefinition-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.url"/>
+          <valueString value="{{name}}.url"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-url"/>
         <description value="The uri that identifies the plan definition"/>
@@ -475,10 +475,10 @@
       <SearchParameter>
         <id value="PlanDefinition-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PlanDefinition.version"/>
+          <valueString value="{{name}}.version"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-version"/>
         <description value="The business version of the plan definition"/>

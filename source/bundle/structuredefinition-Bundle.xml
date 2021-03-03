@@ -292,7 +292,7 @@
         <key value="bdl-8"/>
         <severity value="error"/>
         <human value="fullUrl cannot be a version specific reference"/>
-        <expression value="fullUrl.contains(&#39;/_history/&#39;).not()"/>
+        <expression value="fullUrl.exists() implies fullUrl.contains('/_history/').not()"/>
         <xpath value="not(exists(f:fullUrl[contains(string(@value), &#39;/_history/&#39;)]))"/>
       </constraint>
       <constraint>

@@ -27,7 +27,7 @@
       <SearchParameter>
         <id value="Library-content-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Library.content.contentType"/>
@@ -50,7 +50,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.useContext.valueCodeableConcept"/>
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-context"/>
         <description value="A use context assigned to the library"/>
@@ -70,7 +70,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.useContext.valueQuantity,Library.useContext.valueRange"/>
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-context-quantity"/>
         <description value="A quantity- or range-valued use context assigned to the library"/>
@@ -90,7 +90,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.useContext.code"/>
+          <valueString value="{{name}}.useContext.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-context-type"/>
         <description value="A type of use context assigned to the library"/>
@@ -155,10 +155,10 @@
       <SearchParameter>
         <id value="Library-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.date"/>
+          <valueString value="{{name}}.date"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-date"/>
         <description value="The library publication date"/>
@@ -215,10 +215,10 @@
       <SearchParameter>
         <id value="Library-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.description"/>
+          <valueString value="{{name}}.description"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-description"/>
         <description value="The description of the library"/>
@@ -238,7 +238,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.effectivePeriod"/>
+          <valueString value="{{name}}.effectivePeriod"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-effective"/>
         <description value="The time during which the library is intended to be in use"/>
@@ -258,7 +258,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.identifier"/>
+          <valueString value="{{name}}.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-identifier"/>
         <description value="External identifier for the library"/>
@@ -278,7 +278,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.jurisdiction"/>
+          <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-jurisdiction"/>
         <description value="Intended jurisdiction for the library"/>
@@ -295,10 +295,10 @@
       <SearchParameter>
         <id value="Library-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.name"/>
+          <valueString value="{{name}}.name"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-name"/>
         <description value="Computationally friendly name of the library"/>
@@ -335,10 +335,10 @@
       <SearchParameter>
         <id value="Library-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.publisher"/>
+          <valueString value="{{name}}.publisher"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-publisher"/>
         <description value="Name of the publisher of the library"/>
@@ -355,10 +355,10 @@
       <SearchParameter>
         <id value="Library-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.status"/>
+          <valueString value="{{name}}.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-status"/>
         <description value="The current status of the library"/>
@@ -395,10 +395,10 @@
       <SearchParameter>
         <id value="Library-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.title"/>
+          <valueString value="{{name}}.title"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-title"/>
         <description value="The human-friendly name of the library"/>
@@ -455,10 +455,10 @@
       <SearchParameter>
         <id value="Library-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.url"/>
+          <valueString value="{{name}}.url"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-url"/>
         <description value="The uri that identifies the library"/>
@@ -475,10 +475,10 @@
       <SearchParameter>
         <id value="Library-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Library.version"/>
+          <valueString value="{{name}}.version"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-version"/>
         <description value="The business version of the library"/>

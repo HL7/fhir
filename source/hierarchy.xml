@@ -282,6 +282,7 @@ signatures.html
   	  <page type="resource" resource="ObservationDefinition"/> 
   	  <page type="resource" resource="SpecimenDefinition"/>
   	  <page type="resource" resource="CatalogEntry"/>
+      <page type="resource" resource="NutritionProduct"/>
       <!-- Think these 3 need to be left off as are REALLy drafty -->
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>
@@ -334,47 +335,6 @@ signatures.html
         <page title="Examples" filename="dosage-examples.html"/>
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
-      </page>
-      <page type="resource" resource="MedicinalProduct"/>
-      <page type="resource" resource="MedicinalProductAuthorization"/>
-      <page type="resource" resource="MedicinalProductContraindication"/>
-      <page type="resource" resource="MedicinalProductIndication"/>
-      <page type="resource" resource="MedicinalProductInteraction"/>
-      <page type="resource" resource="MedicinalProductUndesirableEffect"/>
-      <page type="resource" resource="MedicinalProductIngredient"/>
-    	<page type="resource" resource="MedicinalProductManufactured"/>
-    	<page type="resource" resource="MedicinalProductPackaged"/>
-    	<page type="resource" resource="MedicinalProductPharmaceutical"/>
-      <page type="resource" resource="SubstanceSpecification"/>
-      <page type="resource" resource="SubstancePolymer"/>
-      <page type="resource" resource="SubstanceProtein"/>
-      <page type="resource" resource="SubstanceNucleicAcid"/>
-      <page type="resource" resource="SubstanceReferenceInformation"/>
-      <page type="resource" resource="SubstanceSourceMaterial"/>
-      <page title="MarketingStatus" filename="marketingstatus.html">
-        <page title="Examples" filename="marketingstatus-examples.html"/>
-        <page title="Detailed Descriptions" filename="marketingstatus-definitions.html"/>
-        <page title="Mappings" filename="marketingstatus-mappings.html"/>
-      </page>
-      <page title="Population" filename="population.html">
-        <page title="Examples" filename="population-examples.html"/>
-        <page title="Detailed Descriptions" filename="population-definitions.html"/>
-        <page title="Mappings" filename="population-mappings.html"/>
-      </page>
-      <page title="ProdCharacteristic" filename="prodcharacteristic.html">
-        <page title="Examples" filename="prodcharacteristic-examples.html"/>
-        <page title="Detailed Descriptions" filename="prodcharacteristic-definitions.html"/>
-        <page title="Mappings" filename="prodcharacteristic-mappings.html"/>
-      </page>
-      <page title="ProductShelfLife" filename="productshelflife.html">
-        <page title="Examples" filename="productshelflife-examples.html"/>
-        <page title="Detailed Descriptions" filename="productshelflife-definitions.html"/>
-        <page title="Mappings" filename="productshelflife-mappings.html"/>
-      </page>
-      <page title="SubstanceAmount" filename="substanceamount.html">
-        <page title="Examples" filename="substanceamount-examples.html"/>
-        <page title="Detailed Descriptions" filename="substanceamount-definitions.html"/>
-        <page title="Mappings" filename="substanceamount-mappings.html"/>
       </page>
     </page>
 
@@ -431,13 +391,19 @@ signatures.html
       <page title="Sharing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-distribution.html"/>
       <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
-      <page type="resource" resource="EffectEvidenceSynthesis"/>
       <page type="resource" resource="EventDefinition"/>
+	  <page type="resource" resource="EvidenceReport"/>
+	  <page type="resource" resource="Citation"/>
       <page type="resource" resource="Evidence"/>
       <page title="Statistic" filename="statistic.html">
         <page title="Examples" filename="statistic-examples.html"/>
         <page title="Detailed Descriptions" filename="statistic-definitions.html"/>
         <page title="Statistic Mappings" filename="statistic-mappings.html"/>
+      </page>
+      <page title="OrderedDistribution" filename="ordereddistribution.html">
+        <page title="Examples" filename="ordereddistribution-examples.html"/>
+        <page title="Detailed Descriptions" filename="ordereddistribution-definitions.html"/>
+        <page title="OrderedDistribution Mappings" filename="ordereddistribution-mappings.html"/>
       </page>
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
@@ -447,8 +413,39 @@ signatures.html
       <page type="resource" resource="MeasureReport"/>
       <page type="resource" resource="ResearchDefinition"/>
       <page type="resource" resource="ResearchElementDefinition"/>
-      <page type="resource" resource="RiskEvidenceSynthesis"/>
     </page>
+    <page title="Medication Definition" filename="medication-definition-module.html" icon="medication.png">
+      <page type="resource" resource="MedicinalProductDefinition"/>
+      <page type="resource" resource="PackagedProductDefinition"/>
+      <page type="resource" resource="RegulatedAdministrableProduct"/>
+      <page type="resource" resource="ManufacturedItemDefinition"/>
+      <page type="resource" resource="AdministrableProductDefinition"/>
+      <page type="resource" resource="RegulatedAuthorization"/>
+      <page type="resource" resource="ClinicalUseIssue"/>
+      <page type="resource" resource="Ingredient"/>
+      <page type="resource" resource="SubstanceDefinition"/>
+      <page title="MarketingStatus" filename="marketingstatus.html">
+        <page title="Examples" filename="marketingstatus-examples.html"/>
+        <page title="Detailed Descriptions" filename="marketingstatus-definitions.html"/>
+        <page title="Mappings" filename="marketingstatus-mappings.html"/>
+      </page>
+      <page title="Population" filename="population.html">
+        <page title="Examples" filename="population-examples.html"/>
+        <page title="Detailed Descriptions" filename="population-definitions.html"/>
+        <page title="Mappings" filename="population-mappings.html"/>
+      </page>
+      <page title="ProdCharacteristic" filename="prodcharacteristic.html">
+        <page title="Examples" filename="prodcharacteristic-examples.html"/>
+        <page title="Detailed Descriptions" filename="prodcharacteristic-definitions.html"/>
+        <page title="Mappings" filename="prodcharacteristic-mappings.html"/>
+      </page>
+      <page title="ProductShelfLife" filename="productshelflife.html">
+        <page title="Examples" filename="productshelflife-examples.html"/>
+        <page title="Detailed Descriptions" filename="productshelflife-definitions.html"/>
+        <page title="Mappings" filename="productshelflife-mappings.html"/>
+      </page>
+    </page>
+    
   </page>
 
 </fhir>

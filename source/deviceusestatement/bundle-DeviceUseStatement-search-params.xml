@@ -56,7 +56,7 @@
         <description value="Search by subject - a patient"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="DeviceUseStatement.subject"/>
+        <expression value="DeviceUseStatement.subject.where(resolve() is Patient)"/>
         <xpath value="f:DeviceUseStatement/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>

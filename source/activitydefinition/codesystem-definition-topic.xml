@@ -3,21 +3,12 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="definition-topic"/>
   <meta>
-    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <h2>DefinitionTopic</h2>
-      
-      <div>
-        
-        <p>High-level categorization of the definition, used for searching, sorting, and filtering.</p>
-
-      
-      </div>
       
       <p>This code system http://terminology.hl7.org/CodeSystem/definition-topic defines the following codes:</p>
       
@@ -103,14 +94,14 @@
   <url value="http://terminology.hl7.org/CodeSystem/definition-topic"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.1244"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1244"/>
   </identifier>
-  <version value="4.0.1"/>
+  <version value="4.5.0"/>
   <name value="DefinitionTopic"/>
   <title value="DefinitionTopic"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-01-17T07:06:13+11:00"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
