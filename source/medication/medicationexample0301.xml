@@ -10,7 +10,7 @@
   <code>
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
-      <code value="0069-2587-10"/>
+      <code value="0409-6531-02"/>
       <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
     </coding>
   </code>

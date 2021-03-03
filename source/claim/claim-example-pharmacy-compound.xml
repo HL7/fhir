@@ -160,7 +160,7 @@
 		<quantity>
 			<value value="30"/>
 			<unit value="TAB"/>
-			<system value="http://unitsofmeasure.org"/> <!-- UCUM -->
+			<system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/> 
 			<code value="TAB"/>
 		</quantity>
 		<net>

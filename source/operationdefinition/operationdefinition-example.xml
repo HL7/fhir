@@ -18,7 +18,7 @@
 	<description value="Limited implementation of the Populate Questionnaire implementation"/>
 	<useContext>
     <code>
-      <system value="http://build.fhir.org/codesystem-usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="venue"/>
       <display value="Clinical Venue"/>
     </code>
@@ -39,7 +39,7 @@
 	</jurisdiction>
 	<code value="populate"/>
 	<comment value="Only implemented for Labs and Medications so far"/>
-	<base value="OperationDefinition/Questionnaire-populate"/>
+	<base value="http://hl7.org/fhir/OperationDefinition/Questionnaire-populate"/>
 	<resource value="Questionnaire"/>
 	<system value="false"/>
 	<type value="false"/>

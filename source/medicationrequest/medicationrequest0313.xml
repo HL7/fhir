@@ -83,7 +83,7 @@
             <value value="5"/>
             <unit value="Tab"/>
             <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-            <code value="Tab"/> 
+            <code value="TAB"/> 
         </quantity>
         <expectedSupplyDuration>
             <value value="5"/>

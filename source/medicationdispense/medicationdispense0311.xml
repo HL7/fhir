@@ -7,7 +7,7 @@
    <medicationCodeableConcept>
        <coding>
            <system value="http://hl7.org/fhir/sid/ndc"/>
-           <code value="50090-0001"/>
+           <code value="0713-0118"/>
            <display value="Acetaminophen 120mg Suppository"/>
        </coding>
    </medicationCodeableConcept>
